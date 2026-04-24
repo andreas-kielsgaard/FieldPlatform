@@ -1,0 +1,803 @@
+Prototype Outline: Community Participation App
+1. Prototype goal
+
+Build a clickable front-end prototype with seeded fake data that lets people feel the concept.
+
+The prototype is not trying to prove backend feasibility. It is trying to make these questions tangible:
+
+How does a participant discover what is relevant around them without it feeling like just another event list?
+How does a community understand itself in terms of opportunities and activity, not just member records?
+How does a facilitator present themselves and their offerings in a way that helps the right people find them?
+How can map, time, adjacency, overlap, and community context become the main UX layer?
+
+The prototype should feel like an orientation companion, not a forum, not a dashboard-first admin tool, and not a conventional event marketplace.
+
+2. Product concept to express
+
+The app helps people:
+
+find communities, events, and facilitators that fit where they are now
+understand how to enter and participate
+continue what already works for them
+notice adjacent possibilities when something new becomes relevant
+
+The app helps communities and facilitators:
+
+make themselves legible
+share offerings across overlapping communities
+understand participation patterns and opportunities
+support healthier community continuity and growth
+3. Prototype constraints
+
+This is a demo prototype, not a production system.
+
+Prioritize:
+
+clarity of concept
+strength of interaction design
+feeling of aliveness
+believable fake ecosystem
+clear role-based flows
+
+Do not worry about:
+
+authentication
+permissions correctness
+real messaging
+real payments
+real moderation
+real recommendation engines
+real analytics integrity
+backend architecture
+
+Use simulated data and hardcoded states wherever useful.
+
+4. Roles / modes to support
+
+The prototype should include 4 modes.
+
+A. Participant mode
+
+A person browsing communities and events around them.
+
+B. Facilitator mode
+
+A person who offers workshops, classes, jams, circles, gatherings, etc.
+
+C. Community steward mode
+
+A person representing a community and organizing its presence, visibility, and relevant offerings.
+
+D. Suggested event / community member mode
+
+A lighter interaction where a user can mark an event as relevant to a community they are part of, without becoming a full organizer.
+
+This is important because of your CI reflection: people often share things in circles that are “relevant to this community” even if the event is not officially owned by it.
+
+5. Demo world
+
+Use one city and a dense overlapping scene.
+
+Suggested setting:
+Aarhus or a fictionalized “Aarhus-like” city.
+
+Seeded ecosystem
+
+Create enough density to make overlap visible.
+
+Suggested seed set:
+
+8 communities
+18 facilitators
+12 venues
+50 events across 6 weeks
+120 participants
+visible overlaps between scenes
+Example communities
+
+Use communities that overlap but are not identical:
+
+Contact Improvisation Aarhus
+Ecstatic Dance Aarhus
+Circling / Authentic Relating Aarhus
+Meditation Collective
+Queer Embodiment Collective
+Acro / Partner Movement Jam
+Somatic Practitioners Network
+Conscious Socials / Tea & Connection
+Example venues
+
+Different vibes and constraints:
+
+dance studio
+yoga studio
+community house
+café with back room
+outdoor park spot
+therapy / practice room
+warehouse / art space
+retreat venue outside city
+Important overlap patterns
+
+The dataset should include:
+
+people in multiple communities
+facilitators who belong to multiple communities
+venues that host multiple communities
+events that are relevant to more than one community
+some strong recurring rhythms
+some one-off events
+some beginner-friendly offerings
+some expensive / advanced / niche offerings
+
+The prototype should feel like a living field, not isolated entries.
+
+6. Core UX principles
+
+These should guide the entire prototype.
+
+Overview first
+
+Users should first feel the field:
+
+where things are happening
+when things are happening
+which communities overlap
+what feels alive nearby
+Details on demand
+
+Do not frontload every detail. Let users zoom into:
+
+event details
+community norms
+facilitator background
+logistics
+Relevance should be explained
+
+Whenever something is surfaced, show why:
+
+“3 people from your CI circle are going”
+“Suggested by Circling Aarhus”
+“Near the venue you often attend”
+“Beginner friendly”
+“Lower cost than similar workshops”
+“Facilitated by someone connected to communities you follow”
+Community legibility matters
+
+A community page should answer:
+
+what is this?
+who is it for?
+how do I enter?
+what is the rhythm?
+what are the norms?
+what is happening next?
+Opportunity over bureaucracy
+
+Community mode should not lead with lists of members. It should lead with:
+
+activity
+engagement
+adjacent communities
+underserved time slots
+event performance
+suggestions from members
+7. App structure / major screens
+7.1 Global shell
+Main navigation
+Home
+Explore
+Communities
+Events
+Facilitators
+Saved / My Activity
+
+Role switcher in top bar or side menu:
+
+Participant
+Facilitator
+Community Steward
+
+Optional:
+
+Demo personas switcher
+Demo personas
+
+Include 3–4 switchable personas so people can feel how the same ecosystem looks different.
+
+Examples:
+
+Newcomer to the city
+Regular in Contact Impro
+Deeply embedded facilitator
+Community steward for Circling Aarhus
+
+This is very useful for demos.
+
+7.2 Participant mode screens
+1. Home / “What’s alive for you”
+
+This should not look like a plain event list.
+
+Contents:
+
+hero section: “What’s alive this week”
+mini map with hotspots
+timeline strip showing activity over coming days
+relevant communities
+relevant events
+adjacent / surprising suggestions
+why-these-are-shown explanations
+section for “continue what already works”
+section for “nearby new options”
+
+Purpose:
+Make the participant feel the world opening, not like they are operating a database.
+
+2. Explore map + timeline view
+
+This is likely the signature screen.
+
+Contents:
+
+interactive city map
+translucent circles / clusters showing activity density
+circles vary by community overlap / type / intensity
+time scrubber or horizontal timeline
+events fade in/out as time changes
+optional filters:
+practice
+community
+time of day
+beginner friendliness
+price band
+indoor/outdoor
+right-side panel or bottom sheet with selected hotspot details
+
+Hotspot detail should show:
+
+which communities are active here
+what events are happening
+what overlap exists
+why it may matter to this user
+
+This screen should make geography + time + community overlap legible.
+
+3. Explore list view
+
+Fallback for people who want a conventional structure.
+
+Contents:
+
+cards for events / communities / facilitators
+easy sort by:
+relevance
+soonest
+nearby
+community-related
+every card includes a short “why relevant” line
+
+Purpose:
+Keep the prototype usable, but make clear that list view is not the conceptual center.
+
+4. Community page
+
+This is one of the most important screens.
+
+Contents:
+
+name
+short description
+key practices / tags
+tone / values / intentions
+who it’s for
+beginner friendliness
+how to engage
+communication channels
+rhythm of activity
+next events
+related facilitators
+related venues
+overlapping communities
+suggested events relevant to this community
+visible social contract / guidelines
+
+Sections:
+
+About
+How to join
+Rhythm
+Upcoming
+People & facilitators
+Adjacent communities
+
+The page should feel like an orientation surface, not an organization record.
+
+5. Event page
+
+Contents:
+
+title
+hero image or visual identity
+host facilitator
+linked communities
+venue
+date / time
+price
+tags
+event description
+“who this is for”
+“what to expect”
+access / beginner notes
+community relevance indicators
+who is going / what circles are represented
+related offerings
+
+Add:
+
+Save
+Attend / Interested
+Suggest to a community
+Share
+
+Very important:
+Show community context clearly, for example:
+
+hosted by facilitator X
+relevant to Contact Impro Aarhus and Somatic Practitioners Network
+6. Facilitator profile (participant-facing)
+
+Contents:
+
+photo / identity
+short bio
+background
+lineages / inspirations
+practices
+what they care about
+communities they participate in
+upcoming offerings
+past events
+co-hosted relationships
+tone / style / intended audience
+
+Purpose:
+Support discovery through meaningful human context, not just a generic organizer profile.
+
+7. Saved / My activity
+
+Contents:
+
+saved events
+followed communities
+facilitators followed
+upcoming events attending
+recent participation
+suggestions based on participation history
+
+This screen should reinforce continuity, not only novelty.
+
+7.3 Community steward mode screens
+8. Community pulse dashboard
+
+This should be the default community screen in steward mode.
+
+Do not make a member roster the centerpiece.
+
+Contents:
+
+upcoming activity summary
+participation trend
+demand / interest signals
+suggested events from members
+overlap with nearby communities
+top facilitators / organizers contributing
+under-served times / spaces
+returning vs new participant mix
+opportunities card feed
+
+Example cards:
+
+“Strong crossover with Ecstatic Dance this month”
+“Many newcomers attend once but do not return”
+“Thursday evenings show strong demand, low supply”
+“2 member-suggested events match your community tags”
+“Facilitator X is drawing interest from your audience”
+
+Purpose:
+Show what the community can do next.
+
+9. Community profile editor
+
+Contents:
+
+edit description
+practices / tags
+values / intentions
+onboarding guidance
+communication channels
+rhythm / cadence
+guidelines / norms
+locations / venues
+featured facilitators
+visual identity
+
+This is not meant to be deep CMS. Just enough to shape legibility.
+
+10. Suggested events queue
+
+A dedicated screen for events that members or facilitators marked as relevant to the community.
+
+Each suggestion card should show:
+
+event info
+who suggested it
+why it may be relevant
+linked communities / practices
+quick actions:
+approve as community-relevant
+feature
+ignore
+maybe comment internally
+
+This is key to the “end of workshop announcements” idea.
+
+11. Participation / overlap view
+
+Not a raw social graph.
+
+Use summaries like:
+
+strongest adjacent communities
+shared venues
+shared facilitator clusters
+strongest time-slot patterns
+most common crossover participation
+
+This should answer:
+“What kinds of opportunities does the current shape of this community afford?”
+
+7.4 Facilitator mode screens
+12. Facilitator dashboard
+
+Contents:
+
+upcoming events
+quick event creation
+audience interest snapshot
+related communities
+saved drafts
+performance summary
+where demand seems strongest
+suggestions from communities / invitations
+
+Purpose:
+Make facilitating feel legible and supported.
+
+13. Facilitator public profile editor
+
+Contents:
+
+bio
+background
+lineages
+communities
+intentions
+values
+audience notes
+accessibility notes
+linked socials / external sites
+visual header
+
+The goal is to let the right people discover them through meaningful fit.
+
+14. Event creation flow
+
+Should be simple but rich in context.
+
+Steps:
+
+Basic event details
+Venue and time
+Price / access
+Who it’s for
+Linked communities
+Suggest to communities
+Publish preview
+
+Key fields:
+
+title
+short description
+long description
+date / duration
+location
+cost
+tags
+beginner friendliness
+accessibility
+tone / expected experience
+communities it belongs to or is relevant to
+host(s)
+whether members can help promote it
+
+Important distinction:
+An event may be:
+
+hosted by a facilitator
+co-hosted by a community
+merely relevant to a community
+15. Event results / feedback view
+
+Since it is a prototype, this can be simulated.
+
+Contents:
+
+views
+saves
+interested
+attendance
+which communities drove discovery
+which facilitator connections mattered
+where people came from geographically
+“why people clicked” summaries
+
+Purpose:
+Reinforce the creator value proposition.
+
+7.5 Venue screens
+16. Venue page
+
+Keep this light for prototype stage.
+
+Contents:
+
+name
+photos
+atmosphere
+location
+type of events it suits
+accessibility notes
+communities that use it
+upcoming events there
+
+This supports the place ecology without making venue ops the main focus.
+
+8. Key flows to prototype
+Flow 1: Participant discovers through community adjacency
+User opens Home
+Sees activity map and relevant communities
+Notices hotspot tied to CI + another overlapping scene
+Opens event
+Sees “suggested by your CI community” / “people from your circle are going”
+Opens linked facilitator or community
+Saves or marks attending
+
+This is one of the main conceptual flows.
+
+Flow 2: Newcomer to city
+User enters city
+Sees communities rather than just isolated events
+Opens a community
+Reads “how to engage”
+Finds beginner-friendly upcoming offering
+Joins event
+
+This validates legibility and entry.
+
+Flow 3: Community steward sees opportunity
+Steward opens pulse dashboard
+Sees rising participation overlap with another community
+Sees suggested event relevant to their members
+Approves / features it
+Updates community page or upcoming rhythm
+
+This validates “opportunity, not roster.”
+
+Flow 4: Facilitator publishes once, shares across communities
+Facilitator creates event
+Links their own profile
+Selects two or three relevant communities
+Publishes
+Event appears:
+on their profile
+in explore
+in suggested queue for communities
+Participant later discovers it through community context
+
+This is a key differentiator.
+
+Flow 5: Member suggests event to community
+Participant sees event
+Clicks “Suggest to community”
+Chooses one of their communities
+Adds a short note
+Community steward later sees it in queue
+
+This is directly tied to your workshop-circle reflection.
+
+9. Data/content model for prototype only
+
+Not backend architecture. Just what fake content must exist.
+
+Person
+name
+photo
+short bio
+communities
+practices/interests
+saved events
+attendance history
+Facilitator
+bio
+lineages
+values
+practices
+communities
+offerings
+co-host relationships
+Community
+name
+description
+norms
+tags
+rhythm
+channels
+venues
+stewards
+related facilitators
+related events
+Event
+title
+host
+relevant communities
+venue
+time
+price
+tags
+audience notes
+beginner friendliness
+people going
+why relevant labels
+Venue
+atmosphere
+type
+location
+communities active there
+Participation signals
+
+Fake but important:
+
+attends
+follows
+suggests
+hosts
+co-hosts
+overlaps with
+community member interest
+10. Interaction patterns to emphasize
+
+These matter more than completeness.
+
+A. Relevance chips
+
+Small visible reasons:
+
+“From your communities”
+“Nearby”
+“People you know are going”
+“Suggested by community”
+“New to you, adjacent to what you do”
+B. Time scrubbing
+
+Moving the timeline should visibly change map activity.
+
+C. Layer toggles
+
+Allow view toggles like:
+
+communities
+events
+venues
+overlap intensity
+D. Persona switcher
+
+Very useful for demoing different experiences.
+
+E. Community suggestion mechanic
+
+Essential prototype differentiator.
+
+11. What the prototype should avoid
+
+Avoid turning into:
+
+a generic forum
+a spreadsheet dashboard
+an eventbrite clone
+a social feed full of posts
+a member directory with little meaning
+a full marketplace flow
+a productivity app for admin labor
+
+The prototype should stay centered on:
+orientation, overlap, participation, and legibility.
+
+12. What to fake aggressively
+
+The coding agent should fake anything needed to make the concept convincing.
+
+Good things to fake:
+
+attendance patterns
+overlap signals
+“why relevant” logic
+recommendations
+community analytics
+facilitator results
+event suggestions
+returning vs new participant labels
+
+The prototype should feel coherent even if most signals are hand-authored.
+
+13. Visual / experiential direction
+
+The look should not feel corporate productivity.
+
+Desired feel:
+
+soft but legible
+spatial
+atmospheric
+alive
+layered
+calm, not noisy
+meaningful color coding for communities / overlap
+slightly luminous map/timeline interactions
+good whitespace
+cards used sparingly, not as the whole experience
+
+The map/timeline view should feel like:
+a social field becoming visible, not pins on Google Maps.
+
+14. Deliverable requested from coding agent
+
+Ask the coding agent to produce:
+
+A. A clickable web prototype
+
+Single-page-app feel is fine.
+
+B. Seeded demo world
+
+One coherent city ecosystem.
+
+C. Role switcher
+
+Participant / Facilitator / Community Steward.
+
+D. Persona switcher
+
+At least 3 demo personas.
+
+E. Core screens
+participant home
+explore map/timeline
+community page
+event page
+facilitator profile
+saved/my activity
+community pulse dashboard
+suggested events queue
+facilitator dashboard
+event creation flow
+venue page
+F. Polished demo feel
+believable visual design
+fake but meaningful transitions
+fake analytics
+fake notifications or suggestion states
+consistent seeded data throughout
+15. Short handoff summary for the agent
+
+Build a clickable front-end prototype for a community-centered participation app. Use fake data. The core concept is not generic event browsing, but helping users orient through community, geography, time, and participation overlap. The signature experience should be a map/timeline explorer showing where and when community activity is happening, with clear explanations for why events or communities are relevant. Support three main modes: participant, facilitator, and community steward. Community dashboards should focus on opportunities and participation patterns rather than member lists. Facilitators should have rich profiles and be able to publish an event once and associate it with multiple communities. Include a mechanism for users to suggest an event as relevant to a community. Prioritize feel, legibility, overlap, and user experience over backend realism.

@@ -1,0 +1,381 @@
+# Business Case and Market Analysis for a Community Participation Platform
+
+## Executive summary
+
+This product is commercially plausible as a **community-first operating layer for local participation ecosystems**, not as yet another generic event app. The clearest market gap is the space **between** event marketplaces and community platforms: existing tools are good at ticketing, messaging, or memberships, but weak at making **overlapping communities**, **newcomer entry guidance**, and **ongoing community rhythm** legible in one place. The closest structural precedents are entity["organization","Meetup","events platform"] for recurring local groups, entity["company","Luma","events platform"] for calendars and collaborative event ownership, entity["company","Geneva","group chat app"] for local-group sociality, and entity["organization","Resident Advisor","music events platform"] for scene-specific discovery—yet none combines guidance, overlap mapping, and rhythm visibility as a core product principle. citeturn36search0turn9search1turn35view0turn8search18turn15search3turn16search5
+
+The most credible initial monetization model is **B2B2C**: participants stay free; facilitators and community stewards pay modest subscriptions; venues and later native ticketing add incremental revenue; sponsorships and grants can accelerate the pilot but should not be treated as core. This is consistent with how current market leaders monetize: organizer subscriptions on Meetup, marketplace/ticketing fees on entity["company","Eventbrite","ticketing platform"], platform fees or subscriptions on Luma, flat ticketing fees on entity["company","Ticket Tailor","ticketing software"], no-subscription booking-fee models on entity["organization","Humanitix","ticketing nonprofit"], and higher-value membership/community SaaS on entity["company","Circle","community platform"] and entity["company","Mighty Networks","community software"]. citeturn36search0turn10search0turn35view0turn30search5turn31search1turn14search1turn32view0
+
+The **narrow beachhead**—facilitators, community stewards, and participants in local embodied/relational scenes—is attractive because the pain is real and fragmented, but it is **not huge enough on its own to justify inflated venture claims**. Top-down, the adjacent global markets are large: event management software is projected at **$11.31B in 2026** by one industry source and **$34.7B by 2029** by another, while online community management software is estimated around **$8.75B in 2025** by a market-research publisher. But your **bottom-up reachable market** in the wedge is much smaller. That is a strength if stated honestly: this is a **wedge-with-expansion** story, not a “TAM solves everything” story. citeturn20search0turn20search16turn20search1
+
+For launch, entity["city","Copenhagen","capital region, denmark"] is the best pilot city **if founder access is strongest there**. entity["country","Denmark","nordic country"] is a favorable test bed: it has a strong association culture, about **40% volunteering participation** by 2024 measures, and high cultural participation relative to Europe. At the same time, the broader need is real: the entity["organization","World Health Organization","un health agency"] reported in 2025 that **1 in 6 people worldwide** is affected by loneliness. That gives the product a credible social rationale, but the business case still depends on proving concrete behavior change: profile completion, follows, RSVPs, attendance, repeat participation, and organizer retention. citeturn25search1turn25search12turn24search1turn27search6
+
+A sensible capital plan is a **€750k pre-seed/seed-style round** to fund 18 months: build the MVP, prove one-city retention, expand to 2–3 cities, and determine whether the company should remain a focused category leader in embodied/relational ecosystems or broaden into adjacent local participation categories. For community-minded investors, the most persuasive signal will not be raw downloads. It will be this: **does the product reliably help people find, enter, and continue in life-giving forms of participation with less fragmentation and less friction?**
+
+## Competitive landscape
+
+The current market splits into four clusters:
+
+1. **Event marketplaces and ticketing**: Eventbrite, Fever, Ticket Tailor, Humanitix.  
+2. **Local group/event hybrids**: Meetup, Facebook Events/Groups, Luma, Partiful.  
+3. **Scene-specific discovery**: Resident Advisor.  
+4. **Community operating systems**: Circle, Mighty Networks, Geneva.
+
+That fragmentation is exactly the opening. Most products optimize either for **transaction**, **communication**, or **closed-network membership**. Very few optimize for **public-yet-contextual participation**, where a person can discover a scene, understand how to enter it, perceive its rhythm, and move across adjacent communities without losing social context. citeturn10search0turn35view0turn14search5turn15search3turn16search5
+
+### Competitor comparison
+
+| Platform | Core features | Business model | Strengths | Weaknesses vs. your vision | Fit to vision | Source |
+|---|---|---|---|---|---|---|
+| entity["organization","Meetup","events platform"] | Public/private groups, recurring events, organizer/member structure, member dues | Organizer subscription; Standard starts at $29.99/mo, Pro starts at $55/group/mo; Starter/free is limited citeturn36search0turn9search18 | Strong local-group norm, recurrence, trusted “join a group” behavior | Weak on overlapping communities, venue/community graph, nuanced entry guidance, and aesthetic/rhythm presentation | **Medium-high** | citeturn36search0turn9search1turn9search16 |
+| entity["company","Eventbrite","ticketing platform"] | Discovery marketplace, ticketing, ads, check-in, organizer app, event series | Free to publish; paid-ticket fees; UK/US pricing pages show paid-ticket fees and free events at no cost citeturn10search0turn37search4 | Massive event supply, strong funnel from discovery to purchase, robust organizer tooling | Community is secondary; weak continuity after the event; no real overlapping-community layer | **Medium** | citeturn10search0turn10search6turn21view3turn21view2 |
+| entity["company","Facebook","social platform"] Events/Groups | Groups, public/private events, broad reach, native social graph | Free to use; monetized indirectly via ads/business ecosystem | Enormous adoption, existing communities already present, easy sharing | Noisy feed, weak trust, poor rhythm clarity, little dedicated participant onboarding, weak cross-community structure | **Medium** | citeturn7search2turn7search4turn7search19turn7search24 |
+| entity["company","Luma","events platform"] | Event pages, calendars, memberships, tags, newsletters, collaborating calendars, approval gating | Free plan; 5% fee on paid events; Plus $59/mo for 0% platform fee citeturn35view0 | Closest current product to community-calendar behavior; collaborating calendars are an important overlap primitive | Still organizer-centric; weaker newcomer orientation and community-health layer; local-scene semantics not first-class | **High** | citeturn35view0turn8search6turn8search15turn8search18turn8search7 |
+| entity["company","Partiful","event invitation app"] | Public/private events, org profiles, mutual-based invites, cohosts, questionnaires, reminders, explore page | Free host/consumer product; monetization not clearly public | Excellent lightweight hosting UX; strong social proof through mutuals; modern invite/reminder flow | More party/event-centric than community-centric; weak rhythm view; limited continuity beyond invitation graph | **Medium** | citeturn34search1turn34search5turn34search6turn34search8turn34search16 |
+| entity["company","Ticket Tailor","ticketing software"] | White-label ticketing, free events free, check-in, low flat-fee pricing | £0.60/ticket PAYG or lower prepaid credit pricing; no monthly fees citeturn30search5 | Very strong economics for small organizers, simple and transparent | Little built-in discovery or community layer; no overlap mapping or guidance | **Low-medium** | citeturn30search5turn30search6 |
+| entity["organization","Humanitix","ticketing nonprofit"] | Ticketing marketplace, host tools, ethical positioning, free events free | No subscriptions; booking fees only on paid tickets; 100% profits to charity citeturn31search1turn31search17 | Strong values alignment; attractive for values-led organizers | Community continuity and scene graph are weak; primarily ticketing/discovery | **Low-medium** | citeturn31search0turn31search1turn31search17turn31search19 |
+| entity["organization","Resident Advisor","music events platform"] | City guides, club/promoter pages, scene discovery, ticketing, resale, promoter tools | Promoters list for free; customer-facing ticket fees; ticketing/reach business | Best exemplar of “global guide for local scenes”; scene depth, venue/promoter identity, city context | Narrow to electronic music/nightlife; little participant onboarding beyond scene literacy | **Medium** | citeturn16search5turn16search11turn16search16turn16search1 |
+| entity["company","Fever","experiences platform"] | Discovery marketplace, timed entry, CRM, ticketing, memberships, white-label/API for partners | B2B ticketing/marketplace; pricing not public | Strong marketplace/distribution, polished B2B ticketing, high-volume event operations | Highly commercial/top-down; weak community ownership and relationship continuity | **Low-medium** | citeturn12search0turn12search2turn12search3 |
+| entity["company","Mighty Networks","community software"] | Spaces, events, livestreams, courses, paid memberships, branded apps | Annual plans; Launch plan around $950/year; memberships and events supported | Excellent for owned communities, monetized memberships, strong engagement loop | Closed-community model; poor city discovery and scene overlap; not built for local exploration first | **Medium** | citeturn32view0turn32view1turn13search1turn13search14 |
+| entity["company","Circle","community platform"] | Rich member profiles, spaces, events directory, livestreams, payments | Starts at $89/mo; 2–0.5% transaction fees depending on plan citeturn14search1 | Strong onboarding, member profiles, event directory, monetization | Primarily for owned branded communities; overlap across local ecosystems is weak | **Medium** | citeturn14search1turn14search5turn14search15turn14search10 |
+| entity["company","Geneva","group chat app"] | Local group discovery, chat/forum/audio/video/broadcast rooms, event planning | Free consumer/community product | Very aligned with “find your offline people”; good social texture and local-group orientation | Weak structured entry guidance, weak rhythm layer, weak organizer economics | **Medium-high** | citeturn15search3turn15search2turn15search4turn15search0 |
+
+### What the landscape says strategically
+
+The whitespace is not “events + chat.” That already exists. The whitespace is:
+
+- **community-first discovery**
+- **participant-facing entry guidance**
+- **overlap visibility across communities, venues, and repeated co-attendance**
+- **rhythm visibility**, so participation feels like entering a living ecosystem, not just scanning listings
+- **continuity without enclosure**, meaning people can belong somewhere while still discovering adjacent paths
+
+The closest product inspirations are Luma’s collaborating calendars, Geneva’s local sociality, Meetup’s recurrence, Circle/Mighty’s onboarding and member profiles, and Resident Advisor’s scene legibility. The opportunity is to combine those strengths while staying much lighter-weight and much more local-behavior-focused. citeturn8search18turn15search3turn9search1turn14search15turn32view1turn16search1
+
+## Market opportunity and sizing
+
+### Market context
+
+At the category level, the adjacent software markets are large enough to justify building in this space. One industry estimate puts global event management software at **$11.31B in 2026**, growing toward **$32.62B by 2034**; another projects **$34.7B by 2029**. A separate market-research estimate places online community management software around **$8.75B in 2025**. These are not your practical first-year markets, but they show this problem family is economically meaningful. citeturn20search0turn20search16turn20search1
+
+Demand-side conditions are also favorable. The entity["organization","European Union","supranational union"] had **449 million** residents on 1 January 2024, with around **75% urban population** by World Bank data. The world in 2025 had roughly **8.2 billion** people, and a UN data booklet says more than **12,000 cities** already have populations over 50,000. This matters because your product is fundamentally **city-shaped**: it becomes more useful when a dense cluster of communities, venues, and participants can interact repeatedly. citeturn18search6turn33search0turn33search14
+
+On cultural fit, Denmark is unusually strong. Official and quasi-official public sources indicate a robust association culture, around **40% volunteering participation**, and very high cultural participation. That suggests a launch environment where “community steward” is a real identity and recurring participation behavior is already normal. citeturn25search1turn25search12turn24search1
+
+### Bottom-up sizing for this specific product
+
+This is where precision matters most. The realistic story is:
+
+- The **beachhead** is a **narrow but high-intensity wedge**.
+- The **city business** can work before the **global category business** works.
+- The **venture case** depends on adjacent expansion after proving behavior in the wedge.
+
+I recommend separating size into **narrow beachhead** and **expanded adjacency**.
+
+### TAM, SAM, SOM assumptions
+
+Assumptions used below are explicit and intentionally conservative:
+
+- Monetized users are primarily **facilitators, community stewards, and venues**, not participants.
+- Pilot pricing assumption: facilitator plan **€12–15/mo**, community plan **€25–39/mo**, venue/partner plan **€39–59/mo**, optional native ticketing **~2% platform take rate**, plus occasional setup/sponsorship/grant income.
+- A mature beachhead city can support roughly **150–400 paying accounts** if the product becomes a real scene utility.
+- No authoritative dataset exists for “embodied/relational scenes,” so city-level counts below are founder-model assumptions to be validated in pilot, not public statistics.
+
+| Layer | Geography | What is included | Sizing logic | Estimated annual revenue potential |
+|---|---|---|---|---|
+| **SOM** | One pilot city | Your reachable 12–24 month market | 20–60 paying accounts in phase 1; 1,500–5,000 participant users; modest sponsorship/grant support | **€25k–€100k** |
+| **SAM** | 3–5 Danish cities | Copenhagen + Aarhus + Odense + Aalborg + spillover communities | 150–400 paying accounts across beachhead scenes | **€0.1M–€0.5M** |
+| **Beachhead TAM** | 25–50 European cities | Local embodied/relational scenes in compact, high-participation metros | 150–400 paying accounts/city; strong city density effects | **€3M–€20M** |
+| **Expanded TAM** | 25–50 European cities | Add adjacent local participation categories: run clubs, book clubs, volunteer groups, hobby schools, coworking/social clubs | 500–1,500 paying accounts/city | **€10M–€60M+** |
+| **Global TAM** | 100–250 cities | Replicate the model internationally after category expansion | City-by-city utility across local participation ecosystems | **€40M–€200M+** |
+
+The honest conclusion is this: **if you stay only inside embodied/relational scenes, this can become a meaningful, durable niche software business; if you prove the product pattern and then broaden to adjacent participation ecosystems, it can become a much bigger company.**
+
+That is also the investor filter. Facilitation- and community-minded investors may appreciate the narrow wedge. Conventional venture investors will want evidence that the product generalizes beyond it.
+
+## Customers, pricing, and revenue
+
+### Customer segments
+
+The platform has three primary customer groups.
+
+**Facilitators** need visibility, repeat attendance, easier communication of norms and logistics, and a way to benefit from community overlap without running separate stacks across messaging apps, spreadsheets, and event platforms. They are usually price-sensitive and often operate on inconsistent monthly income. They will pay when the product clearly reduces admin and increases repeat attendance. citeturn36search0turn35view0turn30search5
+
+**Community stewards** need a home for community identity, event continuity, newcomer orientation, and shared responsibility across hosts and venues. Their willingness to pay is higher than that of solo facilitators if the platform truly becomes the scene’s public-facing layer. This segment cares less about individual ticket margins and more about coherence, stewardship, and continuity. citeturn14search15turn32view1turn15search4
+
+**Participants** want discovery, orientation, and repeat participation. They are unlikely to be an attractive direct-pay segment in the MVP. The best strategy is to keep the participant experience free, friction-light, and trust-building. Premium consumer monetization, if ever introduced, should come later and only if it clearly helps orientation rather than adding status pressure. This matches the dominant market norm across consumer discovery tools. citeturn15search3turn34search6turn8search7turn7search4
+
+### Willingness to pay and pricing recommendation
+
+Organizer benchmarks are informative. Meetup Standard begins at **$29.99/month**; Luma Plus is **$59/month** with 0% platform fees; Circle starts at **$89/month** with transaction fees; Mighty’s Launch plan is around **$950/year**; Ticket Tailor charges **£0.60/ticket** PAYG; Humanitix charges **booking fees only** and no subscriptions. The real implication is that small organizers tolerate payment best when pricing feels like one of three things: **low monthly SaaS**, **low transaction fee**, or **no-fee base with optional upgrades**. citeturn36search0turn35view0turn14search1turn32view1turn30search5turn31search1
+
+Recommended pilot pricing:
+
+| Segment | Product value | Pilot pricing recommendation | Sensitivity |
+|---|---|---|---|
+| Facilitator | Discovery, entry guidance, repeat attendance, follow/save, profile credibility | **Free basic**; **€12–15/mo Pro** | High sensitivity |
+| Community steward / collective | Community page, rhythm view, multiple hosts, onboarding context, analytics later | **€25–39/mo** | Medium sensitivity |
+| Venue / space partner | Venue profile, repeated audience exposure, community partnerships, occupancy support | **€39–59/mo** | Medium sensitivity |
+| Participant | Discovery, follow/save, orientation, rhythm visibility | **Free** | Very high sensitivity |
+| Native ticketing / paid RSVPs | Better conversion and tracking for paid events | **~2% platform fee** on traded GMV later | Moderate |
+
+### Revenue streams
+
+The strongest revenue stack is:
+
+1. **Subscriptions** from facilitators, communities, venues.
+2. **Transaction fees** on native paid RSVPs or ticketing when introduced.
+3. **Setup / migration / onboarding services** for communities importing events and participant lists.
+4. **Sponsorships / venue partnerships / municipal or cultural grants** in pilot markets.
+5. Later only: **data products or premium admin tools**, but not before trust is established.
+
+I would **not** make listing fees or participant subscriptions core in the MVP. Listing fees punish small community stewards; participant subscriptions raise friction before value is proven.
+
+### Revenue scenario projections
+
+Below are practical projections using the recommended price architecture and explicit assumptions. These are **founder-model scenarios**, not market facts.
+
+| Scenario | Year 1 | Year 2 | Year 3 | Key assumptions |
+|---|---:|---:|---:|---|
+| **Conservative** | **€25k** | **€51k** | **€108k** | 1 city; 15 → 40 → 90 community/venue accounts; slow rollout of native transactions; grants small and non-recurring |
+| **Realistic** | **€42k** | **€114k** | **€279k** | 1 city to 3 cities; 20 → 80 → 220 communities; 40 → 140 → 320 facilitators; meaningful but not dominant transaction revenue |
+| **Optimistic** | **€61k** | **€201k** | **€540k** | 1 city to 5–8 cities; strong founder-led onboarding; 25 → 130 → 400 communities; 60 → 240 → 700 facilitators; transaction volume scales and venue revenue matures |
+
+Interpretation:
+
+- **Year 1 should be judged as a learning year, not an ARR year.**
+- **Year 2 should prove replicability city-to-city.**
+- **Year 3 should answer whether this is a focused niche software company or an expandable category platform.**
+
+For community-minded investors, this is credible. For venture investors, you should explicitly frame these numbers as **proof-stage economics** that unlock later category expansion, not as the endpoint.
+
+## Go-to-market and pilot roadmap
+
+### Pilot city selection criteria
+
+Use these criteria rather than choosing the biggest city by default:
+
+| Criterion | Why it matters | Weight |
+|---|---|---:|
+| Founder trust and access | Early products in communities are trust businesses before they are software businesses | 30% |
+| Density of relevant communities | More overlap means better network effects and better discovery | 25% |
+| Compact geography and venue concentration | Lowers coordination friction and improves repeat participation | 15% |
+| Existing cross-community participation | Necessary to validate overlap and rhythm features | 15% |
+| Internationality / English friendliness | Helps recruitment, testing, and eventual expansion | 10% |
+| Partnerships available | Venues, teacher trainings, municipal/cultural institutions, well-being organizations | 5% |
+
+On that basis, if your existing relationships are in Denmark, **entity["city","Copenhagen","capital region, denmark"] first**, then entity["city","Berlin","berlin state, germany"] and entity["city","Amsterdam","north holland, netherlands"] as likely next expansion cities. Copenhagen is not the biggest possible market, but it is a better **first proving ground** if you can recruit trusted communities quickly.
+
+### Community onboarding plan for the MVP pilot
+
+Target **10–20 communities** in the first city. Mix them deliberately:
+
+- embodiment and movement: CI, ecstatic dance, yoga, somatics, breathwork
+- relational and reflective: circling, authentic relating, men’s/women’s groups, peer practice groups
+- hybrid community spaces: venues or collectives hosting multiple overlapping practices
+
+Offer them:
+- free pilot access for 6 months
+- white-glove setup
+- community profile + values/norms section
+- recurring event import or manual setup
+- “first-time participant” entry guidance template
+- rhythm view configuration
+- simple attendance/export tool
+
+What you ask in return:
+- commitment to publish 6–8 weeks of upcoming offerings
+- onboarding of one steward/admin
+- participation in feedback interviews
+- permission to measure discovery-to-attendance outcomes
+
+### Lean pilot experiment design
+
+The pilot should test one core claim:
+
+**Does better orientation produce more meaningful participation?**
+
+Design:
+
+- Recruit **15 communities**
+- Seed **150–250 offerings** into the platform
+- Invite **800–1,500 participants** from community mailing lists and WhatsApp/Facebook/Instagram channels
+- Run for **8–10 weeks**
+- Measure community and participant behavior weekly
+- Compare outcomes for events **with strong entry guidance** vs. those without
+
+Success is not “many downloads.” Success is:
+
+- participants follow communities
+- participants save and RSVP
+- first attendance converts into second attendance
+- users cross into adjacent communities intentionally, not randomly
+- organizers republish because the platform reduces fragmentation
+
+```mermaid
+flowchart LR
+    A[Community onboarded] --> B[Profile + norms + rhythm configured]
+    B --> C[Events and offerings published]
+    C --> D[Participant discovers feed or rhythm view]
+    D --> E[Follows or saves a community/event]
+    E --> F[RSVPs or registers]
+    F --> G[Attends]
+    G --> H[Repeats within same community]
+    G --> I[Crosses into adjacent community]
+```
+
+### Metrics to validate in the pilot
+
+| Metric | Why it matters | Pilot threshold |
+|---|---|---:|
+| Active communities | Supply density and credibility | 15+ |
+| Upcoming offerings published | Feed usefulness | 150+ |
+| Community profiles with entry guidance | The differentiating feature must exist in supply | 70%+ |
+| New users who follow at least 1 community in first session | Orientation and intent | 30%+ |
+| Event detail → RSVP/registration conversion | Discovery quality | 12–20% |
+| RSVP → attendance rate | Signal that expectations and logistics are clear | 50%+ |
+| First attendance → second attendance within 45 days | Core behavior proof | 25%+ |
+| Cross-community participation rate | Validates overlap model | 10–20% |
+| Organizer month-2 publish retention | Supply-side PMF | 70%+ |
+| Participant D30 retention | Demand-side PMF | 30%+ |
+
+### Roadmap
+
+```mermaid
+gantt
+    title 12-month MVP-to-expansion roadmap
+    dateFormat  YYYY-MM-DD
+    section Research and recruitment
+    Founder interviews and community mapping     :a1, 2026-05-01, 45d
+    Design partner recruitment                   :a2, 2026-05-15, 60d
+    section Product
+    MVP build: profiles, events, feed, guidance  :b1, 2026-05-15, 75d
+    Rhythm view and follow/save                  :b2, 2026-06-15, 60d
+    Analytics and admin tools                    :b3, 2026-08-15, 45d
+    section Pilot
+    Concierge onboarding of first communities    :c1, 2026-08-01, 30d
+    Pilot launch in city one                     :c2, 2026-09-01, 60d
+    Iteration on conversion and retention        :c3, 2026-10-15, 60d
+    section Expansion
+    Monetization tests                           :d1, 2026-11-01, 60d
+    Second-city scouting                         :d2, 2026-12-01, 45d
+    Raise follow-on / scale decision             :d3, 2027-02-01, 45d
+```
+
+## Risks, KPIs, funding, and decision points
+
+### Risks and mitigations
+
+| Risk | Why it matters | Mitigation |
+|---|---|---|
+| **Cold-start fragmentation** | No discovery product works without dense local supply | Launch only after white-glove onboarding 10–20 communities in one city |
+| **Too-narrow wedge** | Embodied/relational scenes alone may cap scale | Treat beachhead as wedge; evaluate adjacent categories by month 9–12 |
+| **Product drifts into generic event listings** | Loses differentiation fast | Keep entry guidance, rhythm visibility, and overlap mapping as non-negotiable product pillars |
+| **Trust and privacy failures** | Small communities are highly reputation-sensitive | Data minimization, clear consent, participant-controlled visibility, admin permissions, strong moderation paths; align with GDPR principles and platform obligations under the DSA where relevant citeturn28search2turn28search1turn28search11 |
+| **Harmful community dynamics** | Conflict, exclusion, pseudo-therapy misuse, gossip loops | Start with admin tools, clear reporting flows, limited public identity exposure by default, and avoid algorithmic escalation of sensitive content |
+| **“Mediation” features overreach** | Software should not adjudicate community conflict | Support dignified branching, role clarity, archive/export, and minimally destructive separation rather than automated conflict resolution |
+| **Low organizer willingness to pay** | Many facilitators operate with thin margins | Keep free tier useful, price paid plans modestly, and prove ROI via repeat attendance and reduced admin burden |
+| **Operational overload** | White-glove onboarding is labor-intensive | Limit pilot scope; templatize onboarding; recruit ambassadors from participating communities |
+
+### MVP KPIs that matter most
+
+Use these as your top-level dashboard:
+
+- **Supply activation**: active communities, events per community, % with entry guidance
+- **Discovery quality**: follow conversion, save rate, event-detail CTR, RSVP rate
+- **Participation quality**: attendance rate, second-event rate, cross-community participation
+- **Retention**: participant D30/D60 retention, organizer publish retention
+- **Economics**: account conversion rate, ARPA, revenue/community, onboarding cost per community
+
+The most important composite KPI is:
+
+> **Meaningful participation rate** = % of new users who attend at least one event and either repeat or join an adjacent community within 45 days.
+
+That better captures your mission than MAU alone.
+
+### Funding ask and use of funds
+
+A plausible raise is **€750k** for **18 months** of runway.
+
+Why this level is credible:
+- You need enough capital for a small but serious build
+- Community onboarding is human-intensive early
+- The real milestone is not launch, but one-city retention plus 2–3 city repeatability
+
+Suggested use of funds:
+
+| Category | Allocation | Amount |
+|---|---:|---:|
+| Product engineering | 42% | €315k |
+| Design / research / UX | 8% | €60k |
+| Community operations and onboarding | 20% | €150k |
+| GTM, partnerships, and city activation | 12% | €90k |
+| Founder/ops/legal/admin | 10% | €75k |
+| Cloud, analytics, security, contingency | 8% | €60k |
+
+Milestone-based tranches:
+
+| Tranche | Release | Milestone |
+|---|---:|---|
+| Tranche A | 40% | MVP live; 10 design partners; baseline analytics in place |
+| Tranche B | 30% | 15+ active communities; 150+ offerings; participant follow/RSVP funnel validated |
+| Tranche C | 30% | Organizer retention >70%, first→second attendance >25%, credible second-city plan |
+
+### Recommended next steps and decision points
+
+Over the next 6–10 weeks:
+
+1. **Map one city manually**: document 40–60 candidate communities and venues.
+2. **Interview 10 facilitators + 10 participants + 5 venue/community stewards**.
+3. **Prototype community profiles, entry guidance, and rhythm view manually** before full build.
+4. **Secure 10–15 design partners** before broad consumer launch.
+5. **Define the exact data model for overlaps**: community tags, venue links, shared attendees, recurring rhythms, collaborator/admin roles.
+6. **Decide early whether native ticketing is in MVP** or deferred.
+
+The crucial decision points are:
+
+- **After pilot onboarding**: Is the product distinct enough that communities feel “seen,” not just listed?
+- **After 8 weeks live**: Does newcomer orientation improve attendance and repeat participation?
+- **After 6 months**: Is willingness to pay strongest with facilitators, communities, venues, or transactions?
+- **After 9–12 months**: Stay focused on the original wedge, or expand into adjacent local participation categories?
+
+If I were ranking the most important proof points for investors and facilitators alike, they would be:
+
+1. Organizer retention  
+2. First-event-to-second-event conversion  
+3. Cross-community movement with retained trust  
+4. Fast white-glove onboarding of communities  
+5. Modest but real B2B willingness to pay
+
+### Key reference URLs
+
+```text
+https://help.meetup.com/hc/en-us/articles/28677808413197-Organizer-Subscription-prices-overview
+https://help.meetup.com/hc/en-us/articles/39795590048781-Creating-a-repeating-event
+https://www.eventbrite.com/organizer/pricing/
+https://www.sec.gov/Archives/edgar/data/1475115/000147511525000026/eb-20241231.htm
+https://www.facebook.com/help/1076296042409786
+https://www.facebook.com/business/help/786348878426465
+https://luma.com/pricing
+https://help.luma.com/p/luma-calendar-overview
+https://help.luma.com/p/collaborating-calendars
+https://help.partiful.com/hc/en-us/articles/36268907474715-What-is-a-Public-Event
+https://help.partiful.com/hc/en-us/articles/39967124659099-How-can-I-get-featured-on-the-Explore-page
+https://www.tickettailor.com/pricing
+https://humanitix.com/gb/pricing
+https://help.humanitix.com/en/articles/9760527-how-much-does-humanitix-cost
+https://pro.ra.co/promoter
+https://support.ra.co/article/177-service-fees
+https://business.feverup.com/
+https://www.mightynetworks.com/pricing
+https://circle.so/pricing
+https://www.geneva.com/about
+https://www.fortunebusinessinsights.com/event-management-software-market-102611
+https://www.marketsandmarkets.com/Market-Reports/event-management-software-market-136859992.html
+https://ec.europa.eu/eurostat/web/interactive-publications/demography-2025
+https://data.worldbank.org/country/denmark
+https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS
+https://www.who.int/groups/commission-on-social-connection/report
+https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations/principles-gdpr_en
+https://digital-strategy.ec.europa.eu/en/policies/digital-services-act
+```

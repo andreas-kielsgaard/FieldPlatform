@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="referrer" content="origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Field — Community Participation</title>
+
+  <!-- Leaflet for map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- App styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Top bar -->
+  <header id="topbar">
+    <div class="topbar-left">
+      <span class="logo">Field</span>
+      <span class="city-label">Aarhus</span>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <a href="#" data-view="home" class="nav-link active">Home</a>
+      <a href="#" data-view="explore" class="nav-link">Explore</a>
+      <a href="#" data-view="communities" class="nav-link">Communities</a>
+      <a href="#" data-view="events" class="nav-link">Events</a>
+      <a href="#" data-view="facilitators" class="nav-link">Facilitators</a>
+      <a href="#" data-view="saved" class="nav-link">Saved</a>
+    </nav>
+    <div class="topbar-right">
+      <div class="persona-switcher" id="persona-switcher">
+        <button class="persona-btn" id="persona-btn">
+          <span class="persona-avatar" id="persona-avatar">M</span>
+          <span id="persona-name-label">Maya</span>
+          <span class="chevron">▾</span>
+        </button>
+        <div class="persona-dropdown" id="persona-dropdown">
+          <div class="persona-section-label">Switch persona</div>
+        </div>
+      </div>
+      <div class="role-switcher" id="role-switcher">
+        <button class="role-btn active" data-role="participant">Participant</button>
+        <button class="role-btn" data-role="facilitator">Facilitator</button>
+        <button class="role-btn" data-role="steward">Steward</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content area -->
+  <main id="app-main">
+    <div id="view-container"></div>
+  </main>
+
+  <!-- Side panel / drawer -->
+  <aside id="side-panel" class="side-panel hidden">
+    <button id="side-panel-close" class="side-panel-close">✕</button>
+    <div id="side-panel-content"></div>
+  </aside>
+  <div id="side-panel-overlay" class="side-panel-overlay hidden"></div>
+
+  <!-- Toast notifications -->
+  <div id="toast-container"></div>
+
+  <!-- Data layer -->
+  <script src="js/data.js"></script>
+  <!-- Components -->
+  <script src="js/components/cards.js"></script>
+  <script src="js/components/map.js"></script>
+  <script src="js/components/timeline.js"></script>
+  <script src="js/components/panel.js"></script>
+  <!-- Views -->
+  <script src="js/views/home.js"></script>
+  <script src="js/views/explore.js"></script>
+  <script src="js/views/communities.js"></script>
+  <script src="js/views/community-detail.js"></script>
+  <script src="js/views/events.js"></script>
+  <script src="js/views/event-detail.js"></script>
+  <script src="js/views/facilitators.js"></script>
+  <script src="js/views/facilitator-detail.js"></script>
+  <script src="js/views/saved.js"></script>
+  <script src="js/views/venue-detail.js"></script>
+  <!-- Facilitator mode -->
+  <script src="js/views/facilitator-dashboard.js"></script>
+  <script src="js/views/event-creation.js"></script>
+  <!-- Steward mode -->
+  <script src="js/views/steward-dashboard.js"></script>
+  <script src="js/views/suggested-events.js"></script>
+  <!-- App core -->
+  <script src="js/app.js"></script>
+</body>
+</html>

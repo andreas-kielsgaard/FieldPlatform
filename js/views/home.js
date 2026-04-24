@@ -1,201 +1,179 @@
-// ─── Home / "What's alive for you" ───
+// ─── Home: Orientation tiles ───
 
 const HomeView = (() => {
 
   function render() {
     const persona = DATA.getCurrentPersona();
-    const relevantEvents = DATA.getRelevantEventsForPersona(persona, 6);
-    const allCommunities = DATA.communities;
-    const followedCommunities = persona
-      ? allCommunities.filter(c => persona.communities.includes(c.id))
-      : [];
-    const discoveryCommunities = allCommunities
-      .filter(c => !persona || !persona.communities.includes(c.id))
-      .slice(0, 4);
-
-    const isNewcomer = persona && persona.communities.length === 0;
+    const firstName = persona ? persona.name.split(' ')[0] : null;
+    const role = DATA.currentRole;
 
     return `
-      <div class="hero">
-        <div class="hero-content">
-          <div class="hero-label">Aarhus · ${new Date(2026,3,23).toLocaleDateString('en-DK', {weekday:'long', month:'long', day:'numeric'})}</div>
-          <div class="hero-title">${isNewcomer ? 'Welcome to the field.' : `What's alive for you, ${persona ? persona.name.split(' ')[0] : 'you'}.`}</div>
-          <div class="hero-sub">${isNewcomer ? 'Aarhus has a living ecosystem of communities. Explore below to find where you might fit.' : 'Here\'s what\'s happening across your communities and what\'s adjacent.'}</div>
-        </div>
-      </div>
+      <div style="min-height:calc(100vh - var(--topbar-h))">
 
-      <div class="home-grid">
-        <div class="home-main">
-
-          <!-- Mini map -->
-          <div class="mini-map-placeholder" onclick="App.navigate('explore')">
-            <div class="mini-map-hotspots">
-              <div class="hotspot" style="width:60px;height:60px;background:var(--c-ci);top:35%;left:30%"></div>
-              <div class="hotspot" style="width:80px;height:80px;background:var(--c-ed);top:45%;left:55%;animation-delay:0.5s"></div>
-              <div class="hotspot" style="width:45px;height:45px;background:var(--c-cr);top:20%;left:45%;animation-delay:1s"></div>
-              <div class="hotspot" style="width:40px;height:40px;background:var(--c-mc);top:15%;left:20%;animation-delay:1.5s"></div>
-              <div class="hotspot" style="width:35px;height:35px;background:var(--c-qe);top:60%;left:70%;animation-delay:0.7s"></div>
-            </div>
-            <span class="mini-map-label">Activity this week · 7 active venues</span>
-            <button class="mini-map-cta">Open map →</button>
+        <!-- Hero -->
+        <div class="orientation-hero">
+          <div style="position:relative;z-index:1;max-width:580px">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-bottom:12px">Field · Aarhus</div>
+            <h1 class="orientation-hero-title">How would you like to be with the field today${firstName ? ',&thinsp;' + firstName : ''}?</h1>
+            <p class="orientation-hero-sub">Several nourishing ways to relate with what is alive around you. Choose what serves now.</p>
           </div>
-
-          <!-- Timeline strip preview -->
-          <div style="margin-bottom:28px">
-            <div class="section-header">
-              <span class="section-title">This week</span>
-              <span class="section-link" onclick="App.navigate('explore')">Timeline view →</span>
-            </div>
-            <div class="h-scroll">
-              ${renderTimelinePreview()}
-            </div>
-          </div>
-
-          <!-- Relevant events -->
-          <div style="margin-bottom:32px">
-            <div class="section-header">
-              <span class="section-title">${isNewcomer ? 'Happening nearby' : 'Relevant to you'}</span>
-              <span class="section-link" onclick="App.navigate('events')">See all →</span>
-            </div>
-            <div class="card-grid">
-              ${relevantEvents.map(e => Cards.eventCard(e)).join('')}
-            </div>
-          </div>
-
-          ${followedCommunities.length > 0 ? `
-          <!-- Continue what works -->
-          <div style="margin-bottom:32px">
-            <div class="section-header">
-              <span class="section-title">Continue what already works</span>
-            </div>
-            <div class="h-scroll">
-              ${followedCommunities.map(c => `
-                <div class="card" style="min-width:220px;flex-shrink:0" onclick="App.navigate('community','${c.id}')">
-                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-                    <span style="font-size:20px">${c.emoji}</span>
-                    <span style="font-weight:700;font-size:14px">${c.shortName}</span>
-                  </div>
-                  <div style="font-size:12px;color:var(--text-secondary)">${DATA.getEventsForCommunity(c.id).length} upcoming · ${c.rhythm[0]?.day || ''} rhythm</div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-          ` : ''}
-
-          <!-- Discovery -->
-          <div style="margin-bottom:32px">
-            <div class="section-header">
-              <span class="section-title">Adjacent possibilities</span>
-              <span class="section-link" onclick="App.navigate('communities')">All communities →</span>
-            </div>
-            <div style="font-size:13px;color:var(--text-secondary);margin-bottom:16px">Communities nearby that might fit where you are now.</div>
-            <div class="card-grid">
-              ${discoveryCommunities.map(c => Cards.communityCard(c)).join('')}
-            </div>
-          </div>
-
         </div>
 
-        <div class="home-sidebar">
-          <div style="margin-bottom:28px">
-            <div class="section-block-title">Today's activity</div>
-            ${renderTodayActivity()}
+        <!-- Orientation grid -->
+        <div class="orientation-grid">
+
+          <!-- A. Continue -->
+          <div class="orientation-tile" style="--tc:#4a7c59;--tbg:#0d1710" onclick="App.navigate('explore-familiar')">
+            <div class="tile-eyebrow">↩ Return</div>
+            <div class="tile-phrase">Continue what already supports you</div>
+            <div class="tile-desc">The nourishing threads already here. Recurring practices, familiar spaces, known faces.</div>
+            <div class="tile-glimpses">${glimpseContinue(persona)}</div>
+            <div class="tile-cta">Enter <span class="tile-arrow">→</span></div>
           </div>
 
-          <div style="margin-bottom:28px">
-            <div class="section-block-title">Active facilitators</div>
-            ${DATA.facilitators.slice(0, 4).map(f => `
-              <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer" onclick="App.navigate('facilitator','${f.id}')">
-                <div style="width:32px;height:32px;border-radius:50%;background:${f.color};display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;flex-shrink:0">${f.initials}</div>
-                <div>
-                  <div style="font-size:13px;font-weight:600">${f.name}</div>
-                  <div style="font-size:11px;color:var(--text-muted)">${f.practices[0]}</div>
-                </div>
-              </div>
-            `).join('')}
+          <!-- B. Taste -->
+          <div class="orientation-tile" style="--tc:#7b5ea7;--tbg:#120d1a" onclick="App.navigate('explore-adjacent')">
+            <div class="tile-eyebrow">⟡ Discover</div>
+            <div class="tile-phrase">Taste new connections</div>
+            <div class="tile-desc">Adjacent worlds your people also move through. Close enough to feel familiar, new enough to open something.</div>
+            <div class="tile-glimpses">${glimpseTaste(persona)}</div>
+            <div class="tile-cta">Explore <span class="tile-arrow">→</span></div>
           </div>
 
-          <div>
-            <div class="section-block-title">Community overlap</div>
-            ${renderOverlapSummary()}
+          <!-- C. Rhythm — featured tile -->
+          <div class="orientation-tile tile-featured" style="--tc:#5abcb9;--tbg:#0d191f" onclick="App.navigate('rhythm')">
+            <div class="tile-eyebrow">◎ Sense</div>
+            <div class="tile-phrase">Explore the rhythm of the field</div>
+            <div class="tile-desc">Feel how the field moves through time. Where things come alive, when they pulse, what recurs and what is occasional.</div>
+            <div class="tile-glimpses">${glimpseRhythm()}</div>
+            <div class="tile-cta">Feel it <span class="tile-arrow">→</span></div>
           </div>
+
+          <!-- D. Deepen -->
+          <div class="orientation-tile" style="--tc:#d94a7a;--tbg:#1a0d11" onclick="App.navigate('communities')">
+            <div class="tile-eyebrow">↓ Go deeper</div>
+            <div class="tile-phrase">Deepen what already matters</div>
+            <div class="tile-desc">Practice groups, recurring labs, ways to participate more meaningfully in the communities already here.</div>
+            <div class="tile-glimpses">${glimpseDeepen(persona)}</div>
+            <div class="tile-cta">Go deeper <span class="tile-arrow">→</span></div>
+          </div>
+
+          <!-- E. Create -->
+          <div class="orientation-tile" style="--tc:#f0a500;--tbg:#1a1400"
+            onclick="${role === 'participant' ? "App.setRole('facilitator')" : role === 'facilitator' ? "App.navigate('facilitator-dashboard')" : "App.navigate('steward-dashboard')"}">
+            <div class="tile-eyebrow">✦ Offer</div>
+            <div class="tile-phrase">Create, share, or nurture</div>
+            <div class="tile-desc">Offer something. Suggest an event to your community. Steward a space that matters.</div>
+            <div class="tile-glimpses">${glimpseCreate(persona, role)}</div>
+            <div class="tile-cta">Start <span class="tile-arrow">→</span></div>
+          </div>
+
+          <!-- F. Make space -->
+          <div class="orientation-tile" style="--tc:#8c8a86;--tbg:#111111" onclick="App.navigate('saved')">
+            <div class="tile-eyebrow">○ Rest</div>
+            <div class="tile-phrase">Make space</div>
+            <div class="tile-desc">Review what is already saved. Nothing urgent requires you. Permission to simplify.</div>
+            <div class="tile-glimpses">${glimpseMakeSpace(persona)}</div>
+            <div class="tile-cta">Review <span class="tile-arrow">→</span></div>
+          </div>
+
         </div>
       </div>
     `;
   }
 
-  function renderTimelinePreview() {
-    const days = [];
-    const refDate = new Date(2026, 3, 23);
-    for (let i = 0; i < 7; i++) {
-      const d = new Date(refDate);
-      d.setDate(d.getDate() + i);
-      const dayEvents = DATA.events.filter(e => e.date.toDateString() === d.toDateString());
-      const dots = dayEvents.slice(0, 4).map(e => {
-        const comms = e.communities.map(id => DATA.getCommunityById(id)).filter(Boolean);
-        const color = comms[0] ? comms[0].color : 'var(--accent)';
-        return `<div class="timeline-dot" style="background:${color};opacity:0.8"></div>`;
-      }).join('');
-      days.push(`
-        <div class="card" style="min-width:72px;text-align:center;padding:12px 8px;flex-shrink:0;background:${i===0?'var(--accent-light)':'var(--surface)'}">
-          <div style="font-size:10px;font-weight:700;color:var(--text-muted);text-transform:uppercase">${d.toLocaleDateString('en-DK',{weekday:'short'})}</div>
-          <div style="font-size:20px;font-weight:800;color:${i===0?'var(--accent)':'var(--text-primary)'}">${d.getDate()}</div>
-          <div style="font-size:11px;color:var(--text-muted)">${dayEvents.length} events</div>
-          <div style="display:flex;justify-content:center;gap:2px;margin-top:4px">${dots}</div>
-        </div>
-      `);
-    }
-    return days.join('');
-  }
+  // ─── Glimpse renderers — small, tasteful, not overwhelming ───
 
-  function renderTodayActivity() {
-    const today = new Date(2026, 3, 23);
-    const todayEvents = DATA.events.filter(e => e.date.toDateString() === today.toDateString())
-      .sort((a,b) => a.date - b.date);
-
-    if (todayEvents.length === 0) {
-      return '<div style="color:var(--text-muted);font-size:13px">Nothing happening today — good time for rest.</div>';
-    }
-
-    return todayEvents.map(e => {
-      const communities = e.communities.map(id => DATA.getCommunityById(id)).filter(Boolean);
-      const dot = communities[0] ? communities[0].color : 'var(--accent)';
-      return `
-        <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);cursor:pointer" onclick="App.navigate('event','${e.id}')">
-          <div style="width:8px;height:8px;border-radius:50%;background:${dot};flex-shrink:0"></div>
-          <div style="flex:1">
-            <div style="font-size:13px;font-weight:600">${e.title}</div>
-            <div style="font-size:11px;color:var(--text-muted)">${DATA.formatTime(e.date)}</div>
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  function renderOverlapSummary() {
-    const persona = DATA.getCurrentPersona();
+  function glimpseContinue(persona) {
     if (!persona || persona.communities.length === 0) {
-      return `<div style="font-size:13px;color:var(--text-muted)">Follow communities to see their overlap.</div>`;
+      return `<div class="tile-empty">Follow communities to see your threads.</div>`;
     }
+    const comms = persona.communities.map(id => DATA.getCommunityById(id)).filter(Boolean);
+    const next = DATA.events
+      .filter(e => e.date >= new Date(2026,3,23) && e.communities.some(c => persona.communities.includes(c)) && e.recurring)
+      .sort((a,b) => a.date - b.date)[0];
+    return `
+      <div class="tile-glimpse-row">
+        ${comms.map(c => `<span class="tile-dot" style="background:${c.color}"></span>`).join('')}
+        <span class="tile-glimpse-label">${comms.map(c => c.shortName).join('  ·  ')}</span>
+      </div>
+      ${next ? `<div class="tile-glimpse-row muted">Next: ${next.title} · ${DATA.formatDate(next.date)}</div>` : ''}
+    `;
+  }
 
-    const myCommunity = DATA.getCommunityById(persona.communities[0]);
-    if (!myCommunity) return '';
+  function glimpseTaste(persona) {
+    const myIds = persona ? persona.communities : [];
+    const myComms = myIds.map(id => DATA.getCommunityById(id)).filter(Boolean);
+    const adj = myComms
+      .flatMap(c => c.overlaps)
+      .filter(ov => !myIds.includes(ov.communityId))
+      .sort((a,b) => b.strength - a.strength)
+      .reduce((acc, ov) => acc.find(x => x.communityId === ov.communityId) ? acc : [...acc, ov], [])
+      .slice(0, 3);
 
-    return myCommunity.overlaps.slice(0,4).map(ov => {
-      const other = DATA.getCommunityById(ov.communityId);
-      if (!other) return '';
-      const pct = Math.round(ov.strength * 100);
-      return `
-        <div class="overlap-community" onclick="App.navigate('community','${other.id}')">
-          <span style="font-size:16px">${other.emoji}</span>
-          <div style="flex:1">
-            <div style="font-size:13px;font-weight:600">${other.shortName}</div>
-            <div class="overlap-bar" style="background:linear-gradient(to right, ${other.color} ${pct}%, var(--border) ${pct}%);margin-top:3px"></div>
-          </div>
-          <span style="font-size:11px;color:var(--text-muted)">${pct}%</span>
-        </div>
-      `;
+    if (adj.length === 0) return `<div class="tile-empty">Follow communities to discover adjacent worlds.</div>`;
+
+    return adj.map(ov => {
+      const c = DATA.getCommunityById(ov.communityId);
+      if (!c) return '';
+      return `<div class="tile-glimpse-row">
+        <span class="tile-dot" style="background:${c.color}"></span>
+        <span class="tile-glimpse-label">${c.shortName}</span>
+        <span class="tile-glimpse-sub">${Math.round(ov.strength * 100)}% overlap</span>
+      </div>`;
     }).join('');
+  }
+
+  function glimpseRhythm() {
+    // Fake activity per day — Thursday and Friday most alive
+    const days = ['M','T','W','T','F','S','S'];
+    const intensity = [0.25, 0.45, 0.75, 0.6, 0.9, 0.65, 0.35];
+    return `
+      <div class="tile-rhythm-bars">
+        ${days.map((d, i) => `
+          <div class="tile-rhythm-col">
+            <div class="tile-rhythm-bar" style="height:${Math.round(intensity[i] * 32)}px;opacity:${0.35 + intensity[i] * 0.65}"></div>
+            <div class="tile-rhythm-day">${d}</div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="tile-glimpse-row muted" style="margin-top:6px">Thursday evenings and Fridays are particularly alive.</div>
+    `;
+  }
+
+  function glimpseDeepen(persona) {
+    const options = ['Practice groups', 'Recurring labs', 'Volunteer & steward', 'Integration spaces'];
+    return options.map(opt => `
+      <div class="tile-glimpse-row">
+        <span style="color:var(--tc);font-size:10px;opacity:0.7">●</span>
+        <span class="tile-glimpse-label">${opt}</span>
+      </div>
+    `).join('');
+  }
+
+  function glimpseCreate(persona, role) {
+    if (role === 'participant') return `
+      <div class="tile-glimpse-row"><span class="tile-glimpse-label">Switch to facilitator or steward mode</span></div>
+      <div class="tile-glimpse-row muted">Create an event · Suggest to community</div>
+    `;
+    if (role === 'facilitator') return `
+      <div class="tile-glimpse-row"><span class="tile-glimpse-label">+ New event</span></div>
+      <div class="tile-glimpse-row muted">2 community invitations waiting</div>
+    `;
+    return `
+      <div class="tile-glimpse-row"><span class="tile-glimpse-label">3 suggested events to review</span></div>
+      <div class="tile-glimpse-row muted">Community pulse dashboard</div>
+    `;
+  }
+
+  function glimpseMakeSpace(persona) {
+    const saved = persona ? persona.savedEvents.length : 0;
+    const attending = persona ? (persona.attendingEvents || []).length : 0;
+    return `
+      <div class="tile-glimpse-row"><span class="tile-glimpse-label">${saved} saved event${saved !== 1 ? 's' : ''}</span></div>
+      <div class="tile-glimpse-row"><span class="tile-glimpse-label">${attending} upcoming commitment${attending !== 1 ? 's' : ''}</span></div>
+      <div class="tile-glimpse-row muted" style="margin-top:6px;font-style:italic">Nothing urgent today.</div>
+    `;
   }
 
   return { render };

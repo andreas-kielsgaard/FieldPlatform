@@ -1,0 +1,686 @@
+# Design Adjustment Brief: Home, Field Rhythm, and Map Philosophy
+
+## Core design insight
+
+The platform is not primarily an event list, calendar, map, or feed.
+
+It is an **orientation companion for participating in the field**.
+
+The product should help users sense and navigate the living ecosystem of communities, practices, facilitators, venues, rhythms, and opportunities around them.
+
+A key design insight:
+
+**The field has a rhythm.**
+
+This should be embodied in the product. Do not explain this with heavy philosophy. Let users discover it through the interface.
+
+The phrase **“explore the rhythm of the field”** should become a core design phrase and interaction direction.
+
+The platform should feel like someone taking the user by the hand and helping them relate with the field in the way that serves them now:
+
+* continuing what already works
+* exploring new connections
+* deepening or refining participation
+* creating or sharing something
+* simplifying / resting / reviewing commitments
+
+Do not make the app feel like it knows what the user needs before they do.
+
+---
+
+# 1. Redesign the landing page as an orientation page
+
+## Current issue
+
+The current home page leans too much toward:
+
+* mini-map
+* event cards
+* timelines
+* “relevant to you” sections
+* dashboard-like information
+
+These are useful elements, but the home page should not feel like a feed, event list, or calendar.
+
+## New goal
+
+The landing page should be a **taste platter of ways to relate with the field**.
+
+It should give the user a joyful impression of:
+
+* “Here are the delicious things you have already discovered.”
+* “Here are new connections you could taste.”
+* “Here are ways to deepen what already matters.”
+* “Here are ways to create or share.”
+* “Here is permission to simplify or rest.”
+
+The first question implied by the landing page should be:
+
+**How would you like to be with the field today?**
+
+Not:
+
+* “Here are the events you should attend.”
+* “Here is what we think you want.”
+* “Here is a feed to capture your attention.”
+
+---
+
+# 2. Replace the home structure with orientation tiles
+
+Create 4–6 large orientation tiles.
+
+Each tile should feel like a doorway, not a category filter.
+
+## Suggested tiles
+
+### A. Continue what works
+
+Purpose: reinforce continuity, integration, stability.
+
+Show a small preview of:
+
+* communities the user already follows
+* recurring practices
+* upcoming commitments
+* familiar venues or facilitators
+
+Tone:
+“Look at the nourishing threads already here.”
+
+Possible copy:
+**Continue what already supports you**
+
+---
+
+### B. Explore new connections
+
+Purpose: discovery and expansion.
+
+Show a small preview of:
+
+* adjacent communities
+* nearby openings
+* relevant events
+* “people from your communities also move here”
+
+Possible copy:
+**Taste new connections**
+
+or:
+
+**Explore adjacent worlds**
+
+---
+
+### C. Explore the rhythm of the field
+
+Purpose: reveal that the field has temporal patterns.
+
+This should open the rhythm-map experience.
+
+Show a small preview of:
+
+* recurring activity patterns
+* active days/areas
+* community rhythms
+* places that “come alive” at certain times
+
+Preferred copy:
+**Explore the rhythm of the field**
+
+Avoid:
+“See the weekly rhythm”
+That sounds too calendar-like and too literal.
+
+---
+
+### D. Deepen participation
+
+Purpose: balance against “just adding events to my schedule.”
+
+Show pathways such as:
+
+* recurring labs
+* practice groups
+* volunteering
+* stewarding
+* smaller containers
+* integration spaces
+* ways to participate more meaningfully in existing communities
+
+Possible copy:
+**Deepen what already matters**
+
+or:
+
+**Refine your participation**
+
+---
+
+### E. Create or share
+
+Purpose: facilitator/steward mode.
+
+Show:
+
+* draft events
+* create event
+* explore who might be interested
+* suggested communities
+* community steward tasks
+
+Possible copy:
+**Create, share, or nurture**
+
+---
+
+### F. Simplify / rest
+
+Purpose: protect the product from becoming a novelty-pressure machine.
+
+Show:
+
+* current commitments
+* saved events
+* option to review what is already planned
+* gentle “nothing urgent today” state
+
+Possible copy:
+**Make space**
+
+or:
+
+**Review and simplify**
+
+---
+
+# 3. Home page should show tastes, not full lists
+
+Each orientation tile can include a small preview, but avoid long content sections.
+
+Do not show:
+
+* large event grids
+* lots of facilitator rows
+* a full timeline
+* a dense sidebar of activity
+* too many simultaneous sections
+
+Instead, show:
+
+* 1–3 glimpses per tile
+* compact visual previews
+* poetic but clear invitation text
+* strong CTAs into the relevant deeper view
+
+The user should feel invited, not processed.
+
+---
+
+# 4. Reposition the map as an orientation room, not the landing page
+
+The landing page should not be a full map.
+
+A full map may be disorienting and overemphasize discovery. Discovery is only one of the platform’s functions.
+
+The map should be entered through specific orientation tiles, especially:
+
+* Explore new connections
+* Explore the rhythm of the field
+* Continue what works
+* Create/share
+
+Each entry point should produce a different map emphasis.
+
+---
+
+# 5. Establish a clear map ontology
+
+Use this as the main visual rule:
+
+**Events should feel bounded, communities should feel ambient, venues should feel anchored, and adjacency should feel like motion through time.**
+
+## Events
+
+Represent as concrete bounded forms:
+
+* blobs
+* capsules
+* droplets
+* clear clickable shapes
+
+Meaning:
+“Here is a concrete opportunity you can join.”
+
+## Communities
+
+Represent as ambient fields:
+
+* soft color washes
+* gradients
+* diffuse contours
+* low-opacity presence zones
+
+Meaning:
+“This community/practice has presence here.”
+
+## Venues
+
+Represent as anchors:
+
+* stable nodes
+* subtle building/site markers
+* fixed points that can host changing activity
+
+Meaning:
+“This is a place where the field gathers.”
+
+## Adjacency / overlap
+
+Represent as motion or relation:
+
+* traces
+* threads
+* branching lines
+* selective particle movement on interaction
+
+Meaning:
+“This connects to that.”
+
+Do not use the same circles for everything.
+
+---
+
+# 6. Create a dedicated “Rhythm of the Field” map
+
+This is distinct from a normal event map.
+
+It should answer:
+
+**How does the field move through time?**
+
+Not:
+“What events are listed this week?”
+
+## Core interaction
+
+Use a cyclical time control:
+
+* weekly wheel
+* circular scrubber
+* or smooth slider from Monday → Sunday → Monday
+
+The field should change as the user moves through time:
+
+* areas intensify
+* colors morph
+* event kernels appear/disappear
+* venue nodes become active/inactive
+* community fields shift composition
+
+The user should be able to feel:
+“Ah, this area comes alive on Thursday evenings.”
+“Godsbanen has a strong recurring rhythm.”
+“CI and Circling overlap in this venue at different times.”
+“This event is occasional rather than stable.”
+
+---
+
+# 7. How to generate the rhythm map visually
+
+For each venue or area, generate a simulated “field state” per time bucket.
+
+A time bucket could be:
+
+* weekday + morning/afternoon/evening
+* or smaller segments if desired
+
+Each field state should include:
+
+```js
+{
+  areaId,
+  timeBucket,
+  activityIntensity,
+  communityWeights,
+  practiceWeights,
+  regularityScore,
+  concreteEvents,
+  adjacencyLinks
+}
+```
+
+## Visual encoding
+
+### Activity intensity
+
+Use:
+
+* opacity
+* radius/field size
+* glow/pulse strength
+
+### Community composition
+
+Use:
+
+* blended colors
+* gradients
+* multi-color field texture
+
+Example:
+If Godsbanen hosts CI Tuesday and Circling Thursday, the field color should morph across the week.
+
+### Regularity
+
+Use:
+
+* crisp edge = highly regular recurring pattern
+* soft edge = looser/less stable presence
+* flicker/shimmer/breathing = every-other-week or irregular activity
+
+### Concrete events
+
+Use:
+
+* bounded event kernels inside the larger field
+* clickable shapes inside ambient presence zones
+
+This bridges pattern into action.
+
+---
+
+# 8. The rhythm map must bridge to concrete participation
+
+The rhythm map should not remain abstract.
+
+When the user clicks an area/time-state, open a side panel with two sections:
+
+## A. Pattern
+
+Explain what usually happens here.
+
+Examples:
+
+* “Thursday evenings are usually active here.”
+* “This venue often holds Circling, authentic relating, and somatic practice.”
+* “CI has a stable Tuesday rhythm here.”
+* “This pattern is biweekly / occasional / seasonal.”
+
+## B. Doors
+
+Show concrete next steps:
+
+* next actual events
+* communities connected to this rhythm
+* facilitators active here
+* venue page
+* save/follow options
+
+This is important: the rhythm map reveals the field, but still leads to actual choices.
+
+---
+
+# 9. Different map modes should have different philosophies
+
+Do not create one giant map with all toggles.
+
+Create different map experiences depending on the user’s orientation.
+
+## A. Open / Live map
+
+Question:
+**What is happening around here soon?**
+
+Focus:
+
+* bounded event shapes
+* venue anchors
+* light community fields
+* time scrubber for near-term events
+
+Use when user wants concrete options.
+
+---
+
+## B. Rhythm of the Field map
+
+Question:
+**How does this field usually move through time?**
+
+Focus:
+
+* recurring patterns
+* weekly/monthly cycles
+* morphing ambient fields
+* regularity
+* connection from rhythm → actual events
+
+Use when user wants to understand the life of the area.
+
+---
+
+## C. Familiar Territory map
+
+Question:
+**Where are the parts of the field I already know?**
+
+Focus:
+
+* followed communities
+* familiar venues
+* recurring commitments
+* known facilitators
+* upcoming events connected to existing participation
+
+Visual style:
+
+* calmer
+* more structured
+* less exploratory
+* more reassuring
+
+---
+
+## D. Adjacent Worlds map
+
+Question:
+**What is connected to what I already know?**
+
+Focus:
+
+* overlap
+* participant crossover
+* shared facilitators
+* shared venues
+* “more like this”
+* time-forward paths to connected events
+
+Visual style:
+
+* relational traces
+* branching paths
+* selective motion
+* particles/trails only after interaction
+
+Important interaction:
+Click an event → click “more like this” → map advances through time and shows related upcoming events as connected formations.
+
+---
+
+## E. Wider Field map
+
+Question:
+**How does the larger field connect across cities and regions?**
+
+Focus:
+
+* city nodes
+* travel-worthy hubs
+* density of communities/opportunities
+* exchange between cities
+
+Examples:
+
+* Aarhus ↔ Copenhagen
+* Copenhagen ↔ Malmö
+* Berlin as a large European hub
+* Portugal festival/retreat clusters
+
+Use:
+
+* geographic map for city connections
+* maybe later: non-geographic graph of communities
+
+Do not make this the main map priority yet, but design for it conceptually.
+
+---
+
+# 10. Add supporting elements around maps
+
+The map should not explain everything alone.
+
+Use a consistent layout:
+
+## Left side
+
+Mode / stance selector:
+
+* Open/live
+* Rhythm of the field
+* Familiar territory
+* Adjacent worlds
+* Wider field
+
+## Center
+
+Map visualization.
+
+## Bottom
+
+Time control:
+
+* near-term scrubber for live map
+* cyclical wheel for rhythm map
+* time-forward sequence for adjacent worlds
+
+## Right side
+
+Context panel:
+
+* explanation
+* concrete doors
+* why something is relevant
+* communities/facilitators/venues/events connected to selection
+
+The map orients.
+The panel interprets.
+
+---
+
+# 11. Avoid over-encoding
+
+Do not try to represent everything directly on the map.
+
+Keep these mostly in detail panels:
+
+* lineages
+* facilitator philosophy
+* access control / membership pricing
+* long event explanations
+* detailed participant histories
+* private community rules
+
+The map should communicate:
+
+* place
+* activity
+* rhythm
+* community presence
+* connection
+
+The panel should communicate:
+
+* explanation
+* meaning
+* details
+* actions
+
+---
+
+# 12. Adjust the copy tone
+
+The app should use language that reveals insight without preaching.
+
+Good phrases:
+
+* **Explore the rhythm of the field**
+* **Continue what already supports you**
+* **Taste new connections**
+* **Deepen what already matters**
+* **Create, share, or nurture**
+* **Make space**
+* **Familiar territory**
+* **Adjacent worlds**
+* **The wider field**
+* **What is alive nearby**
+* **Doors into participation**
+
+Avoid overly generic SaaS language:
+
+* dashboard
+* manage
+* optimize
+* recommended for you
+* maximize attendance
+* engagement metrics
+* target audience
+
+Avoid implying the app knows the user better than they do.
+
+---
+
+# 13. Update the emotional design goal
+
+The landing page should feel like:
+
+**“Here are several nourishing ways to be with the field. You can choose what serves now.”**
+
+Not:
+
+* “Here are all your events.”
+* “Here are our recommendations.”
+* “Here is a dashboard.”
+* “Here is a feed.”
+* “Here is a map full of stuff.”
+
+The experience should bring joy to possibility without creating pressure to do more.
+
+---
+
+# 14. Practical first implementation steps
+
+For the next design iteration, prioritize:
+
+1. Replace the current home layout with orientation tiles.
+2. Keep only small preview glimpses inside each tile.
+3. Move event grids/lists deeper into their respective views.
+4. Add a tile called **Explore the rhythm of the field**.
+5. Create a first prototype of the rhythm map using fake weekly field-state data.
+6. Distinguish visually between:
+
+   * event shapes
+   * community fields
+   * venue anchors
+   * adjacency traces
+7. Add right-side interpretation panels for selected map areas.
+8. Make map modes feel meaningfully different, not just filtered versions of the same map.
+
+---
+
+# 15. Design anchor
+
+Use this as the guiding sentence while implementing:
+
+**The platform should not decide what matters for the user. It should offer clear, joyful doorways into different ways of relating with the field: continuing, exploring, deepening, creating, simplifying, and sensing the rhythm of the field.**

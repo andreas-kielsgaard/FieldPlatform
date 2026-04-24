@@ -5,8 +5,10 @@ const App = (() => {
 
   // ─── Navigation ───
   let currentViewId = null;
+  let previousView = null;
 
   function navigate(view, id) {
+    previousView = DATA.currentView;
     navStack.push({ view: DATA.currentView, id: currentViewId });
     DATA.currentView = view;
     currentViewId = id;
@@ -38,9 +40,17 @@ const App = (() => {
       return;
     }
 
+    // Destroy rhythm map when navigating away from it
+    if (previousView === 'rhythm' && view !== 'rhythm' && typeof RhythmView !== 'undefined') {
+      RhythmView.destroy();
+    }
+
     switch (view) {
       case 'home':         container.innerHTML = HomeView.render(); break;
       case 'explore':      container.innerHTML = ExploreView.render(); ExploreView.afterRender(); break;
+      case 'explore-familiar': ExploreView.render(); ExploreView.setMode('familiar'); break;
+      case 'explore-adjacent': ExploreView.render(); ExploreView.setMode('social'); break;
+      case 'rhythm':       container.innerHTML = RhythmView.render(); RhythmView.afterRender(); break;
       case 'communities':  container.innerHTML = CommunitiesView.render(); break;
       case 'community':    container.innerHTML = CommunityDetailView.render(id); break;
       case 'events':       container.innerHTML = EventsView.render(); break;

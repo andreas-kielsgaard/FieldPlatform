@@ -1,0 +1,1282 @@
+
+
+# Part 1 — Map system deep dive and implementation instructions
+
+## 1. Current map assessment
+
+The new `RhythmView` is a good conceptual start. It already has:
+
+* a generated weekly wheel
+* field states built from events by venue/day/period
+* Leaflet layers for fields, anchors, kernels, and traces
+* a right panel with “Pattern” and “Doors into participation” 
+
+However, the different map modes are not yet truly different. The mode buttons exist, but `setMapMode()` mainly changes the map tile layer and then calls the same `updateMapForSlot()` logic again .
+
+So the next step is not just styling. The app needs a small **custom visualization engine** that generates different visual layers depending on the map mode.
+
+---
+
+## 2. Create a dedicated visualization engine
+
+Add a new module, for example:
+
+```text
+js/components/field-visualization-engine.js
+```
+
+This should not be backend-like. It can be fully client-side and simulated. Its job is to transform seeded data into renderable visual states.
+
+### Engine input
+
+The engine should consume:
+
+* communities
+* venues
+* events
+* facilitators
+* personas / participant histories
+* community overlap data
+* event attendance
+* saved / followed communities
+* recurring rhythms
+
+### Engine output
+
+The engine should output mode-specific render models, such as:
+
+```js
+{
+  fields: [],
+  anchors: [],
+  kernels: [],
+  traces: [],
+  labels: [],
+  panels: []
+}
+```
+
+The map renderer should then draw these outputs.
+
+Do not let Leaflet circles be the core data model. Leaflet should be the map substrate; the field engine should define the meaning.
+
+---
+
+## 3. Establish the visual ontology
+
+Use this rule throughout:
+
+**Events are bounded. Communities are ambient. Venues are anchored. Adjacency is motion through time.**
+
+### A. Event kernels
+
+Events should be concrete, bounded, and clickable.
+
+Represent as:
+
+* compact blobs
+* capsules
+* droplets
+* soft but bounded shapes
+
+Data mapping:
+
+* size = expected attendance / relevance / intensity
+* fill color = dominant community or blended associated communities
+* border = access state
+
+  * solid = public
+  * dashed = member-only / restricted
+  * dotted = invitation / request-based
+* glow = user relevance
+* small inner dot = user is attending / saved
+
+In the current rhythm view, events are circle markers. That is acceptable as a first step, but the next iteration should make them visually distinct from venue anchors and ambient community fields.
+
+### B. Community fields
+
+Communities should not be drawn as hard circles.
+
+Represent as:
+
+* diffuse color washes
+* soft contour fields
+* blurred gradients
+* overlapping translucent shapes
+
+Data mapping:
+
+* field radius = participation density across nearby venues/areas
+* opacity = active intensity in selected time window
+* color = community color
+* blended field = multiple communities active in same area
+* edge softness = confidence / regularity / diffuseness
+
+Currently, community fields are `L.circle()` objects around community coordinates. That makes them look like large event markers or territory claims. Instead, generate them from venue/activity/participant presence.
+
+### C. Venue anchors
+
+Venues should feel stable and physical.
+
+Represent as:
+
+* small fixed nodes
+* diamonds / squares / site glyphs
+* subdued when inactive
+* glowing or activated when activity is present
+
+Data mapping:
+
+* base marker always visible
+* size = current or selected-time activity
+* glow = current activation
+* shape stability = regularity
+
+  * stable recurring rhythm: crisp diamond
+  * occasional usage: softer circular node
+
+The current diamond-ish venue anchor idea is good. Keep it, but make the venue anchors less visually dominant than event kernels when actual events are present.
+
+### D. Adjacency traces
+
+Adjacency should mostly appear on interaction, not always.
+
+Represent as:
+
+* soft lines
+* branching paths
+* particle trails
+* temporal arcs
+* fading traces
+
+Data mapping:
+
+* line thickness = overlap strength
+* opacity = relevance to selected object/persona
+* dashing = uncertain or weak relationship
+* animation = temporal movement or “more like this” exploration
+
+Currently, traces are drawn between community location points. That is too abstract. In adjacent mode, traces should preferably connect **event → later related event**, **venue → venue**, or **community field → concrete opportunity**, not just community centroid to community centroid.
+
+---
+
+## 4. Replace “mode buttons with same rendering” with distinct renderers
+
+Create separate rendering functions:
+
+```js
+renderLiveMap(state)
+renderRhythmMap(state)
+renderFamiliarMap(state, persona)
+renderAdjacentMap(state, persona, focusObject)
+renderWiderFieldMap(state, persona)
+```
+
+Each renderer should have a different visual philosophy.
+
+---
+
+# Map mode A — Open / Live map
+
+## Question answered
+
+**What concrete opportunities are available around here soon?**
+
+## Visual priority
+
+1. Event kernels
+2. Venue anchors
+3. Light community fields
+4. Minimal traces
+
+## What to show
+
+* upcoming events in selected date/time range
+* active venues
+* faint background community presence
+* selected filters/tags
+* right panel with concrete event details
+
+## Time control
+
+Use a normal near-term time scrubber:
+
+* Today
+* Tomorrow
+* This weekend
+* Next 7 days
+* Next 30 days
+
+This mode is the closest to a conventional event map, but it should still feel field-aware.
+
+## Avoid
+
+* showing all community overlap
+* too much rhythm abstraction
+* too many ambient fields
+* making it look like Google Maps pins
+
+---
+
+# Map mode B — Rhythm of the Field
+
+## Question answered
+
+**How does this field move through time?**
+
+This is the most important distinctive map.
+
+## Visual priority
+
+1. Ambient community fields
+2. Venue activation
+3. Recurring event kernels
+4. Actual next doors into participation
+
+## Time control
+
+Use a cyclical wheel or looped scrubber:
+
+* Monday → Sunday → Monday
+* Morning / afternoon / evening
+* later: weekly / monthly / seasonal toggle
+
+The user should feel that the field has a rhythm.
+
+## Field-state generation
+
+For each venue/area and time bucket, compute:
+
+```js
+{
+  areaId,
+  venueIds,
+  timeBucket,
+  activityIntensity,
+  communityWeights,
+  practiceWeights,
+  regularityScore,
+  eventIds,
+  participantWeights,
+  facilitatorWeights
+}
+```
+
+### Activity intensity
+
+Calculate from:
+
+* recurring events
+* one-off events
+* expected attendance
+* number of communities represented
+* participant regularity
+
+Example:
+
+```js
+activityIntensity =
+  recurringEventWeight +
+  oneOffEventWeight +
+  attendanceWeight +
+  communityOverlapWeight
+```
+
+### Community weights
+
+For each area/time bucket:
+
+* count event community associations
+* count venue community associations
+* optionally count participant/facilitator presence
+
+Example:
+
+```js
+communityWeights = {
+  ci: 0.45,
+  cr: 0.30,
+  ed: 0.15,
+  godsbanen: 0.10
+}
+```
+
+### Regularity score
+
+Represent how rhythm-like the activity is.
+
+Inputs:
+
+* recurring weekly = high
+* biweekly = medium-high
+* monthly = medium
+* one-off = low
+* participant regularity = increases score
+
+Visual mapping:
+
+* crisp edge = highly regular
+* soft edge = occasional
+* shimmer/noise = irregular or emerging
+* stable glow = dependable rhythm
+
+## Important: rhythm must bridge to choice
+
+When the user clicks an active area/time state, the side panel must show:
+
+### Pattern
+
+Examples:
+
+* “Thursday evenings are usually active here.”
+* “This place carries a recurring Circling rhythm.”
+* “CI appears here most strongly on Fridays and Sundays.”
+* “This is an occasional pulse rather than a stable rhythm.”
+
+### Doors
+
+Concrete options:
+
+* next actual events
+* relevant communities
+* venue page
+* facilitators active in this rhythm
+* save/follow actions
+
+This prevents the rhythm map from becoming beautiful but unusable.
+
+---
+
+# Map mode C — Familiar Territory
+
+## Question answered
+
+**Where are the parts of the field I already know?**
+
+## Visual priority
+
+1. Followed communities
+2. Saved / attending events
+3. Familiar venues
+4. Known facilitators
+5. Recurring rhythms
+
+## Visual tone
+
+This should feel calmer and more settled than the exploration maps.
+
+Use:
+
+* clearer labels
+* stronger known-community colors
+* less animation
+* fewer suggestions
+* familiar anchors
+
+## What to show
+
+* followed community fields
+* venues tied to those communities
+* events the user is attending/saved
+* recurring rhythms they are likely to know
+* “already connected through…” explanations
+
+## Side panel
+
+When clicking an area, show:
+
+* “You are connected here through CI Aarhus”
+* “You have attended 3 events here”
+* “Next familiar rhythm: Friday Open Jam”
+* “People/facilitators you know here”
+
+This is not about novelty. It is about helping the user feel at home in the field.
+
+---
+
+# Map mode D — Adjacent Worlds
+
+## Question answered
+
+**What is connected to what I already know?**
+
+This mode needs the most custom visualization.
+
+## Visual priority
+
+1. Selected source object
+2. Related events/communities/venues
+3. Traces showing why they are connected
+4. Time-forward paths
+
+## Core interaction
+
+User selects a source object:
+
+* an event
+* a community
+* a venue
+* a facilitator
+
+Then clicks something like:
+
+**More like this**
+or
+**Show adjacent paths**
+
+The map should then generate a visible set of adjacent options.
+
+## Adjacent option types
+
+Generate adjacent suggestions from several relationship types.
+
+### 1. Participant overlap
+
+Example:
+“People who attend CI also attend this Ecstatic Dance event.”
+
+Use when:
+
+* communities share members
+* same attendees appear across event types
+* persona’s followed communities overlap with another community
+
+Visual:
+
+* soft trace between source and target
+* particle drift from source event to target event
+* thicker trace for stronger overlap
+
+### 2. Practice similarity
+
+Example:
+“This somatic lab shares movement/inquiry tags with CI.”
+
+Use:
+
+* shared tags
+* shared practices
+* shared modalities
+
+Visual:
+
+* dotted or lighter trace
+* less strong than participant overlap
+
+### 3. Facilitator bridge
+
+Example:
+“This facilitator teaches in both CI and Circling.”
+
+Use:
+
+* facilitator belongs to both communities
+* facilitator has hosted events in multiple scenes
+
+Visual:
+
+* trace routed through facilitator marker/avatar
+* small facilitator node appears as bridge
+
+### 4. Venue ecology
+
+Example:
+“This venue hosts both queer embodiment and circling gatherings.”
+
+Use:
+
+* same venue
+* nearby venues
+* venue cluster such as Godsbanen
+
+Visual:
+
+* area/venue glows as shared anchor
+* traces converge on venue
+
+### 5. Temporal continuation
+
+Example:
+“After Wednesday CI, related openings appear Thursday and Saturday.”
+
+Use:
+
+* future events with similar participants/tags/communities
+* events within next 14–30 days
+
+Visual:
+
+* time-forward sequence
+* source event remains visible but fades
+* related events appear in chronological order
+* traces persist faintly
+
+## Adjacency score
+
+Create a simple score per candidate:
+
+```js
+adjacencyScore =
+  participantOverlap * 0.35 +
+  communityOverlap * 0.25 +
+  tagSimilarity * 0.15 +
+  facilitatorBridge * 0.15 +
+  venueProximity * 0.10
+```
+
+Then classify:
+
+* strong adjacent path
+* soft adjacent path
+* distant but interesting path
+
+## Visual grammar
+
+* strong adjacent path = thicker, brighter trace
+* soft adjacent path = thinner, translucent trace
+* distant path = dotted trace
+* temporal path = animated or sequentially revealed
+
+## Side panel
+
+When user selects an adjacent option, show:
+
+* why it is connected
+* what is familiar about it
+* what is new about it
+* what the concrete next door is
+
+Example:
+
+```text
+Connected through:
+• 42% participant overlap with CI Aarhus
+• Shared venue: Godsbanen
+• Somatic movement tag
+• Facilitator Emma Dahl bridges both communities
+
+This might feel familiar because:
+• It shares physical improvisation and consent-forward culture
+
+This might open something new because:
+• It is more ritual/social than technique-focused
+```
+
+This is exactly where the app becomes more than an event map.
+
+---
+
+# Map mode E — Wider Field
+
+## Question answered
+
+**How does the larger field connect across cities and regions?**
+
+## Visual priority
+
+1. City nodes
+2. Cross-city exchange
+3. Practice clusters
+4. Travel-worthy events/communities
+
+## What to show
+
+* Aarhus
+* Copenhagen
+* Malmö
+* Berlin
+* Amsterdam
+* Portugal retreat/festival regions
+* other seeded cities
+
+## City node mapping
+
+* node size = amount of activity
+* halo = communities relevant to the user
+* color mix = dominant practices/communities
+* label = city name + strongest scene identity
+
+## Connection lines
+
+Represent flows like:
+
+* Aarhus ↔ Copenhagen
+* Copenhagen ↔ Malmö
+* Aarhus ↔ Berlin
+* Berlin ↔ broader Europe
+* Denmark ↔ Portugal festivals/retreats
+
+Connection strength can be simulated from:
+
+* shared facilitators
+* travel events
+* same practices
+* participant travel patterns
+* community network links
+
+Visual:
+
+* curved lines, not straight harsh graph edges
+* line thickness = exchange strength
+* line color = dominant shared practice
+* dotted line = weak or occasional exchange
+* pulsing line = current/upcoming travel-worthy event
+
+## Optional later: non-geographic graph
+
+A non-geographic community graph could later show:
+
+* communities as nodes
+* practices as clusters
+* facilitators as bridges
+* venues as anchors
+
+But do not prioritize this before the geographic wider-field map.
+
+---
+
+## 5. Implementation direction: use SVG/canvas overlay, not only Leaflet primitives
+
+Leaflet circles and markers will not be enough for the desired organic field effects.
+
+Recommended approach:
+
+### Keep Leaflet for:
+
+* base map
+* panning/zooming
+* geographic projection
+* venue anchor coordinates
+
+### Add custom overlay for:
+
+* ambient fields
+* organic blobs
+* blended color fields
+* animated traces
+* particles
+* morphing rhythm states
+
+Implementation options:
+
+1. SVG overlay for easier development and clickable shapes.
+2. Canvas overlay for smoother fields/particles.
+3. Hybrid: SVG first, canvas later.
+
+For prototype: SVG overlay is probably the best first custom layer.
+
+Create a `FieldOverlay` component that:
+
+* reads projected map coordinates from Leaflet
+* draws custom SVG shapes positioned over the map
+* updates on zoom/pan/time change
+* supports click interactions
+
+Pseudo-structure:
+
+```js
+const FieldOverlay = {
+  init(map, container),
+  setRenderModel(model),
+  projectLatLng(latLng),
+  renderFields(fields),
+  renderKernels(kernels),
+  renderTraces(traces),
+  clear()
+}
+```
+
+This lets the app stop relying on generic Leaflet circles for everything.
+
+---
+
+## 6. Organic field rendering algorithm
+
+For each ambient community/venue field:
+
+1. Start from one or more anchor points:
+
+   * venues
+   * community centroid
+   * area cluster
+2. Generate an organic blob around those points.
+3. Radius depends on intensity.
+4. Edge softness depends on regularity/confidence.
+5. Fill uses blended community colors.
+6. Opacity depends on selected time bucket.
+
+For prototype, a blob can be an SVG path generated from polar points:
+
+```js
+generateBlobPath(center, radius, irregularity, seed)
+```
+
+Use 12–24 points around a circle with noise.
+
+Regular fields:
+
+* low irregularity
+* smoother path
+* crisper edge
+
+Irregular fields:
+
+* higher irregularity
+* softer opacity
+* slight shimmer/pulse
+
+Do not overdo the animation. The field should breathe gently, not distract.
+
+---
+
+## 7. Dense areas like Godsbanen
+
+Treat dense areas as **compound sites**, not stacks of markers.
+
+For venues close together or marked as a cluster:
+
+```js
+{
+  id: "godsbanen-area",
+  type: "area",
+  venues: ["v7", "..."],
+  communityWeights: {...},
+  fieldIdentity: "Godsbanen Culture Center"
+}
+```
+
+At zoomed out level:
+
+* show one compound field
+* show overall rhythm/color composition
+
+At zoomed in level:
+
+* unfold into venue anchors and event kernels
+
+This avoids marker soup.
+
+---
+
+## 8. Map supporting UI
+
+Each map should have:
+
+### Left panel
+
+Mode selector:
+
+* Open / Live
+* Rhythm of the Field
+* Familiar Territory
+* Adjacent Worlds
+* Wider Field
+
+But each mode must change the view meaningfully.
+
+### Bottom control
+
+Different per map mode:
+
+* Live: date/time scrubber
+* Rhythm: cyclical week wheel
+* Adjacent: sequence/time path control
+* Wider field: scale selector, e.g. city / region / Europe
+
+### Right panel
+
+Always interpret the map.
+
+The map shows patterns.
+The panel explains meaning and doors.
+
+Right panel sections should use this structure:
+
+```text
+What you’re seeing
+Why it matters
+Doors into participation
+Related communities / facilitators / venues
+```
+
+---
+
+# Part 2 — Landing page revision instructions
+
+## 1. Current home assessment
+
+The new home has the right conceptual categories, but it feels too much like a menu of abstract options. The user has to choose before they receive much flavor.
+
+The current tile previews are mostly text: “Next: event,” “3 suggested events,” “Thursday evenings…” etc. 
+
+That does not yet satisfy the “taste platter” metaphor.
+
+A taste platter should let the user sample the field immediately.
+
+The landing page should feel like:
+
+**arriving home in a house with beautiful windows into the field.**
+
+Not:
+
+* an onboarding menu
+* a dashboard
+* a list of tasks
+* a set of feature cards
+* a feed
+
+---
+
+## 2. Revised landing philosophy
+
+The home page should do three things simultaneously:
+
+### A. Make the user feel already connected
+
+Show signs that they are part of something:
+
+* communities they follow
+* upcoming commitments
+* familiar rhythms
+* known facilitators
+* saved openings
+* “threads already here”
+
+This creates the feeling of arrival.
+
+### B. Offer windows into possibility
+
+Each orientation tile should include a small, sensory, content-rich preview:
+
+* an actual event
+* a community field
+* a rhythm glimpse
+* a facilitator face/avatar
+* a venue
+* a map fragment
+* a tiny overlap visualization
+
+Not just descriptions.
+
+### C. Invite choice without demanding it
+
+The user should not feel they must navigate before arriving.
+
+They should be able to look at the landing page and immediately get:
+
+* “this is my field”
+* “things are alive”
+* “I could rest here”
+* “I could explore there”
+* “I could create something”
+* “I could deepen something”
+
+---
+
+## 3. Replace pure orientation tiles with “windows”
+
+Instead of six equal abstract option cards, make the home page a set of **living windows**.
+
+Each window is still a doorway, but it contains actual sample content.
+
+Suggested structure:
+
+## Top section: “Welcome back into the field”
+
+Keep the hero, but soften it.
+
+Current copy:
+“Choose what serves now.”
+
+This is fine, but the page below should not require choice immediately.
+
+Suggested hero:
+
+```text
+Welcome back into the field, Maya.
+Here are a few ways the field is already moving around you.
+```
+
+Or:
+
+```text
+How would you like to be with the field today?
+No need to know yet — here are a few windows.
+```
+
+## Main section: window grid
+
+Use fewer words per tile. Let previews carry more meaning.
+
+---
+
+# Window A — Already here
+
+Purpose:
+Make the user feel at home.
+
+Show:
+
+* 2 followed community chips with color
+* next upcoming commitment
+* one familiar venue
+* one known facilitator avatar
+* maybe a tiny “your threads” mini-map or constellation
+
+Copy:
+**Already here**
+or
+**Threads that hold you**
+
+Subcopy:
+“Communities, rhythms, and people already part of your field.”
+
+CTA:
+“Return”
+
+Visual:
+Small constellation of known communities/venues.
+
+---
+
+# Window B — Rhythm of the field
+
+Purpose:
+Reveal temporal life.
+
+Show:
+
+* mini weekly rhythm visualization
+* strongest active days
+* one location that comes alive
+* one next concrete door
+
+Copy:
+**Explore the rhythm of the field**
+
+Subcopy:
+“See when places, communities, and practices come alive.”
+
+CTA:
+“Explore rhythm”
+
+Visual:
+Do not just show bars. Use a tiny breathing week-wheel or animated strip.
+
+The current rhythm glimpse uses simple bars. Upgrade it into a more field-like microvisual:
+
+* seven small day nodes in a loop
+* glowing day nodes by intensity
+* blended colors inside nodes
+* one text line: “Godsbanen glows on Friday evenings.”
+
+---
+
+# Window C — Taste new connections
+
+Purpose:
+Inspire exploration.
+
+Show:
+
+* 2 adjacent communities
+* one event connected through overlap
+* one “why connected” chip
+
+Copy:
+**Taste new connections**
+
+Subcopy:
+“Adjacent worlds close enough to enter.”
+
+CTA:
+“Explore adjacent”
+
+Visual:
+Small branching trail from known community → adjacent community/event.
+
+This should literally taste like something, not just describe “adjacent worlds.”
+
+---
+
+# Window D — Deepen
+
+Purpose:
+Balance against novelty.
+
+Show:
+
+* one community the user already follows
+* one possible deeper path:
+
+  * lab
+  * practice group
+  * volunteering
+  * integration space
+  * recurring circle
+
+Copy:
+**Deepen what already matters**
+
+Subcopy:
+“Not more. More meaningful.”
+
+CTA:
+“Find deeper paths”
+
+Visual:
+One community chip expanding into 2–3 participation forms:
+attend → practice → help/steward.
+
+---
+
+# Window E — Create / nurture
+
+Purpose:
+For facilitator/steward energy.
+
+Show:
+
+* draft event
+* suggested event queue
+* “explore who might be interested”
+* community pulse insight
+
+Copy:
+**Create, share, or nurture**
+
+Subcopy:
+“Bring something into the field, or tend what is already growing.”
+
+CTA:
+“Open creator space”
+
+Visual:
+Small seed/growth metaphor or event card radiating toward communities.
+
+---
+
+# Window F — Make space
+
+Purpose:
+Permission not to add more.
+
+Show:
+
+* saved events count
+* upcoming commitments
+* one calm note:
+
+  * “Nothing urgent today”
+  * “2 commitments this week”
+  * “You can simply stay with what’s already here”
+
+Copy:
+**Make space**
+
+Subcopy:
+“Review, simplify, or rest.”
+
+CTA:
+“Review commitments”
+
+Visual:
+Minimal, calm, spacious.
+
+---
+
+## 4. Use actual seeded data in every window
+
+Every window should show something specific.
+
+Avoid tiles that only contain:
+
+* abstract explanation
+* generic examples
+* static option labels
+
+For example:
+
+Bad:
+
+```text
+Practice groups, recurring labs, volunteer & steward, integration spaces
+```
+
+Better:
+
+```text
+CI Aarhus · Friday Open Jam
+Somatic Network · Monthly peer supervision
+Queer Embodiment · Movement Circle
+```
+
+Bad:
+
+```text
+Adjacent worlds your people move through
+```
+
+Better:
+
+```text
+CI Aarhus → Ecstatic Dance
+60% shared members
+Next door: Sunday Dance Meditation
+```
+
+The user needs flavor before clicking.
+
+---
+
+## 5. Reduce copy density
+
+The current home has good words but too many of them. Each tile asks the user to read and interpret.
+
+Revise each window to:
+
+* title: 2–5 words
+* subcopy: one short sentence
+* preview: actual data
+* CTA: one verb phrase
+
+Example:
+
+```text
+Taste new connections
+Adjacent worlds close enough to enter.
+
+CI Aarhus → Ecstatic Dance
+60% shared members
+Sunday · Dance Meditation
+
+Explore →
+```
+
+This is much stronger than a paragraph.
+
+---
+
+## 6. Create a “home with windows” layout
+
+Suggested layout:
+
+### Hero at top
+
+Full width, not too tall.
+
+### Main grid
+
+Asymmetric, like windows in a house:
+
+* Large left window: Already here
+* Large right window: Rhythm of the field
+* Medium windows below: Taste / Deepen / Create
+* Small calm window: Make space
+
+This will feel less like a feature menu.
+
+The current six equal tiles make every orientation mode feel equally abstract. That is part of why it does not feel intuitive.
+
+Make it more editorial.
+
+---
+
+## 7. Add a small “today in your field” strip
+
+Not a list. Just a soft strip near the top or inside the hero.
+
+Example:
+
+```text
+Today: Morning Sit · Café Kvindehjemmet quiet · 2 communities active · nothing you’re committed to
+```
+
+Or:
+
+```text
+Your field today: 1 familiar rhythm · 2 adjacent openings · 0 urgent commitments
+```
+
+This gives the user a sense of arrival before choosing.
+
+---
+
+## 8. Preserve the orientation categories, but make them felt
+
+The categories are good:
+
+* Continue
+* Explore
+* Rhythm
+* Deepen
+* Create
+* Make Space
+
+Keep them.
+
+But each must become:
+
+* an immediate taste
+* a visual preview
+* a doorway
+
+Not merely a labeled option.
+
+---
+
+## 9. Specific home implementation instruction
+
+Refactor `HomeView.render()` into:
+
+```js
+renderHero(persona)
+renderTodayFieldStrip(persona)
+renderWindowGrid(persona, role)
+```
+
+Then each window:
+
+```js
+renderAlreadyHereWindow(persona)
+renderRhythmWindow(persona)
+renderTasteWindow(persona)
+renderDeepenWindow(persona)
+renderCreateWindow(persona, role)
+renderMakeSpaceWindow(persona)
+```
+
+Each window should pull actual seeded data.
+
+No window should consist only of generic text.
+
+---
+
+## 10. Emotional target
+
+The landing page should feel like:
+
+**I have arrived somewhere that knows I am already in relationship with life, and gently shows me several beautiful windows into how I might relate next.**
+
+It should not feel like:
+
+**I must choose a navigation mode before the app gives me anything.**
+
+The metaphor to use while designing:
+
+**A home with windows overlooking the field.**
+
+Not:
+
+* a dashboard
+* a feed
+* a launch menu
+* a productivity board
+
+---
+
+# Combined design anchor for the coding agent
+
+Use this as the design anchor for both maps and home:
+
+**The app should help the user feel already connected to a living field, then offer beautiful, concrete windows into how they might continue, deepen, explore, create, or rest. The maps should reveal the field’s spatial, temporal, and relational patterns; the home should let the user taste those possibilities before asking them to choose.**

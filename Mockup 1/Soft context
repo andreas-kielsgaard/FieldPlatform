@@ -1,0 +1,272 @@
+Additional Product Context for the Coding Agent
+What this product is really trying to do
+
+This is not just an event app, a community forum, or a facilitator marketplace.
+
+At its core, the product is trying to make meaningful participation easier to perceive, easier to enter, and easier to continue. It should help people find more of what already works for them, and make new options visible when their life is asking for something different.
+
+The deeper aim is not to push users toward constant novelty or self-improvement. It is to support right relationship with what is presently life-serving. Sometimes that means discovering something new. Sometimes it means deepening what already nourishes them. Sometimes it means staying with a practice. Sometimes it means rest. Sometimes it means re-orienting.
+
+So the product should feel less like a system that tells people who they are, and more like an orientation companion that helps them navigate the living options around them.
+
+Important philosophical/design guardrails
+1. Do not reduce everything to lists
+
+A major motivation for this product is to explore how the user experience can become more than “just another forum with lists.”
+
+The prototype should try to make visible:
+
+adjacency
+overlap
+geography
+timing
+rhythm
+participation patterns
+community context
+
+The app should feel like a living field rather than a database of entries.
+
+2. Do not assume the platform knows the user better than they know themselves
+
+The product should help users orient among possibilities without implying:
+
+“we understand your deeper self”
+“we know what growth means for you”
+“we can finalize your identity”
+
+It should not harden the user into a fixed profile. It should leave room for them to keep discovering what fits, and to keep allowing their understanding of themselves to remain revisable in contact with life.
+
+So recommendations and relevance cues should feel like:
+
+helpful orientation
+meaningful context
+adjacent invitations
+
+Not:
+
+identity capture
+overconfident personalization
+algorithmic certainty
+3. Do not glorify novelty
+
+The product is not about endlessly finding “the next thing.”
+
+A lot of real human life is about:
+
+continuity
+integration
+repetition
+stability
+rest
+staying with what already works
+
+So the prototype should support both:
+
+exploration without compulsive novelty
+continuity without stagnation
+
+This matters a lot. The app should not feel like it assumes a good life always means change.
+
+4. Communities matter, but participation may be even more fundamental
+
+Named communities are useful and should absolutely exist in the product.
+
+But real life is messier than rigid group boundaries. Many scenes are made of overlapping participation patterns:
+
+people move between communities
+facilitators belong to multiple worlds
+venues connect otherwise separate scenes
+events are relevant to more than one community
+people may know each other through multiple overlapping contexts
+
+So the prototype should allow the ecosystem to feel like a network of overlapping participation rather than a clean hierarchy of isolated groups.
+
+This is why the map/timeline/overlap concept matters so much.
+
+5. Community health is not the same as harmony
+
+A healthy community is not just one that stays united.
+
+Sometimes the healthy outcome is:
+
+branching
+fission
+reconfiguration
+partial overlap after separation
+emergence of new communities from old ones
+
+So when thinking about community-support features, the deeper principle is not “restore harmony at all costs,” but:
+support dignity, clarity, and future viability, whether together or apart.
+
+This probably will not be deeply implemented in the prototype, but it should inform how community tools are imagined.
+
+6. Reinforcement should mean strengthening health-bearing structures, not just repeating behavior
+
+When the product supports continuity and reinforcement, that does not just mean helping users repeat the same activity.
+
+It means strengthening the conditions that make meaningful participation more available over time:
+
+healthy community rhythms
+legible onboarding
+trusted organizers
+recurring practices
+clear norms
+supportive venues
+visibility of what is working
+the ability of communities to adapt
+
+Community dashboards should therefore focus less on “member management” and more on:
+
+opportunities
+participation patterns
+what the community can do next
+what is healthy or underserved
+what adjacent possibilities are emerging
+What the participant experience should feel like
+
+When a participant opens the app, the feeling should be closer to:
+
+“The world is opening up for me.”
+
+Not:
+
+“Here is a machine crunching information.”
+“Here is a giant feed.”
+“Here is a pile of event cards.”
+“Here is another social media echo chamber.”
+
+The product should help people feel:
+
+what is alive around them
+what is adjacent to what they already care about
+what communities exist nearby
+how to enter them
+what might fit now
+what might fit next
+
+Details matter, but they should usually come after orientation.
+
+What the community experience should feel like
+
+A community should not mainly experience itself as:
+
+a list of members
+a group settings panel
+an admin dashboard
+
+It should feel more like:
+
+a visible rhythm
+a living identity
+an ecology of participation
+a set of opportunities
+a pattern of overlap with other communities
+a set of conditions that support healthy growth and continuity
+
+The question for community mode is less:
+“Who is in the database?”
+
+And more:
+“What does the current shape of this community make possible?”
+
+What the facilitator experience should feel like
+
+Facilitators are not just event creators. They are often carriers of:
+
+practices
+lineages
+values
+intentions
+tone
+ways of holding space
+bridges between communities
+
+The product should make it easy for facilitators to present the information that actually helps the right people find them:
+
+background
+inspirations / lineages
+communities they participate in
+what kind of spaces they create
+who their offerings are for
+what values or intentions shape their work
+
+The goal is not just creator promotion. It is meaningful discoverability through context and fit.
+
+The key contrast with conventional platforms
+
+This project is partly motivated by dissatisfaction with the way many platforms reinforce a narrow, identity-hardening loop:
+
+more of what you already engaged with
+more of what people like you do
+more evidence that your current self-concept is the whole story
+
+This product should move in a different direction.
+
+It should support:
+
+continuity without stagnation
+exploration without compulsive novelty
+reinforcement without rigidity
+rediscovery without self-fragmentation
+
+This does not need to be stated explicitly in the UI, but it should shape how the prototype behaves.
+
+How the product relates to life change
+
+The app is not trying to help users “find THE THING.”
+
+Life is continuous, changing, and rarely linear.
+
+The product should therefore support:
+
+entry
+continuity
+reinforcement
+adaptation
+
+Meaning:
+
+making viable next steps visible
+helping ongoing participation continue
+supporting the communities and structures that make those paths possible
+helping people re-orient as their life changes
+
+So the system should not quietly encode “stable retention in one thing forever” as success.
+
+Success is closer to:
+helping people continue, deepen, sustain, rest in, or re-orient their participation in ways that remain fitting and life-serving.
+
+The deeper product stance
+
+The best short internal summary is:
+
+The product should be biased toward right relationship with what is presently life-serving.
+
+A slightly fuller version:
+
+This platform helps meaningful forms of participation become more visible, more reachable, and more sustainable, while supporting the communities, practices, and social structures that help people continue, deepen, or re-orient their participation in ways that remain viable, fitting, and life-giving as their lives change.
+
+The prototype does not need to explain all this explicitly. But its design choices should reflect it.
+
+Concrete implications for the prototype
+
+Because of all the above, the prototype should emphasize:
+
+map/timeline/overlap views over pure lists
+community context around events
+“why relevant” explanations
+rhythm and onboarding on community pages
+facilitator context, not just names
+discovery through adjacency
+community dashboards centered on opportunities, not rosters
+support for suggesting events as relevant to communities
+a feeling of living ecosystems, not isolated transactions
+
+And it should avoid feeling like:
+
+a ticketing product
+a CRM
+a forum
+a generic social feed
+a pure recommendation engine
+a rigid identity system

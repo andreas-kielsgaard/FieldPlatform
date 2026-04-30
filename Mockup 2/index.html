@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Field Participation Layer Mockup</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="app-shell">
+    <div class="brand-block">
+      <div class="brand-mark">F2</div>
+      <div>
+        <div class="brand-title">Participation Field</div>
+        <div class="brand-subtitle">Aarhus-like demo ecosystem</div>
+      </div>
+    </div>
+
+    <nav class="view-tabs" aria-label="Main views">
+      <button class="tab-button active" data-view="participant">My orientation</button>
+      <button class="tab-button" data-view="steward">Group field</button>
+      <button class="tab-button" data-view="creator">Create offering</button>
+      <button class="tab-button" data-view="model">Data model</button>
+    </nav>
+
+    <div class="shell-actions">
+      <label class="select-label">
+        Persona
+        <select id="personaSelect"></select>
+      </label>
+      <button id="resetButton" class="reset-button">Reset demo data</button>
+    </div>
+  </header>
+
+  <main id="app" class="app-main"></main>
+
+  <aside id="changeDrawer" class="change-drawer" aria-live="polite">
+    <button id="closeDrawer" class="drawer-close" aria-label="Close change summary">x</button>
+    <div id="changeContent"></div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/calculations.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

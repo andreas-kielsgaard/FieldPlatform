@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Field Lenses Mockup</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header id="topbar">
+    <div class="topbar-left">
+      <span class="logo">Field</span>
+      <span class="city-label">Aarhus</span>
+    </div>
+    <nav class="lens-tabs" aria-label="Field lenses">
+      <button class="lens-tab active" data-mode="involvements">Current involvements</button>
+      <button class="lens-tab" data-mode="connected">Connected field</button>
+      <button class="lens-tab" data-mode="edge">Connection edge</button>
+    </nav>
+    <div class="persona-wrap">
+      <label>
+        Persona
+        <select id="personaSelect"></select>
+      </label>
+      <button id="resetButton" class="reset-btn">Reset</button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <aside id="drawer" class="drawer hidden">
+    <button id="closeDrawer" class="drawer-close" aria-label="Close">x</button>
+    <div id="drawerContent"></div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/calculations.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

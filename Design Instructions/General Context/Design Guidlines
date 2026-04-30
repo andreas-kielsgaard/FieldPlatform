@@ -1,0 +1,239 @@
+Executive Summary
+
+Designing a community-centric participation app requires clear orientation, low cognitive load, and respectful personalization. Key UX heuristics (Nielsen–Norman) mandate recognition over recall, clear visual hierarchy, and progressive disclosure. Home pages should greet users with a simple, high-level overview of how they might engage (e.g. “Continue →”, “Explore →”), not an overwhelming feed. Interactions and visuals must reveal complexity only as needed (progressive disclosure).
+
+For map-based exploration and rhythm visualizations, different map modes serve different tasks. A “Live Map” shows concrete upcoming events (bounded “kernels”) and venue anchors; a “Rhythm Map” shows ambient community activity cycles (soft fields that morph over time); an “Adjacent Map” reveals connections between events/communities as traces; a “Familiar Map” highlights user’s existing interests. Graphics should use SVG overlays (for interactivity and accessibility) and base map via Leaflet. Visual design should employ Gestalt grouping (proximity, common regions) and color blending for overlapping communities (with CIE-LCh blending for intuitiveness).
+
+Interactions must offer lightweight personalization without hardening identity. Allow users to choose a stance each session (e.g. Continue / Explore / Deepen / Create / Rest) so that the UI adjusts to their current intent, while still exposing adjacent possibilities. Ethical UX and privacy require transparency, user control, diversity, and inclusion; avoid over-filtering or dark patterns. Accessibility (WCAG/ARIA) demands keyboard navigation and alt-text for map layers, high contrast, color-blind–friendly palettes, and minimizing required personal data (data minimization per GDPR).
+
+This report compiles actionable guidelines and patterns across 1) general UX/UI principles, 2) orientation/home design, 3) map and rhythm visualizations, 4) interaction flows and personalization, 5) ethics/privacy/accessibility, 6) visual/animation language, 7) prototyping/implementation notes, 8) tone/microcopy, and 9) research methods and metrics.
+1. UX Principles and Heuristics
+
+    Nielsen’s Usability Heuristics: Prioritize visibility of system status, user control, consistency, error prevention, and flexibility. In particular, “recognition rather than recall” means surface familiar cues (community names, icons, events) instead of forcing users to remember details. Provide immediate feedback for actions (saving an event, switching mode).
+    Cognitive Load: Reduce unnecessary load. Only present information needed now; chunk related items together. Avoid overwhelming text. Use progressive disclosure: e.g. show 2–3 “preview” items per section with a “Show more” to reveal full lists.
+    Gestalt Principles: Use proximity, common region, similarity, and continuity to group and distinguish UI elements. For example, related controls or event lists should have common containers. Use consistent spacing and boundaries to indicate grouping.
+    Visual Hierarchy: Guide attention via size, contrast, and color. On the landing page, have one dominant “window” (e.g. Rhythm preview) and secondary panels, not six equal cards. Emphasize the primary action by scale and color, minimize secondary actions.
+    Recognition over Recall: Present choices that are immediately recognizable (community names, logos, tags) rather than asking users to type or remember choices. For example, use known community logos or color-coded tags in suggestions.
+    Jakob’s Law: Make the UI feel familiar. Use common patterns (top nav bar, hero section, cards, modals) so users leverage past experience. For instance, a map with a slider is a known convention for timeline filtering.
+    Accessibility: Follow WCAG. Ensure keyboard operability for maps, provide alt-text or ARIA labels for every graphical element. Do not rely on color alone – use shapes, patterns, or labels for color-blind users. Provide high contrast for text and important shapes.
+    Feedback & Affordances: Make interactive elements clearly clickable. Buttons (e.g. “Explore”) should look like buttons. Use micro-interactions (hover highlights) sparingly to indicate interactivity without distracting.
+    Progress Indicators: For processes (e.g. event creation or a multi-step onboarding), show steps or progress bars so users know where they are.
+
+2. Orientation-first Home & Navigation
+
+    Orientation vs. Action: The home (“orientation page”) should ask how the user wants to engage, not impose a task. Present a short menu of stances, each illustrated. The user’s intent (mode) guides the next view.
+    Hero Section: The top should have a concise greeting/prompt (e.g. “How would you like to be with the field today?”) with one primary action or highlighted mode. Use a hero that conveys the app’s purpose (e.g. a map or field image with a short tagline).
+    Buttons vs Windows: Instead of dense text, use large “window” cards with minimal copy and vivid previews. Each window covers one mode (Continue, Explore, Rhythm, Deepen, Create, Rest). Only one or two windows should be prominent at a time; others can be shown on demand or as smaller links (progressive disclosure).
+    Recognition of Context: Show “your world” at a glance. For example:
+        Continue / Familiar: display followed community logos, next saved events, or a familiar spot on a tiny map snippet.
+        Explore / Adjacent: show a preview like “CI Aarhus → Ecstatic Dance” to illustrate adjacency.
+        Rhythm: show a small weekly wheel or heatmap snippet with days/venues highlighted.
+        Deepen: list one or two ongoing labs or volunteer options in a followed community.
+        Create: show a “+ Create event” card or a draft event card.
+        Rest: show upcoming commitments summary, or “Nothing urgent today” message.
+    Hierarchy and Scanning: Use headlines plus 2–3 bullet lines per window (no paragraphs). Emphasize keywords (community names, times) in bold. Use whitespace to separate the sections distinctly.
+    Navigation Controls: A clear nav bar for global navigation (Map, Communities, Events, Profile) should persist. However, the home itself should primarily push people into one of the stance modes.
+    CTA Labels: Use action-focused verbs (“Explore”, “Continue”, “Deepen”, etc.) as buttons. Do not use generic labels like “Submit”.
+
+3. Map and Rhythm Visualizations
+Map Modes
+
+Implement at least four map modes, each with its own visual grammar:
+
+    Live Map (Explore/Map View) – Question: “What is happening here soon?”
+    Elements:
+        Event kernels: Bounded blobs or icons at event locations (circle, rectangle). Encoded with: size ~ attendance, color ~ primary community. They have solid or dashed outlines to indicate access (public vs member-only).
+        Venues: Minor anchor markers (diamond or dot). Highlight only when active or hovered.
+        Community fields: Very light, translucent glow around areas to hint where that community is active now. (Optional background tone.)
+        Time slider: A horizontal time scrubber (day/week).
+        Interaction: Click an event to see details. Zoom/pan with Leaflet; clusters merge at small zoom.
+        Design: Crisp shapes, minimal animation (maybe pulse on upcoming event).
+
+    Rhythm Map – Question: “How does the field move through time?”
+    Elements:
+        Ambient fields: Organic blobs (SVG paths) around venues or clusters, colored by community. They morph subtly as time changes. Use smooth edges, low opacity.
+        Animation: As the timeline (morning→night or Mon→Sun) plays, blob size and color blend shifts. For example, venue gets a CI-blue blob Tuesday AM, Circling-magenta blob Thursday PM, etc. Overlapping events form blended colors (mixed in CIE-LCh for better recognition).
+        Regularity encoding: Steady rhythms have opaque, continuous blobs; sporadic ones are fainter, flickering.
+        Selector: A circular “week dial” or timeline. User scrubs through week.
+        Interaction: Clicking a blob opens a panel: “Pattern (usual activity) + Doors (next events/ways to participate)”.
+        Design: Soothing, soft motion, not frantic. The map itself can auto-play or user-stepped.
+
+    Familiar Territory Map – Question: “Where are the parts of the field I already know?”
+    Elements:
+        Highlight only the communities and venues the user follows or attends. E.g. color-fade others gray.
+        Show saved/attending events prominently.
+        Possibly dim out unrelated communities.
+        Design: Clear, stable, no surprises – solid shapes, no animation. The idea is reassurance.
+
+    Adjacent Worlds Map – Question: “What is connected to my interests?”
+    Elements:
+        Source: User selects a known event/community as start.
+        Traces: Animated or static paths leading from the source to related nodes (future events, other communities). For example, a curved arrow or dotted line from a Wednesday CI event to a Thursday Circling event.
+        Nodes: Could light up other events/venues.
+        Interaction: Click “More like this” on an event card to trigger an animation of particles following those lines.
+        Design: Trajectories or pulses in the same color family, showing flow. Keep on only while exploring to avoid clutter.
+
+    Wider Field Map – Question: “What is happening in nearby cities/regions?”
+    Elements:
+        Geographical clusters (cities as points).
+        Thick directional lines between cities for strong exchange (e.g. Aarhus–Copenhagen).
+        Node color blends showing dominant practices.
+        Possibly a simplified non-geo “community graph” (separate view or toggled).
+        Design: Abstract, low detail, focus on hubs and flows.
+
+Visual Encoding and Interactions
+
+    Color Blending: When multiple communities overlap (in one area or event), blend their colors. Use light desaturated tints for fields, richer tints for event blobs. CIE-LCh blending is recommended (more perceptually uniform). Avoid more than ~5–7 key colors for easy identification. Always include a legend or interaction to reveal meaning of a blend.
+    Shapes: Use distinct shapes or icons for venues (e.g. square/diamond) vs events (circles, blobs). This aids those with color vision deficiencies. Provide patterns or outlines if needed.
+    Animation: Use subtle motion only when it clarifies relationships (e.g. map transitions, time scrubbing, trace drawing). Avoid continuous animations that distract. Provide user control to play/pause rhythms.
+    Performance: Prefer SVG overlays for interactive elements (they integrate into the DOM and support ARIA). Use Canvas only if we must render thousands of nodes (unlikely at community scale). For performance, cluster overlapping events or switch to heatmap at high zoom levels.
+    Pan/Zoom: Use Leaflet for base map. Ensure layers reproject on zoom. For dense areas (Godsbanen), consider compound markers or area fields rather than dozens of points.
+    Responsive: On mobile, collapse to a simpler map view or adapt filters. Make sure legends and controls are tappable.
+
+Prototyping Diagrams
+
+Continue
+
+Explore
+
+Rhythm
+
+Deepen
+
+Create
+
+Rest
+
+Home: Stance Selection
+
+Choose Stance
+
+Show Familiar Territory Map
+
+Show Live Map
+
+Show Rhythm Map
+
+Show Deepen View
+
+Open Event Creation / Share Flow
+
+Show Rest / Commitments List
+
+mermaid
+
+graph LR
+  E[Events & Participants] --> FE[Field Visualization Engine]
+  V[Venues & Communities] --> FE
+  FE --> FL[Overlay Data (Fields, Kernels, Anchors, Traces)]
+  FL --> M[Leaflet/SVG Map Overlay]
+  M --> UI[Rendered Map]
+
+4. Interaction Patterns
+
+    Onboarding: For new users, a brief guided tour can highlight the main modes (Continue/Explore/etc). Use tooltips pointing at “Explore” and a preview. But avoid forcing an account immediately; allow some browsing anonymously.
+    Stance Selection: Each session or on landing, allow the user to pick a stance (e.g. via a segmented control or tabbed interface). Save preference between sessions but never assume it’s fixed (“choose again” easily).
+    Light Preference Capture: Instead of deep profiles, use checkboxes or tags for interests (e.g. “Contact Improvisation, Ecstatic Dance, Meditation”) on signup. But also learn passively: e.g. remember communities they follow and what events they bookmark. Allow easy editing.
+    Progressive Personalization: Start with minimal assumptions. Show broad, diverse options by default; gradually bias suggestions if user explicitly “follows” communities or attends events. Always allow users to override (“I’m actually more into Circling now”).
+    Feedback Loop: When user acts (saves event, suggests to community), reflect it in the interface promptly (increment counters, show them in “Your Activity”).
+    Moding as Consent: The stance modes are a form of explicit UX tuning. For example, if user chooses “Deepen”, bias event lists towards ongoing series or labs in their communities. If “Explore”, show new community stuff. This respects user agency.
+    Onboarding Community Creation: Stewards should have an easy “pulse dashboard” and “create event” prompts. For facilitators, emphasize how to “connect to communities” (via tagging events).
+    Error Handling: Use inline validation on forms (e.g. event creation). Show clear error messages (“Time cannot be in the past”).
+
+5. Ethics, Privacy, Accessibility
+
+    Privacy-by-Design: Collect only necessary data. E.g., use optional name (social login okay), optional profile info. Do not track users across sites. Comply with GDPR:
+        Consent: ask before sending notifications or newsletters.
+        Data Minimization: Only keep personal info needed to display their profile, RSVP to events, etc.
+        Right to Erasure: Allow users to delete account and data.
+    No Dark Patterns: Don’t “nudge” users into more participation or paid membership. Avoid social feedback loops like “Only 1 spot left!” which may manipulate choice.
+    Ethical Personalization: Follow guidelines: transparency (“Why am I seeing this event?”), opt-out (“Reset suggestions”), introducing diverse content. Prioritize well-being (e.g. content warnings for sensitive events). Ensure underrepresented communities have visibility.
+    Inclusive Design: Interface should work with screen readers (ARIA labels on map overlays). Ensure contrast meets WCAG2.1 (AA minimum). Keyboard navigation must be fully supported (e.g. moving through events in the map). Provide text alternatives for any important imagery.
+    Data Security: Use HTTPS, secure user data properly. If storing location data (user’s city, etc.), be explicit about usage. Possibly allow an “incognito” mode for browsing without login.
+
+6. Visual & Motion Guidelines
+
+    Color Palette: Choose a limited palette of 5–7 vivid base colors for main communities/practices. Use tints for variants. Ensure distinguishability (check with a color-blind simulator).
+    Color Blending: Blend overlapping community colors using CIE-LCh for perceptual uniformity. Label blends explicitly in legends or on hover (“CI + Circling”).
+    Typography: Clear, legible fonts. Hierarchy via size and weight. Emphasize keywords (community names, dates).
+    Icons & Glyphs: Use consistent icon set for event types or venue types (dance, music, outdoors). Ensure icons have text alternatives. Venue icons should contrast background fields.
+    Animation: Use easing and duration (~300ms for transitions) for showing/hiding elements. For time scrubbing, animate the morph to help tracking. Avoid looping or continuous animations except maybe a gentle map background pulse. Always allow the user to pause or disable animations (for accessibility).
+    Ambient Gradients: Community fields can be drawn with radial gradients or soft edges. Avoid sharp clipping that suggest boundaries.
+    Feedback on Actions: Buttons and map markers should visibly respond on hover/tap. When an event is saved, briefly show a toast or icon check.
+
+7. Prototyping & Implementation
+
+    Front-end Stack: Use Leaflet (or Mapbox GL) for base map. Render custom overlays with SVG for accessibility. A React (or Vue) architecture can manage states.
+    Data Model:
+        Event: {id, title, startTime, duration, venueId, communities[], tags[], price, hostId, accessibility, repetitionPattern}.
+        Venue: {id, name, lat, lon, type, accessibilityInfo}.
+        Community: {id, name, color, description, tags, entryGuidelines}.
+        Person: {id, name, photo, followedCommunities[], attendingEventIds[], suggestedCommunities[]}.
+        FieldState (for rhythm): {areaId, timeBucket, intensity, communityWeights, events[], regularityScore}.
+    Field-State Generation (Sample Algorithm): Aggregate events by discrete time bins (e.g. “Thursday PM”, “Saturday AM”). For each bin and location cluster, compute:
+
+    ini
+
+    intensity = f(totalEvents, avgAttendance)
+    communityWeights = normalize(sum weights of events by community)
+    regularity = measure of how often similar events appear weekly (e.g. countRecurring / totalWeeks)
+
+    Adjacency Scoring (heuristic): As sketched earlier, weight by:
+
+    markdown
+
+    score = 0.4 * ParticipantOverlap 
+          + 0.3 * CommunityOverlap 
+          + 0.2 * PracticeTagSimilarity 
+          + 0.1 * VenueProximity
+
+    where e.g. ParticipantOverlap = (# common attendees) / (avg attendance).
+    Rendering Engine: Create a “Field Engine” module that takes data and stance mode, and outputs render instructions (SVG paths, circles, lines). This abstracts logic from React Leaflet code.
+    Performance: Batch-render static overlays; throttle map update on drag. Use Canvas for heavy cases if needed (see [25] for trade-offs). Pre-calculate as much as possible (e.g. rhythm fields once per day).
+    Prototyping Tools: Figma or Sketch for UI mockups; d3.js or plain SVG for interactive prototypes. Test small vs large data sets. Use browser dev tools to simulate color vision deficiency.
+
+8. Microcopy and Tone
+
+    Inviting, Non-Prescriptive: Use friendly, gentle language. E.g. “Discover what’s alive nearby” (not “Attend events now”).
+    Empowering: E.g. “You’re all caught up” instead of “No events.” “Suggest to community” rather than “Flag event”.
+    Transparency: For recommended items, use explainers: “Because you follow CI Aarhus” or “Popular with your circle.”
+    Humble: Avoid absolute claims. “May interest you” vs “You must join”.
+    Inclusive: Avoid jargon; use plain language. Provide optional tooltips for specialized terms (“CI” → “Contact Improvisation”).
+    Community Feel: Use “we/our community” subtly to build solidarity, but mainly “you/your” to center the user.
+    Contextual tips: e.g. “Need help? Check out community guidelines.”
+
+9. Validation Methods and Metrics
+
+    Usability Testing: Regular sessions with target users (facilitators and participants) to test flows: stance selection, event discovery, community onboarding. Observe confusion or delight.
+    Diary Studies: Have a small group use the app for a few weeks and log how it affected their participation.
+    Pilot Launch Metrics: Track KPIs such as weekly active users (WAU), event RSVP conversion, community growth rate, net promoter score (NPS).
+    A/B Tests: Experiment with home-page variants (e.g. one big window vs two, CTA wording). Measure clickthrough into sections.
+    Accessibility Audit: Run tools (axe, Lighthouse) to catch violations; test with screen readers (NVDA, VoiceOver). Ensure map labels are read.
+    Community Health: Qualitative feedback on whether communities feel supported (through surveys or interviews with stewards).
+
+Appendix: Key Patterns & Checklist
+
+    Home/Orientation Page:
+        Single main question or CTA; 3–4 preview windows maximum.
+        Use person’s name and location contextually (e.g. “Back in Aarhus”).
+        Use visual previews (small map, icons, list items) not just text.
+    Map Visuals:
+        Different modes have distinct legends and styles.
+        Always show why something is highlighted (“3 people from your CI group attending”).
+        Zoom triggers level-of-detail change (cluster vs unfold).
+    Events & Communities Pages:
+        Community page includes values, onboarding tips, and “how to enter”.
+        Event page shows host, price, accessibility, who’s going (with circles or names).
+    Facilitator Tools:
+        After creating event, immediately invite to “Explore interested communities”.
+        Allow editing and duplicating events.
+    Performance & Accessibility:
+        Check mobile responsiveness (menu collapse, readable text).
+        Keyboard shortcuts (e.g. arrow keys for timeline).
+    Design Justice:
+        Represent diverse practitioners visually (avatars can show gender/race diversity).
+        Tune algorithms to avoid reinforcing only majority preferences.
+
+In summary: apply classic UX wisdom (structure, hierarchy, feedback) to a novel “field-based” paradigm. Make the invisible rhythms visible, but always give user clarity and choice. The design should embody openness and guidance, not dictation.
+
+Sources: Foundational UX principles; hero/landing best practices; personalization ethics; SVG vs Canvas; color blending study; Gestalt theory; accessibility (WCAG, map guidelines).

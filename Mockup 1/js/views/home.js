@@ -16,6 +16,12 @@ const HomeView = (() => {
           ${renderRhythmWindow()}
           ${renderTasteWindow(persona)}
           ${renderDeepenWindow(persona)}
+        </div>
+        <button class="home-more-toggle" id="home-more-btn" onclick="HomeView.toggleMore()" aria-expanded="false">
+          <span>More ways to be with the field</span>
+          <span class="home-more-chevron" id="home-more-chevron">▾</span>
+        </button>
+        <div class="home-more-grid" id="home-more-grid">
           ${renderCreateWindow(persona, role)}
           ${renderMakeSpaceWindow(persona)}
         </div>
@@ -145,7 +151,7 @@ const HomeView = (() => {
       <div class="hwin hwin-rhythm" onclick="App.navigate('rhythm')" role="button">
         <div class="hwin-eyebrow" style="color:#5abcb9">◎ Sense</div>
         <div class="hwin-title">Explore the rhythm of the field</div>
-        <div class="hwin-subcopy">See when places, communities, and practices come alive.</div>
+        <div class="hwin-subcopy">Feel how places, communities, and practices pulse through time.</div>
 
         <div class="hwin-preview" style="flex:1;display:flex;flex-direction:column;gap:12px;margin-top:10px">
           <!-- Mini week-wheel -->
@@ -383,5 +389,19 @@ const HomeView = (() => {
     `;
   }
 
-  return { render };
+  // ── Progressive disclosure toggle ──
+  function toggleMore() {
+    const grid = document.getElementById('home-more-grid');
+    const chevron = document.getElementById('home-more-chevron');
+    const btn = document.getElementById('home-more-btn');
+    if (!grid) return;
+    const isOpen = grid.classList.toggle('open');
+    if (chevron) {
+      chevron.textContent = isOpen ? '▴' : '▾';
+      chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
+    }
+    if (btn) btn.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  return { render, toggleMore };
 })();

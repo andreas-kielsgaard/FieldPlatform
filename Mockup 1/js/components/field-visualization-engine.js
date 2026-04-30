@@ -174,10 +174,14 @@ const FieldVizEngine = (() => {
         const lat = v.location.lat + Math.sin(offsetAngle) * offsetDist;
         const lng = v.location.lng + Math.cos(offsetAngle) * offsetDist;
 
+        const isRestricted = event.beginnerFriendly === false;
         const kernel = L.circleMarker([lat, lng], {
           radius: 8 + (event.attending || []).length * 0.25,
-          color: 'rgba(255,255,255,0.7)', fillColor: color,
-          fillOpacity: 0.88, weight: 1.5
+          color: isRestricted ? 'rgba(255,255,255,0.45)' : 'rgba(255,255,255,0.7)',
+          fillColor: color,
+          fillOpacity: isRestricted ? 0.72 : 0.88,
+          weight: 1.5,
+          dashArray: isRestricted ? '4 3' : null
         }).addTo(map).on('click', () => App.navigate('event', event.id));
         groups.kernels.push(kernel);
       });
@@ -293,10 +297,14 @@ const FieldVizEngine = (() => {
       const period = h < 12 ? 0 : h < 17 ? 1 : 2;
       const isEvening = period === 2;
 
+      const isRestricted = e.beginnerFriendly === false;
       const kernel = L.circleMarker([venue.location.lat, venue.location.lng], {
         radius: 10 + (e.attending || []).length * 0.35,
-        color: 'rgba(255,255,255,0.85)', fillColor: color,
-        fillOpacity: 0.92, weight: 2
+        color: isRestricted ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.85)',
+        fillColor: color,
+        fillOpacity: isRestricted ? 0.75 : 0.92,
+        weight: 2,
+        dashArray: isRestricted ? '5 3' : null
       }).addTo(map).on('click', () => App.navigate('event', e.id));
       groups.kernels.push(kernel);
     });

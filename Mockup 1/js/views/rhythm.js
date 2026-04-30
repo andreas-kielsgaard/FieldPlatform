@@ -166,7 +166,7 @@ const RhythmView = (() => {
         <!-- Right panel -->
         <div id="rhythm-panel" class="rhythm-panel">
           <div id="rhythm-panel-content">
-            <div class="rhythm-panel-empty">Click a venue or community area<br>to see the pattern and<br>doors into participation.</div>
+            <div class="rhythm-panel-empty">Explore the field —<br>touch any glowing place to sense<br>its rhythm and find doors in.</div>
           </div>
         </div>
 
@@ -257,9 +257,53 @@ const RhythmView = (() => {
 
     const commsInSlot = comms.filter(c => slot?.communities?.[c.id]);
 
+    // Mode-aware "why" context
+    const persona = DATA.getCurrentPersona();
+    const myIds = persona ? (persona.communities || []) : [];
+
+    let whyHtml = '';
+    if (currentMode === 'familiar' && myIds.length > 0) {
+      const connectedThrough = comms.filter(c => myIds.includes(c.id));
+      if (connectedThrough.length > 0) {
+        const attended = (persona.participationHistory || []).some(eId => {
+          const ev = DATA.getEventById(eId);
+          return ev && ev.venue === venue.id;
+        });
+        whyHtml = `
+          <div style="margin-bottom:18px;padding:12px 14px;background:rgba(255,255,255,0.04);border-radius:8px;border-left:2px solid rgba(74,124,89,0.5)">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:6px">↩ Why familiar</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6">
+              Connected here through
+              ${connectedThrough.map(c => `<span style="color:${c.color};font-weight:600">${c.shortName}</span>`).join(' &amp; ')}.
+            </div>
+            ${attended ? `<div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:4px">You've been here before.</div>` : ''}
+          </div>
+        `;
+      }
+    } else if (currentMode === 'adjacent' && myIds.length > 0) {
+      const adjComms = comms.filter(c => !myIds.includes(c.id));
+      if (adjComms.length > 0) {
+        const myComm = DATA.getCommunityById(myIds[0]);
+        const overlap = myComm?.overlaps?.find(ov => adjComms.some(c => c.id === ov.communityId));
+        whyHtml = `
+          <div style="margin-bottom:18px;padding:12px 14px;background:rgba(255,255,255,0.04);border-radius:8px;border-left:2px solid rgba(123,94,167,0.5)">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.3);margin-bottom:6px">⟡ Why adjacent</div>
+            ${overlap ? `<div style="font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6">${overlap.reason}.</div>` : ''}
+            <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:8px">
+              ${adjComms.map(c => `
+                <span style="padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;
+                  background:${c.color}22;border:1px solid ${c.color}44;color:${c.color}">
+                  ${c.shortName}
+                </span>`).join('')}
+            </div>
+          </div>
+        `;
+      }
+    }
+
     content.innerHTML = `
       <div style="padding:20px 18px">
-
+        ${whyHtml}
         <div style="margin-bottom:18px">
           <div class="rhythm-panel-section-title">Location</div>
           <div class="rhythm-panel-venue-name">${venue.name}</div>

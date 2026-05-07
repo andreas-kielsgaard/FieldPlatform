@@ -1,0 +1,23 @@
+export function withId(collectionName: any, record: any, idPrefix?: null): any;
+export function edgeId(personId: any, groupId: any): string;
+export function groupRelationshipId(relationship: any, index: any): string;
+export function managedObjectId(personId: any, objectType: any, objectId: any, roles?: any[]): string;
+export function defaultParticipationEdge(personId: any, groupId: any): {
+    id: string;
+    personId: any;
+    groupId: any;
+    relationshipState: string;
+    accessLevel: string;
+    engagementStrength: number;
+    recency: number;
+    frequency: number;
+    contributionLevel: number;
+    trustLevel: number;
+    roleModes: never[];
+    socialEmbeddedness: string;
+    normFamiliarity: string;
+    identitySalience: string;
+    visibility: string;
+    decayState: string;
+};
+export function normalizeEventRecord(event: any): any;

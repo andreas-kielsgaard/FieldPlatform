@@ -1,0 +1,20 @@
+export function createQueryApi(database: any): {
+    getPerson: (personId: any) => any;
+    listPeople: () => any;
+    getGroup: (groupId: any) => any;
+    listGroups: () => any;
+    getVenue: (venueId: any) => any;
+    listVenues: () => any;
+    getEvent: (eventId: any) => any;
+    listEvents: () => any[];
+    getFestival: (festivalId: any) => any;
+    listFestivals: () => any;
+    getParticipationEdge: (personId: any, groupId: any) => any;
+    getEdgesForPerson: (personId: any) => any;
+    getEdgesForGroup: (groupId: any) => any;
+    getMembershipRequestsForGroup: (groupId: any) => any;
+    getSuggestedEventSharesForGroup: (groupId: any) => any;
+    getManagedObjectsForPerson: (personId: any) => any;
+    canManageEvent: (personId: any, eventId: any) => any;
+    canManageCommunity: (personId: any, groupId: any) => any;
+};

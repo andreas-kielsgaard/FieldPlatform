@@ -1,0 +1,36 @@
+import { CommunityRepository } from "./repositories/communityRepository";
+import { EventRepository } from "./repositories/eventRepository";
+import { UserRepository } from "./repositories/userRepository";
+import { VenueRepository } from "./repositories/venueRepository";
+import { CommunityHealthService } from "./services/communityHealthService";
+import { CommunityManagementService } from "./services/communityManagementService";
+import { EventManagementService } from "./services/eventManagementService";
+import { EventRegistrationService } from "./services/eventRegistrationService";
+import { EventSuggestionService } from "./services/eventSuggestionService";
+import { GeneratedFieldHandler } from "./services/generatedFieldHandler";
+import { MembershipService } from "./services/membershipService";
+import { ParticipationService } from "./services/participationService";
+import { RecommendationService } from "./services/recommendationService";
+import type { DomainOptions, LowLevelPlatform } from "./types";
+export declare class PlatformDomain {
+    readonly users: UserRepository;
+    readonly events: EventRepository;
+    readonly communities: CommunityRepository;
+    readonly venues: VenueRepository;
+    readonly generatedFields: GeneratedFieldHandler;
+    readonly recommendations: RecommendationService;
+    readonly communityHealth: CommunityHealthService;
+    readonly participation: ParticipationService;
+    readonly memberships: MembershipService;
+    readonly eventRegistration: EventRegistrationService;
+    readonly eventSuggestions: EventSuggestionService;
+    readonly eventManagement: EventManagementService;
+    readonly communityManagement: CommunityManagementService;
+    private readonly lowLevel;
+    constructor(options?: DomainOptions);
+    static create(options?: DomainOptions): PlatformDomain;
+    resetDatabase(): void;
+    snapshot(): unknown;
+    raw(): LowLevelPlatform;
+}
+export declare function createPlatformDomain(options?: DomainOptions): PlatformDomain;

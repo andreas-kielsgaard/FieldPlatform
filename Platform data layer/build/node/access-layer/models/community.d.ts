@@ -1,0 +1,33 @@
+import type { PlatformDomain } from "../platformDomain";
+import type { CommunityRecord, Id, MembershipRequestRecord } from "../types";
+import type { User } from "./user";
+import type { Venue } from "./venue";
+import { Event } from "./event";
+import { GeneratedField } from "./generatedField";
+import { ParticipationEdge } from "./participationEdge";
+export declare class Community {
+    private readonly platform;
+    readonly id: Id;
+    constructor(platform: PlatformDomain, id: Id);
+    data(): CommunityRecord;
+    name(): string;
+    changeName(name: string): Community;
+    addTag(tag: string): Community;
+    removeTag(tag: string): Community;
+    addVenue(venue: Venue | Id): Community;
+    removeVenue(venue: Venue | Id): Community;
+    updateEntryGuidance(entryGuidance: string): Community;
+    updateAccessRules(accessRules: string): Community;
+    followedBy(user: User | Id): ParticipationEdge;
+    requestMembership(user: User | Id, note?: string): MembershipRequestRecord;
+    approveMembershipRequest(requestId: Id, approver: User | Id): ParticipationEdge;
+    markRelationshipTo(otherCommunity: Community | Id, type?: string, note?: string, markedBy?: User | Id): unknown;
+    events(): Event[];
+    bridgeEvents(): Event[];
+    deeperEvents(): Event[];
+    participationEdges(): ParticipationEdge[];
+    personalMetricsFor(user: User | Id): unknown;
+    health(): unknown;
+    generatedFields(): GeneratedField[];
+    canBeManagedBy(user: User | Id): boolean;
+}

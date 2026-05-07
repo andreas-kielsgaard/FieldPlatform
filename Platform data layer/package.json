@@ -1,0 +1,13 @@
+{
+  "name": "platform-data-layer",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && esbuild source/access-layer/domain.ts --bundle --format=iife --global-name=FieldPlatformDomain --platform=browser --external:../../index --outfile=build/browser/platform-domain.bundle.js",
+    "test": "node tests/storage-engine-smoke-test.js && node tests/managed-access-smoke-test.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.3"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",
+    "module": "CommonJS",
+    "allowJs": true,
+    "checkJs": false,
+    "declaration": true,
+    "declarationMap": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["ES2019", "DOM"],
+    "noEmitOnError": true,
+    "outDir": "build/node",
+    "rootDir": "source",
+    "skipLibCheck": true,
+    "strict": true
+  },
+  "include": ["source/**/*.ts", "source/**/*.js"]
+}

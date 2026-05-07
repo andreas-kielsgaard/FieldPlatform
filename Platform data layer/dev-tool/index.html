@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Platform Data Layer Dev Tool</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div>
+        <h1>Data Layer Tool</h1>
+        <p>Managed access and storage inspection</p>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Dev tool sections">
+      <button class="nav-button is-active" data-section="tests">Test Scripts</button>
+      <button class="nav-button" data-section="tables">Database Tables</button>
+      <button class="nav-button" data-section="relations">Relations</button>
+      <button class="nav-button" data-section="functions">Calculations</button>
+    </nav>
+
+    <div class="utility-panel">
+      <label for="personaSelect">Persona</label>
+      <select id="personaSelect"></select>
+      <button id="resetDatabaseButton" class="secondary-button">Reset Database</button>
+    </div>
+  </aside>
+
+  <main class="workspace">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Developer Aid</p>
+        <h2 id="sectionTitle">Test Scripts</h2>
+      </div>
+      <div class="status-strip">
+        <span id="recordCount">0 records</span>
+        <span id="lastAction">Ready</span>
+      </div>
+    </header>
+
+    <section id="tests" class="section is-active">
+      <div class="section-grid two-column">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Access Layer Object Tests</h3>
+            <button id="runAllTestsButton" class="primary-button">Run All</button>
+          </div>
+          <div id="testList" class="list"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Execution Result</h3>
+            <span id="testRollbackState" class="badge">Rollback enabled</span>
+          </div>
+          <pre id="testOutput" class="output"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="tables" class="section">
+      <div class="section-grid table-layout">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Tables</h3>
+            <input id="tableFilter" class="search-input" type="search" placeholder="Filter">
+          </div>
+          <div id="tableList" class="list compact"></div>
+        </div>
+        <div class="panel table-panel">
+          <div class="panel-header">
+            <h3 id="tableTitle">Select a table</h3>
+            <span id="tableRowCount" class="badge">0 rows</span>
+          </div>
+          <div id="tableContent" class="table-content"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Selected Record</h3>
+          </div>
+          <pre id="recordPreview" class="output"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="relations" class="section">
+      <div class="section-grid relation-layout">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Object</h3>
+          </div>
+          <label for="relationType">Type</label>
+          <select id="relationType"></select>
+          <label for="relationObject">Value Help</label>
+          <select id="relationObject"></select>
+        </div>
+        <div class="panel relation-panel">
+          <div class="panel-header">
+            <h3>Relation Map</h3>
+          </div>
+          <div id="relationMap" class="relation-map"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Details</h3>
+          </div>
+          <pre id="relationDetails" class="output"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="functions" class="section">
+      <div class="section-grid functions-layout">
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Calculation Views</h3>
+          </div>
+          <div id="functionList" class="list"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Inputs</h3>
+            <button id="runFunctionButton" class="primary-button">Execute</button>
+          </div>
+          <div id="functionInputs" class="input-stack"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <h3>Result</h3>
+          </div>
+          <pre id="functionOutput" class="output"></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="../source/database-definition/seed.js"></script>
+  <script src="../source/calculation-layer/shared.js"></script>
+  <script src="../source/calculation-layer/overlap.js"></script>
+  <script src="../source/calculation-layer/generatedFields.js"></script>
+  <script src="../source/calculation-layer/communityHealth.js"></script>
+  <script src="../source/calculation-layer/recommendations.js"></script>
+  <script src="../source/calculation-layer/calculations.js"></script>
+  <script src="../source/database-engine/utils.js"></script>
+  <script src="../source/database-engine/collectionConfig.js"></script>
+  <script src="../source/database-engine/adapters.js"></script>
+  <script src="../source/database-engine/recordFactory.js"></script>
+  <script src="../source/database-engine/snapshotNormalizer.js"></script>
+  <script src="../source/database-engine/queryApi.js"></script>
+  <script src="../source/database-engine/calculationApi.js"></script>
+  <script src="../source/database-engine/database.js"></script>
+  <script src="../build/browser/platform-domain.bundle.js"></script>
+  <script src="js/access-tests/helpers.js"></script>
+  <script src="js/access-tests/user.test.js"></script>
+  <script src="js/access-tests/userEventAccess.test.js"></script>
+  <script src="js/access-tests/userCommunityAccess.test.js"></script>
+  <script src="js/access-tests/event.test.js"></script>
+  <script src="js/access-tests/community.test.js"></script>
+  <script src="js/access-tests/venue.test.js"></script>
+  <script src="js/access-tests/participationEdge.test.js"></script>
+  <script src="js/access-tests/generatedField.test.js"></script>
+  <script src="js/access-tests/repositories.test.js"></script>
+  <script src="js/access-tests/services.test.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

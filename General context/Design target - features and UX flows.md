@@ -4,6 +4,12 @@ This folder is the living product/design target for the community participation 
 
 The target is to help people orient through communities, events, fields, relationships, and participation signals without collapsing belonging into a simple member/non-member status.
 
+Deeper product center: field relations, holds, pathways, stewardship, and movement.
+
+Core thesis: Field makes latent relations visible so that essence can find context and become expression.
+
+Product-language version: Field helps people, communities, creators, stewards, events, venues, and practices see how they are connected, where participation is held, and what movement is available next.
+
 ## Document Structure
 
 - [Design intent](Design%20intent.md): product philosophy, guardrails, and the core experience the app should create.
@@ -25,7 +31,13 @@ The app should therefore be organized around user-accessible features and object
 - a person can create events or offerings
 - a person can create communities
 - a person can manage events or communities when they have the relevant relationship to those objects
-- a person can inspect or act on suggested relevance when they have the right contextual responsibility
+- a person can suggest that an event, creator, venue, community, generated field, festival, profile, or practice belongs in a context
+- a steward can review suggested field relations when they have the right contextual responsibility
+- a person can understand what movement a visible relation makes possible
+
+Adoption and data principle: the field becomes visible through distributed perception. Participants, creators, and stewards should be able to contribute small acts of contextual clarification that are easy, respectful, reviewable, and non-coercive.
+
+Mockup 4 currently expresses an important implementation slice of this target: participation edges, generated fields, suggested event shares, community health, and steward queues. It should be read as a working slice, not as the full conceptual center.
 
 ## Important Distinctions
 
@@ -34,6 +46,11 @@ The app should therefore be organized around user-accessible features and object
 - Features describe what the app can do from a user perspective.
 - UX stories describe what a user wants to accomplish and how features support that.
 - Dev tools describe prototype and development aids, not intended end-user product features.
+- ParticipationEdge is the high-resolution person-to-community relation model.
+- FieldRelation is the broader relational object that can connect people, communities, events, venues, creators, stewards, generated fields, festivals, and practices.
+- A generated field is computed evidence, not a managed community.
+- A pathway is movement made possible when a relation becomes visible.
+- A hold explains where expression cannot yet move through context.
 
 ## Non-Goals And Guardrails
 
@@ -43,6 +60,9 @@ The app should therefore be organized around user-accessible features and object
 - Do not make event creation or sharing feel like ad targeting.
 - Do not treat generated fields as managed communities.
 - Do not hide why something is recommended or calculated.
+- Do not hide why a relation appears, who or what suggested it, or what review state it is in.
+- Do not make suggested relations feel like automatic ownership, publication, or social pressure.
+- Do not let steward tools become surveillance, CRM, or individual targeting.
+- Do not let calculated relations override consent, boundaries, capacity, or steward authority.
 - Do not force every mockup to express every feature identically.
 - Do not make participant, creator, and steward feel like hard-separated products when they are better understood as contextual roles, permissions, and design lenses.
-

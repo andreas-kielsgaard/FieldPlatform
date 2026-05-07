@@ -15,6 +15,7 @@ The model explorer should allow inspection of:
 - people
 - groups/communities
 - participation edges
+- FieldRelations
 - events
 - venues
 - computed group relationships
@@ -23,6 +24,11 @@ The model explorer should allow inspection of:
 - formulas
 - membership requests
 - suggested event shares
+- suggested context / suggested connection records
+- relation provenance
+- relation review state
+- hold taxonomy and related hold types
+- movement unlocked / pathway outputs
 - created events
 - created communities
 
@@ -34,6 +40,7 @@ The model explorer should explain:
 - bonding score
 - bridging score
 - group overlap
+- field relation strength and review eligibility
 - emergent field generation
 - participant group recommendations
 - participant event recommendations
@@ -43,12 +50,54 @@ The model explorer should explain:
 - bridge people detection
 - user interest in an event
 - creator or host fit to a community
+- hold explanations such as visibility, context, trust, threshold, boundary, stewardship, capacity, and language holds
+- pathway surfacing from movementUnlocked
+
+## FieldRelation Inspection
+
+The model explorer should make it possible to inspect FieldRelation records and relation-like implementation objects side by side.
+
+Useful columns:
+
+- id
+- sourceType/sourceId
+- targetType/targetId
+- relationKind
+- relationStrength
+- status
+- provenance
+- suggestedBy
+- stewardedBy or reviewAuthority
+- visibility
+- evidence/reasons
+- relatedHoldTypes
+- movementUnlocked
+- createdAt/updatedAt
+
+The explorer should distinguish:
+
+- ParticipationEdge as high-resolution person-to-community belonging
+- FieldRelation as a broader relation object between contexts
+- suggested event shares as an early implementation slice of suggested event-to-community FieldRelation
+- generated fields as computed patterns, not managed communities
+
+## Stewardship And Suggestion Debugging
+
+Dev tools should help designers and developers answer:
+
+- Why was this relation suggested?
+- Was it user-suggested, steward-marked, creator-marked, calculated, or imported?
+- Who has review authority?
+- What status is it in: suggested, steward-reviewed, accepted, refined, declined, or dormant?
+- Which hold types explain why it cannot move yet?
+- What movement would acceptance unlock?
+- Which pages, recommendations, and pathway surfaces changed because the relation was accepted?
 
 ## Dev Tool Design Target
 
 - Computed signals should remain explainable.
 - Raw records and computed outputs should be inspectable side by side.
 - Model assumptions should be easy to find and revise.
+- Relation provenance, review state, hold taxonomy, and movementUnlocked should be inspectable.
 - Dev tools should help the prototype remain discussable and changeable.
 - Dev tools should not shape the final product navigation unless they graduate into intentional user-facing features.
-

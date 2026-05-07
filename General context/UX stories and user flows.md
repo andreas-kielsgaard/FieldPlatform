@@ -34,7 +34,7 @@ Flow:
 6. The next layer shows events from followed or lightly tracked communities.
 7. The expansion layer shows adjacent events based on overlap with interests, communities, venues, tags, and low-threshold access.
 8. Each event shows why it appears.
-9. User can click an event, attend, mark interested, or suggest it to a group.
+9. User can click an event, attend, mark interested, or suggest that it belongs in a context.
 
 Data and calculations:
 
@@ -146,32 +146,35 @@ Outcome:
 Intent:
 
 - The user sees an event and wants to propose that it may matter to a community.
+- This is the first implementation slice of the broader gesture: "I sense that this belongs in this context."
 
 Entry features:
 
 - Event page.
 - Event recommendation card.
-- Suggest event relevance action.
+- Suggest event relevance or suggest context action.
 
 Flow:
 
 1. User sees an event recommendation or opens an event page.
-2. User clicks suggest to group.
+2. User clicks suggest context or suggest to group.
 3. The app lets the user choose a group/community.
-4. The app creates a suggested event share.
+4. The app creates a suggested event share, or in the broader target a suggested event-to-community FieldRelation.
 5. The suggestion appears in the relevant community management/steward queue.
-6. A manager or steward can feature, ignore, or review the suggestion.
+6. A manager or steward can accept, refine, decline, redirect, feature, ignore, or hold the suggestion.
+7. If accepted, the relation may change event visibility, community event placement, recommendation explanations, and available pathways.
 
 Data and calculations:
 
 - Pulls event data from event object.
 - Pulls group data from group object.
-- Creates suggested event share object.
-- May later affect event relevance and community event lists if featured.
+- Creates suggested event share object in the current implementation.
+- Broader target creates FieldRelation with source/target, relation kind, provenance, review state, evidence, hold types, visibility, and movementUnlocked.
+- May later affect event relevance, community event lists, relation panels, and pathways if accepted or featured.
 
 Outcome:
 
-- Relevance can be socially proposed without granting automatic ownership or authority.
+- Relevance can be socially proposed without granting automatic ownership, publication, or authority.
 
 ## Story 6: I Want To Create An Event
 
@@ -193,7 +196,7 @@ Flow:
 4. The fit panel shows reasons such as tag overlap, venue fit, host/facilitator history, adjacent events, access level, beginner-friendliness, and participant overlap.
 5. User can create the event.
 6. User can suggest the draft to selected groups.
-7. Suggested events enter community management/steward queues rather than automatically becoming community-owned.
+7. Suggested events enter community management/steward relation queues rather than automatically becoming community-owned.
 8. After creation, the user gains contextual event management features for that event.
 
 Data and calculations:
@@ -201,7 +204,8 @@ Data and calculations:
 - Creates or updates event object.
 - Uses group fit and field fit calculations.
 - Uses creator/host relationship and historical event data.
-- Creates suggested event share objects when suggestions are sent.
+- Creates suggested event share objects when suggestions are sent in the first implementation.
+- Broader target creates FieldRelations between event, creator, communities, venues, generated fields, festivals, or practices with provenance and hold explanations.
 
 Outcome:
 
@@ -225,8 +229,8 @@ Flow:
 2. The event page shows management controls in addition to normal participant actions.
 3. User can edit event details, access level, tags, venue, intended audience, and beginner-friendliness.
 4. The app recalculates group and field fit when meaningful details change.
-5. User can review suggested relevance, linked groups, and aggregate participant origins if available.
-6. User can suggest the event to additional groups or update existing suggestions.
+5. User can review suggested relations, linked groups, relation evidence, hold explanations, and aggregate participant origins if available.
+6. User can suggest the event to additional groups or contexts, or update existing suggestions.
 
 Data and calculations:
 
@@ -234,6 +238,7 @@ Data and calculations:
 - Updates event object.
 - Uses creator/event recommendation logic.
 - Uses aggregate participation origin signals where available.
+- Uses FieldRelation review state and provenance where relation suggestions exist.
 
 Outcome:
 
@@ -291,22 +296,117 @@ Flow:
 4. User reviews adjacent groups and generated fields involving the community.
 5. User edits entry guidance, norms, access rules, or group state.
 6. User approves or declines membership requests.
-7. User reviews suggested event shares and can feature events as relevant.
-8. User marks formal relationships to other groups.
-9. The app recalculates participant recommendations and field signals where relevant.
+7. User reviews suggested FieldRelations, including suggested event shares, and can accept, refine, decline, redirect, feature, or hold them.
+8. User marks formal relationships to other groups or broader relations to events, venues, generated fields, festivals, creators, or practices.
+9. The app recalculates participant recommendations, relation panels, field signals, and pathways where relevant.
 
 Data and calculations:
 
 - Pulls community data from group/community object.
 - Pulls participation edges as aggregate signals.
-- Pulls membership requests and suggested event shares.
+- Pulls membership requests, suggested event shares, and broader FieldRelation records.
 - Uses bonding, bridging, dropoff, dormant/reactivating, distribution, overlap, and generated field calculations.
+- Uses hold taxonomy, relation provenance, review state, visibility, and movementUnlocked.
 
 Outcome:
 
 - Community management exposes aggregate patterns, opportunities, and governance choices without becoming roster-first surveillance.
 
-## Story 10: I Want To Inspect The Data Model
+## Story 10: I Sense This Belongs In This Context
+
+Intent:
+
+- The user notices a relation that the platform does not yet make visible.
+- The user wants to contribute a small act of contextual clarification without claiming authority.
+
+Entry features:
+
+- Suggest connection / suggest context action.
+- Event, community, venue, creator/facilitator, generated field, festival, practice/tag, or profile pages.
+- Relation panels.
+
+Flow:
+
+1. User is viewing an object such as an event, venue, creator, generated field, or community.
+2. User clicks suggest context.
+3. The app asks what context the object may belong with, constrained by privacy, consent, and available object types.
+4. User selects a target context and may add a short reason.
+5. The app creates a suggested FieldRelation with provenance user-suggested, evidence/reasons, visibility, and reviewAuthority.
+6. The suggestion appears as pending or held, not as accepted truth.
+7. If the relation needs steward confirmation, the app names the stewardship hold.
+
+Data and calculations:
+
+- Pulls source and target object records.
+- Creates FieldRelation or a compatible suggested relation object.
+- Stores relationKind, relationStrength if known, status, provenance, suggestedBy, visibility, evidence/reasons, relatedHoldTypes, and movementUnlocked if available.
+
+Outcome:
+
+- Distributed perception becomes easy and respectful: a user can say "this belongs near that" without forcing visibility, ownership, or action.
+
+## Story 11: I Want To Review Suggested Relations
+
+Intent:
+
+- A steward wants to review sensed or calculated relations involving a context they are responsible for.
+
+Entry features:
+
+- Stewardship queue.
+- Community management controls.
+- Relation panels from object pages.
+
+Flow:
+
+1. Steward opens the relation queue for a community, event, venue, festival, or other stewarded context.
+2. The queue shows suggested FieldRelations with source, target, relation kind, provenance, evidence, hold types, visibility, and movement that acceptance would unlock.
+3. Steward filters by status or hold type, such as stewardship, boundary, capacity, context, or language hold.
+4. Steward accepts, refines, declines, redirects, or keeps the relation dormant/held.
+5. Accepted relations update relevant pages, recommendation explanations, relation panels, and pathway suggestions.
+6. Refined or redirected relations preserve provenance and review history.
+
+Data and calculations:
+
+- Pulls FieldRelation records where reviewAuthority or stewardedBy matches the stewarded context.
+- Uses relation status: suggested, steward-reviewed, accepted, refined, declined, dormant.
+- Uses provenance: user-suggested, steward-marked, creator-marked, calculated, imported.
+- Uses visibility, hold taxonomy, evidence/reasons, and movementUnlocked.
+
+Outcome:
+
+- Stewardship confirms or redirects distributed perception without becoming surveillance or CRM.
+
+## Story 12: I Want To Understand What Movement A Relation Makes Possible
+
+Intent:
+
+- The user sees a relation and wants to know what they can appropriately do next.
+
+Entry features:
+
+- Relation panel.
+- Recommendation explanation.
+- Community page, event page, generated field page, or orientation next steps.
+
+Flow:
+
+1. User opens a relation panel or expands a recommendation explanation.
+2. The app shows why the relation appears, whether it is suggested or accepted, who or what proposed it, and what holds may still apply.
+3. The app shows movementUnlocked as pathways such as attend beginner event, follow lightly, request access, ask steward, volunteer, join recurring practice, suggest related community, reactivate dormant edge, create bridge event, or mark relationship between communities.
+4. Unavailable movements explain the relevant hold rather than disappearing silently.
+5. User chooses an available pathway, or leaves the relation as context for later.
+
+Data and calculations:
+
+- Pulls FieldRelation data, ParticipationEdge data where relevant, recommendation evidence, access rules, visibility settings, and hold types.
+- Uses pathway logic to decide which actions are visible, available, held, or steward-reviewed.
+
+Outcome:
+
+- Relations become actionable orientation without pushing every user toward the same depth of participation.
+
+## Story 13: I Want To Inspect The Data Model
 
 Intent:
 
@@ -319,7 +419,7 @@ Entry features:
 Flow:
 
 1. Designer/developer opens the dev tool.
-2. They switch between people, groups, edges, events, venues, fields, relationships, relevance scores, and formulas.
+2. They switch between people, groups, participation edges, events, venues, fields, FieldRelations, suggested relations, holds, pathways, relevance scores, and formulas.
 3. They inspect raw records and computed outputs.
 4. They compare formulas with visible product behavior.
 5. They adjust the model or mockup when the representation is conceptually wrong.
@@ -328,8 +428,8 @@ Data and calculations:
 
 - Pulls all prototype data objects.
 - Shows formula explanations and calculated outputs.
+- Shows relation provenance, review state, hold taxonomy, movementUnlocked, and suggestion evidence.
 
 Outcome:
 
 - The prototype remains discussable and changeable.
-

@@ -6,6 +6,8 @@ Participant, creator, steward, facilitator, host, volunteer, and bridge person a
 
 The deeper feature center is field relations, holds, pathways, stewardship, and movement. Field should help people, communities, creators, stewards, events, venues, and practices see how they are connected, where participation is held, and what movement is available next.
 
+Use [Language and copy register](Language%20and%20copy%20register.md) when turning these features into screens. Product docs may use terms like FieldRelation, holds, and pathways for precision, but user-facing labels should usually translate them into "connection", "what may be unclear", "ways in", "first step", "waiting for review", and "why this appears".
+
 ## Navigation And Feature Access
 
 - Primary navigation:

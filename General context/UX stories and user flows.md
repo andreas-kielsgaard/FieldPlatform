@@ -12,6 +12,8 @@ UX stories should answer:
 - How are UI elements arranged so the flow is intuitive?
 - What outcome should the user understand or accomplish?
 
+When a story names actual labels, buttons, cards, empty states, or help text, use the UI register in [Language and copy register](Language%20and%20copy%20register.md). Product and data-model terms may appear in Data and calculations sections, but screen copy should favor ordinary wording such as "Suggest connection", "Ways in", "First step", "Waiting for review", and "Why am I seeing this?"
+
 ## Story 1: I Want To Orient To What Is Already Live
 
 Intent:

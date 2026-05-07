@@ -17,6 +17,7 @@ Product-language version: Field helps people, communities, creators, stewards, e
 - [Features and functionalities](Features%20and%20functionalities.md): concrete platform capabilities from the user's perspective, including navigation panes, overviews, pages, panels, controls, and contextual management features.
 - [UX stories and user flows](UX%20stories%20and%20user%20flows.md): user intentions and how features map together to help users accomplish them.
 - [Dev tools](Dev%20tools.md): development-only inspection and explanation tools, including the Data Model Explorer.
+- [Language and copy register](Language%20and%20copy%20register.md): guidance for separating internal philosophy, domain/data-model vocabulary, product language, and user-facing UI copy.
 
 ## Current Product Framing
 

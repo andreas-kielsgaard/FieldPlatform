@@ -2,6 +2,8 @@
 
 Dev tools are not intended end-user product features. They exist so designers, developers, and model authors can inspect, argue with, and change the assumptions behind the prototype.
 
+Dev tools may expose internal and domain names such as FieldRelation, ParticipationEdge, GeneratedField, provenance, reviewAuthority, and movementUnlocked. Because dev tools are often used in design review, they should still include plain-language explanations where useful. Use [Language and copy register](Language%20and%20copy%20register.md) to decide when a technical label needs a human explanation beside it.
+
 ## Data Model Explorer
 
 The Data Model Explorer is a development aid. It should be visually and navigationally separate from the participant-facing, event-facing, community-facing, and management-facing product.

@@ -9,6 +9,7 @@ Use the document split intentionally:
 - Update `Features and functionalities.md` when a user-visible platform feature, page, pane, panel, control, navigation surface, or contextual capability changes.
 - Update `UX stories and user flows.md` when a user intention, click path, object flow, feature sequence, or arrangement of UI elements changes.
 - Update `Dev tools.md` when a development-only inspection/debugging capability changes.
+- Update `Language and copy register.md` when internal philosophy, data-model vocabulary, product-language terms, or user-facing copy guidance changes.
 - Keep `Design target - features and UX flows.md` as the document map and high-level framing.
 
 When a new feature idea, UX distinction, data concept, role, permission, calculation, or flow is introduced in conversation:
@@ -17,6 +18,8 @@ When a new feature idea, UX distinction, data concept, role, permission, calcula
 - Add the idea even if it is not implemented in every mockup.
 - Mark the idea as current target, open question, or expansion space when its status is unclear.
 - Prefer design-target language over mockup-specific language.
+- Use `Language and copy register.md` to decide whether a term belongs in internal philosophy, data-model docs, product descriptions, or user-facing UI.
+- Translate internal/domain terms into ordinary UI language when describing actual screens, buttons, cards, empty states, or help text.
 - Mention mockups only as current evidence or implementation examples, not as the source of truth.
 - Keep feature descriptions connected to participation edges, communities, events, fields, creators, stewards, contextual management, and participant orientation.
 - Keep UX stories focused on user intention and outcome, not just screen order.
@@ -31,4 +34,5 @@ Important framing:
 - Event management and community management appear when the user's relationship to the object grants the relevant contextual capability.
 - Dev tools, including the Data Model Explorer, should remain separate from intended end-user product features.
 - Mockups should use `Platform data layer/` for data storage, management operations, reset-to-seed behavior, and calculated values instead of managing data or formulas directly.
-- Frontend feature code should prefer the managed OO domain layer in `Platform data layer/src/domain.ts` / `Platform data layer/js/domain.js`. Generic CRUD access is for dev tools, tests, and internal implementation work.
+- Frontend feature code should prefer the managed OO domain layer in `Platform data layer/source/access-layer/domain.ts`, `Platform data layer/source/access-layer/platformDomain.ts`, or the browser bundle at `Platform data layer/build/browser/platform-domain.bundle.js`. Generic CRUD access is for dev tools, tests, and internal implementation work.
+- User-facing UI should prefer plain language such as "connection", "ways in", "first step", "waiting for review", and "why this appears" over internal terms such as FieldRelation, holds, movementUnlocked, provenance, or distributed perception.

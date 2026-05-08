@@ -1,6 +1,22 @@
 export type Id = string;
 export type AccessLevel = "public" | "known" | "requested" | "member" | "trusted" | "core" | "visible-but-member-signup-only" | string;
 export type RelationshipState = "observing" | "curious" | "occasional" | "recurring" | "contributor" | "facilitator" | "steward" | "dormant" | "alumnus" | string;
+export type ObjectType = "person" | "community" | "event" | "venue" | "generatedField" | "festival" | "practice" | "tag" | string;
+export type RelationKind = "belongs_with" | "relevant_to" | "hosted_at" | "facilitated_by" | "stewarded_by" | "overlaps_with" | "bridges_to" | "shares_practice" | "shares_venue" | "shares_participants" | "good_first_step_for" | "deeper_pathway_into" | "soft_landing_after" | "generated_from" | string;
+export type RelationStatus = "suggested" | "accepted" | "refined" | "declined" | "computed" | "dormant" | string;
+export type RelationProvenance = "user_suggested" | "steward_marked" | "creator_marked" | "calculated" | "imported" | string;
+export type RelationVisibility = "private" | "visible_to_stewards" | "visible_to_members" | "public" | string;
+export type HoldType = "visibility" | "context" | "trust" | "threshold" | "boundary" | "stewardship" | "capacity" | "language" | string;
+export type MovementType = "follow" | "attend" | "mark_interested" | "request_access" | "ask_steward" | "volunteer" | "join_recurring" | "create_bridge_event" | "suggest_connection" | "reactivate" | "remain_observing" | string;
+export type RelationReviewAction = "accept" | "refine" | "decline" | "redirect" | "mark_computed_only" | string;
+export interface RelationEvidence {
+    type: string;
+    label?: string;
+    objectType?: ObjectType;
+    objectId?: Id;
+    value?: string | number | boolean;
+    weight?: number;
+}
 export interface PersonRecord {
     id: Id;
     name: string;
@@ -96,6 +112,48 @@ export interface SuggestedEventShareRecord {
     suggestedBy: Id;
     status: string;
     note?: string;
+}
+export interface FieldRelationRecord {
+    id: Id;
+    sourceType: ObjectType;
+    sourceId: Id;
+    targetType: ObjectType;
+    targetId: Id;
+    relationKind: RelationKind;
+    relationStrength?: number;
+    status: RelationStatus;
+    provenance: RelationProvenance;
+    suggestedBy?: Id;
+    reviewedBy?: Id;
+    reviewAuthorityType?: ObjectType;
+    reviewAuthorityId?: Id;
+    visibility: RelationVisibility;
+    reason?: string;
+    evidence?: RelationEvidence[];
+    holdTypes?: HoldType[];
+    movementUnlocked?: MovementType[];
+    createdAt?: string;
+    updatedAt?: string;
+}
+export type FieldRelationDraft = Omit<FieldRelationRecord, "id" | "status" | "provenance" | "visibility"> & {
+    id?: Id;
+    status?: RelationStatus;
+    provenance?: RelationProvenance;
+    visibility?: RelationVisibility;
+};
+export type PartialFieldRelationDraft = FieldRelationDraft;
+export interface RelationReviewRecord {
+    id: Id;
+    fieldRelationId: Id;
+    reviewerId: Id;
+    action: RelationReviewAction;
+    previousStatus: RelationStatus;
+    nextStatus: RelationStatus;
+    note?: string;
+    refinedRelationKind?: RelationKind;
+    redirectedTargetType?: ObjectType;
+    redirectedTargetId?: Id;
+    createdAt?: string;
 }
 export interface GroupRelationshipRecord {
     id: Id;

@@ -71,6 +71,7 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
   - Show represented relations with source, target, relation kind, strength, status, provenance, visibility, evidence/reasons, related hold types, and movement unlocked.
   - Distinguish accepted relations from suggested, steward-reviewed, refined, declined, or dormant relations.
   - Preserve ParticipationEdge as the detailed person-to-community belonging model.
+  - Future mockups should consume relation data through `platform.fieldRelations` in the shared Platform data layer rather than interpreting local arrays.
 
 - Suggest connection / suggest context:
   - Generalizes the current "suggest event relevance to a group" feature.
@@ -89,6 +90,7 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
   - Shows movement made possible by visible or accepted relations.
   - Examples include attend beginner event, follow lightly, request access, ask steward, volunteer, join recurring practice, suggest related community, reactivate dormant edge, create bridge event, or mark relationship between communities.
   - Pathways should respect access, consent, capacity, boundary, visibility, and stewardship review.
+  - Initial pathway/ways-in values are derived from relation state and object context, not stored as a separate heavy entity.
 
 ## Event Features
 

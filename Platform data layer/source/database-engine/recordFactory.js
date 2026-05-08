@@ -21,6 +21,35 @@ const FieldPlatformRecordFactory = (() => {
     return `managed_${personId}_${objectType}_${objectId}_${roles.join("_") || "role"}`;
   }
 
+  function fieldRelationId(sourceType, sourceId, targetType, targetId, relationKind, index = 0) {
+    return `field_rel_${sourceType}_${sourceId}_${targetType}_${targetId}_${relationKind || "related"}_${index}`;
+  }
+
+  function relationReviewId(fieldRelationIdValue, action, index = 0) {
+    return `relation_review_${fieldRelationIdValue}_${action || "review"}_${index}`;
+  }
+
+  function normalizeFieldRelationRecord(relation, index = 0) {
+    return {
+      relationStrength: 0,
+      status: "suggested",
+      provenance: "calculated",
+      visibility: "visible_to_stewards",
+      evidence: [],
+      holdTypes: [],
+      movementUnlocked: [],
+      ...relation,
+      id: relation.id || fieldRelationId(
+        relation.sourceType,
+        relation.sourceId,
+        relation.targetType,
+        relation.targetId,
+        relation.relationKind,
+        index
+      )
+    };
+  }
+
   function defaultParticipationEdge(personId, groupId) {
     return {
       id: edgeId(personId, groupId),
@@ -73,8 +102,11 @@ const FieldPlatformRecordFactory = (() => {
     edgeId,
     groupRelationshipId,
     managedObjectId,
+    fieldRelationId,
+    relationReviewId,
     defaultParticipationEdge,
-    normalizeEventRecord
+    normalizeEventRecord,
+    normalizeFieldRelationRecord
   };
 })();
 

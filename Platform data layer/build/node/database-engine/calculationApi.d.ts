@@ -15,4 +15,10 @@ export function createCalculationApi(database: any, queries: any, calculations: 
     summarizeGroup: (groupId: any) => any;
     eventInterest: (personId: any, eventId: any) => any;
     eventInterestForRecord: (personId: any, event: any) => any;
+    relationsForObject: (objectType: any, objectId: any) => any;
+    acceptedRelationsForObject: (objectType: any, objectId: any) => any;
+    pendingRelationsForReviewAuthority: (authorityType: any, authorityId: any) => any;
+    movementOptionsForRelation: (relationId: any) => any;
+    relationExplanation: (relationId: any) => any;
+    holdSignalsForObject: (objectType: any, objectId: any) => any;
 };

@@ -14,6 +14,13 @@ export function createQueryApi(database: any): {
     getEdgesForGroup: (groupId: any) => any;
     getMembershipRequestsForGroup: (groupId: any) => any;
     getSuggestedEventSharesForGroup: (groupId: any) => any;
+    getFieldRelation: (relationId: any) => any;
+    listFieldRelations: () => any;
+    getFieldRelationsForObject: (objectType: any, objectId: any) => any;
+    getFieldRelationsBetween: (sourceType: any, sourceId: any, targetType: any, targetId: any) => any;
+    getFieldRelationsForReviewAuthority: (authorityType: any, authorityId: any) => any;
+    getPendingFieldRelationsForReviewAuthority: (authorityType: any, authorityId: any) => any;
+    getRelationReviewsForRelation: (fieldRelationId: any) => any;
     getManagedObjectsForPerson: (personId: any) => any;
     canManageEvent: (personId: any, eventId: any) => any;
     canManageCommunity: (personId: any, groupId: any) => any;

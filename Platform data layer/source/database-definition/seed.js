@@ -616,6 +616,273 @@ function createInitialPlatformSnapshot() {
     { fromGroupId: "tea", toGroupId: "ecstatic", type: "overlapsWith", note: "Post-dance social landing has started to form." }
   ];
 
+  const fieldRelations = [
+    {
+      id: "fr_ci_jam_good_first_step_ci",
+      sourceType: "event",
+      sourceId: "e_ci_jam",
+      targetType: "community",
+      targetId: "ci",
+      relationKind: "good_first_step_for",
+      relationStrength: 88,
+      status: "accepted",
+      provenance: "steward_marked",
+      reviewedBy: "p_ella",
+      reviewAuthorityType: "community",
+      reviewAuthorityId: "ci",
+      visibility: "public",
+      reason: "Friday Contact Jam is a steward-marked first step for Contact Improvisation Aarhus.",
+      evidence: [
+        { type: "shared_tag", label: "contact improvisation" },
+        { type: "event_access", label: "public beginner-friendly event" },
+        { type: "community_entry_guidance", label: "Friday jam intro is named as the first step" }
+      ],
+      holdTypes: ["threshold", "context"],
+      movementUnlocked: ["attend", "follow", "request_access"],
+      createdAt: "2026-05-01T10:00:00.000Z",
+      updatedAt: "2026-05-02T10:00:00.000Z"
+    },
+    {
+      id: "fr_harbor_tea_soft_landing_ecstatic",
+      sourceType: "event",
+      sourceId: "e_harbor_integration",
+      targetType: "community",
+      targetId: "ecstatic",
+      relationKind: "soft_landing_after",
+      relationStrength: 62,
+      status: "suggested",
+      provenance: "user_suggested",
+      suggestedBy: "p_freja",
+      reviewAuthorityType: "community",
+      reviewAuthorityId: "ecstatic",
+      visibility: "visible_to_stewards",
+      reason: "Tea after dance may help people integrate after Ecstatic Dance.",
+      evidence: [
+        { type: "linked_group", label: "event already links Tea and Ecstatic Dance" },
+        { type: "shared_participants", label: "several dance participants attend tea socials" }
+      ],
+      holdTypes: ["context", "trust"],
+      movementUnlocked: ["ask_steward", "follow"],
+      createdAt: "2026-05-03T10:00:00.000Z",
+      updatedAt: "2026-05-03T10:00:00.000Z"
+    },
+    {
+      id: "fr_dome_shares_venue_somatic",
+      sourceType: "venue",
+      sourceId: "v_dome",
+      targetType: "community",
+      targetId: "somatic",
+      relationKind: "shares_venue",
+      relationStrength: 58,
+      status: "computed",
+      provenance: "calculated",
+      reviewAuthorityType: "community",
+      reviewAuthorityId: "somatic",
+      visibility: "public",
+      reason: "Dome Studio is used by several communities near somatic practice.",
+      evidence: [
+        { type: "venue_use", label: "Somatic Practitioners Network uses Dome Studio" },
+        { type: "venue_cluster", label: "Dome Studio also hosts movement communities" }
+      ],
+      holdTypes: ["visibility", "context"],
+      movementUnlocked: ["follow", "suggest_connection"],
+      createdAt: "2026-05-01T11:00:00.000Z",
+      updatedAt: "2026-05-01T11:00:00.000Z"
+    },
+    {
+      id: "fr_tea_bridge_circling",
+      sourceType: "community",
+      sourceId: "tea",
+      targetType: "community",
+      targetId: "circling",
+      relationKind: "good_first_step_for",
+      relationStrength: 76,
+      status: "accepted",
+      provenance: "steward_marked",
+      reviewedBy: "p_rune",
+      reviewAuthorityType: "community",
+      reviewAuthorityId: "circling",
+      visibility: "public",
+      reason: "Tea socials are a softer entry before deeper relational practice.",
+      evidence: [
+        { type: "shared_tag", label: "connection" },
+        { type: "shared_venue", label: "Teahouse Back Room" },
+        { type: "entry_guidance", label: "low-threshold social landing" }
+      ],
+      holdTypes: ["threshold", "context"],
+      movementUnlocked: ["attend", "follow", "request_access"],
+      createdAt: "2026-05-01T12:00:00.000Z",
+      updatedAt: "2026-05-02T12:00:00.000Z"
+    },
+    {
+      id: "fr_casey_bridge_shares_somatics_tag",
+      sourceType: "event",
+      sourceId: "e_casey_somatic_bridge",
+      targetType: "tag",
+      targetId: "somatics",
+      relationKind: "shares_practice",
+      relationStrength: 72,
+      status: "computed",
+      provenance: "calculated",
+      visibility: "public",
+      reason: "The event shares somatics, movement, and consent-adjacent practice language.",
+      evidence: [
+        { type: "shared_tag", label: "somatics" },
+        { type: "shared_tag", label: "movement" },
+        { type: "event_audience", label: "bridge between body practice and relational inquiry" }
+      ],
+      holdTypes: [],
+      movementUnlocked: ["attend", "mark_interested"],
+      createdAt: "2026-05-01T13:00:00.000Z",
+      updatedAt: "2026-05-01T13:00:00.000Z"
+    },
+    {
+      id: "fr_casey_queer_private_entry",
+      sourceType: "person",
+      sourceId: "p_casey",
+      targetType: "community",
+      targetId: "queer",
+      relationKind: "good_first_step_for",
+      relationStrength: 44,
+      status: "suggested",
+      provenance: "user_suggested",
+      suggestedBy: "p_casey",
+      reviewAuthorityType: "community",
+      reviewAuthorityId: "queer",
+      visibility: "private",
+      reason: "Casey is privately exploring whether a low-pressure queer movement event fits this season.",
+      evidence: [
+        { type: "saved_event", label: "Queer Movement Low-Pressure Entry" },
+        { type: "person_tag", label: "queer" },
+        { type: "person_tag", label: "movement" }
+      ],
+      holdTypes: ["trust", "capacity"],
+      movementUnlocked: ["remain_observing", "request_access", "ask_steward"],
+      createdAt: "2026-05-04T10:00:00.000Z",
+      updatedAt: "2026-05-04T10:00:00.000Z"
+    },
+    {
+      id: "fr_circling_intro_refined_to_tea",
+      sourceType: "event",
+      sourceId: "e_circling_intro",
+      targetType: "community",
+      targetId: "tea",
+      relationKind: "soft_landing_after",
+      relationStrength: 51,
+      status: "refined",
+      provenance: "user_suggested",
+      suggestedBy: "p_alma",
+      reviewedBy: "p_freja",
+      reviewAuthorityType: "community",
+      reviewAuthorityId: "tea",
+      visibility: "visible_to_members",
+      reason: "Refined from a broad relevance suggestion into a soft-landing connection.",
+      evidence: [
+        { type: "shared_tag", label: "connection" },
+        { type: "steward_review", label: "Tea steward refined the connection type" }
+      ],
+      holdTypes: ["language"],
+      movementUnlocked: ["attend", "follow"],
+      createdAt: "2026-05-02T09:00:00.000Z",
+      updatedAt: "2026-05-04T09:00:00.000Z"
+    },
+    {
+      id: "fr_somatic_lab_declined_meditation",
+      sourceType: "event",
+      sourceId: "e_somatic_lab",
+      targetType: "community",
+      targetId: "meditation",
+      relationKind: "relevant_to",
+      relationStrength: 28,
+      status: "declined",
+      provenance: "calculated",
+      reviewedBy: "p_henrik",
+      reviewAuthorityType: "community",
+      reviewAuthorityId: "meditation",
+      visibility: "visible_to_stewards",
+      reason: "Declined because the event is practitioner-specific and not a clear public meditation entry.",
+      evidence: [
+        { type: "tag_overlap", label: "nervous system adjacency" },
+        { type: "access_boundary", label: "visible but member signup only" }
+      ],
+      holdTypes: ["boundary", "capacity"],
+      movementUnlocked: ["remain_observing"],
+      createdAt: "2026-05-02T15:00:00.000Z",
+      updatedAt: "2026-05-05T15:00:00.000Z"
+    },
+    {
+      id: "fr_acro_basics_redirected_ci",
+      sourceType: "event",
+      sourceId: "e_acro_basics",
+      targetType: "community",
+      targetId: "acro",
+      relationKind: "good_first_step_for",
+      relationStrength: 67,
+      status: "accepted",
+      provenance: "creator_marked",
+      suggestedBy: "p_tobias",
+      reviewedBy: "p_tobias",
+      reviewAuthorityType: "community",
+      reviewAuthorityId: "acro",
+      visibility: "public",
+      reason: "Redirected from a Contact Impro suggestion to the Acro community that owns the beginner pathway.",
+      evidence: [
+        { type: "event_tag", label: "acro" },
+        { type: "steward_review", label: "redirected to the clearer community context" }
+      ],
+      holdTypes: ["context"],
+      movementUnlocked: ["attend", "follow"],
+      createdAt: "2026-05-03T15:00:00.000Z",
+      updatedAt: "2026-05-05T15:00:00.000Z"
+    }
+  ];
+
+  const relationReviews = [
+    {
+      id: "review_fr_ci_jam_accept",
+      fieldRelationId: "fr_ci_jam_good_first_step_ci",
+      reviewerId: "p_ella",
+      action: "accept",
+      previousStatus: "suggested",
+      nextStatus: "accepted",
+      note: "This is the entry point named in community guidance.",
+      createdAt: "2026-05-02T10:00:00.000Z"
+    },
+    {
+      id: "review_fr_circling_intro_refine",
+      fieldRelationId: "fr_circling_intro_refined_to_tea",
+      reviewerId: "p_freja",
+      action: "refine",
+      previousStatus: "suggested",
+      nextStatus: "refined",
+      note: "This is better described as a soft landing than a general relevance link.",
+      refinedRelationKind: "soft_landing_after",
+      createdAt: "2026-05-04T09:00:00.000Z"
+    },
+    {
+      id: "review_fr_somatic_lab_decline",
+      fieldRelationId: "fr_somatic_lab_declined_meditation",
+      reviewerId: "p_henrik",
+      action: "decline",
+      previousStatus: "computed",
+      nextStatus: "declined",
+      note: "Too specialized to surface as a meditation entry path.",
+      createdAt: "2026-05-05T15:00:00.000Z"
+    },
+    {
+      id: "review_fr_acro_redirect",
+      fieldRelationId: "fr_acro_basics_redirected_ci",
+      reviewerId: "p_tobias",
+      action: "redirect",
+      previousStatus: "suggested",
+      nextStatus: "accepted",
+      note: "Redirected from Contact Impro to Acro as the clearer review authority.",
+      redirectedTargetType: "community",
+      redirectedTargetId: "acro",
+      createdAt: "2026-05-05T15:00:00.000Z"
+    }
+  ];
+
   const personas = ["p_casey", "p_maya", "p_liv", "p_samir", "p_rune", "p_noa"];
 
   return {
@@ -631,6 +898,8 @@ function createInitialPlatformSnapshot() {
     forumThreads,
     participationEdges,
     groupRelationships,
+    fieldRelations,
+    relationReviews,
     personas,
     createdEvents: [],
     featuredEvents: [],

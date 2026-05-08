@@ -16,6 +16,8 @@ assert(initial.people.length >= 6, "seed should include people");
 assert(initial.groups.length >= 6, "seed should include groups");
 assert(initial.events.length >= 6, "seed should include events");
 assert(initial.participationEdges.every(edge => edge.id), "edges should be normalized with ids");
+assert(initial.fieldRelations.length >= 6, "seed should include FieldRelations");
+assert(initial.relationReviews.length >= 3, "seed should include RelationReviews");
 
 const event = layer.database.update("events", "e_ci_jam", current => ({
   attendance: {
@@ -68,6 +70,43 @@ assert(recommendation && typeof recommendation.score === "number", "event intere
 
 const summary = layer.calculations.summarizeGroup("ci");
 assert(typeof summary.bondingScore === "number", "group summary should include bonding score");
+
+const seededRelation = layer.queries.getFieldRelation("fr_ci_jam_good_first_step_ci");
+assert(seededRelation && seededRelation.status === "accepted", "seeded FieldRelation should be queryable");
+assert(layer.queries.listFieldRelations().length >= initial.fieldRelations.length, "FieldRelations should be listable");
+assert(layer.calculations.acceptedRelationsForObject("event", "e_ci_jam").some(relation => relation.id === seededRelation.id), "accepted relations should be calculable for an object");
+assert(layer.calculations.pendingRelationsForReviewAuthority("community", "ecstatic").some(relation => relation.id === "fr_harbor_tea_soft_landing_ecstatic"), "pending relation review queue should be calculable");
+assert(layer.calculations.movementOptionsForRelation(seededRelation.id).includes("attend"), "movement options should include attend for accepted event-community relation");
+assert(layer.calculations.relationExplanation(seededRelation.id).reason, "relation explanation should include a reason");
+assert(layer.calculations.holdSignalsForObject("community", "ci").some(signal => signal.holdType === "threshold"), "hold signals should summarize hold types");
+
+const createdRelation = layer.database.create("fieldRelations", {
+  sourceType: "event",
+  sourceId: "e_morning_sit",
+  targetType: "community",
+  targetId: "meditation",
+  relationKind: "good_first_step_for",
+  status: "suggested",
+  provenance: "user_suggested",
+  suggestedBy: "p_casey",
+  reviewAuthorityType: "community",
+  reviewAuthorityId: "meditation",
+  visibility: "visible_to_stewards",
+  reason: "Smoke test suggested connection.",
+  holdTypes: ["stewardship"],
+  movementUnlocked: ["ask_steward"]
+});
+assert(createdRelation.id, "generic create should persist FieldRelation");
+
+const review = layer.database.create("relationReviews", {
+  fieldRelationId: createdRelation.id,
+  reviewerId: "p_henrik",
+  action: "accept",
+  previousStatus: "suggested",
+  nextStatus: "accepted",
+  note: "Smoke test review"
+});
+assert(review.id, "generic create should persist RelationReview");
 
 const createdCommunity = layer.database.create("groups", {
   name: "Smoke Test Community",

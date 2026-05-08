@@ -34,6 +34,8 @@ The model explorer should allow inspection of:
 - created events
 - created communities
 
+The Platform data-layer dev tool should inspect `fieldRelations` and `relationReviews` directly, plus calculated relation views such as relations for object, pending review queues, relation explanations, hold signals, and movement options.
+
 ## Explainable Formulas
 
 The model explorer should explain:

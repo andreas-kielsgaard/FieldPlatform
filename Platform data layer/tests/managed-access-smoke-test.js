@@ -64,6 +64,41 @@ assert(recommendations.length > 0, "user.events.recommended should return event 
 const health = community.health();
 assert(typeof health.bondingScore === "number", "community.health should return summary");
 
+const seededRelation = platform.fieldRelations.get("fr_ci_jam_good_first_step_ci");
+assert(seededRelation.isAccepted(), "fieldRelations.get should return accepted seeded relation");
+assert(platform.fieldRelations.forObject("event", "e_ci_jam").length > 0, "fieldRelations.forObject should list event relations");
+assert(platform.fieldRelations.between("event", "e_ci_jam", "community", "ci").length > 0, "fieldRelations.between should list matching relations");
+assert(platform.fieldRelations.pendingForCommunity("ecstatic").some(relation => relation.id === "fr_harbor_tea_soft_landing_ecstatic"), "pendingForCommunity should list suggested relations");
+assert(seededRelation.movementOptions().includes("attend"), "FieldRelation.movementOptions should expose MovementType values");
+assert(seededRelation.explanation(), "FieldRelation.explanation should return structured output");
+
+const suggestedRelation = platform.fieldRelations.suggest({
+  sourceType: "event",
+  sourceId: "e_morning_sit",
+  targetType: "community",
+  targetId: "meditation",
+  relationKind: "good_first_step_for",
+  reviewAuthorityType: "community",
+  reviewAuthorityId: "meditation",
+  reason: "Managed access smoke suggestion."
+}, user.id);
+assert(suggestedRelation.isPending(), "fieldRelations.suggest should create pending relation");
+
+const acceptedRelation = platform.fieldRelations.accept(suggestedRelation.id, "p_henrik", "Accepted by smoke test.");
+assert(acceptedRelation.isAccepted(), "fieldRelations.accept should accept relation");
+
+const refinedRelation = platform.fieldRelations.refine(acceptedRelation.id, "p_henrik", { relationKind: "belongs_with" }, "Refined by smoke test.");
+assert(refinedRelation.data().status === "refined", "fieldRelations.refine should mark relation refined");
+assert(refinedRelation.data().relationKind === "belongs_with", "fieldRelations.refine should apply patch");
+
+const declinedRelation = platform.fieldRelations.decline(refinedRelation.id, "p_henrik", "Declined by smoke test.");
+assert(declinedRelation.data().status === "declined", "fieldRelations.decline should mark relation declined");
+assert(declinedRelation.reviews().length >= 3, "relation review history should be recorded");
+
+const mirroredShare = platform.eventSuggestions.suggest("e_ci_jam", "somatic", user.id, "Mirror suggested share into FieldRelation.");
+assert(mirroredShare.id, "event suggestion compatibility service should still create suggestedEventShare");
+assert(platform.fieldRelations.between("event", "e_ci_jam", "community", "somatic").some(relation => relation.data().reason.includes("Mirror")), "event suggestion should also create matching FieldRelation");
+
 platform.resetDatabase();
 assert(!platform.events.list().some(item => item.id === createdEvent.id), "reset should remove created event");
 

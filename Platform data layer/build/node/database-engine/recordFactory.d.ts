@@ -2,6 +2,8 @@ export function withId(collectionName: any, record: any, idPrefix?: null): any;
 export function edgeId(personId: any, groupId: any): string;
 export function groupRelationshipId(relationship: any, index: any): string;
 export function managedObjectId(personId: any, objectType: any, objectId: any, roles?: any[]): string;
+export function fieldRelationId(sourceType: any, sourceId: any, targetType: any, targetId: any, relationKind: any, index?: number): string;
+export function relationReviewId(fieldRelationIdValue: any, action: any, index?: number): string;
 export function defaultParticipationEdge(personId: any, groupId: any): {
     id: string;
     personId: any;
@@ -21,3 +23,4 @@ export function defaultParticipationEdge(personId: any, groupId: any): {
     decayState: string;
 };
 export function normalizeEventRecord(event: any): any;
+export function normalizeFieldRelationRecord(relation: any, index?: number): any;

@@ -132,6 +132,40 @@
       run: values => platform.raw().calculations.bridgePeople(values.groupOrFieldId)
     },
     {
+      id: "relationsForObject",
+      name: "relationsForObject(type, id)",
+      group: "FieldRelation API",
+      params: [
+        { name: "objectType", type: "objectType" },
+        { name: "objectId", type: "objectByType" }
+      ],
+      run: values => platform.raw().calculations.relationsForObject(values.objectType, values.objectId)
+    },
+    {
+      id: "pendingRelationsForReviewAuthority",
+      name: "pendingRelationsForReviewAuthority(type, id)",
+      group: "FieldRelation API",
+      params: [
+        { name: "authorityType", type: "objectType", defaultValue: "community" },
+        { name: "authorityId", type: "community" }
+      ],
+      run: values => platform.raw().calculations.pendingRelationsForReviewAuthority(values.authorityType, values.authorityId)
+    },
+    {
+      id: "relationExplanation",
+      name: "relationExplanation(relation)",
+      group: "FieldRelation API",
+      params: [{ name: "relationId", type: "fieldRelation" }],
+      run: values => platform.raw().calculations.relationExplanation(values.relationId)
+    },
+    {
+      id: "movementOptionsForRelation",
+      name: "movementOptionsForRelation(relation)",
+      group: "FieldRelation API",
+      params: [{ name: "relationId", type: "fieldRelation" }],
+      run: values => platform.raw().calculations.movementOptionsForRelation(values.relationId)
+    },
+    {
       id: "userEventsRecommended",
       name: "user.events.recommended()",
       group: "Managed Access",
@@ -161,6 +195,13 @@
         { name: "personId", type: "person" }
       ],
       run: values => platform.events.get(values.eventId).relevanceFor(platform.users.get(values.personId))
+    },
+    {
+      id: "fieldRelationsPendingForCommunity",
+      name: "fieldRelations.pendingForCommunity()",
+      group: "Managed Access",
+      params: [{ name: "groupId", type: "group" }],
+      run: values => platform.fieldRelations.pendingForCommunity(values.groupId).map(relation => relation.data())
     }
   ];
 
@@ -390,7 +431,8 @@
       ["event", "Event"],
       ["community", "Community"],
       ["venue", "Venue"],
-      ["field", "Generated Field"]
+      ["field", "Generated Field"],
+      ["fieldRelation", "FieldRelation"]
     ];
     els.relationType.innerHTML = types.map(([value, label]) => (
       `<option value="${value}" ${state.relationType === value ? "selected" : ""}>${label}</option>`
@@ -497,9 +539,19 @@
     if (type === "person") return records("people").map(item => ({ id: item.id, label: `${item.name} (${item.id})` }));
     if (type === "event") return platform.raw().queries.listEvents().map(item => ({ id: item.id, label: `${item.title} (${item.id})` }));
     if (type === "group") return records("groups").map(item => ({ id: item.id, label: `${item.name} (${item.id})` }));
+    if (type === "community") return valueHelp("group");
     if (type === "venue") return records("venues").map(item => ({ id: item.id, label: `${item.name} (${item.id})` }));
     if (type === "edge") return records("participationEdges").map(item => ({ id: item.id, label: `${item.personId} to ${item.groupId} (${item.id})` }));
     if (type === "field") return platform.generatedFields.generateFields().map(item => ({ id: item.id, label: `${item.data().name} (${item.id})` }));
+    if (type === "fieldRelation") return records("fieldRelations").map(item => ({ id: item.id, label: `${item.sourceType}:${item.sourceId} to ${item.targetType}:${item.targetId} (${item.status})` }));
+    if (type === "objectType") return ["person", "community", "event", "venue", "generatedField", "festival", "practice", "tag"].map(id => ({ id, label: id }));
+    if (type === "objectByType") return [
+      ...valueHelp("person"),
+      ...valueHelp("group"),
+      ...valueHelp("event"),
+      ...valueHelp("venue"),
+      ...valueHelp("field")
+    ];
     if (type === "groupOrField") return [
       ...valueHelp("group"),
       ...valueHelp("field")
@@ -513,6 +565,7 @@
     if (type === "community") return valueHelp("group");
     if (type === "venue") return valueHelp("venue");
     if (type === "field") return valueHelp("field");
+    if (type === "fieldRelation") return valueHelp("fieldRelation");
     return [];
   }
 
@@ -523,6 +576,7 @@
     if (type === "community") return communityRelation(id);
     if (type === "venue") return venueRelation(id);
     if (type === "field") return fieldRelation(id);
+    if (type === "fieldRelation") return fieldRelationRecord(id);
     return { groups: [], details: {} };
   }
 
@@ -539,7 +593,8 @@
         relationGroup("Events Attending", user.events.attending().map(eventItem)),
         relationGroup("Events Interested", user.events.interested().map(eventItem)),
         relationGroup("Managed Events", user.events.managed().map(eventItem)),
-        relationGroup("Managed Communities", user.communities.managed().map(communityItem))
+        relationGroup("Managed Communities", user.communities.managed().map(communityItem)),
+        relationGroup("FieldRelations", platform.fieldRelations.forObject("person", personId).map(fieldRelationItem))
       ]
     };
   }
@@ -559,6 +614,7 @@
           label: `${share.groupId} via ${share.suggestedBy}`,
           meta: share.status
         }))),
+        relationGroup("FieldRelations", platform.fieldRelations.forObject("event", eventId).map(fieldRelationItem)),
         relationGroup("Managers", records("managedObjects").filter(item => item.objectType === "event" && item.objectId === eventId).map(managerItem))
       ]
     };
@@ -591,7 +647,9 @@
         relationGroup("Generated Fields", community.generatedFields().map(field => ({
           label: field.data().name,
           meta: field.id
-        })))
+        }))),
+        relationGroup("FieldRelations", platform.fieldRelations.forObject("community", groupId).map(fieldRelationItem)),
+        relationGroup("Pending Review", platform.fieldRelations.pendingForCommunity(groupId).map(fieldRelationItem))
       ]
     };
   }
@@ -602,7 +660,8 @@
       details: venue.data(),
       groups: [
         relationGroup("Communities", venue.communities().map(communityItem)),
-        relationGroup("Events", venue.events().map(eventItem))
+        relationGroup("Events", venue.events().map(eventItem)),
+        relationGroup("FieldRelations", platform.fieldRelations.forObject("venue", venueId).map(fieldRelationItem))
       ]
     };
   }
@@ -618,13 +677,47 @@
         relationGroup("Bridge People", field.bridgePeople().map(item => ({
           label: item.person?.name || item.person?.id || "Unknown",
           meta: `score ${item.bridgeScore}`
-        })))
+        }))),
+        relationGroup("FieldRelations", platform.fieldRelations.forObject("generatedField", fieldId).map(fieldRelationItem))
+      ]
+    };
+  }
+
+  function fieldRelationRecord(relationId) {
+    const relation = platform.fieldRelations.get(relationId);
+    return {
+      details: {
+        relation: relation.data(),
+        explanation: relation.explanation(),
+        plainLanguage: "Use this panel to inspect connection source, review state, hold/friction types, and available next-step movement values."
+      },
+      groups: [
+        relationGroup("Source", [endpointItem(relation.data().sourceType, relation.data().sourceId)]),
+        relationGroup("Target", [endpointItem(relation.data().targetType, relation.data().targetId)]),
+        relationGroup("Movement Options", relation.movementOptions().map(value => ({ label: value, meta: "MovementType" }))),
+        relationGroup("Hold Types", (relation.data().holdTypes || []).map(value => ({ label: value, meta: "HoldType" }))),
+        relationGroup("Reviews", relation.reviews().map(review => ({ label: review.action, meta: `${review.previousStatus} to ${review.nextStatus}` })))
       ]
     };
   }
 
   function relationGroup(title, items) {
     return { title, items: items.filter(Boolean) };
+  }
+
+  function fieldRelationItem(relation) {
+    const data = relation.data();
+    return {
+      label: `${data.sourceType}:${data.sourceId} -> ${data.targetType}:${data.targetId}`,
+      meta: `${data.relationKind}, ${data.status}, ${data.provenance}`
+    };
+  }
+
+  function endpointItem(objectType, objectId) {
+    return {
+      label: `${objectType}:${objectId}`,
+      meta: "connection endpoint"
+    };
   }
 
   function records(collectionName) {

@@ -1,5 +1,6 @@
 import { CommunityRepository } from "./repositories/communityRepository";
 import { EventRepository } from "./repositories/eventRepository";
+import { FieldRelationRepository } from "./repositories/fieldRelationRepository";
 import { UserRepository } from "./repositories/userRepository";
 import { VenueRepository } from "./repositories/venueRepository";
 import { CommunityHealthService } from "./services/communityHealthService";
@@ -7,6 +8,7 @@ import { CommunityManagementService } from "./services/communityManagementServic
 import { EventManagementService } from "./services/eventManagementService";
 import { EventRegistrationService } from "./services/eventRegistrationService";
 import { EventSuggestionService } from "./services/eventSuggestionService";
+import { FieldRelationService } from "./services/fieldRelationService";
 import { GeneratedFieldHandler } from "./services/generatedFieldHandler";
 import { MembershipService } from "./services/membershipService";
 import { ParticipationService } from "./services/participationService";
@@ -17,6 +19,7 @@ export declare class PlatformDomain {
     readonly events: EventRepository;
     readonly communities: CommunityRepository;
     readonly venues: VenueRepository;
+    readonly fieldRelations: FieldRelationRepository;
     readonly generatedFields: GeneratedFieldHandler;
     readonly recommendations: RecommendationService;
     readonly communityHealth: CommunityHealthService;
@@ -24,6 +27,7 @@ export declare class PlatformDomain {
     readonly memberships: MembershipService;
     readonly eventRegistration: EventRegistrationService;
     readonly eventSuggestions: EventSuggestionService;
+    readonly fieldRelationService: FieldRelationService;
     readonly eventManagement: EventManagementService;
     readonly communityManagement: CommunityManagementService;
     private readonly lowLevel;

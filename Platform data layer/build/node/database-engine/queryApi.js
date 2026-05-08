@@ -28,6 +28,10 @@ const FieldPlatformQueryApi = (() => {
                 return true;
             return getManagedObjectsForPerson(personId).some(item => item.objectType === "group" && item.objectId === groupId);
         }
+        function relationTouchesObject(relation, objectType, objectId) {
+            return (relation.sourceType === objectType && relation.sourceId === objectId) ||
+                (relation.targetType === objectType && relation.targetId === objectId);
+        }
         return {
             getPerson: personId => get("people", personId),
             listPeople: () => list("people"),
@@ -44,6 +48,19 @@ const FieldPlatformQueryApi = (() => {
             getEdgesForGroup: groupId => list("participationEdges", { filter: { groupId } }),
             getMembershipRequestsForGroup: groupId => list("membershipRequests", { filter: { groupId } }),
             getSuggestedEventSharesForGroup: groupId => list("suggestedEventShares", { filter: { groupId } }),
+            getFieldRelation: relationId => get("fieldRelations", relationId),
+            listFieldRelations: () => list("fieldRelations"),
+            getFieldRelationsForObject: (objectType, objectId) => list("fieldRelations").filter(relation => relationTouchesObject(relation, objectType, objectId)),
+            getFieldRelationsBetween: (sourceType, sourceId, targetType, targetId) => list("fieldRelations").filter(relation => relation.sourceType === sourceType &&
+                relation.sourceId === sourceId &&
+                relation.targetType === targetType &&
+                relation.targetId === targetId),
+            getFieldRelationsForReviewAuthority: (authorityType, authorityId) => list("fieldRelations").filter(relation => relation.reviewAuthorityType === authorityType &&
+                relation.reviewAuthorityId === authorityId),
+            getPendingFieldRelationsForReviewAuthority: (authorityType, authorityId) => list("fieldRelations").filter(relation => relation.reviewAuthorityType === authorityType &&
+                relation.reviewAuthorityId === authorityId &&
+                relation.status === "suggested"),
+            getRelationReviewsForRelation: fieldRelationId => list("relationReviews", { filter: { fieldRelationId } }),
             getManagedObjectsForPerson,
             canManageEvent,
             canManageCommunity

@@ -340,7 +340,7 @@ Flow:
 Data and calculations:
 
 - Pulls source and target object records.
-- Creates FieldRelation or a compatible suggested relation object.
+- Creates FieldRelation through the shared Platform data layer, or a compatible suggested relation object that is mirrored into FieldRelation.
 - Stores relationKind, relationStrength if known, status, provenance, suggestedBy, visibility, evidence/reasons, relatedHoldTypes, and movementUnlocked if available.
 
 Outcome:
@@ -370,7 +370,7 @@ Flow:
 
 Data and calculations:
 
-- Pulls FieldRelation records where reviewAuthority or stewardedBy matches the stewarded context.
+- Pulls FieldRelation records from `platform.fieldRelations` where reviewAuthority or stewardedBy matches the stewarded context.
 - Uses relation status: suggested, steward-reviewed, accepted, refined, declined, dormant.
 - Uses provenance: user-suggested, steward-marked, creator-marked, calculated, imported.
 - Uses visibility, hold taxonomy, evidence/reasons, and movementUnlocked.
@@ -402,7 +402,7 @@ Flow:
 Data and calculations:
 
 - Pulls FieldRelation data, ParticipationEdge data where relevant, recommendation evidence, access rules, visibility settings, and hold types.
-- Uses pathway logic to decide which actions are visible, available, held, or steward-reviewed.
+- Uses shared data-layer pathway logic to decide which domain-level MovementType values are visible, available, held, or steward-reviewed. UI labels should translate those values into ordinary language such as "Ways in" and "First step".
 
 Outcome:
 

@@ -4,6 +4,7 @@ const FieldPlatformCalculations = (() => {
   const generatedFields = getGeneratedFields();
   const communityHealth = getCommunityHealth();
   const recommendations = getRecommendations();
+  const fieldRelations = getFieldRelations();
 
   function getShared() {
     if (typeof require === "function") return require("./shared");
@@ -30,6 +31,11 @@ const FieldPlatformCalculations = (() => {
     return window.FieldPlatformRecommendationCalculations;
   }
 
+  function getFieldRelations() {
+    if (typeof require === "function") return require("./fieldRelations");
+    return window.FieldPlatformFieldRelationCalculations;
+  }
+
   return {
     computeEngagementStrength: shared.computeEngagementStrength,
     computeBondingScore: communityHealth.computeBondingScore,
@@ -46,6 +52,12 @@ const FieldPlatformCalculations = (() => {
     detectBridgePeople: communityHealth.detectBridgePeople,
     summarizeGroup: communityHealth.summarizeGroup,
     eventRelevanceCalculation: recommendations.eventRelevanceCalculation,
+    relationsForObject: fieldRelations.relationsForObject,
+    acceptedRelationsForObject: fieldRelations.acceptedRelationsForObject,
+    pendingRelationsForReviewAuthority: fieldRelations.pendingRelationsForReviewAuthority,
+    movementOptionsForRelation: fieldRelations.movementOptionsForRelation,
+    relationExplanation: fieldRelations.relationExplanation,
+    holdSignalsForObject: fieldRelations.holdSignalsForObject,
     getGroup: shared.getGroup,
     getPerson: shared.getPerson,
     getVenue: shared.getVenue,

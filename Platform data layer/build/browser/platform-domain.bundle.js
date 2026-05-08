@@ -36,6 +36,9 @@ var FieldPlatformDomain = (() => {
     EventRegistrationService: () => EventRegistrationService,
     EventRepository: () => EventRepository,
     EventSuggestionService: () => EventSuggestionService,
+    FieldRelation: () => FieldRelation,
+    FieldRelationRepository: () => FieldRelationRepository,
+    FieldRelationService: () => FieldRelationService,
     GeneratedField: () => GeneratedField,
     GeneratedFieldHandler: () => GeneratedFieldHandler,
     MembershipService: () => MembershipService,
@@ -328,6 +331,104 @@ var FieldPlatformDomain = (() => {
     }
   };
 
+  // source/access-layer/models/fieldRelation.ts
+  var FieldRelation = class {
+    constructor(platform, id) {
+      this.platform = platform;
+      this.id = id;
+    }
+    data() {
+      return this.platform.raw().queries.getFieldRelation(this.id);
+    }
+    source() {
+      const record = this.data();
+      return objectFor(this.platform, record.sourceType, record.sourceId);
+    }
+    target() {
+      const record = this.data();
+      return objectFor(this.platform, record.targetType, record.targetId);
+    }
+    isPending() {
+      return this.data().status === "suggested";
+    }
+    isAccepted() {
+      return this.data().status === "accepted";
+    }
+    isVisibleTo(visibilityContext = "public") {
+      const relation = this.data();
+      if (relation.visibility === "public") return true;
+      const context = typeof visibilityContext === "string" ? visibilityContext : visibilityContext.visibility || "private";
+      if (relation.visibility === "private") return context === "private";
+      if (relation.visibility === "visible_to_stewards") return ["private", "visible_to_stewards"].includes(context);
+      if (relation.visibility === "visible_to_members") return ["private", "visible_to_stewards", "visible_to_members"].includes(context);
+      return false;
+    }
+    explanation() {
+      return this.platform.raw().calculations.relationExplanation(this.id);
+    }
+    movementOptions() {
+      return this.platform.raw().calculations.movementOptionsForRelation(this.id);
+    }
+    reviews() {
+      return clone(this.platform.raw().queries.getRelationReviewsForRelation(this.id) || []);
+    }
+  };
+  function objectFor(platform, objectType, objectId) {
+    if (objectType === "person") return platform.users.get(objectId);
+    if (objectType === "community") return platform.communities.get(objectId);
+    if (objectType === "event") return platform.events.get(objectId);
+    if (objectType === "venue") return platform.venues.get(objectId);
+    if (objectType === "generatedField") return platform.generatedFields.get(objectId);
+    if (objectType === "festival") {
+      return platform.raw().queries.getFestival(objectId);
+    }
+    if (objectType === "practice" || objectType === "tag") return { id: objectId, objectType };
+    return { id: objectId, objectType };
+  }
+
+  // source/access-layer/repositories/fieldRelationRepository.ts
+  var FieldRelationRepository = class {
+    constructor(platform) {
+      this.platform = platform;
+    }
+    get(id) {
+      const record = this.platform.raw().queries.getFieldRelation(id);
+      if (!record) throw new Error(`FieldRelation not found: ${id}`);
+      return new FieldRelation(this.platform, id);
+    }
+    list() {
+      return this.platform.raw().queries.listFieldRelations().map((record) => new FieldRelation(this.platform, record.id));
+    }
+    forObject(type, id) {
+      return this.platform.raw().queries.getFieldRelationsForObject(type, id).map((record) => new FieldRelation(this.platform, record.id));
+    }
+    between(sourceType, sourceId, targetType, targetId) {
+      return this.platform.raw().queries.getFieldRelationsBetween(sourceType, sourceId, targetType, targetId).map((record) => new FieldRelation(this.platform, record.id));
+    }
+    suggest(data, suggestedBy) {
+      const record = this.platform.fieldRelationService.suggest(data, suggestedBy);
+      return new FieldRelation(this.platform, record.id);
+    }
+    accept(id, reviewerId, note = "") {
+      const record = this.platform.fieldRelationService.accept(id, reviewerId, note);
+      return new FieldRelation(this.platform, record.id);
+    }
+    refine(id, reviewerId, patch, note = "") {
+      const record = this.platform.fieldRelationService.refine(id, reviewerId, patch, note);
+      return new FieldRelation(this.platform, record.id);
+    }
+    decline(id, reviewerId, note = "") {
+      const record = this.platform.fieldRelationService.decline(id, reviewerId, note);
+      return new FieldRelation(this.platform, record.id);
+    }
+    forReviewAuthority(type, id) {
+      return this.platform.raw().queries.getFieldRelationsForReviewAuthority(type, id).map((record) => new FieldRelation(this.platform, record.id));
+    }
+    pendingForCommunity(communityId) {
+      return this.platform.raw().queries.getPendingFieldRelationsForReviewAuthority("community", communityId).map((record) => new FieldRelation(this.platform, record.id));
+    }
+  };
+
   // source/access-layer/models/userCommunityAccess.ts
   var UserCommunityAccess = class {
     constructor(platform, user) {
@@ -616,13 +717,32 @@ var FieldPlatformDomain = (() => {
       this.platform = platform;
     }
     suggest(eventId, groupId, suggestedBy, note = "") {
-      return this.platform.raw().database.create("suggestedEventShares", {
+      const share = this.platform.raw().database.create("suggestedEventShares", {
         eventId,
         groupId,
         suggestedBy,
         status: "pending",
         note
       });
+      this.platform.raw().database.create("fieldRelations", {
+        sourceType: "event",
+        sourceId: eventId,
+        targetType: "community",
+        targetId: groupId,
+        relationKind: "relevant_to",
+        relationStrength: 0,
+        status: "suggested",
+        provenance: "user_suggested",
+        suggestedBy,
+        reviewAuthorityType: "community",
+        reviewAuthorityId: groupId,
+        visibility: "visible_to_stewards",
+        reason: note || "Event suggested as related to this community.",
+        evidence: [{ type: "suggested_event_share", label: share.id, objectType: "event", objectId: eventId }],
+        holdTypes: ["stewardship"],
+        movementUnlocked: ["ask_steward", "remain_observing"]
+      });
+      return share;
     }
     feature(shareId, featuredBy) {
       const updated = this.platform.raw().database.update("suggestedEventShares", shareId, {
@@ -635,6 +755,73 @@ var FieldPlatformDomain = (() => {
       return updated;
     }
   };
+
+  // source/access-layer/services/fieldRelationService.ts
+  var FieldRelationService = class {
+    constructor(platform) {
+      this.platform = platform;
+    }
+    suggest(data, suggestedBy) {
+      const now = timestamp();
+      return this.platform.raw().database.create("fieldRelations", {
+        relationStrength: 0,
+        status: "suggested",
+        provenance: "user_suggested",
+        visibility: "visible_to_stewards",
+        evidence: [],
+        holdTypes: [],
+        movementUnlocked: [],
+        ...data,
+        suggestedBy,
+        createdAt: data.createdAt || now,
+        updatedAt: now
+      });
+    }
+    accept(id, reviewerId, note = "") {
+      return this.reviewAndUpdate(id, reviewerId, "accept", { status: "accepted" }, note);
+    }
+    refine(id, reviewerId, patch, note = "") {
+      const { id: _ignoredId, ...safePatch } = patch;
+      return this.reviewAndUpdate(id, reviewerId, "refine", { ...safePatch, status: "refined" }, note);
+    }
+    decline(id, reviewerId, note = "") {
+      return this.reviewAndUpdate(id, reviewerId, "decline", { status: "declined", movementUnlocked: ["remain_observing"] }, note);
+    }
+    redirect(id, reviewerId, targetType, targetId, note = "") {
+      return this.reviewAndUpdate(id, reviewerId, "redirect", {
+        targetType,
+        targetId,
+        status: "refined"
+      }, note);
+    }
+    reviewAndUpdate(id, reviewerId, action, patch, note = "") {
+      const current = this.platform.raw().queries.getFieldRelation(id);
+      if (!current) throw new Error(`FieldRelation not found: ${id}`);
+      const previousStatus = current.status;
+      const nextStatus = patch.status || current.status;
+      const updated = this.platform.raw().database.update("fieldRelations", id, {
+        ...patch,
+        reviewedBy: reviewerId,
+        updatedAt: timestamp()
+      });
+      this.platform.raw().database.create("relationReviews", {
+        fieldRelationId: id,
+        reviewerId,
+        action,
+        previousStatus,
+        nextStatus,
+        note,
+        refinedRelationKind: action === "refine" ? updated.relationKind : void 0,
+        redirectedTargetType: action === "redirect" ? updated.targetType : void 0,
+        redirectedTargetId: action === "redirect" ? updated.targetId : void 0,
+        createdAt: timestamp()
+      });
+      return updated;
+    }
+  };
+  function timestamp() {
+    return (/* @__PURE__ */ new Date()).toISOString();
+  }
 
   // source/access-layer/models/generatedField.ts
   var GeneratedField = class {
@@ -818,6 +1005,7 @@ var FieldPlatformDomain = (() => {
       this.participation = new ParticipationService(this);
       this.memberships = new MembershipService(this);
       this.eventRegistration = new EventRegistrationService(this);
+      this.fieldRelationService = new FieldRelationService(this);
       this.eventSuggestions = new EventSuggestionService(this);
       this.eventManagement = new EventManagementService(this);
       this.communityManagement = new CommunityManagementService(this);
@@ -825,6 +1013,7 @@ var FieldPlatformDomain = (() => {
       this.events = new EventRepository(this);
       this.communities = new CommunityRepository(this);
       this.venues = new VenueRepository(this);
+      this.fieldRelations = new FieldRelationRepository(this);
       this.generatedFields = new GeneratedFieldHandler(this);
       this.recommendations = new RecommendationService(this);
       this.communityHealth = new CommunityHealthService(this);

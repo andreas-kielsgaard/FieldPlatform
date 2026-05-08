@@ -48,6 +48,16 @@ Expected access points:
 - `communities.create(data, createdBy)`
 - `venues.get(id)`
 - `venues.list()`
+- `fieldRelations.get(id)`
+- `fieldRelations.list()`
+- `fieldRelations.forObject(type, id)`
+- `fieldRelations.between(sourceType, sourceId, targetType, targetId)`
+- `fieldRelations.suggest(data, suggestedBy)`
+- `fieldRelations.accept(id, reviewerId, note?)`
+- `fieldRelations.refine(id, reviewerId, patch, note?)`
+- `fieldRelations.decline(id, reviewerId, note?)`
+- `fieldRelations.forReviewAuthority(type, id)`
+- `fieldRelations.pendingForCommunity(communityId)`
 - `generatedFields.generateFields()`
 - `generatedFields.generateFieldsFromCommunities(communities)`
 - `recommendations.eventsForUser(user)`
@@ -176,6 +186,42 @@ Expected properties and methods:
 - `makeDormant()`
 - `reactivate()`
 - `update(patch)`
+
+ParticipationEdge remains the high-resolution person-to-community relationship object. It is not replaced by FieldRelation.
+
+## FieldRelation
+
+Represents a broader object-to-object or context-to-context connection. It can connect people, communities, events, venues, generated fields, festivals, practices, and tags. Creator, facilitator, and steward are not separate entity types yet; model those as person roles or relation kinds.
+
+SuggestedEventShare is still supported for older event-to-community suggestion flows. New calls to `eventSuggestions.suggest(...)` keep creating `suggestedEventShares` and also mirror the suggestion into a FieldRelation.
+
+Expected properties and methods:
+
+- `id`
+- `data()`
+- `source()`
+- `target()`
+- `isPending()`
+- `isAccepted()`
+- `isVisibleTo(visibilityContext?)`
+- `explanation()`
+- `movementOptions()`
+- `reviews()`
+
+Managed repository methods:
+
+- `platform.fieldRelations.get(id)`
+- `platform.fieldRelations.list()`
+- `platform.fieldRelations.forObject(type, id)`
+- `platform.fieldRelations.between(sourceType, sourceId, targetType, targetId)`
+- `platform.fieldRelations.suggest(data, suggestedBy)`
+- `platform.fieldRelations.accept(id, reviewerId, note?)`
+- `platform.fieldRelations.refine(id, reviewerId, patch, note?)`
+- `platform.fieldRelations.decline(id, reviewerId, note?)`
+- `platform.fieldRelations.forReviewAuthority(type, id)`
+- `platform.fieldRelations.pendingForCommunity(communityId)`
+
+`movementOptions()` returns domain `MovementType` values, not UI copy. Future user-facing mockups should translate those through `General context/Language and copy register.md`.
 
 ## GeneratedField
 

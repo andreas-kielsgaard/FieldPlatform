@@ -59,6 +59,7 @@ Load the source database scripts and the browser bundle:
 <script src="../Platform data layer/source/calculation-layer/shared.js"></script>
 <script src="../Platform data layer/source/calculation-layer/overlap.js"></script>
 <script src="../Platform data layer/source/calculation-layer/generatedFields.js"></script>
+<script src="../Platform data layer/source/calculation-layer/fieldRelations.js"></script>
 <script src="../Platform data layer/source/calculation-layer/communityHealth.js"></script>
 <script src="../Platform data layer/source/calculation-layer/recommendations.js"></script>
 <script src="../Platform data layer/source/calculation-layer/calculations.js"></script>
@@ -118,6 +119,7 @@ The tool includes:
 - Access-layer object test scripts with automatic snapshot rollback after each execution.
 - Direct table browsing for the raw database collections.
 - Relation exploration for users, events, communities, venues, and generated fields.
+- FieldRelation and RelationReview inspection, including review state, provenance, hold types, and movement options.
 - Calculation and managed-access function execution with value-help dropdowns for valid object IDs.
 
 The access-layer scripts live in `dev-tool/js/access-tests/`, with one file per tested access-layer object or access-layer service group.
@@ -144,3 +146,18 @@ Calculations currently live in `source/calculation-layer/` because they behave l
 The managed objects expose those calculations through methods and services. For example, frontend code should call `event.relevanceFor(user)`, `user.events.recommended()`, `community.health()`, or `platform.generatedFields.generateFields()`, not call formulas directly.
 
 The exact formula balancing is not final. These functions exist to provide stable access points while the model is tuned later.
+
+## FieldRelation Support
+
+`fieldRelations` are the shared data-layer representation for broader connections between objects and contexts. `ParticipationEdge` remains the high-resolution person-to-community relationship object. `SuggestedEventShare` remains for compatibility with older mockups and narrow event-to-community suggestions; `EventSuggestionService.suggest()` now also creates a matching FieldRelation.
+
+Use the managed access layer for future mockups:
+
+```js
+const relation = platform.fieldRelations.get("fr_ci_jam_good_first_step_ci");
+const eventConnections = platform.fieldRelations.forObject("event", "e_ci_jam");
+const pending = platform.fieldRelations.pendingForCommunity("ecstatic");
+const movement = relation.movementOptions();
+```
+
+Movement options are domain-level `MovementType` values such as `attend`, `follow`, `request_access`, or `ask_steward`. User-facing mockups should translate those values through the language register into plain labels such as "Ways in" or "First step".

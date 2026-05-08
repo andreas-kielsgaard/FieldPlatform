@@ -5,7 +5,9 @@ const FieldPlatformSnapshotNormalizer = (() => {
     defaultParticipationEdge,
     edgeId,
     groupRelationshipId,
+    relationReviewId,
     managedObjectId,
+    normalizeFieldRelationRecord,
     normalizeEventRecord,
     withId
   } = getRecordFactory();
@@ -46,6 +48,11 @@ const FieldPlatformSnapshotNormalizer = (() => {
       id: relationship.id || groupRelationshipId(relationship, index),
       source: relationship.source || "seed",
       ...relationship
+    }));
+    snapshot.fieldRelations = snapshot.fieldRelations.map(normalizeFieldRelationRecord);
+    snapshot.relationReviews = snapshot.relationReviews.map((review, index) => ({
+      id: review.id || relationReviewId(review.fieldRelationId, review.action, index),
+      ...review
     }));
     snapshot.membershipRequests = snapshot.membershipRequests.map(request => withId("membershipRequests", request));
     snapshot.suggestedEventShares = snapshot.suggestedEventShares.map(share => withId("suggestedEventShares", share));

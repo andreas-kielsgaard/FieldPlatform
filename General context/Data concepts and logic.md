@@ -167,6 +167,13 @@ Suggested fields:
 - createdAt
 - updatedAt
 
+Current shared data-layer implementation:
+
+- `Platform data layer/source/access-layer/types.ts` defines FieldRelation and RelationReview record types.
+- `fieldRelations` and `relationReviews` are top-level data collections.
+- `platform.fieldRelations` exposes managed access for listing, object lookup, suggestion, review, and movement options.
+- `suggestedEventShares` remains as a compatibility collection for older mockups and narrow event-to-community suggestions; new suggestions should also be expressible as FieldRelation.
+
 Relation kind examples:
 
 - belongsInContext
@@ -229,6 +236,8 @@ Movement unlocked may include:
 - mark relationship between communities
 
 Pathways are constrained by relation status, visibility, access rules, capacity, boundary, and stewardship authority. A suggested relation may unlock only "ask steward" or "follow lightly." An accepted event-to-community relation may unlock recommendation visibility, community event placement, or beginner entry. A dormant ParticipationEdge may unlock reactivation prompts only when that is respectful and explainable.
+
+Implementation note: pathways/ways-in are currently derived from FieldRelation state, ParticipationEdges, event access, community entry guidance, membership requests, and review status. They are not stored as a heavy standalone Pathway entity.
 
 ## Participation Edge Model
 

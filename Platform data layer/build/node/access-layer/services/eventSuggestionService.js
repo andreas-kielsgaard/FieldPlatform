@@ -6,13 +6,32 @@ class EventSuggestionService {
         this.platform = platform;
     }
     suggest(eventId, groupId, suggestedBy, note = "") {
-        return this.platform.raw().database.create("suggestedEventShares", {
+        const share = this.platform.raw().database.create("suggestedEventShares", {
             eventId,
             groupId,
             suggestedBy,
             status: "pending",
             note
         });
+        this.platform.raw().database.create("fieldRelations", {
+            sourceType: "event",
+            sourceId: eventId,
+            targetType: "community",
+            targetId: groupId,
+            relationKind: "relevant_to",
+            relationStrength: 0,
+            status: "suggested",
+            provenance: "user_suggested",
+            suggestedBy,
+            reviewAuthorityType: "community",
+            reviewAuthorityId: groupId,
+            visibility: "visible_to_stewards",
+            reason: note || "Event suggested as related to this community.",
+            evidence: [{ type: "suggested_event_share", label: share.id, objectType: "event", objectId: eventId }],
+            holdTypes: ["stewardship"],
+            movementUnlocked: ["ask_steward", "remain_observing"]
+        });
+        return share;
     }
     feature(shareId, featuredBy) {
         const updated = this.platform.raw().database.update("suggestedEventShares", shareId, {

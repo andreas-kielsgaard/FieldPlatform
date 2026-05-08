@@ -9,6 +9,8 @@ export namespace collectionPrefixes {
     let forumThreads: string;
     let participationEdges: string;
     let groupRelationships: string;
+    let fieldRelations: string;
+    let relationReviews: string;
     let membershipRequests: string;
     let suggestedEventShares: string;
     let createdEvents: string;

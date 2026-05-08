@@ -114,6 +114,8 @@ This restores the database to the initial seed snapshot in `source/database-defi
 
 Open [dev-tool/index.html](dev-tool/index.html) in a browser to inspect and test the data layer.
 
+Open [dev-tool/field-relation-browser-smoke.html](dev-tool/field-relation-browser-smoke.html) for a tiny static sanity check that future mockups can consume `platform.fieldRelations` from the browser bundle.
+
 The tool includes:
 
 - Access-layer object test scripts with automatic snapshot rollback after each execution.

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup 5 - Field Relations Loop</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Mockup 5</p>
+        <h1>Field Relations Loop</h1>
+      </div>
+      <div class="topbar-actions">
+        <button class="button secondary" id="resetDemo" type="button">Reset demo</button>
+        <button class="button primary" id="openSuggest" type="button">Suggest connection</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="object-rail" aria-label="Object explorer">
+        <div class="rail-heading">
+          <p class="eyebrow">Object explorer</p>
+          <h2>Choose a starting point</h2>
+        </div>
+        <div id="objectList" class="object-list"></div>
+      </aside>
+
+      <section class="object-page" aria-live="polite">
+        <div class="object-summary">
+          <div>
+            <p class="object-type" id="objectType">Loading</p>
+            <h2 id="objectTitle">Loading...</h2>
+            <p id="objectDescription" class="summary-text"></p>
+          </div>
+          <div class="summary-actions">
+            <button class="button secondary" id="focusReview" type="button">Review queue</button>
+            <button class="button primary" id="openSuggestInline" type="button">Suggest connection</button>
+          </div>
+        </div>
+
+        <div class="content-grid">
+          <section class="panel relation-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Connections</p>
+                <h3>Related communities and contexts</h3>
+              </div>
+              <span id="connectionCount" class="count-pill">0</span>
+            </div>
+            <div id="relationCards" class="relation-list"></div>
+          </section>
+
+          <aside class="side-stack">
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Ways in</p>
+                  <h3>Available next steps</h3>
+                </div>
+              </div>
+              <div id="waysIn" class="way-list"></div>
+            </section>
+
+            <section class="panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Review</p>
+                  <h3>Steward queue</h3>
+                </div>
+              </div>
+              <div class="queue-controls" id="queueControls"></div>
+              <div id="reviewQueue" class="queue-list"></div>
+            </section>
+          </aside>
+        </div>
+
+        <section class="panel debug-panel">
+          <button class="debug-toggle" id="debugToggle" type="button" aria-expanded="false">
+            Show dev/debug data
+          </button>
+          <div id="debugContent" class="debug-content" hidden>
+            <p class="debug-note">Developer-only inspection. This panel intentionally uses domain names.</p>
+            <pre id="debugJson"></pre>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="suggestDrawer" aria-hidden="true" aria-labelledby="drawerTitle">
+    <form id="suggestForm" class="drawer-body">
+      <div class="drawer-header">
+        <div>
+          <p class="eyebrow">Small clarification</p>
+          <h2 id="drawerTitle">Suggest connection</h2>
+        </div>
+        <button class="icon-button" id="closeSuggest" type="button" aria-label="Close">x</button>
+      </div>
+
+      <p class="drawer-intro" id="suggestSourceText"></p>
+
+      <label>
+        Connect this to
+        <select id="targetSelect" required></select>
+      </label>
+
+      <label>
+        Connection type
+        <select id="relationKindSelect" required></select>
+      </label>
+
+      <label>
+        Why might this belong together?
+        <textarea id="suggestReason" rows="4" placeholder="Add a short reason that a steward can review." required></textarea>
+      </label>
+
+      <label>
+        Who should see this while it is reviewed?
+        <select id="visibilitySelect" required></select>
+      </label>
+
+      <div class="drawer-actions">
+        <button class="button secondary" id="cancelSuggest" type="button">Cancel</button>
+        <button class="button primary" type="submit">Send suggestion</button>
+      </div>
+    </form>
+  </aside>
+
+  <script src="../../Platform data layer/source/database-definition/seed.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/shared.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/overlap.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/generatedFields.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/fieldRelations.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/communityHealth.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/recommendations.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/calculations.js"></script>
+  <script src="../../Platform data layer/source/database-engine/utils.js"></script>
+  <script src="../../Platform data layer/source/database-engine/collectionConfig.js"></script>
+  <script src="../../Platform data layer/source/database-engine/adapters.js"></script>
+  <script src="../../Platform data layer/source/database-engine/recordFactory.js"></script>
+  <script src="../../Platform data layer/source/database-engine/snapshotNormalizer.js"></script>
+  <script src="../../Platform data layer/source/database-engine/queryApi.js"></script>
+  <script src="../../Platform data layer/source/database-engine/calculationApi.js"></script>
+  <script src="../../Platform data layer/source/database-engine/database.js"></script>
+  <script src="../../Platform data layer/build/browser/platform-domain.bundle.js"></script>
+  <script src="js/copy-map.js"></script>
+  <script src="js/view-model.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

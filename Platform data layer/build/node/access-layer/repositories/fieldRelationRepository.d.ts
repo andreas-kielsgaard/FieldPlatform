@@ -12,6 +12,8 @@ export declare class FieldRelationRepository {
     accept(id: Id, reviewerId: Id, note?: string): FieldRelation;
     refine(id: Id, reviewerId: Id, patch: Partial<FieldRelationRecord>, note?: string): FieldRelation;
     decline(id: Id, reviewerId: Id, note?: string): FieldRelation;
+    redirect(id: Id, reviewerId: Id, targetType: ObjectType, targetId: Id, note?: string): FieldRelation;
+    markComputedOnly(id: Id, reviewerId: Id, note?: string): FieldRelation;
     forReviewAuthority(type: ObjectType, id: Id): FieldRelation[];
     pendingForCommunity(communityId: Id): FieldRelation[];
 }

@@ -78,11 +78,15 @@ const suggestedRelation = platform.fieldRelations.suggest({
   targetType: "community",
   targetId: "meditation",
   relationKind: "good_first_step_for",
+  status: "accepted",
+  provenance: "steward_marked",
   reviewAuthorityType: "community",
   reviewAuthorityId: "meditation",
   reason: "Managed access smoke suggestion."
 }, user.id);
 assert(suggestedRelation.isPending(), "fieldRelations.suggest should create pending relation");
+assert(suggestedRelation.data().status === "suggested", "fieldRelations.suggest should force suggested status");
+assert(suggestedRelation.data().provenance === "user_suggested", "fieldRelations.suggest should force user_suggested provenance");
 
 const acceptedRelation = platform.fieldRelations.accept(suggestedRelation.id, "p_henrik", "Accepted by smoke test.");
 assert(acceptedRelation.isAccepted(), "fieldRelations.accept should accept relation");
@@ -90,14 +94,28 @@ assert(acceptedRelation.isAccepted(), "fieldRelations.accept should accept relat
 const refinedRelation = platform.fieldRelations.refine(acceptedRelation.id, "p_henrik", { relationKind: "belongs_with" }, "Refined by smoke test.");
 assert(refinedRelation.data().status === "refined", "fieldRelations.refine should mark relation refined");
 assert(refinedRelation.data().relationKind === "belongs_with", "fieldRelations.refine should apply patch");
+assert(refinedRelation.isAccepted(), "refined relation should count as reviewed/accepted in model helpers");
+assert(platform.raw().calculations.acceptedRelationsForObject("event", "e_morning_sit").some(relation => relation.id === refinedRelation.id), "refined relation should appear in accepted/reviewed relation calculation");
 
-const declinedRelation = platform.fieldRelations.decline(refinedRelation.id, "p_henrik", "Declined by smoke test.");
+const computedRelation = platform.fieldRelations.markComputedOnly(refinedRelation.id, "p_henrik", "Keep as computed only.");
+assert(computedRelation.data().status === "computed", "fieldRelations.markComputedOnly should mark relation computed");
+assert(platform.raw().calculations.activeRelationsForObject("event", "e_morning_sit").some(relation => relation.id === computedRelation.id), "computed relation should appear in active relation calculation");
+
+const redirectedRelation = platform.fieldRelations.redirect(computedRelation.id, "p_henrik", "community", "tea", "Redirected by smoke test.");
+assert(redirectedRelation.data().targetId === "tea", "fieldRelations.redirect should update target");
+assert(redirectedRelation.data().status === "refined", "fieldRelations.redirect should mark relation refined");
+
+const declinedRelation = platform.fieldRelations.decline(redirectedRelation.id, "p_henrik", "Declined by smoke test.");
 assert(declinedRelation.data().status === "declined", "fieldRelations.decline should mark relation declined");
-assert(declinedRelation.reviews().length >= 3, "relation review history should be recorded");
+assert(declinedRelation.reviews().length >= 5, "relation review history should be recorded");
 
 const mirroredShare = platform.eventSuggestions.suggest("e_ci_jam", "somatic", user.id, "Mirror suggested share into FieldRelation.");
 assert(mirroredShare.id, "event suggestion compatibility service should still create suggestedEventShare");
 assert(platform.fieldRelations.between("event", "e_ci_jam", "community", "somatic").some(relation => relation.data().reason.includes("Mirror")), "event suggestion should also create matching FieldRelation");
+const mirroredRelationCount = platform.fieldRelations.between("event", "e_ci_jam", "community", "somatic").length;
+const duplicateShare = platform.eventSuggestions.suggest("e_ci_jam", "somatic", user.id, "Second legacy share should not duplicate mirror relation.");
+assert(duplicateShare.id, "duplicate legacy suggestedEventShare should still be created");
+assert(platform.fieldRelations.between("event", "e_ci_jam", "community", "somatic").length === mirroredRelationCount, "duplicate event suggestion should not create surprising duplicate FieldRelation mirror");
 
 platform.resetDatabase();
 assert(!platform.events.list().some(item => item.id === createdEvent.id), "reset should remove created event");

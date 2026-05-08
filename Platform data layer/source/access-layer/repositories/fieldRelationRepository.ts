@@ -46,6 +46,16 @@ export class FieldRelationRepository {
     return new FieldRelation(this.platform, record.id);
   }
 
+  redirect(id: Id, reviewerId: Id, targetType: ObjectType, targetId: Id, note = ""): FieldRelation {
+    const record = this.platform.fieldRelationService.redirect(id, reviewerId, targetType, targetId, note);
+    return new FieldRelation(this.platform, record.id);
+  }
+
+  markComputedOnly(id: Id, reviewerId: Id, note = ""): FieldRelation {
+    const record = this.platform.fieldRelationService.markComputedOnly(id, reviewerId, note);
+    return new FieldRelation(this.platform, record.id);
+  }
+
   forReviewAuthority(type: ObjectType, id: Id): FieldRelation[] {
     return (this.platform.raw().queries.getFieldRelationsForReviewAuthority(type, id) as FieldRelationRecord[])
       .map(record => new FieldRelation(this.platform, record.id));

@@ -352,8 +352,9 @@ var FieldPlatformDomain = (() => {
       return this.data().status === "suggested";
     }
     isAccepted() {
-      return this.data().status === "accepted";
+      return ["accepted", "refined"].includes(this.data().status);
     }
+    // This is a simple visibility-context check, not full user-aware access control.
     isVisibleTo(visibilityContext = "public") {
       const relation = this.data();
       if (relation.visibility === "public") return true;
@@ -419,6 +420,14 @@ var FieldPlatformDomain = (() => {
     }
     decline(id, reviewerId, note = "") {
       const record = this.platform.fieldRelationService.decline(id, reviewerId, note);
+      return new FieldRelation(this.platform, record.id);
+    }
+    redirect(id, reviewerId, targetType, targetId, note = "") {
+      const record = this.platform.fieldRelationService.redirect(id, reviewerId, targetType, targetId, note);
+      return new FieldRelation(this.platform, record.id);
+    }
+    markComputedOnly(id, reviewerId, note = "") {
+      const record = this.platform.fieldRelationService.markComputedOnly(id, reviewerId, note);
       return new FieldRelation(this.platform, record.id);
     }
     forReviewAuthority(type, id) {
@@ -724,24 +733,29 @@ var FieldPlatformDomain = (() => {
         status: "pending",
         note
       });
-      this.platform.raw().database.create("fieldRelations", {
-        sourceType: "event",
-        sourceId: eventId,
-        targetType: "community",
-        targetId: groupId,
-        relationKind: "relevant_to",
-        relationStrength: 0,
-        status: "suggested",
-        provenance: "user_suggested",
-        suggestedBy,
-        reviewAuthorityType: "community",
-        reviewAuthorityId: groupId,
-        visibility: "visible_to_stewards",
-        reason: note || "Event suggested as related to this community.",
-        evidence: [{ type: "suggested_event_share", label: share.id, objectType: "event", objectId: eventId }],
-        holdTypes: ["stewardship"],
-        movementUnlocked: ["ask_steward", "remain_observing"]
-      });
+      const existingMirror = this.platform.raw().queries.getFieldRelationsBetween("event", eventId, "community", groupId).find(
+        (relation) => relation.relationKind === "relevant_to" && relation.status === "suggested" && relation.provenance === "user_suggested" && relation.suggestedBy === suggestedBy
+      );
+      if (!existingMirror) {
+        this.platform.raw().database.create("fieldRelations", {
+          sourceType: "event",
+          sourceId: eventId,
+          targetType: "community",
+          targetId: groupId,
+          relationKind: "relevant_to",
+          relationStrength: 0,
+          status: "suggested",
+          provenance: "user_suggested",
+          suggestedBy,
+          reviewAuthorityType: "community",
+          reviewAuthorityId: groupId,
+          visibility: "visible_to_stewards",
+          reason: note || "Event suggested as related to this community.",
+          evidence: [{ type: "suggested_event_share", label: share.id, objectType: "event", objectId: eventId }],
+          holdTypes: ["stewardship"],
+          movementUnlocked: ["ask_steward", "remain_observing"]
+        });
+      }
       return share;
     }
     feature(shareId, featuredBy) {
@@ -765,13 +779,13 @@ var FieldPlatformDomain = (() => {
       const now = timestamp();
       return this.platform.raw().database.create("fieldRelations", {
         relationStrength: 0,
-        status: "suggested",
-        provenance: "user_suggested",
         visibility: "visible_to_stewards",
         evidence: [],
         holdTypes: [],
         movementUnlocked: [],
         ...data,
+        status: "suggested",
+        provenance: "user_suggested",
         suggestedBy,
         createdAt: data.createdAt || now,
         updatedAt: now
@@ -792,6 +806,12 @@ var FieldPlatformDomain = (() => {
         targetType,
         targetId,
         status: "refined"
+      }, note);
+    }
+    markComputedOnly(id, reviewerId, note = "") {
+      return this.reviewAndUpdate(id, reviewerId, "mark_computed_only", {
+        status: "computed",
+        provenance: "calculated"
       }, note);
     }
     reviewAndUpdate(id, reviewerId, action, patch, note = "") {

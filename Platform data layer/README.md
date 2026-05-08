@@ -161,3 +161,5 @@ const movement = relation.movementOptions();
 ```
 
 Movement options are domain-level `MovementType` values such as `attend`, `follow`, `request_access`, or `ask_steward`. User-facing mockups should translate those values through the language register into plain labels such as "Ways in" or "First step".
+
+Refined relations count as reviewed/active connections. The low-level calculation API exposes both `acceptedRelationsForObject(...)` for reviewed accepted/refined relations and `activeRelationsForObject(...)` for accepted/refined/computed relations.

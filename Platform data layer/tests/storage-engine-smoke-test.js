@@ -75,6 +75,8 @@ const seededRelation = layer.queries.getFieldRelation("fr_ci_jam_good_first_step
 assert(seededRelation && seededRelation.status === "accepted", "seeded FieldRelation should be queryable");
 assert(layer.queries.listFieldRelations().length >= initial.fieldRelations.length, "FieldRelations should be listable");
 assert(layer.calculations.acceptedRelationsForObject("event", "e_ci_jam").some(relation => relation.id === seededRelation.id), "accepted relations should be calculable for an object");
+assert(layer.calculations.acceptedRelationsForObject("event", "e_circling_intro").some(relation => relation.id === "fr_circling_intro_refined_to_tea"), "refined relations should remain in reviewed/accepted relation views");
+assert(layer.calculations.activeRelationsForObject("venue", "v_dome").some(relation => relation.id === "fr_dome_shares_venue_somatic"), "computed relations should appear in active relation views");
 assert(layer.calculations.pendingRelationsForReviewAuthority("community", "ecstatic").some(relation => relation.id === "fr_harbor_tea_soft_landing_ecstatic"), "pending relation review queue should be calculable");
 assert(layer.calculations.movementOptionsForRelation(seededRelation.id).includes("attend"), "movement options should include attend for accepted event-community relation");
 assert(layer.calculations.relationExplanation(seededRelation.id).reason, "relation explanation should include a reason");

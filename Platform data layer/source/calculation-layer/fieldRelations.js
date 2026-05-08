@@ -6,7 +6,11 @@ const FieldPlatformFieldRelationCalculations = (() => {
   }
 
   function acceptedRelationsForObject(snapshot, objectType, objectId) {
-    return relationsForObject(snapshot, objectType, objectId).filter(relation => relation.status === "accepted");
+    return relationsForObject(snapshot, objectType, objectId).filter(relation => ["accepted", "refined"].includes(relation.status));
+  }
+
+  function activeRelationsForObject(snapshot, objectType, objectId) {
+    return relationsForObject(snapshot, objectType, objectId).filter(relation => ["accepted", "refined", "computed"].includes(relation.status));
   }
 
   function pendingRelationsForReviewAuthority(snapshot, authorityType, authorityId) {
@@ -113,6 +117,7 @@ const FieldPlatformFieldRelationCalculations = (() => {
   return {
     relationsForObject,
     acceptedRelationsForObject,
+    activeRelationsForObject,
     pendingRelationsForReviewAuthority,
     movementOptionsForRelation,
     relationExplanation,

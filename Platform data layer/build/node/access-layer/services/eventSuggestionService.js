@@ -13,24 +13,31 @@ class EventSuggestionService {
             status: "pending",
             note
         });
-        this.platform.raw().database.create("fieldRelations", {
-            sourceType: "event",
-            sourceId: eventId,
-            targetType: "community",
-            targetId: groupId,
-            relationKind: "relevant_to",
-            relationStrength: 0,
-            status: "suggested",
-            provenance: "user_suggested",
-            suggestedBy,
-            reviewAuthorityType: "community",
-            reviewAuthorityId: groupId,
-            visibility: "visible_to_stewards",
-            reason: note || "Event suggested as related to this community.",
-            evidence: [{ type: "suggested_event_share", label: share.id, objectType: "event", objectId: eventId }],
-            holdTypes: ["stewardship"],
-            movementUnlocked: ["ask_steward", "remain_observing"]
-        });
+        const existingMirror = this.platform.raw().queries.getFieldRelationsBetween("event", eventId, "community", groupId)
+            .find((relation) => relation.relationKind === "relevant_to" &&
+            relation.status === "suggested" &&
+            relation.provenance === "user_suggested" &&
+            relation.suggestedBy === suggestedBy);
+        if (!existingMirror) {
+            this.platform.raw().database.create("fieldRelations", {
+                sourceType: "event",
+                sourceId: eventId,
+                targetType: "community",
+                targetId: groupId,
+                relationKind: "relevant_to",
+                relationStrength: 0,
+                status: "suggested",
+                provenance: "user_suggested",
+                suggestedBy,
+                reviewAuthorityType: "community",
+                reviewAuthorityId: groupId,
+                visibility: "visible_to_stewards",
+                reason: note || "Event suggested as related to this community.",
+                evidence: [{ type: "suggested_event_share", label: share.id, objectType: "event", objectId: eventId }],
+                holdTypes: ["stewardship"],
+                movementUnlocked: ["ask_steward", "remain_observing"]
+            });
+        }
         return share;
     }
     feature(shareId, featuredBy) {

@@ -1,5 +1,6 @@
 export function relationsForObject(snapshot: any, objectType: any, objectId: any): any;
 export function acceptedRelationsForObject(snapshot: any, objectType: any, objectId: any): any;
+export function activeRelationsForObject(snapshot: any, objectType: any, objectId: any): any;
 export function pendingRelationsForReviewAuthority(snapshot: any, authorityType: any, authorityId: any): any;
 export function movementOptionsForRelation(snapshot: any, relationId: any): any[];
 export function relationExplanation(snapshot: any, relationId: any): {

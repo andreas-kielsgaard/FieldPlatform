@@ -9,13 +9,13 @@ class FieldRelationService {
         const now = timestamp();
         return this.platform.raw().database.create("fieldRelations", {
             relationStrength: 0,
-            status: "suggested",
-            provenance: "user_suggested",
             visibility: "visible_to_stewards",
             evidence: [],
             holdTypes: [],
             movementUnlocked: [],
             ...data,
+            status: "suggested",
+            provenance: "user_suggested",
             suggestedBy,
             createdAt: data.createdAt || now,
             updatedAt: now
@@ -36,6 +36,12 @@ class FieldRelationService {
             targetType,
             targetId,
             status: "refined"
+        }, note);
+    }
+    markComputedOnly(id, reviewerId, note = "") {
+        return this.reviewAndUpdate(id, reviewerId, "mark_computed_only", {
+            status: "computed",
+            provenance: "calculated"
         }, note);
     }
     reviewAndUpdate(id, reviewerId, action, patch, note = "") {

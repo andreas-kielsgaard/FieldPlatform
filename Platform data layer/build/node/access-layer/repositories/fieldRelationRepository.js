@@ -40,6 +40,14 @@ class FieldRelationRepository {
         const record = this.platform.fieldRelationService.decline(id, reviewerId, note);
         return new fieldRelation_1.FieldRelation(this.platform, record.id);
     }
+    redirect(id, reviewerId, targetType, targetId, note = "") {
+        const record = this.platform.fieldRelationService.redirect(id, reviewerId, targetType, targetId, note);
+        return new fieldRelation_1.FieldRelation(this.platform, record.id);
+    }
+    markComputedOnly(id, reviewerId, note = "") {
+        const record = this.platform.fieldRelationService.markComputedOnly(id, reviewerId, note);
+        return new fieldRelation_1.FieldRelation(this.platform, record.id);
+    }
     forReviewAuthority(type, id) {
         return this.platform.raw().queries.getFieldRelationsForReviewAuthority(type, id)
             .map(record => new fieldRelation_1.FieldRelation(this.platform, record.id));

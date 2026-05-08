@@ -54,6 +54,7 @@ const FieldPlatformCalculations = (() => {
     eventRelevanceCalculation: recommendations.eventRelevanceCalculation,
     relationsForObject: fieldRelations.relationsForObject,
     acceptedRelationsForObject: fieldRelations.acceptedRelationsForObject,
+    activeRelationsForObject: fieldRelations.activeRelationsForObject,
     pendingRelationsForReviewAuthority: fieldRelations.pendingRelationsForReviewAuthority,
     movementOptionsForRelation: fieldRelations.movementOptionsForRelation,
     relationExplanation: fieldRelations.relationExplanation,

@@ -22,8 +22,9 @@ class FieldRelation {
         return this.data().status === "suggested";
     }
     isAccepted() {
-        return this.data().status === "accepted";
+        return ["accepted", "refined"].includes(this.data().status);
     }
+    // This is a simple visibility-context check, not full user-aware access control.
     isVisibleTo(visibilityContext = "public") {
         const relation = this.data();
         if (relation.visibility === "public")

@@ -8,5 +8,6 @@ export declare class FieldRelationService {
     refine(id: Id, reviewerId: Id, patch: Partial<FieldRelationRecord>, note?: string): FieldRelationRecord;
     decline(id: Id, reviewerId: Id, note?: string): FieldRelationRecord;
     redirect(id: Id, reviewerId: Id, targetType: string, targetId: Id, note?: string): FieldRelationRecord;
+    markComputedOnly(id: Id, reviewerId: Id, note?: string): FieldRelationRecord;
     private reviewAndUpdate;
 }

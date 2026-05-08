@@ -56,6 +56,8 @@ Expected access points:
 - `fieldRelations.accept(id, reviewerId, note?)`
 - `fieldRelations.refine(id, reviewerId, patch, note?)`
 - `fieldRelations.decline(id, reviewerId, note?)`
+- `fieldRelations.redirect(id, reviewerId, targetType, targetId, note?)`
+- `fieldRelations.markComputedOnly(id, reviewerId, note?)`
 - `fieldRelations.forReviewAuthority(type, id)`
 - `fieldRelations.pendingForCommunity(communityId)`
 - `generatedFields.generateFields()`
@@ -218,10 +220,16 @@ Managed repository methods:
 - `platform.fieldRelations.accept(id, reviewerId, note?)`
 - `platform.fieldRelations.refine(id, reviewerId, patch, note?)`
 - `platform.fieldRelations.decline(id, reviewerId, note?)`
+- `platform.fieldRelations.redirect(id, reviewerId, targetType, targetId, note?)`
+- `platform.fieldRelations.markComputedOnly(id, reviewerId, note?)`
 - `platform.fieldRelations.forReviewAuthority(type, id)`
 - `platform.fieldRelations.pendingForCommunity(communityId)`
 
 `movementOptions()` returns domain `MovementType` values, not UI copy. Future user-facing mockups should translate those through `General context/Language and copy register.md`.
+
+`isAccepted()` treats both `accepted` and `refined` as reviewed/active relation states. Low-level calculations also expose `activeRelationsForObject(...)`, which includes `accepted`, `refined`, and `computed` relations.
+
+`isVisibleTo(...)` is currently a simple visibility-context helper. It is not full user-aware permission or access-control logic.
 
 ## GeneratedField
 

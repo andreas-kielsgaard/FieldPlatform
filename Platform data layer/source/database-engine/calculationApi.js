@@ -26,6 +26,7 @@ const FieldPlatformCalculationApi = (() => {
       eventInterestForRecord: (personId, event) => calculations.eventRelevanceCalculation(getSnapshot(), event, personId),
       relationsForObject: (objectType, objectId) => calculations.relationsForObject(getSnapshot(), objectType, objectId),
       acceptedRelationsForObject: (objectType, objectId) => calculations.acceptedRelationsForObject(getSnapshot(), objectType, objectId),
+      activeRelationsForObject: (objectType, objectId) => calculations.activeRelationsForObject(getSnapshot(), objectType, objectId),
       pendingRelationsForReviewAuthority: (authorityType, authorityId) => calculations.pendingRelationsForReviewAuthority(getSnapshot(), authorityType, authorityId),
       movementOptionsForRelation: relationId => calculations.movementOptionsForRelation(getSnapshot(), relationId),
       relationExplanation: relationId => calculations.relationExplanation(getSnapshot(), relationId),

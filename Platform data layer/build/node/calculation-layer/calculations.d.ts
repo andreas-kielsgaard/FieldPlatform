@@ -15,6 +15,7 @@ export let summarizeGroup: any;
 export let eventRelevanceCalculation: any;
 export let relationsForObject: any;
 export let acceptedRelationsForObject: any;
+export let activeRelationsForObject: any;
 export let pendingRelationsForReviewAuthority: any;
 export let movementOptionsForRelation: any;
 export let relationExplanation: any;

@@ -17,6 +17,7 @@ export function createCalculationApi(database: any, queries: any, calculations: 
     eventInterestForRecord: (personId: any, event: any) => any;
     relationsForObject: (objectType: any, objectId: any) => any;
     acceptedRelationsForObject: (objectType: any, objectId: any) => any;
+    activeRelationsForObject: (objectType: any, objectId: any) => any;
     pendingRelationsForReviewAuthority: (authorityType: any, authorityId: any) => any;
     movementOptionsForRelation: (relationId: any) => any;
     relationExplanation: (relationId: any) => any;

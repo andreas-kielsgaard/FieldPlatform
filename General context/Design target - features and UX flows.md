@@ -50,6 +50,8 @@ The app should therefore be organized around user-accessible features and object
 
 FieldRelation may be a central data/domain primitive, but it should not become the primary UI object by default. Future mockups should preserve enough native identity that a person can recognize the event, community, venue, person/facilitator, generated pattern, or festival being shown. User role, entry point, surrounding context, and surface type should determine whether the surface foregrounds object basics, connection evidence, review consequences, recommendation reasons, creator fit, or available next steps.
 
+Current surface-grammar pressure: Mockup 5.1 showed that event-first structure is a useful direction, but future mockups now need stronger semantic separation. Event facts, access, cost, audience, experience needed, entry support, requirements, connection type, review state, visibility, evidence, and action target should be visually and conceptually distinct.
+
 Adoption and data principle: the field becomes visible through distributed perception. Participants, creators, and stewards should be able to contribute small acts of contextual clarification that are easy, respectful, reviewable, and non-coercive.
 
 Mockup 4 currently expresses an important implementation slice of this target: participation edges, generated fields, suggested event shares, community health, and steward queues. It should be read as a working slice, not as the full conceptual center.

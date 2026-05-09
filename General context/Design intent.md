@@ -52,6 +52,8 @@ ParticipationEdge should remain central for belonging, but it should be position
 
 Relations must show why they appear, who or what suggested them, who can review them, and what movement they make possible.
 
+Relation-powered context should preserve semantic separation in UI. A person should not have to infer whether a label describes access, cost, audience, experience needed, connection type, review state, visibility, evidence, or action target. FieldRelation can hold these meanings together in the domain layer, but surfaces should separate them into understandable product language.
+
 ## Holds
 
 A hold is where expression cannot yet move through context. Holds are initially a design and explanation lens, not necessarily a heavy user-facing entity.

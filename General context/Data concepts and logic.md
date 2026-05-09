@@ -102,10 +102,14 @@ An event/offering may have:
 - venue
 - time
 - access level
-- price or access note
+- cost, price, donation, sliding scale, or access note
 - tags
 - intended audience
+- experience needed
 - beginner-friendliness or low-threshold signal
+- entry support, such as beginner landing, intro class, first-timer note, ask facilitator, or alternate first step
+- practical expectations
+- requirements or prerequisites
 - linked groups
 - relevant groups
 - interested and attending participants
@@ -130,6 +134,8 @@ Data is used for:
 - community bridge/deeper event sorting
 - steward relation queues
 - generated field evidence
+
+Open data implication from Mockup 5.1 review: event surfaces need semantic separation. Access, cost, audience, experience needed, entry support, practical expectations, and requirements should not be treated as one display string forever. This is not an implementation request yet, but future data-layer work may need more explicit fields when multiple mockups or surfaces depend on those distinctions.
 
 ## FieldRelation Model
 
@@ -202,6 +208,8 @@ Accepted FieldRelations may change:
 - steward dashboards
 - pathway suggestions
 - visibility of bridge events or entry points
+
+Relation propagation principle: accepting a FieldRelation in one stewarded context should not automatically create endorsement in another stewarded context. Acceptance confirms that specific source/target relation. It may increase evidence for other contexts, create a new suggested relation, or appear as a calculated/adjacent pattern elsewhere, but another community's endorsement requires its own review.
 
 ## Hold Taxonomy
 
@@ -416,6 +424,7 @@ Potential inputs:
 - relation kind and strength
 - provenance
 - evidence/reasons
+- separated evidence dimensions such as shared tags, shared venue, shared audience, shared participation, suggester/context relation, and host/context relation
 - related hold types
 - review authority
 - visibility constraints
@@ -430,6 +439,8 @@ Used for:
 - recommendation explanations
 - movementUnlocked/pathway surfacing
 - dev inspection of why a relation is suggested or held
+
+Open modeling question: ways-in actions may need explicit action targets. "Attend" can target the current event, a prerequisite intro class, or a related event; "Follow" targets a community; "See other events here" targets a venue; "Ask facilitator" targets a person or role. Current movement values are useful, but future surfaces may need target metadata to avoid flattening actions into one list.
 
 ## Open Naming Question
 

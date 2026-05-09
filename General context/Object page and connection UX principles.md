@@ -8,6 +8,29 @@ Object type defines the default affordances; user role, entry point, surrounding
 
 Every object surface should preserve enough native identity that the user can recognize what they are looking at. The first emphasized information should depend on why the object is being shown here.
 
+Current surface-grammar lesson from Mockup 5.1:
+
+Event-first structure is promising, but it is not enough. Surfaces must also separate semantic dimensions so the user is not asked to infer whether a label is an event fact, access rule, audience cue, requirement, connection type, review state, visibility rule, evidence source, or action target.
+
+## 0. Viewer Stance Must Be Explicit
+
+Every surface should make the current viewer stance legible.
+
+A user should not have to wonder:
+
+- Am I viewing this as a curious participant?
+- Am I the facilitator or host?
+- Am I a steward?
+- Is this a public page, a management page, or a review page?
+
+Examples:
+
+- Public event page: "I am viewing this as a curious participant."
+- Facilitator or host event management page: "I am managing or improving my event."
+- Steward/community review surface: "I am reviewing this on behalf of a community I steward."
+
+Do not mix participant actions, facilitator management, and steward review logic unless the surface clearly communicates the current role and context. If a surface supports multiple stances, use explicit mode labels, section boundaries, or permissions-aware panels so the user understands why each action is present.
+
 ## 1. Object Type Defines Default Affordances
 
 Object-specific guidance is a default public-viewer grammar, not a universal hierarchy. A full public object page usually needs enough native orientation before it asks the user to interpret connections, review state, or ways in.
@@ -21,6 +44,18 @@ For an event, default public-viewer orientation often includes:
 - can I attend?
 - what should I expect?
 - what level of experience or access is needed?
+
+Event facts should not collapse into one overloaded "Access" block. Separate:
+
+- Access: public, members only, request access, invite-only.
+- Cost: free, fixed price, donation, sliding scale, membership pricing, or access note.
+- Who it is for: curious people, returning movers, members, advanced practitioners, first-timers, or another audience.
+- Experience needed: beginner-friendly, some familiarity expected, advanced, or prerequisites required.
+- Entry support: beginner landing, intro class, first-timer note, ask facilitator, or a softer route in.
+- Practical expectations: what to bring, what happens, timing expectations, venue details.
+- Requirements or prerequisites: concrete conditions for attending.
+
+This is product grammar first and may later imply data-layer refinement. Do not force this taxonomy into the data model until multiple surfaces need stable shared fields.
 
 For a community, default public-viewer orientation often includes:
 
@@ -86,6 +121,17 @@ Connection/relation surface:
 - should still include enough object identity to avoid disorientation
 - should show what the connection changes or makes possible
 
+Object references should also be inspectable where useful. A venue, host, facilitator, community, or suggester name should usually be clickable, hoverable, expandable, or otherwise previewable when the user needs context.
+
+Examples:
+
+- Venue reference: practical location, atmosphere, other events here.
+- Facilitator/host reference: public profile, offerings, and relevant community connections.
+- Community reference: entry guidance, relationship to the user, beginner-friendly paths.
+- Suggester reference in steward review: relationship to the community or field, where privacy allows.
+
+Inspectable references should be privacy-aware. They should clarify context without turning people into surveillance objects.
+
 ## 3. Connections Support The Current Task
 
 Connections should support the user's current task. In many public object pages, that means appearing after the object itself is legible. In embedded, steward-facing, recommendation, creator-fit, or relation-review contexts, the connection may be the reason the object is being shown.
@@ -126,6 +172,7 @@ For stewards:
 - prefer labels like "Suggestions to review" or "Suggested connections"
 - avoid "Review queue" as unexplained UI language
 - make clear what accepting, refining, redirecting, declining, or keeping as a pattern does
+- show compact evidence before asking for a decision
 
 A steward review action should explain its consequence:
 
@@ -134,6 +181,40 @@ A steward review action should explain its consequence:
 - Redirected: this belongs somewhere else.
 - Declined: this should not be shown as a connection.
 - Keep as pattern only: this can remain a calculated pattern without becoming community-endorsed.
+
+Steward review should feel like community-care, trust, and context review, not a queue of admin cards. A review surface should answer:
+
+- Why is this being suggested to this community?
+- Who suggested it, and what is their relation to the community?
+- Who hosts or facilitates it, and what is their relation to the community?
+- Which tags or practices overlap?
+- Is there shared venue, shared audience, or shared participation?
+- Is this a good first step, deeper path, soft landing, or adjacent context?
+- What benefit or risk might acceptance create?
+- What becomes visible if accepted?
+
+Person context is evidence, but it must stay lightweight and consent-aware. Useful labels may include "member of this community", "steward in adjacent community", "hosted related events before", "attended several related events", "known through shared venue", or "no prior relation shown." Do not require full social graph exposure.
+
+Where possible, steward evidence can be visual and comparative:
+
+- event tags compared with community tags
+- host/community relation
+- suggester/community relation
+- member interest or overlap
+- shared venue
+- prior accepted or refined relations
+
+This should not become a CRM or analytics dashboard.
+
+After a review action, give consequence feedback:
+
+- "This now appears on the event page as related community context."
+- "This now appears on Ecstatic Dance Aarhus as a related event."
+- "This remains a pattern but is not community-endorsed."
+- "This was redirected to Tea & Connection Socials."
+- "This will no longer appear as a suggested connection."
+
+Recently decided items should be inspectable enough that a steward can see what was accepted, refined, redirected, declined, or kept as a pattern and why.
 
 ## 5. Ways In Must Be Grouped By Target Object
 
@@ -166,6 +247,22 @@ For this venue:
 
 Every action should make clear what it acts on. If clicking "Follow community", the UI must show which community.
 
+Ways in should also support prerequisites and alternate entry paths. The direct event is not always the best first step.
+
+Example:
+
+- A Friday contact improvisation jam may require some familiarity.
+- A Wednesday open class may be the actual beginner-friendly way in.
+- Therefore the way in to the Friday jam may be another event, not simply "Attend this event."
+
+Ways in should support:
+
+- Direct action: attend this event.
+- Prerequisite path: attend intro or open class first.
+- Community path: follow, ask steward, see beginner events.
+- Venue path: see other events here.
+- Human path: ask facilitator or ask community.
+
 ## 6. Ways-In Language Should Be Concrete
 
 Avoid heavy explanatory empty states such as:
@@ -196,6 +293,15 @@ Future mockups should visually distinguish:
 
 The exact visual system is open. The principle is that users should recognize the type of connection at a glance before reading every card.
 
+Do not collapse unrelated dimensions into one badge style. Separate:
+
+- Connection type: good first step, soft landing, bridge, deeper pathway, related context.
+- Review state: waiting for review, accepted, refined, declined, kept as pattern.
+- Visibility: public, members only, steward-visible, private.
+- Evidence/source: suggested by person, steward-marked, calculated pattern, imported signal, shared tags, shared venue, shared participation.
+
+Use separate placement, visual treatment, grouping, or labels for these dimensions. "Soft landing", "Waiting for review", and "Only visible to stewards" should not look like the same kind of thing.
+
 ## 8. Use Progressive Disclosure And Tooltips Liberally During Design
 
 Explanations are useful while designing because they reveal intended meaning, but they should not overload the main UI.
@@ -214,6 +320,21 @@ Especially for:
 - why a first step is unavailable
 - what visibility means
 - why a generated pattern is not a community
+
+"What may be unclear" must be target-anchored. Avoid generic text such as:
+
+- "The first step may be unclear."
+- "It may be unclear what this belongs with."
+
+Prefer:
+
+- "First step into Contact Improvisation Aarhus may be unclear."
+- "Newcomer welcome at this event is not yet clear."
+- "Community endorsement is not yet confirmed."
+- "This looks related, but a steward has not reviewed it."
+- "It is unclear whether this is a beginner entry or a deeper-practice event."
+
+The goal is to clarify movement, not expose internal hold taxonomy.
 
 ## 9. "Suggest Connection" Should Become Context-Specific In UI
 
@@ -368,6 +489,8 @@ Possible labels:
 
 This supports trust, threshold, and context uncertainty without requiring the user to fully interpret the app.
 
+Overlapping community chats, forums, or beginner/interested spaces may eventually support this, but they should not become the next design focus until the object-surface and semantic-separation questions are clearer.
+
 ## 14. Suggested Connections Should Not Feel Like Marketing, Tagging, Or Ownership
 
 Suggestion flows should make clear:
@@ -378,3 +501,23 @@ Suggestion flows should make clear:
 - a suggestion may be reviewed, refined, redirected, declined, or kept as a pattern
 
 Suggestion should feel like contextual clarification, not promotion, tagging, claiming, or social pressure.
+
+## 15. Relation Propagation Needs Explicit Rules
+
+Acceptance by one community should not automatically create endorsement by another community.
+
+Possible model:
+
+- Acceptance by one community creates or confirms only that specific relation.
+- It may increase evidence for related contexts.
+- It may create a new suggested relation for another community.
+- It may appear as a calculated or adjacent pattern elsewhere.
+- It should not imply endorsement or publication by another stewarded community without separate review.
+
+Example: if Post-Dance Harbor Tea is accepted as related to Ecstatic Dance Aarhus, that does not automatically mean Tea & Connection Socials has endorsed the relation. It may become evidence or a new suggestion for Tea & Connection Socials, but separate steward review may be needed.
+
+## 16. Public Pages Should Not Leak Steward-Only Context
+
+Steward-visible relation states belong in steward surfaces or clearly marked preview/admin states.
+
+Public pages should not make ordinary participants wonder why they are seeing steward-only labels. If a participant sees "waiting for review", it should be relevant to their task and explained plainly. Otherwise, hide steward-only relations from public participant-facing pages until they become public, member-visible, or otherwise intentionally framed.

@@ -38,7 +38,7 @@ The app should reveal contextual functionality when the user has the right relat
 
 A FieldRelation is the broader represented relation between two objects or contexts. It may connect participants, communities, events, offerings, venues, creators, facilitators, stewards, generated fields, festivals, practices, or tags.
 
-FieldRelation may be central in the data/domain layer, but it should not become the primary object of ordinary UI. A person should first understand the event, community, venue, person/facilitator, generated pattern, or festival they are viewing. Relations should then support orientation by explaining context, review state, visibility, and appropriate next movement.
+FieldRelation may be central in the data/domain layer, but it should not become the primary object of ordinary UI by default. Object type defines default affordances; user role, entry point, surrounding context, and surface type define priority. A surface should preserve enough native identity that a person can recognize the event, community, venue, person/facilitator, generated pattern, or festival being shown, while relations support the current task by explaining context, review state, visibility, and appropriate next movement.
 
 ParticipationEdge should remain central for belonging, but it should be positioned as the high-resolution person-to-community relation model. FieldRelation is the more general relational object that lets the product represent:
 

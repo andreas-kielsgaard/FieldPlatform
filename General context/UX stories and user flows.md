@@ -159,14 +159,15 @@ Entry features:
 Flow:
 
 1. User sees an event recommendation or opens an event page.
-2. The event page first makes the event legible: title, time, place, host/facilitator, access, expectations, and whether the user can attend.
-3. After the event is understood, the user clicks a contextual action such as "Suggest related community" or "Suggest where this belongs."
-4. The app lets the user choose from a filtered list of likely communities rather than a universal object list.
-5. The app asks for a short reason and makes clear that the suggestion is not automatic publication, ownership, or recommendation to everyone.
-6. The app creates a suggested event share, or in the broader target a suggested event-to-community FieldRelation.
-7. The suggestion appears in the relevant community management/steward surface as a suggestion to review.
-8. A manager or steward can accept, refine, decline, redirect, feature, ignore, or hold the suggestion.
-9. If accepted, the relation may change event visibility, community event placement, recommendation explanations, and available pathways.
+2. If the user is on a default public event page, the page makes the event legible: title, time, place, host/facilitator, access, expectations, and whether the user can attend.
+3. If the event is shown inside a recommendation, creator-fit, or steward review surface, the card may foreground why it appears in that context while keeping enough event identity visible.
+4. The user clicks a contextual action such as "Suggest related community" or "Suggest where this belongs."
+5. The app lets the user choose from a filtered list of likely communities rather than a universal object list.
+6. The app asks for a short reason and makes clear that the suggestion is not automatic publication, ownership, or recommendation to everyone.
+7. The app creates a suggested event share, or in the broader target a suggested event-to-community FieldRelation.
+8. The suggestion appears in the relevant community management/steward surface as a suggestion to review.
+9. A manager or steward can accept, refine, decline, redirect, feature, ignore, or hold the suggestion.
+10. If accepted, the relation may change event visibility, community event placement, recommendation explanations, and available pathways.
 
 Data and calculations:
 
@@ -179,7 +180,7 @@ Data and calculations:
 Outcome:
 
 - Relevance can be socially proposed without granting automatic ownership, publication, or authority.
-- The event page remains event-first; connection suggestion supports context rather than becoming the whole interaction.
+- Default public browsing remains event-legible; embedded and steward-facing surfaces may foreground the reason the event is being shown.
 
 ## Story 6: I Want To Create An Event
 
@@ -333,13 +334,14 @@ Entry features:
 Flow:
 
 1. User is viewing an object such as an event, venue, creator, generated field, or community.
-2. The page first presents the native object hierarchy, such as event basics, community entry guidance, venue practical context, or facilitator public offerings.
-3. User clicks a context-specific suggestion action.
-4. The app asks what likely context the object may belong with, constrained by object type, privacy, consent, and source/target pair.
-5. User selects a target context from a filtered list and may add a short reason.
-6. The app creates a suggested FieldRelation with provenance user-suggested, evidence/reasons, visibility, and reviewAuthority.
-7. The suggestion appears as waiting for review or held, not as accepted truth.
-8. If the relation needs steward confirmation, the UI uses ordinary wording such as "waiting for a community steward to review."
+2. The surface preserves enough native identity to show what the object is, such as event basics, community entry guidance, venue practical context, or facilitator public offerings.
+3. The surface priority depends on role and context: a full public page may emphasize native orientation, while a steward, recommendation, creator-fit, or embedded surface may emphasize why this object appears here.
+4. User clicks a context-specific suggestion action.
+5. The app asks what likely context the object may belong with, constrained by object type, privacy, consent, and source/target pair.
+6. User selects a target context from a filtered list and may add a short reason.
+7. The app creates a suggested FieldRelation with provenance user-suggested, evidence/reasons, visibility, and reviewAuthority.
+8. The suggestion appears as waiting for review or held, not as accepted truth.
+9. If the relation needs steward confirmation, the UI uses ordinary wording such as "waiting for a community steward to review."
 
 Data and calculations:
 
@@ -419,11 +421,11 @@ Outcome:
 - Relations become actionable orientation without pushing every user toward the same depth of participation.
 - The user knows what each action acts on.
 
-## Story 13: I Want To Understand An Object Before Its Connections
+## Story 13: I Want The Surface To Match Why This Object Is Being Shown
 
 Intent:
 
-- The user opens an event, community, venue, or person/facilitator page and wants the object itself to make sense before interpreting related context.
+- The user sees an event, community, venue, person/facilitator, generated pattern, or festival in a specific surface and wants to understand both what it is and why it is being shown here.
 
 Entry features:
 
@@ -432,27 +434,34 @@ Entry features:
 - Venue page.
 - Person/facilitator page.
 - Generated pattern page.
+- Embedded object card.
+- Recommendation panel.
+- Steward/management surface.
+- Creator-fit surface.
+- Connection/relation surface.
 
 Flow:
 
-1. User opens an object page.
-2. The page follows the grammar of that object type.
-3. An event page leads with event basics, access, expectations, host/facilitator, and whether the user can attend.
-4. A community page leads with identity, rhythm, norms, entry guidance, and beginner-friendly options.
-5. A venue page leads with location, practical setting, and what happens there.
-6. A person/facilitator page leads with public role, offerings, appropriate contact/access, and privacy-aware context.
-7. Connections appear after the object is legible, as related community context, patterns, suggestions, or ways in.
-8. Review actions appear only for users with relevant responsibility.
+1. User sees an object in a full page, embedded card, recommendation panel, steward workspace, creator-fit surface, or connection/relation surface.
+2. The surface preserves enough native identity that the user can recognize the object.
+3. Object type provides default affordances: events need event basics, communities need identity/rhythm/entry cues, venues need practical place context, and people/facilitators need public role and appropriate access.
+4. User role, entry point, surrounding context, and surface type determine what is emphasized first.
+5. A public participant page may emphasize native orientation before relation context.
+6. A steward surface may emphasize suggested connections, unresolved entry issues, review consequences, or governance actions.
+7. A recommendation panel may emphasize why this appears and the available next step.
+8. A creator-fit surface may emphasize fit evidence, possible destination communities, audience overlap, venue/context fit, and suggestion actions.
+9. A connection surface may foreground the connection itself while preserving enough source and target identity.
+10. Review actions appear only for users with relevant responsibility.
 
 Data and calculations:
 
-- Pulls the native object record first.
+- Pulls the native object record.
 - Pulls FieldRelations, ParticipationEdges, generated patterns, and recommendations as supporting context.
 - Uses shared data-layer movement logic to build grouped ways-in actions.
 
 Outcome:
 
-- The user understands the object first, then understands why nearby context matters.
+- The user understands what the object is and why this surface is emphasizing this object now.
 
 ## Story 14: I Want To Ask Before Joining
 

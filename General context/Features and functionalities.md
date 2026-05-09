@@ -8,7 +8,7 @@ The deeper feature center is field relations, holds, pathways, stewardship, and 
 
 Use [Language and copy register](Language%20and%20copy%20register.md) when turning these features into screens. Product docs may use terms like FieldRelation, holds, and pathways for precision, but user-facing labels should usually translate them into "connection", "what may be unclear", "ways in", "first step", "waiting for review", and "why this appears".
 
-Use [Object page and connection UX principles](Object%20page%20and%20connection%20UX%20principles.md) when designing object pages or relation-powered surfaces. FieldRelation can power context, explanations, and next steps, but the page should lead with the object the user chose to view.
+Use [Object page and connection UX principles](Object%20page%20and%20connection%20UX%20principles.md) when designing object pages or relation-powered surfaces. FieldRelation can power context, explanations, and next steps, but object type only defines default affordances. User role, entry point, surrounding context, and surface type determine priority.
 
 ## Navigation And Feature Access
 
@@ -18,10 +18,11 @@ Use [Object page and connection UX principles](Object%20page%20and%20connection%
 
 - Contextual navigation:
   - Object pages should expose relevant actions for the current user.
-  - Event pages lead with event basics, attendance/access/expectations, host/facilitator context, and then related communities, connection explanations, and ways in.
-  - Community pages lead with community identity, rhythm, norms, access, and entry guidance before relation panels or stewarded suggestions.
-  - Venue pages lead with location, practical setting, and what happens there before showing communities, events, or patterns around the place.
-  - Person/facilitator pages lead with public role, offerings, and appropriate contact/access before showing privacy-aware relations.
+  - Default public event pages usually emphasize event basics, attendance/access/expectations, host/facilitator context, and then related communities, connection explanations, and ways in.
+  - Default public community pages usually emphasize community identity, rhythm, norms, access, and entry guidance before relation panels or stewarded suggestions.
+  - Default public venue pages usually emphasize location, practical setting, and what happens there before showing communities, events, or patterns around the place.
+  - Default public person/facilitator pages usually emphasize public role, offerings, and appropriate contact/access before showing privacy-aware relations.
+  - Embedded cards, recommendation panels, creator-fit surfaces, relation review surfaces, and steward/management workspaces may foreground connection evidence, review consequences, or fit reasons earlier, as long as enough native object identity remains visible.
   - Venue, creator/facilitator, generated field, festival, and practice/tag pages may expose contextual suggest connection or suggest context actions where privacy and consent allow.
   - Generated field pages expose exploration paths and relation evidence, not management controls unless the field becomes an intentional community.
 
@@ -72,8 +73,10 @@ Use [Object page and connection UX principles](Object%20page%20and%20connection%
 
 - Relation panels:
   - May appear on event, community, venue, creator/facilitator, generated field, festival, practice/tag, and profile contexts.
-  - Should support the object page rather than become the whole page.
-  - Should answer what the object is connected to, why the connection matters, whether it is accepted/suggested/calculated, and what can happen because of it.
+  - Should support the current task rather than become the whole product surface by default.
+  - On default public object pages, connections usually appear after enough object identity is legible.
+  - In embedded cards, steward-facing surfaces, recommendation panels, creator-fit views, or relation review surfaces, the connection may be foregrounded because it is the reason the object appears.
+  - Should answer what the object is connected to, why the connection matters in this surface, whether it is accepted/suggested/calculated, and what can happen because of it.
   - Should distinguish accepted, suggested, refined, calculated, declined, or dormant connections in ordinary UI language.
   - Should use visual identifiers for recurring connection types such as Good first step, Soft landing, Bridge, Pattern found, Waiting for review, Private/steward-visible, and Deeper pathway.
   - Preserve ParticipationEdge as the detailed person-to-community belonging model.
@@ -109,9 +112,10 @@ Use [Object page and connection UX principles](Object%20page%20and%20connection%
 ## Event Features
 
 - Event page:
-  - Leads with title, time, venue, host/facilitator, access level, price/access note, audience, expectations, experience level, and attendance/interest state.
+  - Default public-viewer behavior emphasizes title, time, venue, host/facilitator, access level, price/access note, audience, expectations, experience level, and attendance/interest state.
   - Shows why the event is relevant to the current user.
-  - Shows related community context and relation panels only after the event itself is legible.
+  - Shows related community context and relation panels after the event itself is legible in ordinary public browsing.
+  - Embedded event cards in recommendation, steward, creator-fit, or review surfaces may foreground why the event appears, fit evidence, or review state while keeping enough event identity visible.
   - Allows attend, mark interested, ask facilitator when available, and context-specific suggestion actions such as "Suggest related community" or "Suggest where this belongs".
 
 - Event creation:
@@ -134,10 +138,11 @@ Use [Object page and connection UX principles](Object%20page%20and%20connection%
 ## Community Features
 
 - Community page:
-  - Leads with description, who it is for, rhythm, norms, venues, access rules, and entry guidance.
+  - Default public-viewer behavior emphasizes description, who it is for, rhythm, norms, venues, access rules, and entry guidance.
   - Shows the current user's relationship to the community.
   - Includes relationship state, access level, decay state, role modes, participation score, and shared exposure score.
-  - Shows relation panels for accepted, suggested, dormant, or held relations to events, venues, creators/facilitators, generated fields, festivals, practices, and other communities after the community's own identity and entry options are clear.
+  - Shows relation panels for accepted, suggested, dormant, or held relations to events, venues, creators/facilitators, generated fields, festivals, practices, and other communities after the community's own identity and entry options are clear in ordinary public browsing.
+  - Steward or management views of the same community may foreground suggested connections, unresolved entry issues, participation patterns, or governance actions.
   - Shows stewarded suggestions or review actions only when the current user has the relevant responsibility.
 
 - Ways in:

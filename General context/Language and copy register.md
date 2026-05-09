@@ -159,7 +159,8 @@ Avoid in UI copy:
 - Use "may" when a relation is suggested or calculated: "This may be a good fit."
 - Use concrete evidence before scores: "shared venue and tags" before "78% fit."
 - Name review state plainly: "waiting for review", "accepted by stewards", "not reviewed yet."
-- Let object pages lead with the object itself before showing connection explanations.
+- Preserve enough native object identity that the user can tell what they are looking at.
+- Let role, entry point, surrounding context, and surface type determine whether object basics, connection evidence, review consequences, recommendation reasons, creator fit, or ways in are emphasized first.
 - Group "Ways in" actions by the object they act on, such as "For this event" or "For Contact Improvisation Aarhus".
 - Use context-specific suggestion labels when possible rather than defaulting to "Suggest connection" everywhere.
 - Prefer "Suggestions to review" over "Review queue" in steward-facing UI.
@@ -288,3 +289,4 @@ For future mockups:
 - Use "Why this appears" instead of "provenance" or "evidence model".
 - Use "Pattern found" instead of "GeneratedField" unless the surface is dev-only.
 - Keep review actions out of ordinary participant-facing pages unless the current user has steward, manager, host, or creator responsibility.
+- For embedded cards, recommendation panels, steward surfaces, and creator-fit views, foreground why the object appears in that context while keeping compact object identity visible.

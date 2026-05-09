@@ -18,7 +18,8 @@ Product-language version: Field helps people, communities, creators, stewards, e
 - [UX stories and user flows](UX%20stories%20and%20user%20flows.md): user intentions and how features map together to help users accomplish them.
 - [Dev tools](Dev%20tools.md): development-only inspection and explanation tools, including the Data Model Explorer.
 - [Language and copy register](Language%20and%20copy%20register.md): guidance for separating internal philosophy, domain/data-model vocabulary, product language, and user-facing UI copy.
-- [Object page and connection UX principles](Object%20page%20and%20connection%20UX%20principles.md): guidance for object-first page hierarchy, supporting connection panels, role-gated steward review, grouped ways-in actions, and contextual suggestion flows.
+- [Object page and connection UX principles](Object%20page%20and%20connection%20UX%20principles.md): guidance for context-dependent object surfaces, native object affordances, supporting connection panels, role-gated steward review, grouped ways-in actions, and contextual suggestion flows.
+- [Design process and project wayfinding](Design%20process%20and%20project%20wayfinding.md): guidance for orienting in the repo, choosing which layer to touch next, processing feedback, timing complexity, and keeping mockups exploratory.
 
 ## Current Product Framing
 
@@ -37,7 +38,7 @@ The app should therefore be organized around user-accessible features and object
 - a steward can review suggested field relations when they have the right contextual responsibility
 - a person can understand what movement a visible relation makes possible
 
-FieldRelation may be a central data/domain primitive, but it should not become the primary UI object. Future mockups should lead with the native object being viewed, such as the event, community, venue, person/facilitator, generated pattern, or festival. Connections should then appear as supporting context, explanations, and available next steps.
+FieldRelation may be a central data/domain primitive, but it should not become the primary UI object by default. Future mockups should preserve enough native identity that a person can recognize the event, community, venue, person/facilitator, generated pattern, or festival being shown. User role, entry point, surrounding context, and surface type should determine whether the surface foregrounds object basics, connection evidence, review consequences, recommendation reasons, creator fit, or available next steps.
 
 Adoption and data principle: the field becomes visible through distributed perception. Participants, creators, and stewards should be able to contribute small acts of contextual clarification that are easy, respectful, reviewable, and non-coercive.
 

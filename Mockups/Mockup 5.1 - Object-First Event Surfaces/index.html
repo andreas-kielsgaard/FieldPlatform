@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup 5.1 - Object-First Event Surfaces</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Mockup 5.1</p>
+        <h1>Object-First Event Surfaces</h1>
+      </div>
+      <div class="topbar-actions">
+        <button class="button secondary" id="resetDemo" type="button">Reset demo</button>
+        <nav class="surface-tabs" aria-label="Surface views">
+          <button class="surface-tab is-selected" type="button" data-surface="public">Public event page</button>
+          <button class="surface-tab" type="button" data-surface="steward">Steward suggestions</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="surface is-active" id="publicSurface" aria-labelledby="publicTitle">
+        <div class="event-hero">
+          <div class="event-hero-main">
+            <p class="eyebrow">Public event page</p>
+            <h2 id="publicTitle">Loading event</h2>
+            <p id="eventAudience" class="hero-copy"></p>
+            <div class="event-actions">
+              <button class="button primary" id="attendEvent" type="button">Attend</button>
+              <button class="button secondary" id="markInterested" type="button">Mark interested</button>
+              <button class="button secondary" id="askFacilitator" type="button">Ask facilitator</button>
+            </div>
+          </div>
+          <aside class="event-facts" aria-label="Event basics">
+            <div>
+              <span>Time</span>
+              <strong id="eventTime">Loading</strong>
+            </div>
+            <div>
+              <span>Venue</span>
+              <strong id="eventVenue">Loading</strong>
+            </div>
+            <div>
+              <span>Host</span>
+              <strong id="eventHost">Loading</strong>
+            </div>
+            <div>
+              <span>Access</span>
+              <strong id="eventAccess">Loading</strong>
+            </div>
+          </aside>
+        </div>
+
+        <div class="public-grid">
+          <section class="panel event-orientation" aria-labelledby="expectTitle">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Before context</p>
+                <h3 id="expectTitle">What to expect</h3>
+              </div>
+            </div>
+            <div id="expectationList" class="expectation-list"></div>
+          </section>
+
+          <section class="panel context-panel" aria-labelledby="contextTitle">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Supporting context</p>
+                <h3 id="contextTitle">Related community context</h3>
+              </div>
+              <button class="button compact secondary" id="openSuggest" type="button">Suggest related community</button>
+            </div>
+            <div class="connection-key" aria-label="Connection type examples">
+              <span class="type-badge">Good first step</span>
+              <span class="type-badge">Soft landing</span>
+              <span class="type-badge">Bridge</span>
+              <span class="type-badge">Pattern found</span>
+              <span class="type-badge">Waiting for review</span>
+              <span class="type-badge">Only visible to stewards</span>
+            </div>
+            <div id="connectionCards" class="connection-list"></div>
+          </section>
+
+          <section class="panel ways-panel" aria-labelledby="waysTitle">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Ways in</p>
+                <h3 id="waysTitle">First steps grouped by what they act on</h3>
+              </div>
+            </div>
+            <div id="waysInGroups" class="ways-groups"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="surface" id="stewardSurface" aria-labelledby="stewardTitle">
+        <div class="steward-layout">
+          <aside class="steward-context">
+            <p class="eyebrow">Community care surface</p>
+            <h2 id="stewardTitle">Suggestions to review</h2>
+            <p class="muted">This surface is separate from ordinary event browsing. It focuses on what a community steward can decide and what each decision changes.</p>
+            <label class="select-label">
+              Community
+              <select id="reviewCommunity"></select>
+            </label>
+          </aside>
+
+          <section class="panel steward-panel" aria-label="Suggested connections">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Suggested connections</p>
+                <h3 id="reviewCommunityTitle">Loading</h3>
+              </div>
+              <span class="count-pill" id="pendingCount">0</span>
+            </div>
+            <div id="suggestionList" class="suggestion-list"></div>
+            <div id="reviewedList" class="reviewed-list"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="suggestDrawer" aria-hidden="true" aria-labelledby="drawerTitle">
+    <form id="suggestForm" class="drawer-body">
+      <div class="drawer-header">
+        <div>
+          <p class="eyebrow">Add context</p>
+          <h2 id="drawerTitle">Suggest related community</h2>
+        </div>
+        <button class="icon-button" id="closeSuggest" type="button" aria-label="Close">x</button>
+      </div>
+
+      <p class="drawer-intro">Suggesting a community does not publish the event there, make the community own it, or recommend it to everyone. A steward may review, adjust, redirect, decline, or keep it as a pattern.</p>
+
+      <label>
+        Related community
+        <select id="targetCommunity" required></select>
+      </label>
+
+      <label>
+        How does it relate?
+        <select id="connectionType" required></select>
+      </label>
+
+      <label>
+        Why might this belong nearby?
+        <textarea id="suggestReason" rows="4" placeholder="Share a short reason a steward can understand." required></textarea>
+      </label>
+
+      <label>
+        While it is being reviewed
+        <select id="suggestVisibility" required></select>
+      </label>
+
+      <div class="drawer-actions">
+        <button class="button secondary" id="cancelSuggest" type="button">Cancel</button>
+        <button class="button primary" type="submit">Send suggestion</button>
+      </div>
+    </form>
+  </aside>
+
+  <script src="../../Platform data layer/source/database-definition/seed.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/shared.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/overlap.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/generatedFields.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/fieldRelations.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/communityHealth.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/recommendations.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/calculations.js"></script>
+  <script src="../../Platform data layer/source/database-engine/utils.js"></script>
+  <script src="../../Platform data layer/source/database-engine/collectionConfig.js"></script>
+  <script src="../../Platform data layer/source/database-engine/adapters.js"></script>
+  <script src="../../Platform data layer/source/database-engine/recordFactory.js"></script>
+  <script src="../../Platform data layer/source/database-engine/snapshotNormalizer.js"></script>
+  <script src="../../Platform data layer/source/database-engine/queryApi.js"></script>
+  <script src="../../Platform data layer/source/database-engine/calculationApi.js"></script>
+  <script src="../../Platform data layer/source/database-engine/database.js"></script>
+  <script src="../../Platform data layer/build/browser/platform-domain.bundle.js"></script>
+  <script src="js/copy-map.js"></script>
+  <script src="js/view-model.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

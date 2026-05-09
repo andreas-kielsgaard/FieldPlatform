@@ -138,9 +138,11 @@ Avoid in UI copy:
 | RelationKind | connection type | "Good first step", "Soft landing", "Shares venue", "Bridge into" | Prefer meaning over taxonomy labels. |
 | relationStatus | review state / connection state | "Waiting for review", "Accepted", "Not reviewed yet" | Avoid making status feel like personal evaluation. |
 | reviewAuthority | who can review | "A community steward can review this" | "Authority" sounds bureaucratic or coercive in UI. |
+| Relation visibility | who can see this | "Public", "Only visible to stewards", "Private" | Do not style visibility like a connection type. |
+| Evidence | reason / source / why this appears | "Shared venue", "Suggested by...", "Tags overlap" | Evidence should be concrete and separate from status. |
 | Review queue | suggestions to review / steward review surface | "Suggestions to review", "Suggested connections" | Avoid "Review queue" as unexplained UI language. Only show this to users with relevant responsibility. |
 | Suggest connection | suggest context / suggest a related object | "Suggest related community", "Suggest where this belongs", "Add context", "Suggest related event", "Suggest community here" | The generic product concept should often become object-specific UI copy. |
-| relatedHoldTypes | what may need clarification | "Needs clearer first step" | Use as explanation, not as a label applied to people. |
+| relatedHoldTypes | target-anchored unclear point | "First step into Contact Improvisation Aarhus may be unclear", "Newcomer welcome is not yet clear" | Use as explanation, not as a label applied to people. |
 | relationStrength | strength of connection / how closely related | "Strong connection", "Light connection" | Explain with reasons, not just a score. |
 
 ## UX Copy Rules
@@ -156,9 +158,13 @@ Avoid in UI copy:
 - Do not imply that a generated field speaks for a community.
 - Do not imply that someone should participate more deeply.
 - Make privacy and visibility clear in plain language.
+- Do not style connection type, review state, visibility, and evidence/source as if they are the same kind of label.
+- Keep event access, cost, audience, experience needed, entry support, practical expectations, and requirements semantically separate.
+- Make viewer stance clear when a surface changes from participant browsing to facilitator management or steward review.
 - Use "may" when a relation is suggested or calculated: "This may be a good fit."
 - Use concrete evidence before scores: "shared venue and tags" before "78% fit."
 - Name review state plainly: "waiting for review", "accepted by stewards", "not reviewed yet."
+- Anchor uncertainty to target and action: "Newcomer welcome at this event is not yet clear" rather than "threshold hold detected" or "first step unclear."
 - Preserve enough native object identity that the user can tell what they are looking at.
 - Let role, entry point, surrounding context, and surface type determine whether object basics, connection evidence, review consequences, recommendation reasons, creator fit, or ways in are emphasized first.
 - Group "Ways in" actions by the object they act on, such as "For this event" or "For Contact Improvisation Aarhus".
@@ -218,7 +224,7 @@ Bad / too abstract:
 
 Better UI copy:
 
-> The first step into this community may be unclear.
+> First step into Contact Improvisation Aarhus may be unclear.
 
 ### 6. Creator Fit
 
@@ -249,6 +255,30 @@ Bad / too abstract:
 Better UI copy:
 
 > Available next step: attend the beginner-friendly event.
+
+### 9. Mixed Event Access
+
+Bad / too compressed:
+
+> Access: public, 80 DKK, curious and returning movers.
+
+Better UI copy:
+
+> Access: Public.
+> Cost: 80 DKK.
+> For: curious and returning movers.
+
+### 10. Mixed Badges
+
+Bad / ambiguous:
+
+> Soft landing | Waiting for review | Only visible to stewards
+
+Better UI structure:
+
+> Connection type: Soft landing.
+> Review: Waiting for review.
+> Visibility: Only visible to stewards.
 
 ## Repo Language Audit Notes
 

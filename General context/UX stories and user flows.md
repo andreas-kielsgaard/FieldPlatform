@@ -14,6 +14,8 @@ UX stories should answer:
 
 When a story names actual labels, buttons, cards, empty states, or help text, use the UI register in [Language and copy register](Language%20and%20copy%20register.md). Product and data-model terms may appear in Data and calculations sections, but screen copy should favor ordinary wording such as "Suggest connection", "Ways in", "First step", "Waiting for review", and "Why am I seeing this?"
 
+Surfaces should also make viewer stance and semantic dimensions explicit. A story should identify whether the person is browsing as a participant, managing as a host/facilitator, reviewing as a steward, or seeing an embedded/recommendation surface. Event facts, access, cost, audience, experience needed, relation type, review state, visibility, evidence, and action target should not be treated as one interchangeable label group.
+
 ## Story 1: I Want To Orient To What Is Already Live
 
 Intent:
@@ -159,15 +161,16 @@ Entry features:
 Flow:
 
 1. User sees an event recommendation or opens an event page.
-2. If the user is on a default public event page, the page makes the event legible: title, time, place, host/facilitator, access, expectations, and whether the user can attend.
-3. If the event is shown inside a recommendation, creator-fit, or steward review surface, the card may foreground why it appears in that context while keeping enough event identity visible.
-4. The user clicks a contextual action such as "Suggest related community" or "Suggest where this belongs."
-5. The app lets the user choose from a filtered list of likely communities rather than a universal object list.
-6. The app asks for a short reason and makes clear that the suggestion is not automatic publication, ownership, or recommendation to everyone.
-7. The app creates a suggested event share, or in the broader target a suggested event-to-community FieldRelation.
-8. The suggestion appears in the relevant community management/steward surface as a suggestion to review.
-9. A manager or steward can accept, refine, decline, redirect, feature, ignore, or hold the suggestion.
-10. If accepted, the relation may change event visibility, community event placement, recommendation explanations, and available pathways.
+2. If the user is on a default public event page, the page makes the viewer stance legible: the user is browsing as a curious participant.
+3. The page makes the event legible: title, time, place, host/facilitator, access, cost, who it is for, experience needed, entry support, practical expectations, concrete requirements, and whether the user can attend.
+4. If the event is shown inside a recommendation, creator-fit, or steward review surface, the card may foreground why it appears in that context while keeping enough event identity visible.
+5. The user clicks a contextual action such as "Suggest related community" or "Suggest where this belongs."
+6. The app lets the user choose from a filtered list of likely communities rather than a universal object list.
+7. The app asks for a short reason and makes clear that the suggestion is not automatic publication, ownership, or recommendation to everyone.
+8. The app creates a suggested event share, or in the broader target a suggested event-to-community FieldRelation.
+9. The suggestion appears in the relevant community management/steward surface as a suggestion to review.
+10. A manager or steward can accept, refine, decline, redirect, feature, ignore, or hold the suggestion.
+11. If accepted, the relation may change event visibility, community event placement, recommendation explanations, and available pathways.
 
 Data and calculations:
 
@@ -197,13 +200,14 @@ Entry features:
 Flow:
 
 1. User opens event creation.
-2. User enters title, host/facilitator, venue, access level, price/access note, tags, intended audience, and beginner-friendliness.
-3. As the draft changes, the app recalculates suggested groups and generated fields.
-4. The fit panel shows reasons such as tag overlap, venue fit, host/facilitator history, adjacent events, access level, beginner-friendliness, and participant overlap.
-5. User can create the event.
-6. User can suggest the draft to selected groups.
-7. Suggested events enter community management/steward relation queues rather than automatically becoming community-owned.
-8. After creation, the user gains contextual event management features for that event.
+2. User enters title, host/facilitator, venue, access level, cost, tags, intended audience, experience needed, entry support, and practical expectations.
+3. The app helps the host clarify whether newcomers are welcome, whether there is a softer entry point, whether another event is a better first step, and what first-timers should know.
+4. As the draft changes, the app recalculates suggested groups and generated fields.
+5. The fit panel shows reasons such as tag overlap, venue fit, host/facilitator history, adjacent events, access level, beginner-friendliness, and participant overlap.
+6. User can create the event.
+7. User can suggest the draft to selected groups.
+8. Suggested events enter community management/steward relation queues rather than automatically becoming community-owned.
+9. After creation, the user gains contextual event management features for that event.
 
 Data and calculations:
 
@@ -368,13 +372,16 @@ Entry features:
 
 Flow:
 
-1. Steward opens the relation queue for a community, event, venue, festival, or other stewarded context.
-2. The workspace shows suggested connections with source, target, connection type, why it may make sense, visibility, and what may become easier if accepted.
-3. Steward filters by status or hold type, such as stewardship, boundary, capacity, context, or language hold.
-4. Steward accepts, refines, declines, redirects, or keeps the relation as a calculated pattern.
-5. Each action explains its consequence before or immediately after it happens: accepted becomes visible in relevant context surfaces; refined is adjusted before becoming visible; redirected belongs somewhere else; declined should not be shown as a connection; kept as pattern only remains calculated without community endorsement.
-6. Accepted relations update relevant pages, recommendation explanations, relation panels, and pathway suggestions.
-7. Refined or redirected relations preserve provenance and review history.
+1. Steward opens a contained community care surface, with the viewer stance clear: reviewing on behalf of a community they steward.
+2. The workspace shows suggested connections with enough native object identity to avoid disorientation.
+3. The workspace separates connection type, review state, visibility, evidence/source, and possible actions.
+4. The steward sees compact evidence: why this is suggested, who suggested it, suggester/community relation where privacy allows, who hosts/facilitates it, host/community relation, shared tags or practices, shared venue, shared audience, shared participation, likely benefit or risk, and what becomes visible if accepted.
+5. Steward filters by status or by target-anchored unclear point, such as community endorsement not confirmed, newcomer welcome unclear, or capacity needing review.
+6. Steward accepts, refines, declines, redirects, or keeps the relation as a calculated pattern.
+7. Each action explains its consequence before or immediately after it happens: accepted becomes visible in relevant context surfaces; refined is adjusted before becoming visible; redirected belongs somewhere else; declined should not be shown as a connection; kept as pattern only remains calculated without community endorsement.
+8. Recently decided items remain inspectable enough that the steward can see what was accepted and why.
+9. Accepted relations update relevant pages, recommendation explanations, relation panels, and pathway suggestions for that specific relation.
+10. Acceptance by one community does not automatically create endorsement by another community. It may increase evidence, create a new suggestion, or appear as a calculated pattern elsewhere.
 
 Data and calculations:
 
@@ -406,10 +413,12 @@ Flow:
 2. The app shows why the relation appears, whether it is suggested or accepted, who or what proposed it, and what holds may still apply.
 3. The app groups available actions by the object they act on rather than mixing them in one flat list.
 4. For the current event, the user may see actions such as Attend, Mark interested, or Ask facilitator.
-5. For a related community, the user may see actions such as Follow community, See beginner events, Request access, or Ask a steward.
-6. For a related venue, the user may see actions such as See other events here.
-7. Unavailable movements explain the relevant hold through concise copy, tooltip, or expandable help rather than heavy always-visible text.
-8. User chooses an available pathway, or leaves the relation as context for later.
+5. If the current event is not the best first step, the page may show a prerequisite path such as an intro/open class before the deeper event.
+6. For a related community, the user may see actions such as Follow community, See beginner events, Request access, or Ask a steward.
+7. For a related venue, the user may see actions such as See other events here.
+8. Human paths such as Ask facilitator, Ask a community steward, or Ask before joining may appear as future expansion when trust, threshold, or context uncertainty is high.
+9. Unavailable movements explain the relevant unclear point through target-anchored copy, tooltip, or expandable help rather than heavy always-visible text.
+10. User chooses an available pathway, or leaves the relation as context for later.
 
 Data and calculations:
 
@@ -462,6 +471,39 @@ Data and calculations:
 Outcome:
 
 - The user understands what the object is and why this surface is emphasizing this object now.
+
+## Story 13A: I Need The Page To Separate Similar-Looking Meanings
+
+Intent:
+
+- The user sees event facts, labels, badges, and actions and wants to understand what each one means without interpreting the data model.
+
+Entry features:
+
+- Public event page.
+- Recommendation panel.
+- Steward review surface.
+- Relation panel.
+
+Flow:
+
+1. The surface states or implies viewer stance clearly.
+2. Event facts are separated into access, cost, audience, experience needed, entry support, practical expectations, and requirements.
+3. Connection type is shown separately from review state.
+4. Review state is shown separately from visibility.
+5. Visibility is shown separately from evidence/source.
+6. Evidence/source is shown with concrete reasons such as suggested by a person, shared venue, shared tags, or calculated pattern.
+7. Actions are grouped by the object they act on.
+8. Any "what may be unclear" copy names the target and action, rather than exposing a generic hold.
+
+Data and calculations:
+
+- Pulls event facts, FieldRelation state, visibility, provenance, evidence, hold types, and movement options from shared models where available.
+- Future data-layer work may need more separated event fact fields and more explicit action-target metadata.
+
+Outcome:
+
+- The user understands event facts, relation meaning, review state, visibility, evidence, and action target without having to infer those dimensions from one mixed badge row.
 
 ## Story 14: I Want To Ask Before Joining
 

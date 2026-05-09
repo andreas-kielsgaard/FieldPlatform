@@ -10,6 +10,8 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
 
 Use [Object page and connection UX principles](Object%20page%20and%20connection%20UX%20principles.md) when designing object pages or relation-powered surfaces. FieldRelation can power context, explanations, and next steps, but object type only defines default affordances. User role, entry point, surrounding context, and surface type determine priority.
 
+Current surface-grammar pressure: semantic separation. Future surfaces should keep event facts, access, audience, requirements, relation type, review state, visibility, evidence, and action target visually and conceptually distinct. FieldRelation can power the context, but users should not have to infer which dimension a chip, label, or action belongs to.
+
 ## Navigation And Feature Access
 
 - Primary navigation:
@@ -18,6 +20,7 @@ Use [Object page and connection UX principles](Object%20page%20and%20connection%
 
 - Contextual navigation:
   - Object pages should expose relevant actions for the current user.
+  - Each surface should make viewer stance clear: curious participant, host/facilitator managing an event, steward reviewing on behalf of a community, or another explicit context.
   - Default public event pages usually emphasize event basics, attendance/access/expectations, host/facilitator context, and then related communities, connection explanations, and ways in.
   - Default public community pages usually emphasize community identity, rhythm, norms, access, and entry guidance before relation panels or stewarded suggestions.
   - Default public venue pages usually emphasize location, practical setting, and what happens there before showing communities, events, or patterns around the place.
@@ -78,7 +81,9 @@ Use [Object page and connection UX principles](Object%20page%20and%20connection%
   - In embedded cards, steward-facing surfaces, recommendation panels, creator-fit views, or relation review surfaces, the connection may be foregrounded because it is the reason the object appears.
   - Should answer what the object is connected to, why the connection matters in this surface, whether it is accepted/suggested/calculated, and what can happen because of it.
   - Should distinguish accepted, suggested, refined, calculated, declined, or dormant connections in ordinary UI language.
-  - Should use visual identifiers for recurring connection types such as Good first step, Soft landing, Bridge, Pattern found, Waiting for review, Private/steward-visible, and Deeper pathway.
+  - Should use visual identifiers for recurring connection types such as Good first step, Soft landing, Bridge, related context, and Deeper pathway.
+  - Should not make review state or visibility look like connection type. Waiting for review, accepted/refined/declined, kept as pattern, public, members-only, steward-visible, private, suggested by person, steward-marked, calculated pattern, shared tags, and shared venue are separate dimensions.
+  - "What may be unclear" explanations should name the target and action, such as "First step into Contact Improvisation Aarhus may be unclear" or "Community endorsement is not yet confirmed."
   - Preserve ParticipationEdge as the detailed person-to-community belonging model.
   - Future mockups should consume relation data through `platform.fieldRelations` in the shared Platform data layer rather than interpreting local arrays.
 
@@ -107,19 +112,25 @@ Use [Object page and connection UX principles](Object%20page%20and%20connection%
   - Initial pathway/ways-in values are derived from relation state and object context, not stored as a separate heavy entity.
   - Ways in should be grouped by target object rather than mixed into one flat list. For example, separate actions for "this event", "Contact Improvisation Aarhus", and "this venue".
   - Every action should make clear what it acts on; "Follow community" must name or visibly sit under the relevant community.
+  - Ways in should support alternate and prerequisite paths. A deeper event may point first to an intro class, open class, beginner landing, facilitator question, or community steward rather than only offering "Attend this event."
+  - Direct event actions, prerequisite event actions, community actions, venue actions, and human ask actions should be grouped separately.
   - Empty states should be concrete or hidden. Prefer "No first step is shown yet" or "A community steward may need to review this connection first" over explaining the relation model.
 
 ## Event Features
 
 - Event page:
-  - Default public-viewer behavior emphasizes title, time, venue, host/facilitator, access level, price/access note, audience, expectations, experience level, and attendance/interest state.
+  - Default public-viewer behavior emphasizes title, time, venue, host/facilitator, access, cost, who it is for, experience needed, entry support, practical expectations, requirements, and attendance/interest state.
+  - Access should not carry cost, audience, and experience meaning by itself. Public/member/request/invite access, price or donation, audience, experience level, entry support, and concrete requirements should be distinct.
   - Shows why the event is relevant to the current user.
   - Shows related community context and relation panels after the event itself is legible in ordinary public browsing.
+  - Public participant pages should usually hide steward-visible relation states unless they are deliberately shown as a preview/admin state or are directly relevant to the participant's task.
+  - Venue, host/facilitator, and related community names should be inspectable where useful, through links, previews, or expandable context.
   - Embedded event cards in recommendation, steward, creator-fit, or review surfaces may foreground why the event appears, fit evidence, or review state while keeping enough event identity visible.
   - Allows attend, mark interested, ask facilitator when available, and context-specific suggestion actions such as "Suggest related community" or "Suggest where this belongs".
 
 - Event creation:
   - User enters title, host/facilitator, venue, access level, price/access note, tags, intended audience, and beginner-friendliness.
+  - Future event creation should help hosts clarify who the event is for, what experience is needed, whether newcomers are welcome, whether there is a softer entry point, whether another event is a better first step, and what first-timers should know.
   - The app recalculates group, field, venue, practice, and pathway fit as the draft changes.
   - Fit explanations may name holds such as context, language, boundary, stewardship, or capacity.
   - Event creation is not limited to a separate "creator" base UI; it is a platform feature available to users.
@@ -172,6 +183,9 @@ Use [Object page and connection UX principles](Object%20page%20and%20connection%
   - May include editing norms and entry guidance, adjusting access rules and group state, approving membership requests, reviewing suggested FieldRelations, featuring suggested events as relevant, and marking formal relationships to other groups.
   - Suggested connection review should live in a contained management surface labeled in ordinary terms such as "Suggestions to review" or "Suggested connections".
   - Review actions should explain consequences: accepted becomes visible in relevant context surfaces; refined is adjusted before becoming visible; redirected belongs somewhere else; declined should not be shown as a connection; kept as pattern only remains calculated without community endorsement.
+  - Suggested connection review should include compact evidence before action: why this is suggested, who suggested it, the suggester's relation to the community where privacy allows, who hosts/facilitates it, host/community relation, shared tags or practice, shared venue, shared audience, shared participation, likely benefit or risk, and what becomes visible if accepted.
+  - Recently decided suggestions should remain inspectable enough to see what was accepted, refined, redirected, declined, or kept as a pattern and why.
+  - Acceptance by one community should not automatically publish or endorse the relation for another community. It may become evidence, a calculated pattern, or a new suggestion elsewhere, but another stewarded community needs its own review before endorsement.
   - Should expose aggregate patterns, opportunities, and governance choices.
   - Should not default to a roster-first or individual-monitoring interface.
 

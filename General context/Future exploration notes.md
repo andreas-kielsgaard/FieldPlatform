@@ -112,3 +112,16 @@ The following generated ideas are preserved only as possible future inspiration:
 - pilot KPIs as active product metrics
 
 Adopt any of these only after a concrete design pressure, user feedback, or implementation need makes them relevant.
+
+## Ask Before Joining / Human Context Paths
+
+Future expansion: users who are interested but uncertain may need a low-pressure human route before joining, attending, or requesting access.
+
+Possible paths:
+
+- Ask facilitator.
+- Ask a community steward.
+- Ask before joining.
+- Ask in a beginner or interested-participant space.
+
+This supports trust, threshold, and context uncertainty without requiring the user to interpret the relation model. Overlapping community chats, forums, and beginner/interested channels are interesting possibilities, but they should not become the active design focus until object surfaces, semantic separation, and relation-powered context are clearer.

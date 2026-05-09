@@ -342,6 +342,7 @@ Useful distinctions:
 - FieldRelation is a powerful data/domain primitive, but it should not become the primary UI object.
 - Users first relate to the event, community, venue, person, or other object they are viewing; connections should support orientation and action.
 - Object type gives default affordances, but user role, entry point, surrounding context, and surface type determine priority.
+- Mockup 5.1 showed that object-first structure is promising but not sufficient; the next pressure is semantic separation between event facts, access, audience, requirements, connection type, review state, visibility, evidence, and action target.
 - Mockups should reveal whether the app feels like orientation or like metadata.
 - Language must be translated from internal philosophy/domain terms into ordinary UI.
 - Steward review should be role-gated and contained.

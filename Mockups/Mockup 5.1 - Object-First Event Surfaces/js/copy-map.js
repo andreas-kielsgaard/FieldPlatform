@@ -1,7 +1,7 @@
 (function () {
   const relationKinds = {
     belongs_with: "Belongs with",
-    relevant_to: "Related to",
+    relevant_to: "Related context",
     hosted_at: "Hosted here",
     facilitated_by: "Facilitated by",
     stewarded_by: "Reviewed by stewards",
@@ -18,17 +18,17 @@
 
   const statusLabels = {
     suggested: "Waiting for review",
-    accepted: "Accepted connection",
-    refined: "Accepted connection",
+    accepted: "Accepted",
+    refined: "Refined",
     declined: "Declined",
-    computed: "Pattern found",
+    computed: "Kept as pattern",
     dormant: "Not active right now"
   };
 
   const visibilityLabels = {
     private: "Private",
-    visible_to_stewards: "Only visible to stewards",
-    visible_to_members: "Visible to members",
+    visible_to_stewards: "Steward-visible",
+    visible_to_members: "Members only",
     public: "Public"
   };
 
@@ -48,13 +48,28 @@
 
   const holdLabels = {
     visibility: "People may not know this exists",
-    context: "It may be unclear what this belongs with",
+    context: "Context around this connection may need clarification",
     trust: "People may wonder whether they are welcome",
-    threshold: "The first step may be unclear",
+    threshold: "The first step may need clearer wording",
     boundary: "Access may need care or review",
-    stewardship: "A community steward may need to review this",
+    stewardship: "Community endorsement is not yet confirmed",
     capacity: "This may need a gentler or deeper entry option",
     language: "The invitation may need clearer wording"
+  };
+
+  const evidenceTypes = {
+    shared_tag: "Shared tag",
+    event_access: "Event access",
+    community_entry_guidance: "Community guidance",
+    linked_group: "Linked community",
+    shared_participants: "Shared participation",
+    venue_use: "Shared venue",
+    venue_cluster: "Venue pattern",
+    calculated_overlap: "Calculated pattern",
+    practice_tag: "Shared practice",
+    person_reason: "Suggested reason",
+    saved_event: "Saved event",
+    person_tag: "Person interest"
   };
 
   const suggestionKinds = [
@@ -66,17 +81,17 @@
   ];
 
   const visibilityOptions = [
-    { value: "visible_to_stewards", label: "Send to community stewards first" },
-    { value: "public", label: "Public if accepted" },
+    { value: "public", label: "Ask stewards to review before showing publicly" },
+    { value: "visible_to_stewards", label: "Only stewards should see the suggestion" },
     { value: "private", label: "Keep private for now" }
   ];
 
   const reviewConsequences = {
-    accept: "This connection can appear as visible context.",
-    refine: "Adjust the connection before it becomes visible.",
-    redirect: "Move the suggestion to a better community context.",
-    decline: "Do not show this as a connection.",
-    computed: "Keep this as a pattern without community endorsement."
+    accept: "This now appears on the event page as related community context.",
+    refine: "This connection is adjusted before becoming visible.",
+    redirect: "This was redirected to another community.",
+    decline: "This will no longer appear as a suggested connection.",
+    computed: "This remains a pattern but is not community-endorsed."
   };
 
   window.Mockup51Copy = {
@@ -85,6 +100,7 @@
     visibilityLabels,
     movementLabels,
     holdLabels,
+    evidenceTypes,
     suggestionKinds,
     visibilityOptions,
     reviewConsequences

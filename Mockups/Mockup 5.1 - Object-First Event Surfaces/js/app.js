@@ -8,7 +8,8 @@
   const vm = window.Mockup51ViewModel.createViewModel(platform, copy);
   const state = {
     surface: "public",
-    reviewCommunityId: "ecstatic"
+    reviewCommunityId: "ecstatic",
+    reviewNotice: ""
   };
 
   const els = {
@@ -19,8 +20,15 @@
     eventAudience: byId("eventAudience"),
     eventTime: byId("eventTime"),
     eventVenue: byId("eventVenue"),
+    venuePreview: byId("venuePreview"),
     eventHost: byId("eventHost"),
+    hostPreview: byId("hostPreview"),
     eventAccess: byId("eventAccess"),
+    eventCost: byId("eventCost"),
+    eventFor: byId("eventFor"),
+    eventExperience: byId("eventExperience"),
+    eventEntrySupport: byId("eventEntrySupport"),
+    eventRequirements: byId("eventRequirements"),
     expectationList: byId("expectationList"),
     connectionCards: byId("connectionCards"),
     waysInGroups: byId("waysInGroups"),
@@ -32,8 +40,10 @@
     suggestVisibility: byId("suggestVisibility"),
     suggestReason: byId("suggestReason"),
     reviewCommunity: byId("reviewCommunity"),
+    reviewingForText: byId("reviewingForText"),
     reviewCommunityTitle: byId("reviewCommunityTitle"),
     pendingCount: byId("pendingCount"),
+    reviewNotice: byId("reviewNotice"),
     suggestionList: byId("suggestionList"),
     reviewedList: byId("reviewedList")
   };
@@ -51,16 +61,17 @@
 
     byId("resetDemo").addEventListener("click", () => {
       platform.resetDatabase();
+      state.reviewNotice = "";
       render();
       flash("Demo data reset.");
     });
     byId("attendEvent").addEventListener("click", () => {
-      platform.events.get(vm.currentEventId).registerUser(platform.users.get("p_casey"));
+      platform.events.get(vm.currentEventId).registerUser(platform.users.get(vm.currentUserId));
       flash("Added Casey to attending for this event.");
       renderPublicEvent();
     });
     byId("markInterested").addEventListener("click", () => {
-      platform.events.get(vm.currentEventId).markUserInterested(platform.users.get("p_casey"));
+      platform.events.get(vm.currentEventId).markUserInterested(platform.users.get(vm.currentUserId));
       flash("Marked Casey as interested.");
       renderPublicEvent();
     });
@@ -74,6 +85,7 @@
     els.suggestForm.addEventListener("submit", submitSuggestion);
     els.reviewCommunity.addEventListener("change", () => {
       state.reviewCommunityId = els.reviewCommunity.value;
+      state.reviewNotice = "";
       renderStewardSurface();
     });
   }
@@ -97,12 +109,19 @@
   function renderPublicEvent() {
     const page = vm.eventPage();
     els.eventTitle.textContent = page.title;
-    els.eventAudience.textContent = page.audience;
+    els.eventAudience.textContent = page.forText;
     els.eventTime.textContent = page.time;
     els.eventVenue.textContent = page.venue;
+    renderPreview(els.venuePreview, page.venuePreview);
     els.eventHost.textContent = page.host;
+    renderPreview(els.hostPreview, page.hostPreview);
     els.eventAccess.textContent = page.access;
-    els.expectationList.innerHTML = page.expectations.map(expectationMarkup).join("");
+    els.eventCost.textContent = page.cost;
+    els.eventFor.textContent = page.forText;
+    els.eventExperience.textContent = page.experience;
+    els.eventEntrySupport.textContent = page.entrySupport;
+    els.eventRequirements.textContent = page.requirements;
+    els.expectationList.innerHTML = page.practicalDetails.map(expectationMarkup).join("");
 
     const connections = vm.eventConnections();
     els.connectionCards.innerHTML = connections.length
@@ -140,8 +159,11 @@
     const pending = vm.pendingSuggestions(state.reviewCommunityId);
     const reviewed = vm.reviewedSuggestions(state.reviewCommunityId);
 
-    els.reviewCommunityTitle.textContent = communityName;
+    els.reviewingForText.textContent = `Reviewing for ${communityName}.`;
+    els.reviewCommunityTitle.textContent = `Reviewing for ${communityName}`;
     els.pendingCount.textContent = String(pending.length);
+    els.reviewNotice.hidden = !state.reviewNotice;
+    els.reviewNotice.textContent = state.reviewNotice;
     els.suggestionList.innerHTML = pending.length
       ? pending.map(suggestionCardMarkup).join("")
       : emptyState("No suggestions waiting.", "New community context suggestions will appear here.");
@@ -153,6 +175,16 @@
     els.suggestionList.querySelectorAll("[data-action]").forEach(button => {
       button.addEventListener("click", () => reviewSuggestion(button.dataset.action, button.dataset.relationId));
     });
+  }
+
+  function renderPreview(element, preview) {
+    if (!preview) {
+      element.hidden = true;
+      return;
+    }
+    element.hidden = false;
+    element.querySelector("summary").textContent = `Preview ${preview.title}`;
+    element.querySelector("p").innerHTML = preview.lines.map(line => escapeHtml(line)).join("<br>");
   }
 
   function expectationMarkup(item) {
@@ -167,13 +199,15 @@
   function connectionCardMarkup(card) {
     return `
       <article class="connection-card">
-        <div class="badge-row">${card.badges.map(badgeMarkup).join("")}</div>
         <h4>${escapeHtml(card.title)}</h4>
         <p class="connection-line">${escapeHtml(card.source)} connected to ${escapeHtml(card.target)}</p>
-        <div class="card-meta">
-          <span>${escapeHtml(card.status)}</span>
-          <span>${escapeHtml(card.visibility)}</span>
+        <div class="dimension-grid">
+          ${dimensionMarkup("Connection type", card.connectionType, "type")}
+          ${dimensionMarkup("Review state", card.reviewState, "review")}
+          ${dimensionMarkup("Visibility", card.visibility, "visibility")}
+          ${dimensionMarkup("Evidence/source", card.evidenceSource, "evidence")}
         </div>
+        ${card.communityPreview ? previewDetailsMarkup("Preview related community", card.communityPreview) : ""}
         <details>
           <summary>Why this appears</summary>
           <p>${escapeHtml(card.why)}</p>
@@ -184,9 +218,27 @@
     `;
   }
 
+  function dimensionMarkup(label, value, type) {
+    return `
+      <div class="dimension dimension-${escapeHtml(type)}">
+        <span>${escapeHtml(label)}</span>
+        <strong>${escapeHtml(value)}</strong>
+      </div>
+    `;
+  }
+
+  function previewDetailsMarkup(summary, preview) {
+    return `
+      <details class="object-preview inline-preview">
+        <summary>${escapeHtml(summary)}</summary>
+        <p>${preview.lines.map(line => escapeHtml(line)).join("<br>")}</p>
+      </details>
+    `;
+  }
+
   function wayGroupMarkup(group) {
     return `
-      <section class="way-group">
+      <section class="way-group way-${escapeHtml(group.kind)}">
         <div>
           <h4>${escapeHtml(group.target)}</h4>
           <p>${escapeHtml(group.detail)}</p>
@@ -203,8 +255,8 @@
     return `
       <article class="suggestion-card">
         <div class="suggestion-topline">
-          <span class="status-chip waiting">Waiting for review</span>
-          <span>${escapeHtml(card.suggestedBy)}</span>
+          <span>Suggested connection</span>
+          <strong>${escapeHtml(card.source)} to ${escapeHtml(card.target)}</strong>
         </div>
         <div class="review-grid">
           <section class="native-identity">
@@ -216,21 +268,36 @@
                 <div><dt>Venue</dt><dd>${escapeHtml(event.venue)}</dd></div>
                 <div><dt>Host</dt><dd>${escapeHtml(event.host)}</dd></div>
                 <div><dt>Access</dt><dd>${escapeHtml(event.access)}</dd></div>
+                <div><dt>Cost</dt><dd>${escapeHtml(event.cost)}</dd></div>
+                <div><dt>For</dt><dd>${escapeHtml(event.audience)}</dd></div>
+                <div><dt>Experience</dt><dd>${escapeHtml(event.experience)}</dd></div>
               </dl>
-              <p>${escapeHtml(event.audience)}</p>
             ` : ""}
           </section>
           <section>
-            <div class="badge-row">${card.badges.map(badgeMarkup).join("")}</div>
-            <h4>${escapeHtml(card.title)}</h4>
-            <p>${escapeHtml(card.why)}</p>
-            ${evidenceMarkup(card.evidence)}
-            ${unclearMarkup(card.unclear)}
+            <div class="dimension-grid review-dimensions">
+              ${dimensionMarkup("Connection type", card.connectionType, "type")}
+              ${dimensionMarkup("Review state", card.reviewState, "review")}
+              ${dimensionMarkup("Visibility", card.visibility, "visibility")}
+              ${dimensionMarkup("Evidence/source", card.evidenceSource, "evidence")}
+            </div>
+            <h4>Evidence before decision</h4>
+            <div class="evidence-panel">
+              ${comparisonMarkup("Suggested by", card.suggestedBy)}
+              ${comparisonMarkup("Suggester relation", card.suggesterRelation)}
+              ${comparisonMarkup("Host relation", card.hostRelation)}
+              ${comparisonMarkup("Shared tags", card.sharedTags.length ? card.sharedTags.join(", ") : "No shared tags shown")}
+              ${comparisonMarkup("Shared venue", card.sharedVenue)}
+              ${comparisonMarkup("Prior relation", card.priorRelation)}
+              ${comparisonMarkup("Expected consequence", card.acceptingWould)}
+            </div>
             <details>
-              <summary>What will this change?</summary>
-              <p>${escapeHtml(card.acceptingWould)}</p>
-              <p>${escapeHtml(card.patternMeaning)}</p>
+              <summary>Why this appears</summary>
+              <p>${escapeHtml(card.why)}</p>
+              ${evidenceMarkup(card.evidence)}
+              <p class="propagation-note">${escapeHtml(card.patternMeaning)}</p>
             </details>
+            ${unclearMarkup(card.unclear)}
           </section>
         </div>
         <div class="review-actions">
@@ -244,22 +311,37 @@
     `;
   }
 
-  function reviewedCardMarkup(card) {
+  function comparisonMarkup(label, value) {
     return `
-      <article class="reviewed-card">
-        <strong>${escapeHtml(card.status)}</strong>
-        <span>${escapeHtml(card.source)} connected to ${escapeHtml(card.target)}</span>
-      </article>
+      <div class="comparison-item">
+        <span>${escapeHtml(label)}</span>
+        <strong>${escapeHtml(value)}</strong>
+      </div>
     `;
   }
 
-  function badgeMarkup(label) {
-    return `<span class="type-badge">${escapeHtml(label)}</span>`;
+  function reviewedCardMarkup(card) {
+    return `
+      <details class="reviewed-card">
+        <summary>
+          <strong>${escapeHtml(card.reviewState)}</strong>
+          <span>${escapeHtml(card.source)} connected to ${escapeHtml(card.target)}</span>
+        </summary>
+        <div class="dimension-grid">
+          ${dimensionMarkup("Connection type", card.connectionType, "type")}
+          ${dimensionMarkup("Review state", card.reviewState, "review")}
+          ${dimensionMarkup("Visibility", card.visibility, "visibility")}
+          ${dimensionMarkup("Evidence/source", card.evidenceSource, "evidence")}
+        </div>
+        <p>${escapeHtml(card.why)}</p>
+        <p class="propagation-note">${escapeHtml(card.patternMeaning)}</p>
+      </details>
+    `;
   }
 
   function evidenceMarkup(evidence) {
     if (!evidence || !evidence.length) return "";
-    return `<ul class="evidence-list">${evidence.map(item => `<li>${escapeHtml(item.label || item.type)}</li>`).join("")}</ul>`;
+    return `<ul class="evidence-list">${evidence.map(item => `<li><b>${escapeHtml(item.type)}:</b> ${escapeHtml(item.label)}</li>`).join("")}</ul>`;
   }
 
   function unclearMarkup(items) {
@@ -305,9 +387,10 @@
       evidence: [{ type: "person_reason", label: reason }],
       holdTypes: ["stewardship", "context"],
       movementUnlocked: ["ask_steward", "follow"]
-    }, "p_casey");
+    }, vm.currentUserId);
 
     state.reviewCommunityId = targetId;
+    state.reviewNotice = "";
     closeDrawer();
     render();
     flash("Suggested connection - waiting for review.");
@@ -317,7 +400,8 @@
     const reviewerId = vm.stewardFor(state.reviewCommunityId);
     if (action === "accept") {
       platform.fieldRelations.accept(relationId, reviewerId, "Accepted from steward surface.");
-      flash("Accepted. This connection can now appear as visible context.");
+      state.reviewNotice = copy.reviewConsequences.accept;
+      flash(copy.reviewConsequences.accept);
     } else if (action === "refine") {
       platform.fieldRelations.refine(relationId, reviewerId, {
         relationKind: "good_first_step_for",
@@ -325,18 +409,22 @@
         movementUnlocked: ["attend", "follow", "request_access"],
         reason: "Adjusted as a possible first step before becoming visible."
       }, "Refined before publishing as context.");
-      flash("Refined. The connection was adjusted before becoming visible.");
+      state.reviewNotice = copy.reviewConsequences.refine;
+      flash(copy.reviewConsequences.refine);
     } else if (action === "redirect") {
       const nextTarget = state.reviewCommunityId === "tea" ? "ci" : "tea";
       platform.fieldRelations.redirect(relationId, reviewerId, "community", nextTarget, "Redirected to a better community context.");
       state.reviewCommunityId = nextTarget;
-      flash("Redirected. This belongs somewhere else.");
+      state.reviewNotice = `${copy.reviewConsequences.redirect} Reviewing for ${vm.labelFor("community", nextTarget)} now.`;
+      flash(copy.reviewConsequences.redirect);
     } else if (action === "decline") {
       platform.fieldRelations.decline(relationId, reviewerId, "Not useful to show as a connection right now.");
-      flash("Declined. This will not be shown as a connection.");
+      state.reviewNotice = copy.reviewConsequences.decline;
+      flash(copy.reviewConsequences.decline);
     } else if (action === "computed") {
       platform.fieldRelations.markComputedOnly(relationId, reviewerId, "Kept as a pattern without community endorsement.");
-      flash("Kept as a pattern only.");
+      state.reviewNotice = copy.reviewConsequences.computed;
+      flash(copy.reviewConsequences.computed);
     }
     render();
   }
@@ -346,7 +434,7 @@
     notice.className = "toast";
     notice.textContent = message;
     document.body.appendChild(notice);
-    window.setTimeout(() => notice.remove(), 2400);
+    window.setTimeout(() => notice.remove(), 3600);
   }
 
   function emptyState(title, detail) {

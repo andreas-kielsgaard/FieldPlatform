@@ -24,6 +24,11 @@
 
     <main>
       <section class="surface is-active" id="publicSurface" aria-labelledby="publicTitle">
+        <div class="stance-banner participant-stance">
+          <strong>Viewing as a curious participant</strong>
+          <span>This is a public event page. Review and management controls are not shown here.</span>
+        </div>
+
         <div class="event-hero">
           <div class="event-hero-main">
             <p class="eyebrow">Public event page</p>
@@ -43,14 +48,42 @@
             <div>
               <span>Venue</span>
               <strong id="eventVenue">Loading</strong>
+              <details class="object-preview" id="venuePreview">
+                <summary>Preview venue</summary>
+                <p>Loading</p>
+              </details>
             </div>
             <div>
-              <span>Host</span>
+              <span>Host/facilitator</span>
               <strong id="eventHost">Loading</strong>
+              <details class="object-preview" id="hostPreview">
+                <summary>Preview host</summary>
+                <p>Loading</p>
+              </details>
             </div>
             <div>
               <span>Access</span>
               <strong id="eventAccess">Loading</strong>
+            </div>
+            <div>
+              <span>Cost</span>
+              <strong id="eventCost">Loading</strong>
+            </div>
+            <div>
+              <span>For</span>
+              <strong id="eventFor">Loading</strong>
+            </div>
+            <div>
+              <span>Experience</span>
+              <strong id="eventExperience">Loading</strong>
+            </div>
+            <div>
+              <span>Entry support</span>
+              <strong id="eventEntrySupport">Loading</strong>
+            </div>
+            <div>
+              <span>Requirements</span>
+              <strong id="eventRequirements">Loading</strong>
             </div>
           </aside>
         </div>
@@ -60,7 +93,7 @@
             <div class="panel-heading">
               <div>
                 <p class="eyebrow">Before context</p>
-                <h3 id="expectTitle">What to expect</h3>
+                <h3 id="expectTitle">Practical details</h3>
               </div>
             </div>
             <div id="expectationList" class="expectation-list"></div>
@@ -73,14 +106,6 @@
                 <h3 id="contextTitle">Related community context</h3>
               </div>
               <button class="button compact secondary" id="openSuggest" type="button">Suggest related community</button>
-            </div>
-            <div class="connection-key" aria-label="Connection type examples">
-              <span class="type-badge">Good first step</span>
-              <span class="type-badge">Soft landing</span>
-              <span class="type-badge">Bridge</span>
-              <span class="type-badge">Pattern found</span>
-              <span class="type-badge">Waiting for review</span>
-              <span class="type-badge">Only visible to stewards</span>
             </div>
             <div id="connectionCards" class="connection-list"></div>
           </section>
@@ -98,15 +123,26 @@
       </section>
 
       <section class="surface" id="stewardSurface" aria-labelledby="stewardTitle">
+        <div class="stance-banner steward-stance">
+          <strong>Reviewing on behalf of a stewarded community</strong>
+          <span>This surface is for deciding whether suggested context should become visible.</span>
+        </div>
+
         <div class="steward-layout">
           <aside class="steward-context">
-            <p class="eyebrow">Community care surface</p>
+            <p class="eyebrow">Steward surface</p>
             <h2 id="stewardTitle">Suggestions to review</h2>
-            <p class="muted">This surface is separate from ordinary event browsing. It focuses on what a community steward can decide and what each decision changes.</p>
+            <p class="muted" id="reviewingForText">Reviewing for a selected community.</p>
             <label class="select-label">
               Community
               <select id="reviewCommunity"></select>
             </label>
+            <div class="dimension-guide" aria-label="Review dimensions">
+              <span><b>Type</b> meaning of the connection</span>
+              <span><b>Review</b> current decision state</span>
+              <span><b>Visibility</b> who can see it</span>
+              <span><b>Evidence</b> why it may belong here</span>
+            </div>
           </aside>
 
           <section class="panel steward-panel" aria-label="Suggested connections">
@@ -117,6 +153,7 @@
               </div>
               <span class="count-pill" id="pendingCount">0</span>
             </div>
+            <div id="reviewNotice" class="review-notice" hidden></div>
             <div id="suggestionList" class="suggestion-list"></div>
             <div id="reviewedList" class="reviewed-list"></div>
           </section>
@@ -154,7 +191,7 @@
       </label>
 
       <label>
-        While it is being reviewed
+        While a steward reviews it
         <select id="suggestVisibility" required></select>
       </label>
 

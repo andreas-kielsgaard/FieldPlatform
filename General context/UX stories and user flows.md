@@ -154,17 +154,19 @@ Entry features:
 
 - Event page.
 - Event recommendation card.
-- Suggest event relevance or suggest context action.
+- Suggest related community, suggest where this belongs, or add context action.
 
 Flow:
 
 1. User sees an event recommendation or opens an event page.
-2. User clicks suggest context or suggest to group.
-3. The app lets the user choose a group/community.
-4. The app creates a suggested event share, or in the broader target a suggested event-to-community FieldRelation.
-5. The suggestion appears in the relevant community management/steward queue.
-6. A manager or steward can accept, refine, decline, redirect, feature, ignore, or hold the suggestion.
-7. If accepted, the relation may change event visibility, community event placement, recommendation explanations, and available pathways.
+2. The event page first makes the event legible: title, time, place, host/facilitator, access, expectations, and whether the user can attend.
+3. After the event is understood, the user clicks a contextual action such as "Suggest related community" or "Suggest where this belongs."
+4. The app lets the user choose from a filtered list of likely communities rather than a universal object list.
+5. The app asks for a short reason and makes clear that the suggestion is not automatic publication, ownership, or recommendation to everyone.
+6. The app creates a suggested event share, or in the broader target a suggested event-to-community FieldRelation.
+7. The suggestion appears in the relevant community management/steward surface as a suggestion to review.
+8. A manager or steward can accept, refine, decline, redirect, feature, ignore, or hold the suggestion.
+9. If accepted, the relation may change event visibility, community event placement, recommendation explanations, and available pathways.
 
 Data and calculations:
 
@@ -177,6 +179,7 @@ Data and calculations:
 Outcome:
 
 - Relevance can be socially proposed without granting automatic ownership, publication, or authority.
+- The event page remains event-first; connection suggestion supports context rather than becoming the whole interaction.
 
 ## Story 6: I Want To Create An Event
 
@@ -323,19 +326,20 @@ Intent:
 
 Entry features:
 
-- Suggest connection / suggest context action.
+- Context-specific suggestion action such as Suggest related community, Add context, Suggest related event, Suggest a way in, Suggest community here, or Suggest event here.
 - Event, community, venue, creator/facilitator, generated field, festival, practice/tag, or profile pages.
 - Relation panels.
 
 Flow:
 
 1. User is viewing an object such as an event, venue, creator, generated field, or community.
-2. User clicks suggest context.
-3. The app asks what context the object may belong with, constrained by privacy, consent, and available object types.
-4. User selects a target context and may add a short reason.
-5. The app creates a suggested FieldRelation with provenance user-suggested, evidence/reasons, visibility, and reviewAuthority.
-6. The suggestion appears as pending or held, not as accepted truth.
-7. If the relation needs steward confirmation, the app names the stewardship hold.
+2. The page first presents the native object hierarchy, such as event basics, community entry guidance, venue practical context, or facilitator public offerings.
+3. User clicks a context-specific suggestion action.
+4. The app asks what likely context the object may belong with, constrained by object type, privacy, consent, and source/target pair.
+5. User selects a target context from a filtered list and may add a short reason.
+6. The app creates a suggested FieldRelation with provenance user-suggested, evidence/reasons, visibility, and reviewAuthority.
+7. The suggestion appears as waiting for review or held, not as accepted truth.
+8. If the relation needs steward confirmation, the UI uses ordinary wording such as "waiting for a community steward to review."
 
 Data and calculations:
 
@@ -346,6 +350,7 @@ Data and calculations:
 Outcome:
 
 - Distributed perception becomes easy and respectful: a user can say "this belongs near that" without forcing visibility, ownership, or action.
+- Suggestions feel like contextual clarification, not tagging, marketing, claiming, or social pressure.
 
 ## Story 11: I Want To Review Suggested Relations
 
@@ -355,18 +360,19 @@ Intent:
 
 Entry features:
 
-- Stewardship queue.
+- Suggestions to review.
 - Community management controls.
-- Relation panels from object pages.
+- Steward/manager workspace or management panel.
 
 Flow:
 
 1. Steward opens the relation queue for a community, event, venue, festival, or other stewarded context.
-2. The queue shows suggested FieldRelations with source, target, relation kind, provenance, evidence, hold types, visibility, and movement that acceptance would unlock.
+2. The workspace shows suggested connections with source, target, connection type, why it may make sense, visibility, and what may become easier if accepted.
 3. Steward filters by status or hold type, such as stewardship, boundary, capacity, context, or language hold.
-4. Steward accepts, refines, declines, redirects, or keeps the relation dormant/held.
-5. Accepted relations update relevant pages, recommendation explanations, relation panels, and pathway suggestions.
-6. Refined or redirected relations preserve provenance and review history.
+4. Steward accepts, refines, declines, redirects, or keeps the relation as a calculated pattern.
+5. Each action explains its consequence before or immediately after it happens: accepted becomes visible in relevant context surfaces; refined is adjusted before becoming visible; redirected belongs somewhere else; declined should not be shown as a connection; kept as pattern only remains calculated without community endorsement.
+6. Accepted relations update relevant pages, recommendation explanations, relation panels, and pathway suggestions.
+7. Refined or redirected relations preserve provenance and review history.
 
 Data and calculations:
 
@@ -378,6 +384,7 @@ Data and calculations:
 Outcome:
 
 - Stewardship confirms or redirects distributed perception without becoming surveillance or CRM.
+- Ordinary users do not see review actions unless they have the relevant steward, manager, host, or creator responsibility.
 
 ## Story 12: I Want To Understand What Movement A Relation Makes Possible
 
@@ -395,9 +402,12 @@ Flow:
 
 1. User opens a relation panel or expands a recommendation explanation.
 2. The app shows why the relation appears, whether it is suggested or accepted, who or what proposed it, and what holds may still apply.
-3. The app shows movementUnlocked as pathways such as attend beginner event, follow lightly, request access, ask steward, volunteer, join recurring practice, suggest related community, reactivate dormant edge, create bridge event, or mark relationship between communities.
-4. Unavailable movements explain the relevant hold rather than disappearing silently.
-5. User chooses an available pathway, or leaves the relation as context for later.
+3. The app groups available actions by the object they act on rather than mixing them in one flat list.
+4. For the current event, the user may see actions such as Attend, Mark interested, or Ask facilitator.
+5. For a related community, the user may see actions such as Follow community, See beginner events, Request access, or Ask a steward.
+6. For a related venue, the user may see actions such as See other events here.
+7. Unavailable movements explain the relevant hold through concise copy, tooltip, or expandable help rather than heavy always-visible text.
+8. User chooses an available pathway, or leaves the relation as context for later.
 
 Data and calculations:
 
@@ -407,8 +417,73 @@ Data and calculations:
 Outcome:
 
 - Relations become actionable orientation without pushing every user toward the same depth of participation.
+- The user knows what each action acts on.
 
-## Story 13: I Want To Inspect The Data Model
+## Story 13: I Want To Understand An Object Before Its Connections
+
+Intent:
+
+- The user opens an event, community, venue, or person/facilitator page and wants the object itself to make sense before interpreting related context.
+
+Entry features:
+
+- Event page.
+- Community page.
+- Venue page.
+- Person/facilitator page.
+- Generated pattern page.
+
+Flow:
+
+1. User opens an object page.
+2. The page follows the grammar of that object type.
+3. An event page leads with event basics, access, expectations, host/facilitator, and whether the user can attend.
+4. A community page leads with identity, rhythm, norms, entry guidance, and beginner-friendly options.
+5. A venue page leads with location, practical setting, and what happens there.
+6. A person/facilitator page leads with public role, offerings, appropriate contact/access, and privacy-aware context.
+7. Connections appear after the object is legible, as related community context, patterns, suggestions, or ways in.
+8. Review actions appear only for users with relevant responsibility.
+
+Data and calculations:
+
+- Pulls the native object record first.
+- Pulls FieldRelations, ParticipationEdges, generated patterns, and recommendations as supporting context.
+- Uses shared data-layer movement logic to build grouped ways-in actions.
+
+Outcome:
+
+- The user understands the object first, then understands why nearby context matters.
+
+## Story 14: I Want To Ask Before Joining
+
+Intent:
+
+- The user is interested but uncertain and wants to ask a facilitator, steward, or beginner/interested channel a question before attending or requesting access.
+
+Entry features:
+
+- Event page.
+- Community page.
+- Ways in panel.
+- Related community context.
+
+Flow:
+
+1. User sees an event or community that may fit but still has trust, threshold, or context uncertainty.
+2. The page offers a future pathway such as "Ask facilitator", "Ask a community steward", "Ask before joining", or "Question from someone new" when appropriate.
+3. The user sends a bounded question without being forced into attendance, membership, or deeper participation.
+4. The question reaches an appropriate role or channel, not a broad public audience.
+
+Data and calculations:
+
+- Uses event host/facilitator, community steward, access, visibility, and relation context to decide whether this pathway is available.
+- This is future expansion space, not an immediate implementation requirement.
+
+Outcome:
+
+- The user can reduce uncertainty without having to interpret the app's relation model or prematurely deepen participation.
+
+## Story 15: I Want To Inspect The Data Model
 
 Intent:
 

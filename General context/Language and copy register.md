@@ -138,6 +138,8 @@ Avoid in UI copy:
 | RelationKind | connection type | "Good first step", "Soft landing", "Shares venue", "Bridge into" | Prefer meaning over taxonomy labels. |
 | relationStatus | review state / connection state | "Waiting for review", "Accepted", "Not reviewed yet" | Avoid making status feel like personal evaluation. |
 | reviewAuthority | who can review | "A community steward can review this" | "Authority" sounds bureaucratic or coercive in UI. |
+| Review queue | suggestions to review / steward review surface | "Suggestions to review", "Suggested connections" | Avoid "Review queue" as unexplained UI language. Only show this to users with relevant responsibility. |
+| Suggest connection | suggest context / suggest a related object | "Suggest related community", "Suggest where this belongs", "Add context", "Suggest related event", "Suggest community here" | The generic product concept should often become object-specific UI copy. |
 | relatedHoldTypes | what may need clarification | "Needs clearer first step" | Use as explanation, not as a label applied to people. |
 | relationStrength | strength of connection / how closely related | "Strong connection", "Light connection" | Explain with reasons, not just a score. |
 
@@ -157,6 +159,11 @@ Avoid in UI copy:
 - Use "may" when a relation is suggested or calculated: "This may be a good fit."
 - Use concrete evidence before scores: "shared venue and tags" before "78% fit."
 - Name review state plainly: "waiting for review", "accepted by stewards", "not reviewed yet."
+- Let object pages lead with the object itself before showing connection explanations.
+- Group "Ways in" actions by the object they act on, such as "For this event" or "For Contact Improvisation Aarhus".
+- Use context-specific suggestion labels when possible rather than defaulting to "Suggest connection" everywhere.
+- Prefer "Suggestions to review" over "Review queue" in steward-facing UI.
+- Use progressive disclosure for explanations that are useful to designers but too heavy for the main UI.
 
 ## Copy Examples
 
@@ -272,9 +279,12 @@ Mockups may use internal labels in hidden comments, dev-only panels, or flow rai
 
 For future mockups:
 
-- Use "Suggest connection" instead of "Suggest relation" or "Suggest FieldRelation".
+- Use "Suggest connection" instead of "Suggest relation" or "Suggest FieldRelation", but prefer context-specific labels on object pages such as "Suggest related community", "Suggest where this belongs", "Add context", "Suggest related event", or "Suggest community here".
 - Use "Related communities" instead of "relevant groups" when the user is browsing.
 - Use "Ways in" instead of "pathways".
+- Group "Ways in" by target object rather than listing actions from different objects together.
 - Use "Waiting for review" instead of "stewardship hold".
+- Use "Suggestions to review" instead of "Review queue" when addressing stewards.
 - Use "Why this appears" instead of "provenance" or "evidence model".
 - Use "Pattern found" instead of "GeneratedField" unless the surface is dev-only.
+- Keep review actions out of ordinary participant-facing pages unless the current user has steward, manager, host, or creator responsibility.

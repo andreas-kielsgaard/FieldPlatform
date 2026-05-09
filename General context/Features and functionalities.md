@@ -8,6 +8,8 @@ The deeper feature center is field relations, holds, pathways, stewardship, and 
 
 Use [Language and copy register](Language%20and%20copy%20register.md) when turning these features into screens. Product docs may use terms like FieldRelation, holds, and pathways for precision, but user-facing labels should usually translate them into "connection", "what may be unclear", "ways in", "first step", "waiting for review", and "why this appears".
 
+Use [Object page and connection UX principles](Object%20page%20and%20connection%20UX%20principles.md) when designing object pages or relation-powered surfaces. FieldRelation can power context, explanations, and next steps, but the page should lead with the object the user chose to view.
+
 ## Navigation And Feature Access
 
 - Primary navigation:
@@ -16,8 +18,10 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
 
 - Contextual navigation:
   - Object pages should expose relevant actions for the current user.
-  - Event pages expose attend, mark interested, suggest context, pathway actions, and management controls when applicable.
-  - Community pages expose follow, request membership, explore participation, relation panels, and management controls when applicable.
+  - Event pages lead with event basics, attendance/access/expectations, host/facilitator context, and then related communities, connection explanations, and ways in.
+  - Community pages lead with community identity, rhythm, norms, access, and entry guidance before relation panels or stewarded suggestions.
+  - Venue pages lead with location, practical setting, and what happens there before showing communities, events, or patterns around the place.
+  - Person/facilitator pages lead with public role, offerings, and appropriate contact/access before showing privacy-aware relations.
   - Venue, creator/facilitator, generated field, festival, and practice/tag pages may expose contextual suggest connection or suggest context actions where privacy and consent allow.
   - Generated field pages expose exploration paths and relation evidence, not management controls unless the field becomes an intentional community.
 
@@ -68,8 +72,10 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
 
 - Relation panels:
   - May appear on event, community, venue, creator/facilitator, generated field, festival, practice/tag, and profile contexts.
-  - Show represented relations with source, target, relation kind, strength, status, provenance, visibility, evidence/reasons, related hold types, and movement unlocked.
-  - Distinguish accepted relations from suggested, steward-reviewed, refined, declined, or dormant relations.
+  - Should support the object page rather than become the whole page.
+  - Should answer what the object is connected to, why the connection matters, whether it is accepted/suggested/calculated, and what can happen because of it.
+  - Should distinguish accepted, suggested, refined, calculated, declined, or dormant connections in ordinary UI language.
+  - Should use visual identifiers for recurring connection types such as Good first step, Soft landing, Bridge, Pattern found, Waiting for review, Private/steward-visible, and Deeper pathway.
   - Preserve ParticipationEdge as the detailed person-to-community belonging model.
   - Future mockups should consume relation data through `platform.fieldRelations` in the shared Platform data layer rather than interpreting local arrays.
 
@@ -77,28 +83,36 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
   - Generalizes the current "suggest event relevance to a group" feature.
   - The deeper gesture is: "I sense that this belongs in this context."
   - Should be available contextually from events, communities, venues, creators/facilitators, generated fields, festivals, practices, and potentially profiles, with privacy and consent constraints.
+  - Visible labels should usually be context-specific, such as "Suggest related community", "Suggest where this belongs", "Add context", "Suggest related event", "Suggest community here", or "Suggest event here".
+  - Suggestion drawers should filter target objects and connection types by the current source object and likely user intent.
+  - Relation types should be constrained by source/target pair. For example, event-to-community may offer Good first step, Belongs with, Soft landing after, or Deeper pathway into; venue-to-community may offer Meets here, Common venue, or Hosted here; community-to-community may offer Related community, Bridge into, Shared practice, or Soft landing for.
+  - Person-to-community suggestions should usually be self-declared, steward-visible, or derived from actual participation. Person-to-person suggestions should not be broadly available in early product design.
   - The first implementation may still focus on event-to-community and creator/event-to-community suggestions.
   - Suggestions should create suggested FieldRelations or compatible implementation objects that can later migrate into FieldRelation.
-  - Suggesting context should not imply ownership, automatic publication, or advertising reach.
+  - Suggesting context should not imply ownership, automatic publication, advertising reach, recommendation to everyone, or that a community owns an event.
 
 - Holds as explanations:
   - Surfaces why a relation is not yet moving: visibility, context, trust, threshold, boundary, stewardship, capacity, or language.
   - Can appear in relation panels, recommendation explanations, creator fit panels, and steward queues.
   - Should clarify the next possible movement without shaming or pressuring.
+  - Should usually appear through progressive disclosure, tooltips, info icons, or expandable explanation areas rather than heavy always-visible text.
 
 - Pathway surfacing:
   - Shows movement made possible by visible or accepted relations.
   - Examples include attend beginner event, follow lightly, request access, ask steward, volunteer, join recurring practice, suggest related community, reactivate dormant edge, create bridge event, or mark relationship between communities.
   - Pathways should respect access, consent, capacity, boundary, visibility, and stewardship review.
   - Initial pathway/ways-in values are derived from relation state and object context, not stored as a separate heavy entity.
+  - Ways in should be grouped by target object rather than mixed into one flat list. For example, separate actions for "this event", "Contact Improvisation Aarhus", and "this venue".
+  - Every action should make clear what it acts on; "Follow community" must name or visibly sit under the relevant community.
+  - Empty states should be concrete or hidden. Prefer "No first step is shown yet" or "A community steward may need to review this connection first" over explaining the relation model.
 
 ## Event Features
 
 - Event page:
-  - Shows title, host/facilitator, venue, time, access level, price/access note, audience, tags, linked groups, relevant groups, and attendance/interest state.
+  - Leads with title, time, venue, host/facilitator, access level, price/access note, audience, expectations, experience level, and attendance/interest state.
   - Shows why the event is relevant to the current user.
-  - Shows relation panels for accepted or suggested relations to communities, venues, creators, generated fields, festivals, and practices when useful.
-  - Allows attend, mark interested, and suggest context, including event relevance to a group.
+  - Shows related community context and relation panels only after the event itself is legible.
+  - Allows attend, mark interested, ask facilitator when available, and context-specific suggestion actions such as "Suggest related community" or "Suggest where this belongs".
 
 - Event creation:
   - User enters title, host/facilitator, venue, access level, price/access note, tags, intended audience, and beginner-friendliness.
@@ -120,10 +134,11 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
 ## Community Features
 
 - Community page:
-  - Shows description, state, tags, rhythm, norms, venues, access rules, and entry guidance.
+  - Leads with description, who it is for, rhythm, norms, venues, access rules, and entry guidance.
   - Shows the current user's relationship to the community.
   - Includes relationship state, access level, decay state, role modes, participation score, and shared exposure score.
-  - Shows relation panels for accepted, suggested, dormant, or held relations to events, venues, creators/facilitators, generated fields, festivals, practices, and other communities.
+  - Shows relation panels for accepted, suggested, dormant, or held relations to events, venues, creators/facilitators, generated fields, festivals, practices, and other communities after the community's own identity and entry options are clear.
+  - Shows stewarded suggestions or review actions only when the current user has the relevant responsibility.
 
 - Ways in:
   - Follow lightly.
@@ -150,6 +165,8 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
 - Community management:
   - Available when the user created, stewards, manages, or has explicit responsibility for a community.
   - May include editing norms and entry guidance, adjusting access rules and group state, approving membership requests, reviewing suggested FieldRelations, featuring suggested events as relevant, and marking formal relationships to other groups.
+  - Suggested connection review should live in a contained management surface labeled in ordinary terms such as "Suggestions to review" or "Suggested connections".
+  - Review actions should explain consequences: accepted becomes visible in relevant context surfaces; refined is adjusted before becoming visible; redirected belongs somewhere else; declined should not be shown as a connection; kept as pattern only remains calculated without community endorsement.
   - Should expose aggregate patterns, opportunities, and governance choices.
   - Should not default to a roster-first or individual-monitoring interface.
 
@@ -225,7 +242,8 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
   - Lets stewards accept, refine, decline, redirect, or leave a relation dormant/held.
   - Shows provenance, evidence, related hold types, review authority, visibility, and movement that would be unlocked by acceptance.
   - Accepted relations should change visibility, recommendation explanations, community pages, event pages, generated field pages, and pathways where relevant.
-  - Queue design should remain respectful and non-coercive, avoiding CRM-style individual tracking.
+  - Queue design should be role-gated, contained, respectful, and non-coercive, avoiding CRM-style individual tracking.
+  - Avoid "Review queue" as unexplained user-facing language; prefer "Suggestions to review" when addressing stewards.
 
 ## Known Expansion Space
 
@@ -241,3 +259,4 @@ Use [Language and copy register](Language%20and%20copy%20register.md) when turni
 - relation panels across object pages
 - FieldRelation review queues and pathway surfacing
 - hold taxonomy visualization and explanation patterns
+- ask facilitator / ask a community steward / ask before joining flows for users who are interested but uncertain

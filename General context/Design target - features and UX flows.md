@@ -18,6 +18,7 @@ Product-language version: Field helps people, communities, creators, stewards, e
 - [UX stories and user flows](UX%20stories%20and%20user%20flows.md): user intentions and how features map together to help users accomplish them.
 - [Dev tools](Dev%20tools.md): development-only inspection and explanation tools, including the Data Model Explorer.
 - [Language and copy register](Language%20and%20copy%20register.md): guidance for separating internal philosophy, domain/data-model vocabulary, product language, and user-facing UI copy.
+- [Object page and connection UX principles](Object%20page%20and%20connection%20UX%20principles.md): guidance for object-first page hierarchy, supporting connection panels, role-gated steward review, grouped ways-in actions, and contextual suggestion flows.
 
 ## Current Product Framing
 
@@ -35,6 +36,8 @@ The app should therefore be organized around user-accessible features and object
 - a person can suggest that an event, creator, venue, community, generated field, festival, profile, or practice belongs in a context
 - a steward can review suggested field relations when they have the right contextual responsibility
 - a person can understand what movement a visible relation makes possible
+
+FieldRelation may be a central data/domain primitive, but it should not become the primary UI object. Future mockups should lead with the native object being viewed, such as the event, community, venue, person/facilitator, generated pattern, or festival. Connections should then appear as supporting context, explanations, and available next steps.
 
 Adoption and data principle: the field becomes visible through distributed perception. Participants, creators, and stewards should be able to contribute small acts of contextual clarification that are easy, respectful, reviewable, and non-coercive.
 

@@ -38,6 +38,8 @@ The app should reveal contextual functionality when the user has the right relat
 
 A FieldRelation is the broader represented relation between two objects or contexts. It may connect participants, communities, events, offerings, venues, creators, facilitators, stewards, generated fields, festivals, practices, or tags.
 
+FieldRelation may be central in the data/domain layer, but it should not become the primary object of ordinary UI. A person should first understand the event, community, venue, person/facilitator, generated pattern, or festival they are viewing. Relations should then support orientation by explaining context, review state, visibility, and appropriate next movement.
+
 ParticipationEdge should remain central for belonging, but it should be positioned as the high-resolution person-to-community relation model. FieldRelation is the more general relational object that lets the product represent:
 
 - an event that belongs in a community context
@@ -155,5 +157,6 @@ Steward tools should review suggested field relations, not only suggested event 
 - Do not hide why something is recommended, calculated, or related.
 - Do not make contextual roles feel like completely separate base apps.
 - Do not make relation suggestion feel like social pressure.
+- Do not make relation panels or review queues dominate ordinary object pages.
 - Do not let steward review become individual tracking.
 - Do not let calculated relations override consent, boundary, or steward authority.

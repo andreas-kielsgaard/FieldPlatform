@@ -135,6 +135,8 @@ Data is used for:
 
 A FieldRelation represents a relation between two objects or contexts. It is broader than ParticipationEdge and should eventually replace one-off relation objects where useful, while still allowing specialized models like ParticipationEdge to keep their additional detail.
 
+Design boundary: FieldRelation is a central domain/data primitive, not the primary user-facing page object. Object pages should lead with the native object record, then use FieldRelations to support context, explanations, review state, visibility, and grouped ways-in actions.
+
 Possible source and target types:
 
 - participant/person

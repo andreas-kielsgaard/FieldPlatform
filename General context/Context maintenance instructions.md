@@ -10,6 +10,7 @@ Use the document split intentionally:
 - Update `UX stories and user flows.md` when a user intention, click path, object flow, feature sequence, or arrangement of UI elements changes.
 - Update `Dev tools.md` when a development-only inspection/debugging capability changes.
 - Update `Language and copy register.md` when internal philosophy, data-model vocabulary, product-language terms, or user-facing copy guidance changes.
+- Update `Object page and connection UX principles.md` when object page hierarchy, connection presentation, role-gated review, ways-in grouping, suggestion filtering, relation-type constraints, or page grammar changes.
 - Keep `Design target - features and UX flows.md` as the document map and high-level framing.
 
 When a new feature idea, UX distinction, data concept, role, permission, calculation, or flow is introduced in conversation:
@@ -36,3 +37,4 @@ Important framing:
 - Mockups should use `Platform data layer/` for data storage, management operations, reset-to-seed behavior, and calculated values instead of managing data or formulas directly.
 - Frontend feature code should prefer the managed OO domain layer in `Platform data layer/source/access-layer/domain.ts`, `Platform data layer/source/access-layer/platformDomain.ts`, or the browser bundle at `Platform data layer/build/browser/platform-domain.bundle.js`. Generic CRUD access is for dev tools, tests, and internal implementation work.
 - User-facing UI should prefer plain language such as "connection", "ways in", "first step", "waiting for review", and "why this appears" over internal terms such as FieldRelation, holds, movementUnlocked, provenance, or distributed perception.
+- Future mockups should not make FieldRelation or connection review the first thing an ordinary user has to understand. Object pages should lead with the object itself; connections, review state, and ways in should support orientation after the event, community, venue, person/facilitator, generated pattern, or festival is legible.

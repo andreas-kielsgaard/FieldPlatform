@@ -20,6 +20,16 @@ Product-language version: Field helps people, communities, creators, stewards, e
 - [Language and copy register](Language%20and%20copy%20register.md): guidance for separating internal philosophy, domain/data-model vocabulary, product language, and user-facing UI copy.
 - [Object page and connection UX principles](Object%20page%20and%20connection%20UX%20principles.md): guidance for context-dependent object surfaces, native object affordances, supporting connection panels, role-gated steward review, grouped ways-in actions, and contextual suggestion flows.
 - [Design process and project wayfinding](Design%20process%20and%20project%20wayfinding.md): guidance for orienting in the repo, choosing which layer to touch next, processing feedback, timing complexity, and keeping mockups exploratory.
+- [Future exploration notes](Future%20exploration%20notes.md): exploratory ideas such as orientation-home windows, map/rhythm modes, validation methods, accessibility, and privacy notes that are not current implementation direction.
+- [Business and pilot hypotheses](Business%20and%20pilot%20hypotheses.md): unvalidated business, pilot, and go-to-market hypotheses for human planning reference.
+
+## Authority Note
+
+When sources conflict, prefer the current explicit user instruction, then current General context, then recent mockup review findings captured in General context, then Platform data layer docs for implementation interface truth, then the relevant mockup README. Older generated Design Instructions are archived reference only.
+
+This repo supports a split workflow: an advisor/planning agent can use [Design process and project wayfinding](Design%20process%20and%20project%20wayfinding.md) to interpret project state and prepare focused prompts; a code/execution agent should follow the supplied prompt, consult relevant current docs, make concrete changes, and report functionally.
+
+Older generated Design Instructions now live under `Archive/Generated design instructions/`. Use them only as reference or inspiration. If an idea from that archive is adopted, distill it into General context rather than treating the archive as active instruction.
 
 ## Current Product Framing
 

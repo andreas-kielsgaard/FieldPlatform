@@ -20,6 +20,7 @@ The product should help a person understand:
 - what is nearby through overlap, tags, venues, people, recurring rhythm, or stewarded relation
 - where participation is held by context, trust, boundary, language, capacity, or stewardship
 - how to move from latent fit into appropriate expression when that is welcome
+- how to continue, deepen, rest, or re-orient without being pushed toward constant novelty
 
 The deeper product center is field relations, holds, pathways, stewardship, and movement. Participation edges and generated fields remain important, but they sit inside a broader relational model rather than defining the whole product center alone.
 
@@ -100,6 +101,26 @@ The platform should make these acts easy, respectful, reviewable, and non-coerci
 - imported data can provide weak signals without pretending to be social truth
 
 Distributed perception must not become extraction. People should be able to contribute without being pressured to map every relationship or expose private belonging.
+
+## Orientation Without Identity Capture
+
+The product should help people orient among possibilities without implying that the platform knows them better than they know themselves.
+
+Recommendations, connections, and ways in should feel like:
+
+- helpful orientation
+- meaningful context
+- adjacent invitations
+- continuity with what already supports the person
+- permission to rest, simplify, or stay with what is already working
+
+They should not feel like:
+
+- identity capture
+- overconfident personalization
+- algorithmic certainty
+- novelty pressure
+- a machine pushing users toward more participation
 
 ## Navigational Intent
 

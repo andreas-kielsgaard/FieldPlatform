@@ -11,7 +11,9 @@ Use the document split intentionally:
 - Update `Dev tools.md` when a development-only inspection/debugging capability changes.
 - Update `Language and copy register.md` when internal philosophy, data-model vocabulary, product-language terms, or user-facing copy guidance changes.
 - Update `Object page and connection UX principles.md` when object surface priority, native affordances, connection presentation, role-gated review, ways-in grouping, suggestion filtering, relation-type constraints, or page/surface grammar changes.
-- Update `Design process and project wayfinding.md` when the project's design process, prototyping rhythm, feedback-processing method, decision criteria, complexity timing, or guidance for what to do next changes.
+- Update `Design process and project wayfinding.md` when the project's advisor/code-agent workflow, design process, prototyping rhythm, feedback-processing method, document authority, decision criteria, complexity timing, or guidance for what to do next changes.
+- Update `Future exploration notes.md` when a promising idea should be preserved as exploratory but is not current implementation direction.
+- Update `Business and pilot hypotheses.md` when business, pilot, validation, go-to-market, or funding hypotheses change. Treat these as unvalidated planning notes unless future research adopts them.
 - Keep `Design target - features and UX flows.md` as the document map and high-level framing.
 
 When a new feature idea, UX distinction, data concept, role, permission, calculation, or flow is introduced in conversation:
@@ -27,6 +29,7 @@ When a new feature idea, UX distinction, data concept, role, permission, calcula
 - Keep UX stories focused on user intention and outcome, not just screen order.
 - If a mockup implements something new before the design target is updated, update the design target in the same work session.
 - If a feature is removed or reconsidered, preserve the reasoning briefly instead of silently deleting it.
+- Do not update older generated Design Instructions as active product docs. If an older idea becomes relevant, distill it into the appropriate General context document instead.
 
 Important framing:
 
@@ -39,3 +42,4 @@ Important framing:
 - Frontend feature code should prefer the managed OO domain layer in `Platform data layer/source/access-layer/domain.ts`, `Platform data layer/source/access-layer/platformDomain.ts`, or the browser bundle at `Platform data layer/build/browser/platform-domain.bundle.js`. Generic CRUD access is for dev tools, tests, and internal implementation work.
 - User-facing UI should prefer plain language such as "connection", "ways in", "first step", "waiting for review", and "why this appears" over internal terms such as FieldRelation, holds, movementUnlocked, provenance, or distributed perception.
 - Future mockups should not make FieldRelation or connection review the first thing an ordinary user has to understand by default. Every object surface should preserve enough native identity to avoid disorientation, while user role, entry point, surrounding context, and surface type determine whether object basics, connection evidence, review consequences, recommendation reasons, creator fit, or ways in are emphasized first.
+- Archived/generated Design Instructions are reference material only. They are not current product-design authority and should not be consulted by code/execution agents unless explicitly requested.

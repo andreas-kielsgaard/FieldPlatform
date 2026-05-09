@@ -165,6 +165,8 @@ Avoid in UI copy:
 - Use context-specific suggestion labels when possible rather than defaulting to "Suggest connection" everywhere.
 - Prefer "Suggestions to review" over "Review queue" in steward-facing UI.
 - Use progressive disclosure for explanations that are useful to designers but too heavy for the main UI.
+- Keep personalization humble: "may fit", "people often arrive through", or "because this shares..." rather than "you should".
+- Leave room for continuity and rest. Do not make every empty state or next step imply more participation.
 
 ## Copy Examples
 

@@ -2,6 +2,10 @@
 
 FieldPlatform is still unfolding. The philosophical and product orientation is strong, but the concrete app surface is being discovered through cycles of framing, prototyping, feedback, and distillation.
 
+This process is a guide, not a rulebook. It should help recover orientation and protect the project's learning, not prevent judgment. Planning agents may skip, reorder, or reinterpret steps when the project state calls for it.
+
+Creative leaps are allowed when they are grounded in the current product philosophy and then tested through context updates, data-layer work, or mockups. The point is not to mechanically follow a process, but to preserve the project's unfolding intelligence.
+
 This document helps future agents and future conversations understand:
 
 - how to orient in the repo
@@ -11,7 +15,42 @@ This document helps future agents and future conversations understand:
 - how to capture insights without turning every idea into immediate implementation
 - how to keep mockups exploratory while General context remains the design source of truth
 
-It is not a fixed roadmap. It describes how to navigate the work.
+It is not a fixed roadmap. It describes how to navigate the work while staying sensitive to design pressure.
+
+## Advisor Agent, Code Agent, And Document Authority
+
+FieldPlatform supports a split workflow.
+
+Advisor/planning agent responsibilities:
+
+- review repo state
+- read General context as the current source of truth
+- use this process document as wayfinding support, not a rigid recipe
+- interpret the current design pressure
+- think creatively when needed
+- decide whether the next useful step is a context update, data-layer work, mockup, review pass, or new product framing
+- prepare focused prompts for the code/execution agent
+- surface uncertainty instead of over-specifying
+
+Code/execution agent responsibilities:
+
+- treat the supplied prompt as the immediate task
+- consult only the relevant General context, data-layer, and mockup docs needed for execution
+- avoid independently re-planning the product philosophy unless asked
+- avoid treating older generated Design Instructions as binding
+- apply concrete changes
+- report changes functionally, in terms of objects, flows, and behaviors rather than mostly file names
+
+Document authority, when sources conflict:
+
+1. Explicit user instruction in the current task.
+2. Current General context docs.
+3. Recent mockup review findings captured in General context.
+4. Platform data layer docs for implementation interface truth.
+5. Current mockup README for that mockup's intent.
+6. Archived/generated Design Instructions as optional reference only.
+
+If conflict remains, preserve the uncertainty and report it instead of silently choosing.
 
 ## Three-Layer Project Model
 
@@ -33,7 +72,9 @@ Mockups are temporary explorations.
 
 They test how an idea feels as an app surface. They should not become the source of truth. Their job is to reveal ambiguities, cognitive load, language problems, interaction questions, and model leakage. Findings should feed back into General context when they should persist.
 
-## Core Design Cycle
+## Core Design Cycle As A Support Pattern
+
+The cycle below is a support pattern. Use it to recover orientation, not as a mandatory sequence. A planning agent may begin with review, jump straight to distillation, or recommend a creative reframe when the project state asks for it.
 
 ### Orient
 
@@ -109,6 +150,35 @@ Do not build yet when:
 - the concept needs a clearer language register
 - the data model is missing a required shared primitive
 - the scope would force too many speculative decisions at once
+
+## When Creative Divergence Is Appropriate
+
+Creative divergence is appropriate when:
+
+- a mockup reveals a deeper product misunderstanding
+- the current frame produces repetitive disappointment
+- a new conceptual distinction makes the existing plan feel too narrow
+- the user explicitly asks for higher-level synthesis
+- the product seems to be overfitting to previous artifacts
+- the next useful step is reframing rather than implementing
+
+Creative divergence should still leave a trail. Name the pressure, explain the reframe, and decide whether the insight belongs in General context, the data layer, a mockup, or future exploration.
+
+## When To Warn That The Process May Need Revision
+
+The current discovery process may eventually serve its purpose. Treat these signals as a checkpoint, not a hard stop:
+
+- the primary product wedge becomes clear
+- core surfaces stabilize
+- feedback becomes mostly polish/detail rather than product grammar
+- the data model stops changing and supports new surfaces well
+- the next useful work is MVP definition, production architecture, user validation, or implementation execution rather than exploratory mockups
+
+When these signals appear, the agent should say something like:
+
+> The current discovery process may have served its purpose; consider revising this document toward a more concrete MVP/specification/execution process.
+
+This does not mean stop building. It means the wayfinding document may need to become more execution-oriented.
 
 ## Complexity Timing
 
@@ -240,6 +310,44 @@ Examples:
 - Confirmed that Ways in update from relation movement options.
 - Confirmed that participant-facing UI avoids raw domain terms.
 - Confirmed that Mockup 4 was not touched.
+
+## Documentation Classes
+
+These classes are guidance, not rigid separation.
+
+Human-readable / project overview material:
+
+- Design intent
+- Design target document map
+- Business and pilot hypotheses
+- Future exploration notes
+
+Advisor/planning-agent material:
+
+- Design process and project wayfinding
+- Context maintenance instructions
+- Object page and connection UX principles
+- Language and copy register
+- Future exploration notes
+- latest mockup README and review findings
+
+Code/execution-agent material:
+
+- current prompt
+- relevant General context docs for the task
+- Platform data layer README and OO docs when touching data/model/access
+- mockup README when modifying a mockup
+- Language and copy register when writing UI copy
+- Object page and connection UX principles when designing object surfaces
+
+Cross-section material:
+
+- Data concepts and logic
+- Features and functionalities
+- UX stories and user flows
+- Dev tools
+
+Archived/generated Design Instructions are reference material only. Code agents should not consult them unless explicitly instructed or the task is about archive/reference material.
 
 ## Restarting From Repo Context
 

@@ -11,7 +11,7 @@ Use the document split intentionally:
 - Update `Dev tools.md` when a development-only inspection/debugging capability changes.
 - Update `Language and copy register.md` when internal philosophy, data-model vocabulary, product-language terms, or user-facing copy guidance changes.
 - Update `Object page and connection UX principles.md` when object surface priority, native affordances, connection presentation, role-gated review, ways-in grouping, suggestion filtering, relation-type constraints, or page/surface grammar changes.
-- Update `Design process and project wayfinding.md` when the project's advisor/code-agent workflow, design process, prototyping rhythm, feedback-processing method, document authority, decision criteria, complexity timing, or guidance for what to do next changes.
+- Update `Design process and project wayfinding.md` when the project's advisor/code-agent workflow, design process, prototyping rhythm, feedback-processing method, document authority, git strategy, planner visibility rules, decision criteria, complexity timing, or guidance for what to do next changes.
 - Update `Future exploration notes.md` when a promising idea should be preserved as exploratory but is not current implementation direction.
 - Update `Business and pilot hypotheses.md` when business, pilot, validation, go-to-market, or funding hypotheses change. Treat these as unvalidated planning notes unless future research adopts them.
 - Keep `Design target - features and UX flows.md` as the document map and high-level framing.

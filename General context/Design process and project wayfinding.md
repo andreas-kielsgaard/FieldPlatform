@@ -52,6 +52,145 @@ Document authority, when sources conflict:
 
 If conflict remains, preserve the uncertainty and report it instead of silently choosing.
 
+## Git Strategy As Part Of The Planning Cycle
+
+Git handling is a planning decision, not an afterthought. The advisor/planning agent should recommend the least risky workflow that fits the current goal cycle, the user's workflow, and whether planner review needs a git-visible commit.
+
+Before preparing a code-agent prompt, the advisor/planning agent should consider:
+
+- What goal cycle are we currently in?
+- Is this a small docs/context update?
+- Is this a data-layer/model change?
+- Is this an exploratory mockup?
+- Is this a mockup refinement requiring manual visual review?
+- Is this a multi-step feature branch?
+- Is this a risky change that may conflict with ongoing work?
+- Is planner review needed after the code agent finishes?
+- Is user manual testing needed before merge?
+- Should the result go directly to main, a feature branch, or remain local?
+
+### Planner Visibility Rule
+
+If the advisor/planning agent needs to review the result after the code agent completes, the code agent must commit the work and make that commit visible through git.
+
+Practical interpretation:
+
+- For safe direct-to-main tasks: commit and push to main.
+- For exploratory, risky, or manual-review tasks: commit and push to a feature branch, not main.
+- For user-only local testing: the code agent may avoid pushing, but the prompt must explicitly say that planner review is not expected until a commit is pushed.
+- Avoid "leave changes uncommitted" when any subsequent planner review is expected.
+
+### Work Type And Git Handling
+
+Docs-only / context-only changes:
+
+- Usually safe to commit and push to main if the user's workflow is currently direct-to-main.
+- Still report files changed and confirm no implementation surfaces were modified.
+
+Small safe data-layer hardening:
+
+- Can be committed and pushed to main if tests pass and the prompt explicitly allows it.
+- If it changes shared interfaces, ask the code agent to report verification tied to the changed behavior.
+
+Exploratory mockup:
+
+- Prefer a feature branch if the mockup is large, uncertain, or may be discarded.
+- If planner review is needed, commit and push the branch.
+- If user manual visual testing is needed before merge, push a branch and do not merge to main.
+- Avoid uncommitted local-only work unless the user explicitly wants local testing before any planner review.
+
+Mockup refinement requiring manual visual testing:
+
+- Usually push a feature branch, not main.
+- The prompt should ask the code agent to provide local opening/testing instructions.
+- After user testing, the advisor can review the branch and prepare merge/refinement prompts.
+
+Large feature / multi-step design cycle:
+
+- Prefer a branch.
+- Keep branch name descriptive.
+- Merge only when the branch's objective is complete and the user has reviewed relevant behavior.
+- Before merge, check for conflicts and summarize any risk.
+
+Production-ish architectural/data changes:
+
+- Prefer a branch unless the user explicitly wants direct-to-main.
+- Require build/test verification.
+- Ask for a clear functional summary and any compatibility risks.
+
+### Git Handling In Advisor Prompts
+
+Future advisor-generated prompts should include an explicit Git Handling section.
+
+Useful prompt instructions include:
+
+- Work on a branch named ...
+- Commit and push to main after verification.
+- Commit and push a feature branch for planner/user review.
+- Do not merge to main; manual browser review is required first.
+- If already on the correct feature branch, continue there.
+- If on main and the task is risky/large, create a branch first.
+- If merging, check for conflicts and report how they were handled.
+
+Avoid saying only "do not push" if planner review is expected. Prefer:
+
+- Commit and push a review branch, but do not merge to main.
+
+### Code-Agent Git Reporting
+
+Completion reports should include:
+
+- branch used
+- whether changes were committed
+- commit hash if committed
+- whether pushed
+- pushed destination if pushed
+- whether main was touched
+- whether there were merge conflicts
+- if conflicts occurred, which files were involved and how they were resolved
+- whether any files were intentionally left uncommitted
+- whether manual testing is still needed before merge/push
+
+### Merge And Conflict Guidance
+
+If the task is on a branch and work is ready to merge, the code agent should check whether the branch is up to date with main.
+
+If conflicts occur:
+
+- Do not silently resolve complex product/design conflicts.
+- Resolve simple mechanical conflicts if safe, but report them.
+- For conflicts in General context docs, preserve newer General context authority and report any uncertainty.
+- For conflicts in data-layer or mockup files, prefer preserving working behavior and ask for manual review if uncertain.
+- If conflict resolution changes product meaning, report it clearly.
+
+### Manual Testing And Push Policy
+
+Prompt instructions should reflect whether manual testing is expected.
+
+Examples:
+
+- "Commit and push to main after tests pass" for small docs/data changes.
+- "Commit and push a feature branch; do not merge to main until manual browser review."
+- "Commit locally only; planner review is not expected until the user asks to push or provides a commit/branch."
+- "Create branch and stop after implementation + verification report."
+- "Push feature branch, not main, so the advisor/planner can review the result."
+
+The advisor/planning agent should choose based on the goal cycle, not as a generic default.
+
+### Advisor Prompt Checklist
+
+Before issuing a code-agent prompt:
+
+- What layer is being changed: General context, data layer, mockup, archive/docs, or production architecture?
+- Is the task exploratory, corrective, or consolidating?
+- Does the user need to manually test before merge/push?
+- Does the advisor/planning agent need to review the result through git?
+- Should this be direct-to-main, branch-for-review, branch-for-manual-test, or local-only?
+- What verification should the code agent perform?
+- What functional outcome should the code agent explain?
+- What should remain untouched?
+- Are there likely conflicts with recent branches/commits?
+
 ## Three-Layer Project Model
 
 ### General Context

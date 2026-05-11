@@ -6,6 +6,7 @@
 
   const copy = window.Mockup51Copy;
   const vm = window.Mockup51ViewModel.createViewModel(platform, copy);
+  vm.seedPrototypeRelations();
   const state = {
     surface: "public",
     reviewCommunityId: "ecstatic",
@@ -61,6 +62,7 @@
 
     byId("resetDemo").addEventListener("click", () => {
       platform.resetDatabase();
+      vm.seedPrototypeRelations();
       state.reviewNotice = "";
       render();
       flash("Demo data reset.");
@@ -109,7 +111,7 @@
   function renderPublicEvent() {
     const page = vm.eventPage();
     els.eventTitle.textContent = page.title;
-    els.eventAudience.textContent = page.forText;
+    els.eventAudience.textContent = `Facilitator's audience note: ${page.audienceNote}`;
     els.eventTime.textContent = page.time;
     els.eventVenue.textContent = page.venue;
     renderPreview(els.venuePreview, page.venuePreview);
@@ -183,37 +185,35 @@
       return;
     }
     element.hidden = false;
-    element.querySelector("summary").textContent = `Preview ${preview.title}`;
+    element.querySelector("summary").textContent = preview.summary || `Get to know ${preview.title}`;
     element.querySelector("p").innerHTML = preview.lines.map(line => escapeHtml(line)).join("<br>");
   }
 
   function expectationMarkup(item) {
+    const body = item.items && item.items.length
+      ? `<ul class="compact-list">${item.items.map(value => `<li>${escapeHtml(value)}</li>`).join("")}</ul>`
+      : `<p>${escapeHtml(item.text)}</p>`;
     return `
       <article class="expectation-item">
         <h4>${escapeHtml(item.title)}</h4>
-        <p>${escapeHtml(item.text)}</p>
+        ${body}
       </article>
     `;
   }
 
   function connectionCardMarkup(card) {
+    const context = card.participantContext;
     return `
-      <article class="connection-card">
-        <h4>${escapeHtml(card.title)}</h4>
-        <p class="connection-line">${escapeHtml(card.source)} connected to ${escapeHtml(card.target)}</p>
-        <div class="dimension-grid">
-          ${dimensionMarkup("Connection type", card.connectionType, "type")}
-          ${dimensionMarkup("Review state", card.reviewState, "review")}
-          ${dimensionMarkup("Visibility", card.visibility, "visibility")}
-          ${dimensionMarkup("Evidence/source", card.evidenceSource, "evidence")}
+      <article class="connection-card participant-context-card">
+        <div class="context-card-topline">
+          <span>${escapeHtml(context.section)}</span>
+          <strong>${escapeHtml(context.objectType)}</strong>
         </div>
-        ${card.communityPreview ? previewDetailsMarkup("Preview related community", card.communityPreview) : ""}
-        <details>
-          <summary>Why this appears</summary>
-          <p>${escapeHtml(card.why)}</p>
-          ${evidenceMarkup(card.evidence)}
-        </details>
-        ${unclearMarkup(card.unclear)}
+        <span class="type-badge">${escapeHtml(context.typeLabel)}</span>
+        <h4>${escapeHtml(context.title)}</h4>
+        <p>${escapeHtml(context.body)}</p>
+        <p class="supporting-detail">${escapeHtml(context.detail)}</p>
+        ${card.communityPreview ? previewDetailsMarkup("Get to know this community", card.communityPreview) : ""}
       </article>
     `;
   }
@@ -240,7 +240,10 @@
     return `
       <section class="way-group way-${escapeHtml(group.kind)}">
         <div>
-          <h4>${escapeHtml(group.target)}</h4>
+          <div class="context-card-topline">
+            <h4>${escapeHtml(group.target)}</h4>
+            <strong>${escapeHtml(group.targetType || "Object")}</strong>
+          </div>
           <p>${escapeHtml(group.detail)}</p>
         </div>
         <div class="way-actions">
@@ -257,6 +260,10 @@
         <div class="suggestion-topline">
           <span>Suggested connection</span>
           <strong>${escapeHtml(card.source)} to ${escapeHtml(card.target)}</strong>
+        </div>
+        <div class="relation-adapter">
+          <strong>${escapeHtml(card.objectPair)}</strong>
+          <span>${escapeHtml(card.relationFamily)}</span>
         </div>
         <div class="review-grid">
           <section class="native-identity">
@@ -286,8 +293,10 @@
               ${comparisonMarkup("Suggested by", card.suggestedBy)}
               ${comparisonMarkup("Suggester relation", card.suggesterRelation)}
               ${comparisonMarkup("Host relation", card.hostRelation)}
+              ${comparisonMarkup("Participant overlap", card.participantOverlap)}
               ${comparisonMarkup("Shared tags", card.sharedTags.length ? card.sharedTags.join(", ") : "No shared tags shown")}
               ${comparisonMarkup("Shared venue", card.sharedVenue)}
+              ${comparisonMarkup("Temporal signal", card.temporalSignal)}
               ${comparisonMarkup("Prior relation", card.priorRelation)}
               ${comparisonMarkup("Expected consequence", card.acceptingWould)}
             </div>
@@ -335,6 +344,7 @@
         </div>
         <p>${escapeHtml(card.why)}</p>
         <p class="propagation-note">${escapeHtml(card.patternMeaning)}</p>
+        <p class="propagation-note">${escapeHtml(card.acceptingWould)}</p>
       </details>
     `;
   }
@@ -399,32 +409,37 @@
   function reviewSuggestion(action, relationId) {
     const reviewerId = vm.stewardFor(state.reviewCommunityId);
     if (action === "accept") {
+      const message = vm.reviewActionMessage(action, relationId, state.reviewCommunityId);
       platform.fieldRelations.accept(relationId, reviewerId, "Accepted from steward surface.");
-      state.reviewNotice = copy.reviewConsequences.accept;
-      flash(copy.reviewConsequences.accept);
+      state.reviewNotice = message;
+      flash(message);
     } else if (action === "refine") {
+      const message = vm.reviewActionMessage(action, relationId, state.reviewCommunityId);
       platform.fieldRelations.refine(relationId, reviewerId, {
         relationKind: "good_first_step_for",
         visibility: "public",
         movementUnlocked: ["attend", "follow", "request_access"],
         reason: "Adjusted as a possible first step before becoming visible."
       }, "Refined before publishing as context.");
-      state.reviewNotice = copy.reviewConsequences.refine;
-      flash(copy.reviewConsequences.refine);
+      state.reviewNotice = message;
+      flash(message);
     } else if (action === "redirect") {
       const nextTarget = state.reviewCommunityId === "tea" ? "ci" : "tea";
+      const message = vm.reviewActionMessage(action, relationId, state.reviewCommunityId, nextTarget);
       platform.fieldRelations.redirect(relationId, reviewerId, "community", nextTarget, "Redirected to a better community context.");
       state.reviewCommunityId = nextTarget;
-      state.reviewNotice = `${copy.reviewConsequences.redirect} Reviewing for ${vm.labelFor("community", nextTarget)} now.`;
-      flash(copy.reviewConsequences.redirect);
+      state.reviewNotice = `${message} Reviewing for ${vm.labelFor("community", nextTarget)} now.`;
+      flash(message);
     } else if (action === "decline") {
+      const message = vm.reviewActionMessage(action, relationId, state.reviewCommunityId);
       platform.fieldRelations.decline(relationId, reviewerId, "Not useful to show as a connection right now.");
-      state.reviewNotice = copy.reviewConsequences.decline;
-      flash(copy.reviewConsequences.decline);
+      state.reviewNotice = message;
+      flash(message);
     } else if (action === "computed") {
+      const message = vm.reviewActionMessage(action, relationId, state.reviewCommunityId);
       platform.fieldRelations.markComputedOnly(relationId, reviewerId, "Kept as a pattern without community endorsement.");
-      state.reviewNotice = copy.reviewConsequences.computed;
-      flash(copy.reviewConsequences.computed);
+      state.reviewNotice = message;
+      flash(message);
     }
     render();
   }

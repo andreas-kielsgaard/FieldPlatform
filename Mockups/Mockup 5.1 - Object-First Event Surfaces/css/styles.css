@@ -338,6 +338,13 @@ textarea {
   line-height: 1.5;
 }
 
+.compact-list {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
 .badge-row,
 .card-meta {
   display: flex;
@@ -433,6 +440,29 @@ textarea {
   margin-bottom: 12px;
 }
 
+.participant-context-card {
+  display: grid;
+  gap: 10px;
+}
+
+.context-card-topline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.context-card-topline strong {
+  color: var(--accent-dark);
+}
+
+.supporting-detail {
+  border-left: 3px solid var(--line);
+  padding-left: 10px;
+}
+
 details {
   margin-top: 12px;
   border-top: 1px solid var(--line);
@@ -460,6 +490,16 @@ summary {
 .way-prerequisite {
   border-color: #d7c8e8;
   background: #fbf8ff;
+}
+
+.way-practice {
+  border-color: #cdddcf;
+  background: #f7fbf6;
+}
+
+.way-facilitator {
+  border-color: #d9d2e4;
+  background: #fbf9ff;
 }
 
 .way-actions {
@@ -524,6 +564,21 @@ textarea {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
   gap: 16px;
+}
+
+.relation-adapter {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #f7faf7;
+}
+
+.relation-adapter span {
+  color: var(--muted);
 }
 
 .native-identity {

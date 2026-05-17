@@ -10,6 +10,12 @@ Core thesis: Field makes latent relations visible so that essence can find conte
 
 Product-language version: Field helps people, communities, creators, stewards, events, venues, and practices see how they are connected, where participation is held, and what movement is available next.
 
+Core design doctrine: FieldPlatform supports self-resourcing through field awareness. It helps people and communities resource themselves from the living field around them by making needs, impulses, possible supports, relations, and next steps visible enough to move.
+
+Current guardrail: Do not digitize the living field. Digitize the thresholds where the living field becomes illegible.
+
+Reason for the guardrail: the living field is alive, partial, and evolving. A digital representation is only a temporary trace. If treated as complete truth, it becomes a mirage; if over-maintained, it can deaden the field by making life administrative rather than convivial.
+
 ## Document Structure
 
 - [Design intent](Design%20intent.md): product philosophy, guardrails, and the core experience the app should create.
@@ -30,6 +36,12 @@ When sources conflict, prefer the current explicit user instruction, then curren
 This repo supports a split workflow: an advisor/planning agent can use [Design process and project wayfinding](Design%20process%20and%20project%20wayfinding.md) to interpret project state and prepare focused prompts; a code/execution agent should follow the supplied prompt, consult relevant current docs, make concrete changes, and report functionally.
 
 Older generated Design Instructions now live under `Archive/Generated design instructions/`. Use them only as reference or inspiration. If an idea from that archive is adopted, distill it into General context rather than treating the archive as active instruction.
+
+## Translation Note
+
+General Context is design authority, but it is not always literal implementation syntax. A sentence here may translate into a data object, a query/view rule, a lifecycle state, a permission boundary, a calculation, UI copy, a surface behavior, a future exploration note, or no implementation yet.
+
+The right question is not "does this concept exist in General Context?" but "what kind of materialization does this concept need right now?" Avoid both mistakes: literalizing every rich phrase into schema/components, and dismissing deep design wisdom as non-product because it is abstract.
 
 ## Current Product Framing
 
@@ -54,6 +66,14 @@ Current surface-grammar pressure: Mockup 5.1 showed that event-first structure i
 
 Adoption and data principle: the field becomes visible through distributed perception. Participants, creators, and stewards should be able to contribute small acts of contextual clarification that are easy, respectful, reviewable, and non-coercive.
 
+Living-field principle: a catalogue assumes the platform already knows the world. A field-aware platform assumes the world is alive, partial, local, relational, and emergent. Features should prefer situated needs, offers, impulses, care, digestion, and support exchanges over asking users to pre-map all resources, contacts, skills, and capacities.
+
+Conviviality principle: the platform should help people return to contact with the living field. It should not create a new obligation to maintain a digital double of life.
+
+Information-exchange principle: do not design the version that would be nice if the platform knew everything. Design the version that works when the platform knows only what people can realistically, lightly, and convivially share. "Nice for the platform to know" is not enough; the input must be feasible and worth the user's effort.
+
+Threshold principle: the platform should be strongest around arrival, transition, stuckness, absence, memory, condensation, invitation, handoff, afterglow, unresolved need, and "I do not know who to ask." It should stay quieter where proximity, direct conversation, room presence, or doing the thing already serves the field.
+
 Mockup 4 currently expresses an important implementation slice of this target: participation edges, generated fields, suggested event shares, community health, and steward queues. It should be read as a working slice, not as the full conceptual center.
 
 ## Important Distinctions
@@ -68,10 +88,17 @@ Mockup 4 currently expresses an important implementation slice of this target: p
 - A generated field is computed evidence, not a managed community.
 - A pathway is movement made possible when a relation becomes visible.
 - A hold explains where expression cannot yet move through context.
+- Self-resourcing through field awareness is the deeper mechanism by which people and communities regain access to support, relation, timing, and first steps.
+- Resources-as-objects are different from resources-as-support; support is often human, situational, relational, temporal, or practice-based.
+- Most daily state, availability, asks, offers, and field signals should be ephemeral unless intentionally carried forward.
 
 ## Non-Goals And Guardrails
 
 - Do not make the product feel like a generic event marketplace.
+- Do not build a full resource catalogue merely because something alive can be represented.
+- Do not ask people to complete profiles, resource maps, or social graphs before the platform can create value.
+- Do not keep people in the app when asking a nearby human, walking, resting, joining the room, or doing the project directly would serve better.
+- Do not make the living field more administrative in the name of making it more legible.
 - Do not make community belonging a binary member/non-member truth.
 - Do not make steward or community management tools feel like surveillance or CRM.
 - Do not make event creation or sharing feel like ad targeting.

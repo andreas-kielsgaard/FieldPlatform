@@ -20,6 +20,23 @@ Allowed terms:
 - pathways
 - stewardship
 - field becoming visible
+- self-resourcing through field awareness
+- field-aware platform
+- living-field partiality
+- threshold illegibility
+- possibility recall
+- visibility in service of movement
+- ephemeral-first field signal
+- aliveness commons
+- rhythm more than ownership
+- convivial tool
+- anti-convivial drift
+- digital double
+- omniscient-platform assumption
+- input bargain
+- input burden
+- app-serving data capture
+- feasible field signal
 
 Purpose:
 
@@ -78,6 +95,20 @@ Preferred terms:
 - soft entry
 - clearer pathway
 - why this appears
+- what wants support
+- ask the field
+- make this visible
+- keep private for now
+- today I can offer
+- today I am looking for
+- carry into tomorrow
+- let this rest
+- what helped
+- what became clear
+- care for the space
+- field board
+- arrival orientation
+- possibility prompts
 
 Purpose:
 
@@ -105,6 +136,19 @@ Preferred wording:
 - "This connection is private"
 - "This connection is only visible to stewards"
 - "This looks related, but has not been reviewed yet"
+- "What are you arriving with?"
+- "What might support this?"
+- "Would it help to make this visible?"
+- "Ask the field"
+- "Keep this private"
+- "Share with residents"
+- "Carry this into tomorrow"
+- "Let this disappear"
+- "Someone may know a way in"
+- "This helped before"
+- "Today I can offer..."
+- "Today I am looking for..."
+- "Care for the space"
 
 Avoid in UI copy:
 
@@ -121,6 +165,21 @@ Avoid in UI copy:
 - expression through context
 - "the field wants"
 - "where participation is held" unless carefully rewritten
+- resource graph
+- field intelligence
+- self-resourcing through field awareness
+- threshold illegibility
+- ephemeral signal
+- aliveness infrastructure
+- living-field partiality
+- "the platform knows what you need"
+- "digital double"
+- "anti-convivial"
+- "partial trace"
+- "input bargain"
+- "input burden"
+- "app-serving data capture"
+- "omniscient-platform assumption"
 
 ## Translation Table
 
@@ -144,6 +203,18 @@ Avoid in UI copy:
 | Suggest connection | suggest context / suggest a related object | "Suggest related community", "Suggest where this belongs", "Add context", "Suggest related event", "Suggest community here" | The generic product concept should often become object-specific UI copy. |
 | relatedHoldTypes | target-anchored unclear point | "First step into Contact Improvisation Aarhus may be unclear", "Newcomer welcome is not yet clear" | Use as explanation, not as a label applied to people. |
 | relationStrength | strength of connection / how closely related | "Strong connection", "Light connection" | Explain with reasons, not just a score. |
+| Self-resourcing through field awareness | finding support from what is around you | "What might support this?", "Ask the field" | Keep the doctrine internal; UI should ask useful questions. |
+| Threshold illegibility | unclear moment / not sure where to start | "Not sure who to ask?", "Need a first step?" | Avoid diagnosing users with abstract language. |
+| Possibility recall | options that might help | "What might nourish this?", "This helped before" | Use when someone may need imagination restored more than information. |
+| Ephemeral field signal | today's state / today's ask or offer | "Today I can offer...", "Today I am looking for..." | Make expiration and visibility clear. |
+| Resource-as-support | support / someone or something that could help | "Someone may know a way in" | Avoid treating support as an inventory item. |
+| Fall digestion | closing reflection / carry-forward | "What became clear?", "Carry this into tomorrow" | Product docs can use seasonal language; UI should stay ordinary unless the community uses the metaphor. |
+| CareNeed | care for the space / something needs tending | "Dinner needs two people", "Quiet room needs a boundary today" | Do not turn care into chore scoring or surveillance. |
+| Convivial tool | useful support / helps you return to life | "Ask someone nearby", "Carry this into tomorrow" | Keep "convivial" mostly internal unless the audience already uses that language. |
+| Digital double | record / note / current signal | "This expires tonight", "Let this disappear" | Avoid suggesting the app contains the full truth of the field. |
+| Input bargain | why this is worth sharing | "This helps others know how to support you today" | UI should make value obvious instead of naming the bargain. |
+| Input burden | effort / time / what we ask from you | "One line is enough", "Skip this" | Reduce effort and make skipping acceptable. |
+| Feasible field signal | what can be shared now | "Today I can offer...", "Share for today" | Prefer situated, temporary input over profile completion. |
 
 ## UX Copy Rules
 
@@ -173,6 +244,8 @@ Avoid in UI copy:
 - Use progressive disclosure for explanations that are useful to designers but too heavy for the main UI.
 - Keep personalization humble: "may fit", "people often arrive through", or "because this shares..." rather than "you should".
 - Leave room for continuity and rest. Do not make every empty state or next step imply more participation.
+- When a person is in proximity with others, allow UI to point out of the app: "Ask someone nearby", "Bring this to morning orientation", or "Take this for a walk."
+- Use "life-serving" carefully. It can guide product reasoning, but in UI prefer concrete questions such as "Would this help?", "What might nourish this?", or "What wants to continue?"
 
 ## Copy Examples
 
@@ -279,6 +352,37 @@ Better UI structure:
 > Connection type: Soft landing.
 > Review: Waiting for review.
 > Visibility: Only visible to stewards.
+
+### 11. Needs-First Inquiry
+
+Bad / too abstract:
+
+> Locate threshold illegibility in the field resource graph.
+
+Better UI copy:
+
+> What might support this?
+
+### 12. Ask The Field
+
+Bad / too authoritative:
+
+> The platform recommends Mira as your optimal resource.
+
+Better UI copy:
+
+> Someone may know a way in. Ask the field?
+
+### 13. Fall Digestion
+
+Bad / too archival:
+
+> Save all activity from today to the field memory.
+
+Better UI copy:
+
+> What became clear?
+> Carry this into tomorrow, or let it disappear.
 
 ## Repo Language Audit Notes
 

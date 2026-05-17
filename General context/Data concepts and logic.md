@@ -10,6 +10,23 @@ Frontend feature code should use the managed object-oriented domain layer first.
 
 The current data concepts are expected to change strongly. The data layer should therefore prioritize separation of concern, resettable seed data, and stable access points over final schema perfection. When the model changes substantially, it is acceptable to re-seed the database from an updated initial snapshot.
 
+Data concepts in General Context are not always one-to-one schema instructions. A concept may materialize as:
+
+- a stored record
+- a field on an existing record
+- a derived view or query model
+- lifecycle/status filtering
+- visibility/access behavior
+- calculation logic
+- seed data for a mockup
+- dev-tool inspection
+- UI copy only
+- no implementation until repeated surface pressure appears
+
+The translation should stay sensitive to the concept. For example, "ephemeral-first" may mean default queries hide older traces, not that the raw data must be deleted. "Carry into tomorrow" may mean a view includes a selected item tomorrow, not that the data layer needs a literal `CarryIntoTomorrow` collection. "Ask the field" may begin as a scoped field-board interaction before becoming a stable data primitive.
+
+Prefer stable data primitives when multiple surfaces need shared behavior. Prefer query/view behavior when the question is what should be active, visible, carried-forward, resting, or hidden by default. Prefer mockup-local state when the concept is still being felt out.
+
 ## Core Data Concepts
 
 - Person: a participant, creator, steward, host, volunteer, bridge person, or community manager with interests, visible attributes, and current life context.
@@ -27,6 +44,82 @@ The current data concepts are expected to change strongly. The data layer should
 - Created event: a draft or published offering created through event creation.
 - Created community: a draft or published community container created through community creation.
 - Managed object: an event or community for which a user has creation, hosting, stewarding, facilitation, or admin responsibility.
+
+## Resource-As-Object And Resource-As-Support
+
+The model should distinguish a resource as an object from support as something that helps life move.
+
+The data model should stay humble about living reality. Stored records are partial traces of an alive, evolving field, not the field itself. When data structures ask people to maintain a complete digital double of life, they become anti-convivial and can deaden the process they were meant to support.
+
+Resource-as-object examples:
+
+- venue
+- room
+- studio
+- tool
+- material
+- shared fund
+- calendar slot
+- practice container
+
+Resource-as-support examples:
+
+- someone who knows who to ask
+- a person with capacity to listen, hold, introduce, teach, or co-work
+- a contact outside the immediate space
+- practice knowledge
+- permission to rest or begin badly
+- shared process
+- trust
+- timing
+- creative energy
+- relational availability
+- memory of what helped before
+
+Venues, rooms, studios, and tools are affordances. The actual support may be relational, situational, human, temporal, or practice-based. A pottery studio is not the important resource by itself; depending on the need, the support might be hands-on making, someone who can introduce the tools, quiet co-presence, material experimentation, or a way to digest an idea without a screen.
+
+Do not require a mature pre-existing social or resource graph before a slice can create value. The first useful data may be live, temporary declarations such as "today I am looking for...", "today I can offer...", "I would join if someone starts...", or "I know someone who might help with..."
+
+## Exploratory Living-Field Concepts
+
+These concepts are not current implementation requirements unless a future prompt explicitly adopts them. They preserve a possible model for self-resourcing and living-space/residency slices.
+
+- FieldNeed or SupportRequest: a situated need, desire, direction, impulse, confusion, or stuckness that may invite support.
+- FieldOffer or SupportOffer: a situated capacity someone is willing to make available now.
+- FieldNote or Nugget: a condensed learning, connection, support pattern, or carry-forward from digestion.
+- SupportPattern: a remembered "need -> support that helped -> conditions where it helped" pattern.
+- StateSignal or SeasonSignal: an optional, ephemeral orientation signal such as spring, summer, fall, winter, focus, rest, confusion, activation, or soft togetherness.
+- FieldBoardItem: an ephemeral declaration on a house, community, or group board, such as a need, offer, question, practice forming, care task, or tomorrow seed.
+- CareNeed: a dignified form of participation where a space, meal, shared fund, room, tool, boundary, or rhythm needs attention.
+
+These objects should be ephemeral-first. Daily state, availability, requests, offers, and field board items should usually expire unless someone explicitly carries them forward. Fall digestion, steward review, or user choice decides what becomes persistent.
+
+The most valuable persistent data may be answered needs rather than complete profiles: what support helped, under which conditions, who or what was involved, and whether the pattern is worth remembering.
+
+Do not assume each exploratory concept needs its own collection. A future implementation might represent several of them through one generic field-board item, a relation plus lifecycle metadata, a note model, a query over existing records, or a mockup-local view model. The important thing is not the noun; it is the product behavior and the input bargain it supports.
+
+## Feasible Information Exchange
+
+The data model should distinguish useful imagined knowledge from feasible platform knowledge.
+
+Do not design as if the app can know:
+
+- every resource in the field
+- every capacity a person has
+- every contact someone could introduce
+- every state, need, relation, or availability in real time
+- every informal agreement, boundary, tension, or readiness signal
+
+Instead, model the kinds of information that can realistically and convivially enter the system:
+
+- lightweight declarations people already want to make visible
+- scoped asks and offers with clear immediate value
+- signals that expire quickly
+- steward-reviewed relations where authority and consequence are clear
+- selected nuggets from digestion
+- support patterns that people intentionally carry forward
+
+Information capture should pass a cost-benefit test. It is not enough that a field would be nice for the platform to know. The app must have a realistic way to be informed, and the benefit to the user or field must justify the effort of input.
 
 ## Person Data
 
@@ -228,6 +321,19 @@ Initial hold types:
 
 Holds may appear as explanation metadata on a FieldRelation, as a reason a pathway is unavailable, or as a steward hint. They should be used to clarify movement, not to judge people or communities.
 
+For self-resourcing and field inquiry flows, holds may also describe where the person or group cannot yet perceive the support that would let movement happen:
+
+- impulse illegibility
+- need illegibility
+- desire or direction illegibility
+- solution illegibility
+- availability illegibility
+- relational illegibility
+- pathway illegibility
+- timing or state illegibility
+
+These should usually remain product/design concepts or gentle prompt logic. Avoid turning them into heavy user-facing records unless multiple surfaces need stable shared behavior.
+
 ## Pathway Logic
 
 A pathway is the movement made possible when a relation becomes visible.
@@ -238,6 +344,14 @@ Movement unlocked may include:
 - follow lightly
 - request access
 - ask steward
+- ask the field
+- ask someone to listen
+- bring this to morning orientation
+- join a focus pocket
+- take a walk
+- make a need or offer visible
+- carry a nugget into tomorrow
+- let something rest
 - volunteer
 - join recurring practice
 - suggest related community

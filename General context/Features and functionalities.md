@@ -6,11 +6,19 @@ Participant, creator, steward, facilitator, host, volunteer, and bridge person a
 
 The deeper feature center is field relations, holds, pathways, stewardship, and movement. Field should help people, communities, creators, stewards, events, venues, and practices see how they are connected, where participation is held, and what movement is available next.
 
+The newest feature center adds self-resourcing through field awareness: lightweight surfaces that help a person or group notice what wants support, make a need/offer/direction visible when useful, activate the human resources already present, and preserve only the nuggets that make future movement easier.
+
 Use [Language and copy register](Language%20and%20copy%20register.md) when turning these features into screens. Product docs may use terms like FieldRelation, holds, and pathways for precision, but user-facing labels should usually translate them into "connection", "what may be unclear", "ways in", "first step", "waiting for review", and "why this appears".
 
 Use [Object page and connection UX principles](Object%20page%20and%20connection%20UX%20principles.md) when designing object pages or relation-powered surfaces. FieldRelation can power context, explanations, and next steps, but object type only defines default affordances. User role, entry point, surrounding context, and surface type determine priority.
 
 Current surface-grammar pressure: semantic separation. Future surfaces should keep event facts, access, audience, requirements, relation type, review state, visibility, evidence, and action target visually and conceptually distinct. FieldRelation can power the context, but users should not have to infer which dimension a chip, label, or action belongs to.
+
+Current living-field pressure: do not build features merely because something alive can be represented online. Software should serve thresholds where the living field becomes illegible. In high-proximity spaces, the best feature may be a prompt that helps someone ask a nearby human, join the room, take a walk, rest, or return to the project directly.
+
+Feature design should assume every digital surface is partial and can become administrative if it asks people to keep the representation alive. A feature is convivial when it restores access to the living field; it is anti-convivial when it becomes a digital double that demands upkeep, compliance, or performance.
+
+Feature design should also distinguish an omniscient-platform version from a realistic-platform version. A feature may be beautiful if the app magically knew everyone's state, resources, relations, and availability. That does not make it good product design. The actual design question is: what small exchange between the user, the field, and the app is realistic, low-effort, and worth it?
 
 ## Navigation And Feature Access
 
@@ -71,6 +79,70 @@ Current surface-grammar pressure: semantic separation. Future surfaces should ke
   - Allows exploration of a field without treating it as a managed community.
   - Pulls from generated field calculations, group objects, venue objects, and aggregate participation edges.
   - May show accepted or suggested FieldRelations that connect the generated field to events, communities, festivals, practices, venues, or creators.
+
+## Self-Resourcing And Field Inquiry Features
+
+These features begin from "what wants support?" rather than "browse resources." They are not generic chat, not a feed, not mood tracking, not therapy, and not a resource database. Their purpose is to make just enough of the living field visible that support, action, rest, or digestion becomes possible.
+
+The smallest useful exchange is one that changes what becomes possible.
+
+The exchange should also be light enough that it does not replace the interaction it is meant to support. If the user is spending more energy feeding the feature than returning to contact, action, rest, or relationship, the feature is failing.
+
+For each self-resourcing feature, define the input bargain:
+
+- what does the user have to tell the app?
+- how much effort does that take?
+- why is the app a better place for that input than direct conversation?
+- what becomes possible immediately or soon after?
+- what expires so the user is not asked to maintain a stale representation?
+
+- Morning / arrival orientation:
+  - Invites a user or group to notice what they are arriving with.
+  - May ask about state, season, energy, fog, excitement, confusion, tenderness, focus, restlessness, grief, inspiration, or "no idea yet."
+  - May ask what might support this: food, water, movement, solitude, co-working, being listened to, conversation, bodywork, nature, practical planning, a tool or practice, someone's knowledge, a contact, permission to rest, or a first tiny step.
+  - Lets the user keep the noticing private, make it visible to a scoped group, share an anonymous field signal, or ask the field.
+
+- What wants support:
+  - Lets a user name a need, desire, direction, impulse, confusion, offering, question, care task, or stuckness.
+  - Does not assume the user knows whether they are creating an event, project, request, practice, conversation, or experiment.
+  - Can help identify whether the unclear layer is impulse, need, direction, solution, availability, relation, pathway, timing, or state.
+
+- Ask the field:
+  - Lets a user make a situated ask visible without having to know who to interrupt or who has the answer.
+  - Responses may include support, suggestions, invitations, contacts, practices, "I can listen", "ask this person", "bring this to morning circle", or "this may need a steward."
+  - Should support scoped visibility and consent, such as private, selected people, residents/members, stewards, or public where appropriate.
+
+- Today I can offer / Today I am looking for:
+  - Makes human and situational resources visible through daily declarations rather than permanent profile completion.
+  - Examples include listening, body doubling, cooking, movement, writing feedback, technical help, holding a circle, being quiet near someone, a walk, clay hour, tea and listening, or not being available today.
+  - Usually expires unless repeated or explicitly carried forward.
+
+- Possibility prompts / interactive murals:
+  - Function like environmental prompts that interrupt unconscious momentum and restore imagination.
+  - May ask "What might nourish this?" or "Would it help to make this visible?"
+  - Should make possibilities visible without claiming to know the answer.
+  - May include needs-first tool or practice suggestions when the user or group has named a concrete stuck point. This should feel like taking one useful tool off a shelf, not browsing a giant library.
+
+- Ephemeral field board:
+  - A house, community, residency, or group board showing what is alive now.
+  - May include people looking for support, people offering support, practices forming, questions alive, needs in the house, care tasks, focus/quiet energy, social/soft energy, and things to carry into tomorrow.
+  - Should not become a general social feed.
+
+- Making an impulse visible:
+  - Lets someone share a half-formed project, practice, gathering impulse, care need, question, or offering.
+  - Helps others find the end of the thread and say "I can meet you there" without requiring the initiator to formalize the whole thing.
+  - Can produce ways in such as join quietly, mark interest, ask a question, help hold music, witness, co-work, offer a tool, or invite for a walk.
+
+- Fall digestion / carry-forward nuggets:
+  - Helps a person or group condense what happened, what became clear, what support helped, what connection was found, what wants to continue, what can be released, and what should be carried into tomorrow.
+  - Outputs may include a nugget, next invitation, support pattern, care task, tomorrow seed, connection, dormant thread, or "let this disappear."
+
+- Care for the space:
+  - Makes space needs visible as dignified participation, not chores hidden beneath the "real work."
+  - Examples include kitchen care, room boundary, studio reset, shared fund attention, dinner help, movement tent setup, or a steward needed for an open evening.
+  - Should preserve the difference between care as participation and task management as control.
+
+In a living house, residency, or high-trust shared space, these features should especially serve spring and fall transitions. During summer creation/focus and winter soft togetherness, the app should mostly get out of the way.
 
 ## Relation And Pathway Features
 

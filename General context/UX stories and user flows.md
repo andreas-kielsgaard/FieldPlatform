@@ -51,6 +51,147 @@ Outcome:
 
 - The user understands the difference between current commitment, clear relevance, and expansion edge.
 
+## Story 1A: I Have A Need, Impulse, Direction, Or Stuckness And Want To Find Support
+
+Intent:
+
+- The user arrives with a vague or clear state and wants to discover what kind of support may be available in the field.
+- The user may not know whether they have a need, desire, direction, offering, question, impulse, or block.
+
+Entry features:
+
+- Morning / arrival orientation.
+- What wants support.
+- Ask the field.
+- Ephemeral field board.
+- Possibility prompts / interactive murals.
+
+Flow:
+
+1. User opens an arrival or self-resourcing surface.
+2. The app invites noticing with ordinary language such as "What are you arriving with?"
+3. User may name a state, such as energy, fog, excitement, confusion, tenderness, focus, restlessness, grief, inspiration, or "no idea yet."
+4. The app helps the user locate the unclear layer when useful: impulse, need, direction, solution, availability, relationship, pathway, timing, or state.
+5. The app offers possibility prompts such as food, water, movement, solitude, being listened to, conversation, bodywork, nature, practical planning, a tool or practice, someone's knowledge, a contact, permission to rest, or a first tiny step.
+6. User can keep the noticing private, make it visible to a scoped group, share it anonymously as a field signal, or ask the field.
+7. If the user asks the field, others can respond with support, suggestions, invitations, contacts, practices, or "I can hold this with you."
+8. The surface may suggest direct human movement, such as ask a nearby person, bring this to morning orientation, take a walk, join a focus pocket, or let this rest.
+9. Useful outcomes can be saved as a nugget, turned into an invitation, connected to a person/project/practice, or carried into tomorrow.
+
+Data and calculations:
+
+- May create an ephemeral FieldNeed/SupportRequest-like record if adopted in a future implementation.
+- May use optional StateSignal/SeasonSignal and visibility scope.
+- May relate responses to people, practices, rooms, communities, events, FieldRelations, or SupportPatterns.
+- Should not require a complete resource graph, profile, or social map before creating value.
+
+Outcome:
+
+- The user regains access to possible support without the platform pretending to know the full field.
+- A blockage can move into private clarity, direct action, relational response, or a remembered support pattern.
+
+## Story 1B: I Want To Make A Half-Formed Impulse Visible
+
+Intent:
+
+- The user senses something alive but does not yet know whether it is an event, project, practice, conversation, offering, care task, or experiment.
+- The user wants to let others find the thread without over-formalizing it.
+
+Entry features:
+
+- Make something visible.
+- Ask / offer surface.
+- Field board.
+- Project or inquiry visibility.
+
+Flow:
+
+1. User chooses a lightweight action such as "Make this visible" or "Ask the field."
+2. The app lets the user choose a loose type: project, question, need, offering, practice, resource, care task, gathering impulse, or state request.
+3. User adds a short phrase about what is alive.
+4. User can add what would help, such as a room, person, practice, listener, co-working time, witness, steward, tool, or first step.
+5. User chooses visibility scope and duration.
+6. The field board shows the impulse with enough context for others to join, ask, support, witness, or suggest a way in.
+7. The impulse can become an offering, event, project thread, care task, relation, or nugget if the field responds.
+8. If nothing needs to persist, the impulse expires.
+
+Data and calculations:
+
+- May create an ephemeral FieldBoardItem, FieldNeed, SupportOffer, or draft object depending on the selected type.
+- May later create FieldRelations between people, projects, practices, rooms, events, or communities if the relation becomes worth preserving.
+- Uses visibility and expiration as first-class constraints.
+
+Outcome:
+
+- The user does not need to know the final object type before sharing what wants to move.
+- The platform makes the impulse joinable without turning it into premature project management.
+
+## Story 1C: I Want To Digest The Day And Preserve Only What Matters
+
+Intent:
+
+- The user or group wants to condense what happened without turning the living day into administrative residue.
+- The goal is to remember nuggets, support patterns, and carry-forward threads while letting most field information dissolve.
+
+Entry features:
+
+- Fall digestion.
+- Carry into tomorrow.
+- Nugget capture.
+- Ephemeral field board.
+
+Flow:
+
+1. User opens a digestion surface after a practice, focus block, meal, conversation, event, or day.
+2. The app asks what became clear.
+3. User can note what support helped, what connection was found, what wants to continue, what needs care, what can be released, and what should be carried into tomorrow.
+4. User chooses whether the note stays private, is shared with relevant people, becomes visible to the group, or is sent to stewards.
+5. The app can turn the result into a nugget, next invitation, care task, support pattern, relation, tomorrow seed, or dormant thread.
+6. The app also offers "Let this disappear" for information that served its moment but should not persist.
+
+Data and calculations:
+
+- May create FieldNote/Nugget or SupportPattern records if adopted in a future implementation.
+- May update FieldRelations only when a connection is intentionally preserved.
+- Should treat most daily state, availability, requests, and offers as expired unless explicitly carried forward.
+
+Outcome:
+
+- The field gains memory without becoming a dead archive of everything that happened.
+- Spring visibility and summer action are followed by fall selection before winter rest.
+
+## Story 1D: I Want To Care For The Space As Real Participation
+
+Intent:
+
+- The user wants to nourish the shared field through care, maintenance, hospitality, boundary-setting, or stewardship.
+- Care should not be treated as lesser than projects, events, or output.
+
+Entry features:
+
+- Care for the space.
+- Field board.
+- Ways in.
+- Steward or house care surface.
+
+Flow:
+
+1. User opens a house, community, venue, or group field board.
+2. The app shows care needs such as kitchen help, dinner preparation, room reset, tool care, shared fund attention, a quiet-room boundary, movement setup, or a steward needed for a gathering.
+3. User can take a care action, ask a steward, offer to hold part of it, or suggest another way to nourish the field.
+4. The app makes clear whether the action is open, stewarded, time-sensitive, or better handled through direct conversation.
+5. Completed care can disappear, become a gratitude/nugget, or inform future support patterns.
+
+Data and calculations:
+
+- May use CareNeed or FieldBoardItem concepts.
+- May relate care needs to venues, rooms, events, communities, stewards, rhythms, or people.
+- Should avoid turning care into surveillance, chore scoring, or productivity metrics.
+
+Outcome:
+
+- The user can participate through tending the field, not only through attending, producing, or managing.
+
 ## Story 2: I Want To Understand My Relationship To Groups
 
 Intent:

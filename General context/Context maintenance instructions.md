@@ -19,8 +19,10 @@ Use the document split intentionally:
 When a new feature idea, UX distinction, data concept, role, permission, calculation, or flow is introduced in conversation:
 
 - Add it to the most specific document above.
+- When a conversation introduces a living-field insight, decide whether it is about philosophy, data, features, UX stories, copy, process, pilot hypotheses, or future exploration. Preserve it in the most specific document.
 - Add the idea even if it is not implemented in every mockup.
 - Mark the idea as current target, open question, or expansion space when its status is unclear.
+- Mark the likely materialization level when useful: design wisdom, UI copy, interaction behavior, query/view behavior, lifecycle state, calculation, permission/access rule, stored data object, dev-tool support, or future exploration.
 - Prefer design-target language over mockup-specific language.
 - Use `Language and copy register.md` to decide whether a term belongs in internal philosophy, data-model docs, product descriptions, or user-facing UI.
 - Translate internal/domain terms into ordinary UI language when describing actual screens, buttons, cards, empty states, or help text.
@@ -30,10 +32,27 @@ When a new feature idea, UX distinction, data concept, role, permission, calcula
 - If a mockup implements something new before the design target is updated, update the design target in the same work session.
 - If a feature is removed or reconsidered, preserve the reasoning briefly instead of silently deleting it.
 - Do not update older generated Design Instructions as active product docs. If an older idea becomes relevant, distill it into the appropriate General context document instead.
+- Be especially careful with resource/resource-catalogue ideas. Distinguish resources as objects from support as relational, situational, human, temporal, and practice-based.
+- When adding new features, check whether the feature serves a threshold where the living field becomes illegible.
+- Do not turn every alive thing into an object, feed item, profile field, or catalogue entry merely because it can be represented.
+- Treat every digital representation of a living field as a partial trace, not the field itself.
+- Watch for anti-convivial drift: a design that begins as support can become a demand to administer, maintain, perform, or obey the digital representation.
+- Distinguish "nice if the platform knew this" from "realistic and convivial for the platform to be informed about this."
+- When a feature requires user input, record the input bargain: what effort is asked, what value returns, how soon it returns, and why the app is the right medium.
+- Do not automatically literalize General Context nouns into data objects, components, buttons, or pages. First ask what behavior the concept needs to produce.
+- Do not overcorrect in the other direction either. Some design wisdom has direct product consequences, and some product consequences require shared data-layer support.
+- Prefer ephemeral-first declarations for daily state, availability, needs, offers, and field signals. Preserve only selected nuggets, support patterns, or intentionally reviewed relations.
+- For living-space, residency, or high-proximity concepts, check whether direct human interaction, proximity, walking, meals, room presence, or shared practice already solves the need better than software.
 
 Important framing:
 
 - Everyone is a participant first.
+- FieldPlatform supports self-resourcing through field awareness: helping people and communities resource themselves from the living field around them by making needs, impulses, possible supports, relations, and next steps visible enough to move.
+- A field-aware platform assumes the world is alive, partial, local, relational, and emergent. Avoid catalogue designs that imply the platform already knows the whole field.
+- Do not digitize the living field. Digitize the thresholds where the living field becomes illegible.
+- The platform should be convivial: it should help people return to contact with life, not make life serve a digital double.
+- User input is not free. Do not ask for information merely because it would improve the model; ask only where the exchange helps the person or field move.
+- General Context is design authority, not literal implementation syntax. Preserve the wisdom, then translate it carefully into the appropriate layer.
 - Creator, steward, facilitator, host, volunteer, and bridge person are design lenses and contextual roles, not necessarily separate base UIs.
 - Event creation and community creation are platform features.
 - Event management and community management appear when the user's relationship to the object grants the relevant contextual capability.

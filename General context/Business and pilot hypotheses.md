@@ -53,6 +53,25 @@ Possible validation signals:
 - people move across adjacent communities with retained context and trust
 - organizers/stewards keep publishing because the platform reduces fragmentation
 
+## Living Field Pilot Hypothesis
+
+Living houses, creative residencies, temporary communities, aliveness-oriented day spaces, and other high-trust shared spaces may be useful learning contexts because the field is bounded, proximity is high, and the platform can test whether lightweight self-resourcing and digestion flows create value without replacing direct human interaction.
+
+Possible validation question:
+
+Does a low-friction way to notice and optionally share current needs, directions, offers, care tasks, and discoveries make the group more self-resourcing without requiring a heavy digital catalogue?
+
+Potential validation signals:
+
+- people use arrival prompts to find support, rest, focus, or direct action
+- asks and offers lead to human responses that would otherwise have stayed hidden
+- care for the space becomes more visible without becoming chore scoring
+- useful nuggets are carried forward while most daily signals expire
+- participants feel more oriented and less pulled away from the living field
+- the tool supports spring/fall transitions and stays quiet during summer/winter modes
+
+This is an unvalidated pilot hypothesis, not product authority.
+
 ## Risks To Track
 
 - The product becomes a generic event listing.
@@ -63,6 +82,8 @@ Possible validation signals:
 - Generated patterns are mistaken for stewarded communities.
 - Business pressure pushes premature monetization onto participants.
 - Trust and privacy expectations are underestimated.
+- A living-space pilot turns proximity, meals, walks, and direct conversation into unnecessary app interactions.
+- The app asks for resource catalogues instead of serving situated needs, offers, and thresholds.
 
 ## Current Status
 

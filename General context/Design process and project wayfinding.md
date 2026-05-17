@@ -199,6 +199,36 @@ General context is the living product/design target.
 
 It stores durable insights, distinctions, guardrails, design principles, language rules, UX stories, open questions, and process lessons. Update it when an insight should survive beyond one mockup.
 
+General Context is authoritative, but it is not a literal schema, component, or screen generator. It contains different kinds of material:
+
+- design wisdom that should shape judgment across many artifacts
+- product principles that should become visible in behavior
+- UX stories that may become flows, screens, prompts, or simply decision pressure
+- language guidance that may become UI copy, internal vocabulary, or terms to avoid
+- data concepts that may become records, query/view behavior, lifecycle states, calculations, permissions, or no data structure yet
+- exploratory metaphors that may guide taste without becoming explicit product objects
+
+Do not flatten all of these into the same implementation response. At the same time, do not dismiss a concept as "only philosophy" merely because it is poetic or abstract. Some design wisdom has direct product consequences; some product concepts need data support; some data concepts should remain query behavior rather than stored entities.
+
+Useful translation question:
+
+> What kind of materialization has this concept earned right now?
+
+Possible answers include:
+
+- no implementation yet; preserve as orientation
+- UI copy or prompt language
+- surface behavior or interaction pattern
+- query/view filtering or ordering
+- lifecycle state or visibility rule
+- calculation input or output
+- permission/access behavior
+- stored record or collection
+- dev-tool inspection only
+- future exploration note
+
+Example: "carry a nugget into tomorrow" is conceptually rich. It should not automatically become a one-to-one database object. Depending on the surface, it might become a pinned note, a reminder, a field-board item with a next-day query, a support pattern, a follow-up invitation, a relation candidate, or just a prompt that helps someone decide what matters.
+
 ### Platform Data Layer
 
 The Platform data layer is the shared model/access layer.
@@ -233,6 +263,8 @@ The cycle below is a support pattern. Use it to recover orientation, not as a ma
 - If an insight changes the product grammar, update General context before implementation.
 - If an insight changes shared concepts, calculations, or interfaces, update the data layer before a mockup depends on local reinterpretation.
 - If an idea is exploratory and not yet stable, let a mockup test it first.
+- If a living-field insight appears, decide whether it belongs to philosophy, data, features, UX stories, copy, process, pilot hypotheses, or future exploration before turning it into screens.
+- If a phrase in General Context feels like a possible data object, first decide whether the needed behavior is actually storage, query/view behavior, lifecycle handling, copy, permissions, or surface design.
 
 ### Prototype
 
@@ -259,6 +291,8 @@ The cycle below is a support pattern. Use it to recover orientation, not as a ma
 - Choose whether to refine the mockup, update the data layer, update docs, or start a new focused mockup.
 - Do not add complexity unless it resolves a repeated or current ambiguity.
 - Prefer the smallest next artifact that can answer the active question.
+- Ask whether a proposed input changes what becomes possible.
+- Ask whether the software is serving a threshold where the living field becomes illegible, or duplicating what proximity already solves.
 
 ## How To Decide What Layer To Touch Next
 
@@ -268,6 +302,7 @@ Update General context when:
 - language/register needs clarification
 - object/page grammar changes
 - a user flow needs reframing
+- a living-field principle changes how the platform should handle needs, offers, resources, rhythms, care, or thresholds
 - a concept should guide future mockups but does not yet need code
 
 Update Platform data layer when:
@@ -276,6 +311,8 @@ Update Platform data layer when:
 - local mockup data would cause repeated reinterpretation
 - the concept needs stable behavior or a shared interface
 - a surface should consume the same model as future surfaces
+- query/view behavior needs to distinguish active, resting, carried-forward, archived, private, scoped, or intentionally persistent traces across multiple surfaces
+- a concept has repeated product pressure that cannot be handled clearly by copy, local view model state, or one-off mockup data
 
 Build or revise a mockup when:
 
@@ -289,6 +326,23 @@ Do not build yet when:
 - the concept needs a clearer language register
 - the data model is missing a required shared primitive
 - the scope would force too many speculative decisions at once
+- the idea mostly puts something online that is already more alive through proximity, conversation, or direct practice
+- the only reason to add data is that it would be nice for the platform to know
+
+Decision tests:
+
+- Will this input change what becomes possible?
+- Is this a threshold where the living field becomes illegible?
+- Are we helping self-resourcing, or asking people to feed the platform?
+- Could this be handled better by asking a nearby human, joining the room, resting, walking, or doing the project directly?
+- Is this visibility in service of movement, or visibility for content, performance, metrics, or control?
+- Are we building a catalogue that pretends to know the field, or a situated exchange that helps the field respond?
+- Are we creating a convivial tool that returns people to life, or an anti-convivial digital double that makes life administrative?
+- Are we treating the digital representation as a partial trace, or as if it were the living field itself?
+- Are we designing the version that would be nice if the app knew everything, or the version that works when the app knows only what can realistically and convivially be shared?
+- Is this information feasible for the platform to be informed about?
+- Is the input burden worth the movement it creates?
+- Does the user or field get value near the moment of input, or are we asking for app-serving data capture?
 
 ## When Creative Divergence Is Appropriate
 
@@ -339,6 +393,17 @@ Useful distinctions:
 
 ## Current Process Lessons To Preserve
 
+- Self-resourcing through field awareness now belongs at the core of the platform's design wisdom.
+- Do not digitize the living field. Digitize the thresholds where the living field becomes illegible.
+- This guardrail exists because the living field is alive, partial, and evolving. Any digital representation is a temporary trace. If treated as truth, it becomes a mirage; if over-maintained, it can deaden the process by making life administrative.
+- Do not build features merely because something alive can be represented online. Build where software changes what becomes possible.
+- Do not treat "nice for the platform to know" as sufficient reason to ask for input. Every requested input should be feasible, low-friction, and worth the user's effort.
+- A catalogue assumes the platform already knows the world. A field-aware platform assumes the world is alive, partial, local, relational, and emergent.
+- Needs-first field inquiry may serve better than resource-first catalogues, especially where resources are human, situational, relational, or only available through someone who knows who to ask.
+- In living-space or residency slices, prioritize spring/fall interactions: arrival, orientation, self-resourcing, asks/offers, digestion, condensation, carry-forward, and nuggets.
+- In those same slices, let summer creation/focus and winter soft togetherness mostly remain off-screen.
+- Prefer ephemeral declarations and preserve only selected nuggets, support patterns, or intentionally accepted relations.
+- Avoid premature platformization of high-proximity living fields.
 - FieldRelation is a powerful data/domain primitive, but it should not become the primary UI object.
 - Users first relate to the event, community, venue, person, or other object they are viewing; connections should support orientation and action.
 - Object type gives default affordances, but user role, entry point, surrounding context, and surface type determine priority.

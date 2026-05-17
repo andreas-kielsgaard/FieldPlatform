@@ -12,6 +12,28 @@ Current surface-grammar lesson from Mockup 5.1:
 
 Event-first structure is promising, but it is not enough. Surfaces must also separate semantic dimensions so the user is not asked to infer whether a label is an event fact, access rule, audience cue, requirement, connection type, review state, visibility rule, evidence source, or action target.
 
+## Threshold Surfaces Are A Separate Grammar
+
+Object pages are not the only important surface type. Some of the platform's most alive work may happen before a stable object exists, when a person or group is arriving, stuck, sensing an impulse, looking for support, digesting what happened, or not knowing who to ask.
+
+Threshold surfaces include:
+
+- arrival / orientation
+- needs-first inquiry
+- ask / offer board
+- ephemeral field board
+- possibility prompts / interactive murals
+- digestion / carry-forward
+- care-for-the-space surfaces
+
+These should not force every living relation into an object page, connection panel, event, or profile. A connection may be discovered through a need or support exchange, not only by browsing objects.
+
+If the user would be better served by turning to a nearby human, the UI should invite that rather than keep the person inside the app.
+
+Threshold surfaces should be judged by whether they help movement, not by whether they capture complete data. The strongest action may be ask the field, keep private, share with residents, take a walk, bring this to morning orientation, carry into tomorrow, or let this disappear.
+
+Because the living field is partial and evolving, threshold surfaces should not pretend to be a complete mirror of what is happening. They should show temporary traces that help people move, then let those traces expire, condense, or disappear. A surface that makes people maintain the representation instead of returning to contact has become anti-convivial.
+
 ## 0. Viewer Stance Must Be Explicit
 
 Every surface should make the current viewer stance legible.
@@ -120,6 +142,19 @@ Connection/relation surface:
 - may foreground the connection itself because the connection is the reason the object is being shown
 - should still include enough object identity to avoid disorientation
 - should show what the connection changes or makes possible
+
+Threshold / field-inquiry surface:
+
+- should foreground the user's present state, need, impulse, direction, offering, or unclear point
+- should not require the user to choose a final object type too early
+- should support private reflection, scoped visibility, asking the field, and direct human movement
+- should let most declarations expire unless the user or group explicitly carries them forward
+
+Care surface:
+
+- should make care for a room, meal, shared fund, tool, boundary, or rhythm visible as participation
+- should not become chore scoring, surveillance, or productivity accounting
+- should make clear when a care need is open, stewarded, time-sensitive, or better handled in conversation
 
 Object references should also be inspectable where useful. A venue, host, facilitator, community, or suggester name should usually be clickable, hoverable, expandable, or otherwise previewable when the user needs context.
 

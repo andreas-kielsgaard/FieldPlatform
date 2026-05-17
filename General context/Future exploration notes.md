@@ -4,6 +4,124 @@ This document preserves promising but not-currently-binding ideas. These notes c
 
 Current product priority remains object surfaces, FieldRelation-powered context, role-gated stewardship, grouped ways in, ordinary language, and the Platform data layer as shared model.
 
+## Aliveness Commons / Day-Retreat Space
+
+Exploratory framing: the platform's philosophy has a physical analogue in a shared morning threshold-space, village square, day-retreat commons, or civic infrastructure for aliveness.
+
+The space is not a coworking office with wellness attached. The more precise frame is a field where people gather to enter the day in contact with body, mind, purpose, others, projects, and the larger world.
+
+Useful principles:
+
+- rhythm over ownership
+- activation without coercion
+- engagement without dissociation
+- rest and care as participation
+- body and need as part of the work, not interruptions to professionalism
+- contact over comfort worship
+- aliveness as the orientation signal, not output alone
+- desks, tools, and rooms as affordances, not the organizing principle
+
+The "tiny village" analogy is useful: people become more capable of acting because resources, people, workshops, practices, and shared intentions are visible through proximity and familiarity instead of hidden behind separate containers.
+
+Current status:
+
+- Exploratory. Do not make this the whole product direction. Use it as a strong image for why the platform should make expansive participation options, people, and self-connection more accessible.
+
+## Living House / Residency Slice
+
+Exploratory slice: a bounded living field such as a creative residency, shared house, or Wild House-like container.
+
+Potential purpose:
+
+- help residents know what is alive
+- support arrival and morning orientation
+- support self-resourcing, asks, offers, and state clarity
+- make people, projects, practices, care needs, and possible next steps visible enough for participation
+- support an ephemeral field board
+- support fall digestion, carry-forward nuggets, and support patterns
+- test whether software can make a living field more self-resourcing without making it live inside the tool
+
+What it should not do:
+
+- replace meals, walks, conversations, proximity, or direct human asking
+- require a complete resource catalogue
+- require mature profiles, social graphs, or resource maps before creating value
+- turn a residency into a project management system, social network, or retreat-management dashboard
+
+Possible field board sections:
+
+- people are looking for
+- people can offer
+- practices forming
+- questions alive
+- needs in the house
+- quiet/focus energy
+- soft/social energy
+- things to carry into tomorrow
+
+Current status:
+
+- Promising but exploratory. Treat as a pressure test for broader FieldPlatform principles, not as current implementation direction unless a future prompt adopts it.
+
+## Day Ecology / Seasonal Rhythm
+
+Exploratory framing for daily and communal rhythms:
+
+- Spring: activation, orientation, state clarity, self-resourcing, surfacing what wants to move.
+- Summer: creation, focus, doing the thing. The app should mostly get out of the way.
+- Fall: digestion, condensation, pruning, nuggets, memory, carry-forward.
+- Winter: rest, soft togetherness, landing, letting the field dissolve without unnecessary capture.
+
+Useful product hypothesis:
+
+- Software may be most valuable at spring and fall transition points. It should be quieter during summer and winter unless the user asks for help.
+
+Current status:
+
+- Exploratory design lens. Use it to prevent overbuilding, especially in living-space or residency concepts.
+
+## Environmental Prompts / Interactive Murals
+
+Earlier conversation around signs and murals remains valuable. The idea is not decorative. Environmental prompts can function as part of a space's operating system by interrupting unconscious momentum and restoring possibility.
+
+Digital equivalents might include:
+
+- What are you arriving with?
+- What might nourish this?
+- What wants support?
+- Would it help to make this visible?
+- Is this a need, direction, offering, question, or care task?
+- Carry this into tomorrow, or let it disappear?
+
+Useful principle:
+
+- The platform supports possibility recall. It can make ordinary nourishment, support, and first steps imaginable again when a person is foggy, stagnant, ashamed, dysregulated, tired, or uncertain.
+
+Current status:
+
+- Exploratory. Should stay gentle, optional, and ordinary in language.
+
+## Needs-First Tool And Practice Recall
+
+External resonance from the transcript: communities may already have access to useful tools, practices, formats, contacts, and knowledge, but those supports often stay "on the shelf" when the relevant moment arrives.
+
+FieldPlatform should not respond by becoming a giant library people feel they should study. The more aligned pattern is needs-first recall:
+
+- the person or group names a stuck point, need, question, or direction
+- the platform suggests one or two possible tools, practices, people, memories, or next questions
+- the field tries something lightly
+- fall digestion decides whether the support pattern is worth remembering
+
+Examples:
+
+- "We are stuck in a decision" may surface a decision practice, steward, or prior nugget.
+- "I need a body-based way into my writing" may surface a walk, movement inquiry, listener, or clay practice.
+- "I do not know who to ask" may surface a person, steward, or "ask the field" route.
+
+Current status:
+
+- Exploratory. Keep it subordinate to needs, timing, and relational response rather than turning it into resource browsing.
+
 ## Orientation Home / Windows
 
 Older generated material repeatedly pointed toward an orientation-first home that helps a person choose how to relate with the field today.

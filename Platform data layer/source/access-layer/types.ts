@@ -74,6 +74,66 @@ export type RelationVisibility =
   | "public"
   | string;
 
+export type DataFacet =
+  | "name"
+  | "contact_route"
+  | "attendance"
+  | "arrival_note"
+  | "access_need"
+  | "experience_note"
+  | "emergency_contact"
+  | "community_intro"
+  | "profile_summary"
+  | "community_relationship"
+  | string;
+
+export type DataSharePurpose =
+  | "event_logistics"
+  | "venue_logistics"
+  | "access_or_safety"
+  | "steward_context"
+  | "social_visibility"
+  | "gradual_connection"
+  | "private_recommendation"
+  | "aggregate_explanation"
+  | string;
+
+export type RecipientScope =
+  | "specific_people"
+  | "event_facilitators"
+  | "venue_hosts"
+  | "community_stewards"
+  | "event_attendees"
+  | "community_members"
+  | "existing_connections"
+  | "public"
+  | string;
+
+export type DataShareRequestStatus =
+  | "pending"
+  | "accepted"
+  | "revoked"
+  | string;
+
+export type VisibilityGrantStatus =
+  | "active"
+  | "revoked"
+  | "expired"
+  | string;
+
+export type DataShareRequirementLevel =
+  | "required_before_action"
+  | "optional_before_action"
+  | "suggested_after_participation"
+  | "standing_relationship"
+  | string;
+
+export type VisibilityAudienceBehavior =
+  | "fixed"
+  | "follows_role_changes"
+  | "requires_update_on_change"
+  | string;
+
 export type HoldType =
   | "visibility"
   | "context"
@@ -218,6 +278,79 @@ export interface SuggestedEventShareRecord {
   suggestedBy: Id;
   status: string;
   note?: string;
+}
+
+export interface DataShareRequestRecord {
+  id: Id;
+  requesterType: ObjectType;
+  requesterId: Id;
+  subjectType: ObjectType;
+  subjectId: Id;
+  contextType?: ObjectType;
+  contextId?: Id;
+  facets: DataFacet[];
+  recipientScope: RecipientScope;
+  recipientIds?: Id[];
+  purpose: DataSharePurpose;
+  requirementLevel: DataShareRequirementLevel;
+  status: DataShareRequestStatus;
+  source?: string;
+  version?: number;
+  materialChangeBehavior?: VisibilityAudienceBehavior;
+  note?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  acceptedAt?: string;
+  acceptedBy?: Id;
+  revokedAt?: string;
+  revokedBy?: Id;
+  expiresAt?: string;
+}
+
+export interface VisibilityGrantRecord {
+  id: Id;
+  sourceRequestId?: Id;
+  subjectType: ObjectType;
+  subjectId: Id;
+  contextType?: ObjectType;
+  contextId?: Id;
+  facets: DataFacet[];
+  recipientScope: RecipientScope;
+  recipientIds?: Id[];
+  purpose: DataSharePurpose;
+  status: VisibilityGrantStatus;
+  source?: string;
+  audienceBehavior?: VisibilityAudienceBehavior;
+  createdAt?: string;
+  updatedAt?: string;
+  revokedAt?: string;
+  revokedBy?: Id;
+  expiresAt?: string;
+}
+
+export type DataShareRequestDraft = Omit<DataShareRequestRecord, "id" | "status" | "facets" | "requirementLevel"> & {
+  id?: Id;
+  facets: DataFacet[];
+  requirementLevel?: DataShareRequirementLevel;
+  status?: DataShareRequestStatus;
+};
+
+export type VisibilityGrantDraft = Omit<VisibilityGrantRecord, "id" | "status" | "facets"> & {
+  id?: Id;
+  facets: DataFacet[];
+  status?: VisibilityGrantStatus;
+};
+
+export interface VisibilityQuery {
+  subjectType: ObjectType;
+  subjectId: Id;
+  facet: DataFacet;
+  recipientScope?: RecipientScope;
+  recipientId?: Id;
+  contextType?: ObjectType;
+  contextId?: Id;
+  purpose?: DataSharePurpose;
+  at?: string | Date;
 }
 
 export interface FieldRelationRecord {

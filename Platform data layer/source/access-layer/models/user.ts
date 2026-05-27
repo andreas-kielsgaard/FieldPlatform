@@ -2,10 +2,12 @@ import type { PlatformDomain } from "../platformDomain";
 import type { CommunityDraftData, EventDraftData, Id, MembershipRequestRecord, ParticipationEdgeRecord, PersonRecord } from "../types";
 import { idOf } from "../utils/domainUtils";
 import type { Community } from "./community";
+import type { DataShareRequest } from "./dataShareRequest";
 import type { Event } from "./event";
 import { ParticipationEdge } from "./participationEdge";
 import { UserCommunityAccess } from "./userCommunityAccess";
 import { UserEventAccess } from "./userEventAccess";
+import type { VisibilityGrant } from "./visibilityGrant";
 
 export class User {
   public readonly events: UserEventAccess;
@@ -61,5 +63,13 @@ export class User {
 
   canManageCommunity(community: Community | Id): boolean {
     return Boolean(this.platform.raw().queries.canManageCommunity(this.id, idOf(community)));
+  }
+
+  dataShareRequests(): DataShareRequest[] {
+    return this.platform.dataShareRequests.forSubject("person", this.id);
+  }
+
+  visibilityGrants(): VisibilityGrant[] {
+    return this.platform.visibilityGrants.forSubject("person", this.id);
   }
 }

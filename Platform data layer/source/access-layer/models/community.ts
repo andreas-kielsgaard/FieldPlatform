@@ -3,6 +3,7 @@ import type { CommunityRecord, Id, MembershipRequestRecord, ParticipationEdgeRec
 import { addUnique, idOf, isBridgeEvent, touchesCommunity } from "../utils/domainUtils";
 import type { User } from "./user";
 import type { Venue } from "./venue";
+import type { DataShareRequest } from "./dataShareRequest";
 import { Event } from "./event";
 import { GeneratedField } from "./generatedField";
 import { ParticipationEdge } from "./participationEdge";
@@ -108,5 +109,9 @@ export class Community {
 
   canBeManagedBy(user: User | Id): boolean {
     return Boolean(this.platform.raw().queries.canManageCommunity(idOf(user), this.id));
+  }
+
+  dataShareRequests(): DataShareRequest[] {
+    return this.platform.dataShareRequests.forContext("community", this.id);
   }
 }

@@ -165,3 +165,38 @@ const movement = relation.movementOptions();
 Movement options are domain-level `MovementType` values such as `attend`, `follow`, `request_access`, or `ask_steward`. User-facing mockups should translate those values through the language register into plain labels such as "Ways in" or "First step".
 
 Refined relations count as reviewed/active connections. The low-level calculation API exposes both `acceptedRelationsForObject(...)` for reviewed accepted/refined relations and `activeRelationsForObject(...)` for accepted/refined/computed relations.
+
+## Data Share And Visibility Support
+
+`dataShareRequests` model contextual exchanges where an event, community, venue, person, or other context asks for or can receive selected data facets. `visibilityGrants` model the active visibility relation created by accepted requests or standing sharing choices.
+
+Use the managed access layer:
+
+```js
+const request = platform.dataShareRequests.create({
+  requesterType: "event",
+  requesterId: "e_ci_jam",
+  subjectType: "person",
+  subjectId: "p_casey",
+  contextType: "event",
+  contextId: "e_ci_jam",
+  facets: ["name", "contact_route"],
+  recipientScope: "event_facilitators",
+  purpose: "event_logistics",
+  requirementLevel: "required_before_action"
+});
+
+platform.dataShareRequests.accept(request.id, "p_casey");
+
+const visible = platform.visibilityGrants.canSee({
+  subjectType: "person",
+  subjectId: "p_casey",
+  facet: "name",
+  recipientScope: "event_facilitators",
+  contextType: "event",
+  contextId: "e_ci_jam",
+  purpose: "event_logistics"
+});
+```
+
+Frontend feature code should not inspect raw request/grant collections to decide visibility. Use `platform.dataShareRequests`, `platform.visibilityGrants`, or `platform.dataShares` so request acceptance, grant creation, revocation, and visibility checks stay consistent.

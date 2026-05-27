@@ -2,6 +2,7 @@ import type { PlatformDomain } from "../platformDomain";
 import type { AccessLevel, EventRecord, Id, SuggestedEventShareRecord } from "../types";
 import { addUnique, idOf } from "../utils/domainUtils";
 import type { Community } from "./community";
+import type { DataShareRequest } from "./dataShareRequest";
 import type { User } from "./user";
 import type { Venue } from "./venue";
 
@@ -75,5 +76,9 @@ export class Event {
 
   canBeManagedBy(user: User | Id): boolean {
     return Boolean(this.platform.raw().queries.canManageEvent(idOf(user), this.id));
+  }
+
+  dataShareRequests(): DataShareRequest[] {
+    return this.platform.dataShareRequests.forContext("event", this.id);
   }
 }

@@ -60,6 +60,30 @@ Expected access points:
 - `fieldRelations.markComputedOnly(id, reviewerId, note?)`
 - `fieldRelations.forReviewAuthority(type, id)`
 - `fieldRelations.pendingForCommunity(communityId)`
+- `dataShareRequests.get(id)`
+- `dataShareRequests.list()`
+- `dataShareRequests.forSubject(type, id)`
+- `dataShareRequests.forContext(type, id)`
+- `dataShareRequests.create(data)`
+- `dataShareRequests.accept(id, acceptedBy?)`
+- `dataShareRequests.revoke(id, revokedBy?)`
+- `visibilityGrants.get(id)`
+- `visibilityGrants.list()`
+- `visibilityGrants.forSubject(type, id)`
+- `visibilityGrants.forContext(type, id)`
+- `visibilityGrants.create(data)`
+- `visibilityGrants.revoke(id, revokedBy?)`
+- `visibilityGrants.canSee(query)`
+- `dataShares.createRequest(data)`
+- `dataShares.acceptRequest(id, acceptedBy?)`
+- `dataShares.revokeRequest(id, revokedBy?)`
+- `dataShares.createGrant(data)`
+- `dataShares.revokeGrant(id, revokedBy?)`
+- `dataShares.grantsCoveringRequest(id)`
+- `dataShares.coverageForRequest(id)`
+- `dataShares.coverageForContext(contextType, contextId, subjectType, subjectId, requirementLevel?)`
+- `dataShares.missingRequestsForContext(contextType, contextId, subjectType, subjectId, requirementLevel?)`
+- `dataShares.canSee(query)`
 - `generatedFields.generateFields()`
 - `generatedFields.generateFieldsFromCommunities(communities)`
 - `recommendations.eventsForUser(user)`
@@ -88,6 +112,8 @@ Expected properties and methods:
 - `events.interested()`
 - `events.managed()`
 - `events.recommended()`
+- `dataShareRequests()`
+- `visibilityGrants()`
 - `communities.followed()`
 - `communities.member()`
 - `communities.committed()`
@@ -122,6 +148,7 @@ Expected properties and methods:
 - `relevantCommunities()`
 - `venue()`
 - `canBeManagedBy(user)`
+- `dataShareRequests()`
 
 Creation:
 
@@ -156,6 +183,7 @@ Expected properties and methods:
 - `health()`
 - `generatedFields()`
 - `canBeManagedBy(user)`
+- `dataShareRequests()`
 
 Creation:
 
@@ -230,6 +258,73 @@ Managed repository methods:
 `isAccepted()` treats both `accepted` and `refined` as reviewed/active relation states. Low-level calculations also expose `activeRelationsForObject(...)`, which includes `accepted`, `refined`, and `computed` relations.
 
 `isVisibleTo(...)` is currently a simple visibility-context helper. It is not full user-aware permission or access-control logic.
+
+## DataShareRequest
+
+Represents a contextual data exchange request, offer, or requirement. It can be attached to an event, community, venue, person, or relationship context and asks for semantic data facets such as name, contact route, attendance, access need, experience note, profile summary, or community relationship.
+
+Expected properties and methods:
+
+- `id`
+- `data()`
+- `accept(acceptedBy?)`
+- `revoke(revokedBy?)`
+- `visibilityGrants()`
+
+Managed repository methods:
+
+- `platform.dataShareRequests.get(id)`
+- `platform.dataShareRequests.list()`
+- `platform.dataShareRequests.forSubject(type, id)`
+- `platform.dataShareRequests.forContext(type, id)`
+- `platform.dataShareRequests.create(data)`
+- `platform.dataShareRequests.accept(id, acceptedBy?)`
+- `platform.dataShareRequests.revoke(id, revokedBy?)`
+
+Accepting a request through the managed access layer creates or updates a source `VisibilityGrant`. Revoking a request revokes active grants created from that request.
+
+## VisibilityGrant
+
+Represents a durable current visibility relation: which facets of a subject are visible to a recipient scope, in a context, for a purpose.
+
+Expected properties and methods:
+
+- `id`
+- `data()`
+- `isActive()`
+- `revoke(revokedBy?)`
+- `covers(query)`
+
+Managed repository methods:
+
+- `platform.visibilityGrants.get(id)`
+- `platform.visibilityGrants.list()`
+- `platform.visibilityGrants.forSubject(type, id)`
+- `platform.visibilityGrants.forContext(type, id)`
+- `platform.visibilityGrants.create(data)`
+- `platform.visibilityGrants.revoke(id, revokedBy?)`
+- `platform.visibilityGrants.canSee(query)`
+
+`VisibilityGrant` is not meant to be read directly by frontend code as a permission shortcut. Use repository/service methods such as `canSee(...)` or future presentation-specific access methods so visibility logic stays centralized.
+
+## DataShareService
+
+Coordinates request and grant consistency.
+
+Expected methods:
+
+- `createRequest(data)`
+- `acceptRequest(id, acceptedBy?)`
+- `revokeRequest(id, revokedBy?)`
+- `createGrant(data)`
+- `revokeGrant(id, revokedBy?)`
+- `grantsCoveringRequest(id)`
+- `coverageForRequest(id)`
+- `coverageForContext(contextType, contextId, subjectType, subjectId, requirementLevel?)`
+- `missingRequestsForContext(contextType, contextId, subjectType, subjectId, requirementLevel?)`
+- `canSee(query)`
+
+This service is the first visibility-resolution layer. It does not decide UI presentation, timing, or copy. It exposes structured state and authoritative checks that frontend surfaces can use.
 
 ## GeneratedField
 

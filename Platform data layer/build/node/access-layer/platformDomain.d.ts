@@ -1,10 +1,13 @@
 import { CommunityRepository } from "./repositories/communityRepository";
+import { DataShareRequestRepository } from "./repositories/dataShareRequestRepository";
 import { EventRepository } from "./repositories/eventRepository";
 import { FieldRelationRepository } from "./repositories/fieldRelationRepository";
 import { UserRepository } from "./repositories/userRepository";
 import { VenueRepository } from "./repositories/venueRepository";
+import { VisibilityGrantRepository } from "./repositories/visibilityGrantRepository";
 import { CommunityHealthService } from "./services/communityHealthService";
 import { CommunityManagementService } from "./services/communityManagementService";
+import { DataShareService } from "./services/dataShareService";
 import { EventManagementService } from "./services/eventManagementService";
 import { EventRegistrationService } from "./services/eventRegistrationService";
 import { EventSuggestionService } from "./services/eventSuggestionService";
@@ -20,6 +23,8 @@ export declare class PlatformDomain {
     readonly communities: CommunityRepository;
     readonly venues: VenueRepository;
     readonly fieldRelations: FieldRelationRepository;
+    readonly dataShareRequests: DataShareRequestRepository;
+    readonly visibilityGrants: VisibilityGrantRepository;
     readonly generatedFields: GeneratedFieldHandler;
     readonly recommendations: RecommendationService;
     readonly communityHealth: CommunityHealthService;
@@ -28,6 +33,7 @@ export declare class PlatformDomain {
     readonly eventRegistration: EventRegistrationService;
     readonly eventSuggestions: EventSuggestionService;
     readonly fieldRelationService: FieldRelationService;
+    readonly dataShares: DataShareService;
     readonly eventManagement: EventManagementService;
     readonly communityManagement: CommunityManagementService;
     private readonly lowLevel;

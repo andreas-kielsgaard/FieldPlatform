@@ -87,5 +87,8 @@ class Community {
     canBeManagedBy(user) {
         return Boolean(this.platform.raw().queries.canManageCommunity((0, domainUtils_1.idOf)(user), this.id));
     }
+    dataShareRequests() {
+        return this.platform.dataShareRequests.forContext("community", this.id);
+    }
 }
 exports.Community = Community;

@@ -4,6 +4,8 @@ export function groupRelationshipId(relationship: any, index: any): string;
 export function managedObjectId(personId: any, objectType: any, objectId: any, roles?: any[]): string;
 export function fieldRelationId(sourceType: any, sourceId: any, targetType: any, targetId: any, relationKind: any, index?: number): string;
 export function relationReviewId(fieldRelationIdValue: any, action: any, index?: number): string;
+export function dataShareRequestId(requesterType: any, requesterId: any, subjectType: any, subjectId: any, purpose: any, index?: number): string;
+export function visibilityGrantId(subjectType: any, subjectId: any, recipientScope: any, purpose: any, index?: number): string;
 export function defaultParticipationEdge(personId: any, groupId: any): {
     id: string;
     personId: any;
@@ -24,3 +26,5 @@ export function defaultParticipationEdge(personId: any, groupId: any): {
 };
 export function normalizeEventRecord(event: any): any;
 export function normalizeFieldRelationRecord(relation: any, index?: number): any;
+export function normalizeDataShareRequestRecord(request: any, index?: number): any;
+export function normalizeVisibilityGrantRecord(grant: any, index?: number): any;

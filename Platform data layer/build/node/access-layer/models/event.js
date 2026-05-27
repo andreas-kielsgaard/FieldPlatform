@@ -61,5 +61,8 @@ class Event {
     canBeManagedBy(user) {
         return Boolean(this.platform.raw().queries.canManageEvent((0, domainUtils_1.idOf)(user), this.id));
     }
+    dataShareRequests() {
+        return this.platform.dataShareRequests.forContext("event", this.id);
+    }
 }
 exports.Event = Event;

@@ -64,6 +64,64 @@ assert(recommendations.length > 0, "user.events.recommended should return event 
 const health = community.health();
 assert(typeof health.bondingScore === "number", "community.health should return summary");
 
+assert(user.dataShareRequests().some(item => item.id === "dsr_ci_jam_casey_name_contact"), "user.dataShareRequests should list requests where the user is subject");
+assert(user.visibilityGrants().some(item => item.id === "vg_ci_jam_casey_name_contact"), "user.visibilityGrants should list grants where the user is subject");
+assert(event.dataShareRequests().some(item => item.id === "dsr_ci_jam_casey_name_contact"), "event.dataShareRequests should list event-context data share requests");
+assert(platform.dataShares.coverageForRequest("dsr_ci_jam_casey_name_contact").isCovered, "dataShares.coverageForRequest should detect seeded coverage");
+assert(platform.dataShares.missingRequestsForContext("event", event.id, "person", user.id, "required_before_action").length === 0, "dataShares.missingRequestsForContext should ignore already covered event requirements");
+assert(platform.visibilityGrants.canSee({
+  subjectType: "person",
+  subjectId: user.id,
+  facet: "name",
+  recipientScope: "event_facilitators",
+  recipientId: "p_ella",
+  contextType: "event",
+  contextId: event.id,
+  purpose: "event_logistics"
+}), "visibilityGrants.canSee should resolve seeded active grant");
+
+const shareRequest = platform.dataShareRequests.create({
+  requesterType: "person",
+  requesterId: "p_emil",
+  subjectType: "person",
+  subjectId: user.id,
+  contextType: "person",
+  contextId: "p_emil",
+  facets: ["contact_route"],
+  recipientScope: "specific_people",
+  recipientIds: ["p_emil"],
+  purpose: "gradual_connection",
+  requirementLevel: "standing_relationship",
+  note: "Managed smoke test gradual connection request."
+});
+assert(shareRequest.data().status === "pending", "dataShareRequests.create should create pending request");
+
+const acceptedShareRequest = platform.dataShareRequests.accept(shareRequest.id, user.id);
+assert(acceptedShareRequest.data().status === "accepted", "dataShareRequests.accept should accept request");
+assert(acceptedShareRequest.visibilityGrants().some(grant => grant.data().sourceRequestId === shareRequest.id), "accepted DataShareRequest should create covering VisibilityGrant");
+assert(platform.visibilityGrants.canSee({
+  subjectType: "person",
+  subjectId: user.id,
+  facet: "contact_route",
+  recipientScope: "specific_people",
+  recipientId: "p_emil",
+  contextType: "person",
+  contextId: "p_emil",
+  purpose: "gradual_connection"
+}), "accepted DataShareRequest should make requested facet visible through a grant");
+
+platform.dataShareRequests.revoke(shareRequest.id, user.id);
+assert(!platform.visibilityGrants.canSee({
+  subjectType: "person",
+  subjectId: user.id,
+  facet: "contact_route",
+  recipientScope: "specific_people",
+  recipientId: "p_emil",
+  contextType: "person",
+  contextId: "p_emil",
+  purpose: "gradual_connection"
+}), "revoking DataShareRequest should revoke source VisibilityGrant");
+
 const seededRelation = platform.fieldRelations.get("fr_ci_jam_good_first_step_ci");
 assert(seededRelation.isAccepted(), "fieldRelations.get should return accepted seeded relation");
 assert(platform.fieldRelations.forObject("event", "e_ci_jam").length > 0, "fieldRelations.forObject should list event relations");

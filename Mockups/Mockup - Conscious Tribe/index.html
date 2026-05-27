@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup - Conscious Tribe</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-block">
+        <p class="eyebrow">FieldPlatform exploratory mockup</p>
+        <h1>Conscious Tribe</h1>
+        <p>Find the next warm fire in the field.</p>
+      </div>
+      <div class="topbar-actions">
+        <button class="button secondary" id="resetDemo" type="button">Reset demo</button>
+      </div>
+    </header>
+
+    <nav class="primary-nav" aria-label="Main surfaces">
+      <button class="nav-tab" type="button" data-nav-view="square">Village Square</button>
+      <button class="nav-tab" type="button" data-nav-view="my-field">My Field</button>
+      <button class="nav-tab" type="button" data-nav-view="map">Field Map</button>
+      <button class="nav-tab" type="button" data-nav-view="edges">Stewarded Edges</button>
+    </nav>
+
+    <section class="stance-strip" aria-label="Stance selector">
+      <div>
+        <p class="eyebrow">How do you want to be with the field today?</p>
+        <p id="stanceCopy">Soft landings, hosted thresholds, and newcomer-safe fires rise first.</p>
+      </div>
+      <div id="stanceButtons" class="stance-buttons"></div>
+    </section>
+
+    <main class="workspace">
+      <section class="view-stage" id="viewStage" aria-live="polite"></section>
+      <aside class="context-panel" id="contextPanel" aria-label="Paths open from here"></aside>
+    </main>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

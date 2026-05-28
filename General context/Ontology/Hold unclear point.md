@@ -1,6 +1,6 @@
 ---
 title: Hold / Unclear Point
-layer: ontology
+layer: concepts
 status: generated/unreviewed
 maturity: conceptual
 provenance: migrated
@@ -17,7 +17,7 @@ related:
   - Pathway ways in.md
   - ../Data layer/FieldRelation.md
 depends_on:
-  - ../Doctrine/Living field doctrine.md
+  - ../Principles/Living field principles.md
 consumed_by:
   - ../Modules/Ways In module.md
   - ../Views/Steward Suggested Connections View.md
@@ -38,12 +38,12 @@ Holds are currently explanation metadata and design logic, not a heavy user-faci
 - Context: "I see it, but I do not understand what world it belongs to."
 - Trust: "I am curious, but I do not know whether I am welcome."
 - Threshold: "I want to enter, but I do not know the first step."
-- Boundary: "We want to receive people, but not without protecting the field."
+- Boundary: "We want to receive [people](../Data%20layer/Person%20entity.md), but not without protecting the field."
 - Stewardship: "This relation is sensed, but not confirmed by someone responsible."
 - Capacity: "This may be right, but not at this intensity, timing, or state."
 - Language: "The thing exists, but cannot yet describe itself clearly."
 
-Self-resourcing surfaces may also use unclear points before a relation has a stable object:
+[Self-resourcing](../Modules/Self-resourcing%20Entry%20module.md) surfaces may also use unclear points before a relation has a stable object:
 
 - impulse illegibility
 - need illegibility
@@ -55,20 +55,20 @@ Self-resourcing surfaces may also use unclear points before a relation has a sta
 
 ## Usage Rules
 
-Use holds to clarify movement, not to judge people or communities.
+Use holds to clarify movement, not to judge [people](../Data%20layer/Person%20entity.md) or [communities](../Data%20layer/Community%20entity.md).
 
 Good UI shape:
 
 - "First step into Contact Improvisation Aarhus may be unclear."
-- "A community steward may need to review this connection first."
+- "A [community](../Data%20layer/Community%20entity.md) steward may need to review this connection first."
 - "Newcomer welcome is not yet clear."
 
 Avoid:
 
 - "Threshold hold detected."
 - "Stewardship hold."
-- labels that make a person or community feel diagnosed.
+- labels that make a [person](../Data%20layer/Person%20entity.md) or [community](../Data%20layer/Community%20entity.md) feel diagnosed.
 
 ## Data Status
 
-The current data layer supports `holdTypes` on FieldRelation records. Future surfaces may need richer target/action metadata so unclear points can be tied to the exact object and action affected.
+The current [data layer](../Architecture/Data%20layer%20overview.md) supports `holdTypes` on [FieldRelation](../Data%20layer/FieldRelation.md) records. Future surfaces may need richer target/action metadata so unclear points can be tied to the exact object and action affected.

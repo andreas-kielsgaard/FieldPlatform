@@ -25,23 +25,23 @@ implemented_by:
 
 # Suggested Connections Review Module
 
-This module lets stewards review sensed, suggested, or calculated relations involving a context they are responsible for.
+This [module](../Frontend/Modules%20overview.md) lets stewards review sensed, suggested, or calculated relations involving a context they are responsible for.
 
 ## Parent Views
 
-- Steward Suggested Connections View
-- future community management surfaces
-- future event management surfaces where the user has responsibility
+- [Steward Suggested Connections View](../Views/Steward%20Suggested%20Connections%20View.md)
+- future [community](../Data%20layer/Community%20entity.md) management surfaces
+- future [event](../Data%20layer/Event%20offering%20entity.md) management surfaces where the [user](../Data%20layer/Person%20entity.md) has responsibility
 
 ## Displayed Data
 
 - source and target object identity
 - relation kind in product language
-- review state
+- [review state](../Architecture/Review%20and%20approval%20model.md)
 - visibility
 - provenance/source
-- evidence such as shared tags, venue, participation, host/community relation, suggester/community relation where privacy allows
-- hold types translated into target-anchored uncertainty
+- evidence such as shared tags, [venue](../Data%20layer/Venue%20entity.md), participation, host/[community](../Data%20layer/Community%20entity.md) relation, suggester/[community](../Data%20layer/Community%20entity.md) relation where privacy allows
+- [hold](../Ontology/Hold%20unclear%20point.md) types translated into target-anchored uncertainty
 - movement that acceptance would unlock
 - consequence of each decision
 

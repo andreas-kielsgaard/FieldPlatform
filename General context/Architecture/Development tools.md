@@ -34,26 +34,26 @@ Development tools help designers and developers inspect assumptions, raw records
 
 The Data Model Explorer should inspect:
 
-- people
-- communities
-- events
-- venues
+- [people](../Data%20layer/Person%20entity.md)
+- [communities](../Data%20layer/Community%20entity.md)
+- [events](../Data%20layer/Event%20offering%20entity.md)
+- [venues](../Data%20layer/Venue%20entity.md)
 - ParticipationEdges
 - FieldRelations
 - RelationReviews
 - generated fields
-- suggested event shares and suggested connections
+- suggested [event](../Data%20layer/Event%20offering%20entity.md) shares and suggested connections
 - recommendation outputs
-- community health calculations
-- hold types and movement options
+- [community](../Data%20layer/Community%20entity.md) health calculations
+- [hold](../Ontology/Hold%20unclear%20point.md) types and movement options
 
-It may expose technical terms such as FieldRelation, ParticipationEdge, provenance, reviewAuthorityType, holdTypes, and movementUnlocked because it is an internal/design-review surface. It should still include plain-language explanations when useful.
+It may expose technical terms such as [FieldRelation](../Data%20layer/FieldRelation.md), [ParticipationEdge](../Data%20layer/ParticipationEdge.md), provenance, reviewAuthorityType, holdTypes, and movementUnlocked because it is an internal/design-review surface. It should still include plain-language explanations when useful.
 
 ## Design Target
 
 - Raw records and computed outputs should be inspectable side by side.
 - Formula assumptions should be easy to find and revise.
-- Relation provenance, review state, hold taxonomy, and movement options should be inspectable.
+- Relation provenance, [review state](Review%20and%20approval%20model.md), [hold](../Ontology/Hold%20unclear%20point.md) taxonomy, and movement options should be inspectable.
 - Dev tools should help the prototype remain discussable and changeable.
 - Dev tools should not shape final product navigation unless a capability graduates into an intentional user-facing feature.
 

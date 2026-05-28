@@ -1,6 +1,6 @@
 ---
 title: Pathway / Ways In
-layer: ontology
+layer: concepts
 status: generated/unreviewed
 maturity: design target
 provenance: migrated
@@ -35,7 +35,7 @@ User-facing UI should usually say "Ways in", "First step", "Available next step"
 
 ## Examples
 
-- attend beginner event
+- attend beginner [event](../Data%20layer/Event%20offering%20entity.md)
 - follow lightly
 - request access
 - ask steward
@@ -49,10 +49,10 @@ User-facing UI should usually say "Ways in", "First step", "Available next step"
 - let something rest
 - volunteer
 - join recurring practice
-- suggest related community
+- suggest related [community](../Data%20layer/Community%20entity.md)
 - reactivate dormant edge
-- create bridge event
-- mark relationship between communities
+- create bridge [event](../Data%20layer/Event%20offering%20entity.md)
+- mark relationship between [communities](../Data%20layer/Community%20entity.md)
 
 ## Constraints
 
@@ -63,20 +63,20 @@ A relation becoming visible does not mean every action becomes available. Ways i
 - access rules
 - capacity and boundary
 - steward authority
-- participation edge state
-- event requirements
-- community entry guidance
+- [participation edge](../Data%20layer/ParticipationEdge.md) state
+- [event](../Data%20layer/Event%20offering%20entity.md) requirements
+- [community](../Data%20layer/Community%20entity.md) entry guidance
 
-Suggested relations may only unlock "ask steward" or "follow lightly." Accepted event-to-community relations may unlock community event placement, recommendation explanation, or beginner entry paths.
+Suggested relations may only unlock "ask steward" or "follow lightly." Accepted event-to-community relations may unlock [community](../Data%20layer/Community%20entity.md) [event](../Data%20layer/Event%20offering%20entity.md) placement, recommendation explanation, or beginner entry paths.
 
 ## UI Rule
 
-Group ways-in actions by target object. Do not mix "Attend event", "Follow community", "Request access", and "See other events here" into a flat list.
+[Group](../Data%20layer/Community%20entity.md) ways-in actions by target object. Do not mix "Attend [event](../Data%20layer/Event%20offering%20entity.md)", "Follow [community](../Data%20layer/Community%20entity.md)", "Request access", and "See other [events](../Data%20layer/Event%20offering%20entity.md) here" into a flat list.
 
 Examples:
 
-- For this event: Attend, Mark interested, Ask facilitator.
-- For Contact Improvisation Aarhus: Follow community, See beginner events, Ask a steward.
-- For this venue: See other events here.
+- For this [event](../Data%20layer/Event%20offering%20entity.md): Attend, Mark interested, Ask facilitator.
+- For Contact Improvisation Aarhus: Follow [community](../Data%20layer/Community%20entity.md), See beginner [events](../Data%20layer/Event%20offering%20entity.md), Ask a steward.
+- For this [venue](../Data%20layer/Venue%20entity.md): See other [events](../Data%20layer/Event%20offering%20entity.md) here.
 
 Every action must make clear what it acts on.

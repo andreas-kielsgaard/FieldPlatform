@@ -27,7 +27,7 @@ implemented_by:
 
 # Venue Entity
 
-A venue is a physical place that can anchor events, communities, and overlap between fields.
+A venue is a physical place that can anchor [events](Event%20offering%20entity.md), [communities](Community%20entity.md), and overlap between fields.
 
 ## Purpose
 
@@ -38,14 +38,14 @@ Represent practical place context without pretending the place is the whole supp
 - name
 - location or area
 - practical description
-- communities that use it
-- events that happen there
+- [communities](Community%20entity.md) that use it
+- [events](Event%20offering%20entity.md) that happen there
 - tags or affordances when useful
 
 ## Relationships
 
-- Venue hosts or anchors events.
-- Venue may be used by communities.
+- Venue hosts or anchors [events](Event%20offering%20entity.md).
+- Venue may be used by [communities](Community%20entity.md).
 - Venue overlap may contribute to generated fields.
 - Venue may be source or target of FieldRelations such as hosted_at, shares_venue, or common venue.
 
@@ -53,7 +53,7 @@ Represent practical place context without pretending the place is the whole supp
 
 - A venue should not become a resource catalogue entry merely because it can.
 - Venue pages should foreground practical place context before relation panels.
-- "Other things here" can be a useful way in, but it should not reveal private participation.
+- "Other things here" can be a useful [way in](../Ontology/Pathway%20ways%20in.md), but it should not reveal private participation.
 
 ## Access Layer
 

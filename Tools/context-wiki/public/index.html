@@ -8,25 +8,33 @@
   </head>
   <body>
     <header class="app-header">
-      <div>
+      <button id="homeButton" class="home-button" type="button" aria-label="Open start page">
         <div class="eyebrow">FieldPlatform</div>
         <h1>Context Wiki</h1>
-      </div>
-      <div class="source-warning">Markdown in <code>General context/</code> is canonical. This app only renders, reviews, and writes those files.</div>
+      </button>
     </header>
 
-    <main class="shell">
+    <main id="shell" class="shell">
       <aside class="sidebar">
-        <div class="toolbar">
-          <input id="searchInput" type="search" placeholder="Search wiki">
-          <select id="layerFilter" aria-label="Filter by layer"></select>
-          <select id="statusFilter" aria-label="Filter by status"></select>
+        <button id="toggleSidebar" class="sidebar-toggle" type="button" aria-expanded="true" aria-controls="sidebarPanel">Nav</button>
+        <div id="sidebarPanel" class="sidebar-panel">
+          <div class="sidebar-controls">
+            <div class="toolbar">
+              <input id="searchInput" type="search" placeholder="Search wiki">
+              <select id="layerFilter" aria-label="Filter by layer"></select>
+              <select id="statusFilter" aria-label="Filter by status"></select>
+              <label class="toggle-row">
+                <input id="showDeprecated" type="checkbox">
+                <span>Show legacy pointers</span>
+              </label>
+            </div>
+            <div class="side-actions">
+              <button id="showReader" class="active" type="button">Reader</button>
+              <button id="showDashboard" type="button">Review</button>
+            </div>
+          </div>
+          <nav id="navTree" class="nav-tree" aria-label="Wiki pages"></nav>
         </div>
-        <div class="side-actions">
-          <button id="showReader" class="active" type="button">Reader</button>
-          <button id="showDashboard" type="button">Review</button>
-        </div>
-        <nav id="navTree" class="nav-tree" aria-label="Wiki pages"></nav>
       </aside>
 
       <section class="content">
@@ -37,22 +45,41 @@
               <h2 id="pageTitle"></h2>
             </div>
             <div class="page-actions">
-              <button id="diffButton" type="button">Diff</button>
+              <button id="diffButton" type="button">Review</button>
               <button id="editButton" type="button">Edit</button>
             </div>
           </div>
           <div id="metaChips" class="chips"></div>
           <article id="markdownBody" class="markdown"></article>
           <section id="editorPanel" class="editor-panel hidden">
-            <div class="editor-note">Save writes this Markdown file in <code>General context/</code>.</div>
+            <div class="editor-topline">
+              <div class="editor-note">Editing Markdown for this page.</div>
+              <div class="editor-actions compact">
+                <button id="saveButton" type="button">Save</button>
+                <input id="approvedBy" type="text" placeholder="Reviewer name">
+                <button id="approveButton" type="button">Approve</button>
+              </div>
+            </div>
+            <div class="markdown-toolbar" aria-label="Markdown tools">
+              <button type="button" data-format="heading">H2</button>
+              <button type="button" data-format="bold">B</button>
+              <button type="button" data-format="italic">I</button>
+              <button type="button" data-format="code">Code</button>
+              <button type="button" data-format="codeblock">Block</button>
+              <button type="button" data-format="quote">Quote</button>
+              <button type="button" data-format="bullet">List</button>
+              <button type="button" data-format="numbered">1.</button>
+              <button type="button" data-format="link">Link</button>
+              <button type="button" data-format="tag">Tag</button>
+              <button type="button" data-format="comment">Comment</button>
+            </div>
             <textarea id="editorText" spellcheck="false"></textarea>
-            <div class="editor-actions">
-              <button id="saveButton" type="button">Save Markdown</button>
-              <input id="approvedBy" type="text" placeholder="Reviewer name">
-              <button id="approveButton" type="button">Stamp Approval</button>
+            <div id="tagSuggestionPanel" class="tag-suggestion-panel hidden" aria-live="polite">
+              <div class="tag-suggestion-title">Tag suggestions</div>
+              <div id="tagSuggestions" class="tag-suggestions"></div>
             </div>
           </section>
-          <pre id="diffPanel" class="diff-panel hidden"></pre>
+          <section id="diffPanel" class="diff-panel hidden" aria-live="polite"></section>
         </section>
 
         <section id="dashboardView" class="dashboard-view hidden">
@@ -68,15 +95,20 @@
         </section>
       </section>
 
-      <aside class="inspector">
-        <h3>Metadata</h3>
-        <dl id="metadataPanel"></dl>
-        <h3>Traceability</h3>
-        <div id="tracePanel"></div>
-        <h3>Backlinks</h3>
-        <div id="backlinksPanel"></div>
+      <aside class="inspector" aria-label="Spec details">
+        <button id="toggleInspector" class="inspector-toggle" type="button" aria-expanded="false" aria-controls="inspectorPanel">Spec</button>
+        <div id="inspectorPanel" class="inspector-panel" aria-hidden="true">
+          <h2>Spec Details</h2>
+          <h3>Metadata</h3>
+          <dl id="metadataPanel"></dl>
+          <h3>Traceability</h3>
+          <div id="tracePanel"></div>
+          <h3>Backlinks</h3>
+          <div id="backlinksPanel"></div>
+        </div>
       </aside>
     </main>
+    <div id="linkPreview" class="link-preview hidden" role="tooltip"></div>
 
     <script src="/app.js"></script>
   </body>

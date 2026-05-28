@@ -22,6 +22,6 @@ implemented_by:
 
 # Legacy Pointer - UX Stories And User Flows
 
-This former long document has been refactored into [User stories overview](User%20stories/User%20stories%20overview.md) and the canonical story/flow pages.
+This former long document has been refactored into [User stories overview](User%20stories/User%20stories%20overview.md) and the canonical [story](User%20stories/User%20stories%20overview.md)/flow pages.
 
 Do not add new canonical content here.

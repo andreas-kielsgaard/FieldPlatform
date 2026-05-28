@@ -27,8 +27,8 @@ If there are existing modified files, assume they are user-owned. Do not overwri
 Before product, mockup, UI, data-model, or design work, read:
 
 - `General context/README.md`
-- `General context/Doctrine/Core product thesis.md`
-- `General context/Doctrine/Non-goals and guardrails.md`
+- `General context/Principles/What FieldPlatform is for.md`
+- `General context/Principles/What FieldPlatform should not become.md`
 - `General context/Maintenance/Context maintenance for agents.md`
 - `General context/Maintenance/Design process and wayfinding.md`
 
@@ -40,7 +40,7 @@ Then read task-specific docs as needed:
 - access/middle-layer work: `General context/Architecture/Access layer overview.md` and `General context/Access layer/`
 - flows/features: `General context/User stories/`, `General context/Frontend/Views overview.md`, and `General context/Frontend/Modules overview.md`
 - dev/debug tools: `General context/Architecture/Development tools.md`
-- conviviality/pilot work: `General context/Parked/Business and pilot hypotheses.md`
+- conviviality/pilot work: `General context/Parked/Conviviality and pilot hypotheses.md`
 
 ## Authority
 
@@ -51,6 +51,8 @@ When sources conflict:
 3. `Platform data layer/` docs and implementation for current interface truth.
 4. Mockup-local README/docs for the artifact being edited.
 5. `Archive/` only when explicitly requested.
+
+Treat `generated/unreviewed` and `needs-human-review` as review workflow states, not as reasons to ignore current General context. Agents can trust current wiki pages unless a page is explicitly parked, stale/deprecated, or framed as an open question.
 
 If the current task conflicts with General context, surface the conflict. Do not silently rewrite General context.
 
@@ -87,7 +89,7 @@ It supports self-resourcing through field awareness.
 
 Do not digitize the living field. Digitize the thresholds where the living field becomes illegible.
 
-Use plain user-facing language. Do not leak internal doctrine or data-model terms into ordinary UI.
+Use plain user-facing language. Do not leak internal principles or data-model terms into ordinary UI.
 
 Everyone is a participant first.
 

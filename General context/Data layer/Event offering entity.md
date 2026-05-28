@@ -31,17 +31,17 @@ implemented_by:
 
 # Event / Offering Entity
 
-An event or offering is a hosted activity with enough context for a participant to understand what it is, whether they can attend, what is expected, who holds it, and how it relates to communities or fields.
+An event or offering is a hosted activity with enough context for a participant to understand what it is, whether they can attend, what is expected, who [holds](../Ontology/Hold%20unclear%20point.md) it, and how it relates to [communities](Community%20entity.md) or fields.
 
 ## Purpose
 
-Represent event facts, attendance/interest state, creator/host context, access requirements, and possible relations to communities, venues, generated fields, practices, festivals, or people in contextual roles.
+Represent event facts, attendance/interest state, creator/host context, access requirements, and possible relations to [communities](Community%20entity.md), [venues](Venue%20entity.md), generated fields, practices, festivals, or [people](Person%20entity.md) in contextual roles.
 
 ## Possible Properties
 
 - title
 - host, facilitator, creator, cohosts, volunteers
-- venue
+- [venue](Venue%20entity.md)
 - time
 - access level
 - cost, price, donation, sliding scale, or access note
@@ -58,7 +58,7 @@ Represent event facts, attendance/interest state, creator/host context, access r
 
 ## Semantic Separation
 
-Event facts must not collapse into one overloaded label group. Keep these distinct:
+Event facts must not collapse into one overloaded label [group](Community%20entity.md). Keep these distinct:
 
 - access
 - cost
@@ -68,7 +68,7 @@ Event facts must not collapse into one overloaded label group. Keep these distin
 - practical expectations
 - requirements
 - connection type
-- review state
+- [review state](../Architecture/Review%20and%20approval%20model.md)
 - visibility
 - evidence/source
 - action target
@@ -78,7 +78,7 @@ This is product grammar now and may require more explicit fields when multiple s
 ## Invariants And Risks
 
 - Event creation should not feel like ad targeting.
-- Suggested relevance to a community is not ownership, publication, or recommendation to everyone.
+- Suggested relevance to a [community](Community%20entity.md) is not ownership, publication, or recommendation to everyone.
 - Logistical requirements for participation must say who receives the information and why.
 
 ## Access Layer

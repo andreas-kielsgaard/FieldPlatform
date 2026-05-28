@@ -32,17 +32,17 @@ The access layer is the consistency boundary between stored data and frontend be
 
 It owns:
 
-- domain access methods
+- domain [access methods](../Access%20layer/Access%20methods%20and%20calculations.md)
 - write commands
 - read/query methods
-- calculated views
+- calculated [views](../Frontend/Views%20overview.md)
 - recommendation, fit, and explanation calculations
 - permission checks
 - lifecycle transitions
 - consistency rules
 - view-specific data packages
 
-The frontend should not duplicate database consistency rules, calculation logic, or raw write structures. It should ask for coherent packages and invoke safe commands.
+The frontend should not duplicate database consistency rules, [calculation logic](../Access%20layer/Access%20methods%20and%20calculations.md), or raw write structures. It should ask for coherent packages and invoke safe commands.
 
 The current implementation is an in-process managed OO access layer, not a separate server. That is acceptable. The responsibility boundary matters more than the deployment shape.
 
@@ -65,11 +65,11 @@ Main entry points include:
 - `platform.eventManagement`
 - `platform.communityManagement`
 
-Frontend feature code should prefer these managed objects and services. Direct database CRUD is reserved for dev tools, tests, migrations, and internal implementation work.
+Frontend feature code should prefer these managed objects and services. Direct database CRUD is reserved for [dev tools](Development%20tools.md), tests, migrations, and internal implementation work.
 
 ## Contract Shape
 
-Each access-layer method or view model should define:
+Each access-layer method or [view](../Frontend/Views%20overview.md) model should define:
 
 - purpose
 - input parameters
@@ -79,7 +79,7 @@ Each access-layer method or view model should define:
 - invariants enforced
 - permission and visibility behavior
 - errors and empty states
-- user stories and views that consume it
+- [user stories](../User%20stories/User%20stories%20overview.md) and [views](../Frontend/Views%20overview.md) that consume it
 - implementation links
 - maturity
 

@@ -16,7 +16,7 @@ related:
   - Traceability model.md
   - ../Maintenance/Context maintenance for agents.md
 depends_on:
-  - Product architecture overview.md
+  - Platform architecture overview.md
 consumed_by:
   - ../../Tools/context-wiki
 implemented_by:
@@ -34,10 +34,10 @@ The model is lightweight. Git remains the source for history and diffs. The wiki
 
 Use a small set:
 
-- `generated/unreviewed`: agent migrated or generated content that needs human review.
+- `generated/unreviewed`: agent migrated or generated content that needs human review, but still belongs to the current General context unless it is also parked, stale, deprecated, or explicitly marked uncertain.
 - `human-reviewed`: a human has reviewed it, but it is not formally approved as current spec.
 - `human-approved`: a human has approved this page as current authority.
-- `buildable spec`: concrete enough to implement from.
+- `buildable spec`: concrete enough to implement from while remaining readable as a human product/design brief.
 - `implemented`: implementation exists or mostly exists.
 - `parked`: not current product authority, but useful to preserve.
 - `stale/deprecated`: preserved as a pointer, retired idea, or historical route.
@@ -71,16 +71,16 @@ The review dashboard should show:
 - generated or migrated content not yet approved
 - changed since approval
 - pages missing metadata
-- open questions
+- [open questions](../Current%20direction/Open%20questions.md)
 - buildable specs not implemented
 - implemented pages needing spec review
-- views without access-layer contracts
-- features/modules without parent views
-- user stories without linked views
-- access methods without linked data entities
-- data entities with no access methods
+- [views](../Frontend/Views%20overview.md) without access-layer contracts
+- features/[modules](../Frontend/Modules%20overview.md) without parent [views](../Frontend/Views%20overview.md)
+- [user stories](../User%20stories/User%20stories%20overview.md) without linked [views](../Frontend/Views%20overview.md)
+- [access methods](../Access%20layer/Access%20methods%20and%20calculations.md) without linked data entities
+- data entities with no [access methods](../Access%20layer/Access%20methods%20and%20calculations.md)
 - parked exploration
-- business hypotheses
+- [conviviality and pilot hypotheses](../Parked/Conviviality%20and%20pilot%20hypotheses.md)
 - stale/deprecated pages
 - git diff for context/wiki changes where practical
 

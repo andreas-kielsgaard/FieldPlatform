@@ -28,7 +28,7 @@ implemented_by:
 
 # Person Entity
 
-A person is a participant first. Creator, host, facilitator, steward, volunteer, bridge person, and community manager are contextual roles or capabilities, not separate base entities by default.
+A person is a participant first. Creator, host, facilitator, steward, volunteer, bridge person, and [community](Community%20entity.md) manager are contextual roles or capabilities, not separate base entities by default.
 
 ## Purpose
 
@@ -37,23 +37,23 @@ Represent the person enough to support orientation, participation, creation, ste
 ## Possible Properties
 
 - identity and profile fields such as name, bio, visible attributes, and life context
-- interests, saved events, followed communities, and followed fields
-- participation edges to communities
-- contextual disclosure decisions and visibility grants
-- event behavior such as attending, interested, hosting, volunteering, facilitating, suggesting
-- community behavior such as following, requesting access, member, trusted, contributor, steward, dormant
+- interests, saved [events](Event%20offering%20entity.md), followed [communities](Community%20entity.md), and followed fields
+- participation edges to [communities](Community%20entity.md)
+- [contextual disclosure](../Access%20layer/Contextual%20visibility%20and%20disclosure.md) decisions and visibility grants
+- [event](Event%20offering%20entity.md) behavior such as attending, interested, hosting, volunteering, facilitating, suggesting
+- [community](Community%20entity.md) behavior such as following, requesting access, member, trusted, contributor, steward, dormant
 - contextual permissions derived from created or managed objects
 
 ## Relationships
 
-- Person to Community through [ParticipationEdge](ParticipationEdge.md)
-- Person to Event through attendance, interest, hosting, facilitation, volunteering, or management
-- Person to FieldRelation as suggester, reviewer, creator/host evidence, or contextual role
+- Person to [Community](Community%20entity.md) through [ParticipationEdge](ParticipationEdge.md)
+- Person to [Event](Event%20offering%20entity.md) through attendance, interest, hosting, facilitation, volunteering, or management
+- Person to [FieldRelation](FieldRelation.md) as suggester, reviewer, creator/host evidence, or contextual role
 
 ## Invariants And Risks
 
 - Do not expose attendance, contact route, profile facets, relationship graph, or future activity by default.
-- Logistical visibility for an event does not imply social visibility to attendees, members, stewards outside the stated scope, or public pages.
+- Logistical visibility for an [event](Event%20offering%20entity.md) does not imply social visibility to attendees, members, stewards outside the stated scope, or public pages.
 - Person-related suggestions need extra privacy and consent care. Person-to-person suggestions should not be broadly available in early product design.
 
 ## Access Layer

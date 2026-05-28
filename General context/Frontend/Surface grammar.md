@@ -17,7 +17,7 @@ related:
   - Language and copy rules.md
   - ../Views/Public Event View.md
 depends_on:
-  - ../Doctrine/Non-goals and guardrails.md
+  - ../Principles/What FieldPlatform should not become.md
 consumed_by:
   - ../Views/Community Overview View.md
   - ../Views/Public Event View.md
@@ -29,15 +29,15 @@ implemented_by:
 
 Surface grammar defines how an object should be shown in a particular context.
 
-Object type defines default affordances. User role, entry point, surrounding context, and surface type determine priority.
+Object type defines default affordances. [User](../Data%20layer/Person%20entity.md) role, entry point, surrounding context, and surface type determine priority.
 
 ## Viewer Stance
 
 Every surface should make the viewer stance legible:
 
 - curious participant
-- host/facilitator managing an event
-- steward reviewing on behalf of a community
+- host/facilitator managing an [event](../Data%20layer/Event%20offering%20entity.md)
+- steward reviewing on behalf of a [community](../Data%20layer/Community%20entity.md)
 - public page
 - management page
 - review page
@@ -46,15 +46,15 @@ Do not mix participant actions, facilitator management, and steward review unles
 
 ## Object Defaults
 
-Event pages usually need what, when, where, who holds it, can I attend, what should I expect, what experience or access is needed.
+[Event](../Data%20layer/Event%20offering%20entity.md) pages usually need what, when, where, who [holds](../Ontology/Hold%20unclear%20point.md) it, can I attend, what should I expect, what experience or access is needed.
 
-Community pages usually need what the community is, who it is for, rhythm, norms, access, entry guidance, and beginner-friendly options.
+[Community](../Data%20layer/Community%20entity.md) pages usually need what the [community](../Data%20layer/Community%20entity.md) is, who it is for, rhythm, norms, access, entry guidance, and beginner-friendly options.
 
-Venue pages usually need where it is, what happens there, which communities or events use it, and practical expectations.
+[Venue](../Data%20layer/Venue%20entity.md) pages usually need where it is, what happens there, which [communities](../Data%20layer/Community%20entity.md) or [events](../Data%20layer/Event%20offering%20entity.md) use it, and practical expectations.
 
-Person/facilitator pages need public role, offerings, appropriate access, and strong privacy boundaries.
+[Person](../Data%20layer/Person%20entity.md)/facilitator pages need public role, [offerings](../Data%20layer/Event%20offering%20entity.md), appropriate access, and strong privacy boundaries.
 
-Generated field pages need evidence and named communities, not management posture.
+[Generated field](../Data%20layer/GeneratedField.md) pages need evidence and named [communities](../Data%20layer/Community%20entity.md), not management framing.
 
 ## Surface Contexts
 
@@ -68,7 +68,7 @@ Generated field pages need evidence and named communities, not management postur
 
 ## Relation UI Rules
 
-- FieldRelation can hold complex meaning in the domain layer, but UI must separate connection type, review state, visibility, evidence, and action target.
+- [FieldRelation](../Data%20layer/FieldRelation.md) can [hold](../Ontology/Hold%20unclear%20point.md) complex meaning in the domain layer, but UI must separate connection type, [review state](../Architecture/Review%20and%20approval%20model.md), visibility, evidence, and action target.
 - Steward review is role-gated and contained.
 - Suggested connections are contextual clarification, not ownership, marketing, publication, or social pressure.
 - Public pages should not leak steward-only context.

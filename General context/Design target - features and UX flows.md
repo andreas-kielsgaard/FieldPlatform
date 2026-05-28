@@ -12,7 +12,7 @@ approved_file_hash:
 canonical_for:
 related:
   - README.md
-  - Architecture/Product architecture overview.md
+  - Architecture/Platform architecture overview.md
 depends_on:
 consumed_by:
 implemented_by:
@@ -22,6 +22,6 @@ implemented_by:
 
 This former long document has been refactored into the canonical wiki.
 
-Use [General Context Wiki](README.md) first, then [Product architecture overview](Architecture/Product%20architecture%20overview.md), [Core product thesis](Doctrine/Core%20product%20thesis.md), and [Non-goals and guardrails](Doctrine/Non-goals%20and%20guardrails.md).
+Use [General Context Wiki](README.md) first, then [Platform architecture overview](Architecture/Platform%20architecture%20overview.md), [What FieldPlatform is for](Principles/What%20FieldPlatform%20is%20for.md), and [What FieldPlatform should not become](Principles/What%20FieldPlatform%20should%20not%20become.md).
 
 Do not add new canonical content here.

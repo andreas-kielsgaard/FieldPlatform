@@ -26,7 +26,7 @@ implemented_by:
 
 # My Orientation View
 
-Purpose: help a person understand what is happening soon and how it relates to their current participation, light overlap, and expansion edges.
+Purpose: help a [person](../Data%20layer/Person%20entity.md) understand what is happening soon and how it relates to their current participation, light overlap, and expansion edges.
 
 ## Viewer Stance
 
@@ -34,22 +34,22 @@ Curious participant orienting to their own field.
 
 ## Questions Answered
 
-- What am I already helping hold?
+- What am I already helping [hold](../Ontology/Hold%20unclear%20point.md)?
 - What have I committed to?
-- What is happening in communities where I have access, trust, or membership?
+- What is happening in [communities](../Data%20layer/Community%20entity.md) where I have access, trust, or membership?
 - What am I following lightly?
 - What nearby possibilities may fit because of overlap?
-- Why is each event or community shown?
+- Why is each [event](../Data%20layer/Event%20offering%20entity.md) or [community](../Data%20layer/Community%20entity.md) shown?
 - What first step is available?
 
 ## Modules
 
-- upcoming events by relevance layer
+- upcoming [events](../Data%20layer/Event%20offering%20entity.md) by relevance layer
 - relationship-to-groups summary
 - recommendation explanations
 - generated fields around me
-- Ways In module
-- possible self-resourcing entry points when adopted
+- [Ways In module](../Modules/Ways%20In%20module.md)
+- [Self-resourcing Entry module](../Modules/Self-resourcing%20Entry%20module.md) for arrival, asks, offers, care, support, and digestion
 
 ## Access Dependencies
 
@@ -60,15 +60,15 @@ Curious participant orienting to their own field.
 - `user.communities.committed()`
 - `user.communities.dormant()`
 - recommendation calculations
-- generated field calculations
+- [generated field](../Data%20layer/GeneratedField.md) calculations
 
 ## States
 
-- no upcoming known events
-- only commitments/rooted events
+- no upcoming known [events](../Data%20layer/Event%20offering%20entity.md)
+- only commitments/rooted [events](../Data%20layer/Event%20offering%20entity.md)
 - expansion edges available
 - recommendations hidden by visibility constraints
-- generated fields available as patterns, not communities
+- generated fields available as patterns, not [communities](../Data%20layer/Community%20entity.md)
 
 ## Related Stories
 

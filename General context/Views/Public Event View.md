@@ -26,7 +26,7 @@ implemented_by:
 
 # Public Event View
 
-Purpose: let a curious participant understand an event first, then understand why it may matter in context and what actions are available.
+Purpose: let a curious participant understand an [event](../Data%20layer/Event%20offering%20entity.md) first, then understand why it may matter in context and what actions are available.
 
 ## Viewer Stance
 
@@ -34,28 +34,28 @@ Curious participant. Host/facilitator management and steward review are separate
 
 ## Questions Answered
 
-- What is this event?
+- What is this [event](../Data%20layer/Event%20offering%20entity.md)?
 - When and where is it?
-- Who holds or facilitates it?
+- Who [holds](../Ontology/Hold%20unclear%20point.md) or facilitates it?
 - Can I attend?
 - What does it cost?
 - Who is it for?
 - What experience is needed?
 - What entry support or requirements apply?
 - Why am I seeing this?
-- What communities or fields is it connected to?
+- What [communities](../Data%20layer/Community%20entity.md) or fields is it connected to?
 - What can I do next?
 
 ## Modules
 
-- event facts with semantic separation
-- venue and facilitator/host context
+- [event](../Data%20layer/Event%20offering%20entity.md) facts with semantic separation
+- [venue](../Data%20layer/Venue%20entity.md) and facilitator/host context
 - attendance and interest actions
 - recommendation explanation
-- related community/context panel
-- Ways In module
+- related [community](../Data%20layer/Community%20entity.md)/context panel
+- [Ways In module](../Modules/Ways%20In%20module.md)
 - suggest context action
-- contextual disclosure prompt after real interaction
+- [contextual disclosure](../Access%20layer/Contextual%20visibility%20and%20disclosure.md) prompt after real interaction
 
 ## Access Dependencies
 
@@ -71,10 +71,10 @@ Curious participant. Host/facilitator management and steward review are separate
 
 ## Empty And Held States
 
-- No reviewed community context yet.
+- No reviewed [community](../Data%20layer/Community%20entity.md) context yet.
 - Suggested connection waiting for steward review, shown only if relevant and plain.
-- First step unclear; point to ask facilitator, ask steward, or an intro event when available.
+- First step unclear; point to ask facilitator, ask steward, or an intro [event](../Data%20layer/Event%20offering%20entity.md) when available.
 
 ## Non-Leak Rule
 
-Do not show steward-only relation mechanics on the public page unless the current user is in a clear preview/admin mode or the state is directly relevant to their task.
+Do not show steward-only relation mechanics on the public page unless the current [user](../Data%20layer/Person%20entity.md) is in a clear preview/admin mode or the state is directly relevant to their task.

@@ -15,7 +15,7 @@ related:
   - ../Access layer/Contextual visibility and disclosure.md
   - ../Frontend/Language and copy rules.md
 depends_on:
-  - ../Doctrine/Non-goals and guardrails.md
+  - ../Principles/What FieldPlatform should not become.md
 consumed_by:
   - ../Views/Public Event View.md
   - ../Views/Community Overview View.md
@@ -24,13 +24,13 @@ implemented_by:
 
 # Contextual Disclosure Module
 
-The Contextual Disclosure module asks how someone wants to show up in a specific context after a real interaction, or before participation when logistical information is required.
+The [Contextual Disclosure](../Access%20layer/Contextual%20visibility%20and%20disclosure.md) [module](../Frontend/Modules%20overview.md) asks how someone wants to show up in a specific context after a real interaction, or before participation when logistical information is required.
 
 ## Parent Views
 
-- Public Event View after attend or mark interested
-- Community Overview View after related participation
-- future facilitator, venue, care, ask, and field-board surfaces
+- [Public Event View](../Views/Public%20Event%20View.md) after attend or mark interested
+- [Community Overview View](../Views/Community%20Overview%20View.md) after related participation
+- future facilitator, [venue](../Data%20layer/Venue%20entity.md), care, ask, and field-board surfaces
 
 ## Prompts
 
@@ -53,4 +53,4 @@ The Contextual Disclosure module asks how someone wants to show up in a specific
 
 ## Data Status
 
-Current implementation does not yet have full DataShareRequest or VisibilityGrant support. Treat this module as design target and future access-layer pressure.
+Current implementation does not yet have full DataShareRequest or VisibilityGrant support. Treat this [module](../Frontend/Modules%20overview.md) as design target and future access-layer pressure.

@@ -13,27 +13,29 @@ canonical_for:
   - self-resourcing stories
   - field inquiry
 related:
-  - ../Doctrine/Core product thesis.md
+  - ../Principles/What FieldPlatform is for.md
   - ../Ontology/Hold unclear point.md
+  - ../Modules/Self-resourcing Entry module.md
   - ../Parked/Future exploration notes.md
 depends_on:
-  - ../Doctrine/Living field doctrine.md
+  - ../Principles/Living field principles.md
 consumed_by:
   - ../Views/My Orientation View.md
+  - ../Modules/Self-resourcing Entry module.md
 implemented_by:
 ---
 
 # Self-resourcing And Field Inquiry
 
-Intent: a person arrives with a need, impulse, direction, offer, question, care task, or stuckness and wants support from what is already around them.
+Intent: a [person](../Data%20layer/Person%20entity.md) arrives with a need, impulse, direction, offer, question, care task, or stuckness and wants support from what is already around them.
 
-These stories are current design direction and future surface pressure. They are not yet backed by stable self-resourcing collections.
+These [stories](User%20stories%20overview.md) are current design direction and future surface pressure. They are not yet backed by stable [self-resourcing](../Modules/Self-resourcing%20Entry%20module.md) collections.
 
 ## Possible Flows
 
 - Arrival orientation: "What are you arriving with?" and "What might support this?"
 - Ask the field: make a situated ask visible without knowing who to interrupt.
-- Make a half-formed impulse visible: share something alive before it becomes an event, project, practice, or care task.
+- Make a half-formed impulse visible: share something alive before it becomes an [event](../Data%20layer/Event%20offering%20entity.md), project, practice, or care task.
 - Today I can offer / Today I am looking for: daily declarations that usually expire.
 - Care for the space: make care needs visible as dignified participation.
 - Fall digestion: preserve only useful nuggets, support patterns, and carry-forward threads.
@@ -48,4 +50,4 @@ These stories are current design direction and future surface pressure. They are
 
 ## Outcome
 
-The user regains access to possible support, relation, rest, or action without the platform pretending to know the whole field.
+The [user](../Data%20layer/Person%20entity.md) regains access to possible support, relation, rest, or action without the platform pretending to know the whole field.

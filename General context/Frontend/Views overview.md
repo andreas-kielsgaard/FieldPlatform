@@ -25,9 +25,9 @@ implemented_by:
 
 # Views Overview
 
-A view is a navigable screen, page, panel, dashboard, drawer, or mode that the user can open or act through.
+A view is a navigable screen, page, panel, dashboard, drawer, or mode that the [user](../Data%20layer/Person%20entity.md) can open or act through.
 
-Views are not user stories. A user story is an intention over time and may move through several views.
+Views are not [user stories](../User%20stories/User%20stories%20overview.md). A [user story](../User%20stories/User%20stories%20overview.md) is an intention over time and may move through several views.
 
 Initial canonical views:
 
@@ -37,7 +37,7 @@ Initial canonical views:
 - [Generated Field View](../Views/Generated%20Field%20View.md)
 - [Steward Suggested Connections View](../Views/Steward%20Suggested%20Connections%20View.md)
 
-Future likely views include venue pages, person/facilitator pages, event management, community management, creator fit, ask facilitator/community, field board, digestion, and care-for-the-space surfaces.
+Future likely views include [venue](../Data%20layer/Venue%20entity.md) pages, [person](../Data%20layer/Person%20entity.md)/facilitator pages, [event](../Data%20layer/Event%20offering%20entity.md) management, [community](../Data%20layer/Community%20entity.md) management, creator fit, ask facilitator/[community](../Data%20layer/Community%20entity.md), field board, digestion, and care-for-the-space surfaces.
 
 ## View Spec Template
 
@@ -46,15 +46,15 @@ Each view should define:
 - view name
 - purpose
 - primary viewer stance
-- user questions answered
-- features/modules included
+- [user](../Data%20layer/Person%20entity.md) questions answered
+- features/[modules](Modules%20overview.md) included
 - access-layer methods consumed
 - write commands available
 - visible states
 - empty states
 - permissions
-- related user stories
-- relevant domain concepts
+- related [user stories](../User%20stories/User%20stories%20overview.md)
+- relevant domain [concepts](../Ontology/Product%20ontology.md)
 - implementation links
 - maturity
 

@@ -29,16 +29,16 @@ Intent: a steward wants to review sensed or calculated relations involving a con
 
 ## Flow
 
-1. Steward opens a contained community care or management surface.
+1. Steward opens a contained [community](../Data%20layer/Community%20entity.md) care or management surface.
 2. The viewer stance is clear: reviewing on behalf of a stewarded context.
 3. Suggested connections show enough source and target identity to avoid disorientation.
-4. The surface separates connection type, review state, visibility, evidence/source, and possible actions.
-5. Evidence may include shared tags, venue, audience, participation, suggester relation, host/facilitator relation, likely benefit/risk, and what becomes visible if accepted.
+4. The surface separates connection type, [review state](../Architecture/Review%20and%20approval%20model.md), visibility, evidence/source, and possible actions.
+5. Evidence may include shared tags, [venue](../Data%20layer/Venue%20entity.md), audience, participation, suggester relation, host/facilitator relation, likely benefit/risk, and what becomes visible if accepted.
 6. Steward accepts, refines, redirects, declines, or keeps the relation as pattern only.
 7. Each action explains its consequence.
 8. Recently decided items remain inspectable.
-9. Accepted relations update relevant pages, explanations, and pathways for that specific relation.
-10. Acceptance by one community does not automatically endorse another community's context.
+9. Accepted relations update relevant pages, explanations, and [pathways](../Ontology/Pathway%20ways%20in.md) for that specific relation.
+10. Acceptance by one [community](../Data%20layer/Community%20entity.md) does not automatically endorse another [community](../Data%20layer/Community%20entity.md)'s context.
 
 ## Outcome
 

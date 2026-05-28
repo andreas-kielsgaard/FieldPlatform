@@ -29,9 +29,11 @@ implemented_by:
 
 # ParticipationEdge
 
-ParticipationEdge is the high-resolution person-to-community belonging model.
+A [person](Person%20entity.md) follows a [community](Community%20entity.md), attends a few [events](Event%20offering%20entity.md), later asks for access, and eventually helps host. The platform should treat that as one evolving relationship, not as separate unrelated facts.
 
-It is not replaced by FieldRelation. FieldRelation handles broader relations between objects and contexts; ParticipationEdge handles the detailed shape of a person's relationship to a community.
+ParticipationEdge stores that person-to-community relationship.
+
+[FieldRelation](FieldRelation.md) handles broader relations between objects and contexts. ParticipationEdge handles the detailed state of one [person](Person%20entity.md)'s relationship to one [community](Community%20entity.md).
 
 ## Purpose
 
@@ -58,18 +60,20 @@ Gradient layers:
 - social embeddedness
 - norm familiarity
 - identity salience
-- shared exposure through overlapping communities, event tags, venue use, or participation history
+- shared exposure through overlapping [communities](Community%20entity.md), [event](Event%20offering%20entity.md) tags, [venue](Venue%20entity.md) use, or participation history
+
+These gradient layers are internal orientation and calculation signals. They should not become public labels, individual scores, steward dashboards, or pressure to participate more. When they inform [community](Community%20entity.md) health or recommendations, expose the smallest useful aggregate or explanation.
 
 ## Used By
 
-- My Orientation
-- relationship-to-groups views
-- community personal relationship panels
-- event and group recommendations
+- [My Orientation](../Views/My%20Orientation%20View.md)
+- relationship-to-groups [views](../Frontend/Views%20overview.md)
+- [community](Community%20entity.md) personal relationship panels
+- [event](Event%20offering%20entity.md) and [group](Community%20entity.md) recommendations
 - steward aggregate health signals
-- generated field evidence
+- [generated field](GeneratedField.md) evidence
 - dev model inspection
-- FieldRelation evidence and pathway logic where person-to-community belonging matters
+- [FieldRelation](FieldRelation.md) evidence and [pathway](../Ontology/Pathway%20ways%20in.md) logic where person-to-community belonging matters
 
 ## Invariants And Risks
 

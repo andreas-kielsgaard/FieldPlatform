@@ -280,7 +280,7 @@ function dashboard(pages) {
   const accessWithoutData = pages.filter((page) => page.path.startsWith("Access layer/") && !/Data layer|entities read|entities written|FieldRelation|ParticipationEdge/i.test(page.content));
   const dataWithoutAccess = pages.filter((page) => page.path.startsWith("Data layer/") && !/Access Layer|Access Dependencies|Current methods/i.test(page.content));
   const parked = pages.filter((page) => /parked/i.test(`${page.metadata.status} ${page.metadata.maturity}`));
-  const business = pages.filter((page) => /business|pilot/i.test(`${page.metadata.layer} ${page.title} ${page.metadata.canonical_for}`));
+  const pilotPlanning = pages.filter((page) => /conviviality|pilot|resourcing|governance/i.test(`${page.metadata.layer} ${page.title} ${page.metadata.canonical_for}`));
   const stale = pages.filter((page) => /stale|deprecated/i.test(`${page.metadata.status} ${page.metadata.maturity}`));
   const orphanSpecs = pages.filter((page) => {
     const isStub = /Legacy Pointer/.test(page.title);
@@ -307,7 +307,7 @@ function dashboard(pages) {
       dataEntitiesWithNoAccessMethods: brief(dataWithoutAccess),
       orphanSpecs: brief(orphanSpecs),
       parkedExploration: brief(parked),
-      businessHypotheses: brief(business),
+      pilotPlanning: brief(pilotPlanning),
       deprecatedStalePages: brief(stale)
     }
   };
@@ -390,6 +390,11 @@ async function handleApi(req, res, url) {
   }
   if (req.method === "GET" && url.pathname === "/api/diff") {
     const requested = url.searchParams.get("path");
+    const page = requested ? pages.find((item) => item.path === requested) : null;
+    if (page && page.metadata.approved_file_hash && page.metadata.approved_file_hash === page.reviewHash) {
+      sendText(res, "No unapproved diff for this page.");
+      return;
+    }
     const diffPath = requested ? path.posix.join("General context", requested) : "General context";
     const diff = git(["diff", "--", diffPath], "");
     sendText(res, diff || "No working-tree diff for this path.");

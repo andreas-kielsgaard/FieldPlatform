@@ -17,7 +17,7 @@ related:
   - Community entity.md
   - ../Views/Generated Field View.md
 depends_on:
-  - ../Doctrine/Non-goals and guardrails.md
+  - ../Principles/What FieldPlatform should not become.md
 consumed_by:
   - ../Views/Generated Field View.md
   - ../Access layer/Access methods and calculations.md
@@ -29,9 +29,11 @@ implemented_by:
 
 # GeneratedField
 
-A generated field is a computed pattern, not a managed community.
+Several [communities](Community%20entity.md) may use the same [venue](Venue%20entity.md), repeat the same tags, share rhythms, or attract overlapping participation. The platform can calculate that pattern and use it for orientation.
 
-It can help people orient to repeated tags, venues, rhythms, overlaps, or participation patterns. It does not speak as a community and should not imply social representation unless people intentionally create a community from it.
+A GeneratedField stores that calculated pattern.
+
+It is not a managed [community](Community%20entity.md). It does not speak as a [community](Community%20entity.md) and should not imply social representation unless [people](Person%20entity.md) intentionally create a [community](Community%20entity.md) from it.
 
 ## Purpose
 
@@ -42,9 +44,9 @@ Represent useful computed evidence without pretending there is a stewarded socia
 Generated field logic may use:
 
 - repeated tags across groups
-- multiple groups using the same venue
-- recurring group overlap
-- recurring event timing
+- multiple groups using the same [venue](Venue%20entity.md)
+- recurring [group](Community%20entity.md) overlap
+- recurring [event](Event%20offering%20entity.md) timing
 - repeated participation patterns
 - custom patterns that are useful for orientation
 
@@ -53,19 +55,19 @@ Generated field logic may use:
 A generated field page should explain:
 
 - why the field exists
-- which named communities are involved
-- which tags, venues, rhythms, or overlaps are evidence
-- bridge events and deeper events inside the pattern
-- aggregate participation edges without presenting people as a managed roster
+- which named [communities](Community%20entity.md) are involved
+- which tags, [venues](Venue%20entity.md), rhythms, or overlaps are evidence
+- bridge [events](Event%20offering%20entity.md) and deeper [events](Event%20offering%20entity.md) inside the pattern
+- aggregate participation edges without presenting [people](Person%20entity.md) as a managed roster
 
 ## Relationships
 
-Generated fields can relate to events, communities, venues, festivals, practices, and people in creator/facilitator roles through FieldRelation. Those relations must preserve the generated field's status as computed evidence rather than social authority.
+Generated fields can relate to [events](Event%20offering%20entity.md), [communities](Community%20entity.md), [venues](Venue%20entity.md), festivals, practices, and [people](Person%20entity.md) in creator/facilitator roles through [FieldRelation](FieldRelation.md). Those relations must preserve the generated field's status as computed evidence rather than social authority.
 
 ## Invariants And Risks
 
-- Do not treat generated fields as managed communities.
-- Do not show management controls unless a future explicit flow converts a pattern into a community.
+- Do not treat generated fields as managed [communities](Community%20entity.md).
+- Do not show management controls unless a future explicit flow converts a pattern into a [community](Community%20entity.md).
 - Do not imply that generated-field evidence is endorsement.
 
 ## Access Layer

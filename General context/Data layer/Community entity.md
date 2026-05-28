@@ -31,9 +31,9 @@ implemented_by:
 
 # Community Entity
 
-A community is a named social container with stewards, norms, rhythm, access rules, entry guidance, and relationships to people, events, venues, generated patterns, and adjacent contexts.
+A community is a named social container with stewards, norms, rhythm, access rules, entry guidance, and relationships to [people](Person%20entity.md), [events](Event%20offering%20entity.md), [venues](Venue%20entity.md), generated patterns, and adjacent contexts.
 
-It is different from a generated field. A community can speak with stewarded social authority; a generated field is computed evidence.
+It is different from a [generated field](GeneratedField.md). A community can speak with stewarded social authority; a [generated field](GeneratedField.md) is computed evidence.
 
 ## Purpose
 
@@ -43,10 +43,10 @@ Represent a social container enough to support orientation, entry guidance, comm
 
 - name, description, state, and tags
 - rhythm, norms, access rules, and entry guidance
-- venues
+- [venues](Venue%20entity.md)
 - stewards or managers
-- related events
-- participation edges from people
+- related [events](Event%20offering%20entity.md)
+- participation edges from [people](Person%20entity.md)
 - membership or access requests
 - suggested and accepted FieldRelations
 - formal or steward-marked relationships to other objects
@@ -54,8 +54,8 @@ Represent a social container enough to support orientation, entry guidance, comm
 ## Relationships
 
 - Community has many ParticipationEdges.
-- Community may have related, bridge, and deeper events.
-- Community may meet at one or more venues.
+- Community may have related, bridge, and deeper [events](Event%20offering%20entity.md).
+- Community may meet at one or more [venues](Venue%20entity.md).
 - Community may be source, target, or review authority for FieldRelations.
 - Community may contribute evidence to GeneratedFields.
 
@@ -63,7 +63,7 @@ Represent a social container enough to support orientation, entry guidance, comm
 
 - Community belonging is not binary membership.
 - Steward review must be role-gated and contained.
-- Community management should show aggregate patterns and care needs without individual surveillance.
+- Community management should show aggregate patterns, entry [holds](../Ontology/Hold%20unclear%20point.md), and care needs without individual surveillance or engagement scoring.
 - Acceptance by one community does not automatically endorse another community's relation.
 
 ## Access Layer

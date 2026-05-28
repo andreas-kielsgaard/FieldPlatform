@@ -25,30 +25,30 @@ implemented_by:
 
 # Generated Field View
 
-Purpose: help a user explore a computed pattern without mistaking it for a represented community.
+Purpose: help a [user](../Data%20layer/Person%20entity.md) explore a computed pattern without mistaking it for a represented [community](../Data%20layer/Community%20entity.md).
 
 ## Viewer Stance
 
-Participant exploring a pattern. Steward controls do not appear unless a future intentional community or review context is created.
+Participant exploring a pattern. Steward controls do not appear unless a future intentional [community](../Data%20layer/Community%20entity.md) or review context is created.
 
 ## Questions Answered
 
 - What pattern is this?
 - Why does it exist?
-- Which named communities are involved?
-- Which tags, venues, rhythms, or overlaps are evidence?
-- Which bridge events and deeper events appear here?
-- What first steps lead into actual communities, events, or venues?
+- Which named [communities](../Data%20layer/Community%20entity.md) are involved?
+- Which tags, [venues](../Data%20layer/Venue%20entity.md), rhythms, or overlaps are evidence?
+- Which bridge [events](../Data%20layer/Event%20offering%20entity.md) and deeper [events](../Data%20layer/Event%20offering%20entity.md) appear here?
+- What first steps lead into actual [communities](../Data%20layer/Community%20entity.md), [events](../Data%20layer/Event%20offering%20entity.md), or [venues](../Data%20layer/Venue%20entity.md)?
 
 ## Modules
 
 - evidence summary
-- named communities inside the pattern
-- bridge/deeper event groups
-- related venues or tags
+- named [communities](../Data%20layer/Community%20entity.md) inside the pattern
+- bridge/deeper [event](../Data%20layer/Event%20offering%20entity.md) groups
+- related [venues](../Data%20layer/Venue%20entity.md) or tags
 - aggregate participation patterns
-- FieldRelation context where accepted or suggested
-- Ways In module pointing to real objects
+- [FieldRelation](../Data%20layer/FieldRelation.md) context where accepted or suggested
+- [Ways In module](../Modules/Ways%20In%20module.md) pointing to real objects
 
 ## Access Dependencies
 
@@ -61,7 +61,7 @@ Participant exploring a pattern. Steward controls do not appear unless a future 
 
 ## Rules
 
-- The page should feel less authored and less socially specific than a community page.
-- Do not imply the generated field speaks for people.
+- The page should feel less authored and less socially specific than a [community](../Data%20layer/Community%20entity.md) page.
+- Do not imply the [generated field](../Data%20layer/GeneratedField.md) speaks for [people](../Data%20layer/Person%20entity.md).
 - Do not show a managed roster.
-- Ways in should lead to communities, events, venues, or people through appropriate permission and visibility rules.
+- [Ways in](../Ontology/Pathway%20ways%20in.md) should lead to [communities](../Data%20layer/Community%20entity.md), [events](../Data%20layer/Event%20offering%20entity.md), [venues](../Data%20layer/Venue%20entity.md), or [people](../Data%20layer/Person%20entity.md) through appropriate permission and visibility rules.

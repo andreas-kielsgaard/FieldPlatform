@@ -36,35 +36,35 @@ Current implementation lives in `Platform data layer/`. It is a JSON snapshot st
 
 ## Current Core Entities
 
-- [Person entity](../Data%20layer/Person%20entity.md): a participant first, possibly also creator, steward, host, facilitator, volunteer, or bridge person in context.
+- [Person entity](../Data%20layer/Person%20entity.md): a participant first, possibly also creator, steward, host, facilitator, volunteer, or bridge [person](../Data%20layer/Person%20entity.md) in context.
 - [Community entity](../Data%20layer/Community%20entity.md): a named social container with stewards, norms, rhythm, access rules, and entry guidance.
-- [Event/offering entity](../Data%20layer/Event%20offering%20entity.md): a hosted activity or offering with time, place, access, audience, expectations, and relation to contexts.
-- [Venue entity](../Data%20layer/Venue%20entity.md): a physical place that anchors events, communities, and overlap.
+- [Event/offering entity](../Data%20layer/Event%20offering%20entity.md): a hosted activity or [offering](../Data%20layer/Event%20offering%20entity.md) with time, place, access, audience, expectations, and relation to contexts.
+- [Venue entity](../Data%20layer/Venue%20entity.md): a physical place that anchors [events](../Data%20layer/Event%20offering%20entity.md), [communities](../Data%20layer/Community%20entity.md), and overlap.
 - [ParticipationEdge](../Data%20layer/ParticipationEdge.md): the high-resolution person-to-community belonging model.
 - [FieldRelation](../Data%20layer/FieldRelation.md): the broader relation between objects or contexts.
-- [GeneratedField](../Data%20layer/GeneratedField.md): a computed pattern, not a managed community.
+- [GeneratedField](../Data%20layer/GeneratedField.md): a computed pattern, not a managed [community](../Data%20layer/Community%20entity.md).
 
 ## Materialization Rule
 
 Do not literalize every product noun into a collection.
 
-A concept may become:
+A [concept](../Ontology/Product%20ontology.md) may become:
 
 - stored record
 - field on a record
-- derived view/query
+- derived [view](../Frontend/Views%20overview.md)/query
 - lifecycle/status filter
 - visibility/access behavior
-- calculation logic
+- [calculation logic](../Access%20layer/Access%20methods%20and%20calculations.md)
 - seed data
 - dev-tool inspection
 - UI copy only
-- future exploration
+- [future exploration](../Parked/Future%20exploration%20notes.md)
 
-Stable data primitives are appropriate when multiple surfaces need shared behavior. Query/view behavior is often better when the question is what should be active, visible, carried-forward, resting, or hidden. Mockup-local state is acceptable when the concept is still being felt out.
+Stable data primitives are appropriate when multiple surfaces need shared behavior. Query/[view](../Frontend/Views%20overview.md) behavior is often better when the question is what should be active, visible, carried-forward, resting, or hidden. Mockup-local state is acceptable when the [concept](../Ontology/Product%20ontology.md) is still being felt out.
 
 ## Visibility Principle
 
 Internal app/storage visibility, logistical participation requirements, and social visibility must stay separate. The raw fact that the platform stores or can calculate something does not mean a user-facing surface may reveal it.
 
-Indirect exposure matters. Counts, explanations, overlap hints, and "people like you" language can leak private participation by implication.
+Indirect exposure matters. Counts, explanations, overlap hints, and "[people](../Data%20layer/Person%20entity.md) like you" language can leak private participation by implication.

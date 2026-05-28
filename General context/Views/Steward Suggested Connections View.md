@@ -29,13 +29,13 @@ Purpose: let stewards review suggested or calculated relations involving a conte
 
 ## Viewer Stance
 
-Steward, manager, host, creator, or explicitly responsible person reviewing on behalf of a specific community or object.
+Steward, manager, host, creator, or explicitly responsible [person](../Data%20layer/Person%20entity.md) reviewing on behalf of a specific [community](../Data%20layer/Community%20entity.md) or object.
 
 ## Questions Answered
 
 - Why is this being suggested here?
 - Who or what suggested it?
-- What is the relation between the suggester, host, facilitator, event, venue, and community?
+- What is the relation between the suggester, host, facilitator, [event](../Data%20layer/Event%20offering%20entity.md), [venue](../Data%20layer/Venue%20entity.md), and [community](../Data%20layer/Community%20entity.md)?
 - What evidence supports it?
 - What might be unclear or held?
 - What becomes visible if accepted?
@@ -47,7 +47,7 @@ Steward, manager, host, creator, or explicitly responsible person reviewing on b
 - review-context header
 - suggested connection cards
 - evidence comparison
-- hold/unclear-point explanation
+- [hold](../Ontology/Hold%20unclear%20point.md)/unclear-point explanation
 - decision actions with consequences
 - recently decided items
 
@@ -67,5 +67,5 @@ Steward, manager, host, creator, or explicitly responsible person reviewing on b
 
 - Keep review contained and role-gated.
 - Use "Suggestions to review" or "Suggested connections" rather than unexplained internal language.
-- Steward review is community care, not CRM.
-- Acceptance does not propagate automatic endorsement to another stewarded community.
+- Steward review is [community](../Data%20layer/Community%20entity.md) care, not CRM.
+- Acceptance does not propagate automatic endorsement to another stewarded [community](../Data%20layer/Community%20entity.md).

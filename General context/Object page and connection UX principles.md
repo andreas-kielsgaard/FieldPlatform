@@ -21,6 +21,6 @@ implemented_by:
 
 # Legacy Pointer - Object Page And Connection UX Principles
 
-This former long document has been refactored into [Surface grammar](Frontend/Surface%20grammar.md), the canonical view pages, and the canonical module pages.
+This former long document has been refactored into [Surface grammar](Frontend/Surface%20grammar.md), the canonical [view](Frontend/Views%20overview.md) pages, and the canonical [module](Frontend/Modules%20overview.md) pages.
 
 Do not add new canonical content here.

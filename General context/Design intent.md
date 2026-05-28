@@ -1,6 +1,6 @@
 ---
 title: Legacy Pointer - Design Intent
-layer: doctrine
+layer: principles
 status: stale/deprecated
 maturity: deprecated
 provenance: migrated
@@ -11,9 +11,9 @@ approved_commit:
 approved_file_hash:
 canonical_for:
 related:
-  - Doctrine/Core product thesis.md
-  - Doctrine/Living field doctrine.md
-  - Doctrine/Non-goals and guardrails.md
+  - Principles/What FieldPlatform is for.md
+  - Principles/Living field principles.md
+  - Principles/What FieldPlatform should not become.md
 depends_on:
 consumed_by:
 implemented_by:
@@ -23,8 +23,8 @@ implemented_by:
 
 This former long document has been refactored into:
 
-- [Core product thesis](Doctrine/Core%20product%20thesis.md)
-- [Living field doctrine](Doctrine/Living%20field%20doctrine.md)
-- [Non-goals and guardrails](Doctrine/Non-goals%20and%20guardrails.md)
+- [What FieldPlatform is for](Principles/What%20FieldPlatform%20is%20for.md)
+- [Living field principles](Principles/Living%20field%20principles.md)
+- [What FieldPlatform should not become](Principles/What%20FieldPlatform%20should%20not%20become.md)
 
 Do not add new canonical content here.

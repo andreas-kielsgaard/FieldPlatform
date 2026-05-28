@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FieldPlatform Context Wiki</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <div class="eyebrow">FieldPlatform</div>
+        <h1>Context Wiki</h1>
+      </div>
+      <div class="source-warning">Markdown in <code>General context/</code> is canonical. This app only renders, reviews, and writes those files.</div>
+    </header>
+
+    <main class="shell">
+      <aside class="sidebar">
+        <div class="toolbar">
+          <input id="searchInput" type="search" placeholder="Search wiki">
+          <select id="layerFilter" aria-label="Filter by layer"></select>
+          <select id="statusFilter" aria-label="Filter by status"></select>
+        </div>
+        <div class="side-actions">
+          <button id="showReader" class="active" type="button">Reader</button>
+          <button id="showDashboard" type="button">Review</button>
+        </div>
+        <nav id="navTree" class="nav-tree" aria-label="Wiki pages"></nav>
+      </aside>
+
+      <section class="content">
+        <section id="readerView" class="reader-view">
+          <div class="page-topline">
+            <div>
+              <div id="sourcePath" class="source-path"></div>
+              <h2 id="pageTitle"></h2>
+            </div>
+            <div class="page-actions">
+              <button id="diffButton" type="button">Diff</button>
+              <button id="editButton" type="button">Edit</button>
+            </div>
+          </div>
+          <div id="metaChips" class="chips"></div>
+          <article id="markdownBody" class="markdown"></article>
+          <section id="editorPanel" class="editor-panel hidden">
+            <div class="editor-note">Save writes this Markdown file in <code>General context/</code>.</div>
+            <textarea id="editorText" spellcheck="false"></textarea>
+            <div class="editor-actions">
+              <button id="saveButton" type="button">Save Markdown</button>
+              <input id="approvedBy" type="text" placeholder="Reviewer name">
+              <button id="approveButton" type="button">Stamp Approval</button>
+            </div>
+          </section>
+          <pre id="diffPanel" class="diff-panel hidden"></pre>
+        </section>
+
+        <section id="dashboardView" class="dashboard-view hidden">
+          <div class="page-topline">
+            <div>
+              <div class="source-path">Review dashboard</div>
+              <h2>Review State</h2>
+            </div>
+            <button id="refreshDashboard" type="button">Refresh</button>
+          </div>
+          <div id="dashboardSummary" class="dashboard-summary"></div>
+          <div id="dashboardSections" class="dashboard-sections"></div>
+        </section>
+      </section>
+
+      <aside class="inspector">
+        <h3>Metadata</h3>
+        <dl id="metadataPanel"></dl>
+        <h3>Traceability</h3>
+        <div id="tracePanel"></div>
+        <h3>Backlinks</h3>
+        <div id="backlinksPanel"></div>
+      </aside>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

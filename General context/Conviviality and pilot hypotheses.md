@@ -1,5 +1,5 @@
 ---
-title: Legacy Pointer - Business And Pilot Hypotheses
+title: Legacy Pointer - Conviviality And Pilot Hypotheses
 layer: business
 status: stale/deprecated
 maturity: deprecated
@@ -17,8 +17,8 @@ consumed_by:
 implemented_by:
 ---
 
-# Legacy Pointer - Business And Pilot Hypotheses
+# Legacy Pointer - Conviviality And Pilot Hypotheses
 
-This old route is preserved as a pointer. Use [Business and pilot hypotheses](Parked/Business%20and%20pilot%20hypotheses.md) for the parked canonical page.
+This former long document has been refactored into [Business and pilot hypotheses](Parked/Business%20and%20pilot%20hypotheses.md).
 
 Do not add new canonical content here.

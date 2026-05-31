@@ -1,5 +1,5 @@
 ---
-title: What FieldPlatform Should Not Become
+title: How Tools Like This Go Wrong
 layer: principles
 status: generated/unreviewed
 maturity: design target
@@ -12,59 +12,112 @@ approved_file_hash:
 canonical_for:
   - product guardrails
   - anti-drift rules
+  - what FieldPlatform should not become
 related:
   - What FieldPlatform is for.md
   - Living field principles.md
+  - ../Maintenance/Product guardrails for agents.md
   - ../Frontend/Language and copy rules.md
 depends_on:
   - What FieldPlatform is for.md
+  - Living field principles.md
 consumed_by:
   - ../Architecture/Review and approval model.md
   - ../Maintenance/Context maintenance for agents.md
 implemented_by:
 ---
 
-# What FieldPlatform Should Not Become
+# How Tools Like This Go Wrong
 
-This page names the boundaries. It should help builders notice when a useful feature idea starts pulling FieldPlatform toward the wrong kind of product.
+Tools that help people find events, communities, resources, or connections tend to fail in familiar ways.
 
-FieldPlatform is not primarily:
+They begin with a real human need, then slide toward a product shape that is easier to measure, sell, administer, or automate than it is to inhabit.
 
-- an [event](../Data%20layer/Event%20offering%20entity.md) marketplace
-- a resource catalogue
-- a CRM
-- a productivity dashboard
-- a social feed
-- an organizer funnel
-- a behavioral-data project
-- a universal map of a [living field](Living%20field%20principles.md)
+This page names those traps so FieldPlatform can avoid them.
 
-## Core Guardrails
+## Marketplace Drift
 
-- Do not digitize the [living field](Living%20field%20principles.md). Digitize thresholds where it becomes illegible.
-- Do not build a catalogue of everything alive merely because it can be represented.
-- Do not ask [people](../Data%20layer/Person%20entity.md) to complete profiles, resource maps, or social graphs before the platform can create value.
-- Do not keep [people](../Data%20layer/Person%20entity.md) in the app when asking a nearby human, walking, resting, joining the room, or doing the project directly would serve better.
-- Do not make the [living field](Living%20field%20principles.md) more administrative in the name of legibility.
-- Do not make [community](../Data%20layer/Community%20entity.md) belonging a binary member/non-member truth.
-- Do not make attending, following, requesting access, or connecting with a [person](../Data%20layer/Person%20entity.md) reveal identity, history, contact details, opinions, or participation graph by default.
-- Do not make steward or [community](../Data%20layer/Community%20entity.md) management tools feel like surveillance or CRM.
-- Do not make [event](../Data%20layer/Event%20offering%20entity.md) creation or sharing feel like ad targeting.
-- Do not treat generated fields as managed [communities](../Data%20layer/Community%20entity.md).
-- Do not hide why something is recommended, calculated, related, or waiting for review.
-- Do not make suggested relations feel like ownership, automatic publication, marketing reach, or social pressure.
-- Do not let calculated relations override consent, boundaries, capacity, or steward authority.
+The easy failure is to treat every gathering, practice, venue, and community as a listing.
+
+Then the product starts optimizing for discovery, conversion, reach, popularity, and promotion.
+
+FieldPlatform should instead ask: what helps someone understand whether this is a possible way in, and what step is appropriate now?
+
+Avoid:
+
+- ranking community life by popularity
+- making event creation feel like ad targeting
+- making attendance the main proof of value
+- turning entry guidance into sales copy
+
+## Catalogue Drift
+
+Another failure is to build a complete directory of everything alive.
+
+This looks helpful, but it quickly becomes stale, bureaucratic, and misleading. It also asks people to maintain a digital version of life that is larger than the value they get back.
+
+FieldPlatform should not catalogue the [living field](Living%20field%20principles.md) merely because something can be represented.
+
+It should capture limited traces that help at specific thresholds: arrival, entry, review, consent, capacity, handoff, memory, digestion, and next action.
+
+## CRM And Admin Drift
+
+A platform for communities can easily become a work system for managing people.
+
+Stewards then become operators. Community care becomes record maintenance. Participation becomes status management. The person using the product becomes a contact, lead, member, segment, or task.
+
+FieldPlatform should avoid this by keeping roles contextual, review surfaces contained, and human authority clear.
+
+It should not make steward or community tools feel like surveillance, funnel management, or customer operations.
+
+## Social Feed Drift
+
+When participation becomes a feed, people learn to perform for attention.
+
+The product starts rewarding visibility, reaction, update frequency, and social comparison. The field becomes content.
+
+FieldPlatform should not make community life into a public stream. It should make relevant context visible when it helps someone understand where they are, what is possible, or what needs care.
+
+## Productivity Drift
+
+Tools often turn life into tasks, progress, goals, and completion pressure.
+
+That can make rest, uncertainty, waiting, digestion, and quiet participation look like failure.
+
+FieldPlatform should make movement possible without making constant movement mandatory. Rest, non-action, leaving, waiting, and soft participation must remain legitimate outcomes.
+
+## Surveillance And Prediction Drift
+
+Any platform that sees relationships can start acting as if more data is always better.
+
+That path leads toward behavioral prediction, hidden scoring, unclear recommendations, and visibility that people did not meaningfully choose.
+
+FieldPlatform should keep access, consent, boundaries, capacity, [review state](../Architecture/Review%20and%20approval%20model.md), visibility, and action target distinct.
+
+It should not make attending, following, requesting access, or connecting with someone reveal identity, history, contact details, opinions, or a participation graph by default.
+
+## Universal Map Drift
+
+The most seductive failure is to believe the platform can map the whole field.
+
+It cannot.
+
+Generated fields are patterns, not managed communities. Suggested relations are invitations to review, not ownership. Calculated relations must not override consent, boundaries, capacity, or steward authority.
+
+When the product is uncertain, it should say so. If a decision is not ready to become schema or UI, mark it in [Open questions](../Current%20direction/Open%20questions.md) instead of hardening it too early.
 
 ## Drift Checks
 
-Use these questions before adding a feature, data field, or UI surface.
+Use these questions before adding a feature, data field, or UI surface:
 
-- Does this help [people](../Data%20layer/Person%20entity.md) return to contact with life?
+- Does this help people return to contact with life?
 - Is this a threshold where the field has become hard to read?
-- Does the input change what becomes possible for the [person](../Data%20layer/Person%20entity.md) or field?
+- Does the input change what becomes possible for the person or field?
 - Is the input feasible and worth the effort?
 - Is this visibility in service of movement, or visibility for metrics, performance, capture, or control?
 - Can this be handled better by proximity, direct conversation, rest, walking, a meal, or doing the work?
-- Are we keeping access, cost, audience, experience, entry support, requirements, evidence, [review state](../Architecture/Review%20and%20approval%20model.md), visibility, and action target separate enough?
+- Are we keeping access, cost, audience, experience, entry support, requirements, evidence, review state, visibility, and action target separate enough?
 
-If the answer is unclear, mark the point in [Open questions](../Current%20direction/Open%20questions.md) instead of hardening it into schema or UI.
+---
+
+For stricter agent-facing rules, see [Product guardrails for agents](../Maintenance/Product%20guardrails%20for%20agents.md).

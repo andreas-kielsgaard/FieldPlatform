@@ -16,8 +16,10 @@ canonical_for:
 related:
   - What FieldPlatform is for.md
   - What FieldPlatform should not become.md
+  - ../Maintenance/Product guardrails for agents.md
   - ../Parked/Conviviality and pilot hypotheses.md
 depends_on:
+  - What FieldPlatform is for.md
 consumed_by:
   - ../Ontology/Product ontology.md
   - ../Frontend/Surface grammar.md
@@ -26,37 +28,62 @@ implemented_by:
 
 # Living Field Principles
 
-Do not digitize the living field. Digitize the thresholds where the living field becomes illegible.
+This page translates the platform vision into design judgment.
 
-The living field is the real life around the app: [people](../Data%20layer/Person%20entity.md), places, [communities](../Data%20layer/Community%20entity.md), practices, trust, needs, offers, rhythm, memory, care, and timing.
+The living field is the real life around the app: people, places, communities, practices, trust, needs, offers, rhythm, memory, care, and timing.
 
-The platform should help [people](../Data%20layer/Person%20entity.md) return to contact with that life. It should not make life serve the app.
+FieldPlatform should help people return to contact with that life. It should not make life serve the app.
 
 A digital representation is only a partial trace. It can help at specific moments, but it is not the field itself.
 
-FieldPlatform should therefore prefer situated exchanges over total models:
+## The Main Design Move
 
-- a [person](../Data%20layer/Person%20entity.md) names what they are arriving with today
+Do not digitize the living field. Digitize the thresholds where the living field becomes hard to read.
+
+That means the product should avoid collecting a complete model of everything alive. It should focus on moments where a person, steward, facilitator, or community needs just enough shared context to move well.
+
+Good digital traces are situated, useful, and limited:
+
+- a person names what they are arriving with today
 - a steward reviews a specific suggested connection
 - a [community](../Data%20layer/Community%20entity.md) explains entry guidance
 - a participant sees a first step
 - a facilitator requests necessary logistical information for a specific [event](../Data%20layer/Event%20offering%20entity.md)
-- a [group](../Data%20layer/Community%20entity.md) carries forward one useful nugget and lets the rest disappear
+- a group carries forward one useful note and lets the rest disappear
 
-## Aliveness And Rhythm
+## Convivial Tooling
+
+A convivial tool increases people's ability to act with judgment, ask for support, join with care, rest, and understand what is around them.
+
+It should not make people dependent on expert-controlled infrastructure in order to know themselves, participate, or care for a space.
+
+In product terms, that means:
+
+- every input needs a fair return
+- the app should explain why it asks for information
+- visibility should be scoped to the situation
+- signals should expire when their usefulness expires
+- suggested relations need review where authority and consequence matter
+- recommendations should explain themselves
+- consent, boundaries, capacity, and steward authority should not be overridden by calculation
+- direct contact should win when direct contact is better
+
+## Rhythm And Timing
 
 The product should support contact rather than output alone.
 
-It should protect activation without coercion, engagement without dissociation, purpose without performance pressure, rest as participation, care for the space as participation, and body, need, relation, and emotion as part of the field.
+It should protect activation without coercion, purpose without performance pressure, rest as participation, care for the space as participation, and body, need, relation, and emotion as part of the field.
 
-Seasonal language is a design lens, not mandatory UI:
+Seasonal language can be a design lens, but it does not need to appear in the interface:
 
 - spring: arrival, activation, orientation, state clarity, [self-resourcing](../Modules/Self-resourcing%20Entry%20module.md)
 - summer: creation, focus, doing the thing
 - fall: digestion, selection, carry-forward, memory
 - winter: rest, landing, soft togetherness, letting traces dissolve
 
-The app is likely most useful around spring and fall thresholds. It should be quieter when proximity, conversation, meals, walks, room presence, rest, or doing the work already serves the movement better.
+The app is likely most useful around spring and fall thresholds: arrival, orientation, transition, digestion, and carry-forward.
+
+It should be quieter when proximity, conversation, meals, walks, room presence, rest, or doing the work already serves the movement better.
 
 ## Feasible Information Exchange
 
@@ -64,27 +91,30 @@ Do not design as if the platform can know every resource, capacity, contact, sta
 
 Useful information is information that can realistically and convivially enter the system:
 
-- lightweight declarations [people](../Data%20layer/Person%20entity.md) already want to make visible
+- lightweight declarations people already want to make visible
 - scoped asks and offers with immediate value
 - signals that expire quickly
 - relations reviewed where authority and consequence are clear
 - selected nuggets from digestion
 - support patterns intentionally carried forward
 
-Every input needs a fair return. The product should be clear about what effort is asked, what value returns, how soon it returns, and why the app is the right medium.
+The product should be clear about what effort is asked, what value returns, how soon it returns, and why the app is the right medium.
 
-## Convivial Tool Behavior
+## From Principle To Interface
 
-The platform should enlarge [people](../Data%20layer/Person%20entity.md)'s ability to act, ask, join, care, rest, and understand.
+These principles should show up in concrete interface choices:
 
-It should not become expert-controlled infrastructure that [communities](../Data%20layer/Community%20entity.md) must obey to know themselves.
+- ask for less, but make the return clearer
+- show why a connection or next step appears
+- separate what is known, suggested, reviewed, private, and unresolved
+- make review states visible where they affect action
+- make leaving, resting, hiding, or waiting legitimate outcomes
+- treat generated patterns as provisional, not as communities
+- prefer short-lived signals over permanent identity claims
+- use ordinary language in the interface, not internal principle language
 
-Anti-convivial drift appears when:
+The test is simple: after using FieldPlatform, does a person understand the living situation better and feel more able to act within it?
 
-- the app asks [people](../Data%20layer/Person%20entity.md) to maintain a digital double
-- more data capture becomes the default answer
-- stewards become CRM operators
-- recommendations become manipulation
-- care becomes scoring
-- [community](../Data%20layer/Community%20entity.md) life becomes a public catalogue
-- proximity is replaced by unnecessary app mediation
+---
+
+For stricter agent-facing rules, see [Product guardrails for agents](../Maintenance/Product%20guardrails%20for%20agents.md).

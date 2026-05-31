@@ -31,12 +31,12 @@ It contains the platform purpose, [operating principles](Principles/Living%20fie
 
 ## Recommended Reading Order
 
-1. [What FieldPlatform is for](Principles/What%20FieldPlatform%20is%20for.md): the shortest answer to why the platform exists.
-2. [Living field principles](Principles/Living%20field%20principles.md): the [operating principles](Principles/Living%20field%20principles.md) behind the product.
-3. [What FieldPlatform should not become](Principles/What%20FieldPlatform%20should%20not%20become.md): [product boundaries](Principles/What%20FieldPlatform%20should%20not%20become.md).
+1. [What FieldPlatform is for](Principles/What%20FieldPlatform%20is%20for.md): why the platform should exist and what kind of life it serves.
+2. [Living field principles](Principles/Living%20field%20principles.md): how living-field and convivial-tooling ideas become design judgment.
+3. [How tools like this go wrong](Principles/What%20FieldPlatform%20should%20not%20become.md): the familiar product traps FieldPlatform must avoid.
 4. [Platform architecture overview](Architecture/Platform%20architecture%20overview.md): how the product is structured.
 5. [Product concepts](Ontology/Product%20ontology.md): the main objects and ideas in plain domain language.
-6. [User stories overview](User%20stories/User%20stories%20overview.md): what [people](Data%20layer/Person%20entity.md) are trying to do over time.
+6. [User stories overview](User%20stories/User%20stories%20overview.md): what someone is trying to do over time.
 7. [Views overview](Frontend/Views%20overview.md): the main screens or surfaces.
 8. [Modules overview](Frontend/Modules%20overview.md): the smaller UI parts that live inside [views](Frontend/Views%20overview.md).
 9. [Data layer overview](Architecture/Data%20layer%20overview.md) and [Access layer overview](Architecture/Access%20layer%20overview.md): the technical foundations.
@@ -45,11 +45,11 @@ Use [Project words in plain English](Glossary/Project%20words%20in%20plain%20Eng
 
 ## Navigation Sections
 
-- [Principles](Principles/What%20FieldPlatform%20is%20for.md): purpose, [operating principles](Principles/Living%20field%20principles.md), and [product boundaries](Principles/What%20FieldPlatform%20should%20not%20become.md).
+- [Principles](Principles/What%20FieldPlatform%20is%20for.md): purpose, design philosophy, and product failure modes.
 - [Vocabulary](Glossary/Project%20words%20in%20plain%20English.md): plain-language meanings for recurring project terms.
 - [Product Concepts](Ontology/Product%20ontology.md): [people](Data%20layer/Person%20entity.md), [communities](Data%20layer/Community%20entity.md), [events](Data%20layer/Event%20offering%20entity.md), relations, [holds](Ontology/Hold%20unclear%20point.md), and [pathways](Ontology/Pathway%20ways%20in.md).
 - [User Stories and Flows](User%20stories/User%20stories%20overview.md): what someone is trying to understand or do.
-- [Views](Frontend/Views%20overview.md): the places where a [person](Data%20layer/Person%20entity.md) sees and acts.
+- [Views](Frontend/Views%20overview.md): the places where someone sees and acts.
 - [Modules](Frontend/Modules%20overview.md): reusable pieces inside [views](Frontend/Views%20overview.md).
 - [Interface Rules](Frontend/Surface%20grammar.md): [surface grammar](Frontend/Surface%20grammar.md), language, copy, and interaction boundaries.
 - [Data Layer](Architecture/Data%20layer%20overview.md): stored entities, relationships, and invariants.
@@ -57,7 +57,7 @@ Use [Project words in plain English](Glossary/Project%20words%20in%20plain%20Eng
 - [Platform Structure](Architecture/Platform%20architecture%20overview.md): how [product concepts](Ontology/Product%20ontology.md) connect to implementation areas.
 - [Open Direction](Current%20direction/Open%20questions.md): unresolved product and context questions.
 - [Parked Ideas](Parked/Future%20exploration%20notes.md): useful ideas outside current product direction.
-- [Wiki Maintenance](Maintenance/Context%20maintenance%20for%20agents.md): [review state](Architecture/Review%20and%20approval%20model.md), [traceability](Architecture/Traceability%20model.md), and update rules.
+- [Wiki Maintenance](Maintenance/Context%20maintenance%20for%20agents.md): [review state](Architecture/Review%20and%20approval%20model.md), [traceability](Architecture/Traceability%20model.md), update rules, and [agent product guardrails](Maintenance/Product%20guardrails%20for%20agents.md).
 
 ## Source Of Truth Rule
 
@@ -67,7 +67,7 @@ The local app under `Tools/context-wiki/` renders, searches, reviews, and can wr
 
 ## Status Meanings
 
-Pages use lightweight frontmatter so the wiki tool can [group](Data%20layer/Community%20entity.md) and review them.
+Pages use lightweight frontmatter so the wiki tool can group and review them.
 
 - `generated/unreviewed`: migrated or written by an agent and still needing human review. Agents may use it as current context unless another page marks it parked, stale, or explicitly uncertain.
 - `human-reviewed`: a human has read and corrected it, but has not made it an approved spec.

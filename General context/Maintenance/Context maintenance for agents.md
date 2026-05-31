@@ -16,6 +16,7 @@ related:
   - ../README.md
   - ../Architecture/Traceability model.md
   - ../Architecture/Review and approval model.md
+  - Product guardrails for agents.md
 depends_on:
   - ../Principles/What FieldPlatform should not become.md
 consumed_by:
@@ -34,7 +35,7 @@ implemented_by:
 1. Run `git status --short --branch`.
 2. Treat existing changes as user-owned.
 3. Read `Wiki Goal Prompt` when the task concerns the context wiki or spec system.
-4. Read [General Context Wiki](../README.md), [What FieldPlatform is for](../Principles/What%20FieldPlatform%20is%20for.md), [What FieldPlatform should not become](../Principles/What%20FieldPlatform%20should%20not%20become.md), and the most specific task pages.
+4. Read [General Context Wiki](../README.md), [What FieldPlatform is for](../Principles/What%20FieldPlatform%20is%20for.md), [Living field principles](../Principles/Living%20field%20principles.md), [How tools like this go wrong](../Principles/What%20FieldPlatform%20should%20not%20become.md), [Product guardrails for agents](Product%20guardrails%20for%20agents.md), and the most specific task pages.
 5. If a change affects product meaning, use the most specific canonical page. Do not create a duplicate summary.
 
 ## Updating Context
@@ -74,17 +75,9 @@ Update the relevant page or add an open question. The goal is that the platform 
 
 ## Guardrails To Preserve
 
-- FieldPlatform supports [self-resourcing through field awareness](../Principles/What%20FieldPlatform%20is%20for.md).
-- Do not digitize the [living field](../Principles/Living%20field%20principles.md); digitize thresholds where it becomes illegible.
-- Help [people](../Data%20layer/Person%20entity.md) return to contact with life instead of feeding a digital double.
-- Avoid catalogue drift, CRM/surveillance drift, metaphysical UI leakage, and omniscient-platform fantasy.
-- [FieldRelation](../Data%20layer/FieldRelation.md) is a data/domain primitive, not the primary ordinary UI object.
-- [ParticipationEdge](../Data%20layer/ParticipationEdge.md) is person-community belonging.
-- Generated fields are computed patterns, not [communities](../Data%20layer/Community%20entity.md).
-- [Holds](../Ontology/Hold%20unclear%20point.md) explain unclear movement; they are not shame labels.
-- [Pathways](../Ontology/Pathway%20ways%20in.md)/[ways in](../Ontology/Pathway%20ways%20in.md) are grouped next actions.
-- Steward review is role-gated and contained.
-- Suggestions are contextual clarification, not ownership, marketing, publication, or social pressure.
+Use [Product guardrails for agents](Product%20guardrails%20for%20agents.md) when a change might affect product meaning, data representation, access behavior, review workflow, interface language, or product boundaries.
+
+The short version: FieldPlatform supports [self-resourcing through field awareness](../Principles/What%20FieldPlatform%20is%20for.md). Do not digitize the [living field](../Principles/Living%20field%20principles.md); digitize thresholds where it becomes hard to read. Avoid catalogue drift, CRM/surveillance drift, metaphysical UI leakage, and omniscient-platform fantasy.
 
 ## Review And Approval
 

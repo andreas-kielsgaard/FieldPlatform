@@ -25,6 +25,6 @@ This former long document has been refactored into:
 
 - [What FieldPlatform is for](Principles/What%20FieldPlatform%20is%20for.md)
 - [Living field principles](Principles/Living%20field%20principles.md)
-- [What FieldPlatform should not become](Principles/What%20FieldPlatform%20should%20not%20become.md)
+- [How tools like this go wrong](Principles/What%20FieldPlatform%20should%20not%20become.md)
 
 Do not add new canonical content here.

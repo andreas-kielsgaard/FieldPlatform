@@ -53,7 +53,7 @@
           <article id="markdownBody" class="markdown"></article>
           <section id="editorPanel" class="editor-panel hidden">
             <div class="editor-topline">
-              <div class="editor-note">Editing Markdown for this page.</div>
+              <div class="editor-note">Editing this page visually. Save writes Markdown back to the source file.</div>
               <div class="editor-actions compact">
                 <button id="saveButton" type="button">Save</button>
                 <input id="approvedBy" type="text" placeholder="Reviewer name">
@@ -61,7 +61,12 @@
               </div>
             </div>
             <div class="markdown-toolbar" aria-label="Markdown tools">
-              <button type="button" data-format="heading">H2</button>
+              <select id="blockFormat" aria-label="Text style">
+                <option value="p">Paragraph</option>
+                <option value="h1">Headline 1</option>
+                <option value="h2">Headline 2</option>
+                <option value="h3">Headline 3</option>
+              </select>
               <button type="button" data-format="bold">B</button>
               <button type="button" data-format="italic">I</button>
               <button type="button" data-format="code">Code</button>
@@ -73,7 +78,8 @@
               <button type="button" data-format="tag">Tag</button>
               <button type="button" data-format="comment">Comment</button>
             </div>
-            <textarea id="editorText" spellcheck="false"></textarea>
+            <article id="visualEditor" class="markdown visual-editor" contenteditable="true" spellcheck="true" aria-label="Visual Markdown editor"></article>
+            <textarea id="editorText" class="hidden" aria-hidden="true" tabindex="-1"></textarea>
             <div id="tagSuggestionPanel" class="tag-suggestion-panel hidden" aria-live="polite">
               <div class="tag-suggestion-title">Tag suggestions</div>
               <div id="tagSuggestions" class="tag-suggestions"></div>
@@ -95,16 +101,28 @@
         </section>
       </section>
 
-      <aside class="inspector" aria-label="Spec details">
-        <button id="toggleInspector" class="inspector-toggle" type="button" aria-expanded="false" aria-controls="inspectorPanel">Spec</button>
+      <aside class="inspector" aria-label="Review details">
+        <button id="toggleInspector" class="inspector-toggle" type="button" aria-expanded="false" aria-controls="inspectorPanel">Info</button>
         <div id="inspectorPanel" class="inspector-panel" aria-hidden="true">
-          <h2>Spec Details</h2>
-          <h3>Metadata</h3>
-          <dl id="metadataPanel"></dl>
-          <h3>Traceability</h3>
-          <div id="tracePanel"></div>
-          <h3>Backlinks</h3>
-          <div id="backlinksPanel"></div>
+          <div class="inspector-tabs" role="tablist" aria-label="Inspector sections">
+            <button id="commentsTab" class="active" type="button" role="tab" aria-selected="true" aria-controls="commentsPanel">
+              Comments <span id="commentCount">0</span>
+            </button>
+            <button id="specsTab" type="button" role="tab" aria-selected="false" aria-controls="specsPanel">Specs</button>
+          </div>
+          <section id="commentsPanel" class="inspector-tab-panel" role="tabpanel" aria-labelledby="commentsTab">
+            <h2>Comments</h2>
+            <div id="commentsList" class="comments-list"></div>
+          </section>
+          <section id="specsPanel" class="inspector-tab-panel hidden" role="tabpanel" aria-labelledby="specsTab">
+            <h2>Spec Details</h2>
+            <h3>Metadata</h3>
+            <dl id="metadataPanel"></dl>
+            <h3>Traceability</h3>
+            <div id="tracePanel"></div>
+            <h3>Backlinks</h3>
+            <div id="backlinksPanel"></div>
+          </section>
         </div>
       </aside>
     </main>

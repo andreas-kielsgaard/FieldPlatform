@@ -11,6 +11,7 @@ const defaultPort = Number(process.env.PORT || 4177);
 
 const requiredMeta = ["title", "layer", "status", "provenance", "review_state"];
 const approvalKeys = new Set(["approved_by", "approved_at", "approved_commit", "approved_file_hash"]);
+const reviewMetadataKeys = new Set([...approvalKeys, "human_sections", "approved_sections"]);
 
 function toPosix(value) {
   return value.split(path.sep).join("/");
@@ -104,6 +105,8 @@ function stringifyFrontmatter(metadata) {
     "approved_at",
     "approved_commit",
     "approved_file_hash",
+    "human_sections",
+    "approved_sections",
     "canonical_for",
     "related",
     "depends_on",
@@ -143,13 +146,148 @@ function titleFromBody(body, fallback) {
 function reviewHash(text) {
   const parsed = parseFrontmatter(text);
   const metadata = { ...parsed.metadata };
-  for (const key of approvalKeys) delete metadata[key];
+  for (const key of reviewMetadataKeys) delete metadata[key];
   const canonical = `${stringifyFrontmatter(metadata)}\n${parsed.body.replace(/\r\n/g, "\n")}`;
   return crypto.createHash("sha256").update(canonical).digest("hex");
 }
 
 function fileHash(text) {
   return crypto.createHash("sha256").update(text.replace(/\r\n/g, "\n")).digest("hex");
+}
+
+function normalizeSectionText(text) {
+  return String(text || "")
+    .replace(/\r\n/g, "\n")
+    .replace(/[ \t]+$/gm, "")
+    .trim();
+}
+
+function sectionHash(markdown) {
+  return crypto.createHash("sha256").update(normalizeSectionText(markdown)).digest("hex");
+}
+
+function sectionizeMarkdown(body) {
+  const lines = String(body || "").replace(/\r\n/g, "\n").split("\n");
+  const sections = [];
+  let current = [];
+  let startLine = 1;
+
+  const pushCurrent = () => {
+    const markdown = current.join("\n").trim();
+    if (!markdown) return;
+    const firstLine = markdown.split("\n")[0] || "";
+    const heading = firstLine.match(/^(#{1,6})\s+(.+)$/);
+    sections.push({
+      id: `section-${sections.length + 1}`,
+      index: sections.length,
+      startLine,
+      level: heading ? heading[1].length : 0,
+      heading: heading ? heading[2].trim() : "Opening text",
+      markdown,
+      hash: sectionHash(markdown)
+    });
+  };
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    if (/^#{1,6}\s+/.test(line) && current.some((item) => item.trim())) {
+      pushCurrent();
+      current = [line];
+      startLine = index + 1;
+    } else {
+      if (!current.length) startLine = index + 1;
+      current.push(line);
+    }
+  }
+  pushCurrent();
+  return sections;
+}
+
+function withSortedValues(values) {
+  return [...values].sort();
+}
+
+function gitPathForContext(relativePath) {
+  return path.posix.join("General context", relativePath);
+}
+
+function pathHasWorkingChange(relativePath) {
+  return Boolean(git(["status", "--short", "--", gitPathForContext(relativePath)], ""));
+}
+
+function latestCommitLabel(relativePath) {
+  return git(["log", "--format=%h %s", "-n", "1", "--", gitPathForContext(relativePath)], "");
+}
+
+function reviewModel(page) {
+  const humanHashes = new Set(normalizeList(page.metadata.human_sections));
+  const approvedHashes = new Set(normalizeList(page.metadata.approved_sections));
+  const fullyApproved = /human-approved/i.test(String(page.metadata.review_state || "")) &&
+    (!page.metadata.approved_file_hash || page.metadata.approved_file_hash === page.reviewHash);
+  const hasWorkingChange = pathHasWorkingChange(page.path);
+  const commitLabel = hasWorkingChange ? "not committed" : (latestCommitLabel(page.path) || "commit unknown");
+  const sections = sectionizeMarkdown(page.body).map((section) => {
+    let state = "ai-generated";
+    if (fullyApproved || approvedHashes.has(section.hash)) state = "human-approved";
+    else if (humanHashes.has(section.hash)) state = "human-written";
+    return {
+      ...section,
+      state,
+      commitLabel: state === "ai-generated" ? commitLabel : "",
+      tooltip: state === "ai-generated" ? `Generated text added in ${commitLabel}` : reviewStateLabel(state)
+    };
+  });
+  return {
+    path: page.path,
+    sourcePath: page.sourcePath,
+    title: page.title,
+    metadata: page.metadata,
+    reviewHash: page.reviewHash,
+    contentHash: page.contentHash,
+    commitLabel,
+    sections,
+    summary: {
+      generated: sections.filter((section) => section.state === "ai-generated").length,
+      humanWritten: sections.filter((section) => section.state === "human-written").length,
+      humanApproved: sections.filter((section) => section.state === "human-approved").length
+    }
+  };
+}
+
+function reviewStateLabel(state) {
+  if (state === "human-approved") return "Human approved";
+  if (state === "human-written") return "Human written";
+  return "AI generated";
+}
+
+function contentWithHumanSectionTracking(previousContent, nextContent) {
+  const previous = parseFrontmatter(previousContent || "");
+  const next = parseFrontmatter(nextContent || "");
+  const previousHashes = new Set(sectionizeMarkdown(previous.body).map((section) => section.hash));
+  const currentSections = sectionizeMarkdown(next.body);
+  const currentHashes = new Set(currentSections.map((section) => section.hash));
+  const metadata = { ...next.metadata };
+  const humanHashes = new Set(normalizeList(metadata.human_sections).filter((hash) => currentHashes.has(hash)));
+  const approvedHashes = new Set(normalizeList(metadata.approved_sections).filter((hash) => currentHashes.has(hash)));
+
+  for (const section of currentSections) {
+    if (!previousHashes.has(section.hash)) {
+      humanHashes.add(section.hash);
+      approvedHashes.delete(section.hash);
+    }
+  }
+
+  if (humanHashes.size) metadata.human_sections = withSortedValues(humanHashes);
+  else delete metadata.human_sections;
+  if (approvedHashes.size) metadata.approved_sections = withSortedValues(approvedHashes);
+  else delete metadata.approved_sections;
+
+  if (humanHashes.size && !/human-approved/i.test(String(metadata.review_state || ""))) {
+    metadata.provenance = /agent|generated|migrated|mixed|unknown/i.test(String(metadata.provenance || "")) ? "mixed" : (metadata.provenance || "human-edited");
+    metadata.review_state = metadata.review_state || "needs-human-review";
+  }
+
+  return `${stringifyFrontmatter(metadata)}\n\n${next.body.replace(/^\n+/, "")}`;
 }
 
 function resolveWikiReference(fromPage, reference) {
@@ -388,6 +526,13 @@ async function handleApi(req, res, url) {
     sendJson(res, dashboard(pages));
     return;
   }
+  if (req.method === "GET" && url.pathname === "/api/review") {
+    const requested = url.searchParams.get("path") || "README.md";
+    const page = pages.find((item) => item.path === requested);
+    if (!page) return sendJson(res, { error: "Page not found" }, 404);
+    sendJson(res, reviewModel(page));
+    return;
+  }
   if (req.method === "GET" && url.pathname === "/api/diff") {
     const requested = url.searchParams.get("path");
     const page = requested ? pages.find((item) => item.path === requested) : null;
@@ -403,8 +548,13 @@ async function handleApi(req, res, url) {
   if (req.method === "POST" && url.pathname === "/api/save") {
     const payload = JSON.parse(await readBody(req));
     const abs = insideContext(payload.path);
-    fs.writeFileSync(abs, String(payload.content || ""), "utf8");
-    sendJson(res, { ok: true, path: fromContext(abs), reviewHash: reviewHash(String(payload.content || "")) });
+    const previousContent = fs.existsSync(abs) ? fs.readFileSync(abs, "utf8") : "";
+    const incomingContent = String(payload.content || "");
+    const nextContent = payload.source === "human-edit"
+      ? contentWithHumanSectionTracking(previousContent, incomingContent)
+      : incomingContent;
+    fs.writeFileSync(abs, nextContent, "utf8");
+    sendJson(res, { ok: true, path: fromContext(abs), reviewHash: reviewHash(nextContent) });
     return;
   }
   if (req.method === "POST" && url.pathname === "/api/approve") {
@@ -417,8 +567,9 @@ async function handleApi(req, res, url) {
     metadata.approved_by = String(payload.approvedBy || "human-reviewer");
     metadata.approved_at = new Date().toISOString();
     metadata.approved_commit = currentCommit();
+    metadata.approved_sections = sectionizeMarkdown(parsed.body).map((section) => section.hash);
     metadata.approved_file_hash = reviewHash(content);
-    const updated = `${stringifyFrontmatter(metadata)}\n${parsed.body.replace(/^\n+/, "")}`;
+    const updated = `${stringifyFrontmatter(metadata)}\n\n${parsed.body.replace(/^\n+/, "")}`;
     fs.writeFileSync(abs, updated, "utf8");
     sendJson(res, { ok: true, path: fromContext(abs), approved_file_hash: metadata.approved_file_hash });
     return;

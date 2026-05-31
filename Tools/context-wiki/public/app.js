@@ -3,6 +3,12 @@ let currentPage = null;
 let dashboard = null;
 let termEntries = [];
 let surfaceMode = "read";
+let savedEditorRange = null;
+let currentReview = null;
+let currentComments = [];
+let activeInspectorTab = "comments";
+let selectedTag = null;
+const editorUndoStack = [];
 const openNavGroups = new Set();
 
 const navGroups = [
@@ -36,6 +42,7 @@ const els = {
   sourcePath: document.getElementById("sourcePath"),
   metaChips: document.getElementById("metaChips"),
   markdownBody: document.getElementById("markdownBody"),
+  visualEditor: document.getElementById("visualEditor"),
   metadataPanel: document.getElementById("metadataPanel"),
   tracePanel: document.getElementById("tracePanel"),
   backlinksPanel: document.getElementById("backlinksPanel"),
@@ -43,6 +50,7 @@ const els = {
   editorText: document.getElementById("editorText"),
   tagSuggestionPanel: document.getElementById("tagSuggestionPanel"),
   tagSuggestions: document.getElementById("tagSuggestions"),
+  blockFormat: document.getElementById("blockFormat"),
   editButton: document.getElementById("editButton"),
   saveButton: document.getElementById("saveButton"),
   approveButton: document.getElementById("approveButton"),
@@ -58,6 +66,12 @@ const els = {
   dashboardSections: document.getElementById("dashboardSections"),
   toggleInspector: document.getElementById("toggleInspector"),
   inspectorPanel: document.getElementById("inspectorPanel"),
+  commentsTab: document.getElementById("commentsTab"),
+  specsTab: document.getElementById("specsTab"),
+  commentsPanel: document.getElementById("commentsPanel"),
+  specsPanel: document.getElementById("specsPanel"),
+  commentCount: document.getElementById("commentCount"),
+  commentsList: document.getElementById("commentsList"),
   linkPreview: document.getElementById("linkPreview")
 };
 
@@ -67,6 +81,7 @@ async function init() {
   await loadPages();
   populateFilters();
   bindEvents();
+  setInspectorTab("comments");
   setInspectorOpen(false);
   setSidebarOpen(true);
   const initial = decodeURIComponent(location.hash.replace(/^#/, "")) || "README.md";
@@ -97,10 +112,33 @@ function bindEvents() {
     setSurfaceMode(surfaceMode === "edit" ? "read" : "edit");
   });
   document.querySelectorAll("[data-format]").forEach((button) => {
+    button.addEventListener("mousedown", (event) => {
+      event.preventDefault();
+      saveEditorSelection();
+    });
     button.addEventListener("click", () => applyMarkdownFormat(button.getAttribute("data-format")));
   });
-  ["input", "click", "keyup", "select"].forEach((eventName) => {
-    els.editorText.addEventListener(eventName, renderTagSuggestions);
+  els.blockFormat.addEventListener("mousedown", saveEditorSelection);
+  els.blockFormat.addEventListener("change", () => applyMarkdownFormat(els.blockFormat.value));
+  ["input", "click", "keyup", "mouseup"].forEach((eventName) => {
+    els.visualEditor.addEventListener(eventName, () => {
+      saveEditorSelection();
+      updateSourceFromVisualEditor();
+      updateCommentsFromContent(els.editorText.value);
+      renderTagSuggestions();
+      updateBlockFormatControl();
+    });
+  });
+  els.visualEditor.addEventListener("keydown", handleVisualEditorKeydown);
+  els.visualEditor.addEventListener("click", (event) => {
+    const tag = event.target.closest("a.term-link");
+    if (tag && surfaceMode === "edit") {
+      event.preventDefault();
+      selectTagElement(tag);
+      return;
+    }
+    clearSelectedTag();
+    if (event.target.closest("a")) event.preventDefault();
   });
   els.saveButton.addEventListener("click", saveCurrentPage);
   els.approveButton.addEventListener("click", approveCurrentPage);
@@ -108,8 +146,12 @@ function bindEvents() {
   els.showReader.addEventListener("click", showReader);
   els.showDashboard.addEventListener("click", showDashboard);
   els.refreshDashboard.addEventListener("click", loadDashboard);
+  els.commentsTab.addEventListener("click", () => setInspectorTab("comments"));
+  els.specsTab.addEventListener("click", () => setInspectorTab("specs"));
   els.toggleInspector.addEventListener("click", () => {
-    setInspectorOpen(!els.shell.classList.contains("inspector-open"));
+    const opening = !els.shell.classList.contains("inspector-open");
+    if (opening) setInspectorTab("comments");
+    setInspectorOpen(opening);
   });
   window.addEventListener("hashchange", () => {
     const target = decodeURIComponent(location.hash.replace(/^#/, ""));
@@ -127,8 +169,39 @@ function setSidebarOpen(open) {
 function setInspectorOpen(open) {
   els.shell.classList.toggle("inspector-open", open);
   els.toggleInspector.setAttribute("aria-expanded", String(open));
-  els.toggleInspector.setAttribute("aria-label", open ? "Hide spec details" : "Show spec details");
+  els.toggleInspector.setAttribute("aria-label", open ? "Hide review details" : "Show review details");
   els.inspectorPanel.setAttribute("aria-hidden", String(!open));
+  updateCommentVisibility();
+}
+
+function setInspectorTab(tab) {
+  activeInspectorTab = tab === "specs" ? "specs" : "comments";
+  const commentsActive = activeInspectorTab === "comments";
+  els.commentsTab.classList.toggle("active", commentsActive);
+  els.specsTab.classList.toggle("active", !commentsActive);
+  els.commentsTab.setAttribute("aria-selected", String(commentsActive));
+  els.specsTab.setAttribute("aria-selected", String(!commentsActive));
+  els.commentsPanel.classList.toggle("hidden", !commentsActive);
+  els.specsPanel.classList.toggle("hidden", commentsActive);
+  updateCommentVisibility();
+}
+
+function updateCommentVisibility() {
+  const commentsOpenInRead = surfaceMode === "read" &&
+    activeInspectorTab === "comments" &&
+    els.shell.classList.contains("inspector-open");
+  els.shell.classList.toggle("comments-visible", surfaceMode === "edit" || surfaceMode === "review" || commentsOpenInRead);
+}
+
+function updateInspectorForMode() {
+  setInspectorTab("comments");
+  if (surfaceMode === "read") {
+    setInspectorOpen(false);
+  } else if (currentComments.length) {
+    setInspectorOpen(true);
+  } else {
+    setInspectorOpen(false);
+  }
 }
 
 function populateFilters() {
@@ -412,6 +485,8 @@ async function openPage(path) {
 }
 
 function renderPage(page) {
+  currentReview = null;
+  updateCommentsFromContent(page.content || page.body || "");
   els.pageTitle.textContent = page.title;
   els.sourcePath.textContent = page.sourcePath;
   els.metaChips.innerHTML = [
@@ -423,6 +498,7 @@ function renderPage(page) {
   els.markdownBody.innerHTML = renderMarkdown(page.body || "");
   wireInternalLinks(els.markdownBody);
   els.editorText.value = page.content;
+  renderVisualEditor(page.body || "");
   setSurfaceMode("read");
   els.diffPanel.innerHTML = "";
   renderMetadata(page);
@@ -441,10 +517,123 @@ function setSurfaceMode(mode) {
   els.diffButton.textContent = mode === "review" ? "Read" : "Review";
   if (mode === "edit") {
     renderTagSuggestions();
-    requestAnimationFrame(() => els.editorText.focus());
+    requestAnimationFrame(() => {
+      els.visualEditor.focus();
+      updateBlockFormatControl();
+    });
   } else {
     renderTagSuggestions();
   }
+  updateInspectorForMode();
+  updateCommentVisibility();
+}
+
+function renderVisualEditor(markdown) {
+  els.visualEditor.innerHTML = renderMarkdown(markdown || "");
+  savedEditorRange = null;
+}
+
+function updateSourceFromVisualEditor() {
+  if (!currentPage || surfaceMode !== "edit") return;
+  els.editorText.value = composePageContentFromEditor();
+}
+
+function composePageContentFromEditor() {
+  const frontmatter = extractFrontmatter(currentPage ? currentPage.content : "").frontmatter;
+  const body = visualEditorToMarkdown(els.visualEditor).trim();
+  return `${frontmatter}${frontmatter ? "\n\n" : ""}${body}\n`;
+}
+
+function extractFrontmatter(content) {
+  const text = String(content || "");
+  if (!text.startsWith("---")) return { frontmatter: "", body: text };
+  const lines = text.replace(/\r\n/g, "\n").split("\n");
+  for (let index = 1; index < lines.length; index += 1) {
+    if (lines[index].trim() === "---") {
+      return {
+        frontmatter: lines.slice(0, index + 1).join("\n"),
+        body: lines.slice(index + 1).join("\n")
+      };
+    }
+  }
+  return { frontmatter: "", body: text };
+}
+
+function visualEditorToMarkdown(root) {
+  const blocks = [];
+  root.childNodes.forEach((node) => {
+    const markdown = blockNodeToMarkdown(node);
+    if (markdown) blocks.push(markdown);
+  });
+  return blocks.join("\n\n").replace(/\n{3,}/g, "\n\n");
+}
+
+function blockNodeToMarkdown(node) {
+  if (node.nodeType === Node.TEXT_NODE) return node.textContent.trim();
+  if (node.nodeType !== Node.ELEMENT_NODE) return "";
+  const tag = node.tagName.toLowerCase();
+  if (/^h[1-6]$/.test(tag)) {
+    const level = Number(tag.slice(1));
+    return `${"#".repeat(Math.min(level, 6))} ${inlineNodeToMarkdown(node).trim()}`;
+  }
+  if (tag === "p" || tag === "div") return inlineNodeToMarkdown(node).trim();
+  if (tag === "ul") {
+    return [...node.children].filter((child) => child.tagName && child.tagName.toLowerCase() === "li").map((child) => `- ${inlineNodeToMarkdown(child).trim()}`).join("\n");
+  }
+  if (tag === "ol") {
+    let index = 1;
+    return [...node.children].filter((child) => child.tagName && child.tagName.toLowerCase() === "li").map((child) => `${index++}. ${inlineNodeToMarkdown(child).trim()}`).join("\n");
+  }
+  if (tag === "blockquote") {
+    return inlineNodeToMarkdown(node).split("\n").map((line) => `> ${line}`).join("\n");
+  }
+  if (tag === "pre") return `\`\`\`\n${node.textContent.replace(/\n+$/, "")}\n\`\`\``;
+  if (tag === "table") return tableToMarkdown(node);
+  if (tag === "br") return "";
+  return inlineNodeToMarkdown(node).trim();
+}
+
+function inlineNodeToMarkdown(node) {
+  if (node.nodeType === Node.TEXT_NODE) return normalizeEditorText(node.textContent);
+  if (node.nodeType !== Node.ELEMENT_NODE) return "";
+  const element = node;
+  const tag = element.tagName.toLowerCase();
+  if (tag === "br") return "\n";
+  if (tag === "strong" || tag === "b") return `**${childrenToMarkdown(element).trim()}**`;
+  if (tag === "em" || tag === "i") return `*${childrenToMarkdown(element).trim()}*`;
+  if (tag === "code") return `\`${element.textContent.replace(/`/g, "'")}\``;
+  if (tag === "a") {
+    const label = childrenToMarkdown(element).trim() || element.textContent.trim();
+    const target = element.getAttribute("data-page")
+      ? relativeReference(currentPage.path, element.getAttribute("data-page"))
+      : (element.getAttribute("href") || "");
+    return `[${escapeMarkdownLinkLabel(label)}](${target})`;
+  }
+  if (element.classList.contains("review-comment")) {
+    const comment = element.querySelector(".review-comment-popover")?.textContent || "";
+    const body = element.querySelector(".review-comment-text") ? childrenToMarkdown(element.querySelector(".review-comment-text")) : element.textContent;
+    return reviewCommentMarkup(body.trim(), comment);
+  }
+  return childrenToMarkdown(element);
+}
+
+function childrenToMarkdown(element) {
+  return [...element.childNodes].map(inlineNodeToMarkdown).join("").replace(/[ \t]+\n/g, "\n");
+}
+
+function normalizeEditorText(text) {
+  return String(text || "").replace(/\u00a0/g, " ");
+}
+
+function tableToMarkdown(table) {
+  const rows = [...table.querySelectorAll("tr")].map((row) => [...row.children].map((cell) => inlineNodeToMarkdown(cell).trim()));
+  if (!rows.length) return "";
+  const width = Math.max(...rows.map((row) => row.length));
+  const padded = rows.map((row) => [...row, ...Array(Math.max(0, width - row.length)).fill("")]);
+  const header = padded[0];
+  const separator = header.map(() => "---");
+  const body = padded.slice(1);
+  return [header, separator, ...body].map((row) => `| ${row.join(" | ")} |`).join("\n");
 }
 
 function renderMetadata(page) {
@@ -489,6 +678,89 @@ function renderBacklinks(page) {
   }
   els.backlinksPanel.innerHTML = `<div class="link-list">${page.backlinks.map((item) => `<button type="button" class="link-button" data-page="${escapeHtml(item.path)}">${escapeHtml(item.title)}</button>`).join("")}</div>`;
   wireInternalLinks(els.backlinksPanel);
+}
+
+function updateCommentsFromContent(content) {
+  const parsed = extractFrontmatter(content || "");
+  currentComments = extractCommentsFromMarkdown(parsed.body || content || "");
+  renderCommentsPanel();
+  if ((surfaceMode === "edit" || surfaceMode === "review") && currentComments.length) {
+    setInspectorTab("comments");
+    setInspectorOpen(true);
+  }
+  updateCommentVisibility();
+}
+
+function extractCommentsFromMarkdown(markdown) {
+  const comments = [];
+  const pattern = /\{\{comment:([\s\S]*?)\|([\s\S]*?)\}\}/g;
+  let match = pattern.exec(markdown || "");
+  while (match) {
+    const comment = sanitizeReviewComment(match[1]);
+    const source = match[2].trim();
+    comments.push({
+      id: commentId(comment, source),
+      comment,
+      source,
+      excerpt: plainMarkdownText(source).slice(0, 180),
+      index: match.index
+    });
+    match = pattern.exec(markdown || "");
+  }
+  return comments;
+}
+
+function renderCommentsPanel() {
+  els.commentCount.textContent = String(currentComments.length);
+  if (!currentComments.length) {
+    els.commentsList.innerHTML = `<p class="muted">No comments on this page.</p>`;
+    return;
+  }
+  els.commentsList.innerHTML = currentComments.map((item, index) => `
+    <button type="button" class="comment-card" data-comment-id="${escapeHtml(item.id)}">
+      <span class="comment-number">Comment ${index + 1}</span>
+      <strong>${escapeHtml(item.comment)}</strong>
+      <span>${escapeHtml(item.excerpt || "Commented text")}</span>
+    </button>
+  `).join("");
+  els.commentsList.querySelectorAll("[data-comment-id]").forEach((button) => {
+    button.addEventListener("click", () => focusComment(button.getAttribute("data-comment-id")));
+  });
+}
+
+function focusComment(id) {
+  if (!id) return;
+  if (surfaceMode === "read" && activeInspectorTab === "comments") updateCommentVisibility();
+  const containers = [els.diffPanel, els.visualEditor, els.markdownBody];
+  const target = containers.map((container) => container.querySelector(`[data-comment-id="${id}"]`)).find(Boolean);
+  if (!target) return;
+  target.scrollIntoView({ block: "center", behavior: "smooth" });
+  target.classList.add("active-comment");
+  window.setTimeout(() => target.classList.remove("active-comment"), 1600);
+}
+
+function commentId(comment, source) {
+  return `comment-${stableHash(`${comment}|${plainMarkdownText(source)}`)}`;
+}
+
+function stableHash(value) {
+  let hash = 0;
+  const text = String(value || "");
+  for (let index = 0; index < text.length; index += 1) {
+    hash = ((hash << 5) - hash + text.charCodeAt(index)) | 0;
+  }
+  return Math.abs(hash).toString(36);
+}
+
+function plainMarkdownText(text) {
+  return String(text || "")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/^#{1,6}\s+/gm, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function wireInternalLinks(container) {
@@ -563,14 +835,14 @@ function previewText(page) {
 
 async function saveCurrentPage() {
   if (!currentPage) return;
-  await savePageContent(els.editorText.value, "read");
+  await savePageContent(composePageContentFromEditor(), "read");
 }
 
 async function savePageContent(content, modeAfterSave = "read") {
   const result = await fetchJson("/api/save", {
     method: "POST",
     headers: { "content-type": "application/json" },
-    body: JSON.stringify({ path: currentPage.path, content })
+    body: JSON.stringify({ path: currentPage.path, content, source: "human-edit" })
   });
   await loadPages();
   populateFilters();
@@ -601,8 +873,8 @@ async function showReview() {
     setSurfaceMode("read");
     return;
   }
-  const text = await fetch(`/api/diff?path=${encodeURIComponent(currentPage.path)}`).then((res) => res.text());
-  els.diffPanel.innerHTML = renderReview(text);
+  currentReview = await fetchJson(`/api/review?path=${encodeURIComponent(currentPage.path)}`);
+  els.diffPanel.innerHTML = renderReview(currentReview);
   wireInternalLinks(els.diffPanel);
   const addComment = els.diffPanel.querySelector("[data-review-action='comment']");
   if (addComment) addComment.addEventListener("click", addReviewCommentFromSelection);
@@ -769,8 +1041,9 @@ function inline(text) {
 
   let staged = text.replace(/`([^`]+)`/g, (match, value) => stash(`<code>${escapeHtml(value)}</code>`));
   staged = staged.replace(/\{\{comment:([\s\S]*?)\|([\s\S]*?)\}\}/g, (match, comment, label) => {
+    const id = commentId(sanitizeReviewComment(comment), label.trim());
     return stash(`
-      <span class="review-comment" tabindex="0">
+      <span class="review-comment" tabindex="0" data-comment-id="${escapeHtml(id)}">
         <span class="review-comment-text">${inline(label.trim())}</span>
         <span class="review-comment-popover">${escapeHtml(comment.trim())}</span>
       </span>
@@ -793,133 +1066,359 @@ function inline(text) {
   return escaped;
 }
 
-function renderReview(diffText) {
+function renderReview(review) {
+  const sections = review.sections || [];
   return `
     <div class="review-header">
       <div>
         <h3>Review</h3>
-        <p>Select text in the preview and add a comment, or use the diff to inspect unapproved changes.</p>
+        <p>AI-generated sections are highlighted. Human-written and approved sections are left plain.</p>
       </div>
       <div class="review-actions">
         <button type="button" data-review-action="comment">Add comment</button>
       </div>
     </div>
-    <article class="markdown review-preview">${renderMarkdown(currentPage.body || "")}</article>
-    ${renderDiff(diffText)}
+    <div class="review-legend">
+      <span class="legend-ai">AI generated: ${review.summary.generated}</span>
+      <span class="legend-human">Human written: ${review.summary.humanWritten}</span>
+      <span class="legend-approved">Human approved: ${review.summary.humanApproved}</span>
+    </div>
+    <article class="markdown review-preview">
+      ${sections.map(renderReviewSection).join("") || `<p class="muted">No reviewable sections found.</p>`}
+    </article>
   `;
 }
 
-function renderDiff(text) {
-  const lines = text.split(/\r?\n/);
-  const rows = lines.map((line) => {
-    let cls = "diff-context";
-    let label = "human or unchanged";
-    if (/^diff --git|^index |^--- |^\+\+\+ /.test(line)) {
-      cls = "diff-meta";
-      label = "file metadata";
-    } else if (/^@@/.test(line)) {
-      cls = "diff-hunk";
-      label = "changed section";
-    } else if (line.startsWith("+")) {
-      cls = "diff-added";
-      label = "agent added";
-    } else if (line.startsWith("-")) {
-      cls = "diff-removed";
-      label = "agent removed";
-    }
-    return `<div class="diff-line ${cls}"><span>${escapeHtml(line || " ")}</span><em>${escapeHtml(label)}</em></div>`;
-  }).join("");
+function renderReviewSection(section) {
+  const isGenerated = section.state === "ai-generated";
+  const stateLabel = section.state === "human-approved" ? "Human approved" : section.state === "human-written" ? "Human written" : "AI generated";
   return `
-    <div class="diff-header">
-      <div>
-        <h3>Unapproved Changes</h3>
-        <p>Unapproved working-tree changes are highlighted. Approved content is treated as human-written.</p>
-      </div>
-      <div class="diff-legend">
-        <span class="legend-added">Agent added</span>
-        <span class="legend-removed">Agent removed</span>
-      </div>
-    </div>
-    <div class="diff-lines">${rows || `<div class="diff-empty">No diff for this page.</div>`}</div>
+    <section class="review-section review-state-${escapeHtml(section.state)}" title="${isGenerated ? escapeHtml(section.tooltip) : ""}" aria-label="${escapeHtml(`${section.heading}: ${stateLabel}`)}">
+      ${isGenerated ? `<span class="review-section-badge">AI</span><span class="review-section-tooltip">${escapeHtml(section.tooltip)}</span>` : ""}
+      ${renderMarkdown(section.markdown)}
+    </section>
   `;
 }
 
 function applyMarkdownFormat(format) {
-  const editor = els.editorText;
-  if (!editor) return;
-  if (format === "bold") wrapSelection("**", "**", "strong text");
-  else if (format === "italic") wrapSelection("*", "*", "emphasized text");
-  else if (format === "code") wrapSelection("`", "`", "code");
-  else if (format === "codeblock") wrapSelection("\n```\n", "\n```\n", "code block");
-  else if (format === "heading") prefixSelectedLines("## ");
-  else if (format === "quote") prefixSelectedLines("> ");
-  else if (format === "bullet") prefixSelectedLines("- ");
-  else if (format === "numbered") numberSelectedLines();
-  else if (format === "link") insertMarkdownLink();
-  else if (format === "tag") tagSelection();
+  if (!els.visualEditor) return;
+  ensureVisualEditorSelection();
+  if (format === "bold") wrapVisualSelection("strong", {}, "bold text");
+  else if (format === "italic") wrapVisualSelection("em", {}, "italic text");
+  else if (format === "code") wrapVisualSelection("code", {}, "code");
+  else if (format === "codeblock") insertCodeBlock();
+  else if (format === "quote") applyQuoteBlock();
+  else if (format === "bullet") applyListFormat("ul");
+  else if (format === "numbered") applyListFormat("ol");
+  else if (format === "link") insertVisualLink();
+  else if (format === "tag") tagVisualSelection();
   else if (format === "comment") commentSelectionInEditor();
-  editor.focus();
+  else if (["p", "h1", "h2", "h3"].includes(format)) applyBlockFormat(format);
+  els.visualEditor.focus();
+  saveEditorSelection();
+  updateSourceFromVisualEditor();
+  updateCommentsFromContent(els.editorText.value);
   renderTagSuggestions();
+  updateBlockFormatControl();
 }
 
-function wrapSelection(prefix, suffix, placeholder) {
-  const editor = els.editorText;
-  const start = editor.selectionStart;
-  const end = editor.selectionEnd;
-  const selected = editor.value.slice(start, end) || placeholder;
-  const replacement = `${prefix}${selected}${suffix}`;
-  replaceEditorRange(start, end, replacement, start + prefix.length, start + prefix.length + selected.length);
+function saveEditorSelection() {
+  if (!els.visualEditor) return;
+  const selection = window.getSelection();
+  if (!selection || !selection.rangeCount) return;
+  const range = selection.getRangeAt(0);
+  if (!els.visualEditor.contains(range.commonAncestorContainer)) return;
+  savedEditorRange = range.cloneRange();
 }
 
-function prefixSelectedLines(prefix) {
-  const range = selectedLineRange();
-  const selected = els.editorText.value.slice(range.start, range.end);
-  const replacement = selected.split("\n").map((line) => line ? `${prefix}${line}` : line).join("\n");
-  replaceEditorRange(range.start, range.end, replacement, range.start, range.start + replacement.length);
+function restoreEditorSelection() {
+  if (!savedEditorRange) return false;
+  const selection = window.getSelection();
+  if (!selection) return false;
+  try {
+    selection.removeAllRanges();
+    selection.addRange(savedEditorRange);
+    return true;
+  } catch {
+    savedEditorRange = null;
+    return false;
+  }
 }
 
-function numberSelectedLines() {
-  const range = selectedLineRange();
-  const selected = els.editorText.value.slice(range.start, range.end);
-  let index = 1;
-  const replacement = selected.split("\n").map((line) => line ? `${index++}. ${line}` : line).join("\n");
-  replaceEditorRange(range.start, range.end, replacement, range.start, range.start + replacement.length);
+function ensureVisualEditorSelection() {
+  els.visualEditor.focus();
+  const selection = window.getSelection();
+  if (selection && selection.rangeCount && els.visualEditor.contains(selection.anchorNode)) {
+    saveEditorSelection();
+    return;
+  }
+  if (restoreEditorSelection()) return;
+  const range = document.createRange();
+  range.selectNodeContents(els.visualEditor);
+  range.collapse(false);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  saveEditorSelection();
 }
 
-function insertMarkdownLink() {
-  const editor = els.editorText;
-  const start = editor.selectionStart;
-  const end = editor.selectionEnd;
-  const label = editor.value.slice(start, end) || "link text";
+function selectedVisualText() {
+  const selection = window.getSelection();
+  if (!selection || !selection.rangeCount || !els.visualEditor.contains(selection.anchorNode)) return "";
+  return selection.toString();
+}
+
+function handleVisualEditorKeydown(event) {
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "z" && editorUndoStack.length) {
+    event.preventDefault();
+    els.visualEditor.innerHTML = editorUndoStack.pop();
+    clearSelectedTag();
+    updateSourceFromVisualEditor();
+    updateCommentsFromContent(els.editorText.value);
+    renderTagSuggestions();
+    return;
+  }
+  if (!selectedTag) return;
+  if (event.key === "Backspace" || event.key === "Delete") {
+    event.preventDefault();
+    pushEditorUndoSnapshot();
+    unwrapTagElement(selectedTag);
+    clearSelectedTag();
+    updateSourceFromVisualEditor();
+    renderTagSuggestions();
+  }
+}
+
+function selectTagElement(tag) {
+  clearSelectedTag();
+  selectedTag = tag;
+  selectedTag.classList.add("selected-tag");
+  const selection = window.getSelection();
+  const range = document.createRange();
+  range.selectNode(tag);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  saveEditorSelection();
+}
+
+function clearSelectedTag() {
+  if (selectedTag) selectedTag.classList.remove("selected-tag");
+  selectedTag = null;
+}
+
+function pushEditorUndoSnapshot() {
+  editorUndoStack.push(els.visualEditor.innerHTML);
+  if (editorUndoStack.length > 40) editorUndoStack.shift();
+}
+
+function unwrapTagElement(tag) {
+  const text = document.createTextNode(tag.textContent || "");
+  tag.replaceWith(text);
+  const selection = window.getSelection();
+  const range = document.createRange();
+  range.setStartAfter(text);
+  range.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  saveEditorSelection();
+}
+
+function wrapVisualSelection(tagName, attributes = {}, placeholder = "") {
+  const selection = window.getSelection();
+  if (!selection || !selection.rangeCount) return null;
+  const range = selection.getRangeAt(0);
+  if (!els.visualEditor.contains(range.commonAncestorContainer)) return null;
+  const element = document.createElement(tagName);
+  Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+  if (range.collapsed) {
+    element.textContent = placeholder || tagName;
+  } else {
+    element.appendChild(range.extractContents());
+  }
+  range.insertNode(element);
+  selection.removeAllRanges();
+  const nextRange = document.createRange();
+  nextRange.selectNodeContents(element);
+  nextRange.collapse(false);
+  selection.addRange(nextRange);
+  saveEditorSelection();
+  return element;
+}
+
+function applyBlockFormat(tagName) {
+  const block = nearestEditorBlock();
+  if (!block) return;
+  const target = tagName === "p" ? "p" : tagName;
+  replaceElementTag(block, target);
+}
+
+function applyQuoteBlock() {
+  const block = nearestEditorBlock();
+  if (!block) return;
+  const quote = block.closest("blockquote");
+  if (quote && els.visualEditor.contains(quote)) {
+    replaceElementTag(quote, "p");
+    return;
+  }
+  replaceElementTag(block, "blockquote");
+}
+
+function applyListFormat(listTag) {
+  const block = nearestEditorBlock();
+  if (!block) return;
+  const existingList = block.closest("ul, ol");
+  if (existingList && els.visualEditor.contains(existingList)) {
+    if (existingList.tagName.toLowerCase() === listTag) unwrapList(existingList);
+    else replaceElementTag(existingList, listTag);
+    return;
+  }
+  const list = document.createElement(listTag);
+  const item = document.createElement("li");
+  while (block.firstChild) item.appendChild(block.firstChild);
+  list.appendChild(item);
+  block.replaceWith(list);
+  selectElementContents(item);
+}
+
+function unwrapList(list) {
+  const fragment = document.createDocumentFragment();
+  const paragraphs = [...list.children].map((item) => {
+    const paragraph = document.createElement("p");
+    while (item.firstChild) paragraph.appendChild(item.firstChild);
+    fragment.appendChild(paragraph);
+    return paragraph;
+  });
+  list.replaceWith(fragment);
+  if (paragraphs[0]) selectElementContents(paragraphs[0]);
+}
+
+function nearestEditorBlock() {
+  const selection = window.getSelection();
+  if (!selection || !selection.rangeCount) return null;
+  let node = selection.anchorNode;
+  if (!node || !els.visualEditor.contains(node)) return null;
+  if (node.nodeType !== Node.ELEMENT_NODE) node = node.parentElement;
+  while (node && node !== els.visualEditor) {
+    const tag = node.tagName ? node.tagName.toLowerCase() : "";
+    if (["p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "li", "blockquote", "pre"].includes(tag)) return node;
+    node = node.parentElement;
+  }
+  return els.visualEditor.firstElementChild || null;
+}
+
+function replaceElementTag(element, tagName) {
+  if (!element || element === els.visualEditor) return null;
+  const replacement = document.createElement(tagName);
+  while (element.firstChild) replacement.appendChild(element.firstChild);
+  element.replaceWith(replacement);
+  selectElementContents(replacement);
+  return replacement;
+}
+
+function selectElementContents(element) {
+  const selection = window.getSelection();
+  if (!selection || !element) return;
+  const range = document.createRange();
+  range.selectNodeContents(element);
+  range.collapse(false);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  saveEditorSelection();
+}
+
+function insertCodeBlock() {
+  const selected = selectedVisualText() || "code block";
+  const selection = window.getSelection();
+  const range = selection.getRangeAt(0);
+  const pre = document.createElement("pre");
+  const code = document.createElement("code");
+  code.textContent = selected;
+  pre.appendChild(code);
+  if (!range.collapsed) range.deleteContents();
+  range.insertNode(pre);
+  range.setStartAfter(pre);
+  range.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  saveEditorSelection();
+}
+
+function insertVisualLink() {
+  const label = selectedVisualText() || "link text";
   const href = window.prompt("Link target", "") || "";
   if (!href.trim()) return;
-  const replacement = `[${escapeMarkdownLinkLabel(label)}](${href.trim()})`;
-  replaceEditorRange(start, end, replacement, start + 1, start + 1 + label.length);
+  const link = wrapVisualSelection("a", { href: href.trim() }, label);
+  if (link && !link.textContent.trim()) link.textContent = label;
 }
 
-function tagSelection() {
-  const editor = els.editorText;
-  const start = editor.selectionStart;
-  const end = editor.selectionEnd;
-  const label = editor.value.slice(start, end).trim();
+function tagVisualSelection() {
+  const label = selectedVisualText().trim();
   if (!label || !currentPage) return;
-  const entry = termEntries.find((item) => item.path !== currentPage.path && item.normalized === normalizeTerm(label));
+  const suggestions = tagSuggestionsForLabel(label);
+  let entry = suggestions[0] || null;
+  if (suggestions.length > 1) {
+    const picked = window.prompt(`Tag target\n${suggestions.slice(0, 6).map((item, index) => `${index + 1}. ${item.term} -> ${pageTitleForPath(item.path)}`).join("\n")}`, "1");
+    const index = Number(picked) - 1;
+    if (Number.isInteger(index) && suggestions[index]) entry = suggestions[index];
+    else if (picked) entry = suggestions.find((item) => item.path === picked || normalizeTerm(item.term) === normalizeTerm(picked));
+    else return;
+  }
+  if (!entry) {
+    const target = window.prompt("Tag target page or concept", label);
+    if (!target) return;
+    const normalized = normalizeTerm(target);
+    entry = termEntries.find((item) => item.path !== currentPage.path && (item.normalized === normalized || item.normalized.includes(normalized)));
+  }
   if (!entry) return;
-  const original = editor.value.slice(start, end);
-  const replacement = `[${escapeMarkdownLinkLabel(original)}](${relativeReference(currentPage.path, entry.path)})`;
-  replaceEditorRange(start, end, replacement, start + replacement.length, start + replacement.length);
+  const link = wrapVisualSelection("a", {
+    href: `#${encodeURIComponent(entry.path)}`,
+    "data-page": entry.path,
+    class: "term-link"
+  }, label);
+  if (link) link.textContent = label;
+}
+
+function tagSuggestionsForLabel(label) {
+  const normalized = normalizeTerm(label);
+  if (!normalized) return [];
+  return termEntries
+    .filter((item) => item.path !== currentPage.path)
+    .map((item) => {
+      let score = 0;
+      if (item.normalized === normalized) score = 4;
+      else if (item.normalized.includes(normalized)) score = 3;
+      else if (normalized.includes(item.normalized)) score = 2;
+      else if (item.term.toLowerCase().includes(label.toLowerCase())) score = 1;
+      return { ...item, score };
+    })
+    .filter((item) => item.score)
+    .sort((a, b) => b.score - a.score || a.term.localeCompare(b.term));
 }
 
 function commentSelectionInEditor() {
-  const editor = els.editorText;
-  const start = editor.selectionStart;
-  const end = editor.selectionEnd;
-  const selected = editor.value.slice(start, end);
+  const selected = selectedVisualText();
   if (!selected.trim()) return;
   const comment = window.prompt("Comment", "");
   if (!comment || !comment.trim()) return;
-  const replacement = reviewCommentMarkup(selected, comment);
-  replaceEditorRange(start, end, replacement, start + replacement.length, start + replacement.length);
+  const wrapper = document.createElement("span");
+  wrapper.className = "review-comment";
+  wrapper.tabIndex = 0;
+  wrapper.dataset.commentId = commentId(sanitizeReviewComment(comment), selected);
+  const text = document.createElement("span");
+  text.className = "review-comment-text";
+  const popover = document.createElement("span");
+  popover.className = "review-comment-popover";
+  popover.textContent = sanitizeReviewComment(comment);
+  const selection = window.getSelection();
+  const range = selection.getRangeAt(0);
+  text.appendChild(range.extractContents());
+  wrapper.append(text, popover);
+  range.insertNode(wrapper);
+  selection.removeAllRanges();
+  const nextRange = document.createRange();
+  nextRange.selectNodeContents(wrapper);
+  nextRange.collapse(false);
+  selection.addRange(nextRange);
+  saveEditorSelection();
 }
 
 async function addReviewCommentFromSelection() {
@@ -965,26 +1464,12 @@ function sanitizeReviewComment(comment) {
   return String(comment || "").replace(/[|{}]/g, " ").replace(/\s+/g, " ").trim();
 }
 
-function selectedLineRange() {
-  const editor = els.editorText;
-  const value = editor.value;
-  const start = value.lastIndexOf("\n", Math.max(0, editor.selectionStart - 1)) + 1;
-  const nextBreak = value.indexOf("\n", editor.selectionEnd);
-  const end = nextBreak === -1 ? value.length : nextBreak;
-  return { start, end };
-}
-
-function replaceEditorRange(start, end, replacement, selectionStart, selectionEnd) {
-  const editor = els.editorText;
-  editor.value = `${editor.value.slice(0, start)}${replacement}${editor.value.slice(end)}`;
-  editor.setSelectionRange(selectionStart, selectionEnd);
-}
-
 function renderTagSuggestions() {
   if (!els.tagSuggestionPanel || !currentPage || els.editorPanel.classList.contains("hidden")) {
     if (els.tagSuggestionPanel) els.tagSuggestionPanel.classList.add("hidden");
     return;
   }
+  updateSourceFromVisualEditor();
   const suggestions = collectTagSuggestions(els.editorText.value, currentPage.path).slice(0, 10);
   els.tagSuggestionPanel.classList.toggle("hidden", !suggestions.length);
   if (!suggestions.length) {
@@ -1029,23 +1514,66 @@ function collectTagSuggestions(content, pagePath) {
 
 function applyTagSuggestion(normalized, path) {
   if (!currentPage) return;
-  let target = null;
-  scanUnlinkedTermMatches(els.editorText.value, currentPage.path, (match) => {
-    if (!target && match.normalized === normalized && match.path === path) target = match;
-  });
-  if (!target) {
-    renderTagSuggestions();
-    return;
-  }
-  const content = els.editorText.value;
-  const label = content.slice(target.index, target.index + target.length);
-  const href = relativeReference(currentPage.path, target.path);
-  const replacement = `[${escapeMarkdownLinkLabel(label)}](${href})`;
-  els.editorText.value = `${content.slice(0, target.index)}${replacement}${content.slice(target.index + target.length)}`;
-  const cursor = target.index + replacement.length;
-  els.editorText.setSelectionRange(cursor, cursor);
-  els.editorText.focus();
+  wrapFirstVisualTermMatch(normalized, path);
+  updateSourceFromVisualEditor();
+  els.visualEditor.focus();
   renderTagSuggestions();
+}
+
+function updateBlockFormatControl() {
+  if (!els.blockFormat) return;
+  const selection = window.getSelection();
+  if (!selection || !selection.rangeCount || !els.visualEditor.contains(selection.anchorNode)) return;
+  let node = selection.anchorNode.nodeType === Node.ELEMENT_NODE ? selection.anchorNode : selection.anchorNode.parentElement;
+  while (node && node !== els.visualEditor) {
+    const tag = node.tagName ? node.tagName.toLowerCase() : "";
+    if (["p", "h1", "h2", "h3"].includes(tag)) {
+      els.blockFormat.value = tag;
+      return;
+    }
+    node = node.parentElement;
+  }
+  els.blockFormat.value = "p";
+}
+
+function wrapFirstVisualTermMatch(normalized, path) {
+  const walker = document.createTreeWalker(els.visualEditor, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent) return NodeFilter.FILTER_REJECT;
+      if (parent.closest("a, code, pre, .review-comment")) return NodeFilter.FILTER_REJECT;
+      const index = findTermIndex(node.textContent, normalized);
+      return index === -1 ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+    }
+  });
+  const node = walker.nextNode();
+  if (!node) return false;
+  const index = findTermIndex(node.textContent, normalized);
+  const label = node.textContent.slice(index, index + normalized.length);
+  const before = document.createTextNode(node.textContent.slice(0, index));
+  const after = document.createTextNode(node.textContent.slice(index + normalized.length));
+  const link = document.createElement("a");
+  link.className = "term-link";
+  link.href = `#${encodeURIComponent(path)}`;
+  link.dataset.page = path;
+  link.textContent = label;
+  node.parentNode.insertBefore(before, node);
+  node.parentNode.insertBefore(link, node);
+  node.parentNode.insertBefore(after, node);
+  node.remove();
+  return true;
+}
+
+function findTermIndex(text, normalized) {
+  const lower = String(text || "").toLowerCase();
+  let index = lower.indexOf(normalized);
+  while (index !== -1) {
+    const before = index === 0 ? "" : lower[index - 1];
+    const after = lower[index + normalized.length] || "";
+    if (isBoundary(before) && isBoundary(after)) return index;
+    index = lower.indexOf(normalized, index + 1);
+  }
+  return -1;
 }
 
 function scanUnlinkedTermMatches(content, pagePath, visit) {

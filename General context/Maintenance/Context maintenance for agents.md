@@ -35,7 +35,7 @@ implemented_by:
 1. Run `git status --short --branch`.
 2. Treat existing changes as user-owned.
 3. Read `Wiki Goal Prompt` when the task concerns the context wiki or spec system.
-4. Read [General Context Wiki](../README.md), [What FieldPlatform is for](../Principles/What%20FieldPlatform%20is%20for.md), [Living field principles](../Principles/Living%20field%20principles.md), [How tools like this go wrong](../Principles/What%20FieldPlatform%20should%20not%20become.md), [Product guardrails for agents](Product%20guardrails%20for%20agents.md), and the most specific task pages.
+4. Read [General Context Wiki](../README.md), [What FieldPlatform is](../Principles/What%20FieldPlatform%20is.md), [Living field principles](../Principles/Living%20field%20principles.md), [How tools like this go wrong](../Principles/What%20FieldPlatform%20should%20not%20become.md), [Product guardrails for agents](Product%20guardrails%20for%20agents.md), and the most specific task pages.
 5. If a change affects product meaning, use the most specific canonical page. Do not create a duplicate summary.
 
 ## Updating Context
@@ -45,7 +45,7 @@ implemented_by:
 - Keep frontmatter current: `title`, `layer`, `status`, `maturity`, `provenance`, `review_state`, `canonical_for`, `related`, `depends_on`, `consumed_by`, and `implemented_by`.
 - Keep specs and implementation aligned. If implementation changes, update affected entity, access, [view](../Frontend/Views%20overview.md), [module](../Frontend/Modules%20overview.md), user-story, or language pages.
 - If implementation changes without enough certainty to update the spec, record the mismatch in [Open questions](../Current%20direction/Open%20questions.md).
-- Keep UI language separate from internal [principles](../Principles/What%20FieldPlatform%20is%20for.md) and data-model language.
+- Keep UI language separate from internal [principles](../Principles/What%20FieldPlatform%20is.md) and data-model language.
 - Mark uncertainty honestly instead of converting it into a buildable contract.
 - Keep parked exploration and pilot/resourcing hypotheses out of current product direction unless explicitly adopted.
 
@@ -77,7 +77,7 @@ Update the relevant page or add an open question. The goal is that the platform 
 
 Use [Product guardrails for agents](Product%20guardrails%20for%20agents.md) when a change might affect product meaning, data representation, access behavior, review workflow, interface language, or product boundaries.
 
-The short version: FieldPlatform supports [self-resourcing through field awareness](../Principles/What%20FieldPlatform%20is%20for.md). Do not digitize the [living field](../Principles/Living%20field%20principles.md); digitize thresholds where it becomes hard to read. Avoid catalogue drift, CRM/surveillance drift, metaphysical UI leakage, and omniscient-platform fantasy.
+The short version: FieldPlatform supports [self-resourcing through field awareness](../Principles/What%20FieldPlatform%20is.md). Do not digitize the [living field](../Principles/Living%20field%20principles.md); digitize thresholds where it becomes hard to read. Avoid catalogue drift, CRM/surveillance drift, metaphysical UI leakage, and omniscient-platform fantasy.
 
 ## Review And Approval
 

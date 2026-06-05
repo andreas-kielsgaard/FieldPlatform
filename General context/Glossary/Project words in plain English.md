@@ -13,11 +13,11 @@ canonical_for:
   - project vocabulary
   - plain language onboarding
 related:
-  - ../Principles/What FieldPlatform is for.md
+  - ../Principles/What FieldPlatform is.md
   - ../Principles/Living field principles.md
   - ../Ontology/Product ontology.md
 depends_on:
-  - ../Principles/What FieldPlatform is for.md
+  - ../Principles/What FieldPlatform is.md
 consumed_by:
   - ../README.md
 implemented_by:

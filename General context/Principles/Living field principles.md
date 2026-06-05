@@ -14,12 +14,12 @@ canonical_for:
   - conviviality principle
   - threshold illegibility
 related:
-  - What FieldPlatform is for.md
+  - What FieldPlatform is.md
   - What FieldPlatform should not become.md
   - ../Maintenance/Product guardrails for agents.md
   - ../Parked/Conviviality and pilot hypotheses.md
 depends_on:
-  - What FieldPlatform is for.md
+  - What FieldPlatform is.md
 consumed_by:
   - ../Ontology/Product ontology.md
   - ../Frontend/Surface grammar.md

@@ -8,12 +8,22 @@ let currentReview = null;
 let currentComments = [];
 let activeInspectorTab = "comments";
 let selectedTag = null;
+let editingTag = null;
+let FuseSearch = null;
+let tagPickerState = null;
+let hoveredEditableTag = null;
+let activePreviewNode = null;
+let previewModifierDown = false;
+let previewHideTimer = null;
+let previewHovering = false;
+const activeInlineFormats = new Set();
 const editorUndoStack = [];
+const editorRedoStack = [];
 const openNavGroups = new Set();
 
 const navGroups = [
   { key: "start", label: "Start", overview: "README.md" },
-  { key: "principles", label: "Principles", overview: "Principles/What FieldPlatform is for.md" },
+  { key: "principles", label: "Principles", overview: "Principles/What FieldPlatform is.md" },
   { key: "vocabulary", label: "Vocabulary", overview: "Glossary/Project words in plain English.md" },
   { key: "concepts", label: "Product Concepts", overview: "Ontology/Product ontology.md" },
   { key: "stories", label: "User Stories and Flows", overview: "User stories/User stories overview.md" },
@@ -50,6 +60,11 @@ const els = {
   editorText: document.getElementById("editorText"),
   tagSuggestionPanel: document.getElementById("tagSuggestionPanel"),
   tagSuggestions: document.getElementById("tagSuggestions"),
+  tagPicker: document.getElementById("tagPicker"),
+  tagPickerSearch: document.getElementById("tagPickerSearch"),
+  tagPickerResults: document.getElementById("tagPickerResults"),
+  tagPickerSelection: document.getElementById("tagPickerSelection"),
+  tagPickerClose: document.getElementById("tagPickerClose"),
   blockFormat: document.getElementById("blockFormat"),
   editButton: document.getElementById("editButton"),
   saveButton: document.getElementById("saveButton"),
@@ -127,16 +142,35 @@ function bindEvents() {
       updateCommentsFromContent(els.editorText.value);
       renderTagSuggestions();
       updateBlockFormatControl();
+      updateInlineFormatButtons();
     });
   });
+  els.visualEditor.addEventListener("beforeinput", handleVisualEditorBeforeInput);
   els.visualEditor.addEventListener("keydown", handleVisualEditorKeydown);
+  els.visualEditor.addEventListener("dblclick", (event) => {
+    const tag = event.target.closest("a.term-link");
+    if (!tag || surfaceMode !== "edit") return;
+    event.preventDefault();
+    event.stopPropagation();
+    beginTagTextEdit(tag);
+  });
   els.visualEditor.addEventListener("click", (event) => {
     const tag = event.target.closest("a.term-link");
     if (tag && surfaceMode === "edit") {
       event.preventDefault();
+      closeTagPicker();
+      if (tag === editingTag) {
+        clearSelectedTag();
+        return;
+      }
+      if (event.ctrlKey || event.metaKey || previewModifierDown) {
+        openTagInNewWindow(tag.getAttribute("data-page"));
+        return;
+      }
       selectTagElement(tag);
       return;
     }
+    finishTagTextEdit();
     clearSelectedTag();
     if (event.target.closest("a")) event.preventDefault();
   });
@@ -148,6 +182,18 @@ function bindEvents() {
   els.refreshDashboard.addEventListener("click", loadDashboard);
   els.commentsTab.addEventListener("click", () => setInspectorTab("comments"));
   els.specsTab.addEventListener("click", () => setInspectorTab("specs"));
+  els.tagPickerSearch.addEventListener("input", () => renderTagPickerResults(els.tagPickerSearch.value));
+  els.tagPickerSearch.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeTagPicker();
+    if (event.key === "Enter") {
+      const first = els.tagPickerResults.querySelector("[data-page]");
+      if (first) {
+        event.preventDefault();
+        chooseTagPage(first.getAttribute("data-page"));
+      }
+    }
+  });
+  els.tagPickerClose.addEventListener("click", closeTagPicker);
   els.toggleInspector.addEventListener("click", () => {
     const opening = !els.shell.classList.contains("inspector-open");
     if (opening) setInspectorTab("comments");
@@ -157,6 +203,19 @@ function bindEvents() {
     const target = decodeURIComponent(location.hash.replace(/^#/, ""));
     if (target) openPage(target);
   });
+  document.addEventListener("keydown", handleEditorHistoryShortcut, true);
+  window.addEventListener("keydown", handleGlobalPreviewKeydown);
+  window.addEventListener("keyup", handleGlobalPreviewKeyup);
+  window.addEventListener("resize", positionTagPicker);
+  window.addEventListener("scroll", positionTagPicker, true);
+  window.addEventListener("blur", () => {
+    previewModifierDown = false;
+    hidePreviewNow();
+  });
+  els.linkPreview.addEventListener("pointerenter", keepPreviewOpen);
+  els.linkPreview.addEventListener("pointerleave", schedulePreviewHide);
+  els.linkPreview.addEventListener("mouseenter", keepPreviewOpen);
+  els.linkPreview.addEventListener("mouseleave", schedulePreviewHide);
 }
 
 function setSidebarOpen(open) {
@@ -281,7 +340,7 @@ function buildTermEntries() {
   });
 
   const aliases = [
-    ["principles", "Principles/What FieldPlatform is for.md"],
+    ["principles", "Principles/What FieldPlatform is.md"],
     ["operating principles", "Principles/Living field principles.md"],
     ["living field", "Principles/Living field principles.md"],
     ["product boundaries", "Principles/What FieldPlatform should not become.md"],
@@ -475,7 +534,7 @@ function navStatus(page) {
 }
 
 async function openPage(path) {
-  hidePreview();
+  hidePreviewNow();
   const page = await fetchJson(`/api/page?path=${encodeURIComponent(path)}`);
   currentPage = page;
   location.hash = encodeURIComponent(page.path);
@@ -508,6 +567,10 @@ function renderPage(page) {
 
 function setSurfaceMode(mode) {
   surfaceMode = mode;
+  if (mode !== "edit") {
+    closeTagPicker();
+    finishTagTextEdit();
+  }
   els.markdownBody.classList.toggle("hidden", mode !== "read");
   els.editorPanel.classList.toggle("hidden", mode !== "edit");
   els.diffPanel.classList.toggle("hidden", mode !== "review");
@@ -530,7 +593,45 @@ function setSurfaceMode(mode) {
 
 function renderVisualEditor(markdown) {
   els.visualEditor.innerHTML = renderMarkdown(markdown || "");
+  editingTag = null;
+  selectedTag = null;
+  editorUndoStack.length = 0;
+  editorRedoStack.length = 0;
+  wireEditableTagLinks();
   savedEditorRange = null;
+  activeInlineFormats.clear();
+  updateInlineFormatButtons();
+}
+
+function wireEditableTagLinks() {
+  els.visualEditor.querySelectorAll("a.term-link[data-page]").forEach((node) => {
+    prepareEditableTagLink(node);
+  });
+}
+
+function prepareEditableTagLink(node) {
+  node.contentEditable = "false";
+  node.spellcheck = false;
+  node.removeAttribute("tabindex");
+  node.classList.remove("selected-tag", "editing-tag");
+  node.title = "Click to select. Double-click to edit the tag text. Ctrl+hover to preview. Ctrl+click to open in a new window.";
+  node.addEventListener("mouseenter", (event) => {
+    hoveredEditableTag = node;
+    if (event.ctrlKey || event.metaKey) showPreview(node, node.getAttribute("data-page"));
+  });
+  node.addEventListener("mousemove", (event) => {
+    hoveredEditableTag = node;
+    if (event.ctrlKey || event.metaKey) {
+      showPreview(node, node.getAttribute("data-page"));
+      positionPreview(node);
+    } else if (activePreviewNode === node) {
+      schedulePreviewHide(node);
+    }
+  });
+  node.addEventListener("mouseleave", () => {
+    hoveredEditableTag = null;
+    schedulePreviewHide(node);
+  });
 }
 
 function updateSourceFromVisualEditor() {
@@ -773,25 +874,45 @@ function wireInternalLinks(container) {
   });
 }
 
+function handleGlobalPreviewKeydown(event) {
+  if (event.key === "Control" || event.key === "Meta" || event.ctrlKey || event.metaKey) {
+    previewModifierDown = true;
+  }
+  if (surfaceMode !== "edit" || !hoveredEditableTag) return;
+  if (previewModifierDown) {
+    showPreview(hoveredEditableTag, hoveredEditableTag.getAttribute("data-page"));
+  }
+}
+
+function handleGlobalPreviewKeyup(event) {
+  if (event.key === "Control" || event.key === "Meta") previewModifierDown = false;
+  if (surfaceMode !== "edit") return;
+  if (event.key === "Control" || event.key === "Meta") {
+    schedulePreviewHide(hoveredEditableTag);
+  }
+}
+
 function attachPreview(node, path) {
   if (!path) return;
   node.addEventListener("pointerenter", () => showPreview(node, path));
   node.addEventListener("pointermove", () => positionPreview(node));
-  node.addEventListener("pointerleave", hidePreview);
+  node.addEventListener("pointerleave", () => schedulePreviewHide(node));
   node.addEventListener("mouseenter", () => showPreview(node, path));
   node.addEventListener("mousemove", () => positionPreview(node));
-  node.addEventListener("mouseleave", hidePreview);
+  node.addEventListener("mouseleave", () => schedulePreviewHide(node));
   node.addEventListener("focus", () => showPreview(node, path));
-  node.addEventListener("blur", hidePreview);
+  node.addEventListener("blur", () => schedulePreviewHide(node));
 }
 
 function showPreview(node, path) {
   const page = pages.find((item) => item.path === path);
   if (!page) return;
+  const preview = previewText(page);
+  keepPreviewOpen();
+  activePreviewNode = node;
   els.linkPreview.innerHTML = `
     <div class="preview-title">${escapeHtml(page.title)}</div>
-    <div class="preview-path">${escapeHtml(page.path)}</div>
-    <p>${escapeHtml(previewText(page))}</p>
+    <p class="preview-body">${escapeHtml(preview)}</p>
   `;
   els.linkPreview.classList.remove("hidden");
   positionPreview(node);
@@ -816,21 +937,60 @@ function positionPreview(node) {
   els.linkPreview.style.top = `${top}px`;
 }
 
-function hidePreview() {
+function keepPreviewOpen() {
+  if (previewHideTimer) {
+    window.clearTimeout(previewHideTimer);
+    previewHideTimer = null;
+  }
+  previewHovering = true;
+}
+
+function schedulePreviewHide(node) {
+  if (node && activePreviewNode && node !== activePreviewNode) return;
+  previewHovering = false;
+  if (previewHideTimer) window.clearTimeout(previewHideTimer);
+  previewHideTimer = window.setTimeout(() => {
+    previewHideTimer = null;
+    if (!previewHovering) hidePreviewNow();
+  }, 500);
+}
+
+function hidePreviewNow() {
+  if (previewHideTimer) {
+    window.clearTimeout(previewHideTimer);
+    previewHideTimer = null;
+  }
+  previewHovering = false;
   els.linkPreview.classList.add("hidden");
+  activePreviewNode = null;
 }
 
 function previewText(page) {
-  const text = page.body
-    .replace(/^#\s+.+$/m, "")
+  const text = plainPreviewText(page.body);
+  if (!text) return page.excerpt || "No preview available.";
+  const limit = 360;
+  if (text.length <= limit) return text;
+  const clipped = text.slice(0, limit).replace(/[ \t\n]+[^\s]*$/, "").trim();
+  return `${clipped || text.slice(0, limit).trim()} [...]`;
+}
+
+function plainPreviewText(markdown) {
+  return String(markdown || "")
+    .replace(/^#\s+.+(?:\n|$)/, "")
     .replace(/```[\s\S]*?```/g, " ")
+    .replace(/\{\{comment:[\s\S]*?\|([\s\S]*?)\}\}/g, "$1")
+    .replace(/!\[[^\]]*\]\([^)]+\)/g, "")
     .replace(/`([^`]+)`/g, "$1")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/^\s*\d+\.\s+/gm, "")
     .replace(/^[-*]\s+/gm, "")
     .replace(/^#{1,6}\s+/gm, "")
-    .replace(/\s+/g, " ")
+    .split("\n")
+    .map((line) => line.replace(/[ \t]+/g, " ").trim())
+    .filter(Boolean)
+    .join("\n")
+    .replace(/\n{2,}/g, "\n")
     .trim();
-  return text.slice(0, 320) || page.excerpt || "No preview available.";
 }
 
 async function saveCurrentPage() {
@@ -1100,18 +1260,19 @@ function renderReviewSection(section) {
   `;
 }
 
-function applyMarkdownFormat(format) {
+async function applyMarkdownFormat(format) {
   if (!els.visualEditor) return;
   ensureVisualEditorSelection();
-  if (format === "bold") wrapVisualSelection("strong", {}, "bold text");
-  else if (format === "italic") wrapVisualSelection("em", {}, "italic text");
-  else if (format === "code") wrapVisualSelection("code", {}, "code");
+  if (["bold", "italic", "code"].includes(format)) applyInlineFormat(format);
   else if (format === "codeblock") insertCodeBlock();
   else if (format === "quote") applyQuoteBlock();
   else if (format === "bullet") applyListFormat("ul");
   else if (format === "numbered") applyListFormat("ol");
   else if (format === "link") insertVisualLink();
-  else if (format === "tag") tagVisualSelection();
+  else if (format === "tag") {
+    await openTagPickerForSelection();
+    return;
+  }
   else if (format === "comment") commentSelectionInEditor();
   else if (["p", "h1", "h2", "h3"].includes(format)) applyBlockFormat(format);
   els.visualEditor.focus();
@@ -1120,6 +1281,26 @@ function applyMarkdownFormat(format) {
   updateCommentsFromContent(els.editorText.value);
   renderTagSuggestions();
   updateBlockFormatControl();
+  updateInlineFormatButtons();
+  placeCaretAtEditorEnd();
+  refocusVisualEditor();
+}
+
+function refocusVisualEditor() {
+  els.visualEditor.focus({ preventScroll: true });
+  requestAnimationFrame(() => els.visualEditor.focus({ preventScroll: true }));
+  window.setTimeout(() => els.visualEditor.focus({ preventScroll: true }), 0);
+}
+
+function placeCaretAtEditorEnd() {
+  const selection = window.getSelection();
+  if (!selection) return;
+  const range = document.createRange();
+  range.selectNodeContents(els.visualEditor);
+  range.collapse(false);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  saveEditorSelection();
 }
 
 function saveEditorSelection() {
@@ -1167,14 +1348,42 @@ function selectedVisualText() {
   return selection.toString();
 }
 
-function handleVisualEditorKeydown(event) {
-  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "z" && editorUndoStack.length) {
+function handleVisualEditorBeforeInput(event) {
+  if (event.inputType !== "insertText" || !event.data || !activeInlineFormats.size) return;
+  if (selectionMatchesActiveInlineFormats()) return;
+  event.preventDefault();
+  insertFormattedText(event.data);
+  updateSourceFromVisualEditor();
+  renderTagSuggestions();
+}
+
+function handleEditorHistoryShortcut(event) {
+  if (surfaceMode !== "edit" || !(event.ctrlKey || event.metaKey)) return false;
+  const targetTag = event.target?.tagName ? event.target.tagName.toLowerCase() : "";
+  if (["input", "textarea", "select"].includes(targetTag)) return false;
+  const key = event.key.toLowerCase();
+  if (key === "z" && editorUndoStack.length) {
     event.preventDefault();
-    els.visualEditor.innerHTML = editorUndoStack.pop();
-    clearSelectedTag();
-    updateSourceFromVisualEditor();
-    updateCommentsFromContent(els.editorText.value);
-    renderTagSuggestions();
+    event.stopPropagation();
+    undoEditorChange();
+    return true;
+  }
+  if (key === "y" && editorRedoStack.length) {
+    event.preventDefault();
+    event.stopPropagation();
+    redoEditorChange();
+    return true;
+  }
+  return false;
+}
+
+function handleVisualEditorKeydown(event) {
+  if (handleEditorHistoryShortcut(event)) {
+    return;
+  }
+  if (editingTag && (event.key === "Enter" || event.key === "Escape")) {
+    event.preventDefault();
+    finishTagTextEdit({ placeCaretAfter: true });
     return;
   }
   if (!selectedTag) return;
@@ -1189,7 +1398,9 @@ function handleVisualEditorKeydown(event) {
 }
 
 function selectTagElement(tag) {
+  finishTagTextEdit();
   clearSelectedTag();
+  hidePreviewNow();
   selectedTag = tag;
   selectedTag.classList.add("selected-tag");
   const selection = window.getSelection();
@@ -1200,6 +1411,65 @@ function selectTagElement(tag) {
   saveEditorSelection();
 }
 
+function beginTagTextEdit(tag) {
+  if (!tag || !els.visualEditor.contains(tag)) return;
+  if (editingTag && editingTag !== tag) finishTagTextEdit();
+  if (editingTag !== tag) {
+    pushEditorUndoSnapshot();
+  }
+  clearSelectedTag();
+  hidePreviewNow();
+  editingTag = tag;
+  tag.contentEditable = "true";
+  tag.spellcheck = true;
+  tag.tabIndex = 0;
+  tag.classList.add("editing-tag");
+  tag.focus({ preventScroll: true });
+  const selection = window.getSelection();
+  const range = document.createRange();
+  range.selectNodeContents(tag);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  saveEditorSelection();
+}
+
+function finishTagTextEdit(options = {}) {
+  if (!editingTag) return;
+  const tag = editingTag;
+  editingTag = null;
+  tag.contentEditable = "false";
+  tag.spellcheck = false;
+  tag.removeAttribute("tabindex");
+  tag.classList.remove("editing-tag");
+  if (options.placeCaretAfter && els.visualEditor.contains(tag)) {
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.setStartAfter(tag);
+    range.collapse(true);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    saveEditorSelection();
+  }
+  updateSourceFromVisualEditor();
+  renderTagSuggestions();
+}
+
+function openTagInNewWindow(path) {
+  if (!path) return;
+  hidePreviewNow();
+  const targetUrl = `${location.origin}${location.pathname}#${encodeURIComponent(path)}`;
+  const opened = window.open(targetUrl, "_blank", "noopener,noreferrer");
+  if (!opened) {
+    const link = document.createElement("a");
+    link.href = targetUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+}
+
 function clearSelectedTag() {
   if (selectedTag) selectedTag.classList.remove("selected-tag");
   selectedTag = null;
@@ -1208,6 +1478,32 @@ function clearSelectedTag() {
 function pushEditorUndoSnapshot() {
   editorUndoStack.push(els.visualEditor.innerHTML);
   if (editorUndoStack.length > 40) editorUndoStack.shift();
+  editorRedoStack.length = 0;
+}
+
+function undoEditorChange() {
+  if (!editorUndoStack.length) return;
+  editorRedoStack.push(els.visualEditor.innerHTML);
+  restoreEditorSnapshot(editorUndoStack.pop());
+}
+
+function redoEditorChange() {
+  if (!editorRedoStack.length) return;
+  editorUndoStack.push(els.visualEditor.innerHTML);
+  restoreEditorSnapshot(editorRedoStack.pop());
+}
+
+function restoreEditorSnapshot(html) {
+  editingTag = null;
+  selectedTag = null;
+  els.visualEditor.innerHTML = html;
+  wireEditableTagLinks();
+  clearSelectedTag();
+  updateSourceFromVisualEditor();
+  updateCommentsFromContent(els.editorText.value);
+  renderTagSuggestions();
+  updateBlockFormatControl();
+  updateInlineFormatButtons();
 }
 
 function unwrapTagElement(tag) {
@@ -1220,6 +1516,106 @@ function unwrapTagElement(tag) {
   selection.removeAllRanges();
   selection.addRange(range);
   saveEditorSelection();
+}
+
+function applyInlineFormat(format) {
+  const selection = window.getSelection();
+  if (!selection || !selection.rangeCount) return;
+  if (!selection.isCollapsed && selectedVisualText()) {
+    wrapVisualSelection(inlineFormatTag(format), {}, selectedVisualText());
+    return;
+  }
+  toggleInlineFormatMode(format);
+}
+
+function toggleInlineFormatMode(format) {
+  if (activeInlineFormats.has(format)) {
+    activeInlineFormats.delete(format);
+    moveCaretOutOfInlineFormat(format);
+  } else {
+    activeInlineFormats.add(format);
+  }
+  updateInlineFormatButtons();
+}
+
+function inlineFormatTag(format) {
+  if (format === "bold") return "strong";
+  if (format === "italic") return "em";
+  return "code";
+}
+
+function inlineFormatSelector(format) {
+  if (format === "bold") return "strong, b";
+  if (format === "italic") return "em, i";
+  return "code";
+}
+
+function selectionMatchesActiveInlineFormats() {
+  const selection = window.getSelection();
+  if (!selection || !selection.rangeCount || !els.visualEditor.contains(selection.anchorNode)) return false;
+  return [...activeInlineFormats].every((format) => closestInlineFormat(selection.anchorNode, format));
+}
+
+function closestInlineFormat(node, format) {
+  let current = node && node.nodeType === Node.ELEMENT_NODE ? node : node?.parentElement;
+  while (current && current !== els.visualEditor) {
+    if (current.matches && current.matches(inlineFormatSelector(format))) return current;
+    current = current.parentElement;
+  }
+  return null;
+}
+
+function moveCaretOutOfInlineFormat(format) {
+  const selection = window.getSelection();
+  if (!selection || !selection.rangeCount || !els.visualEditor.contains(selection.anchorNode)) return;
+  const wrapper = closestInlineFormat(selection.anchorNode, format);
+  if (!wrapper) return;
+  const range = document.createRange();
+  range.setStartAfter(wrapper);
+  range.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(range);
+  saveEditorSelection();
+}
+
+function insertFormattedText(text) {
+  const selection = window.getSelection();
+  if (!selection || !selection.rangeCount) return;
+  const range = selection.getRangeAt(0);
+  if (!els.visualEditor.contains(range.commonAncestorContainer)) return;
+  if (!range.collapsed) range.deleteContents();
+  const textNode = document.createTextNode(text);
+  let node = textNode;
+  const order = ["code", "italic", "bold"].filter((format) => activeInlineFormats.has(format));
+  order.forEach((format) => {
+    const wrapper = document.createElement(inlineFormatTag(format));
+    wrapper.appendChild(node);
+    node = wrapper;
+  });
+  range.insertNode(node);
+  const nextRange = document.createRange();
+  nextRange.setStart(textNode, textNode.textContent.length);
+  nextRange.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(nextRange);
+  saveEditorSelection();
+}
+
+function updateInlineFormatButtons() {
+  const selection = window.getSelection();
+  const formatsAtSelection = new Set();
+  if (selection && selection.rangeCount && els.visualEditor.contains(selection.anchorNode)) {
+    ["bold", "italic", "code"].forEach((format) => {
+      if (closestInlineFormat(selection.anchorNode, format)) formatsAtSelection.add(format);
+    });
+  }
+  document.querySelectorAll("[data-format]").forEach((button) => {
+    const format = button.getAttribute("data-format");
+    if (!["bold", "italic", "code"].includes(format)) return;
+    const active = activeInlineFormats.has(format) || formatsAtSelection.has(format);
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
 }
 
 function wrapVisualSelection(tagName, attributes = {}, placeholder = "") {
@@ -1350,48 +1746,176 @@ function insertVisualLink() {
   if (link && !link.textContent.trim()) link.textContent = label;
 }
 
-function tagVisualSelection() {
+async function openTagPickerForSelection() {
   const label = selectedVisualText().trim();
-  if (!label || !currentPage) return;
-  const suggestions = tagSuggestionsForLabel(label);
-  let entry = suggestions[0] || null;
-  if (suggestions.length > 1) {
-    const picked = window.prompt(`Tag target\n${suggestions.slice(0, 6).map((item, index) => `${index + 1}. ${item.term} -> ${pageTitleForPath(item.path)}`).join("\n")}`, "1");
-    const index = Number(picked) - 1;
-    if (Number.isInteger(index) && suggestions[index]) entry = suggestions[index];
-    else if (picked) entry = suggestions.find((item) => item.path === picked || normalizeTerm(item.term) === normalizeTerm(picked));
-    else return;
+  if (!currentPage) return;
+  if (!label) {
+    window.alert("Select text in the editor first, then choose Tag.");
+    return;
   }
-  if (!entry) {
-    const target = window.prompt("Tag target page or concept", label);
-    if (!target) return;
-    const normalized = normalizeTerm(target);
-    entry = termEntries.find((item) => item.path !== currentPage.path && (item.normalized === normalized || item.normalized.includes(normalized)));
+  await ensureFuseSearch();
+  tagPickerState = {
+    label,
+    range: savedEditorRange ? savedEditorRange.cloneRange() : window.getSelection().getRangeAt(0).cloneRange()
+  };
+  els.tagPickerSelection.textContent = `Tag selected text: "${label}"`;
+  els.tagPickerSearch.value = label;
+  els.tagPicker.classList.remove("hidden");
+  renderTagPickerResults(label);
+  positionTagPicker();
+  requestAnimationFrame(() => {
+    positionTagPicker();
+    els.tagPickerSearch.focus();
+    els.tagPickerSearch.select();
+  });
+}
+
+async function ensureFuseSearch() {
+  if (FuseSearch) return FuseSearch;
+  const module = await import("/vendor/fuse.min.mjs");
+  FuseSearch = module.default || module.Fuse;
+  if (!FuseSearch) throw new Error("Fuse.js failed to load.");
+  return FuseSearch;
+}
+
+function tagPageEntries() {
+  return pages
+    .filter((page) => !currentPage || page.path !== currentPage.path)
+    .map((page) => ({
+      title: page.title,
+      path: page.path,
+      layer: page.metadata.layer || "",
+      status: page.metadata.status || "",
+      aliases: normalizeList(page.metadata.canonical_for),
+      searchText: [page.title, page.path, page.metadata.layer, page.metadata.status, ...normalizeList(page.metadata.canonical_for)].filter(Boolean).join(" ")
+    }));
+}
+
+function renderTagPickerResults(query) {
+  const entries = tagPageEntries();
+  const trimmed = String(query || "").trim();
+  const results = trimmed && FuseSearch
+    ? new FuseSearch(entries, {
+      keys: [
+        { name: "title", weight: 0.45 },
+        { name: "aliases", weight: 0.3 },
+        { name: "path", weight: 0.2 },
+        { name: "layer", weight: 0.05 }
+      ],
+      threshold: 0.38,
+      ignoreLocation: true,
+      includeMatches: true,
+      includeScore: true,
+      minMatchCharLength: 2
+    }).search(trimmed).slice(0, 40)
+    : entries.slice(0, 60).map((item) => ({ item, matches: [], score: 1 }));
+
+  if (!results.length) {
+    els.tagPickerResults.innerHTML = `<p class="muted">No matching wiki pages.</p>`;
+    return;
   }
-  if (!entry) return;
+  els.tagPickerResults.innerHTML = results.map((result, index) => tagPickerResult(result, index)).join("");
+  els.tagPickerResults.querySelectorAll("[data-page]").forEach((button) => {
+    button.addEventListener("mousedown", (event) => event.preventDefault());
+    button.addEventListener("click", () => chooseTagPage(button.getAttribute("data-page")));
+  });
+}
+
+function tagPickerResult(result, index) {
+  const page = result.item;
+  const title = highlightedFuseValue(page.title, result.matches, "title");
+  const path = highlightedFuseValue(page.path, result.matches, "path");
+  const aliasMatch = (result.matches || []).find((match) => match.key === "aliases");
+  const alias = aliasMatch ? `<span class="tag-picker-alias">Matched alias: ${highlightFuseIndices(String(aliasMatch.value || ""), aliasMatch.indices || [])}</span>` : "";
+  return `
+    <button type="button" class="tag-picker-result${index === 0 ? " best-match" : ""}" data-page="${escapeHtml(page.path)}">
+      <span class="tag-picker-rank">${index === 0 ? "Best match" : `Match ${index + 1}`}</span>
+      <strong>${title}</strong>
+      <span>${path}</span>
+      ${alias}
+      <small>${escapeHtml([page.layer, page.status].filter(Boolean).join(" / "))}</small>
+    </button>
+  `;
+}
+
+function highlightedFuseValue(value, matches, key) {
+  const match = (matches || []).find((item) => item.key === key);
+  if (!match) return escapeHtml(value);
+  return highlightFuseIndices(value, match.indices || []);
+}
+
+function highlightFuseIndices(value, indices) {
+  const text = String(value || "");
+  if (!indices.length) return escapeHtml(text);
+  let html = "";
+  let cursor = 0;
+  indices.forEach(([start, end]) => {
+    if (start > cursor) html += escapeHtml(text.slice(cursor, start));
+    html += `<mark>${escapeHtml(text.slice(start, end + 1))}</mark>`;
+    cursor = end + 1;
+  });
+  if (cursor < text.length) html += escapeHtml(text.slice(cursor));
+  return html;
+}
+
+function chooseTagPage(path) {
+  if (!tagPickerState || !path) return;
+  const entry = pages.find((page) => page.path === path);
+  if (!entry || !restoreTagPickerSelection()) return;
+  pushEditorUndoSnapshot();
   const link = wrapVisualSelection("a", {
     href: `#${encodeURIComponent(entry.path)}`,
     "data-page": entry.path,
     class: "term-link"
-  }, label);
-  if (link) link.textContent = label;
+  }, tagPickerState.label);
+  if (link) {
+    link.textContent = tagPickerState.label;
+    prepareEditableTagLink(link);
+  }
+  closeTagPicker();
+  updateSourceFromVisualEditor();
+  renderTagSuggestions();
+  els.visualEditor.focus();
 }
 
-function tagSuggestionsForLabel(label) {
-  const normalized = normalizeTerm(label);
-  if (!normalized) return [];
-  return termEntries
-    .filter((item) => item.path !== currentPage.path)
-    .map((item) => {
-      let score = 0;
-      if (item.normalized === normalized) score = 4;
-      else if (item.normalized.includes(normalized)) score = 3;
-      else if (normalized.includes(item.normalized)) score = 2;
-      else if (item.term.toLowerCase().includes(label.toLowerCase())) score = 1;
-      return { ...item, score };
-    })
-    .filter((item) => item.score)
-    .sort((a, b) => b.score - a.score || a.term.localeCompare(b.term));
+function restoreTagPickerSelection() {
+  const selection = window.getSelection();
+  if (!selection || !tagPickerState.range) return false;
+  try {
+    selection.removeAllRanges();
+    selection.addRange(tagPickerState.range);
+    savedEditorRange = tagPickerState.range.cloneRange();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function closeTagPicker() {
+  if (!els.tagPicker) return;
+  els.tagPicker.classList.add("hidden");
+  els.tagPickerResults.innerHTML = "";
+  tagPickerState = null;
+}
+
+function positionTagPicker() {
+  if (!els.tagPicker || els.tagPicker.classList.contains("hidden")) return;
+  const anchor = document.querySelector('[data-format="tag"]');
+  if (!anchor) return;
+  const rect = anchor.getBoundingClientRect();
+  const margin = 14;
+  const pickerRect = els.tagPicker.getBoundingClientRect();
+  const width = Math.min(560, window.innerWidth - margin * 2);
+  let left = rect.left;
+  if (left + width > window.innerWidth - margin) left = window.innerWidth - margin - width;
+  if (left < margin) left = margin;
+  let top = rect.bottom + 8;
+  if (top + pickerRect.height > window.innerHeight - margin) {
+    top = Math.max(margin, rect.top - pickerRect.height - 8);
+  }
+  els.tagPicker.style.width = `${width}px`;
+  els.tagPicker.style.left = `${left}px`;
+  els.tagPicker.style.top = `${top}px`;
 }
 
 function commentSelectionInEditor() {
@@ -1557,6 +2081,7 @@ function wrapFirstVisualTermMatch(normalized, path) {
   link.href = `#${encodeURIComponent(path)}`;
   link.dataset.page = path;
   link.textContent = label;
+  prepareEditableTagLink(link);
   node.parentNode.insertBefore(before, node);
   node.parentNode.insertBefore(link, node);
   node.parentNode.insertBefore(after, node);

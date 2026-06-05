@@ -46,7 +46,7 @@ Use four language levels:
 
 ## Terms To Avoid In Ordinary UI
 
-Avoid [FieldRelation](../Data%20layer/FieldRelation.md), [ParticipationEdge](../Data%20layer/ParticipationEdge.md), movementUnlocked, relation provenance, reviewAuthorityType, reviewAuthorityId, distributed perception, [threshold illegibility](../Principles/Living%20field%20principles.md), [self-resourcing through field awareness](../Principles/What%20FieldPlatform%20is%20for.md), digital double, anti-convivial, input bargain, omniscient-platform assumption, and any copy implying "the platform knows what you need."
+Avoid [FieldRelation](../Data%20layer/FieldRelation.md), [ParticipationEdge](../Data%20layer/ParticipationEdge.md), movementUnlocked, relation provenance, reviewAuthorityType, reviewAuthorityId, distributed perception, [threshold illegibility](../Principles/Living%20field%20principles.md), [self-resourcing through field awareness](../Principles/What%20FieldPlatform%20is.md), digital double, anti-convivial, input bargain, omniscient-platform assumption, and any copy implying "the platform knows what you need."
 
 ## Semantic Separation
 

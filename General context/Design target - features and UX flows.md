@@ -22,6 +22,6 @@ implemented_by:
 
 This former long document has been refactored into the canonical wiki.
 
-Use [General Context Wiki](README.md) first, then [Platform architecture overview](Architecture/Platform%20architecture%20overview.md), [What FieldPlatform is for](Principles/What%20FieldPlatform%20is%20for.md), and [How tools like this go wrong](Principles/What%20FieldPlatform%20should%20not%20become.md).
+Use [General Context Wiki](README.md) first, then [What FieldPlatform is](Principles/What%20FieldPlatform%20is.md), [Living field principles](Principles/Living%20field%20principles.md), [How tools like this go wrong](Principles/What%20FieldPlatform%20should%20not%20become.md), and [Platform architecture overview](Architecture/Platform%20architecture%20overview.md).
 
 Do not add new canonical content here.

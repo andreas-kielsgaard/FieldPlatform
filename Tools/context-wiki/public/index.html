@@ -75,10 +75,21 @@
               <button type="button" data-format="bullet">List</button>
               <button type="button" data-format="numbered">1.</button>
               <button type="button" data-format="link">Link</button>
-              <button type="button" data-format="tag">Tag</button>
+              <button type="button" data-format="tag" title="Select text to create a tag. Ctrl+hover an existing tag to preview it; Ctrl+click opens it in a new window.">Tag</button>
               <button type="button" data-format="comment">Comment</button>
             </div>
-            <article id="visualEditor" class="markdown visual-editor" contenteditable="true" spellcheck="true" aria-label="Visual Markdown editor"></article>
+            <section id="tagPicker" class="tag-picker hidden" aria-label="Choose wiki page tag">
+              <div class="tag-picker-topline">
+                <div>
+                  <h3 id="tagPickerTitle">Choose Tag Target</h3>
+                  <p id="tagPickerSelection"></p>
+                </div>
+                <button id="tagPickerClose" type="button" aria-label="Close tag picker">Close</button>
+              </div>
+              <input id="tagPickerSearch" type="search" placeholder="Search wiki pages">
+              <div id="tagPickerResults" class="tag-picker-results"></div>
+            </section>
+            <article id="visualEditor" class="markdown visual-editor" contenteditable="true" spellcheck="true" tabindex="0" aria-label="Visual Markdown editor"></article>
             <textarea id="editorText" class="hidden" aria-hidden="true" tabindex="-1"></textarea>
             <div id="tagSuggestionPanel" class="tag-suggestion-panel hidden" aria-live="polite">
               <div class="tag-suggestion-title">Tag suggestions</div>

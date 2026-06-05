@@ -14,12 +14,12 @@ canonical_for:
   - anti-drift rules
   - what FieldPlatform should not become
 related:
-  - What FieldPlatform is for.md
+  - What FieldPlatform is.md
   - Living field principles.md
   - ../Maintenance/Product guardrails for agents.md
   - ../Frontend/Language and copy rules.md
 depends_on:
-  - What FieldPlatform is for.md
+  - What FieldPlatform is.md
   - Living field principles.md
 consumed_by:
   - ../Architecture/Review and approval model.md

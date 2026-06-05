@@ -18,7 +18,7 @@ related:
   - Hold unclear point.md
   - Pathway ways in.md
 depends_on:
-  - ../Principles/What FieldPlatform is for.md
+  - ../Principles/What FieldPlatform is.md
   - ../Principles/Living field principles.md
 consumed_by:
   - ../Architecture/Data layer overview.md
@@ -71,4 +71,4 @@ In product terms:
 
 ## Implementation Caution
 
-Not every product concept deserves a stored record. Some concepts remain [principles](../Principles/What%20FieldPlatform%20is%20for.md), copy, surface behavior, calculated output, permission logic, or [future exploration](../Parked/Future%20exploration%20notes.md) until repeated product pressure makes them stable.
+Not every product concept deserves a stored record. Some concepts remain [principles](../Principles/What%20FieldPlatform%20is.md), copy, surface behavior, calculated output, permission logic, or [future exploration](../Parked/Future%20exploration%20notes.md) until repeated product pressure makes them stable.

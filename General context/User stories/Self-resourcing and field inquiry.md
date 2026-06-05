@@ -13,7 +13,7 @@ canonical_for:
   - self-resourcing stories
   - field inquiry
 related:
-  - ../Principles/What FieldPlatform is for.md
+  - ../Principles/What FieldPlatform is.md
   - ../Ontology/Hold unclear point.md
   - ../Modules/Self-resourcing Entry module.md
   - ../Parked/Future exploration notes.md

@@ -27,7 +27,7 @@ If there are existing modified files, assume they are user-owned. Do not overwri
 Before product, mockup, UI, data-model, or design work, read:
 
 - `General context/README.md`
-- `General context/Principles/What FieldPlatform is for.md`
+- `General context/Principles/What FieldPlatform is.md`
 - `General context/Principles/What FieldPlatform should not become.md`
 - `General context/Maintenance/Context maintenance for agents.md`
 - `General context/Maintenance/Design process and wayfinding.md`

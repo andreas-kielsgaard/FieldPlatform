@@ -17,7 +17,7 @@ related:
   - Review Suggested Relation flow.md
   - Self-resourcing and field inquiry.md
 depends_on:
-  - ../Principles/What FieldPlatform is for.md
+  - ../Principles/What FieldPlatform is.md
 consumed_by:
   - ../Architecture/Traceability model.md
 implemented_by:

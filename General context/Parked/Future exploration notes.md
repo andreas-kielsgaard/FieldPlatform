@@ -27,7 +27,7 @@ This page preserves promising ideas that are not current implementation directio
 
 ## Aliveness Commons / Day-Retreat Space
 
-The platform has a physical analogue in a shared morning threshold space, village square, day-retreat commons, or civic infrastructure for aliveness. This is not a coworking office with wellness attached. The useful [principles](../Principles/What%20FieldPlatform%20is%20for.md) are rhythm over ownership, rest and care as participation, contact over output alone, and rooms/tools as affordances rather than the organizing principle.
+The platform has a physical analogue in a shared morning threshold space, village square, day-retreat commons, or civic infrastructure for aliveness. This is not a coworking office with wellness attached. The useful [principles](../Principles/What%20FieldPlatform%20is.md) are rhythm over ownership, rest and care as participation, contact over output alone, and rooms/tools as affordances rather than the organizing principle.
 
 ## Living House / Residency Slice
 

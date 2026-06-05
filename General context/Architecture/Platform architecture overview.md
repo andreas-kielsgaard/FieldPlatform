@@ -17,7 +17,7 @@ related:
   - Frontend layer overview.md
   - Traceability model.md
 depends_on:
-  - ../Principles/What FieldPlatform is for.md
+  - ../Principles/What FieldPlatform is.md
   - ../Principles/What FieldPlatform should not become.md
 consumed_by:
   - ../Maintenance/Context maintenance for agents.md
@@ -42,7 +42,7 @@ The product does this through a small set of [concepts](../Ontology/Product%20on
 
 Read the product structure in this order:
 
-- [Principles](../Principles/What%20FieldPlatform%20is%20for.md): why the platform exists and what it must not become.
+- [Principles](../Principles/What%20FieldPlatform%20is.md): what the platform is, the design philosophy behind it, and what it must not become.
 - [Product concepts](../Ontology/Product%20ontology.md): [person](../Data%20layer/Person%20entity.md), [community](../Data%20layer/Community%20entity.md), [event](../Data%20layer/Event%20offering%20entity.md) or [offering](../Data%20layer/Event%20offering%20entity.md), [venue](../Data%20layer/Venue%20entity.md), relation, [generated field](../Data%20layer/GeneratedField.md), [hold](../Ontology/Hold%20unclear%20point.md), and [pathway](../Ontology/Pathway%20ways%20in.md).
 - [User stories](../User%20stories/User%20stories%20overview.md): what someone is trying to understand or do.
 - [Views](../Frontend/Views%20overview.md): the main surfaces where someone reads, decides, or acts.

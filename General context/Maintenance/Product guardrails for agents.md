@@ -14,12 +14,12 @@ canonical_for:
   - principle companion
   - anti-drift checks for agents
 related:
-  - ../Principles/What FieldPlatform is for.md
+  - ../Principles/What FieldPlatform is.md
   - ../Principles/Living field principles.md
   - ../Principles/What FieldPlatform should not become.md
   - Context maintenance for agents.md
 depends_on:
-  - ../Principles/What FieldPlatform is for.md
+  - ../Principles/What FieldPlatform is.md
   - ../Principles/Living field principles.md
   - ../Principles/What FieldPlatform should not become.md
 consumed_by:
@@ -36,7 +36,7 @@ Use the principle pages to understand the project. Use this page when designing,
 
 ## Core Commitments
 
-- FieldPlatform supports [self-resourcing through field awareness](../Principles/What%20FieldPlatform%20is%20for.md).
+- FieldPlatform supports [self-resourcing through field awareness](../Principles/What%20FieldPlatform%20is.md).
 - Do not digitize the [living field](../Principles/Living%20field%20principles.md). Digitize thresholds where it becomes hard to read.
 - The app should help people return to contact with life instead of feeding a digital double.
 - Everyone is a participant first. Creator, steward, facilitator, host, volunteer, and bridge are contextual roles, not separate base products.

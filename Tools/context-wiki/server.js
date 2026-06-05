@@ -579,6 +579,13 @@ async function handleApi(req, res, url) {
 
 function serveStatic(req, res, url) {
   let requested = url.pathname === "/" ? "/index.html" : url.pathname;
+  if (requested === "/vendor/fuse.min.mjs") {
+    const fusePath = path.join(__dirname, "node_modules", "fuse.js", "dist", "fuse.min.mjs");
+    if (!fs.existsSync(fusePath)) {
+      return sendText(res, "Run npm install in Tools/context-wiki to install Fuse.js.", "text/plain; charset=utf-8", 404);
+    }
+    return sendText(res, fs.readFileSync(fusePath), "text/javascript; charset=utf-8");
+  }
   requested = requested.replace(/\.\.+/g, "");
   const abs = path.join(publicDir, requested);
   if (!abs.startsWith(publicDir) || !fs.existsSync(abs) || fs.statSync(abs).isDirectory()) {

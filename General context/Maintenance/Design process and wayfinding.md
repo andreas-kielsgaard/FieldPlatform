@@ -45,7 +45,7 @@ If conflict remains, preserve the uncertainty and report it instead of silently 
 - Context update: if a durable principle changes, update the most specific canonical page.
 - Prototype: build the smallest surface that tests the question.
 - Review: browse like a real [user](../Data%20layer/Person%20entity.md); look for confusion, language problems, role confusion, model leakage, and whether the surface feels like orientation or metadata.
-- Distill: convert feedback into [principles](../Principles/What%20FieldPlatform%20is%20for.md), constraints, and [open questions](../Current%20direction/Open%20questions.md).
+- Distill: convert feedback into [principles](../Principles/What%20FieldPlatform%20is.md), constraints, and [open questions](../Current%20direction/Open%20questions.md).
 - Decide: refine, update data/access, update specs, or start a new focused artifact.
 
 ## Choosing A Layer

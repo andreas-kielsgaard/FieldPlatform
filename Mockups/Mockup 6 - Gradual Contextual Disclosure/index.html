@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mockup 6 - Gradual Contextual Disclosure</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Mockup 6</p>
+        <h1>Gradual Contextual Disclosure</h1>
+      </div>
+      <div class="topbar-actions">
+        <button class="button secondary" id="resetDemo" type="button">Reset demo</button>
+        <nav class="surface-tabs" aria-label="Surface views">
+          <button class="surface-tab is-selected" type="button" data-surface="event">Event threshold</button>
+          <button class="surface-tab" type="button" data-surface="community">Community follow-up</button>
+          <button class="surface-tab" type="button" data-surface="connection">Connection choices</button>
+          <button class="surface-tab" type="button" data-surface="data">Data context</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="surface is-active" id="eventSurface" aria-labelledby="eventTitle">
+        <div class="object-band event-band">
+          <div class="object-copy">
+            <p class="eyebrow">Viewing as Casey</p>
+            <h2 id="eventTitle">Loading event</h2>
+            <p id="eventSummary">Loading</p>
+            <div class="object-actions">
+              <button class="button primary" id="attendEvent" type="button">Attend</button>
+              <button class="button secondary" id="shareRequiredInfo" type="button">Share required info</button>
+            </div>
+          </div>
+          <aside class="fact-grid" aria-label="Event facts">
+            <div><span>Time</span><strong id="eventTime">Loading</strong></div>
+            <div><span>Venue</span><strong id="eventVenue">Loading</strong></div>
+            <div><span>Facilitator</span><strong id="eventHost">Loading</strong></div>
+            <div><span>Access</span><strong id="eventAccess">Loading</strong></div>
+            <div><span>Cost</span><strong id="eventCost">Loading</strong></div>
+            <div><span>For</span><strong id="eventAudience">Loading</strong></div>
+          </aside>
+        </div>
+
+        <div class="surface-layout two-col">
+          <section class="tool-panel" aria-labelledby="eventRequirementTitle">
+            <div class="section-heading">
+              <p class="eyebrow">Before attendance</p>
+              <h3 id="eventRequirementTitle">Required for this event</h3>
+            </div>
+            <div id="eventRequirementStatus" class="status-stack"></div>
+          </section>
+
+          <section class="tool-panel" aria-labelledby="eventPromptTitle">
+            <div class="section-heading">
+              <p class="eyebrow">After attendance</p>
+              <h3 id="eventPromptTitle">How do you want to show up here?</h3>
+            </div>
+            <div id="eventDisclosurePrompt" class="choice-stack"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="surface" id="communitySurface" aria-labelledby="communityTitle">
+        <div class="object-band community-band">
+          <div class="object-copy">
+            <p class="eyebrow">Community page</p>
+            <h2 id="communityTitle">Loading community</h2>
+            <p id="communitySummary">Loading</p>
+          </div>
+          <aside class="fact-grid" aria-label="Community facts">
+            <div><span>Rhythm</span><strong id="communityRhythm">Loading</strong></div>
+            <div><span>Entry</span><strong id="communityEntry">Loading</strong></div>
+            <div><span>Current relation</span><strong id="communityRelation">Loading</strong></div>
+            <div><span>Visible now</span><strong id="communityVisibility">Loading</strong></div>
+          </aside>
+        </div>
+
+        <div class="surface-layout">
+          <section class="tool-panel wide" aria-labelledby="communityPromptTitle">
+            <div class="section-heading">
+              <p class="eyebrow">Because you've participated here</p>
+              <h3 id="communityPromptTitle">Would you like this community to know a little more?</h3>
+            </div>
+            <div id="communityDisclosurePrompt" class="choice-stack choice-grid"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="surface" id="connectionSurface" aria-labelledby="connectionTitle">
+        <div class="object-band connection-band">
+          <div class="object-copy">
+            <p class="eyebrow">Existing connection</p>
+            <h2 id="connectionTitle">Casey and Maya</h2>
+            <p id="connectionSummary">Loading</p>
+          </div>
+          <aside class="fact-grid" aria-label="Connection facts">
+            <div><span>Standing choice</span><strong id="standingChoice">Loading</strong></div>
+            <div><span>Later request</span><strong id="laterRequest">Loading</strong></div>
+            <div><span>Needs interruption?</span><strong id="interruptionState">Loading</strong></div>
+            <div><span>Current scope</span><strong id="connectionScope">Loading</strong></div>
+          </aside>
+        </div>
+
+        <div class="surface-layout two-col">
+          <section class="tool-panel" aria-labelledby="standingTitle">
+            <div class="section-heading">
+              <p class="eyebrow">Standing relationship</p>
+              <h3 id="standingTitle">Sharing choices with Maya</h3>
+            </div>
+            <div id="connectionChoices" class="choice-stack"></div>
+          </section>
+
+          <section class="tool-panel" aria-labelledby="coverageTitle">
+            <div class="section-heading">
+              <p class="eyebrow">Resolved by access layer</p>
+              <h3 id="coverageTitle">What later requests can use</h3>
+            </div>
+            <div id="coverageList" class="status-stack"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="surface" id="dataSurface" aria-labelledby="dataTitle">
+        <div class="data-heading">
+          <div>
+            <p class="eyebrow">Access layer context</p>
+            <h2 id="dataTitle">Requests and grants created by the interaction</h2>
+          </div>
+          <div class="data-metrics">
+            <span><strong id="requestCount">0</strong> requests</span>
+            <span><strong id="grantCount">0</strong> active grants</span>
+          </div>
+        </div>
+
+        <div class="surface-layout two-col">
+          <section class="tool-panel" aria-labelledby="requestTitle">
+            <div class="section-heading">
+              <p class="eyebrow">Exchange records</p>
+              <h3 id="requestTitle">Data share requests</h3>
+            </div>
+            <div id="requestRows" class="data-list"></div>
+          </section>
+
+          <section class="tool-panel" aria-labelledby="grantTitle">
+            <div class="section-heading">
+              <p class="eyebrow">Current visibility</p>
+              <h3 id="grantTitle">Visibility grants</h3>
+            </div>
+            <div id="grantRows" class="data-list"></div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../../Platform data layer/source/database-definition/seed.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/shared.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/overlap.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/generatedFields.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/fieldRelations.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/communityHealth.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/recommendations.js"></script>
+  <script src="../../Platform data layer/source/calculation-layer/calculations.js"></script>
+  <script src="../../Platform data layer/source/database-engine/utils.js"></script>
+  <script src="../../Platform data layer/source/database-engine/collectionConfig.js"></script>
+  <script src="../../Platform data layer/source/database-engine/adapters.js"></script>
+  <script src="../../Platform data layer/source/database-engine/recordFactory.js"></script>
+  <script src="../../Platform data layer/source/database-engine/snapshotNormalizer.js"></script>
+  <script src="../../Platform data layer/source/database-engine/queryApi.js"></script>
+  <script src="../../Platform data layer/source/database-engine/calculationApi.js"></script>
+  <script src="../../Platform data layer/source/database-engine/database.js"></script>
+  <script src="../../Platform data layer/build/browser/platform-domain.bundle.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

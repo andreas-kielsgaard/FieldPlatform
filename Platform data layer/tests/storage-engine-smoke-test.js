@@ -18,6 +18,8 @@ assert(initial.events.length >= 6, "seed should include events");
 assert(initial.participationEdges.every(edge => edge.id), "edges should be normalized with ids");
 assert(initial.fieldRelations.length >= 6, "seed should include FieldRelations");
 assert(initial.relationReviews.length >= 3, "seed should include RelationReviews");
+assert(initial.dataShareRequests.length >= 2, "seed should include DataShareRequests");
+assert(initial.visibilityGrants.length >= 2, "seed should include VisibilityGrants");
 
 const event = layer.database.update("events", "e_ci_jam", current => ({
   attendance: {
@@ -82,6 +84,16 @@ assert(layer.calculations.movementOptionsForRelation(seededRelation.id).includes
 assert(layer.calculations.relationExplanation(seededRelation.id).reason, "relation explanation should include a reason");
 assert(layer.calculations.holdSignalsForObject("community", "ci").some(signal => signal.holdType === "threshold"), "hold signals should summarize hold types");
 
+const seededDataShareRequest = layer.queries.getDataShareRequest("dsr_ci_jam_casey_name_contact");
+assert(seededDataShareRequest && seededDataShareRequest.status === "accepted", "seeded DataShareRequest should be queryable");
+assert(layer.queries.getDataShareRequestsForSubject("person", "p_casey").some(item => item.id === seededDataShareRequest.id), "DataShareRequests should be queryable by subject");
+assert(layer.queries.getDataShareRequestsForContext("event", "e_ci_jam").some(item => item.id === seededDataShareRequest.id), "DataShareRequests should be queryable by context");
+
+const seededVisibilityGrant = layer.queries.getVisibilityGrant("vg_ci_jam_casey_name_contact");
+assert(seededVisibilityGrant && seededVisibilityGrant.status === "active", "seeded VisibilityGrant should be queryable");
+assert(layer.queries.getVisibilityGrantsForSubject("person", "p_casey").some(item => item.id === seededVisibilityGrant.id), "VisibilityGrants should be queryable by subject");
+assert(layer.queries.getVisibilityGrantsForContext("event", "e_ci_jam").some(item => item.id === seededVisibilityGrant.id), "VisibilityGrants should be queryable by context");
+
 const createdRelation = layer.database.create("fieldRelations", {
   sourceType: "event",
   sourceId: "e_morning_sit",
@@ -109,6 +121,34 @@ const review = layer.database.create("relationReviews", {
   note: "Smoke test review"
 });
 assert(review.id, "generic create should persist RelationReview");
+
+const createdDataShareRequest = layer.database.create("dataShareRequests", {
+  requesterType: "event",
+  requesterId: "e_morning_sit",
+  subjectType: "person",
+  subjectId: "p_casey",
+  contextType: "event",
+  contextId: "e_morning_sit",
+  facets: ["name"],
+  recipientScope: "event_facilitators",
+  purpose: "event_logistics",
+  requirementLevel: "required_before_action",
+  status: "pending"
+});
+assert(createdDataShareRequest.id, "generic create should persist DataShareRequest");
+
+const createdVisibilityGrant = layer.database.create("visibilityGrants", {
+  sourceRequestId: createdDataShareRequest.id,
+  subjectType: "person",
+  subjectId: "p_casey",
+  contextType: "event",
+  contextId: "e_morning_sit",
+  facets: ["name"],
+  recipientScope: "event_facilitators",
+  purpose: "event_logistics",
+  status: "active"
+});
+assert(createdVisibilityGrant.id, "generic create should persist VisibilityGrant");
 
 const createdCommunity = layer.database.create("groups", {
   name: "Smoke Test Community",

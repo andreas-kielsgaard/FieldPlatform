@@ -11,6 +11,8 @@ export namespace collectionPrefixes {
     let groupRelationships: string;
     let fieldRelations: string;
     let relationReviews: string;
+    let dataShareRequests: string;
+    let visibilityGrants: string;
     let membershipRequests: string;
     let suggestedEventShares: string;
     let createdEvents: string;

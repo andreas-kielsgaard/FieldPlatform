@@ -2,7 +2,7 @@
 const FieldPlatformSnapshotNormalizer = (() => {
     const { clone, unique } = getUtils();
     const { collectionNames } = getConfig();
-    const { defaultParticipationEdge, edgeId, groupRelationshipId, relationReviewId, managedObjectId, normalizeFieldRelationRecord, normalizeEventRecord, withId } = getRecordFactory();
+    const { defaultParticipationEdge, edgeId, groupRelationshipId, relationReviewId, managedObjectId, normalizeFieldRelationRecord, normalizeDataShareRequestRecord, normalizeVisibilityGrantRecord, normalizeEventRecord, withId } = getRecordFactory();
     function normalizeSnapshot(input) {
         const snapshot = clone(input || {});
         collectionNames.forEach(collectionName => {
@@ -44,6 +44,8 @@ const FieldPlatformSnapshotNormalizer = (() => {
             id: review.id || relationReviewId(review.fieldRelationId, review.action, index),
             ...review
         }));
+        snapshot.dataShareRequests = snapshot.dataShareRequests.map(normalizeDataShareRequestRecord);
+        snapshot.visibilityGrants = snapshot.visibilityGrants.map(normalizeVisibilityGrantRecord);
         snapshot.membershipRequests = snapshot.membershipRequests.map(request => withId("membershipRequests", request));
         snapshot.suggestedEventShares = snapshot.suggestedEventShares.map(share => withId("suggestedEventShares", share));
         snapshot.festivals = snapshot.festivals.map(festival => withId("festivals", festival));

@@ -48,5 +48,11 @@ class User {
     canManageCommunity(community) {
         return Boolean(this.platform.raw().queries.canManageCommunity(this.id, (0, domainUtils_1.idOf)(community)));
     }
+    dataShareRequests() {
+        return this.platform.dataShareRequests.forSubject("person", this.id);
+    }
+    visibilityGrants() {
+        return this.platform.visibilityGrants.forSubject("person", this.id);
+    }
 }
 exports.User = User;

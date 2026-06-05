@@ -2,6 +2,7 @@ import type { PlatformDomain } from "../platformDomain";
 import type { CommunityRecord, Id, MembershipRequestRecord } from "../types";
 import type { User } from "./user";
 import type { Venue } from "./venue";
+import type { DataShareRequest } from "./dataShareRequest";
 import { Event } from "./event";
 import { GeneratedField } from "./generatedField";
 import { ParticipationEdge } from "./participationEdge";
@@ -30,4 +31,5 @@ export declare class Community {
     health(): unknown;
     generatedFields(): GeneratedField[];
     canBeManagedBy(user: User | Id): boolean;
+    dataShareRequests(): DataShareRequest[];
 }

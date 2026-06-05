@@ -23,6 +23,12 @@ const FieldPlatformRecordFactory = (() => {
     function relationReviewId(fieldRelationIdValue, action, index = 0) {
         return `relation_review_${fieldRelationIdValue}_${action || "review"}_${index}`;
     }
+    function dataShareRequestId(requesterType, requesterId, subjectType, subjectId, purpose, index = 0) {
+        return `data_share_request_${requesterType}_${requesterId}_${subjectType}_${subjectId}_${purpose || "share"}_${index}`;
+    }
+    function visibilityGrantId(subjectType, subjectId, recipientScope, purpose, index = 0) {
+        return `visibility_grant_${subjectType}_${subjectId}_${recipientScope || "scope"}_${purpose || "purpose"}_${index}`;
+    }
     function normalizeFieldRelationRecord(relation, index = 0) {
         return {
             relationStrength: 0,
@@ -72,6 +78,38 @@ const FieldPlatformRecordFactory = (() => {
             }
         };
     }
+    function normalizeDataShareRequestRecord(request, index = 0) {
+        const now = request.createdAt || new Date().toISOString();
+        return {
+            facets: [],
+            recipientIds: [],
+            requirementLevel: "optional_before_action",
+            status: "pending",
+            version: 1,
+            materialChangeBehavior: "requires_update_on_change",
+            createdAt: now,
+            updatedAt: request.updatedAt || now,
+            ...request,
+            facets: unique(request.facets || []),
+            recipientIds: unique(request.recipientIds || []),
+            id: request.id || dataShareRequestId(request.requesterType, request.requesterId, request.subjectType, request.subjectId, request.purpose, index)
+        };
+    }
+    function normalizeVisibilityGrantRecord(grant, index = 0) {
+        const now = grant.createdAt || new Date().toISOString();
+        return {
+            facets: [],
+            recipientIds: [],
+            status: "active",
+            audienceBehavior: "fixed",
+            createdAt: now,
+            updatedAt: grant.updatedAt || now,
+            ...grant,
+            facets: unique(grant.facets || []),
+            recipientIds: unique(grant.recipientIds || []),
+            id: grant.id || visibilityGrantId(grant.subjectType, grant.subjectId, grant.recipientScope, grant.purpose, index)
+        };
+    }
     function getUtils() {
         if (typeof require === "function")
             return require("./utils");
@@ -89,9 +127,13 @@ const FieldPlatformRecordFactory = (() => {
         managedObjectId,
         fieldRelationId,
         relationReviewId,
+        dataShareRequestId,
+        visibilityGrantId,
         defaultParticipationEdge,
         normalizeEventRecord,
-        normalizeFieldRelationRecord
+        normalizeFieldRelationRecord,
+        normalizeDataShareRequestRecord,
+        normalizeVisibilityGrantRecord
     };
 })();
 if (typeof window !== "undefined") {

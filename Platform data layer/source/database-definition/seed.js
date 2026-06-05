@@ -883,6 +883,87 @@ function createInitialPlatformSnapshot() {
     }
   ];
 
+  const dataShareRequests = [
+    {
+      id: "dsr_ci_jam_casey_name_contact",
+      requesterType: "event",
+      requesterId: "e_ci_jam",
+      subjectType: "person",
+      subjectId: "p_casey",
+      contextType: "event",
+      contextId: "e_ci_jam",
+      facets: ["name", "contact_route"],
+      recipientScope: "event_facilitators",
+      recipientIds: ["p_ella"],
+      purpose: "event_logistics",
+      requirementLevel: "required_before_action",
+      status: "accepted",
+      source: "seed_event_requirement",
+      version: 1,
+      materialChangeBehavior: "requires_update_on_change",
+      note: "Event facilitator needs a name and contact route for attendance logistics.",
+      createdAt: "2026-05-04T10:00:00.000Z",
+      updatedAt: "2026-05-04T10:05:00.000Z",
+      acceptedAt: "2026-05-04T10:05:00.000Z",
+      acceptedBy: "p_casey"
+    },
+    {
+      id: "dsr_ci_stewards_casey_presence",
+      requesterType: "community",
+      requesterId: "ci",
+      subjectType: "person",
+      subjectId: "p_casey",
+      contextType: "community",
+      contextId: "ci",
+      facets: ["attendance", "community_relationship"],
+      recipientScope: "community_stewards",
+      recipientIds: ["p_ella"],
+      purpose: "steward_context",
+      requirementLevel: "suggested_after_participation",
+      status: "pending",
+      source: "seed_post_participation_prompt",
+      version: 1,
+      materialChangeBehavior: "requires_update_on_change",
+      note: "Because Casey has participated near CI, they may choose whether stewards know they are around.",
+      createdAt: "2026-05-05T10:00:00.000Z",
+      updatedAt: "2026-05-05T10:00:00.000Z"
+    }
+  ];
+
+  const visibilityGrants = [
+    {
+      id: "vg_ci_jam_casey_name_contact",
+      sourceRequestId: "dsr_ci_jam_casey_name_contact",
+      subjectType: "person",
+      subjectId: "p_casey",
+      contextType: "event",
+      contextId: "e_ci_jam",
+      facets: ["name", "contact_route"],
+      recipientScope: "event_facilitators",
+      recipientIds: ["p_ella"],
+      purpose: "event_logistics",
+      status: "active",
+      source: "accepted_data_share_request",
+      audienceBehavior: "requires_update_on_change",
+      createdAt: "2026-05-04T10:05:00.000Z",
+      updatedAt: "2026-05-04T10:05:00.000Z"
+    },
+    {
+      id: "vg_casey_maya_contact_standing",
+      subjectType: "person",
+      subjectId: "p_casey",
+      facets: ["contact_route"],
+      recipientScope: "specific_people",
+      recipientIds: ["p_maya"],
+      purpose: "gradual_connection",
+      status: "active",
+      source: "standing_visibility_preference",
+      audienceBehavior: "fixed",
+      createdAt: "2026-05-06T10:00:00.000Z",
+      updatedAt: "2026-05-06T10:00:00.000Z"
+    }
+  ];
+
   const personas = ["p_casey", "p_maya", "p_liv", "p_samir", "p_rune", "p_noa"];
 
   return {
@@ -900,6 +981,8 @@ function createInitialPlatformSnapshot() {
     groupRelationships,
     fieldRelations,
     relationReviews,
+    dataShareRequests,
+    visibilityGrants,
     personas,
     createdEvents: [],
     featuredEvents: [],

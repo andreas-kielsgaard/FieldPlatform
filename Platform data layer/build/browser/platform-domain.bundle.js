@@ -31,6 +31,9 @@ var FieldPlatformDomain = (() => {
     CommunityHealthService: () => CommunityHealthService,
     CommunityManagementService: () => CommunityManagementService,
     CommunityRepository: () => CommunityRepository,
+    DataShareRequest: () => DataShareRequest,
+    DataShareRequestRepository: () => DataShareRequestRepository,
+    DataShareService: () => DataShareService,
     Event: () => Event,
     EventManagementService: () => EventManagementService,
     EventRegistrationService: () => EventRegistrationService,
@@ -52,6 +55,8 @@ var FieldPlatformDomain = (() => {
     UserRepository: () => UserRepository,
     Venue: () => Venue,
     VenueRepository: () => VenueRepository,
+    VisibilityGrant: () => VisibilityGrant,
+    VisibilityGrantRepository: () => VisibilityGrantRepository,
     createPlatformDomain: () => createPlatformDomain
   });
 
@@ -227,6 +232,9 @@ var FieldPlatformDomain = (() => {
     canBeManagedBy(user) {
       return Boolean(this.platform.raw().queries.canManageCommunity(idOf(user), this.id));
     }
+    dataShareRequests() {
+      return this.platform.dataShareRequests.forContext("community", this.id);
+    }
   };
 
   // source/access-layer/repositories/communityRepository.ts
@@ -246,6 +254,90 @@ var FieldPlatformDomain = (() => {
       const creatorId = idOf(createdBy);
       const record = this.platform.communityManagement.create(data, creatorId);
       return new Community(this.platform, record.id);
+    }
+  };
+
+  // source/access-layer/models/visibilityGrant.ts
+  var VisibilityGrant = class {
+    constructor(platform, id) {
+      this.platform = platform;
+      this.id = id;
+    }
+    data() {
+      return this.platform.raw().queries.getVisibilityGrant(this.id);
+    }
+    isActive() {
+      return this.data().status === "active";
+    }
+    revoke(revokedBy) {
+      this.platform.dataShares.revokeGrant(this.id, revokedBy);
+      return this;
+    }
+    covers(query) {
+      const grant = this.data();
+      if (grant.status !== "active") return false;
+      if (grant.subjectType !== query.subjectType || grant.subjectId !== query.subjectId) return false;
+      if (!grant.facets.includes(query.facet)) return false;
+      if (query.purpose && grant.purpose !== query.purpose) return false;
+      if (query.recipientScope && grant.recipientScope !== query.recipientScope && grant.recipientScope !== "public") return false;
+      if (query.recipientId && (grant.recipientIds || []).length > 0 && !(grant.recipientIds || []).includes(query.recipientId)) return false;
+      if (grant.contextType || grant.contextId) return grant.contextType === query.contextType && grant.contextId === query.contextId;
+      return true;
+    }
+  };
+
+  // source/access-layer/models/dataShareRequest.ts
+  var DataShareRequest = class {
+    constructor(platform, id) {
+      this.platform = platform;
+      this.id = id;
+    }
+    data() {
+      return this.platform.raw().queries.getDataShareRequest(this.id);
+    }
+    accept(acceptedBy) {
+      this.platform.dataShares.acceptRequest(this.id, acceptedBy);
+      return this;
+    }
+    revoke(revokedBy) {
+      this.platform.dataShares.revokeRequest(this.id, revokedBy);
+      return this;
+    }
+    visibilityGrants() {
+      return this.platform.dataShares.grantsCoveringRequest(this.id).map((grant) => new VisibilityGrant(this.platform, grant.id));
+    }
+  };
+
+  // source/access-layer/repositories/dataShareRequestRepository.ts
+  var DataShareRequestRepository = class {
+    constructor(platform) {
+      this.platform = platform;
+    }
+    get(id) {
+      const record = this.platform.raw().queries.getDataShareRequest(id);
+      if (!record) throw new Error(`DataShareRequest not found: ${id}`);
+      return new DataShareRequest(this.platform, id);
+    }
+    list() {
+      return this.platform.raw().queries.listDataShareRequests().map((record) => new DataShareRequest(this.platform, record.id));
+    }
+    forSubject(subjectType, subjectId) {
+      return this.platform.raw().queries.getDataShareRequestsForSubject(subjectType, subjectId).map((record) => new DataShareRequest(this.platform, record.id));
+    }
+    forContext(contextType, contextId) {
+      return this.platform.raw().queries.getDataShareRequestsForContext(contextType, contextId).map((record) => new DataShareRequest(this.platform, record.id));
+    }
+    create(data) {
+      const record = this.platform.dataShares.createRequest(data);
+      return new DataShareRequest(this.platform, record.id);
+    }
+    accept(id, acceptedBy) {
+      const { request } = this.platform.dataShares.acceptRequest(id, acceptedBy);
+      return new DataShareRequest(this.platform, request.id);
+    }
+    revoke(id, revokedBy) {
+      const request = this.platform.dataShares.revokeRequest(id, revokedBy);
+      return new DataShareRequest(this.platform, request.id);
     }
   };
 
@@ -308,6 +400,9 @@ var FieldPlatformDomain = (() => {
     }
     canBeManagedBy(user) {
       return Boolean(this.platform.raw().queries.canManageEvent(idOf(user), this.id));
+    }
+    dataShareRequests() {
+      return this.platform.dataShareRequests.forContext("event", this.id);
     }
   };
 
@@ -527,6 +622,12 @@ var FieldPlatformDomain = (() => {
     canManageCommunity(community) {
       return Boolean(this.platform.raw().queries.canManageCommunity(this.id, idOf(community)));
     }
+    dataShareRequests() {
+      return this.platform.dataShareRequests.forSubject("person", this.id);
+    }
+    visibilityGrants() {
+      return this.platform.visibilityGrants.forSubject("person", this.id);
+    }
   };
 
   // source/access-layer/repositories/userRepository.ts
@@ -576,6 +677,38 @@ var FieldPlatformDomain = (() => {
     }
     list() {
       return this.platform.raw().queries.listVenues().map((record) => new Venue(this.platform, record.id));
+    }
+  };
+
+  // source/access-layer/repositories/visibilityGrantRepository.ts
+  var VisibilityGrantRepository = class {
+    constructor(platform) {
+      this.platform = platform;
+    }
+    get(id) {
+      const record = this.platform.raw().queries.getVisibilityGrant(id);
+      if (!record) throw new Error(`VisibilityGrant not found: ${id}`);
+      return new VisibilityGrant(this.platform, id);
+    }
+    list() {
+      return this.platform.raw().queries.listVisibilityGrants().map((record) => new VisibilityGrant(this.platform, record.id));
+    }
+    forSubject(subjectType, subjectId) {
+      return this.platform.raw().queries.getVisibilityGrantsForSubject(subjectType, subjectId).map((record) => new VisibilityGrant(this.platform, record.id));
+    }
+    forContext(contextType, contextId) {
+      return this.platform.raw().queries.getVisibilityGrantsForContext(contextType, contextId).map((record) => new VisibilityGrant(this.platform, record.id));
+    }
+    create(data) {
+      const record = this.platform.dataShares.createGrant(data);
+      return new VisibilityGrant(this.platform, record.id);
+    }
+    revoke(id, revokedBy) {
+      const record = this.platform.dataShares.revokeGrant(id, revokedBy);
+      return new VisibilityGrant(this.platform, record.id);
+    }
+    canSee(query) {
+      return this.platform.dataShares.canSee(query);
     }
   };
 
@@ -667,6 +800,171 @@ var FieldPlatformDomain = (() => {
         markedBy,
         source: "managed-access-layer"
       });
+    }
+  };
+
+  // source/access-layer/services/dataShareService.ts
+  var DataShareService = class {
+    constructor(platform) {
+      this.platform = platform;
+    }
+    createRequest(data) {
+      const now = this.now();
+      return this.platform.raw().database.create("dataShareRequests", {
+        ...data,
+        status: data.status || "pending",
+        requirementLevel: data.requirementLevel || "optional_before_action",
+        recipientIds: data.recipientIds || [],
+        createdAt: data.createdAt || now,
+        updatedAt: now
+      });
+    }
+    acceptRequest(id, acceptedBy) {
+      const current = this.getRequestRecord(id);
+      if (current.status === "revoked") throw new Error(`Cannot accept revoked DataShareRequest: ${id}`);
+      const now = this.now();
+      const request = this.platform.raw().database.update("dataShareRequests", id, {
+        status: "accepted",
+        acceptedBy,
+        acceptedAt: current.acceptedAt || now,
+        updatedAt: now
+      });
+      const existingGrant = this.activeSourceGrant(request.id);
+      const grantPatch = this.grantFromRequest(request, existingGrant?.id);
+      const grant = existingGrant ? this.platform.raw().database.update("visibilityGrants", existingGrant.id, {
+        ...grantPatch,
+        status: "active",
+        updatedAt: now
+      }) : this.platform.raw().database.create("visibilityGrants", grantPatch);
+      return { request, grant };
+    }
+    revokeRequest(id, revokedBy) {
+      const current = this.getRequestRecord(id);
+      const now = this.now();
+      const request = this.platform.raw().database.update("dataShareRequests", id, {
+        status: "revoked",
+        revokedBy,
+        revokedAt: current.revokedAt || now,
+        updatedAt: now
+      });
+      this.platform.raw().queries.listVisibilityGrants().filter((grant) => grant.sourceRequestId === id && grant.status === "active").forEach((grant) => {
+        this.revokeGrant(grant.id, revokedBy);
+      });
+      return request;
+    }
+    createGrant(data) {
+      const now = this.now();
+      return this.platform.raw().database.create("visibilityGrants", {
+        ...data,
+        status: data.status || "active",
+        recipientIds: data.recipientIds || [],
+        createdAt: data.createdAt || now,
+        updatedAt: now
+      });
+    }
+    revokeGrant(id, revokedBy) {
+      const current = this.getGrantRecord(id);
+      const now = this.now();
+      return this.platform.raw().database.update("visibilityGrants", id, {
+        status: "revoked",
+        revokedBy,
+        revokedAt: current.revokedAt || now,
+        updatedAt: now
+      });
+    }
+    grantsCoveringRequest(requestId) {
+      const request = this.getRequestRecord(requestId);
+      return this.platform.raw().queries.listVisibilityGrants().filter((grant) => this.grantCoversRequest(grant, request));
+    }
+    coverageForRequest(requestId) {
+      const request = this.getRequestRecord(requestId);
+      const grants = this.grantsCoveringRequest(request.id);
+      return {
+        request,
+        grants,
+        isCovered: grants.length > 0
+      };
+    }
+    coverageForContext(contextType, contextId, subjectType, subjectId, requirementLevel) {
+      return this.platform.raw().queries.getDataShareRequestsForContext(contextType, contextId).filter((request) => request.subjectType === subjectType && request.subjectId === subjectId).filter((request) => !requirementLevel || request.requirementLevel === requirementLevel).map((request) => this.coverageForRequest(request.id));
+    }
+    missingRequestsForContext(contextType, contextId, subjectType, subjectId, requirementLevel) {
+      return this.coverageForContext(contextType, contextId, subjectType, subjectId, requirementLevel).filter((coverage) => !coverage.isCovered).map((coverage) => coverage.request);
+    }
+    canSee(query) {
+      return this.platform.raw().queries.listVisibilityGrants().some((grant) => this.grantCoversQuery(grant, query));
+    }
+    getRequestRecord(id) {
+      const request = this.platform.raw().queries.getDataShareRequest(id);
+      if (!request) throw new Error(`DataShareRequest not found: ${id}`);
+      return request;
+    }
+    getGrantRecord(id) {
+      const grant = this.platform.raw().queries.getVisibilityGrant(id);
+      if (!grant) throw new Error(`VisibilityGrant not found: ${id}`);
+      return grant;
+    }
+    activeSourceGrant(requestId) {
+      return this.platform.raw().queries.listVisibilityGrants().find((grant) => grant.sourceRequestId === requestId && grant.status === "active") || null;
+    }
+    grantFromRequest(request, id) {
+      return {
+        id,
+        sourceRequestId: request.id,
+        subjectType: request.subjectType,
+        subjectId: request.subjectId,
+        contextType: request.contextType,
+        contextId: request.contextId,
+        facets: [...request.facets],
+        recipientScope: request.recipientScope,
+        recipientIds: [...request.recipientIds || []],
+        purpose: request.purpose,
+        status: "active",
+        source: "accepted_data_share_request",
+        audienceBehavior: request.materialChangeBehavior || "requires_update_on_change",
+        createdAt: request.acceptedAt || this.now(),
+        updatedAt: this.now(),
+        expiresAt: request.expiresAt
+      };
+    }
+    grantCoversRequest(grant, request) {
+      if (!this.isActiveGrant(grant)) return false;
+      if (grant.subjectType !== request.subjectType || grant.subjectId !== request.subjectId) return false;
+      if (grant.purpose !== request.purpose) return false;
+      if (grant.recipientScope !== request.recipientScope && grant.recipientScope !== "public") return false;
+      if (!this.contextCovers(grant.contextType, grant.contextId, request.contextType, request.contextId)) return false;
+      if (!this.facetsInclude(grant.facets, request.facets)) return false;
+      return this.recipientIdsCover(grant.recipientIds || [], request.recipientIds || []);
+    }
+    grantCoversQuery(grant, query) {
+      if (!this.isActiveGrant(grant, query.at)) return false;
+      if (grant.subjectType !== query.subjectType || grant.subjectId !== query.subjectId) return false;
+      if (!grant.facets.includes(query.facet)) return false;
+      if (query.purpose && grant.purpose !== query.purpose) return false;
+      if (query.recipientScope && grant.recipientScope !== query.recipientScope && grant.recipientScope !== "public") return false;
+      if (query.recipientId && (grant.recipientIds || []).length > 0 && !(grant.recipientIds || []).includes(query.recipientId)) return false;
+      return this.contextCovers(grant.contextType, grant.contextId, query.contextType, query.contextId);
+    }
+    isActiveGrant(grant, at = /* @__PURE__ */ new Date()) {
+      if (grant.status !== "active") return false;
+      if (!grant.expiresAt) return true;
+      const timestamp2 = typeof at === "string" ? new Date(at).getTime() : at.getTime();
+      return new Date(grant.expiresAt).getTime() > timestamp2;
+    }
+    contextCovers(grantType, grantId, requestedType, requestedId) {
+      if (!grantType && !grantId) return true;
+      return grantType === requestedType && grantId === requestedId;
+    }
+    facetsInclude(grantFacets, requestedFacets) {
+      return requestedFacets.every((facet) => grantFacets.includes(facet));
+    }
+    recipientIdsCover(grantRecipientIds, requestedRecipientIds) {
+      if (requestedRecipientIds.length === 0) return true;
+      if (grantRecipientIds.length === 0) return true;
+      return requestedRecipientIds.every((id) => grantRecipientIds.includes(id));
+    }
+    now() {
+      return (/* @__PURE__ */ new Date()).toISOString();
     }
   };
 
@@ -1026,6 +1324,7 @@ var FieldPlatformDomain = (() => {
       this.memberships = new MembershipService(this);
       this.eventRegistration = new EventRegistrationService(this);
       this.fieldRelationService = new FieldRelationService(this);
+      this.dataShares = new DataShareService(this);
       this.eventSuggestions = new EventSuggestionService(this);
       this.eventManagement = new EventManagementService(this);
       this.communityManagement = new CommunityManagementService(this);
@@ -1034,6 +1333,8 @@ var FieldPlatformDomain = (() => {
       this.communities = new CommunityRepository(this);
       this.venues = new VenueRepository(this);
       this.fieldRelations = new FieldRelationRepository(this);
+      this.dataShareRequests = new DataShareRequestRepository(this);
+      this.visibilityGrants = new VisibilityGrantRepository(this);
       this.generatedFields = new GeneratedFieldHandler(this);
       this.recommendations = new RecommendationService(this);
       this.communityHealth = new CommunityHealthService(this);

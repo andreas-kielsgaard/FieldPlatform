@@ -21,6 +21,14 @@ export function createQueryApi(database: any): {
     getFieldRelationsForReviewAuthority: (authorityType: any, authorityId: any) => any;
     getPendingFieldRelationsForReviewAuthority: (authorityType: any, authorityId: any) => any;
     getRelationReviewsForRelation: (fieldRelationId: any) => any;
+    getDataShareRequest: (requestId: any) => any;
+    listDataShareRequests: () => any;
+    getDataShareRequestsForSubject: (subjectType: any, subjectId: any) => any;
+    getDataShareRequestsForContext: (contextType: any, contextId: any) => any;
+    getVisibilityGrant: (grantId: any) => any;
+    listVisibilityGrants: () => any;
+    getVisibilityGrantsForSubject: (subjectType: any, subjectId: any) => any;
+    getVisibilityGrantsForContext: (contextType: any, contextId: any) => any;
     getManagedObjectsForPerson: (personId: any) => any;
     canManageEvent: (personId: any, eventId: any) => any;
     canManageCommunity: (personId: any, groupId: any) => any;

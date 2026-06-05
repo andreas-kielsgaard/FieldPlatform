@@ -61,6 +61,18 @@ const FieldPlatformQueryApi = (() => {
                 relation.reviewAuthorityId === authorityId &&
                 relation.status === "suggested"),
             getRelationReviewsForRelation: fieldRelationId => list("relationReviews", { filter: { fieldRelationId } }),
+            getDataShareRequest: requestId => get("dataShareRequests", requestId),
+            listDataShareRequests: () => list("dataShareRequests"),
+            getDataShareRequestsForSubject: (subjectType, subjectId) => list("dataShareRequests").filter(request => request.subjectType === subjectType &&
+                request.subjectId === subjectId),
+            getDataShareRequestsForContext: (contextType, contextId) => list("dataShareRequests").filter(request => request.contextType === contextType &&
+                request.contextId === contextId),
+            getVisibilityGrant: grantId => get("visibilityGrants", grantId),
+            listVisibilityGrants: () => list("visibilityGrants"),
+            getVisibilityGrantsForSubject: (subjectType, subjectId) => list("visibilityGrants").filter(grant => grant.subjectType === subjectType &&
+                grant.subjectId === subjectId),
+            getVisibilityGrantsForContext: (contextType, contextId) => list("visibilityGrants").filter(grant => grant.contextType === contextType &&
+                grant.contextId === contextId),
             getManagedObjectsForPerson,
             canManageEvent,
             canManageCommunity

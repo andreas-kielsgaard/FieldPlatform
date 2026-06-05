@@ -1,6 +1,7 @@
 import type { PlatformDomain } from "../platformDomain";
 import type { AccessLevel, EventRecord, Id, SuggestedEventShareRecord } from "../types";
 import type { Community } from "./community";
+import type { DataShareRequest } from "./dataShareRequest";
 import type { User } from "./user";
 import type { Venue } from "./venue";
 export declare class Event {
@@ -22,4 +23,5 @@ export declare class Event {
     relevantCommunities(): Community[];
     venue(): Venue;
     canBeManagedBy(user: User | Id): boolean;
+    dataShareRequests(): DataShareRequest[];
 }

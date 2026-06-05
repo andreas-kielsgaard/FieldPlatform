@@ -1,11 +1,14 @@
 import { loadLowLevelModule } from "./infrastructure/loadLowLevelModule";
 import { CommunityRepository } from "./repositories/communityRepository";
+import { DataShareRequestRepository } from "./repositories/dataShareRequestRepository";
 import { EventRepository } from "./repositories/eventRepository";
 import { FieldRelationRepository } from "./repositories/fieldRelationRepository";
 import { UserRepository } from "./repositories/userRepository";
 import { VenueRepository } from "./repositories/venueRepository";
+import { VisibilityGrantRepository } from "./repositories/visibilityGrantRepository";
 import { CommunityHealthService } from "./services/communityHealthService";
 import { CommunityManagementService } from "./services/communityManagementService";
+import { DataShareService } from "./services/dataShareService";
 import { EventManagementService } from "./services/eventManagementService";
 import { EventRegistrationService } from "./services/eventRegistrationService";
 import { EventSuggestionService } from "./services/eventSuggestionService";
@@ -24,6 +27,8 @@ export class PlatformDomain {
   public readonly communities: CommunityRepository;
   public readonly venues: VenueRepository;
   public readonly fieldRelations: FieldRelationRepository;
+  public readonly dataShareRequests: DataShareRequestRepository;
+  public readonly visibilityGrants: VisibilityGrantRepository;
   public readonly generatedFields: GeneratedFieldHandler;
   public readonly recommendations: RecommendationService;
   public readonly communityHealth: CommunityHealthService;
@@ -32,6 +37,7 @@ export class PlatformDomain {
   public readonly eventRegistration: EventRegistrationService;
   public readonly eventSuggestions: EventSuggestionService;
   public readonly fieldRelationService: FieldRelationService;
+  public readonly dataShares: DataShareService;
   public readonly eventManagement: EventManagementService;
   public readonly communityManagement: CommunityManagementService;
 
@@ -50,6 +56,7 @@ export class PlatformDomain {
     this.memberships = new MembershipService(this);
     this.eventRegistration = new EventRegistrationService(this);
     this.fieldRelationService = new FieldRelationService(this);
+    this.dataShares = new DataShareService(this);
     this.eventSuggestions = new EventSuggestionService(this);
     this.eventManagement = new EventManagementService(this);
     this.communityManagement = new CommunityManagementService(this);
@@ -58,6 +65,8 @@ export class PlatformDomain {
     this.communities = new CommunityRepository(this);
     this.venues = new VenueRepository(this);
     this.fieldRelations = new FieldRelationRepository(this);
+    this.dataShareRequests = new DataShareRequestRepository(this);
+    this.visibilityGrants = new VisibilityGrantRepository(this);
     this.generatedFields = new GeneratedFieldHandler(this);
     this.recommendations = new RecommendationService(this);
     this.communityHealth = new CommunityHealthService(this);

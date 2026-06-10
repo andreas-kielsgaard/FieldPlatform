@@ -12,6 +12,10 @@ Use lenses to narrow attention, not to expand every task into full architectural
 
 This file is an inventory and maintenance map, not a lens decision map. Source-maintenance behavior files should refer to relevant lenses directly when that wiring is reviewed.
 
+Lens files are full reference definitions and maintenance surfaces, not default runtime context. During ordinary source-maintenance work, use the compact lens prompts inside selected behavior files.
+
+Open full lens files only when a compact lens prompt is insufficient, a stop or escalation rule depends on fuller lens guidance, lens guidance itself is being edited, or a deeper review explicitly depends on the full lens definition.
+
 Each lens should help the agent:
 
 - notice a relevant distinction

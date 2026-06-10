@@ -1,1 +1,64 @@
 # Source Maintenance Behavior: Implementation Scope
+
+## Purpose
+
+Decide how structurally broad or durable a change is before selecting deeper source-maintenance behavior.
+
+This behavior protects against treating architecture-shaping work as a local edit, and against turning small local edits into unnecessary process.
+
+## Lens Prompts
+
+- Intent: state the smallest accurate description of the change before deciding that it is architectural.
+- Blast Radius: treat shared exports, routes, schema, accessors, state, policies, fixtures, and canonical names as signals that the change may exceed local scope.
+- Lifecycle: classify changed source elements as local one-off, candidate pattern, provisional experiment, shared primitive, domain component, stable architecture, deprecated, or retired.
+- Memory: update durable memory only when scope creates a future-facing boundary, convention, uncertainty, accepted debt, or routing expectation.
+
+## Procedure
+
+1. State the user-visible task and the structural question, if any.
+2. Classify structural implication as none, possible, or definite.
+3. Estimate impact as local, direct-consumer, cross-route, cross-layer, architecture-shaping, or uncertain.
+4. Classify the lifecycle of any new or changed durable source element.
+5. Choose the smallest sufficient source-maintenance behavior set.
+6. Add secondary behaviors only when a deeper structural decision appears.
+
+## Scope Outputs
+
+Choose one:
+
+- Local edit: no source-maintenance behavior beyond this file.
+- Local one-off: keep local and easy to delete.
+- Cross-surface change: add the relevant behavior file and task-mode checks.
+- Provisional exploration: record only when future agents may mistake it for precedent.
+- Shared-structure change: use placement, ownership, boundary, naming, or lifecycle behavior.
+- Architecture-shaping change: use platform, boundary, memory, and decision-log behaviors.
+
+## Stop Or Escalate When
+
+- The task touches shared exports, routes, schema, accessors, policies, state, fixtures, or canonical naming.
+- The blast radius is uncertain and the target is shared or stable.
+- The change would establish precedent for future work.
+- The structural implication cannot be stated without guessing.
+- The task reveals a better-matching source-maintenance behavior.
+
+## Memory Updates
+
+Update memory only when:
+
+- scope classification creates a durable boundary or convention
+- uncertainty must be remembered
+- provisional work could be mistaken for architecture
+- debt is intentionally accepted
+- the decision changes future routing or behavior expectations
+
+## Completion Output
+
+```text
+Scope classification:
+Structural implication: none/possible/definite
+Lifecycle classification:
+Affected surfaces:
+Escalated behavior files:
+Memory updated:
+Remaining uncertainty:
+```

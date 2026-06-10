@@ -6,33 +6,22 @@ Decide whether existing code belongs in another layer, technology area, tool, pl
 
 This behavior protects against code living where it creates misleading ownership or dependency direction.
 
-## Activated Lenses
+## Lens Prompts
 
-- Boundary
-- Ownership
-- Blast Radius
-- Lifecycle
-- Memory
-
-## Evidence To Consider
-
-- `technology-architecture-map.md`.
-- Existing source/generated boundaries.
-- Imports, exports, and consumers.
-- Public API expectations.
-- Current tests/examples depending on location.
-- Tool evidence category: `map-deps`.
-- Tool evidence category: `map-affected-surfaces`.
-- Tool evidence category: `check-boundaries`.
-- Tool evidence category: `symbol-search`.
+- Boundary: move code when its current location creates misleading dependency direction, source/generated confusion, or cross-component coupling.
+- Ownership: the destination should own the element's reason to change.
+- Blast Radius: identify consumers, imports, tests, docs, and maps before movement.
+- Lifecycle: classify whether the move promotes, demotes, stabilizes, or retires the source element.
+- Memory: update architecture or area memory only when canonical paths, owners, or boundary expectations change.
 
 ## Procedure
 
-1. Use the Boundary Lens to identify which boundary is currently wrong.
-2. Use the Ownership Lens to find the rightful destination owner.
-3. Use the Blast-Radius Lens to identify consumers, imports, tests, docs, and maps affected by movement.
-4. Use the Lifecycle Lens to classify whether movement promotes, demotes, or stabilizes the source element.
-5. Use the Memory Lens if boundary or ownership expectations change.
+1. State the element, current location, and suspected rightful boundary.
+2. Identify the destination owner and reason to change.
+3. Check imports, exports, consumers, tests, public APIs, and source/generated expectations.
+4. Decide move, split first, define boundary first, defer, or log debt.
+5. Keep behavior changes separate from structural movement unless explicitly intended.
+6. Add secondary split or interface-boundary behavior when movement reveals one.
 
 ## Move When
 

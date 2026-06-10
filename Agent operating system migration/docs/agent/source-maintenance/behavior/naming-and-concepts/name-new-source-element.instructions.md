@@ -6,31 +6,21 @@ Choose a name for a new durable source element that reflects ownership, responsi
 
 This behavior protects against vocabulary drift and names that imply the wrong owner or boundary.
 
-## Activated Lenses
+## Lens Prompts
 
-- Naming/Ontology
-- Ownership
-- Boundary
-- Lifecycle
-- Memory
-
-## Evidence To Consider
-
-- Domain glossary and naming index.
-- Existing symbols, route names, components, accessors, schema names, fixtures, and tests.
-- Existing naming conventions in the target area.
-- Owner and lifecycle classification.
-- Tool evidence category: `find-term`.
-- Tool evidence category: `symbol-search`.
-- Tool evidence category: `find-similar-pattern`.
+- Naming/Ontology: choose names that reflect meaning, not temporary implementation accidents.
+- Ownership: name the responsibility the source element owns, and avoid implying broader scope than it has.
+- Boundary: avoid names that imply knowledge from another layer or a public contract that does not exist.
+- Lifecycle: decide whether the name is local, technical, domain-bearing, provisional, canonical, or stable.
+- Memory: record names only when they become shared, canonical, provisional, deprecated, or intentionally unresolved.
 
 ## Procedure
 
-1. Use the Ownership Lens to identify what the source element owns.
-2. Use the Naming/Ontology Lens to decide whether the name should be domain-bearing, technical, provisional, canonical, contextual, or local.
-3. Use the Boundary Lens to ensure the name does not imply knowledge from the wrong layer.
-4. Use the Lifecycle Lens to decide whether the name is stable, provisional, or local.
-5. Use the Memory Lens only if the name becomes durable, shared, canonical, or intentionally provisional.
+1. State the source element and its owned responsibility.
+2. Compare candidate names with nearby naming conventions and known domain language.
+3. Check whether the name implies wrong ownership, boundary, lifecycle, or abstraction level.
+4. Choose the narrowest meaningful name.
+5. Add secondary alignment or rename behavior when adjacent names conflict.
 
 ## Prefer Names That
 

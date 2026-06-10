@@ -6,35 +6,22 @@ Decide whether a shared abstraction is too broad, premature, misleading, or bett
 
 This behavior protects against framework sludge and false shared ownership.
 
-## Activated Lenses
+## Lens Prompts
 
-- Ownership
-- Near-Match
-- Duplication
-- Lifecycle
-- Blast Radius
-- Memory
-
-## Evidence To Consider
-
-- Current abstraction name, purpose, variants, options, and consumers.
-- Whether consumers share the same reason to change.
-- Whether options correspond to unrelated responsibilities.
-- Existing component/accessor/area maps.
-- Whether local duplication would be clearer.
-- Tool evidence category: `component-usage`.
-- Tool evidence category: `symbol-search`.
-- Tool evidence category: `map-deps`.
-- Tool evidence category: `map-affected-surfaces`.
+- Ownership: a shared abstraction should own one coherent responsibility; multiple reasons to change are demotion pressure.
+- Near-Match: similar consumers may still need separate owners when their meanings, lifecycles, or boundaries differ.
+- Duplication: local duplication can be more honest than false sharing when semantics are not actually shared.
+- Lifecycle: classify the abstraction as stable, candidate, overgeneralized, deprecated, split, or demoted.
+- Blast Radius: preview affected consumers before narrowing or retiring a shared abstraction.
+- Memory: record status changes, ownership changes, accepted debt, or intentional demotion.
 
 ## Procedure
 
-1. Use the Ownership Lens to check whether the abstraction owns all behavior it contains.
-2. Use the Near-Match Lens to identify cases that are similar but not truly shared.
-3. Use the Duplication Lens to decide whether local duplication would be more honest than false sharing.
-4. Use the Lifecycle Lens to classify the abstraction as stable, candidate, overgeneralized, deprecated, or demoted.
-5. Use the Blast-Radius Lens before changing shared consumers.
-6. Use the Memory Lens if abstraction status or ownership changes.
+1. State the abstraction, its current purpose, and the pressure causing concern.
+2. Identify variants, options, consumers, and reasons to change.
+3. Decide whether shared semantics still exist or whether local/narrow ownership would be clearer.
+4. Choose keep shared, split, demote, deprecate, or log debt.
+5. Add secondary splitting, lifecycle, or near-match behavior when demotion reveals a separate decision.
 
 ## Demote When
 

@@ -6,34 +6,23 @@ Decide whether multiple local implementations express the same durable meaning, 
 
 This behavior protects semantic coherence even when code shape differs.
 
-## Activated Lenses
+## Lens Prompts
 
-- Duplication
-- Naming/Ontology
-- Ownership
-- Data/State/Effect
-- Boundary
-- Memory
-
-## Evidence To Consider
-
-- Domain glossary and naming index.
-- Existing labels, statuses, roles, policies, calculations, transformations, accessors, fixtures, routes, and tests.
-- Whether implementations would need to change together.
-- Whether semantics are durable or provisional.
-- Tool evidence category: `find-term`.
-- Tool evidence category: `find-similar-pattern`.
-- Tool evidence category: `symbol-search`.
-- Tool evidence category: `rename-impact`.
+- Duplication: centralize duplicated meaning, rule, policy, calculation, or transformation, not merely similar shape.
+- Naming/Ontology: identify canonical terms, aliases, provisional language, or unresolved vocabulary before freezing semantics.
+- Ownership: find the rightful semantic owner that can change with the rule.
+- Data/State/Effect: treat schema, derivation, policy, state, caching, side effects, and fixtures as semantic surfaces when they must change together.
+- Boundary: expose centralized semantics through the appropriate interface when consumed across layers.
+- Memory: record canonical, provisional, deprecated, or intentionally unresolved semantics.
 
 ## Procedure
 
-1. Use the Duplication Lens to distinguish duplicated semantics from similar shape.
-2. Use the Naming/Ontology Lens to identify the canonical concept, alias, or unresolved language.
-3. Use the Ownership Lens to find the rightful semantic owner.
-4. Use the Data/State/Effect Lens if the semantics affect data shape, derivation, policy, calculation, state, caching, or side effects.
-5. Use the Boundary Lens if the semantic owner must be consumed across layers.
-6. Use the Memory Lens if the centralized semantics become canonical or intentionally provisional.
+1. State the duplicated semantic rule or meaning.
+2. Distinguish semantic duplication from visual or structural similarity.
+3. Identify canonical language, aliases, and unresolved terms.
+4. Identify the semantic owner and boundary for consumption.
+5. Decide centralize, keep local, defer, or route to extraction/demotion.
+6. Add secondary naming, boundary, or data/state behavior when centralization affects those surfaces.
 
 ## Centralize When
 

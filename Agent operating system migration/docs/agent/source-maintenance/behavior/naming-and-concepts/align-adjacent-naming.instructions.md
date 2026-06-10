@@ -6,28 +6,20 @@ Decide whether similar or related source elements should have more consistent na
 
 This behavior protects against naming drift and premature canonicalization.
 
-## Activated Lenses
+## Lens Prompts
 
-- Naming/Ontology
-- Near-Match
-- Duplication
-- Memory
-
-## Evidence To Consider
-
-- Domain glossary and naming index.
-- Nearby identifiers, filenames, components, accessors, routes, schema names, fixtures, and tests.
-- Whether names are aliases, separate concepts, contextual variants, or drift.
-- Tool evidence category: `find-term`.
-- Tool evidence category: `symbol-search`.
-- Tool evidence category: `find-similar-pattern`.
+- Naming/Ontology: classify nearby names as canonical, alias, provisional, contextual, deprecated, unresolved, or intentionally distinct.
+- Near-Match: adjacent names may be related without naming the same concept.
+- Duplication: naming drift can reveal duplicated semantics, but similar names do not prove shared meaning.
+- Memory: record aliases, preferred forms, unresolved language, and intentional divergence only when durable.
 
 ## Procedure
 
-1. Use the Naming/Ontology Lens to classify each name as canonical, alias, provisional, contextual, deprecated, or unresolved.
-2. Use the Near-Match Lens to decide whether the names refer to the same concept or adjacent concepts.
-3. Use the Duplication Lens to identify whether naming drift reflects duplicated semantics.
-4. Use the Memory Lens if canonical names, aliases, unresolved language, or intentional divergence should be recorded.
+1. State the adjacent names and where they appear.
+2. Decide whether they represent the same concept, adjacent concepts, aliases, contextual variants, or unresolved language.
+3. Align locally, keep distinct, record unresolved language, or escalate to rename/centralization.
+4. Avoid turning local consistency work into product-authoritative vocabulary unless directed.
+5. Add secondary rename or semantic centralization behavior when alignment becomes broader than local naming.
 
 ## Align Locally When
 

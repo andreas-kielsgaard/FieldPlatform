@@ -6,35 +6,23 @@ Decide whether repeated or mixed source behavior should be extracted into a narr
 
 This behavior protects against both premature abstraction and leaving stable responsibilities scattered.
 
-## Activated Lenses
+## Lens Prompts
 
-- Duplication
-- Ownership
-- Boundary
-- Lifecycle
-- Blast Radius
-- Memory
-
-## Evidence To Consider
-
-- Repeated local patterns.
-- Existing owners and possible extraction targets.
-- Whether copies change for the same reason.
-- Consumers that would use the extracted owner.
-- Dependency direction and public API implications.
-- Tool evidence category: `find-similar-pattern`.
-- Tool evidence category: `component-usage`.
-- Tool evidence category: `map-deps`.
-- Tool evidence category: `check-boundaries`.
+- Duplication: extract only when repeated behavior has the same reason to change; local duplication can be useful during exploration.
+- Ownership: name the narrowest owner that actually owns the extracted responsibility.
+- Boundary: do not extract in a way that inverts dependencies or leaks implementation details.
+- Lifecycle: classify the extraction as candidate, provisional, shared, or stable.
+- Blast Radius: identify current consumers before migrating them to the extracted owner.
+- Memory: record durable extraction, partial extraction debt, or new conventions only when future agents need the precedent.
 
 ## Procedure
 
-1. Use the Duplication Lens to decide whether repetition is harmful duplication, useful local duplication, or evidence of shared responsibility.
-2. Use the Ownership Lens to name the narrowest rightful owner.
-3. Use the Boundary Lens to ensure extraction does not invert dependencies or leak implementation details.
-4. Use the Lifecycle Lens to classify the extraction as candidate, provisional, shared, or stable.
-5. Use the Blast-Radius Lens if migrating existing consumers.
-6. Use the Memory Lens if the extracted responsibility becomes durable.
+1. State the repeated or mixed responsibility.
+2. Decide whether the repetition is harmful duplication, useful local duplication, or evidence of a shared responsibility.
+3. Identify the narrowest rightful owner and candidate extraction target.
+4. Check boundary direction, public API implications, and consumer impact.
+5. Decide extract, keep local, extract lower-level primitive, or defer.
+6. Add secondary centralization, splitting, or boundary behavior when the extraction reveals another structural decision.
 
 ## Extract When
 

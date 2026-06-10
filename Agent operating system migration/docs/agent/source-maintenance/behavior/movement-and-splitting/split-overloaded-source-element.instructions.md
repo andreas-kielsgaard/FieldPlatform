@@ -6,34 +6,23 @@ Decide whether a file, module, object, component, service, accessor, utility, or
 
 This behavior protects against monolith growth by splitting on divergent reasons to change, not arbitrary size.
 
-## Activated Lenses
+## Lens Prompts
 
-- Ownership
-- Boundary
-- Data/State/Effect
-- Blast Radius
-- Lifecycle
-- Memory
-
-## Evidence To Consider
-
-- Current source element name, public API, sections, responsibilities, and imports.
-- Consumers and tests.
-- Dependency directions.
-- Whether concerns have different lifecycles or reasons to change.
-- Tool evidence category: `map-deps`.
-- Tool evidence category: `symbol-search`.
-- Tool evidence category: `component-usage`.
-- Tool evidence category: `check-boundaries`.
+- Ownership: split on different reasons to change, not arbitrary file size.
+- Boundary: mixed layers, dependency directions, or source/generated responsibilities are split signals.
+- Data/State/Effect: separate state, side effects, accessors, calculations, persistence, policy, and presentation when they have different owners.
+- Blast Radius: preview exports, consumers, and tests before changing public shape.
+- Lifecycle: classify split outputs as local, shared, provisional, or stable.
+- Memory: record durable ownership or boundary changes, and log partial splits as debt.
 
 ## Procedure
 
-1. Use the Ownership Lens to identify separate reasons to change.
-2. Use the Boundary Lens to identify mixed layers or dependency directions.
-3. Use the Data/State/Effect Lens if source state, side effects, accessors, calculations, or persistence are mixed.
-4. Use the Blast-Radius Lens before changing exports or consumers.
-5. Use the Lifecycle Lens to decide whether split owners are local, shared, provisional, or stable.
-6. Use the Memory Lens if ownership or boundaries become durable.
+1. State the overloaded element and its current public purpose.
+2. List the independent responsibilities and reasons to change.
+3. Check boundary direction, data/state/effect mixing, consumers, and tests.
+4. Choose a split output or keep intact.
+5. Decide whether the split is local, shared, provisional, or stable.
+6. Add secondary extraction, movement, boundary, or naming behavior when split outputs require it.
 
 ## Split When
 

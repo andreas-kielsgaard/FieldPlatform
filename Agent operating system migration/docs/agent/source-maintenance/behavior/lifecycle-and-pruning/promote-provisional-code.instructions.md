@@ -6,36 +6,22 @@ Decide whether exploratory, mockup, local helper, candidate, or provisional sour
 
 This behavior protects prototypes from silently fossilizing.
 
-## Activated Lenses
+## Lens Prompts
 
-- Lifecycle
-- Ownership
-- Boundary
-- Naming/Ontology
-- Blast Radius
-- Memory
-
-## Evidence To Consider
-
-- `experiments.md`.
-- `known-debt.md`.
-- Current and likely future consumers.
-- Ownership and boundary expectations.
-- Naming and domain concept status.
-- Tests, examples, or fixtures relying on the code.
-- Tool evidence category: `map-affected-surfaces`.
-- Tool evidence category: `symbol-search`.
-- Tool evidence category: `map-deps`.
-- Tool evidence category: `check-boundaries`.
+- Lifecycle: promotion means a local, exploratory, mockup, candidate, or provisional element becomes precedent.
+- Ownership: promoted code needs a rightful durable owner, not just a current location.
+- Boundary: promoted code must obey architecture boundaries before others depend on it.
+- Naming/Ontology: promotion can make names or concepts canonical; unstable language should remain provisional.
+- Blast Radius: identify current and likely future consumers before making code shared.
+- Memory: record promotion, ownership, boundary, debt, or experiment status when future agents need it.
 
 ## Procedure
 
-1. Use the Lifecycle Lens to classify the current and target status.
-2. Use the Ownership Lens to identify the rightful durable owner.
-3. Use the Boundary Lens to ensure promoted code obeys architecture boundaries.
-4. Use the Naming/Ontology Lens if names or concepts become canonical.
-5. Use the Blast-Radius Lens to identify current and likely future consumers.
-6. Use the Memory Lens to record promotion, ownership, boundary, debt, or experiment status.
+1. State the provisional element and why it is being considered for promotion.
+2. Classify current and target lifecycle.
+3. Identify durable owner, boundary expectations, naming status, and consumers.
+4. Decide promote, keep provisional, defer, or route to placement/boundary/naming behavior first.
+5. Record resolved or accepted debt only when promotion changes future expectations.
 
 ## Promote When
 

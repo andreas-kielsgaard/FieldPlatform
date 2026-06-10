@@ -6,32 +6,21 @@ Decide and execute the reasoning for renaming a code concept, symbol, type, labe
 
 This behavior protects against partial renames and accidental semantic changes.
 
-## Activated Lenses
+## Lens Prompts
 
-- Naming/Ontology
-- Blast Radius
-- Boundary
-- Lifecycle
-- Memory
-
-## Evidence To Consider
-
-- Domain glossary and naming index.
-- Existing identifiers, labels, routes, schemas, accessors, fixtures, tests, docs, and maps.
-- Whether the rename is pure, semantic, split, merge, alias, or deprecation.
-- Public API and boundary implications.
-- Tool evidence category: `rename-impact`.
-- Tool evidence category: `find-term`.
-- Tool evidence category: `symbol-search`.
-- Tool evidence category: `check-docs`.
+- Naming/Ontology: classify the rename as pure, semantic, split, merge, alias, or deprecation before editing names.
+- Blast Radius: names can span identifiers, labels, routes, schemas, accessors, fixtures, tests, docs, maps, and public APIs.
+- Boundary: public interfaces, schema, generated artifacts, routes, and tool interfaces need explicit compatibility treatment.
+- Lifecycle: decide whether old names disappear, remain as aliases, or become deprecated legacy.
+- Memory: update canonical terms, aliases, deprecated names, unresolved language, and naming debt when future agents need the distinction.
 
 ## Procedure
 
-1. Use the Naming/Ontology Lens to classify the rename type.
-2. Use the Blast-Radius Lens to identify all affected surfaces.
-3. Use the Boundary Lens if the name appears in public interfaces, schema, generated artifacts, routes, or tool interfaces.
-4. Use the Lifecycle Lens if the old name is deprecated, retained as legacy, or still accepted as an alias.
-5. Use the Memory Lens to update canonical terms, aliases, deprecated names, unresolved language, or naming debt.
+1. State the concept and rename type.
+2. Identify old names, new names, aliases, deprecated names, and affected surfaces.
+3. Check public API, schema, generated, route, data, tool, and documentation boundaries.
+4. Decide whether to rename, retain aliases, deprecate, split, merge, or defer.
+5. Add secondary naming alignment, semantic centralization, or lifecycle behavior when the rename reveals one.
 
 ## Rename Types
 

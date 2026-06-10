@@ -6,30 +6,19 @@ Decide whether obsolete, abandoned, unreachable, or unused code should be remove
 
 This behavior protects against dead-code accumulation and unsafe deletion based on weak evidence.
 
-## Activated Lenses
+## Lens Prompts
 
-- Lifecycle
-- Blast Radius
-- Memory
-
-## Evidence To Consider
-
-- Current references and consumers.
-- Maps, registries, and ledgers.
-- Tests, fixtures, docs, and examples.
-- Whether code is public API, generated, or dynamically referenced.
-- Known debt or experiment removal triggers.
-- Tool evidence category: `symbol-search`.
-- Tool evidence category: `map-deps`.
-- Tool evidence category: `map-affected-surfaces`.
-- Tool evidence category: `check-docs`.
+- Lifecycle: remove only when the element is obsolete, abandoned, unreachable, deprecated, retired, or intentionally no longer authoritative.
+- Blast Radius: check consumers, hidden references, tests, fixtures, docs, examples, generated usage, and public API implications before deletion.
+- Memory: update ledgers, maps, experiments, or known debt when removal changes durable project memory.
 
 ## Procedure
 
-1. Use the Lifecycle Lens to classify the element as local, provisional, deprecated, retired, obsolete, or stable.
-2. Use the Blast-Radius Lens to identify consumers and hidden references.
-3. Use the Memory Lens to update ledgers, maps, or docs if removal changes durable memory.
-4. Remove only when evidence is strong enough for the lifecycle status.
+1. State the element and suspected removal reason.
+2. Classify lifecycle as local, provisional, deprecated, retired, obsolete, stable, or uncertain.
+3. Check consumers, public API, dynamic/generated references, tests, fixtures, docs, examples, and recorded debt triggers as needed.
+4. Decide remove, defer, deprecate first, or keep.
+5. Add secondary deprecation or boundary behavior when removal is not yet safe.
 
 ## Remove When
 

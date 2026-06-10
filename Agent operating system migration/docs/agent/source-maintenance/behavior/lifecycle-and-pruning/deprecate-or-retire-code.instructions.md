@@ -6,30 +6,20 @@ Decide whether a source element remains temporarily available, should be marked 
 
 This behavior protects against unsafe deletion and prevents obsolete code from remaining as precedent.
 
-## Activated Lenses
+## Lens Prompts
 
-- Lifecycle
-- Blast Radius
-- Boundary
-- Memory
-
-## Evidence To Consider
-
-- Current consumers and public API.
-- Replacement owner or migration path.
-- Whether the element is local, shared, stable, provisional, deprecated, or retired.
-- Maps or registries listing the element.
-- Tool evidence category: `symbol-search`.
-- Tool evidence category: `component-usage`.
-- Tool evidence category: `accessor-usage`.
-- Tool evidence category: `map-affected-surfaces`.
+- Lifecycle: distinguish active, provisional, deprecated, retired, replacement-ready, and removal-ready code.
+- Blast Radius: identify consumers and migration risk before removing authority or compatibility.
+- Boundary: public interfaces, access paths, schema, routes, generated artifacts, and tools need explicit compatibility treatment.
+- Memory: record deprecation, replacement, migration path, retirement, and removal triggers when future agents must avoid the old precedent.
 
 ## Procedure
 
-1. Use the Lifecycle Lens to classify the current and target status.
-2. Use the Blast-Radius Lens to identify consumers and migration risk.
-3. Use the Boundary Lens if public interfaces or consumption paths are involved.
-4. Use the Memory Lens to record deprecation, replacement, retirement, or removal triggers.
+1. State the element and current lifecycle.
+2. Identify replacement, migration path, consumers, and public boundary implications.
+3. Decide keep, deprecate, retire, or defer.
+4. Define removal trigger when deprecation remains active.
+5. Add secondary trim-unused-code behavior only when removal evidence is strong enough.
 
 ## Deprecate When
 

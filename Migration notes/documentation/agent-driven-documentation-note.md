@@ -66,6 +66,12 @@ The `Use This Mode When` and `Do Not Use This Mode When` sections were removed f
 
 Root migration instructions now require agents to reflect on agent-OS documentation needs at the end of each prompt and revise this note only where the current prompt changed or clarified those needs.
 
+### Git Maintenance Automation
+
+Daily git maintenance that commits and pushes work needs an explicit agent-facing routine, not only human-facing README guidance. The routine should cover branch verification, user-owned file protection, coherent commit slicing, no direct commits to `main`, relevant lightweight checks, push behavior, and completion reporting.
+
+During migration, this automation guidance can live under `Migration notes/` as root coordination material. A later migration decision should decide whether recurring git maintenance belongs in the target agent operating system as a formal maintenance-and-governance task mode, a checklist, or a local automation-only instruction.
+
 ## Open Documentation Questions
 
 - What final human-facing README structure should explain the agent operating system?
@@ -76,3 +82,4 @@ Root migration instructions now require agents to reflect on agent-OS documentat
 - How should human documentation introduce the difference between the technology architecture map and the source-maintenance decision layer?
 - How should human documentation explain progressive source-maintenance constraints without encouraging agents to run every structural check for every small task?
 - How should the testing map represent relationships between changed code and the smallest credible test set, while still identifying when broad regression suites are warranted?
+- Should recurring git maintenance become part of the target agent operating system, or remain a local project automation outside the scaffold?

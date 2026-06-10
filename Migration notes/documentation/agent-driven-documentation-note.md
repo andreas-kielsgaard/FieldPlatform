@@ -36,6 +36,26 @@ The agent OS now separates tool discovery from tool execution. Mode files refer 
 
 This makes tool support a maintained OS surface: adding a new mode tool requirement should be treated as a human-owned maintenance action that verifies the map entry, instruction file, script placeholder, and expected capability.
 
+### Test Selection And Test Indexing
+
+Human-facing documentation should explain that the Agent OS is intended to support targeted verification, not a default habit of running every available test for every task.
+
+The testing layer should describe how unit tests, integration tests, visual checks, smoke checks, and other verification surfaces map back to the code, routes, components, schemas, accessors, fixtures, and flows they exercise. Agents should use that map to choose a minimal credible verification set based on changed surfaces, risk, and task mode, while still escalating to broader suites when shared infrastructure, cross-cutting behavior, or uncertainty justifies it.
+
+Documentation should also clarify when updating tests is appropriate: tests may change when intended behavior changes, when coverage is missing for a bug or new behavior, when fixtures or contracts are renamed, or when tests encode obsolete implementation details. Tests should not be weakened merely to make a change pass; behavioral changes should be surfaced in the completion report.
+
+### Technology Architecture And Source Maintenance Documentation
+
+Human-facing documentation should explain that `technology-architecture-map.md` is the high-level map for platform components, technology areas, directory ownership, source/generated boundaries, and interface expectations between independently maintained parts of the project.
+
+Documentation should separately explain the source-maintenance layer as the agent-facing operational layer for structural decisions during codebase changes. Task modes classify work; source maintenance guides source evolution decisions such as placement, reuse, extension, extraction, centralization, movement, naming, promotion, demotion, deprecation, and trimming.
+
+Human documentation should note that behavior files may initially exist as title-only scaffolds while decision routing is explored through `source-maintenance-decision-map.md`.
+
+The source-maintenance layer should be documented as progressive constraints rather than an exhaustive decision tree. Agents should classify the change, activate only relevant decision lenses, use tool/index evidence, preview blast radius before broad edits, and update memory only when durable structure, naming, boundaries, or exceptions change.
+
+Human documentation should also distinguish query, preview, and apply expectations for future tools. Even when tool implementation is deferred, maintainers should understand that source-maintenance decisions are intended to lean on bounded tool outputs rather than full-context prompt reasoning.
+
 ### Redundancy In Task-Mode Guidance
 
 The task-mode usage file should avoid duplicating tool requirements already owned by individual mode files. Cross-mode guidance should point agents to the tooling map rather than duplicating tool mappings.
@@ -53,3 +73,6 @@ Root migration instructions now require agents to reflect on agent-OS documentat
 - How should tool-generated or tool-maintained docs be described without making generated output look like semantic authority?
 - How should human documentation describe the split between global routing in `AGENTS.md` and procedural detail in task-mode instruction files?
 - How should human documentation describe the chain from logical tool ID to tooling map to tool instruction file to script?
+- How should human documentation introduce the difference between the technology architecture map and the source-maintenance decision layer?
+- How should human documentation explain progressive source-maintenance constraints without encouraging agents to run every structural check for every small task?
+- How should the testing map represent relationships between changed code and the smallest credible test set, while still identifying when broad regression suites are warranted?

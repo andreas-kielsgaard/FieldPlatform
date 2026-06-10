@@ -52,6 +52,14 @@ Documentation should separately explain the source-maintenance layer as the agen
 
 Human documentation should note that behavior files may initially exist as title-only scaffolds while decision routing is explored through `source-maintenance-decision-map.md`.
 
+Human documentation should explain source-maintenance lenses as portable reasoning frames, not task modes, checklists, tools, or maps. Lenses narrow attention around distinctions such as intent, ownership, boundary, reuse, near-match similarity, duplication, naming, data/state/effects, blast radius, lifecycle, and memory.
+
+Lens documentation should emphasize that each lens has decision outputs, stop or escalation rules, cheap-pass rules, evidence expectations, and memory implications. This keeps lenses procedural rather than decorative.
+
+The lens map should be documented as an inventory and maintenance surface, not a separate decision map. Source-maintenance behavior files are expected to activate relevant lenses directly once behavior-to-lens wiring is reviewed.
+
+Human documentation should reflect the source-maintenance folder shape: usage and decision-map files at the source-maintenance root, behavior modes under `behavior/`, lens definitions under `lenses/`, and the lens inventory at `lens-map.md`.
+
 The source-maintenance layer should be documented as progressive constraints rather than an exhaustive decision tree. Agents should classify the change, activate only relevant decision lenses, use tool/index evidence, preview blast radius before broad edits, and update memory only when durable structure, naming, boundaries, or exceptions change.
 
 Human documentation should also distinguish query, preview, and apply expectations for future tools. Even when tool implementation is deferred, maintainers should understand that source-maintenance decisions are intended to lean on bounded tool outputs rather than full-context prompt reasoning.
@@ -81,5 +89,7 @@ During migration, this automation guidance can live under `Migration notes/` as 
 - How should human documentation describe the chain from logical tool ID to tooling map to tool instruction file to script?
 - How should human documentation introduce the difference between the technology architecture map and the source-maintenance decision layer?
 - How should human documentation explain progressive source-maintenance constraints without encouraging agents to run every structural check for every small task?
+- How should human documentation explain source-maintenance lenses without making them sound like mandatory checklists for every change?
+- How should human documentation explain behavior-to-lens activation once behaviors begin referring to lenses directly?
 - How should the testing map represent relationships between changed code and the smallest credible test set, while still identifying when broad regression suites are warranted?
 - Should recurring git maintenance become part of the target agent operating system, or remain a local project automation outside the scaffold?

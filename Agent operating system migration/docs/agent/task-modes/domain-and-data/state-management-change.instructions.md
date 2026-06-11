@@ -2,11 +2,10 @@
 
 ## Required Orientation
 
-- `docs/agent/state-management-map.md`
-- `docs/agent/routing-map.md`
-- `docs/agent/accessor-map.md`
-- `docs/agent/component-registry.md`
-- `docs/agent/testing-map.md`
+- `docs/agent/generated-indexes/state-management-map.md`
+- `docs/agent/generated-indexes/routing-map.md`
+- `docs/agent/generated-indexes/accessor-map.md`
+- `docs/agent/generated-indexes/component-registry.md`
 
 ## Required Tools Or Searches
 
@@ -34,10 +33,10 @@
 
 ## Documentation Updates
 
-- Update `state-management-map.md`.
-- Update `routing-map.md` if URL state changes.
-- Update `accessor-map.md` if server state, cache, or invalidation changes.
-- Update `testing-map.md`.
+- Update `generated-indexes/state-management-map.md`.
+- Update `generated-indexes/routing-map.md` if URL state changes.
+- Update `generated-indexes/accessor-map.md` if server state, cache, or invalidation changes.
+- Report test coverage implications until test behavior is designed.
 - Update `known-debt.md` if state duplication remains temporarily.
 
 ## Regression Checks

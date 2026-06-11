@@ -37,7 +37,7 @@ Use this order of authority:
 7. The selected task-mode instruction file(s).
 8. The task-relevant map(s) in `docs/agent`.
 9. Existing code, tests, examples, and structural indexes.
-10. `decision-log.md`, `known-debt.md`, and `experiments.md` for historical context.
+10. `known-debt.md`, `experiments.md`, and the deferred logging strategy for historical context.
 
 If instructions conflict:
 

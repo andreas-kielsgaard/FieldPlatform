@@ -2,9 +2,8 @@
 
 ## Required Orientation
 
-- `docs/agent/component-registry.md`
+- `docs/agent/generated-indexes/component-registry.md`
 - `docs/agent/design-system-map.md`
-- `docs/agent/testing-map.md`
 
 ## Required Tools Or Searches
 
@@ -32,9 +31,9 @@
 
 ## Documentation Updates
 
-- Update `component-registry.md` for API, variant, purpose, ownership, or status changes.
+- Update `generated-indexes/component-registry.md` for API, variant, purpose, ownership, or status changes.
 - Update `design-system-map.md` if the component changes shared visual rules.
-- Update `testing-map.md` if coverage changes.
+- Report coverage implications until test behavior is designed.
 - Update `known-debt.md` if compatibility work is intentionally deferred.
 
 ## Regression Checks

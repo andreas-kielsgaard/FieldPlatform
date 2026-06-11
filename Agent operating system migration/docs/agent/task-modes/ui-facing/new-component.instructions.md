@@ -2,10 +2,10 @@
 
 ## Required Orientation
 
-- `docs/agent/component-registry.md`
+- `docs/agent/generated-indexes/component-registry.md`
 - `docs/agent/design-system-map.md`
-- `docs/agent/source-map.md`
-- `docs/agent/testing-map.md`
+- `docs/agent/project-setup/technology-architecture-map.md` when shared placement or interface boundaries may matter
+- `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md` when deciding whether logic belongs inside this component, a local helper, a shared component, or another owner
 
 ## Required Tools Or Searches
 
@@ -35,10 +35,10 @@
 
 ## Documentation Updates
 
-- Update `component-registry.md`.
+- Update `generated-indexes/component-registry.md`.
 - Update `design-system-map.md` if tokens, variants, primitives, or status treatment changed.
 - Update examples or stories if the component is shared or likely reused.
-- Update `testing-map.md` if the component has behavior requiring coverage.
+- Report component coverage implications until test behavior is designed.
 
 ## Regression Checks
 

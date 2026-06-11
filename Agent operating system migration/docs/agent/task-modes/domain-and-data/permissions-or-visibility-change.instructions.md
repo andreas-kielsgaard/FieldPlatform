@@ -2,11 +2,10 @@
 
 ## Required Orientation
 
-- `docs/agent/permissions-and-visibility-map.md`
-- `docs/agent/routing-map.md`
-- `docs/agent/accessor-map.md`
+- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
+- `docs/agent/generated-indexes/routing-map.md`
+- `docs/agent/generated-indexes/accessor-map.md`
 - `docs/agent/domain-glossary.md`
-- `docs/agent/testing-map.md`
 
 ## Required Tools Or Searches
 
@@ -33,11 +32,11 @@
 
 ## Documentation Updates
 
-- Update `permissions-and-visibility-map.md`.
-- Update `routing-map.md`.
-- Update `accessor-map.md`.
-- Update `testing-map.md`.
-- Update `decision-log.md` if policy vocabulary changes.
+- Update `generated-indexes/permissions-and-visibility-map.md`.
+- Update `generated-indexes/routing-map.md`.
+- Update `generated-indexes/accessor-map.md`.
+- Report test coverage implications until test behavior is designed.
+- Update the deferred logging strategy if policy vocabulary changes.
 
 ## Regression Checks
 

@@ -3,10 +3,10 @@
 ## Required Orientation
 
 - `docs/agent/domain-glossary.md`
-- `docs/agent/naming-index.md`
+- `docs/agent/generated-indexes/naming-index.md`
 - `docs/agent/design-system-map.md`
-- `docs/agent/routing-map.md`
-- `docs/agent/component-registry.md`
+- `docs/agent/generated-indexes/routing-map.md`
+- `docs/agent/generated-indexes/component-registry.md`
 
 ## Required Tools Or Searches
 
@@ -35,10 +35,10 @@
 ## Documentation Updates
 
 - Update `domain-glossary.md` if meaning changes.
-- Update `naming-index.md`.
+- Update `generated-indexes/naming-index.md`.
 - Update `design-system-map.md` if status or label families change.
-- Update `routing-map.md` if route labels or slugs change.
-- Update `decision-log.md` if a durable naming rule is set.
+- Update `generated-indexes/routing-map.md` if route labels or slugs change.
+- Update the deferred logging strategy if a durable naming rule is set.
 
 ## Regression Checks
 

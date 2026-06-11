@@ -2,17 +2,18 @@
 
 ## Required Orientation
 
-- `docs/agent/accessor-map.md`
-- `docs/agent/schema-map.md`
-- `docs/agent/data-model-map.md`
-- `docs/agent/permissions-and-visibility-map.md`
-- `docs/agent/state-management-map.md`
-- `docs/agent/testing-map.md`
+- `docs/agent/generated-indexes/accessor-map.md`
+- `docs/agent/generated-indexes/schema-map.md`
+- `docs/agent/generated-indexes/data-model-map.md`
+- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
+- `docs/agent/generated-indexes/state-management-map.md`
 
 ## Required Tools Or Searches
 
 - Tool: `accessor-usage`.
 - Tool: `symbol-search` for accessor names and API routes.
+- Tool: `contract-impact` for changed accessor/API shape, behavior, errors, side effects, caching, or compatibility.
+- Tool: `contract-test-coverage` for changed internal processing behind an accessor/API contract.
 - Search direct data access patterns.
 - Run affected accessor/API tests.
 
@@ -36,10 +37,10 @@
 
 ## Documentation Updates
 
-- Update `accessor-map.md`.
-- Update `state-management-map.md` if cache or server-state behavior changes.
-- Update `permissions-and-visibility-map.md` if access logic changes.
-- Update `testing-map.md`.
+- Update `generated-indexes/accessor-map.md`.
+- Update `generated-indexes/state-management-map.md` if cache or server-state behavior changes.
+- Update `generated-indexes/permissions-and-visibility-map.md` if access logic changes.
+- Report test coverage implications until test behavior is designed.
 - Update `known-debt.md` if direct access remains temporarily.
 
 ## Regression Checks

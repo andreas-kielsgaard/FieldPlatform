@@ -5,7 +5,6 @@
 - `docs/agent/review-checklist.md`
 - `docs/agent/known-debt.md`
 - `docs/agent/experiments.md`
-- `docs/agent/decision-log.md`
 - All mode files used during the task.
 
 ## Required Tools Or Searches
@@ -14,6 +13,9 @@
 - Tool: `summarize-change`.
 - Tool: `map-affected-surfaces`.
 - Tools: `map-deps` and `check-boundaries` if architecture changed.
+- Tool: `contract-impact` when the change may affect promised behavior, public APIs, fixtures, examples, or consumers.
+- Tool: `contract-test-coverage` when contract-relevant internal processing changed.
+- Tool: `artifact-maintenance-path` when generated, indexed, derived, or tool-maintained artifacts changed.
 - Run visual checks if UI changed.
 
 ## Implementation Instructions
@@ -40,8 +42,8 @@
 
 - Update `known-debt.md` if any shortcut remains.
 - Update `experiments.md` if provisional code exists.
-- Update `decision-log.md` if a durable choice was made.
-- Update `source-map.md` or relevant maps if ownership or structure changed.
+- Update the deferred logging strategy if a durable choice was made.
+- Use structural maintenance or update relevant maps if ownership, structure, or durable authority changed.
 
 ## Regression Checks
 

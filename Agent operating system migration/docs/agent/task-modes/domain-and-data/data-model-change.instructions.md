@@ -2,17 +2,18 @@
 
 ## Required Orientation
 
-- `docs/agent/data-model-map.md`
-- `docs/agent/schema-map.md`
-- `docs/agent/accessor-map.md`
+- `docs/agent/generated-indexes/data-model-map.md`
+- `docs/agent/generated-indexes/schema-map.md`
+- `docs/agent/generated-indexes/accessor-map.md`
 - `docs/agent/domain-glossary.md`
-- `docs/agent/mock-data-map.md`
-- `docs/agent/permissions-and-visibility-map.md`
+- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
 
 ## Required Tools Or Searches
 
 - Tool: `rename-impact` for changed entities or fields.
 - Tool: `check-schema-drift`.
+- Tool: `contract-impact` for changed entity shape, relation behavior, fixture keys, accessors, examples, or tests.
+- Tool: `contract-test-coverage` for changed model invariants or consumer-visible behavior.
 - Search relations, field names, fixture keys, validators, accessors, and tests.
 - Run affected model/accessor tests if available.
 
@@ -35,12 +36,12 @@
 
 ## Documentation Updates
 
-- Update `data-model-map.md`.
-- Update `schema-map.md` if persistence changes.
-- Update `accessor-map.md`.
-- Update `mock-data-map.md`.
-- Update `testing-map.md` if coverage changes.
-- Update `decision-log.md` if the model decision will shape future work.
+- Update `generated-indexes/data-model-map.md`.
+- Update `generated-indexes/schema-map.md` if persistence changes.
+- Update `generated-indexes/accessor-map.md`.
+- Report fixture or scenario implications until test behavior is designed.
+- Report coverage implications until test behavior is designed.
+- Update the deferred logging strategy if the model decision will shape future work.
 
 ## Regression Checks
 

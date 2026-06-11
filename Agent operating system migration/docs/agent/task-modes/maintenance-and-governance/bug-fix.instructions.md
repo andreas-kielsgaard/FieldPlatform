@@ -4,12 +4,11 @@
 
 Read the map for the failing surface:
 
-- `docs/agent/component-registry.md`
-- `docs/agent/routing-map.md`
-- `docs/agent/accessor-map.md`
-- `docs/agent/state-management-map.md`
-- `docs/agent/permissions-and-visibility-map.md`
-- `docs/agent/testing-map.md`
+- `docs/agent/generated-indexes/component-registry.md`
+- `docs/agent/generated-indexes/routing-map.md`
+- `docs/agent/generated-indexes/accessor-map.md`
+- `docs/agent/generated-indexes/state-management-map.md`
+- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
 - `docs/agent/known-debt.md`
 
 ## Required Tools Or Searches
@@ -18,6 +17,8 @@ Read the map for the failing surface:
 - Run focused tests or manual checks for the failing surface.
 - Search for similar bug patterns.
 - Search related state, accessor, policy, or component consumers.
+- Tool: `contract-impact` when the fix may change behavior for consumers beyond the failing path.
+- Tool: `contract-test-coverage` when adding or revising regression coverage for a contract-relevant path.
 
 ## Implementation Instructions
 
@@ -37,9 +38,9 @@ Read the map for the failing surface:
 
 ## Documentation Updates
 
-- Update `testing-map.md` if regression coverage is added.
+- Report regression coverage implications until test behavior is designed.
 - Update `known-debt.md` if root cause is deferred.
-- Update `decision-log.md` if the fix changes a convention.
+- Update the deferred logging strategy if the fix changes a convention.
 - Update the relevant map if the bug exposed stale project memory.
 
 ## Regression Checks

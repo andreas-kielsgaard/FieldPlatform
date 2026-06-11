@@ -2,9 +2,10 @@
 
 ## Required Orientation
 
-- `docs/agent/component-registry.md`
+- `docs/agent/generated-indexes/component-registry.md`
 - `docs/agent/design-system-map.md`
-- `docs/agent/source-map.md`
+- `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md`
+- `docs/agent/project-setup/technology-architecture-map.md` when extraction crosses area, package, or platform boundaries
 - `docs/agent/known-debt.md`
 
 ## Required Tools Or Searches
@@ -33,8 +34,8 @@
 
 ## Documentation Updates
 
-- Update `component-registry.md` for the new shared component or extraction candidate.
-- Update `decision-log.md` if the extraction establishes a convention.
+- Update `generated-indexes/component-registry.md` for the new shared component or extraction candidate.
+- Update the deferred logging strategy if the extraction establishes a convention.
 - Update `known-debt.md` if duplication is intentionally left.
 - Update `experiments.md` if the extraction remains provisional.
 

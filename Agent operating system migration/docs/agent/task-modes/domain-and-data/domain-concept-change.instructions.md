@@ -3,13 +3,12 @@
 ## Required Orientation
 
 - `docs/agent/domain-glossary.md`
-- `docs/agent/naming-index.md`
-- `docs/agent/data-model-map.md`
-- `docs/agent/schema-map.md`
-- `docs/agent/accessor-map.md`
-- `docs/agent/mock-data-map.md`
-- `docs/agent/routing-map.md`
-- `docs/agent/permissions-and-visibility-map.md`
+- `docs/agent/generated-indexes/naming-index.md`
+- `docs/agent/generated-indexes/data-model-map.md`
+- `docs/agent/generated-indexes/schema-map.md`
+- `docs/agent/generated-indexes/accessor-map.md`
+- `docs/agent/generated-indexes/routing-map.md`
+- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
 
 ## Required Tools Or Searches
 
@@ -39,10 +38,10 @@
 ## Documentation Updates
 
 - Update `domain-glossary.md`.
-- Update `naming-index.md`.
-- Update `data-model-map.md` if relations or invariants changed.
-- Update `decision-log.md` if the concept change affects future work.
-- Update `mock-data-map.md` if fixtures or scenarios changed.
+- Update `generated-indexes/naming-index.md`.
+- Update `generated-indexes/data-model-map.md` if relations or invariants changed.
+- Update the deferred logging strategy if the concept change affects future work.
+- Report fixture or scenario implications until test behavior is designed.
 - Update any other map whose represented surface changed.
 
 ## Regression Checks

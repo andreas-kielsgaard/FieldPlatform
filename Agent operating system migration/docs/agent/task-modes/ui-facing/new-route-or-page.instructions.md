@@ -2,10 +2,11 @@
 
 ## Required Orientation
 
-- `docs/agent/routing-map.md`
-- `docs/agent/source-map.md`
-- `docs/agent/component-registry.md`
-- `docs/agent/permissions-and-visibility-map.md`
+- `docs/agent/generated-indexes/routing-map.md`
+- `docs/agent/project-setup/technology-architecture-map.md` when route placement or platform boundaries may matter
+- `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md` when deciding page-shell ownership, boundary placement, or durable route/page structure
+- `docs/agent/generated-indexes/component-registry.md`
+- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
 - `docs/agent/domain-glossary.md`
 
 ## Required Tools Or Searches
@@ -33,11 +34,11 @@
 
 ## Documentation Updates
 
-- Update `routing-map.md`.
-- Update `permissions-and-visibility-map.md` if visibility changes.
-- Update `component-registry.md` if a page shell becomes reusable.
-- Update `domain-glossary.md` or `naming-index.md` if route language introduces domain terms.
-- Update `state-management-map.md` if URL state changes.
+- Update `generated-indexes/routing-map.md`.
+- Update `generated-indexes/permissions-and-visibility-map.md` if visibility changes.
+- Update `generated-indexes/component-registry.md` if a page shell becomes reusable.
+- Update `domain-glossary.md` or `generated-indexes/naming-index.md` if route language introduces domain terms.
+- Update `generated-indexes/state-management-map.md` if URL state changes.
 
 ## Regression Checks
 

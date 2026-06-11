@@ -15,6 +15,8 @@ Use the task-mode layer in this order:
 3. `task-mode-map.md` guides mode selection.
 4. Selected mode instruction files provide mode-specific requirements.
 
+Structural maintenance is a sibling decision layer, not a task mode. Use it only when selected task modes reveal a structural decision about where a durable responsibility belongs, what contract it promises, which audience should consume it, which maintenance path should update it, or which surface owns authority.
+
 ## Before Meaningful Edits
 
 1. Read the user request.
@@ -23,7 +25,8 @@ Use the task-mode layer in this order:
 4. Add secondary modes for every cross-surface concern triggered by the request.
 5. Declare the selected modes before editing durable project files.
 6. Read every selected mode instruction file.
-7. Read the maps and ledgers required by those selected mode files.
+7. Read the maps and ledgers required by those selected mode files, but query generated indexes through tools instead of loading them wholesale.
+8. If the work requires a structural decision, read `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md`.
 
 Do not load unrelated mode files just because they exist.
 
@@ -59,6 +62,8 @@ Revisit mode selection when:
 - a task grows from a narrow edit into cross-surface work
 - review-before-commit reveals missing affected surfaces
 
+Also enter structural maintenance when the work reveals a decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority of a durable maintained element.
+
 When selection changes:
 
 1. State the updated primary and secondary modes.
@@ -72,23 +77,26 @@ Use selected mode files to decide what to read.
 
 Default order:
 
-1. `docs/agent/source-map.md`.
-2. The selected primary mode file.
-3. Selected secondary mode files.
-4. The maps and ledgers named by those mode files.
-5. Relevant structural indexes or tool outputs, when available.
+1. The selected primary mode file.
+2. Selected secondary mode files.
+3. The maps and ledgers named by those mode files.
+4. `docs/agent/project-setup/technology-architecture-map.md` when platform, directory, technology-area, source/generated, or interface boundaries may matter.
+5. `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md` when the task requires a structural decision about a durable responsibility.
+6. Relevant structural indexes or tool outputs, when available.
 
 Avoid front-loading unrelated maps, ledgers, and mode files.
+
+Generated indexes under `docs/agent/generated-indexes/` are tool-query surfaces. Do not ingest a whole generated index by default; use the relevant logical tools or a narrow slice tied to the task target.
 
 ## Tool And Check Selection
 
 Use selected mode files to identify required logical tools.
 
-Use `docs/agent/tooling-map.md` to find the instruction file for each logical tool. Tool instruction files own script paths, execution details, parameters, expected outputs, and interpretation notes.
+Resolve each logical tool ID through `docs/agent/tools/tooling-map.md`. Tool instruction files own script paths, execution details, parameters, expected outputs, and interpretation notes.
 
 Mode files must not name tool scripts directly.
 
-If a mode expands to require a new tool, that is a human-owned Agent OS maintenance responsibility. Do not silently add a new tool requirement to a mode without verifying that the tool exists in `docs/agent/tooling-map.md`, has an instruction file, and has a corresponding script.
+If a mode expands to require a new tool, that is a human-owned Agent OS maintenance responsibility. Do not silently add a new tool requirement to a mode without verifying that the tool is listed in `docs/agent/tools/tooling-map.md`, has a tool instruction file, and has a corresponding script.
 
 For now, tool instruction files may assume their scripts have the expected capabilities even if the script implementation is still blank.
 

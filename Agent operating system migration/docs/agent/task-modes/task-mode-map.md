@@ -33,7 +33,10 @@ Escalate beyond the local file when a change touches any of these:
 | Structural cleanup without intended behavior change | `maintenance-and-governance/refactor.instructions.md` |
 | Broken or regressed behavior | `maintenance-and-governance/bug-fix.instructions.md` |
 | Agent instructions, project maps, ledgers, or checklists | `maintenance-and-governance/documentation-or-context-update.instructions.md` |
+| Tool contracts, generated indexes, derived artifacts, or artifact maintenance paths | `maintenance-and-governance/documentation-or-context-update.instructions.md` |
 | Handoff, commit preparation, or final self-review | `maintenance-and-governance/review-before-commit.instructions.md` |
+
+When the task requires a decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority of a durable maintained element, enter `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md` after task-mode selection. Structural maintenance does not replace the selected task modes.
 
 ## Common Mode Combinations
 
@@ -45,14 +48,14 @@ Escalate beyond the local file when a change touches any of these:
 | `ui-facing/extract-reusable-pattern.instructions.md` | `maintenance-and-governance/refactor.instructions.md`, `ui-facing/modify-existing-component.instructions.md`, `maintenance-and-governance/documentation-or-context-update.instructions.md`. |
 | `ui-facing/new-route-or-page.instructions.md` | `domain-and-data/permissions-or-visibility-change.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, `domain-and-data/state-management-change.instructions.md`, `domain-and-data/copy-or-naming-change.instructions.md`. |
 | `domain-and-data/domain-concept-change.instructions.md` | `domain-and-data/copy-or-naming-change.instructions.md`, `domain-and-data/data-model-change.instructions.md`, `domain-and-data/database-schema-or-persistence-change.instructions.md`, `domain-and-data/mock-data-change.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`. |
-| `domain-and-data/data-model-change.instructions.md` | `domain-and-data/database-schema-or-persistence-change.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, `domain-and-data/mock-data-change.instructions.md`, `docs/agent/testing-map.md`. |
-| `domain-and-data/database-schema-or-persistence-change.instructions.md` | `domain-and-data/data-model-change.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, `domain-and-data/mock-data-change.instructions.md`, `docs/agent/testing-map.md`. |
-| `domain-and-data/api-or-accessor-change.instructions.md` | `domain-and-data/state-management-change.instructions.md`, `domain-and-data/permissions-or-visibility-change.instructions.md`, `docs/agent/testing-map.md`. |
-| `domain-and-data/mock-data-change.instructions.md` | `domain-and-data/domain-concept-change.instructions.md`, component examples or stories, `docs/agent/testing-map.md`. |
+| `domain-and-data/data-model-change.instructions.md` | `domain-and-data/database-schema-or-persistence-change.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, `domain-and-data/mock-data-change.instructions.md`. |
+| `domain-and-data/database-schema-or-persistence-change.instructions.md` | `domain-and-data/data-model-change.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, `domain-and-data/mock-data-change.instructions.md`. |
+| `domain-and-data/api-or-accessor-change.instructions.md` | `domain-and-data/state-management-change.instructions.md`, `domain-and-data/permissions-or-visibility-change.instructions.md`. |
+| `domain-and-data/mock-data-change.instructions.md` | `domain-and-data/domain-concept-change.instructions.md`, component examples or stories. |
 | `domain-and-data/state-management-change.instructions.md` | `maintenance-and-governance/bug-fix.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, `ui-facing/new-route-or-page.instructions.md`. |
-| `domain-and-data/permissions-or-visibility-change.instructions.md` | `ui-facing/new-route-or-page.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, UI visibility surfaces, `docs/agent/testing-map.md`. |
+| `domain-and-data/permissions-or-visibility-change.instructions.md` | `ui-facing/new-route-or-page.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, UI visibility surfaces. |
 | `domain-and-data/copy-or-naming-change.instructions.md` | `domain-and-data/domain-concept-change.instructions.md`, `ui-facing/new-route-or-page.instructions.md`, `ui-facing/visual-or-design-system-change.instructions.md`. |
-| `maintenance-and-governance/refactor.instructions.md` | The component, accessor, schema, route, or source-map mode for the target area. |
+| `maintenance-and-governance/refactor.instructions.md` | The component, accessor, schema, route, or structural-maintenance behavior for the target area. |
 | `maintenance-and-governance/bug-fix.instructions.md` | The mode for the layer that caused the bug. |
 | `ui-facing/visual-or-design-system-change.instructions.md` | `ui-facing/new-component.instructions.md` or `ui-facing/modify-existing-component.instructions.md`, visual checks, examples or stories. |
 | `maintenance-and-governance/documentation-or-context-update.instructions.md` | Any mode that changed project memory. |
@@ -66,7 +69,7 @@ Escalate beyond the local file when a change touches any of these:
 | Rename a domain term across the product. | `domain-and-data/domain-concept-change.instructions.md` | `domain-and-data/copy-or-naming-change.instructions.md`, `domain-and-data/mock-data-change.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, `maintenance-and-governance/documentation-or-context-update.instructions.md`. |
 | Fix a bug in a guarded page. | `maintenance-and-governance/bug-fix.instructions.md` | `domain-and-data/permissions-or-visibility-change.instructions.md`, `ui-facing/new-route-or-page.instructions.md`, `domain-and-data/api-or-accessor-change.instructions.md`, depending on root cause. |
 | Add a reusable card from repeated page markup. | `ui-facing/extract-reusable-pattern.instructions.md` | `ui-facing/new-component.instructions.md`, `ui-facing/visual-or-design-system-change.instructions.md`, `maintenance-and-governance/refactor.instructions.md`. |
-| Move fetched data into a shared cache. | `domain-and-data/api-or-accessor-change.instructions.md` | `domain-and-data/state-management-change.instructions.md`, `docs/agent/testing-map.md`. |
+| Move fetched data into a shared cache. | `domain-and-data/api-or-accessor-change.instructions.md` | `domain-and-data/state-management-change.instructions.md`. |
 
 ## Update Rules
 

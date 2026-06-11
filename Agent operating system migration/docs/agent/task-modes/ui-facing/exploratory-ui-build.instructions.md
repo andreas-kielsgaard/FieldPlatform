@@ -2,11 +2,11 @@
 
 ## Required Orientation
 
-- `docs/agent/source-map.md`
-- `docs/agent/component-registry.md`
+- `docs/agent/project-setup/technology-architecture-map.md` when platform, route, or source/generated boundaries may matter
+- `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md` when exploratory work starts creating durable owners, shared patterns, or source-of-truth structure
+- `docs/agent/generated-indexes/component-registry.md`
 - `docs/agent/design-system-map.md`
-- `docs/agent/routing-map.md`
-- `docs/agent/mock-data-map.md`
+- `docs/agent/generated-indexes/routing-map.md`
 - `docs/agent/experiments.md`
 
 ## Required Tools Or Searches
@@ -34,9 +34,9 @@
 
 ## Documentation Updates
 
-- Update `component-registry.md` if a shared pattern appears.
-- Update `routing-map.md` if a route or navigable surface appears.
-- Update `mock-data-map.md` if durable fixture/scenario assumptions appear.
+- Update `generated-indexes/component-registry.md` if a shared pattern appears.
+- Update `generated-indexes/routing-map.md` if a route or navigable surface appears.
+- Report durable fixture or scenario assumptions until test behavior is designed.
 - Update `experiments.md` for provisional surfaces or product assumptions.
 - Update naming/domain maps if new terms become meaningful.
 

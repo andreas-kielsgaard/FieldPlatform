@@ -2,17 +2,18 @@
 
 ## Required Orientation
 
-- `docs/agent/mock-data-map.md`
 - `docs/agent/domain-glossary.md`
-- `docs/agent/data-model-map.md`
-- `docs/agent/schema-map.md`
-- `docs/agent/component-registry.md`
+- `docs/agent/generated-indexes/data-model-map.md`
+- `docs/agent/generated-indexes/schema-map.md`
+- `docs/agent/generated-indexes/component-registry.md`
 
 ## Required Tools Or Searches
 
 - Tool: `find-term` for represented concepts.
 - Tool: `validate-fixtures`.
 - Tool: `scenario-usage`.
+- Tool: `contract-impact` when fixture or scenario shape is consumed by tests, examples, previews, or generated indexes.
+- Tool: `artifact-maintenance-path` when fixture indexes, generated scenarios, or tool-maintained mock outputs are involved.
 - Search schema/validator references when mock shape changes.
 
 ## Implementation Instructions
@@ -34,10 +35,10 @@
 
 ## Documentation Updates
 
-- Update `mock-data-map.md`.
+- Report fixture or scenario implications until test behavior is designed.
 - Update `domain-glossary.md` if the scenario introduces terms.
-- Update `data-model-map.md` if relation assumptions change.
-- Update `component-registry.md` if examples depend on the scenario.
+- Update `generated-indexes/data-model-map.md` if relation assumptions change.
+- Update `generated-indexes/component-registry.md` if examples depend on the scenario.
 - Update `experiments.md` if the mock carries provisional product assumptions.
 
 ## Regression Checks

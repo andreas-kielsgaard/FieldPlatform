@@ -2,10 +2,9 @@
 
 ## Required Orientation
 
-- `docs/agent/schema-map.md`
-- `docs/agent/data-model-map.md`
-- `docs/agent/accessor-map.md`
-- `docs/agent/testing-map.md`
+- `docs/agent/generated-indexes/schema-map.md`
+- `docs/agent/generated-indexes/data-model-map.md`
+- `docs/agent/generated-indexes/accessor-map.md`
 - `docs/agent/known-debt.md`
 
 ## Required Tools Or Searches
@@ -14,6 +13,9 @@
 - Run migration checks if available.
 - Run type generation or validation generation if applicable.
 - Tool: `check-schema-drift`.
+- Tool: `artifact-maintenance-path` for generated types, validators, schema indexes, or tool-maintained schema artifacts.
+- Tool: `contract-impact` for persisted shape, accessor return shape, migration compatibility, generated output, fixtures, or tests.
+- Tool: `contract-test-coverage` for changed persistence behavior or generated contract surfaces.
 - Run affected accessor and persistence tests.
 
 ## Implementation Instructions
@@ -35,12 +37,12 @@
 
 ## Documentation Updates
 
-- Update `schema-map.md`.
-- Update `data-model-map.md` if model meaning changes.
-- Update `accessor-map.md`.
-- Update `mock-data-map.md`.
-- Update `testing-map.md`.
-- Update `decision-log.md` if storage strategy changes.
+- Update `generated-indexes/schema-map.md`.
+- Update `generated-indexes/data-model-map.md` if model meaning changes.
+- Update `generated-indexes/accessor-map.md`.
+- Report fixture or scenario implications until test behavior is designed.
+- Report test coverage implications until test behavior is designed.
+- Update the deferred logging strategy if storage strategy changes.
 - Update `known-debt.md` if migration safety is deferred.
 
 ## Regression Checks

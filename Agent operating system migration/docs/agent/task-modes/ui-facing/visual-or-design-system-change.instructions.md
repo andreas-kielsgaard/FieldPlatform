@@ -3,8 +3,7 @@
 ## Required Orientation
 
 - `docs/agent/design-system-map.md`
-- `docs/agent/component-registry.md`
-- `docs/agent/testing-map.md`
+- `docs/agent/generated-indexes/component-registry.md`
 
 ## Required Tools Or Searches
 
@@ -31,9 +30,9 @@
 ## Documentation Updates
 
 - Update `design-system-map.md`.
-- Update `component-registry.md` if component variants or primitives changed.
-- Update `testing-map.md` if visual coverage changes.
-- Update `decision-log.md` if a durable design convention is established.
+- Update `generated-indexes/component-registry.md` if component variants or primitives changed.
+- Report visual coverage implications until test behavior is designed.
+- Update the deferred logging strategy if a durable design convention is established.
 
 ## Regression Checks
 

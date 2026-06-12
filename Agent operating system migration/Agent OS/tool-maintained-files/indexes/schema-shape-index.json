@@ -1,0 +1,579 @@
+{
+  "artifactId": "schema-shape-index",
+  "indexId": "schema-shape-index",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-12T10:18:49.086Z",
+  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
+  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "producer": "build-schema-shape-index",
+  "artifactPath": "tool-maintained-files/indexes/schema-shape-index.json",
+  "sourceInputs": [
+    "schema, model, validator, type, interface, and migration-like files"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "Schema-like declarations, validators, fields, relation hints, and generated type references.",
+  "knownBlindSpots": [
+    "Does not replace database, ORM, or validator-specific introspection."
+  ],
+  "recordCount": 67,
+  "records": [
+    {
+      "file": "migration_agents.md",
+      "line": 13,
+      "declarationKind": "class",
+      "name": "concerns",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/skills/boundary-verification.md",
+      "line": 8,
+      "declarationKind": "interface",
+      "name": "decisions",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/skills/safe-rename-workflow.md",
+      "line": 23,
+      "declarationKind": "type",
+      "name": "questions",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/skills/skill-map.md",
+      "line": 14,
+      "declarationKind": "interface",
+      "name": "decisions",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/skills/skill-map.md",
+      "line": 36,
+      "declarationKind": "type",
+      "name": "questions",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/extraction-and-centralization/centralize-duplicated-semantics.instructions.md",
+      "line": 15,
+      "declarationKind": "interface",
+      "name": "when",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/promote-provisional-element.instructions.md",
+      "line": 51,
+      "declarationKind": "interface",
+      "name": "or",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/movement-and-splitting/move-between-boundaries.instructions.md",
+      "line": 46,
+      "declarationKind": "interface",
+      "name": "boundaries",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/movement-and-splitting/split-overloaded-maintained-element.instructions.md",
+      "line": 58,
+      "declarationKind": "interface",
+      "name": "boundary",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md",
+      "line": 12,
+      "declarationKind": "interface",
+      "name": "and",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md",
+      "line": 33,
+      "declarationKind": "interface",
+      "name": "should",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md",
+      "line": 34,
+      "declarationKind": "interface",
+      "name": "should",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md",
+      "line": 35,
+      "declarationKind": "interface",
+      "name": "should",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md",
+      "line": 49,
+      "declarationKind": "interface",
+      "name": "expectations",
+      "fields": [
+        "Boundary"
+      ]
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md",
+      "line": 53,
+      "declarationKind": "interface",
+      "name": "convention",
+      "fields": [
+        "Boundary",
+        "Producer",
+        "Consumer"
+      ]
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/new-maintained-element-placement.instructions.md",
+      "line": 13,
+      "declarationKind": "interface",
+      "name": "expectations",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/platform-component-placement.instructions.md",
+      "line": 45,
+      "declarationKind": "interface",
+      "name": "expectations",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/platform-component-placement.instructions.md",
+      "line": 51,
+      "declarationKind": "interface",
+      "name": "expectations",
+      "fields": [
+        "Owns"
+      ]
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/reuse-and-extension/composition-or-inheritance.instructions.md",
+      "line": 36,
+      "declarationKind": "interface",
+      "name": "mismatch",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/reuse-and-extension/composition-or-inheritance.instructions.md",
+      "line": 51,
+      "declarationKind": "class",
+      "name": "coupling",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/reuse-and-extension/extend-existing-owner.instructions.md",
+      "line": 26,
+      "declarationKind": "interface",
+      "name": "decisions",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/behavior/reuse-and-extension/reuse-existing-functionality.instructions.md",
+      "line": 14,
+      "declarationKind": "interface",
+      "name": "boundary",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/lens-map.md",
+      "line": 33,
+      "declarationKind": "interface",
+      "name": "clarity",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/lenses/boundary-lens.md",
+      "line": 5,
+      "declarationKind": "interface",
+      "name": "clarity",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/lenses/boundary-lens.md",
+      "line": 12,
+      "declarationKind": "interface",
+      "name": "boundary",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/lenses/boundary-lens.md",
+      "line": 30,
+      "declarationKind": "interface",
+      "name": "maps",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/lenses/boundary-lens.md",
+      "line": 55,
+      "declarationKind": "interface",
+      "name": "becomes",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/lenses/data-state-effect-lens.md",
+      "line": 41,
+      "declarationKind": "model",
+      "name": "change",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md",
+      "line": 16,
+      "declarationKind": "interface",
+      "name": "responsibility",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/api-or-accessor-change.instructions.md",
+      "line": 11,
+      "declarationKind": "model",
+      "name": "index",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/api-or-accessor-change.instructions.md",
+      "line": 35,
+      "declarationKind": "model",
+      "name": "assumptions",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
+      "line": 9,
+      "declarationKind": "model",
+      "name": "index",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
+      "line": 18,
+      "declarationKind": "model",
+      "name": "invariants",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
+      "line": 28,
+      "declarationKind": "model",
+      "name": "is",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
+      "line": 46,
+      "declarationKind": "model",
+      "name": "decision",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
+      "line": 52,
+      "declarationKind": "model",
+      "name": "shape",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
+      "line": 58,
+      "declarationKind": "model",
+      "name": "reuse",
+      "fields": [
+        "Invariants"
+      ]
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
+      "line": 63,
+      "declarationKind": "model",
+      "name": "change",
+      "fields": [
+        "Invariants"
+      ]
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
+      "line": 71,
+      "declarationKind": "model",
+      "name": "questions",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/database-schema-or-persistence-change.instructions.md",
+      "line": 10,
+      "declarationKind": "model",
+      "name": "index",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/database-schema-or-persistence-change.instructions.md",
+      "line": 16,
+      "declarationKind": "type",
+      "name": "generation",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/database-schema-or-persistence-change.instructions.md",
+      "line": 33,
+      "declarationKind": "model",
+      "name": "meaning",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/database-schema-or-persistence-change.instructions.md",
+      "line": 43,
+      "declarationKind": "model",
+      "name": "meaning",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/domain-concept-change.instructions.md",
+      "line": 10,
+      "declarationKind": "model",
+      "name": "index",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/domain-and-data/mock-data-change.instructions.md",
+      "line": 9,
+      "declarationKind": "model",
+      "name": "index",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/maintenance-and-governance/refactor.instructions.md",
+      "line": 6,
+      "declarationKind": "interface",
+      "name": "boundaries",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/maintenance-and-governance/refactor.instructions.md",
+      "line": 47,
+      "declarationKind": "interface",
+      "name": "boundaries",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/task-mode-usage.instructions.md",
+      "line": 83,
+      "declarationKind": "interface",
+      "name": "boundaries",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/task-modes/ui-facing/new-component.instructions.md",
+      "line": 6,
+      "declarationKind": "interface",
+      "name": "boundaries",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/tools/index-map.md",
+      "line": 19,
+      "declarationKind": "type",
+      "name": "hints",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/tools/indexes/schema-shape-index.md",
+      "line": 8,
+      "declarationKind": "type",
+      "name": "hints",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/tools/indexes/term-index.md",
+      "line": 29,
+      "declarationKind": "type",
+      "name": "remain",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/tools/operators/schema-query.md",
+      "line": 8,
+      "declarationKind": "type",
+      "name": "hints",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/tools/operators/schema-query.md",
+      "line": 20,
+      "declarationKind": "type",
+      "name": "mapping",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/tools/tool-map.md",
+      "line": 20,
+      "declarationKind": "type",
+      "name": "mapping",
+      "fields": []
+    },
+    {
+      "file": "prompt-files/tools/tool-map.md",
+      "line": 20,
+      "declarationKind": "type",
+      "name": "hints",
+      "fields": []
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 190,
+      "declarationKind": "type",
+      "name": "is",
+      "fields": []
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "declarationKind": "type",
+      "name": "JsonValue",
+      "fields": [
+        "positional",
+        "flags",
+        "path",
+        "absolutePath",
+        "name",
+        "ext"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "declarationKind": "type",
+      "name": "ParsedArgs",
+      "fields": [
+        "positional",
+        "flags",
+        "path",
+        "absolutePath",
+        "name",
+        "ext",
+        "size",
+        "lines"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 8,
+      "declarationKind": "type",
+      "name": "FileRecord",
+      "fields": [
+        "path",
+        "absolutePath",
+        "name",
+        "ext",
+        "size",
+        "lines",
+        "id",
+        "producer"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 17,
+      "declarationKind": "type",
+      "name": "IndexDefinition",
+      "fields": [
+        "id",
+        "producer",
+        "artifactPath",
+        "sourceInputs",
+        "coverage",
+        "knownBlindSpots",
+        "root",
+        "files"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 26,
+      "declarationKind": "type",
+      "name": "IndexBuildContext",
+      "fields": [
+        "root",
+        "files",
+        "contentFiles",
+        "definition",
+        "buildRecords"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 32,
+      "declarationKind": "type",
+      "name": "IndexBuilderSpec",
+      "fields": [
+        "definition",
+        "buildRecords",
+        "artifactId",
+        "indexId",
+        "stratum",
+        "generated",
+        "schemaVersion",
+        "generatedAt"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 37,
+      "declarationKind": "type",
+      "name": "IndexArtifact",
+      "fields": [
+        "artifactId",
+        "indexId",
+        "stratum",
+        "generated",
+        "schemaVersion",
+        "generatedAt",
+        "sourceRoot",
+        "sourceRevision",
+        "producer",
+        "artifactPath",
+        "sourceInputs"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 56,
+      "declarationKind": "type",
+      "name": "QueryOperatorSpec",
+      "fields": [
+        "operatorId",
+        "indexIds",
+        "indexId",
+        "path",
+        "missing",
+        "index"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 61,
+      "declarationKind": "type",
+      "name": "LoadedIndex",
+      "fields": [
+        "indexId",
+        "path",
+        "missing",
+        "index"
+      ]
+    },
+    {
+      "file": "tool-implementations/indexes/build-schema-shape-index.ts",
+      "line": 10,
+      "declarationKind": "type",
+      "name": "references",
+      "fields": [
+        "knownBlindSpots"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "artifactId": "component-index",
+  "indexId": "component-index",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-12T10:18:32.019Z",
+  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
+  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "producer": "build-component-index",
+  "artifactPath": "tool-maintained-files/indexes/component-index.json",
+  "sourceInputs": [
+    "TS/JS/TSX/JSX source files and story/test paths"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "PascalCase component definitions, consumers, stories, tests, and props hints.",
+  "knownBlindSpots": [
+    "Does not execute framework compilers and may confuse non-component PascalCase symbols."
+  ],
+  "recordCount": 18,
+  "records": [
+    {
+      "component": "JsonValue",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/cli.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "JsonValue",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/cli.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "ParsedArgs",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/cli.ts",
+        "tool-implementations/_lib/operators/query-runner.ts",
+        "tool-implementations/_lib/operators/retrieve-slice-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "ParsedArgs",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/cli.ts",
+        "tool-implementations/_lib/operators/query-runner.ts",
+        "tool-implementations/_lib/operators/retrieve-slice-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "FileRecord",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 8,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/records/accessor-records.ts",
+        "tool-implementations/_lib/records/artifact-metadata-records.ts",
+        "tool-implementations/_lib/records/change-records.ts",
+        "tool-implementations/_lib/records/component-records.ts",
+        "tool-implementations/_lib/records/dependency-records.ts",
+        "tool-implementations/_lib/records/doc-reference-records.ts",
+        "tool-implementations/_lib/records/fixture-records.ts",
+        "tool-implementations/_lib/records/literal-records.ts",
+        "tool-implementations/_lib/records/path-records.ts",
+        "tool-implementations/_lib/records/route-records.ts",
+        "tool-implementations/_lib/records/schema-records.ts",
+        "tool-implementations/_lib/records/source-symbols.ts",
+        "tool-implementations/_lib/records/term-records.ts",
+        "tool-implementations/_lib/records/test-records.ts",
+        "tool-implementations/_lib/repo-files.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "FileRecord",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 8,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/records/accessor-records.ts",
+        "tool-implementations/_lib/records/artifact-metadata-records.ts",
+        "tool-implementations/_lib/records/change-records.ts",
+        "tool-implementations/_lib/records/component-records.ts",
+        "tool-implementations/_lib/records/dependency-records.ts",
+        "tool-implementations/_lib/records/doc-reference-records.ts",
+        "tool-implementations/_lib/records/fixture-records.ts",
+        "tool-implementations/_lib/records/literal-records.ts",
+        "tool-implementations/_lib/records/path-records.ts",
+        "tool-implementations/_lib/records/route-records.ts",
+        "tool-implementations/_lib/records/schema-records.ts",
+        "tool-implementations/_lib/records/source-symbols.ts",
+        "tool-implementations/_lib/records/term-records.ts",
+        "tool-implementations/_lib/records/test-records.ts",
+        "tool-implementations/_lib/repo-files.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexDefinition",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 17,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts",
+        "tool-implementations/indexes/build-accessor-index.ts",
+        "tool-implementations/indexes/build-artifact-metadata-index.ts",
+        "tool-implementations/indexes/build-change-index.ts",
+        "tool-implementations/indexes/build-component-index.ts",
+        "tool-implementations/indexes/build-dependency-index.ts",
+        "tool-implementations/indexes/build-doc-reference-index.ts",
+        "tool-implementations/indexes/build-fixture-scenario-index.ts",
+        "tool-implementations/indexes/build-literal-index.ts",
+        "tool-implementations/indexes/build-path-index.ts",
+        "tool-implementations/indexes/build-route-index.ts",
+        "tool-implementations/indexes/build-schema-shape-index.ts",
+        "tool-implementations/indexes/build-symbol-index.ts",
+        "tool-implementations/indexes/build-term-index.ts",
+        "tool-implementations/indexes/build-test-index.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexDefinition",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 17,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts",
+        "tool-implementations/indexes/build-accessor-index.ts",
+        "tool-implementations/indexes/build-artifact-metadata-index.ts",
+        "tool-implementations/indexes/build-change-index.ts",
+        "tool-implementations/indexes/build-component-index.ts",
+        "tool-implementations/indexes/build-dependency-index.ts",
+        "tool-implementations/indexes/build-doc-reference-index.ts",
+        "tool-implementations/indexes/build-fixture-scenario-index.ts",
+        "tool-implementations/indexes/build-literal-index.ts",
+        "tool-implementations/indexes/build-path-index.ts",
+        "tool-implementations/indexes/build-route-index.ts",
+        "tool-implementations/indexes/build-schema-shape-index.ts",
+        "tool-implementations/indexes/build-symbol-index.ts",
+        "tool-implementations/indexes/build-term-index.ts",
+        "tool-implementations/indexes/build-test-index.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexBuildContext",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 26,
+      "exportRole": "export",
+      "consumers": [],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexBuildContext",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 26,
+      "exportRole": "definition",
+      "consumers": [],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexBuilderSpec",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 32,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexBuilderSpec",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 32,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexArtifact",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 37,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts",
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexArtifact",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 37,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts",
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "QueryOperatorSpec",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 56,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "QueryOperatorSpec",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 56,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "LoadedIndex",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 61,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "LoadedIndex",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 61,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    }
+  ]
+}

@@ -1,0 +1,4280 @@
+{
+  "artifactId": "symbol-index",
+  "indexId": "symbol-index",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-12T10:18:51.713Z",
+  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
+  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "producer": "build-symbol-index",
+  "artifactPath": "tool-maintained-files/indexes/symbol-index.json",
+  "sourceInputs": [
+    "text source files"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "Exported, imported, and locally declared symbols discoverable with lightweight source scanning.",
+  "knownBlindSpots": [
+    "Regex scanning is not a full compiler or AST and may miss dynamic or language-specific symbols."
+  ],
+  "recordCount": 509,
+  "records": [
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 1,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 2,
+      "name": "isCodeLike",
+      "kind": "import",
+      "role": "import",
+      "module": "./repo-files.ts",
+      "text": "import { isCodeLike, isStoryFile, isTestFile } from \"./repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 2,
+      "name": "isStoryFile",
+      "kind": "import",
+      "role": "import",
+      "module": "./repo-files.ts",
+      "text": "import { isCodeLike, isStoryFile, isTestFile } from \"./repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 2,
+      "name": "isTestFile",
+      "kind": "import",
+      "role": "import",
+      "module": "./repo-files.ts",
+      "text": "import { isCodeLike, isStoryFile, isTestFile } from \"./repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 4,
+      "name": "inferArtifactKind",
+      "kind": "function",
+      "role": "export",
+      "text": "export function inferArtifactKind(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 4,
+      "name": "inferArtifactKind",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function inferArtifactKind(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 41,
+      "name": "hasGeneratedHint",
+      "kind": "function",
+      "role": "export",
+      "text": "export function hasGeneratedHint(filePath: string, lines: string[]): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 41,
+      "name": "hasGeneratedHint",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function hasGeneratedHint(filePath: string, lines: string[]): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 45,
+      "name": "directEditPolicy",
+      "kind": "function",
+      "role": "export",
+      "text": "export function directEditPolicy(filePath: string, lines: string[]): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 45,
+      "name": "directEditPolicy",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function directEditPolicy(filePath: string, lines: string[]): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 55,
+      "name": "possibleProducer",
+      "kind": "function",
+      "role": "export",
+      "text": "export function possibleProducer(filePath: string, lines: string[]): string | null {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 55,
+      "name": "possibleProducer",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function possibleProducer(filePath: string, lines: string[]): string | null {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 56,
+      "name": "joined",
+      "kind": "const",
+      "role": "definition",
+      "text": "const joined = lines.slice(0, 20).join(\"\\n\");"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 57,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "const match = joined.match(/producer(?:Tool)?[\"':\\s]+([A-Za-z0-9_-]+)/i);"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 62,
+      "name": "id",
+      "kind": "const",
+      "role": "definition",
+      "text": "const id = filePath.match(/tool-maintained-files\\/indexes\\/(.+)\\.json$/)?.[1];"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 68,
+      "name": "inferAudience",
+      "kind": "function",
+      "role": "export",
+      "text": "export function inferAudience(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 68,
+      "name": "inferAudience",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function inferAudience(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 78,
+      "name": "inferAuthorityRole",
+      "kind": "function",
+      "role": "export",
+      "text": "export function inferAuthorityRole(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 78,
+      "name": "inferAuthorityRole",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function inferAuthorityRole(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 1,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 2,
+      "name": "JsonValue",
+      "kind": "import",
+      "role": "import",
+      "module": "./types.ts",
+      "text": "import type { JsonValue, ParsedArgs } from \"./types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 2,
+      "name": "ParsedArgs",
+      "kind": "import",
+      "role": "import",
+      "module": "./types.ts",
+      "text": "import type { JsonValue, ParsedArgs } from \"./types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 4,
+      "name": "parseArgs",
+      "kind": "function",
+      "role": "export",
+      "text": "export function parseArgs(argv: string[]): ParsedArgs {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 4,
+      "name": "parseArgs",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function parseArgs(argv: string[]): ParsedArgs {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 5,
+      "name": "positional",
+      "kind": "const",
+      "role": "definition",
+      "text": "const positional: string[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 6,
+      "name": "flags",
+      "kind": "const",
+      "role": "definition",
+      "text": "const flags: Record<string, string | boolean> = {};"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 8,
+      "name": "index",
+      "kind": "let",
+      "role": "definition",
+      "text": "for (let index = 0; index < argv.length; index += 1) {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 9,
+      "name": "value",
+      "kind": "const",
+      "role": "definition",
+      "text": "const value = argv[index];"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 11,
+      "name": "withoutPrefix",
+      "kind": "const",
+      "role": "definition",
+      "text": "const withoutPrefix = value.slice(2);"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 12,
+      "name": "eqIndex",
+      "kind": "const",
+      "role": "definition",
+      "text": "const eqIndex = withoutPrefix.indexOf(\"=\");"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 16,
+      "name": "next",
+      "kind": "const",
+      "role": "definition",
+      "text": "const next = argv[index + 1];"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 32,
+      "name": "resolveRoot",
+      "kind": "function",
+      "role": "export",
+      "text": "export function resolveRoot(args: ParsedArgs): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 32,
+      "name": "resolveRoot",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function resolveRoot(args: ParsedArgs): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 36,
+      "name": "emit",
+      "kind": "function",
+      "role": "export",
+      "text": "export function emit(result: JsonValue | Record<string, unknown>, args: ParsedArgs): void {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 36,
+      "name": "emit",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function emit(result: JsonValue | Record<string, unknown>, args: ParsedArgs): void {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 51,
+      "name": "finding",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const finding of result.observedEvidence.slice(0, 20) as Record<string, unknown>[]) {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 52,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "const file = finding.file ? `${finding.file}` : \"\";"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 53,
+      "name": "line",
+      "kind": "const",
+      "role": "definition",
+      "text": "const line = finding.line ? `:${finding.line}` : \"\";"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 54,
+      "name": "name",
+      "kind": "const",
+      "role": "definition",
+      "text": "const name = finding.name ? ` ${finding.name}` : \"\";"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 55,
+      "name": "detail",
+      "kind": "const",
+      "role": "definition",
+      "text": "const detail = finding.detail ? ` - ${finding.detail}` : \"\";"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 61,
+      "name": "warning",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const warning of result.warnings as string[]) {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 67,
+      "name": "toNumber",
+      "kind": "function",
+      "role": "export",
+      "text": "export function toNumber(value: string | boolean | undefined, fallback: number): number {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 67,
+      "name": "toNumber",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function toNumber(value: string | boolean | undefined, fallback: number): number {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 71,
+      "name": "parsed",
+      "kind": "const",
+      "role": "definition",
+      "text": "const parsed = Number.parseInt(value, 10);"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 75,
+      "name": "fail",
+      "kind": "function",
+      "role": "export",
+      "text": "export function fail(message: string): never {"
+    },
+    {
+      "file": "tool-implementations/_lib/cli.ts",
+      "line": 75,
+      "name": "fail",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function fail(message: string): never {"
+    },
+    {
+      "file": "tool-implementations/_lib/git.ts",
+      "line": 1,
+      "name": "execFileSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:child_process",
+      "text": "import { execFileSync } from \"node:child_process\";"
+    },
+    {
+      "file": "tool-implementations/_lib/git.ts",
+      "line": 3,
+      "name": "gitSha",
+      "kind": "function",
+      "role": "export",
+      "text": "export function gitSha(root: string): string | null {"
+    },
+    {
+      "file": "tool-implementations/_lib/git.ts",
+      "line": 3,
+      "name": "gitSha",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function gitSha(root: string): string | null {"
+    },
+    {
+      "file": "tool-implementations/_lib/git.ts",
+      "line": 11,
+      "name": "gitLines",
+      "kind": "function",
+      "role": "export",
+      "text": "export function gitLines(root: string, args: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/git.ts",
+      "line": 11,
+      "name": "gitLines",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function gitLines(root: string, args: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "name": "mkdirSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { mkdirSync, writeFileSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "name": "writeFileSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { mkdirSync, writeFileSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 2,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 3,
+      "name": "emit",
+      "kind": "import",
+      "role": "import",
+      "module": "./cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot } from \"./cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 3,
+      "name": "parseArgs",
+      "kind": "import",
+      "role": "import",
+      "module": "./cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot } from \"./cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 3,
+      "name": "resolveRoot",
+      "kind": "import",
+      "role": "import",
+      "module": "./cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot } from \"./cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 4,
+      "name": "collectFiles",
+      "kind": "import",
+      "role": "import",
+      "module": "./repo-files.ts",
+      "text": "import { collectFiles, isGeneratedIndexPath, isTextFile } from \"./repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 4,
+      "name": "isGeneratedIndexPath",
+      "kind": "import",
+      "role": "import",
+      "module": "./repo-files.ts",
+      "text": "import { collectFiles, isGeneratedIndexPath, isTextFile } from \"./repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 4,
+      "name": "isTextFile",
+      "kind": "import",
+      "role": "import",
+      "module": "./repo-files.ts",
+      "text": "import { collectFiles, isGeneratedIndexPath, isTextFile } from \"./repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 5,
+      "name": "gitSha",
+      "kind": "import",
+      "role": "import",
+      "module": "./git.ts",
+      "text": "import { gitSha } from \"./git.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 6,
+      "name": "readJsonIfExists",
+      "kind": "import",
+      "role": "import",
+      "module": "./json.ts",
+      "text": "import { readJsonIfExists, stableStringify } from \"./json.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 6,
+      "name": "stableStringify",
+      "kind": "import",
+      "role": "import",
+      "module": "./json.ts",
+      "text": "import { readJsonIfExists, stableStringify } from \"./json.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 7,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "./text-utils.ts",
+      "text": "import { normalizePath } from \"./text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 8,
+      "name": "IndexArtifact",
+      "kind": "import",
+      "role": "import",
+      "module": "./types.ts",
+      "text": "import type { IndexArtifact, IndexBuilderSpec, IndexDefinition } from \"./types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 8,
+      "name": "IndexBuilderSpec",
+      "kind": "import",
+      "role": "import",
+      "module": "./types.ts",
+      "text": "import type { IndexArtifact, IndexBuilderSpec, IndexDefinition } from \"./types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 8,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "./types.ts",
+      "text": "import type { IndexArtifact, IndexBuilderSpec, IndexDefinition } from \"./types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 10,
+      "name": "runIndexBuilder",
+      "kind": "function",
+      "role": "export",
+      "text": "export function runIndexBuilder(spec: IndexBuilderSpec): void {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 10,
+      "name": "runIndexBuilder",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function runIndexBuilder(spec: IndexBuilderSpec): void {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 11,
+      "name": "args",
+      "kind": "const",
+      "role": "definition",
+      "text": "const args = parseArgs(process.argv.slice(2));"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 12,
+      "name": "root",
+      "kind": "const",
+      "role": "definition",
+      "text": "const root = resolveRoot(args);"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 13,
+      "name": "artifact",
+      "kind": "const",
+      "role": "definition",
+      "text": "const artifact = buildIndex(spec, root);"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 14,
+      "name": "outPath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const outPath = path.resolve(root, String(args.flags.out || spec.definition.artifactPath));"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 15,
+      "name": "checkOnly",
+      "kind": "const",
+      "role": "definition",
+      "text": "const checkOnly = Boolean(args.flags.check);"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 16,
+      "name": "existing",
+      "kind": "const",
+      "role": "definition",
+      "text": "const existing = readJsonIfExists(outPath);"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 17,
+      "name": "stale",
+      "kind": "const",
+      "role": "definition",
+      "text": "const stale = !existing || stableStringify(existing) !== stableStringify(artifact);"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 40,
+      "name": "buildIndex",
+      "kind": "function",
+      "role": "definition",
+      "text": "function buildIndex(spec: IndexBuilderSpec, root: string): IndexArtifact {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 41,
+      "name": "files",
+      "kind": "const",
+      "role": "definition",
+      "text": "const files = collectFiles(root);"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 42,
+      "name": "contentFiles",
+      "kind": "const",
+      "role": "definition",
+      "text": "const contentFiles = files.filter((file) => isTextFile(file.path) && !isGeneratedIndexPath(file.path));"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 43,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records = spec.buildRecords({ root, files, contentFiles });"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 44,
+      "name": "def",
+      "kind": "const",
+      "role": "definition",
+      "text": "const def: IndexDefinition = spec.definition;"
+    },
+    {
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 1,
+      "name": "existsSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync, readFileSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 1,
+      "name": "readFileSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync, readFileSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 3,
+      "name": "readJsonIfExists",
+      "kind": "function",
+      "role": "export",
+      "text": "export function readJsonIfExists(filePath: string): unknown | null {"
+    },
+    {
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 3,
+      "name": "readJsonIfExists",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function readJsonIfExists(filePath: string): unknown | null {"
+    },
+    {
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 14,
+      "name": "stableStringify",
+      "kind": "function",
+      "role": "export",
+      "text": "export function stableStringify(value: unknown): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 14,
+      "name": "stableStringify",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function stableStringify(value: unknown): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 18,
+      "name": "stripVolatile",
+      "kind": "function",
+      "role": "definition",
+      "text": "function stripVolatile(value: unknown): unknown {"
+    },
+    {
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 23,
+      "name": "result",
+      "kind": "const",
+      "role": "definition",
+      "text": "const result: Record<string, unknown> = {};"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 2,
+      "name": "emit",
+      "kind": "import",
+      "role": "import",
+      "module": "../cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 2,
+      "name": "parseArgs",
+      "kind": "import",
+      "role": "import",
+      "module": "../cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 2,
+      "name": "resolveRoot",
+      "kind": "import",
+      "role": "import",
+      "module": "../cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 2,
+      "name": "toNumber",
+      "kind": "import",
+      "role": "import",
+      "module": "../cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 3,
+      "name": "readJsonIfExists",
+      "kind": "import",
+      "role": "import",
+      "module": "../json.ts",
+      "text": "import { readJsonIfExists } from \"../json.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 4,
+      "name": "escapeRegex",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { escapeRegex, normalizePath, recordText } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 4,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { escapeRegex, normalizePath, recordText } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 4,
+      "name": "recordText",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { escapeRegex, normalizePath, recordText } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 5,
+      "name": "IndexArtifact",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 5,
+      "name": "LoadedIndex",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 5,
+      "name": "ParsedArgs",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 5,
+      "name": "QueryOperatorSpec",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 7,
+      "name": "TERM_HANDLES",
+      "kind": "const",
+      "role": "definition",
+      "text": "const TERM_HANDLES = new Set([\"canonical\", \"all\", \"identifiers\", \"ui-literals\", \"cooccurs\", \"drift\", \"replace-preview\"]);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 9,
+      "name": "runQueryOperator",
+      "kind": "function",
+      "role": "export",
+      "text": "export function runQueryOperator(spec: QueryOperatorSpec): void {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 9,
+      "name": "runQueryOperator",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function runQueryOperator(spec: QueryOperatorSpec): void {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 10,
+      "name": "args",
+      "kind": "const",
+      "role": "definition",
+      "text": "const args = parseArgs(process.argv.slice(2));"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 11,
+      "name": "root",
+      "kind": "const",
+      "role": "definition",
+      "text": "const root = resolveRoot(args);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 12,
+      "name": "indexes",
+      "kind": "const",
+      "role": "definition",
+      "text": "const indexes = spec.indexIds.map((indexId) => loadIndex(root, indexId));"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 13,
+      "name": "limit",
+      "kind": "const",
+      "role": "definition",
+      "text": "const limit = toNumber(args.flags.limit, 20);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 15,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records = indexes.flatMap((entry) =>"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 24,
+      "name": "findings",
+      "kind": "const",
+      "role": "definition",
+      "text": "const findings = filterRecords(spec.operatorId, handle, query, secondaryQuery, records).slice(0, limit);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 25,
+      "name": "missingIndexes",
+      "kind": "const",
+      "role": "definition",
+      "text": "const missingIndexes = indexes.filter((entry) => entry.missing).map((entry) => entry.indexId);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 60,
+      "name": "parseOperatorQuery",
+      "kind": "function",
+      "role": "definition",
+      "text": "function parseOperatorQuery(operatorId: string, args: ParsedArgs): { handle: string; query: string; secondaryQuery?: string } {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 61,
+      "name": "positional",
+      "kind": "const",
+      "role": "definition",
+      "text": "const positional = [...args.positional];"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 62,
+      "name": "handle",
+      "kind": "let",
+      "role": "definition",
+      "text": "let handle = String(args.flags.handle || \"search\");"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 72,
+      "name": "query",
+      "kind": "const",
+      "role": "definition",
+      "text": "const query = String(args.flags.query || positional.shift() || \"\");"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 73,
+      "name": "secondaryQuery",
+      "kind": "const",
+      "role": "definition",
+      "text": "const secondaryQuery = positional.shift();"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 77,
+      "name": "filterRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "function filterRecords("
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 84,
+      "name": "q",
+      "kind": "const",
+      "role": "definition",
+      "text": "const q = query.toLowerCase();"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 85,
+      "name": "second",
+      "kind": "const",
+      "role": "definition",
+      "text": "const second = String(secondaryQuery || \"\").toLowerCase();"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 97,
+      "name": "haystack",
+      "kind": "const",
+      "role": "definition",
+      "text": "const haystack = recordText(record).toLowerCase();"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 141,
+      "name": "finding",
+      "kind": "const",
+      "role": "definition",
+      "text": "const finding = toFinding(entry);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 152,
+      "name": "toFinding",
+      "kind": "function",
+      "role": "definition",
+      "text": "function toFinding(entry: { indexId: string; record: Record<string, unknown>; generatedAt: string; sourceRevision: string | null }): Record<string, unknown> {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 153,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "const file = String(entry.record.file || entry.record.path || entry.record.importer || \"\");"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 164,
+      "name": "inferRisks",
+      "kind": "function",
+      "role": "definition",
+      "text": "function inferRisks(operatorId: string, handle: string, findings: Record<string, unknown>[], missingIndexes: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 165,
+      "name": "risks",
+      "kind": "const",
+      "role": "definition",
+      "text": "const risks: string[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 181,
+      "name": "suggestNextChecks",
+      "kind": "function",
+      "role": "definition",
+      "text": "function suggestNextChecks(operatorId: string, handle: string, findings: Record<string, unknown>[], missingIndexes: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 182,
+      "name": "suggestions",
+      "kind": "const",
+      "role": "definition",
+      "text": "const suggestions: string[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 183,
+      "name": "indexId",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const indexId of missingIndexes) {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 190,
+      "name": "is",
+      "kind": "type",
+      "role": "definition",
+      "text": "suggestions.push(\"Use safe-rename-workflow before editing because rename type is semantic.\");"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 201,
+      "name": "loadIndex",
+      "kind": "function",
+      "role": "definition",
+      "text": "function loadIndex(root: string, indexId: string): LoadedIndex {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 202,
+      "name": "artifactPath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const artifactPath = path.resolve(root, \"tool-maintained-files\", \"indexes\", `${indexId}.json`);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 203,
+      "name": "json",
+      "kind": "const",
+      "role": "definition",
+      "text": "const json = readJsonIfExists(artifactPath) as Partial<IndexArtifact> | null;"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 1,
+      "name": "existsSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 2,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 3,
+      "name": "emit",
+      "kind": "import",
+      "role": "import",
+      "module": "../cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 3,
+      "name": "parseArgs",
+      "kind": "import",
+      "role": "import",
+      "module": "../cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 3,
+      "name": "resolveRoot",
+      "kind": "import",
+      "role": "import",
+      "module": "../cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 3,
+      "name": "toNumber",
+      "kind": "import",
+      "role": "import",
+      "module": "../cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 4,
+      "name": "safeRead",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { safeRead } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 5,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { normalizePath } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 6,
+      "name": "ParsedArgs",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { ParsedArgs } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 8,
+      "name": "runRetrieveSliceOperator",
+      "kind": "function",
+      "role": "export",
+      "text": "export function runRetrieveSliceOperator(): void {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 8,
+      "name": "runRetrieveSliceOperator",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function runRetrieveSliceOperator(): void {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 9,
+      "name": "args",
+      "kind": "const",
+      "role": "definition",
+      "text": "const args = parseArgs(process.argv.slice(2));"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 10,
+      "name": "root",
+      "kind": "const",
+      "role": "definition",
+      "text": "const root = resolveRoot(args);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 14,
+      "name": "runRetrieveSlice",
+      "kind": "function",
+      "role": "definition",
+      "text": "function runRetrieveSlice(root: string, args: ParsedArgs): Record<string, unknown> {"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 15,
+      "name": "target",
+      "kind": "const",
+      "role": "definition",
+      "text": "const target = String(args.flags.file || args.positional[0] || \"\");"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 16,
+      "name": "start",
+      "kind": "const",
+      "role": "definition",
+      "text": "const start = Math.max(1, toNumber(args.flags.start, 1));"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 17,
+      "name": "requestedEnd",
+      "kind": "const",
+      "role": "definition",
+      "text": "const requestedEnd = toNumber(args.flags.end, start + toNumber(args.flags.limit, 80) - 1);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 18,
+      "name": "absolutePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const absolutePath = path.resolve(root, target);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 33,
+      "name": "lines",
+      "kind": "const",
+      "role": "definition",
+      "text": "const lines = safeRead(absolutePath).split(/\\r?\\n/);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 34,
+      "name": "end",
+      "kind": "const",
+      "role": "definition",
+      "text": "const end = Math.min(lines.length, requestedEnd);"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 35,
+      "name": "slice",
+      "kind": "const",
+      "role": "definition",
+      "text": "const slice = lines.slice(start - 1, end).map((text, index) => ({ line: start + index, text }));"
+    },
+    {
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 2,
+      "name": "containsRegex",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { containsRegex } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 3,
+      "name": "extractImports",
+      "kind": "import",
+      "role": "import",
+      "module": "../source-extractors.ts",
+      "text": "import { extractImports, inferReadWriteHint } from \"../source-extractors.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 3,
+      "name": "inferReadWriteHint",
+      "kind": "import",
+      "role": "import",
+      "module": "../source-extractors.ts",
+      "text": "import { extractImports, inferReadWriteHint } from \"../source-extractors.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 4,
+      "name": "buildSymbolRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "./source-symbols.ts",
+      "text": "import { buildSymbolRecords } from \"./source-symbols.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 6,
+      "name": "buildAccessorRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildAccessorRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 6,
+      "name": "buildAccessorRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildAccessorRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 10,
+      "name": "symbols",
+      "kind": "const",
+      "role": "definition",
+      "text": "const symbols = buildSymbolRecords([file]);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 2,
+      "name": "directEditPolicy",
+      "kind": "import",
+      "role": "import",
+      "module": "../artifacts.ts",
+      "text": "import { directEditPolicy, hasGeneratedHint, inferArtifactKind, inferAudience, inferAuthorityRole, possibleProducer } from \"../artifacts.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 2,
+      "name": "hasGeneratedHint",
+      "kind": "import",
+      "role": "import",
+      "module": "../artifacts.ts",
+      "text": "import { directEditPolicy, hasGeneratedHint, inferArtifactKind, inferAudience, inferAuthorityRole, possibleProducer } from \"../artifacts.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 2,
+      "name": "inferArtifactKind",
+      "kind": "import",
+      "role": "import",
+      "module": "../artifacts.ts",
+      "text": "import { directEditPolicy, hasGeneratedHint, inferArtifactKind, inferAudience, inferAuthorityRole, possibleProducer } from \"../artifacts.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 2,
+      "name": "inferAudience",
+      "kind": "import",
+      "role": "import",
+      "module": "../artifacts.ts",
+      "text": "import { directEditPolicy, hasGeneratedHint, inferArtifactKind, inferAudience, inferAuthorityRole, possibleProducer } from \"../artifacts.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 2,
+      "name": "inferAuthorityRole",
+      "kind": "import",
+      "role": "import",
+      "module": "../artifacts.ts",
+      "text": "import { directEditPolicy, hasGeneratedHint, inferArtifactKind, inferAudience, inferAuthorityRole, possibleProducer } from \"../artifacts.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 2,
+      "name": "possibleProducer",
+      "kind": "import",
+      "role": "import",
+      "module": "../artifacts.ts",
+      "text": "import { directEditPolicy, hasGeneratedHint, inferArtifactKind, inferAudience, inferAuthorityRole, possibleProducer } from \"../artifacts.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 4,
+      "name": "buildArtifactMetadataRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildArtifactMetadataRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 4,
+      "name": "buildArtifactMetadataRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildArtifactMetadataRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 1,
+      "name": "existsSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 2,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 3,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 4,
+      "name": "inferArtifactKind",
+      "kind": "import",
+      "role": "import",
+      "module": "../artifacts.ts",
+      "text": "import { inferArtifactKind } from \"../artifacts.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 5,
+      "name": "gitLines",
+      "kind": "import",
+      "role": "import",
+      "module": "../git.ts",
+      "text": "import { gitLines } from \"../git.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 6,
+      "name": "areaOf",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { areaOf, normalizePath } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 6,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { areaOf, normalizePath } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 8,
+      "name": "buildChangeRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildChangeRecords(root: string, files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 8,
+      "name": "buildChangeRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildChangeRecords(root: string, files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 9,
+      "name": "statusLines",
+      "kind": "const",
+      "role": "definition",
+      "text": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 10,
+      "name": "changedFiles",
+      "kind": "const",
+      "role": "definition",
+      "text": "const changedFiles = new Set<string>();"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 11,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records: Record<string, unknown>[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 13,
+      "name": "line",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const line of statusLines) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 14,
+      "name": "status",
+      "kind": "const",
+      "role": "definition",
+      "text": "const status = line.slice(0, 2).trim() || \"modified\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 15,
+      "name": "filePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 23,
+      "name": "filePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 24,
+      "name": "normalized",
+      "kind": "const",
+      "role": "definition",
+      "text": "const normalized = normalizeGitPath(root, filePath);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 30,
+      "name": "filePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const filePath of changedFiles) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 36,
+      "name": "knownFiles",
+      "kind": "const",
+      "role": "definition",
+      "text": "const knownFiles = new Set(files.map((file) => file.path));"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 40,
+      "name": "normalizeGitPath",
+      "kind": "function",
+      "role": "definition",
+      "text": "function normalizeGitPath(root: string, value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 41,
+      "name": "normalized",
+      "kind": "const",
+      "role": "definition",
+      "text": "const normalized = normalizePath(value);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 42,
+      "name": "rootName",
+      "kind": "const",
+      "role": "definition",
+      "text": "const rootName = path.basename(root);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 43,
+      "name": "prefixed",
+      "kind": "const",
+      "role": "definition",
+      "text": "const prefixed = `${rootName}/`;"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 50,
+      "name": "inWorkingTree",
+      "kind": "function",
+      "role": "definition",
+      "text": "function inWorkingTree(root: string, relativePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 2,
+      "name": "containsWord",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { containsWord, isStoryFile, isTestFile } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 2,
+      "name": "isStoryFile",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { containsWord, isStoryFile, isTestFile } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 2,
+      "name": "isTestFile",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { containsWord, isStoryFile, isTestFile } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 3,
+      "name": "buildSymbolRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "./source-symbols.ts",
+      "text": "import { buildSymbolRecords } from \"./source-symbols.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 5,
+      "name": "buildComponentRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildComponentRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 5,
+      "name": "buildComponentRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildComponentRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 6,
+      "name": "symbols",
+      "kind": "const",
+      "role": "definition",
+      "text": "const symbols = buildSymbolRecords(files);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 7,
+      "name": "definitions",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definitions = symbols.filter((record) => {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 8,
+      "name": "name",
+      "kind": "const",
+      "role": "definition",
+      "text": "const name = String(record.name || \"\");"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 11,
+      "name": "imports",
+      "kind": "const",
+      "role": "definition",
+      "text": "const imports = symbols.filter((record) => record.role === \"import\");"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 14,
+      "name": "name",
+      "kind": "const",
+      "role": "definition",
+      "text": "const name = String(record.name);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 15,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "const file = String(record.file);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 16,
+      "name": "consumers",
+      "kind": "const",
+      "role": "definition",
+      "text": "const consumers = imports.filter((item) => item.name === name && item.file !== file).map((item) => item.file);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 30,
+      "name": "findPropsHints",
+      "kind": "function",
+      "role": "definition",
+      "text": "function findPropsHints(files: FileRecord[], componentName: string): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 31,
+      "name": "pattern",
+      "kind": "const",
+      "role": "definition",
+      "text": "const pattern = new RegExp(`\\\\b(?:interface|type)\\\\s+${escapeRegexLocal(componentName)}Props\\\\b`);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/component-records.ts",
+      "line": 35,
+      "name": "escapeRegexLocal",
+      "kind": "function",
+      "role": "definition",
+      "text": "function escapeRegexLocal(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 1,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 2,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 3,
+      "name": "isCodeLike",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { isCodeLike } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 4,
+      "name": "areaOf",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { areaOf, matchAll, normalizePath, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 4,
+      "name": "matchAll",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { areaOf, matchAll, normalizePath, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 4,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { areaOf, matchAll, normalizePath, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 4,
+      "name": "trimLine",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { areaOf, matchAll, normalizePath, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 6,
+      "name": "buildDependencyRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildDependencyRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 6,
+      "name": "buildDependencyRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildDependencyRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 7,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records: Record<string, unknown>[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 8,
+      "name": "patterns",
+      "kind": "const",
+      "role": "definition",
+      "text": "const patterns = ["
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 15,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const file of files) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 20,
+      "name": "pattern",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const pattern of patterns) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 21,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, pattern)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 39,
+      "name": "resolveImport",
+      "kind": "function",
+      "role": "definition",
+      "text": "function resolveImport(importer: string, specifier: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 1,
+      "name": "existsSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 2,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 3,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 4,
+      "name": "matchAll",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll, slug, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 4,
+      "name": "slug",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll, slug, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 4,
+      "name": "trimLine",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll, slug, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 6,
+      "name": "buildDocReferenceRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildDocReferenceRecords(root: string, files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 6,
+      "name": "buildDocReferenceRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildDocReferenceRecords(root: string, files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 7,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records: Record<string, unknown>[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 9,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const file of files.filter((candidate) => candidate.ext === \".md\" || candidate.ext === \".mdx\")) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 11,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\[([^\\]]+)\\]\\(([^)]+)\\)/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 14,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /`([^`]+\\.(?:md|json|ts|tsx|js|jsx|instructions\\.md))`/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 17,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /^#{1,6}\\s+(.+)$/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 20,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /`([a-z][a-z0-9-]*(?:-[a-z0-9]+)+)`/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 29,
+      "name": "docReferenceRecord",
+      "kind": "function",
+      "role": "definition",
+      "text": "function docReferenceRecord(root: string, file: string, line: number, kind: string, text: string, target: string, sourceLine: string): Record<string, unknown> {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 30,
+      "name": "cleanTarget",
+      "kind": "const",
+      "role": "definition",
+      "text": "const cleanTarget = target.split(\"#\")[0];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 31,
+      "name": "isExternal",
+      "kind": "const",
+      "role": "definition",
+      "text": "const isExternal = /^[a-z]+:\\/\\//i.test(cleanTarget) || cleanTarget.startsWith(\"mailto:\");"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 32,
+      "name": "local",
+      "kind": "const",
+      "role": "definition",
+      "text": "const local = Boolean(cleanTarget) && !isExternal;"
+    },
+    {
+      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 33,
+      "name": "resolvedPath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const resolvedPath = local ? (cleanTarget.startsWith(\"/\") ? path.resolve(root, cleanTarget.slice(1)) : path.resolve(root, path.dirname(file), cleanTarget)) : \"\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/fixture-records.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/fixture-records.ts",
+      "line": 2,
+      "name": "containsRegex",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { containsRegex } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/fixture-records.ts",
+      "line": 3,
+      "name": "extractTerms",
+      "kind": "import",
+      "role": "import",
+      "module": "../source-extractors.ts",
+      "text": "import { extractTerms } from \"../source-extractors.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/fixture-records.ts",
+      "line": 4,
+      "name": "buildSymbolRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "./source-symbols.ts",
+      "text": "import { buildSymbolRecords } from \"./source-symbols.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/fixture-records.ts",
+      "line": 6,
+      "name": "buildFixtureRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildFixtureRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/fixture-records.ts",
+      "line": 6,
+      "name": "buildFixtureRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildFixtureRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 2,
+      "name": "isTextFile",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { isTextFile } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 3,
+      "name": "matchAll",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 3,
+      "name": "trimLine",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 5,
+      "name": "buildLiteralRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildLiteralRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 5,
+      "name": "buildLiteralRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildLiteralRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 6,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records: Record<string, unknown>[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 8,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const file of files) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 13,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /[\"'`]([^\"'`]{2,120})[\"'`]/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 14,
+      "name": "value",
+      "kind": "const",
+      "role": "definition",
+      "text": "const value = match[1];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 23,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\b([A-Z][A-Z0-9_]{2,})\\b/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 38,
+      "name": "classifyLiteral",
+      "kind": "function",
+      "role": "definition",
+      "text": "function classifyLiteral(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 1,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 2,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 3,
+      "name": "hasGeneratedHint",
+      "kind": "import",
+      "role": "import",
+      "module": "../artifacts.ts",
+      "text": "import { hasGeneratedHint, inferArtifactKind } from \"../artifacts.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 3,
+      "name": "inferArtifactKind",
+      "kind": "import",
+      "role": "import",
+      "module": "../artifacts.ts",
+      "text": "import { hasGeneratedHint, inferArtifactKind } from \"../artifacts.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 4,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { normalizePath } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 6,
+      "name": "buildPathRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildPathRecords(root: string, files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 6,
+      "name": "buildPathRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildPathRecords(root: string, files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 7,
+      "name": "dirs",
+      "kind": "const",
+      "role": "definition",
+      "text": "const dirs = new Map<string, { path: string; kind: string; fileCount: number; childDirs: Set<string> }>();"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 9,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const file of files) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 10,
+      "name": "current",
+      "kind": "let",
+      "role": "definition",
+      "text": "let current = path.posix.dirname(file.path);"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 15,
+      "name": "parts",
+      "kind": "const",
+      "role": "definition",
+      "text": "const parts = current ? current.split(\"/\") : [];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 16,
+      "name": "index",
+      "kind": "let",
+      "role": "definition",
+      "text": "for (let index = 0; index <= parts.length; index += 1) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 17,
+      "name": "dirPath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const dirPath = parts.slice(0, index).join(\"/\");"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 18,
+      "name": "existing",
+      "kind": "const",
+      "role": "definition",
+      "text": "const existing = dirs.get(dirPath) || { path: dirPath || \".\", kind: \"directory\", fileCount: 0, childDirs: new Set<string>() };"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 29,
+      "name": "dirRecords",
+      "kind": "const",
+      "role": "definition",
+      "text": "const dirRecords = Array.from(dirs.values()).map((dir) => ({"
+    },
+    {
+      "file": "tool-implementations/_lib/records/path-records.ts",
+      "line": 37,
+      "name": "fileRecords",
+      "kind": "const",
+      "role": "definition",
+      "text": "const fileRecords = files.map((file) => ({"
+    },
+    {
+      "file": "tool-implementations/_lib/records/route-records.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/route-records.ts",
+      "line": 3,
+      "name": "buildRouteRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildRouteRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/route-records.ts",
+      "line": 3,
+      "name": "buildRouteRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildRouteRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/route-records.ts",
+      "line": 7,
+      "name": "segments",
+      "kind": "const",
+      "role": "definition",
+      "text": "const segments = file.path.split(\"/\");"
+    },
+    {
+      "file": "tool-implementations/_lib/records/route-records.ts",
+      "line": 8,
+      "name": "fileName",
+      "kind": "const",
+      "role": "definition",
+      "text": "const fileName = segments.pop() || \"\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/route-records.ts",
+      "line": 9,
+      "name": "routeSegments",
+      "kind": "const",
+      "role": "definition",
+      "text": "const routeSegments = segments"
+    },
+    {
+      "file": "tool-implementations/_lib/records/route-records.ts",
+      "line": 18,
+      "name": "routePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const routePath = `/${routeSegments.join(\"/\")}`.replace(/\\/+/g, \"/\");"
+    },
+    {
+      "file": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 2,
+      "name": "containsRegex",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { containsRegex } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 3,
+      "name": "matchAll",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 4,
+      "name": "nearbyFieldHints",
+      "kind": "import",
+      "role": "import",
+      "module": "../source-extractors.ts",
+      "text": "import { nearbyFieldHints } from \"../source-extractors.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 6,
+      "name": "buildSchemaRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildSchemaRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 6,
+      "name": "buildSchemaRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildSchemaRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 10,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records: Record<string, unknown>[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 12,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\b(interface|type|model|enum|class)\\s+([A-Za-z_$][\\w$]*)/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 15,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\b([A-Za-z_$][\\w$]*)\\s*:\\s*z\\./g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 2,
+      "name": "isCodeLike",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { isCodeLike } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 3,
+      "name": "matchAll",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll, trimLine, uniqueRecords } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 3,
+      "name": "trimLine",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll, trimLine, uniqueRecords } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 3,
+      "name": "uniqueRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll, trimLine, uniqueRecords } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 5,
+      "name": "buildSymbolRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildSymbolRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 5,
+      "name": "buildSymbolRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildSymbolRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 6,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records: Record<string, unknown>[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 8,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const file of files) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 14,
+      "name": "lineNumber",
+      "kind": "const",
+      "role": "definition",
+      "text": "const lineNumber = lineIndex + 1;"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 15,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\bexport\\s+(?:default\\s+)?(?:async\\s+)?(function|class|interface|type|const|let|var|enum)\\s+([A-Za-z_$][\\w$]*)/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 18,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\b(function|class|interface|type|const|let|var|enum)\\s+([A-Za-z_$][\\w$]*)/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 21,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\bimport\\s+(?:type\\s+)?(?:\\{([^}]+)\\}|([A-Za-z_$][\\w$]*))\\s+from\\s+[\"']([^\"']+)[\"']/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 22,
+      "name": "imported",
+      "kind": "const",
+      "role": "definition",
+      "text": "const imported = (match[1] || match[2] || \"\")"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 26,
+      "name": "name",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const name of imported) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 30,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\bexport\\s+\\{([^}]+)\\}\\s+from\\s+[\"']([^\"']+)[\"']/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 31,
+      "name": "exported",
+      "kind": "const",
+      "role": "definition",
+      "text": "const exported = match[1]"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 35,
+      "name": "name",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const name of exported) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 45,
+      "name": "symbolRecord",
+      "kind": "function",
+      "role": "definition",
+      "text": "function symbolRecord(file: string, line: number, name: string, kind: string, role: string, text: string, module?: string): Record<string, unknown> {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 2,
+      "name": "isTextFile",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { isTextFile } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 3,
+      "name": "matchAll",
+      "kind": "import",
+      "role": "import",
+      "module": "../text-utils.ts",
+      "text": "import { matchAll } from \"../text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 4,
+      "name": "COMMON_WORDS",
+      "kind": "import",
+      "role": "import",
+      "module": "../source-extractors.ts",
+      "text": "import { COMMON_WORDS } from \"../source-extractors.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 6,
+      "name": "buildTermRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildTermRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 6,
+      "name": "buildTermRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildTermRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 7,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records: Record<string, unknown>[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 9,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const file of files) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 14,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /[A-Za-z][A-Za-z0-9_-]{2,}/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 15,
+      "name": "raw",
+      "kind": "const",
+      "role": "definition",
+      "text": "const raw = match[0];"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 16,
+      "name": "normalized",
+      "kind": "const",
+      "role": "definition",
+      "text": "const normalized = raw.toLowerCase();"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 35,
+      "name": "classifyTermSurface",
+      "kind": "function",
+      "role": "definition",
+      "text": "function classifyTermSurface(line: string, raw: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/term-records.ts",
+      "line": 48,
+      "name": "escapeRegexLocal",
+      "kind": "function",
+      "role": "definition",
+      "text": "function escapeRegexLocal(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/test-records.ts",
+      "line": 1,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/test-records.ts",
+      "line": 2,
+      "name": "isStoryFile",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { isStoryFile, isTestFile } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/test-records.ts",
+      "line": 2,
+      "name": "isTestFile",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { isStoryFile, isTestFile } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/test-records.ts",
+      "line": 3,
+      "name": "extractImports",
+      "kind": "import",
+      "role": "import",
+      "module": "../source-extractors.ts",
+      "text": "import { extractImports, extractLikelySubjects, extractTerms } from \"../source-extractors.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/test-records.ts",
+      "line": 3,
+      "name": "extractLikelySubjects",
+      "kind": "import",
+      "role": "import",
+      "module": "../source-extractors.ts",
+      "text": "import { extractImports, extractLikelySubjects, extractTerms } from \"../source-extractors.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/test-records.ts",
+      "line": 3,
+      "name": "extractTerms",
+      "kind": "import",
+      "role": "import",
+      "module": "../source-extractors.ts",
+      "text": "import { extractImports, extractLikelySubjects, extractTerms } from \"../source-extractors.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/test-records.ts",
+      "line": 5,
+      "name": "buildTestRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildTestRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/records/test-records.ts",
+      "line": 5,
+      "name": "buildTestRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildTestRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 1,
+      "name": "readFileSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { readFileSync, readdirSync, statSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 1,
+      "name": "readdirSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { readFileSync, readdirSync, statSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 1,
+      "name": "statSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { readFileSync, readdirSync, statSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 3,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "./types.ts",
+      "text": "import type { FileRecord } from \"./types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 4,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "./text-utils.ts",
+      "text": "import { normalizePath } from \"./text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 6,
+      "name": "TEXT_EXTENSIONS",
+      "kind": "const",
+      "role": "definition",
+      "text": "const TEXT_EXTENSIONS = new Set(["
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 10,
+      "name": "SKIP_DIRS",
+      "kind": "const",
+      "role": "definition",
+      "text": "const SKIP_DIRS = new Set([\".git\", \".next\", \".turbo\", \"build\", \"coverage\", \"dist\", \"node_modules\", \"out\"]);"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 12,
+      "name": "collectFiles",
+      "kind": "function",
+      "role": "export",
+      "text": "export function collectFiles(root: string): FileRecord[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 12,
+      "name": "collectFiles",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function collectFiles(root: string): FileRecord[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 13,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records: FileRecord[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 15,
+      "name": "walk",
+      "kind": "function",
+      "role": "definition",
+      "text": "function walk(current: string): void {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 16,
+      "name": "entries",
+      "kind": "const",
+      "role": "definition",
+      "text": "const entries = readdirSync(current, { withFileTypes: true });"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 17,
+      "name": "entry",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const entry of entries) {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 22,
+      "name": "absolutePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const absolutePath = path.join(current, entry.name);"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 23,
+      "name": "relativePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const relativePath = normalizePath(path.relative(root, absolutePath));"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 34,
+      "name": "stats",
+      "kind": "const",
+      "role": "definition",
+      "text": "const stats = statSync(absolutePath);"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 35,
+      "name": "ext",
+      "kind": "const",
+      "role": "definition",
+      "text": "const ext = path.extname(entry.name).toLowerCase();"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 36,
+      "name": "content",
+      "kind": "const",
+      "role": "definition",
+      "text": "const content = isTextFile(relativePath) ? safeRead(absolutePath) : \"\";"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 52,
+      "name": "isTextFile",
+      "kind": "function",
+      "role": "export",
+      "text": "export function isTextFile(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 52,
+      "name": "isTextFile",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function isTextFile(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 56,
+      "name": "isCodeLike",
+      "kind": "function",
+      "role": "export",
+      "text": "export function isCodeLike(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 56,
+      "name": "isCodeLike",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function isCodeLike(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 60,
+      "name": "isGeneratedIndexPath",
+      "kind": "function",
+      "role": "export",
+      "text": "export function isGeneratedIndexPath(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 60,
+      "name": "isGeneratedIndexPath",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function isGeneratedIndexPath(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 64,
+      "name": "isTestFile",
+      "kind": "function",
+      "role": "export",
+      "text": "export function isTestFile(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 64,
+      "name": "isTestFile",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function isTestFile(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 68,
+      "name": "isStoryFile",
+      "kind": "function",
+      "role": "export",
+      "text": "export function isStoryFile(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 68,
+      "name": "isStoryFile",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function isStoryFile(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 72,
+      "name": "containsWord",
+      "kind": "function",
+      "role": "export",
+      "text": "export function containsWord(lines: string[], word: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 72,
+      "name": "containsWord",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function containsWord(lines: string[], word: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 73,
+      "name": "pattern",
+      "kind": "const",
+      "role": "definition",
+      "text": "const pattern = new RegExp(`\\\\b${escapeRegexLocal(word)}\\\\b`);"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 77,
+      "name": "containsRegex",
+      "kind": "function",
+      "role": "export",
+      "text": "export function containsRegex(lines: string[], pattern: RegExp): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 77,
+      "name": "containsRegex",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function containsRegex(lines: string[], pattern: RegExp): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 81,
+      "name": "safeRead",
+      "kind": "function",
+      "role": "export",
+      "text": "export function safeRead(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 81,
+      "name": "safeRead",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function safeRead(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 89,
+      "name": "escapeRegexLocal",
+      "kind": "function",
+      "role": "definition",
+      "text": "function escapeRegexLocal(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 1,
+      "name": "matchAll",
+      "kind": "import",
+      "role": "import",
+      "module": "./text-utils.ts",
+      "text": "import { matchAll } from \"./text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 2,
+      "name": "containsRegex",
+      "kind": "import",
+      "role": "import",
+      "module": "./repo-files.ts",
+      "text": "import { containsRegex } from \"./repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 4,
+      "name": "COMMON_WORDS",
+      "kind": "const",
+      "role": "export",
+      "text": "export const COMMON_WORDS = new Set(["
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 4,
+      "name": "COMMON_WORDS",
+      "kind": "const",
+      "role": "definition",
+      "text": "export const COMMON_WORDS = new Set(["
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 8,
+      "name": "extractImports",
+      "kind": "function",
+      "role": "export",
+      "text": "export function extractImports(lines: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 8,
+      "name": "extractImports",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function extractImports(lines: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 9,
+      "name": "imports",
+      "kind": "const",
+      "role": "definition",
+      "text": "const imports: string[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 10,
+      "name": "line",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const line of lines) {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 11,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\b(?:import|require)\\b[^\"']*[\"']([^\"']+)[\"']/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 18,
+      "name": "extractLikelySubjects",
+      "kind": "function",
+      "role": "export",
+      "text": "export function extractLikelySubjects(lines: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 18,
+      "name": "extractLikelySubjects",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function extractLikelySubjects(lines: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 19,
+      "name": "subjects",
+      "kind": "const",
+      "role": "definition",
+      "text": "const subjects: string[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 20,
+      "name": "line",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const line of lines) {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 21,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /\\b(describe|it|test)\\s*\\(\\s*[\"'`]([^\"'`]+)[\"'`]/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 28,
+      "name": "extractTerms",
+      "kind": "function",
+      "role": "export",
+      "text": "export function extractTerms(lines: string[]): { raw: string; normalized: string }[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 28,
+      "name": "extractTerms",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function extractTerms(lines: string[]): { raw: string; normalized: string }[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 29,
+      "name": "terms",
+      "kind": "const",
+      "role": "definition",
+      "text": "const terms: { raw: string; normalized: string }[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 30,
+      "name": "line",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const line of lines) {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 31,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of matchAll(line, /[A-Za-z][A-Za-z0-9_-]{2,}/g)) {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 32,
+      "name": "normalized",
+      "kind": "const",
+      "role": "definition",
+      "text": "const normalized = match[0].toLowerCase();"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 41,
+      "name": "nearbyFieldHints",
+      "kind": "function",
+      "role": "export",
+      "text": "export function nearbyFieldHints(lines: string[], lineIndex: number): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 41,
+      "name": "nearbyFieldHints",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function nearbyFieldHints(lines: string[], lineIndex: number): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 48,
+      "name": "inferReadWriteHint",
+      "kind": "function",
+      "role": "export",
+      "text": "export function inferReadWriteHint(name: string, lines: string[]): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 48,
+      "name": "inferReadWriteHint",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function inferReadWriteHint(name: string, lines: string[]): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 1,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "name": "matchAll",
+      "kind": "function",
+      "role": "export",
+      "text": "export function matchAll(value: string, pattern: RegExp): RegExpMatchArray[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "name": "matchAll",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function matchAll(value: string, pattern: RegExp): RegExpMatchArray[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 7,
+      "name": "uniqueRecords",
+      "kind": "function",
+      "role": "export",
+      "text": "export function uniqueRecords(records: Record<string, unknown>[], keys: string[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 7,
+      "name": "uniqueRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function uniqueRecords(records: Record<string, unknown>[], keys: string[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 8,
+      "name": "seen",
+      "kind": "const",
+      "role": "definition",
+      "text": "const seen = new Set<string>();"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 9,
+      "name": "result",
+      "kind": "const",
+      "role": "definition",
+      "text": "const result: Record<string, unknown>[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 10,
+      "name": "record",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const record of records) {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 11,
+      "name": "identity",
+      "kind": "const",
+      "role": "definition",
+      "text": "const identity = keys.map((key) => String(record[key] || \"\")).join(\"\\u0000\");"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 20,
+      "name": "areaOf",
+      "kind": "function",
+      "role": "export",
+      "text": "export function areaOf(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 20,
+      "name": "areaOf",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function areaOf(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 24,
+      "name": "recordText",
+      "kind": "function",
+      "role": "export",
+      "text": "export function recordText(record: Record<string, unknown>): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 24,
+      "name": "recordText",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function recordText(record: Record<string, unknown>): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 31,
+      "name": "trimLine",
+      "kind": "function",
+      "role": "export",
+      "text": "export function trimLine(line: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 31,
+      "name": "trimLine",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function trimLine(line: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 35,
+      "name": "normalizePath",
+      "kind": "function",
+      "role": "export",
+      "text": "export function normalizePath(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 35,
+      "name": "normalizePath",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function normalizePath(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 39,
+      "name": "slug",
+      "kind": "function",
+      "role": "export",
+      "text": "export function slug(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 39,
+      "name": "slug",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function slug(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 47,
+      "name": "escapeRegex",
+      "kind": "function",
+      "role": "export",
+      "text": "export function escapeRegex(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/text-utils.ts",
+      "line": 47,
+      "name": "escapeRegex",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function escapeRegex(value: string): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "name": "JsonValue",
+      "kind": "type",
+      "role": "export",
+      "text": "export type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "name": "JsonValue",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue };"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "name": "ParsedArgs",
+      "kind": "type",
+      "role": "export",
+      "text": "export type ParsedArgs = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "name": "ParsedArgs",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type ParsedArgs = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 8,
+      "name": "FileRecord",
+      "kind": "type",
+      "role": "export",
+      "text": "export type FileRecord = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 8,
+      "name": "FileRecord",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type FileRecord = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 17,
+      "name": "IndexDefinition",
+      "kind": "type",
+      "role": "export",
+      "text": "export type IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 17,
+      "name": "IndexDefinition",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 26,
+      "name": "IndexBuildContext",
+      "kind": "type",
+      "role": "export",
+      "text": "export type IndexBuildContext = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 26,
+      "name": "IndexBuildContext",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type IndexBuildContext = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 32,
+      "name": "IndexBuilderSpec",
+      "kind": "type",
+      "role": "export",
+      "text": "export type IndexBuilderSpec = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 32,
+      "name": "IndexBuilderSpec",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type IndexBuilderSpec = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 37,
+      "name": "IndexArtifact",
+      "kind": "type",
+      "role": "export",
+      "text": "export type IndexArtifact = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 37,
+      "name": "IndexArtifact",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type IndexArtifact = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 56,
+      "name": "QueryOperatorSpec",
+      "kind": "type",
+      "role": "export",
+      "text": "export type QueryOperatorSpec = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 56,
+      "name": "QueryOperatorSpec",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type QueryOperatorSpec = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 61,
+      "name": "LoadedIndex",
+      "kind": "type",
+      "role": "export",
+      "text": "export type LoadedIndex = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 61,
+      "name": "LoadedIndex",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type LoadedIndex = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-accessor-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-accessor-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-accessor-index.ts",
+      "line": 3,
+      "name": "buildAccessorRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/accessor-records.ts",
+      "text": "import { buildAccessorRecords } from \"../_lib/records/accessor-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-accessor-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "line": 3,
+      "name": "buildArtifactMetadataRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/artifact-metadata-records.ts",
+      "text": "import { buildArtifactMetadataRecords } from \"../_lib/records/artifact-metadata-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 3,
+      "name": "buildChangeRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/change-records.ts",
+      "text": "import { buildChangeRecords } from \"../_lib/records/change-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-component-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-component-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-component-index.ts",
+      "line": 3,
+      "name": "buildComponentRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/component-records.ts",
+      "text": "import { buildComponentRecords } from \"../_lib/records/component-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-component-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-dependency-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-dependency-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-dependency-index.ts",
+      "line": 3,
+      "name": "buildDependencyRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/dependency-records.ts",
+      "text": "import { buildDependencyRecords } from \"../_lib/records/dependency-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-dependency-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-doc-reference-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-doc-reference-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-doc-reference-index.ts",
+      "line": 3,
+      "name": "buildDocReferenceRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/doc-reference-records.ts",
+      "text": "import { buildDocReferenceRecords } from \"../_lib/records/doc-reference-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-doc-reference-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "line": 3,
+      "name": "buildFixtureRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/fixture-records.ts",
+      "text": "import { buildFixtureRecords } from \"../_lib/records/fixture-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-literal-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-literal-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-literal-index.ts",
+      "line": 3,
+      "name": "buildLiteralRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/literal-records.ts",
+      "text": "import { buildLiteralRecords } from \"../_lib/records/literal-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-literal-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-path-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-path-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-path-index.ts",
+      "line": 3,
+      "name": "buildPathRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/path-records.ts",
+      "text": "import { buildPathRecords } from \"../_lib/records/path-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-path-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-route-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-route-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-route-index.ts",
+      "line": 3,
+      "name": "buildRouteRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/route-records.ts",
+      "text": "import { buildRouteRecords } from \"../_lib/records/route-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-route-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-schema-shape-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-schema-shape-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-schema-shape-index.ts",
+      "line": 3,
+      "name": "buildSchemaRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/schema-records.ts",
+      "text": "import { buildSchemaRecords } from \"../_lib/records/schema-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-schema-shape-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-schema-shape-index.ts",
+      "line": 10,
+      "name": "references",
+      "kind": "type",
+      "role": "definition",
+      "text": "coverage: \"Schema-like declarations, validators, fields, relation hints, and generated type references.\","
+    },
+    {
+      "file": "tool-implementations/indexes/build-symbol-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-symbol-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-symbol-index.ts",
+      "line": 3,
+      "name": "buildSymbolRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/source-symbols.ts",
+      "text": "import { buildSymbolRecords } from \"../_lib/records/source-symbols.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-symbol-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-term-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-term-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-term-index.ts",
+      "line": 3,
+      "name": "buildTermRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/term-records.ts",
+      "text": "import { buildTermRecords } from \"../_lib/records/term-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-term-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-test-index.ts",
+      "line": 1,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-test-index.ts",
+      "line": 2,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-test-index.ts",
+      "line": 3,
+      "name": "buildTestRecords",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/records/test-records.ts",
+      "text": "import { buildTestRecords } from \"../_lib/records/test-records.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-test-index.ts",
+      "line": 5,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/operators/accessor-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/artifact-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/component-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/dependency-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/diff-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/doc-ref-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/fixture-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/literal-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/path-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/pattern-candidate-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/retrieve-slice.ts",
+      "line": 1,
+      "name": "runRetrieveSliceOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/retrieve-slice-runner.ts",
+      "text": "import { runRetrieveSliceOperator } from \"../_lib/operators/retrieve-slice-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/route-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/schema-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/symbol-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/term-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/test-query.ts",
+      "line": 1,
+      "name": "runQueryOperator",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/operators/query-runner.ts",
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    }
+  ]
+}

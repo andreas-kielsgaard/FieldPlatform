@@ -20,7 +20,7 @@ The task-mode README content was moved into migration documentation as human-fac
 
 The migrated instruction draft should stay small and route agents into task-mode usage rather than carrying every task-mode procedure inline. The task-mode layer now has a dedicated `task-mode-usage.instructions.md` file for agent-facing mode entry, context-loading, mode declaration, and completion behavior.
 
-During migration, the proposed future `AGENTS.md` content is stored as `Agent operating system migration/migration_agents.md` so it is not automatically ingested as active instructions.
+During migration, the proposed future `AGENTS.md` content is stored as `Agent operating system migration/Agent OS/migration_agents.md` so it is not automatically ingested as active instructions.
 
 ### Task-Mode Selection Layering
 
@@ -28,41 +28,77 @@ The intended chain is `AGENTS.md` for global context, `task-mode-usage.instructi
 
 ### Tool Placeholder Documentation
 
-Tool instruction docs refer directly to grouped `tools/agent/<group>/*.ts` placeholders when a check or lookup is script-backed. Human-facing documentation should clarify that tool files may exist before implementation, that `docs/agent/tools/tooling-map.md` is the logical tool registry, and that grouped tool instruction files define the expected capability contract.
+Tool semantic docs now refer to Stratum 1 builder scripts and Stratum 2 operator scripts when a check or lookup is script-backed. Human-facing documentation should clarify that active Stratum 1 and 2 entries need a map row, semantic file, and executable script, while proposed future tools should remain proposal notes until implemented.
 
 ### Tooling Map And Tool Instructions
 
-The agent OS now separates tool discovery from tool execution. Mode files and structural-maintenance behaviors refer to logical tool IDs. Logical tool IDs resolve through `docs/agent/tools/tooling-map.md`, which maps each tool to a grouped tool instruction file. Tool instruction files own the 1:1 relation to grouped script files, expected invocation, parameters, outputs, and limitations.
+The agent OS now separates index discovery, deterministic tool discovery, and tool execution. Mode files, structural-maintenance behaviors, and skills refer to logical tool IDs. Logical tool IDs resolve through `Agent OS/prompt-files/tools/tool-map.md`; Stratum 1 substrates resolve through `Agent OS/prompt-files/tools/index-map.md`.
 
-This makes tool support a maintained OS surface: adding a new mode or behavior tool requirement should be treated as a human-owned maintenance action that verifies the tooling-map row, tool group placement, instruction file, script placeholder, and expected capability.
+This makes tool support a maintained OS surface: adding a new mode, behavior, or skill tool requirement should be treated as a human-owned maintenance action that verifies the relevant map row, semantic file, script, expected capability, and output boundary.
 
-Human documentation should explain the grouped tool structure: `docs/agent/tools/tooling-map.md` owns logical discovery, grouped `docs/agent/tools/<group>/*.instructions.md` files own agent-facing execution contracts, and grouped `tools/agent/<group>/*.ts` files are implementation placeholders or scripts.
+Human documentation should explain the grouped tool structure: `Agent OS/prompt-files/tools/index-map.md` owns Stratum 1 index discovery, `Agent OS/prompt-files/tools/tool-map.md` owns Stratum 2 operator discovery, `Agent OS/prompt-files/tools/indexes/*.md` and `Agent OS/prompt-files/tools/operators/*.md` own semantic contracts, and `Agent OS/tool-implementations/indexes/*.ts` plus `Agent OS/tool-implementations/operators/*.ts` own execution.
 
-Human documentation should explain that active tool contract changes are not autonomously maintained by agents. Agents may identify tool gaps or improvement proposals during reflective work, but active changes to tooling-map rows, tool instruction contracts, or tool maintenance rules require a human-initiated Agent OS maintenance task.
+Human documentation should explain that active tool contract changes are not autonomously maintained by agents. Agents may identify tool gaps or improvement proposals during reflective work, but active changes to index rows, tool rows, semantic files, scripts, or tool maintenance rules require a human-initiated Agent OS maintenance task.
+
+### Tool Implementation Modularity
+
+Human documentation should explain that `Agent OS/tool-implementations/_lib/` is shared implementation support, not a central tool registry. Shared modules should exist only around real reusable mechanics such as CLI parsing, file walking, git access, JSON stability, artifact classification, index runner behavior, query runner behavior, and reusable source scanners.
+
+Each Stratum 1 builder script should own its own `IndexDefinition`, including index ID, producer, artifact path, source inputs, coverage, and known blind spots. Each Stratum 2 operator script should own its own operator ID and index substrates. This keeps tool identity and capability close to the executable entrypoint, while `_lib` supplies mechanics.
+
+Record-building logic should live in focused modules under `Agent OS/tool-implementations/_lib/records/` rather than in a single prompt-era runtime file. If a future helper is shared only because two tools happen to live in the same prompt or migration batch, it should stay local until a real shared surface emerges.
+
+### Tool And Skill Strata
+
+The migrated scaffold now uses a bootloader-oriented tool and skill model rather than a single peer tool registry. Human documentation should explain that the proposed migrated `AGENTS.md` is currently stored as `Agent operating system migration/Agent OS/migration_agents.md` and acts as an Agent OS bootloader: it keeps compact maps available, then starts execution through `task-mode-usage.instructions.md`.
+
+Human documentation should describe the four operational strata:
+
+- Stratum 1 indexes are generated or maintained evidence substrates described by `Agent OS/prompt-files/tools/index-map.md`, with semantic files under `Agent OS/prompt-files/tools/indexes/`, builder scripts under `Agent OS/tool-implementations/indexes/`, and JSON artifacts under `Agent OS/tool-maintained-files/indexes/`.
+- Stratum 2 tools are deterministic query handles described by `Agent OS/prompt-files/tools/tool-map.md`, with semantic files under `Agent OS/prompt-files/tools/operators/` and executable scripts under `Agent OS/tool-implementations/operators/`.
+- Stratum 3 skills are aggregator routines for bounded multi-tool evidence packets.
+- Stratum 4 skills are reasoning workflow guides that help agents decide how to use evidence without delegating semantic judgment to tools.
+
+Human documentation should explain that `Agent OS/prompt-files/tools/tool-usage.instructions.md` and `Agent OS/prompt-files/skills/skill-usage.instructions.md` are bootloader slices. They introduce activation boundaries, context-budget traps, and semantic-delegation limits without requiring agents to load every skill or tool file by default.
+
+Human documentation should note that old peer-tool IDs such as direct usage, impact, check, and source-map tool names have been retired from active scaffold references. The new active maps should be presented as the discovery surfaces: `skill-map.md`, `index-map.md`, and `tool-map.md`.
+
+Human documentation should distinguish generated evidence from reporting truth. `change-index.json` is a current working-tree evidence surface and may intentionally summarize only current in-scope paths; git status remains the authoritative source for the full migration diff, including deletions of retired tool surfaces.
 
 ### Agent OS Map And Generated Source Discovery
 
-Human documentation should describe `docs/agent/agent-os-map.md` as the lightweight Agent OS orientation router. It points to task modes, structural maintenance, project setup, tools, ledgers, generated indexes, and memory surfaces; it is not a source-tree index and should not become a broad semantic map.
+Human documentation should describe `Agent OS/prompt-files/agent-os-map.md` as the lightweight Agent OS orientation router. It points to task modes, structural maintenance, project control, tools, ledgers, tool-maintained indexes, and memory surfaces; it is not a source-tree index and should not become a broad semantic map.
 
-Human documentation should distinguish the Agent OS map from generated source-tree discovery. Source-tree directory data lives in `docs/agent/structural-indexes/source-directory-map.json`, is refreshed by `source-map-indexer`, and is queried through `source-map-query` with a directory scope. The generated source-directory map contains navigation data such as directory and file names, not file contents or semantic authority.
+Human documentation should distinguish the Agent OS map from generated source-tree discovery. Source-tree directory data now lives in `Agent OS/tool-maintained-files/indexes/path-index.json`, is refreshed by `build-path-index`, and is queried through `path-query` with a bounded scope. The generated path index contains navigation data such as directory and file names, not file contents or semantic authority.
 
-### Generated Index Access APIs
+### Tool-Maintained Index Access APIs
 
-Generated indexes should be documented as generated lookup artifacts accessed through matching query and update APIs. Query tools should return bounded slices with freshness and uncertainty notes. Update tools should refresh generated artifacts or report that refresh is unavailable.
+Tool-maintained indexes should be documented as generated lookup artifacts accessed through matching builders and query operators. Query tools should return bounded slices with freshness and uncertainty notes. Builder tools should refresh generated artifacts or report that refresh is unavailable.
 
-Human documentation should explain that generated indexes are not default orientation files for task modes. Manual authority surfaces such as `domain-glossary.md`, `known-debt.md`, `experiments.md`, `design-system-map.md`, and `project-setup/technology-architecture-map.md` remain appropriate direct reads when selected modes require them.
+Human documentation should explain that generated indexes are not default orientation files for task modes. Manual authority surfaces such as `domain-glossary.md`, `known-debt.md`, `experiments.md`, `design-system-map.md`, and `project-control-files/technology-architecture-map.md` remain appropriate direct reads when selected modes require them.
+
+The retired generated-index documentation folder and the related generated-index review notes were archived under `Migration notes/archive/generated-indexes/`. Human documentation should not present that archive as an active Agent OS runtime surface.
 
 Future documentation should preserve the open design question around generated, manual, and hybrid maps, including whether any generated index should keep a curated memory snippet and how tooling would protect that curated content.
 
-### Root Agent Memory Surfaces
+### Agent OS Folder Structure
 
-Human documentation should explain the top-level `docs/agent/*.md` files and sibling subfolders as standing agent memory surfaces, not as files an agent should load by default. They should be presented by role: project setup, generated indexes, ledgers, checklists, structural-maintenance guidance, task modes, and tool instruction files.
+Human documentation should explain that the target scaffold now lives under `Agent operating system migration/Agent OS/` during migration.
+
+- `migration_agents.md` is the proposed migrated bootloader.
+- `prompt-files/` contains persistent agent instruction files, including task modes, structural-maintenance behaviors, lenses, skills, tools, the Agent OS map, and the task-mode, behavior, lens, skill, index, and tool maps.
+- `project-control-files/` contains project-control maps, currently `technology-architecture-map.md`.
+- `tool-implementations/` contains executable tool code and shared runtime support.
+- `tool-maintained-files/` contains generated or tool-owned artifacts such as indexes.
+- `output-files/` contains run outputs such as reports and logs.
+
+### Prompt File Memory Surfaces
+
+Human documentation should explain the top-level `Agent OS/prompt-files/*.md` files and sibling subfolders as standing agent memory surfaces, not as files an agent should load by default. They should be presented by role: ledgers, checklists, structural-maintenance guidance, task modes, skills, tools, and memory maps.
 
 Documentation should clarify that task modes and structural-maintenance behaviors route agents into the relevant root maps only when a task touches that surface. Root maps should stay concise and update-rule driven so they remain usable as living memory rather than becoming long narrative documentation.
 
-Documentation should distinguish project-specific setup such as `project-setup/technology-architecture-map.md`, generated indexes under `generated-indexes/`, ledgers such as `known-debt.md` and `experiments.md`, deferred logging strategy, and procedural review surfaces such as `review-checklist.md` and `change-impact-checklists.md`.
-
-Documentation should also explain that generated indexes under `docs/agent/generated-indexes/` are likely to become tool-maintained, tool-refreshed, or tool-queryable artifacts. Agents should usually access them through selected task modes, structural-maintenance behaviors, or logical tools, not by ingesting every index up front. Direct ingestion should be reserved for small, authoritative maps or ledgers that are relevant to the selected task.
+Documentation should distinguish project-specific setup under `project-control-files/`, tool-maintained indexes under `tool-maintained-files/indexes/`, ledgers such as `known-debt.md` and `experiments.md`, deferred logging strategy, and procedural review surfaces such as `review-checklist.md` and `change-impact-checklists.md`.
 
 Human documentation should distinguish root files that contain reasoning guidance from root files that primarily contain structured lookup data. Structured maps should justify timely access by the surface they map, such as routes, schemas, accessors, components, tests, or permissions. They should not grow into broad reasoning prompts when a tool or behavior file can own that reasoning.
 
@@ -82,7 +118,7 @@ Documentation should also explain human-controlled verification profiles or exha
 
 ### Technology Architecture And Structural Maintenance Documentation
 
-Human-facing documentation should explain that `project-setup/technology-architecture-map.md` is the project-specific high-level map for platform components, technology areas, directory ownership, source/generated boundaries, and interface expectations between independently maintained parts of the project.
+Human-facing documentation should explain that `project-control-files/technology-architecture-map.md` is the project-specific high-level map for platform components, technology areas, directory ownership, source/generated boundaries, and interface expectations between independently maintained parts of the project.
 
 Documentation should separately explain the structural-maintenance layer as the agent-facing operational layer for structural decisions at any granularity. Task modes classify work; structural maintenance guides decisions about where durable responsibilities belong, including placement, reuse, extension, extraction, centralization, movement, naming, promotion, demotion, deprecation, and trimming.
 
@@ -124,15 +160,15 @@ The structural-maintenance layer should be documented as progressive constraints
 
 Human documentation should also distinguish query, preview, and apply expectations for future tools. Even when tool implementation is deferred, maintainers should understand that structural-maintenance decisions are intended to lean on bounded tool outputs rather than full-context prompt reasoning.
 
-Human documentation should cover the structural-maintenance tool placeholders as contract surfaces with implementation still pending. The newly integrated placeholders are contract impact, contract test coverage, authority surface search, audience surface check, and artifact maintenance path. Documentation should distinguish placeholder tool availability in the Agent OS from implemented deterministic evidence.
+Human documentation should explain that the old proposal-only tool surface was retired. Active deterministic evidence now routes through Stratum 2 operator IDs, while operational routines such as contract impact, authority resolution, audience placement, and generated artifact maintenance route through skill IDs.
 
-Human documentation should distinguish deterministic evidence tools from reasoning lenses. Tools can gather bounded facts such as consumers, references, generated-file markers, producer scripts, stale indexes, and test coverage. Lenses decide how those facts matter. Provenance-like concerns are currently represented by the `artifact-maintenance-path` tool contract plus authority/contract/lifecycle reasoning, rather than by a standalone provenance lens.
+Human documentation should distinguish deterministic evidence tools from reasoning lenses. Tools can gather bounded facts such as consumers, references, generated-file markers, producer scripts, stale indexes, and test coverage. Lenses decide how those facts matter. Provenance-like concerns are currently represented by `artifact-query`, `generated-artifact-maintenance`, and authority/contract/lifecycle reasoning, rather than by a standalone provenance lens.
 
-Human documentation should explain the grouped tool implementation notes under `tools/implementation-notes/<group>/` as maintainer-facing planning for tool behavior, suggested I/O, feasibility, and high-level implementation path. These notes are not runtime agent instructions and should not replace tool instruction files.
+Human documentation should explain that active Stratum 1 and 2 implementations live under `Agent OS/tool-implementations/`. Historical implementation notes that do not match the active tool map should remain migration/archive material, not runtime agent instructions.
 
 ### Redundancy In Task-Mode Guidance
 
-The task-mode usage file should avoid duplicating tool requirements already owned by individual mode files. Cross-mode guidance should point agents to `docs/agent/tools/tooling-map.md` for tool discovery rather than duplicating tool execution details.
+The task-mode usage file should avoid duplicating skill and tool requirements already owned by individual mode files. Cross-mode guidance should point agents to `Agent OS/prompt-files/skills/skill-map.md`, `Agent OS/prompt-files/tools/index-map.md`, and `Agent OS/prompt-files/tools/tool-map.md` for discovery rather than duplicating execution details.
 
 The `Use This Mode When` and `Do Not Use This Mode When` sections were removed from individual mode files. `task-mode-map.md` owns selection; selected mode files own requirements.
 
@@ -160,16 +196,16 @@ During migration, this automation guidance can live under `Migration notes/` as 
 - Which target files should be considered authoritative for agent behavior versus explanatory for human maintainers?
 - How should tool-generated or tool-maintained docs be described without making generated output look like semantic authority?
 - How should human documentation describe the split between global routing in `AGENTS.md` and procedural detail in task-mode instruction files?
-- How should human documentation describe the chain from logical tool ID to `docs/agent/tools/tooling-map.md`, grouped tool instruction file, and grouped script?
-- How should human documentation introduce the root `docs/agent/*.md` files as selective memory surfaces without encouraging agents to load all maps for every task?
+- How should human documentation describe the chain from skill/tool/index ID to `skill-map.md`, `index-map.md`, `tool-map.md`, semantic file, and executable script?
+- How should human documentation introduce the root `Agent OS/prompt-files/*.md` files as selective memory surfaces without encouraging agents to load all maps for every task?
 - How should human documentation introduce the difference between the technology architecture map and the structural-maintenance decision layer?
-- How should human documentation explain the split between `agent-os-map.md` for Agent OS orientation, `project-setup/technology-architecture-map.md` for project architecture setup, and `source-directory-map.json` plus query/indexer tools for source-tree discovery?
+- How should human documentation explain the split between `prompt-files/agent-os-map.md` for Agent OS orientation, `project-control-files/technology-architecture-map.md` for project architecture setup, and `tool-maintained-files/indexes/path-index.json` plus `build-path-index`/`path-query` for source-tree discovery?
 - How should human documentation explain progressive structural-maintenance constraints without encouraging agents to run every structural check for every small task?
 - How should human documentation explain structural-maintenance lenses without making them sound like mandatory checklists for every change?
 - After the new contract, authority, audience, and authority/contract behaviors are reviewed, do additional non-code maintained artifact concerns still require separate lenses or behaviors?
-- Should provenance remain represented by `artifact-maintenance-path`, or should a separate provenance lens become necessary after more examples are available?
-- What minimum evidence should `artifact-maintenance-path` gather before agents treat an artifact as generated, tool-maintained, manually authoritative, stale, or unknown?
-- Which structural-maintenance placeholder tools should become mandatory for specific behaviors after implementation, and what output schemas should their scripts enforce?
+- Should provenance remain represented by `artifact-query`, `generated-artifact-maintenance`, and authority/contract/lifecycle reasoning, or should a separate provenance lens become necessary after more examples are available?
+- What minimum evidence should `artifact-query` gather before agents treat an artifact as generated, tool-maintained, manually authoritative, stale, or unknown?
+- Which structural-maintenance skills or deterministic tools should become mandatory for specific behaviors, and what output schemas should their scripts enforce?
 - How should human documentation explain the chain from structural-maintenance usage, to `behavior-map.md` behavior selection, to behavior-file procedure, to activated lenses?
 - Should there be a dedicated Agent OS reflection or maintenance-proposal mode whose default output is a note, with active OS changes gated by a human-started maintenance task?
 - Which project-memory updates may be performed as part of ordinary task completion, and which Agent OS rule changes must always be proposed rather than applied autonomously?

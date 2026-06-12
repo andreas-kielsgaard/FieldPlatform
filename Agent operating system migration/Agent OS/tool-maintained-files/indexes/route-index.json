@@ -1,0 +1,22 @@
+{
+  "artifactId": "route-index",
+  "indexId": "route-index",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-12T10:18:46.575Z",
+  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
+  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "producer": "build-route-index",
+  "artifactPath": "tool-maintained-files/indexes/route-index.json",
+  "sourceInputs": [
+    "app, pages, route, page, and layout file paths"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "Route-like files, inferred route paths, params, route families, pages, layouts, and handlers.",
+  "knownBlindSpots": [
+    "Framework-specific routing beyond common file conventions is not fully resolved."
+  ],
+  "recordCount": 0,
+  "records": []
+}

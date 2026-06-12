@@ -1,0 +1,22 @@
+{
+  "artifactId": "test-index",
+  "indexId": "test-index",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-12T10:18:57.228Z",
+  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
+  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "producer": "build-test-index",
+  "artifactPath": "tool-maintained-files/indexes/test-index.json",
+  "sourceInputs": [
+    "test, spec, story, fixture, and e2e file paths plus imports"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "Test and story files, likely tested subjects, imports, fixture references, and route/component hints.",
+  "knownBlindSpots": [
+    "Does not execute tests or prove semantic coverage."
+  ],
+  "recordCount": 0,
+  "records": []
+}

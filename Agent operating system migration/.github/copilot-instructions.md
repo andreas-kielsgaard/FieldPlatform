@@ -1,9 +1,9 @@
 # Repository Instructions For Copilot
 
-Read `/AGENTS.md` first.
+Read `/Agent OS/migration_agents.md` first.
 
-Use `/docs/agent/source-map.md` to orient before coding.
+Use `/Agent OS/prompt-files/agent-os-map.md` to orient before coding.
 
-Use the relevant task mode and update the relevant docs under `/docs/agent` when shared concepts, routes, policies, components, or schemas change.
+Use the relevant task mode, structural-maintenance behavior, skill, or deterministic tool support when shared concepts, routes, policies, components, or schemas change.
 
 Produce a concise affected-surface summary after meaningful changes.

@@ -1,0 +1,942 @@
+{
+  "artifactId": "accessor-index",
+  "indexId": "accessor-index",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-12T10:18:23.534Z",
+  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
+  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "producer": "build-accessor-index",
+  "artifactPath": "tool-maintained-files/indexes/accessor-index.json",
+  "sourceInputs": [
+    "api, accessor, service, repository, query, mutation, and fetch-like source"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "Accessor/API-like definitions, callers, read/write hints, cache hints, and boundary names.",
+  "knownBlindSpots": [
+    "Does not infer runtime behavior, authorization, caching semantics, or compatibility promises."
+  ],
+  "recordCount": 70,
+  "records": [
+    {
+      "accessor": "TERM_HANDLES",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 7,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "runQueryOperator",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 9,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "runQueryOperator",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 9,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "args",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 10,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "root",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 11,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "indexes",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 12,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "limit",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 13,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "records",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 15,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "findings",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 24,
+      "readWriteHint": "read",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "missingIndexes",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 25,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "parseOperatorQuery",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 60,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "positional",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 61,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "handle",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 62,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "query",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 72,
+      "readWriteHint": "read",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "secondaryQuery",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 73,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "filterRecords",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 77,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "q",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 84,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "second",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 85,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "haystack",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 97,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "finding",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 141,
+      "readWriteHint": "read",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "toFinding",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 152,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "file",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 153,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "inferRisks",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 164,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "risks",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 165,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "suggestNextChecks",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 181,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "suggestions",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 182,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "indexId",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 183,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "is",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 190,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "loadIndex",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 201,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "artifactPath",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 202,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "json",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 203,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "runRetrieveSliceOperator",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 8,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "runRetrieveSliceOperator",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 8,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "args",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 9,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "root",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 10,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "runRetrieveSlice",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 14,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "target",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 15,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "start",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 16,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "requestedEnd",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 17,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "absolutePath",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 18,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "lines",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 33,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "end",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 34,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "slice",
+      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 35,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../cli.ts",
+        "../repo-files.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "buildAccessorRecords",
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 6,
+      "readWriteHint": "write",
+      "imports": [
+        "../repo-files.ts",
+        "../source-extractors.ts",
+        "../types.ts",
+        "./source-symbols.ts"
+      ],
+      "cacheHint": true
+    },
+    {
+      "accessor": "buildAccessorRecords",
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 6,
+      "readWriteHint": "write",
+      "imports": [
+        "../repo-files.ts",
+        "../source-extractors.ts",
+        "../types.ts",
+        "./source-symbols.ts"
+      ],
+      "cacheHint": true
+    },
+    {
+      "accessor": "symbols",
+      "file": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 10,
+      "readWriteHint": "write",
+      "imports": [
+        "../repo-files.ts",
+        "../source-extractors.ts",
+        "../types.ts",
+        "./source-symbols.ts"
+      ],
+      "cacheHint": true
+    },
+    {
+      "accessor": "COMMON_WORDS",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 4,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "COMMON_WORDS",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 4,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "extractImports",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 8,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "extractImports",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 8,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "imports",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 9,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "line",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 10,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "match",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 11,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "extractLikelySubjects",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 18,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "extractLikelySubjects",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 18,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "subjects",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 19,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "line",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 20,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "match",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 21,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "extractTerms",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 28,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "extractTerms",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 28,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "terms",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 29,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "line",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 30,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "match",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 31,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "normalized",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 32,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "nearbyFieldHints",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 41,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "nearbyFieldHints",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 41,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "inferReadWriteHint",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 48,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "inferReadWriteHint",
+      "file": "tool-implementations/_lib/source-extractors.ts",
+      "line": 48,
+      "readWriteHint": "write",
+      "imports": [
+        "./repo-files.ts",
+        "./text-utils.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "definition",
+      "file": "tool-implementations/indexes/build-accessor-index.ts",
+      "line": 5,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/index-runner.ts",
+        "../_lib/records/accessor-records.ts",
+        "../_lib/types.ts"
+      ],
+      "cacheHint": true
+    },
+    {
+      "accessor": "definition",
+      "file": "tool-implementations/indexes/build-path-index.ts",
+      "line": 5,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/index-runner.ts",
+        "../_lib/records/path-records.ts",
+        "../_lib/types.ts"
+      ],
+      "cacheHint": false
+    }
+  ]
+}

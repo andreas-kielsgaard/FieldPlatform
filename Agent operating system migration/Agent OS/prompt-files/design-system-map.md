@@ -8,7 +8,7 @@
 
 ## Approved Primitives
 
-| Primitive | Path | Purpose | Variants | Do not duplicate |
+| Primitive | Path | Purpose | Variants | Avoid duplicate |
 |---|---|---|---|---|
 |  |  |  |  |  |
 

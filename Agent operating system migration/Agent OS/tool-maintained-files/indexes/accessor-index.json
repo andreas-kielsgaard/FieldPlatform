@@ -3,10 +3,10 @@
   "indexId": "accessor-index",
   "stratum": 1,
   "generated": true,
-  "schemaVersion": 1,
-  "generatedAt": "2026-06-12T10:18:23.534Z",
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T15:21:38.221Z",
   "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
   "producer": "build-accessor-index",
   "artifactPath": "tool-maintained-files/indexes/accessor-index.json",
   "sourceInputs": [
@@ -17,8 +17,268 @@
   "knownBlindSpots": [
     "Does not infer runtime behavior, authorization, caching semantics, or compatibility promises."
   ],
-  "recordCount": 70,
+  "recordCount": 191,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-accessor-index",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-accessor-index.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-accessor-index.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 1,
+      "shards": [
+        {
+          "shardId": "records-0001",
+          "startRecord": 0,
+          "endRecordExclusive": 191,
+          "recordCount": 191,
+          "sha256": "ab4756ed035095e982d9368b8b7d536951d20aaeb82008b2f262f4d7186e9896"
+        }
+      ]
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
   "records": [
+    {
+      "accessor": "ActiveIndexCatalogRow",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 1,
+      "readWriteHint": "unknown",
+      "imports": [],
+      "cacheHint": true
+    },
+    {
+      "accessor": "ActiveIndexCatalogRow",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 1,
+      "readWriteHint": "unknown",
+      "imports": [],
+      "cacheHint": true
+    },
+    {
+      "accessor": "ACTIVE_INDEX_CATALOG",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 11,
+      "readWriteHint": "unknown",
+      "imports": [],
+      "cacheHint": true
+    },
+    {
+      "accessor": "ACTIVE_INDEX_CATALOG",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 11,
+      "readWriteHint": "unknown",
+      "imports": [],
+      "cacheHint": true
+    },
+    {
+      "accessor": "hints",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 21,
+      "readWriteHint": "unknown",
+      "imports": [],
+      "cacheHint": true
+    },
+    {
+      "accessor": "activeIndexBuildersInMaintenanceOrder",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 29,
+      "readWriteHint": "unknown",
+      "imports": [],
+      "cacheHint": true
+    },
+    {
+      "accessor": "activeIndexBuildersInMaintenanceOrder",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 29,
+      "readWriteHint": "unknown",
+      "imports": [],
+      "cacheHint": true
+    },
+    {
+      "accessor": "manifestBuilder",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 30,
+      "readWriteHint": "unknown",
+      "imports": [],
+      "cacheHint": true
+    },
+    {
+      "accessor": "row",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 36,
+      "readWriteHint": "unknown",
+      "imports": [],
+      "cacheHint": true
+    },
+    {
+      "accessor": "DEFAULT_RECORDS_PER_SHARD",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 5,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "buildIndexMaintenanceMetadata",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 7,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "buildIndexMaintenanceMetadata",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 7,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "targetRecordsPerShard",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 8,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "shards",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 9,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "implementationArea",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 10,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "buildRecordShards",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 41,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "shards",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 46,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "startRecord",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 47,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "shardRecords",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 48,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "endRecordExclusive",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 49,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "shardNumber",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 50,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "hashJson",
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 63,
+      "readWriteHint": "unknown",
+      "imports": [
+        "./json.ts",
+        "./types.ts",
+        "node:crypto"
+      ],
+      "cacheHint": false
+    },
     {
       "accessor": "TERM_HANDLES",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
@@ -162,7 +422,7 @@
     {
       "accessor": "parseOperatorQuery",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 60,
+      "line": 64,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -176,7 +436,7 @@
     {
       "accessor": "positional",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 61,
+      "line": 65,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -190,7 +450,7 @@
     {
       "accessor": "handle",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 62,
+      "line": 66,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -204,7 +464,7 @@
     {
       "accessor": "query",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 72,
+      "line": 76,
       "readWriteHint": "read",
       "imports": [
         "../cli.ts",
@@ -218,7 +478,7 @@
     {
       "accessor": "secondaryQuery",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 73,
+      "line": 77,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -232,7 +492,7 @@
     {
       "accessor": "filterRecords",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 77,
+      "line": 81,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -246,7 +506,7 @@
     {
       "accessor": "q",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 84,
+      "line": 88,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -260,7 +520,7 @@
     {
       "accessor": "second",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 85,
+      "line": 89,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -274,7 +534,7 @@
     {
       "accessor": "haystack",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 97,
+      "line": 101,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -288,7 +548,7 @@
     {
       "accessor": "finding",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 141,
+      "line": 145,
       "readWriteHint": "read",
       "imports": [
         "../cli.ts",
@@ -302,7 +562,7 @@
     {
       "accessor": "toFinding",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 152,
+      "line": 156,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -316,7 +576,7 @@
     {
       "accessor": "file",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 153,
+      "line": 157,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -330,7 +590,7 @@
     {
       "accessor": "inferRisks",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 164,
+      "line": 168,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -344,7 +604,7 @@
     {
       "accessor": "risks",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 165,
+      "line": 169,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -358,7 +618,7 @@
     {
       "accessor": "suggestNextChecks",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 181,
+      "line": 185,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -372,7 +632,7 @@
     {
       "accessor": "suggestions",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 182,
+      "line": 186,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -386,7 +646,7 @@
     {
       "accessor": "indexId",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 183,
+      "line": 187,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -400,7 +660,7 @@
     {
       "accessor": "is",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 190,
+      "line": 194,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -414,7 +674,7 @@
     {
       "accessor": "loadIndex",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 201,
+      "line": 205,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -428,7 +688,7 @@
     {
       "accessor": "artifactPath",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 202,
+      "line": 206,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -442,7 +702,21 @@
     {
       "accessor": "json",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 203,
+      "line": 207,
+      "readWriteHint": "write",
+      "imports": [
+        "../cli.ts",
+        "../json.ts",
+        "../text-utils.ts",
+        "../types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "maintenance",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 254,
       "readWriteHint": "write",
       "imports": [
         "../cli.ts",
@@ -915,6 +1189,681 @@
       "cacheHint": false
     },
     {
+      "accessor": "ContractFinding",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 8,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "args",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 14,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "root",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 15,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "findings",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 16,
+      "readWriteHint": "read",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "errors",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 22,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "result",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 23,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "finding",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 46,
+      "readWriteHint": "read",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "checkActiveIndexCatalog",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 55,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "indexMapPath",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 56,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "indexMap",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 57,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "indexMapIds",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 58,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "manifest",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 59,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "manifestRecords",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 62,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "entry",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 70,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "manifestRow",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 78,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "checkToolMap",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 98,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "toolMap",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 99,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "toolIds",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 100,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "toolId",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 101,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "checkSemanticLayer",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 107,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "semanticMapPath",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 108,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "semanticMap",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 109,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "semanticIds",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 110,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "requiredIds",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 111,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "id",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 112,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "reservedId",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 125,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "embeddingArtifact",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 131,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "vectorArtifact",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 132,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "validateSemanticChunkArtifact",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 141,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "relativePath",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 142,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "artifact",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 143,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "records",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 149,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "maintenance",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 150,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "semanticSupport",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 151,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "malformedRecordIndex",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 179,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "isValidSemanticChunkRecord",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 185,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "readText",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 202,
+      "readWriteHint": "read",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "absolutePath",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 203,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "expectFile",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 211,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "existsRelative",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 217,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "parseBacktickedIds",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 221,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "ids",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 222,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "line",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 223,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "match",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 227,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "add",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 234,
+      "readWriteHint": "unknown",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
       "accessor": "definition",
       "file": "tool-implementations/indexes/build-accessor-index.ts",
       "line": 5,
@@ -928,6 +1877,346 @@
     },
     {
       "accessor": "definition",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 10,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "buildManifestRecords",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 24,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "currentRevision",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 25,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "artifactPath",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 63,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "absolutePath",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 64,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "exists",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 65,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "artifact",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 66,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "freshnessWarnings",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 67,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "maintenance",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 68,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "readArtifact",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 98,
+      "readWriteHint": "read",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "parsed",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 100,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "sha256",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 107,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "freshnessWarningsFor",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 111,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "warnings",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 112,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "shardingSummary",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 136,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "sharding",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 137,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "shards",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 138,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "entry",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 140,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "semanticSupportSummary",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 159,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "semanticSupport",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 160,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/git.ts",
+        "../_lib/index-catalog.ts",
+        "../_lib/index-runner.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "definition",
       "file": "tool-implementations/indexes/build-path-index.ts",
       "line": 5,
       "readWriteHint": "write",
@@ -935,6 +2224,501 @@
         "../_lib/index-runner.ts",
         "../_lib/records/path-records.ts",
         "../_lib/types.ts"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "args",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 8,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "root",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 9,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "limit",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 10,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "query",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 11,
+      "readWriteHint": "read",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "artifactPath",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 12,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "artifact",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 13,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "missing",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 14,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "currentSourceRevision",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 15,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "workingTreeChanges",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 16,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "artifactIssues",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 17,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "freshnessWarnings",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 18,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "queryTerms",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 19,
+      "readWriteHint": "read",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "records",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 20,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "findings",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 21,
+      "readWriteHint": "read",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "normalizeQuery",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 88,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "scoreRecord",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 92,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "haystack",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 97,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "matchedTerms",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 106,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "fileBoost",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 107,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "termBoost",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 108,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "semanticInputChanges",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 116,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "filePath",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 118,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "agentOsRelativePath",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 119,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "isSemanticInputPath",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 126,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "semanticArtifactIssues",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 135,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "issues",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 140,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "recordsValue",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 141,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "malformedRecord",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 166,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "isValidSemanticRecord",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 173,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "semanticFreshnessWarnings",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 187,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "inferRisks",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 196,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "risks",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 203,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
+      ],
+      "cacheHint": false
+    },
+    {
+      "accessor": "suggestNextChecks",
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 219,
+      "readWriteHint": "write",
+      "imports": [
+        "../_lib/cli.ts",
+        "../_lib/git.ts",
+        "../_lib/json.ts",
+        "../_lib/text-utils.ts",
+        "../_lib/types.ts",
+        "node:path"
       ],
       "cacheHint": false
     }

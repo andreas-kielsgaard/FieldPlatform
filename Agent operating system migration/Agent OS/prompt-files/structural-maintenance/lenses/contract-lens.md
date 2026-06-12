@@ -21,7 +21,7 @@ Internal implementation can change freely only while the promised contract still
 - Are inputs, outputs, side effects, errors, ordering, or compatibility unchanged?
 - Which consumers rely on the current contract?
 - Do existing unit tests, contract tests, fixtures, examples, or tool checks cover the changed path?
-- If the contract changes, what consumers, maps, tests, docs, or instructions must change with it?
+- If the contract changes, what consumers, maps, tests, docs, or instructions should change with it?
 - Is the contract explicit, inferred from tests/examples, or only implied by current usage?
 
 ## Evidence To Consider
@@ -38,15 +38,15 @@ Internal implementation can change freely only while the promised contract still
 - Contract preserved.
 - Contract changed intentionally.
 - Contract unclear; define or document before changing.
-- Consumers must migrate.
-- Tests must be added or updated.
+- Consumers may need migration.
+- Tests may need to be added or updated.
 - Contract is implementation detail only.
 - Temporary compatibility exception; log debt.
 
 ## Stop Or Escalate When
 
 - A consumer-visible promise changes without a migration plan.
-- Existing tests do not cover the changed internal processing or I/O relation and the risk is non-trivial.
+- Existing tests miss the changed internal processing or I/O relation and the risk is non-trivial.
 - The maintained element has public, generated, cross-boundary, tool, schema, fixture, or instruction consumers.
 - The current contract is inferred only from usage and changing it would require guessing.
 

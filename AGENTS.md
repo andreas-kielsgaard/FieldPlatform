@@ -38,7 +38,7 @@ Use the nearest relevant `AGENTS.md` for the area being edited:
 
 - Root `AGENTS.md`: migration coordination, root folder notes, and how to interpret nested instruction sets during the migration.
 - `Pre-migration project/AGENTS.md`: pre-migration project instructions. Use this when inspecting or editing pre-migration project content.
-- `Agent operating system migration/migration_agents.md`: proposed migrated repo instruction contract. This is intentionally not named `AGENTS.md` during migration so it is not automatically ingested as an active instruction file.
+- `Agent operating system migration/Agent OS/migration_agents.md`: proposed migrated repo instruction contract. This is intentionally not named `AGENTS.md` during migration so it is not automatically ingested as an active instruction file.
 
 The current user instruction always wins for the immediate task.
 

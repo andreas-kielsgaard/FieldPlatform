@@ -10,7 +10,7 @@ This behavior protects against naming drift and premature canonicalization.
 
 - Naming/Ontology: classify nearby names as canonical, alias, provisional, contextual, deprecated, unresolved, or intentionally distinct.
 - Near-Match: adjacent names may be related without naming the same concept.
-- Duplication: naming drift can reveal duplicated semantics, but similar names do not prove shared meaning.
+- Duplication: naming drift can reveal duplicated semantics, but similar names are not proof of shared meaning.
 - Memory: record aliases, preferred forms, unresolved language, and intentional divergence only when durable.
 
 ## Procedure

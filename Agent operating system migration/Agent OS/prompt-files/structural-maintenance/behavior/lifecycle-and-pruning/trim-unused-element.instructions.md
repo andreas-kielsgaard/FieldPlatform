@@ -9,7 +9,7 @@ This behavior protects against dead-element accumulation and unsafe deletion bas
 ## Lens Prompts
 
 - Lifecycle: remove only when the element is obsolete, abandoned, unreachable, deprecated, retired, or intentionally no longer authoritative.
-- Contract: removal must not break promised behavior, fixtures, examples, tests, public APIs, or tool contracts unless consumers are migrated.
+- Contract: removal should preserve promised behavior, fixtures, examples, tests, public APIs, and tool contracts unless consumers are migrated.
 - Blast Radius: check consumers, hidden references, tests, fixtures, docs, examples, generated usage, and public API implications before deletion.
 - Memory: update ledgers, maps, experiments, or known debt when removal changes durable project memory.
 

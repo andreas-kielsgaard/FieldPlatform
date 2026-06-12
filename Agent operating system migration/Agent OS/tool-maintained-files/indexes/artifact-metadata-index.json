@@ -3,10 +3,10 @@
   "indexId": "artifact-metadata-index",
   "stratum": 1,
   "generated": true,
-  "schemaVersion": 1,
-  "generatedAt": "2026-06-12T10:18:25.891Z",
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T15:21:35.546Z",
   "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
   "producer": "build-artifact-metadata-index",
   "artifactPath": "tool-maintained-files/indexes/artifact-metadata-index.json",
   "sourceInputs": [
@@ -17,7 +17,39 @@
   "knownBlindSpots": [
     "Humans can bypass conventions; unknown metadata is uncertainty, not proof."
   ],
-  "recordCount": 202,
+  "recordCount": 217,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-artifact-metadata-index",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-artifact-metadata-index.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-artifact-metadata-index.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 1,
+      "shards": [
+        {
+          "shardId": "records-0001",
+          "startRecord": 0,
+          "endRecordExclusive": 217,
+          "recordCount": 217,
+          "sha256": "6be25b57981db90d331383475a02a4949ab95fc3fb3b8a6aee21b55aa6dd18af"
+        }
+      ]
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
   "records": [
     {
       "path": "migration_agents.md",
@@ -40,8 +72,8 @@
     {
       "path": "project-control-files/technology-architecture-map.md",
       "kind": "map-or-memory",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "project",
       "authorityRole": "unknown"
@@ -49,8 +81,8 @@
     {
       "path": "prompt-files/agent-os-map.md",
       "kind": "map-or-memory",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -121,8 +153,8 @@
     {
       "path": "prompt-files/skills/audience-placement.md",
       "kind": "skill",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -220,8 +252,8 @@
     {
       "path": "prompt-files/skills/generated-artifact-maintenance.md",
       "kind": "skill",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -247,8 +279,8 @@
     {
       "path": "prompt-files/skills/index-trust-workflow.md",
       "kind": "skill",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -346,8 +378,8 @@
     {
       "path": "prompt-files/skills/source-orientation-refresh.md",
       "kind": "skill",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -373,8 +405,8 @@
     {
       "path": "prompt-files/structural-maintenance/behavior-map.md",
       "kind": "map-or-memory",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "map"
@@ -400,8 +432,8 @@
     {
       "path": "prompt-files/structural-maintenance/behavior/authority-and-contracts/maintain-generated-or-indexed-artifact.instructions.md",
       "kind": "agent-instruction",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -517,8 +549,8 @@
     {
       "path": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md",
       "kind": "agent-instruction",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -742,8 +774,8 @@
     {
       "path": "prompt-files/task-modes/domain-and-data/api-or-accessor-change.instructions.md",
       "kind": "agent-instruction",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -805,8 +837,8 @@
     {
       "path": "prompt-files/task-modes/domain-and-data/state-management-change.instructions.md",
       "kind": "agent-instruction",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -814,8 +846,8 @@
     {
       "path": "prompt-files/task-modes/maintenance-and-governance/bug-fix.instructions.md",
       "kind": "agent-instruction",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -832,8 +864,8 @@
     {
       "path": "prompt-files/task-modes/maintenance-and-governance/refactor.instructions.md",
       "kind": "agent-instruction",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -868,8 +900,8 @@
     {
       "path": "prompt-files/task-modes/ui-facing/exploratory-ui-build.instructions.md",
       "kind": "agent-instruction",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -920,19 +952,28 @@
       "authorityRole": "unknown"
     },
     {
+      "path": "prompt-files/tools/checks/agent-os-contract-check.md",
+      "kind": "check-semantic-file",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
       "path": "prompt-files/tools/index-map.md",
       "kind": "map-or-memory",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "hints",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "map"
     },
     {
       "path": "prompt-files/tools/indexes/accessor-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -940,17 +981,26 @@
     {
       "path": "prompt-files/tools/indexes/artifact-metadata-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "hints",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "prompt-files/tools/indexes/build-all-indexes.md",
+      "kind": "index-semantic-file",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "prompt-files/tools/indexes/change-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -958,8 +1008,8 @@
     {
       "path": "prompt-files/tools/indexes/component-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -967,8 +1017,8 @@
     {
       "path": "prompt-files/tools/indexes/dependency-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -976,8 +1026,8 @@
     {
       "path": "prompt-files/tools/indexes/doc-reference-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -985,8 +1035,17 @@
     {
       "path": "prompt-files/tools/indexes/fixture-scenario-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "prompt-files/tools/indexes/index-manifest.md",
+      "kind": "index-semantic-file",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -994,8 +1053,8 @@
     {
       "path": "prompt-files/tools/indexes/literal-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1003,8 +1062,8 @@
     {
       "path": "prompt-files/tools/indexes/path-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1012,8 +1071,8 @@
     {
       "path": "prompt-files/tools/indexes/route-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1021,8 +1080,8 @@
     {
       "path": "prompt-files/tools/indexes/schema-shape-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1030,8 +1089,8 @@
     {
       "path": "prompt-files/tools/indexes/symbol-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1039,8 +1098,8 @@
     {
       "path": "prompt-files/tools/indexes/term-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1048,8 +1107,8 @@
     {
       "path": "prompt-files/tools/indexes/test-index.md",
       "kind": "index-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1066,9 +1125,9 @@
     {
       "path": "prompt-files/tools/operators/artifact-query.md",
       "kind": "operator-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "hints",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
@@ -1129,8 +1188,8 @@
     {
       "path": "prompt-files/tools/operators/path-query.md",
       "kind": "operator-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1165,8 +1224,17 @@
     {
       "path": "prompt-files/tools/operators/schema-query.md",
       "kind": "operator-semantic-file",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "prompt-files/tools/operators/semantic-candidate-query.md",
+      "kind": "operator-semantic-file",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1199,11 +1267,29 @@
       "authorityRole": "unknown"
     },
     {
+      "path": "prompt-files/tools/semantic-map.md",
+      "kind": "map-or-memory",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "prompt-files/tools/semantic/semantic-chunk-index.md",
+      "kind": "semantic-substrate-file",
+      "generatedHint": false,
+      "directEditPolicy": "manual semantic surface",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
       "path": "prompt-files/tools/tool-map.md",
       "kind": "map-or-memory",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "hints",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "map"
     },
@@ -1244,10 +1330,28 @@
       "authorityRole": "unknown"
     },
     {
+      "path": "tool-implementations/_lib/index-catalog.ts",
+      "kind": "source",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "tool-implementations/_lib/index-metadata.ts",
+      "kind": "source",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
       "path": "tool-implementations/_lib/index-runner.ts",
       "kind": "source",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1291,9 +1395,9 @@
     {
       "path": "tool-implementations/_lib/records/artifact-metadata-records.ts",
       "kind": "source",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "possibleProducer",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
@@ -1354,8 +1458,8 @@
     {
       "path": "tool-implementations/_lib/records/path-records.ts",
       "kind": "source",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
       "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
@@ -1437,133 +1541,160 @@
       "kind": "source",
       "generatedHint": false,
       "directEditPolicy": "unknown",
-      "possibleProducer": "string",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "kind": "check-script",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-accessor-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-accessor-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "tool-implementations/indexes/build-all-indexes.ts",
+      "kind": "index-builder-script",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-artifact-metadata-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-artifact-metadata-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-change-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-change-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-component-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-component-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-dependency-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-dependency-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-doc-reference-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-doc-reference-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-fixture-scenario-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-fixture-scenario-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "tool-implementations/indexes/build-index-manifest.ts",
+      "kind": "index-builder-script",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-literal-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-literal-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-path-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-path-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-route-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-route-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-schema-shape-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-schema-shape-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-symbol-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-symbol-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-term-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-term-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
     {
       "path": "tool-implementations/indexes/build-test-index.ts",
       "kind": "index-builder-script",
-      "generatedHint": true,
-      "directEditPolicy": "verify producer or regenerate before direct edits",
-      "possibleProducer": "build-test-index",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
       "audience": "agent-or-maintainer",
       "authorityRole": "unknown"
     },
@@ -1685,6 +1816,15 @@
       "authorityRole": "unknown"
     },
     {
+      "path": "tool-implementations/operators/semantic-candidate-query.ts",
+      "kind": "operator-script",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
       "path": "tool-implementations/operators/symbol-query.ts",
       "kind": "operator-script",
       "generatedHint": false,
@@ -1705,6 +1845,15 @@
     {
       "path": "tool-implementations/operators/test-query.ts",
       "kind": "operator-script",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
+      "audience": "agent-or-maintainer",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "kind": "semantic-builder-script",
       "generatedHint": false,
       "directEditPolicy": "unknown",
       "possibleProducer": null,
@@ -1775,6 +1924,15 @@
       "authorityRole": "generated-evidence"
     },
     {
+      "path": "tool-maintained-files/indexes/index-manifest.json",
+      "kind": "generated-index",
+      "generatedHint": true,
+      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "possibleProducer": "build-index-manifest",
+      "audience": "project",
+      "authorityRole": "generated-evidence"
+    },
+    {
       "path": "tool-maintained-files/indexes/literal-index.json",
       "kind": "generated-index",
       "generatedHint": true,
@@ -1834,6 +1992,15 @@
       "generatedHint": true,
       "directEditPolicy": "verify producer or regenerate before direct edits",
       "possibleProducer": "build-test-index",
+      "audience": "project",
+      "authorityRole": "generated-evidence"
+    },
+    {
+      "path": "tool-maintained-files/semantic/semantic-chunk-index.json",
+      "kind": "generated-semantic-artifact",
+      "generatedHint": true,
+      "directEditPolicy": "verify producer or regenerate before direct edits",
+      "possibleProducer": "build-semantic-chunk-index",
       "audience": "project",
       "authorityRole": "generated-evidence"
     }

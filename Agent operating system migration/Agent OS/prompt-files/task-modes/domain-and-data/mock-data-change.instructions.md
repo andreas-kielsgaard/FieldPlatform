@@ -1,33 +1,33 @@
 # Mode: Mock Data Change
 
-## Required Orientation
+## Orientation Cues
 
 - `prompt-files/domain-glossary.md`
 
-## Required Tools Or Searches
+## Evidence Cues
 
-- Tool: `schema-query` for generated data-model index slices relevant to the target.
-- Tool: `schema-query` for generated schema index slices relevant to the target.
-- Tool: `component-query` for generated component index slices relevant to the target.
-- Skill: `test-relation-scan` when the changed target needs verification-surface selection.
+- Consider Tool: `schema-query` for generated data-model index slices relevant to the target.
+- Consider Tool: `schema-query` for generated schema index slices relevant to the target.
+- Consider Tool: `component-query` for generated component index slices relevant to the target.
+- Consider Skill: `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Tool: `term-query` for represented concepts.
-- Skill: `schema-fixture-drift-scan`.
-- Tool: `fixture-query`.
-- Skill: `consumer-impact-preview` when fixture or scenario shape is consumed by tests, examples, previews, or generated indexes.
-- Tool: `artifact-query` when fixture indexes, generated scenarios, or tool-maintained mock outputs are involved.
-- Search schema/validator references when mock shape changes.
+- Consider Tool: `term-query` for represented concepts.
+- Consider Skill: `schema-fixture-drift-scan`.
+- Consider Tool: `fixture-query`.
+- Consider Skill: `consumer-impact-preview` when fixture or scenario shape is consumed by tests, examples, previews, or generated indexes.
+- Consider Tool: `artifact-query` when fixture indexes, generated scenarios, or tool-maintained mock outputs are involved.
+- Consider searching schema/validator references when mock shape changes.
 
-## Implementation Instructions
+## Implementation Cues
 
 - Put durable mock data in canonical fixture builders or scenarios.
-- Do not create long-lived inline mock objects inside pages or components.
+- Avoid creating long-lived inline mock objects inside pages or components.
 - Distinguish visual filler data from domain-representative scenarios.
 - If mock data encodes a product assumption, update the relevant map.
 - Keep fixtures aligned with validators and schema where those exist.
 - Prefer named scenarios over anonymous arrays.
 
-## Cross-Application Impact Checks
+## Cross-Application Impact Cues
 
 - Concepts represented by the scenario.
 - Schema, validators, and accessors.
@@ -35,15 +35,15 @@
 - UI surfaces relying on mock behavior.
 - Whether the mock should be marked provisional.
 
-## Documentation Updates
+## Documentation Cues
 
 - Report fixture or scenario implications until test behavior is designed.
-- Update `domain-glossary.md` if the scenario introduces terms.
-- Tool: `build-schema-shape-index` if relation assumptions change, or report required index refresh if the tool is unavailable.
-- Tool: `build-component-index` if examples depend on the scenario, or report required index refresh if the tool is unavailable.
-- Update `experiments.md` if the mock carries provisional product assumptions.
+- Consider updating `domain-glossary.md` if the scenario introduces terms.
+- Consider Tool: `build-schema-shape-index` if relation assumptions change, or report index refresh may be needed if the tool is unavailable.
+- Consider Tool: `build-component-index` if examples depend on the scenario, or report index refresh may be needed if the tool is unavailable.
+- Consider updating `experiments.md` if the mock carries provisional product assumptions.
 
-## Regression Checks
+## Regression Cues
 
 - Inline mock data becoming hidden architecture.
 - Fixtures drifting from model/schema shape.
@@ -53,9 +53,9 @@
 
 ## Structural Maintenance Clues
 
-- Enter structural maintenance when mock data becomes a durable fixture, scenario, product assumption, example contract, or maintained data source.
+- Consider entering structural maintenance when mock data becomes a durable fixture, scenario, product assumption, example contract, or maintained data source.
 
-## Required Completion Report
+## Report Cues
 
 ```text
 Primary mode: mock data change

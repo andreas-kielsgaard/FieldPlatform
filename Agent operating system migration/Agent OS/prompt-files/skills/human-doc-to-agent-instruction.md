@@ -5,7 +5,7 @@ Stratum: 4 reasoning workflow skill.
 
 ## Purpose
 
-Use when human documentation contains guidance agents must follow.
+Use when human documentation contains guidance agents may need as operating guidance.
 
 ## Underlying Tools
 
@@ -16,7 +16,7 @@ authority-resolution, audience-placement, doc-ref-query
 1. Confirm the active task mode, structural-maintenance behavior, and relevant lens.
 2. Gather only the evidence needed for the current decision.
 3. Keep raw output bounded and retain a compact evidence packet.
-4. State what the agent must still decide semantically.
+4. State what the agent still owns semantically.
 
 ## Output
 

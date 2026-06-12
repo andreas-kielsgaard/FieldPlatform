@@ -45,10 +45,10 @@ Each lens should help the agent:
 
 ## Lens Discipline
 
-- Do not apply every lens to every task.
-- Do not use lenses as replacement task modes.
-- Do not use lenses as replacement tools.
-- Do not treat a lens concern as a mandate to edit project memory.
+- Avoid applying every lens to every task.
+- Avoid using lenses as replacement task modes.
+- Avoid using lenses as replacement tools.
+- Avoid treating a lens concern as a mandate to edit project memory.
 - Use cheap-pass rules to keep local work local.
 - Use stop rules when a local edit reveals broader structural risk.
 
@@ -61,7 +61,7 @@ Some decisions become clearer when lenses are combined:
 | Ownership + Reuse | Reuse only when it preserves rightful ownership. |
 | Near-Match + Duplication | Extract only when similarity reflects shared semantics, not just similar shape. |
 | Naming/Ontology + Memory | Record terms only when they become durable, canonical, deprecated, or intentionally provisional. |
-| Boundary + Data/State/Effect | Do not let convenient imports leak data ownership or policy knowledge across layers. |
+| Boundary + Data/State/Effect | Watch for convenient imports leaking data ownership or policy knowledge across layers. |
 | Contract + Blast Radius | If promised behavior changes, find consumers and tests before editing broadly. |
 | Authority + Audience | Agent-critical rules belong in agent-facing authority, not only human-facing explanation. |
 | Authority + Memory | Record source-of-truth changes only in the memory surface that owns them. |
@@ -71,5 +71,5 @@ Some decisions become clearer when lenses are combined:
 
 - Add a lens only when a recurring distinction is not covered by the existing set.
 - Retire or merge a lens if it becomes decorative or duplicates another lens.
-- Keep each lens procedural: evidence, decision outputs, stop rules, cheap pass, and memory implication are required.
+- Keep each lens procedural: evidence, decision outputs, stop rules, cheap pass, and memory implication are expected.
 - Behavior files own compact runtime lens prompts. Full lens files remain reference and maintenance surfaces; add or revise behavior lens prompts only when the behavior file itself is being maintained, and add `migration_agents.md` references only when global routing is explicitly reviewed.

@@ -1,29 +1,29 @@
 # Mode: Refactor
 
-## Required Orientation
+## Orientation Cues
 
 - `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md`
 - `project-control-files/technology-architecture-map.md` when refactor changes placement, ownership, or interface boundaries
 - `prompt-files/known-debt.md`
 - Query generated indexes through the tools below instead of loading whole generated files.
 
-## Required Tools Or Searches
+## Evidence Cues
 
-- Tool: `component-query` for generated component index slices relevant to the target.
-- Tool: `accessor-query` for generated accessor index slices relevant to the target.
-- Tool: `schema-query` for generated schema index slices relevant to the target.
-- Tool: `route-query` for generated routing index slices relevant to the target.
-- Skill: `test-relation-scan` when the changed target needs verification-surface selection.
+- Consider Tool: `component-query` for generated component index slices relevant to the target.
+- Consider Tool: `accessor-query` for generated accessor index slices relevant to the target.
+- Consider Tool: `schema-query` for generated schema index slices relevant to the target.
+- Consider Tool: `route-query` for generated routing index slices relevant to the target.
+- Consider Skill: `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Search all affected imports and consumers.
-- Tool: `dependency-query`.
-- Skill: `boundary-verification`.
-- Skill: `consumer-impact-preview` when public APIs, exported behavior, examples, fixtures, or shared consumers may be affected.
-- Skill: `test-relation-scan` when the refactor changes internal processing behind an existing contract.
-- Use typecheck, lint, and relevant tests where available.
-- Use codemods for broad mechanical changes when safer than manual edits.
+- Consider searching all affected imports and consumers.
+- Consider Tool: `dependency-query`.
+- Consider Skill: `boundary-verification`.
+- Consider Skill: `consumer-impact-preview` when public APIs, exported behavior, examples, fixtures, or shared consumers may be affected.
+- Consider Skill: `test-relation-scan` when the refactor changes internal processing behind an existing contract.
+- Consider using typecheck, lint, and relevant tests where available.
+- Consider using codemods for broad mechanical changes when safer than manual edits.
 
-## Implementation Instructions
+## Implementation Cues
 
 - State the no-behavior-change intent before editing.
 - Establish current behavior through tests, examples, or a manual description.
@@ -31,9 +31,9 @@
 - Preserve public APIs unless the refactor explicitly includes migration.
 - Preserve promised behavior for existing consumers, or explicitly report the intended contract change and migration path.
 - Avoid mixing feature work with refactor unless requested.
-- Update maps if structure or ownership changes.
+- Consider updating maps if structure or ownership changes.
 
-## Cross-Application Impact Checks
+## Cross-Application Impact Cues
 
 - Public APIs and imports.
 - Ownership, structural-maintenance, and technology-architecture changes.
@@ -41,16 +41,16 @@
 - Dependency direction and cycles.
 - Tests and examples that rely on file locations.
 
-## Documentation Updates
+## Documentation Cues
 
-- Use structural maintenance when structure or ownership changes.
-- Update `project-control-files/technology-architecture-map.md` if platform, directory, source/generated, or interface boundaries change.
-- Tool: `build-component-index` if component ownership changes, or report required index refresh if the tool is unavailable.
-- Tool: `build-accessor-index` if data boundaries change, or report required index refresh if the tool is unavailable.
-- Update the deferred logging strategy if a structural convention is established.
-- Update `known-debt.md` if refactor is partial.
+- Consider using structural maintenance when structure or ownership changes.
+- Consider updating `project-control-files/technology-architecture-map.md` if platform, directory, source/generated, or interface boundaries change.
+- Consider Tool: `build-component-index` if component ownership changes, or report index refresh may be needed if the tool is unavailable.
+- Consider Tool: `build-accessor-index` if data boundaries change, or report index refresh may be needed if the tool is unavailable.
+- Consider updating the deferred logging strategy if a structural convention is established.
+- Consider updating `known-debt.md` if refactor is partial.
 
-## Regression Checks
+## Regression Cues
 
 - Accidental behavior changes.
 - Missed imports or consumers.
@@ -60,9 +60,9 @@
 
 ## Structural Maintenance Clues
 
-- Enter structural maintenance when a no-behavior-change refactor still changes placement, ownership, boundaries, reuse, duplication, contracts, or maintenance paths.
+- Consider entering structural maintenance when a no-behavior-change refactor still changes placement, ownership, boundaries, reuse, duplication, contracts, or maintenance paths.
 
-## Required Completion Report
+## Report Cues
 
 ```text
 Primary mode: refactor

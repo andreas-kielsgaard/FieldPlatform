@@ -61,6 +61,10 @@ export function isGeneratedIndexPath(filePath: string): boolean {
   return /^tool-maintained-files\/indexes\/.+\.json$/.test(filePath);
 }
 
+export function isGeneratedToolMaintainedPath(filePath: string): boolean {
+  return /^tool-maintained-files\/(indexes|semantic)\/.+\.json$/.test(filePath);
+}
+
 export function isTestFile(filePath: string): boolean {
   return /(^|\/)(__tests__|tests?|e2e)(\/|$)|\.(test|spec)\.[jt]sx?$/.test(filePath);
 }

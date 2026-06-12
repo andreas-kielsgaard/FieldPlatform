@@ -3,10 +3,10 @@
   "indexId": "symbol-index",
   "stratum": 1,
   "generated": true,
-  "schemaVersion": 1,
-  "generatedAt": "2026-06-12T10:18:51.713Z",
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T15:21:31.598Z",
   "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
   "producer": "build-symbol-index",
   "artifactPath": "tool-maintained-files/indexes/symbol-index.json",
   "sourceInputs": [
@@ -17,7 +17,46 @@
   "knownBlindSpots": [
     "Regex scanning is not a full compiler or AST and may miss dynamic or language-specific symbols."
   ],
-  "recordCount": 509,
+  "recordCount": 724,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-symbol-index",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-symbol-index.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-symbol-index.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 2,
+      "shards": [
+        {
+          "shardId": "records-0001",
+          "startRecord": 0,
+          "endRecordExclusive": 500,
+          "recordCount": 500,
+          "sha256": "0fca9590dc49a2de966f9127835648ec40fb1d527d539c663989e178fb032dc5"
+        },
+        {
+          "shardId": "records-0002",
+          "startRecord": 500,
+          "endRecordExclusive": 724,
+          "recordCount": 224,
+          "sha256": "c6f24dea839d035800944503270b03cb63c07c0358f76ebc12f2eedc4bd2fb3f"
+        }
+      ]
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
   "records": [
     {
       "file": "tool-implementations/_lib/artifacts.ts",
@@ -73,71 +112,71 @@
     },
     {
       "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 41,
+      "line": 56,
       "name": "hasGeneratedHint",
       "kind": "function",
       "role": "export",
       "text": "export function hasGeneratedHint(filePath: string, lines: string[]): boolean {"
-    },
-    {
-      "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 41,
-      "name": "hasGeneratedHint",
-      "kind": "function",
-      "role": "definition",
-      "text": "export function hasGeneratedHint(filePath: string, lines: string[]): boolean {"
-    },
-    {
-      "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 45,
-      "name": "directEditPolicy",
-      "kind": "function",
-      "role": "export",
-      "text": "export function directEditPolicy(filePath: string, lines: string[]): string {"
-    },
-    {
-      "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 45,
-      "name": "directEditPolicy",
-      "kind": "function",
-      "role": "definition",
-      "text": "export function directEditPolicy(filePath: string, lines: string[]): string {"
-    },
-    {
-      "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 55,
-      "name": "possibleProducer",
-      "kind": "function",
-      "role": "export",
-      "text": "export function possibleProducer(filePath: string, lines: string[]): string | null {"
-    },
-    {
-      "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 55,
-      "name": "possibleProducer",
-      "kind": "function",
-      "role": "definition",
-      "text": "export function possibleProducer(filePath: string, lines: string[]): string | null {"
     },
     {
       "file": "tool-implementations/_lib/artifacts.ts",
       "line": 56,
-      "name": "joined",
-      "kind": "const",
+      "name": "hasGeneratedHint",
+      "kind": "function",
       "role": "definition",
-      "text": "const joined = lines.slice(0, 20).join(\"\\n\");"
+      "text": "export function hasGeneratedHint(filePath: string, lines: string[]): boolean {"
     },
     {
       "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 57,
+      "line": 61,
+      "name": "headerLines",
+      "kind": "const",
+      "role": "definition",
+      "text": "const headerLines = lines.slice(0, 12);"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 73,
+      "name": "directEditPolicy",
+      "kind": "function",
+      "role": "export",
+      "text": "export function directEditPolicy(filePath: string, lines: string[]): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 73,
+      "name": "directEditPolicy",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function directEditPolicy(filePath: string, lines: string[]): string {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 83,
+      "name": "possibleProducer",
+      "kind": "function",
+      "role": "export",
+      "text": "export function possibleProducer(filePath: string, lines: string[]): string | null {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 83,
+      "name": "possibleProducer",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function possibleProducer(filePath: string, lines: string[]): string | null {"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 85,
       "name": "match",
       "kind": "const",
       "role": "definition",
-      "text": "const match = joined.match(/producer(?:Tool)?[\"':\\s]+([A-Za-z0-9_-]+)/i);"
+      "text": "const match = lines"
     },
     {
       "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 62,
+      "line": 94,
       "name": "id",
       "kind": "const",
       "role": "definition",
@@ -145,7 +184,15 @@
     },
     {
       "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 68,
+      "line": 98,
+      "name": "id",
+      "kind": "const",
+      "role": "definition",
+      "text": "const id = filePath.match(/tool-maintained-files\\/semantic\\/(.+)\\.json$/)?.[1];"
+    },
+    {
+      "file": "tool-implementations/_lib/artifacts.ts",
+      "line": 104,
       "name": "inferAudience",
       "kind": "function",
       "role": "export",
@@ -153,7 +200,7 @@
     },
     {
       "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 68,
+      "line": 104,
       "name": "inferAudience",
       "kind": "function",
       "role": "definition",
@@ -161,7 +208,7 @@
     },
     {
       "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 78,
+      "line": 114,
       "name": "inferAuthorityRole",
       "kind": "function",
       "role": "export",
@@ -169,7 +216,7 @@
     },
     {
       "file": "tool-implementations/_lib/artifacts.ts",
-      "line": 78,
+      "line": 114,
       "name": "inferAuthorityRole",
       "kind": "function",
       "role": "definition",
@@ -436,6 +483,227 @@
       "text": "export function gitLines(root: string, args: string[]): string[] {"
     },
     {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 1,
+      "name": "ActiveIndexCatalogRow",
+      "kind": "type",
+      "role": "export",
+      "text": "export type ActiveIndexCatalogRow = {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 1,
+      "name": "ActiveIndexCatalogRow",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type ActiveIndexCatalogRow = {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 11,
+      "name": "ACTIVE_INDEX_CATALOG",
+      "kind": "const",
+      "role": "export",
+      "text": "export const ACTIVE_INDEX_CATALOG: ActiveIndexCatalogRow[] = ["
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 11,
+      "name": "ACTIVE_INDEX_CATALOG",
+      "kind": "const",
+      "role": "definition",
+      "text": "export const ACTIVE_INDEX_CATALOG: ActiveIndexCatalogRow[] = ["
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 21,
+      "name": "hints",
+      "kind": "type",
+      "role": "definition",
+      "text": "row(\"schema-shape-index\", \"strong-cue\", \"schema-query\", \"Schema-like declarations, validators, fields, relations, and generated type hints.\"),"
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 29,
+      "name": "activeIndexBuildersInMaintenanceOrder",
+      "kind": "function",
+      "role": "export",
+      "text": "export function activeIndexBuildersInMaintenanceOrder(): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 29,
+      "name": "activeIndexBuildersInMaintenanceOrder",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function activeIndexBuildersInMaintenanceOrder(): string[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 30,
+      "name": "manifestBuilder",
+      "kind": "const",
+      "role": "definition",
+      "text": "const manifestBuilder = \"build-index-manifest\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 36,
+      "name": "row",
+      "kind": "function",
+      "role": "definition",
+      "text": "function row(indexId: string, tier: string, suggestedFirstOperator: string, capability: string): ActiveIndexCatalogRow {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 1,
+      "name": "createHash",
+      "kind": "import",
+      "role": "import",
+      "module": "node:crypto",
+      "text": "import { createHash } from \"node:crypto\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 2,
+      "name": "stableStringify",
+      "kind": "import",
+      "role": "import",
+      "module": "./json.ts",
+      "text": "import { stableStringify } from \"./json.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 3,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "./types.ts",
+      "text": "import type { IndexDefinition, IndexMaintenanceMetadata, IndexShardMetadata } from \"./types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 3,
+      "name": "IndexMaintenanceMetadata",
+      "kind": "import",
+      "role": "import",
+      "module": "./types.ts",
+      "text": "import type { IndexDefinition, IndexMaintenanceMetadata, IndexShardMetadata } from \"./types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 3,
+      "name": "IndexShardMetadata",
+      "kind": "import",
+      "role": "import",
+      "module": "./types.ts",
+      "text": "import type { IndexDefinition, IndexMaintenanceMetadata, IndexShardMetadata } from \"./types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 5,
+      "name": "DEFAULT_RECORDS_PER_SHARD",
+      "kind": "const",
+      "role": "definition",
+      "text": "const DEFAULT_RECORDS_PER_SHARD = 500;"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 7,
+      "name": "buildIndexMaintenanceMetadata",
+      "kind": "function",
+      "role": "export",
+      "text": "export function buildIndexMaintenanceMetadata(definition: IndexDefinition, records: Record<string, unknown>[]): IndexMaintenanceMetadata {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 7,
+      "name": "buildIndexMaintenanceMetadata",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function buildIndexMaintenanceMetadata(definition: IndexDefinition, records: Record<string, unknown>[]): IndexMaintenanceMetadata {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 8,
+      "name": "targetRecordsPerShard",
+      "kind": "const",
+      "role": "definition",
+      "text": "const targetRecordsPerShard = DEFAULT_RECORDS_PER_SHARD;"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 9,
+      "name": "shards",
+      "kind": "const",
+      "role": "definition",
+      "text": "const shards = buildRecordShards(records, targetRecordsPerShard);"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 10,
+      "name": "implementationArea",
+      "kind": "const",
+      "role": "definition",
+      "text": "const implementationArea = definition.artifactPath.startsWith(\"tool-maintained-files/semantic/\")"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 41,
+      "name": "buildRecordShards",
+      "kind": "function",
+      "role": "definition",
+      "text": "function buildRecordShards(records: Record<string, unknown>[], targetRecordsPerShard: number): IndexShardMetadata[] {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 46,
+      "name": "shards",
+      "kind": "const",
+      "role": "definition",
+      "text": "const shards: IndexShardMetadata[] = [];"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 47,
+      "name": "startRecord",
+      "kind": "let",
+      "role": "definition",
+      "text": "for (let startRecord = 0; startRecord < records.length; startRecord += targetRecordsPerShard) {"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 48,
+      "name": "shardRecords",
+      "kind": "const",
+      "role": "definition",
+      "text": "const shardRecords = records.slice(startRecord, startRecord + targetRecordsPerShard);"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 49,
+      "name": "endRecordExclusive",
+      "kind": "const",
+      "role": "definition",
+      "text": "const endRecordExclusive = startRecord + shardRecords.length;"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 50,
+      "name": "shardNumber",
+      "kind": "const",
+      "role": "definition",
+      "text": "const shardNumber = shards.length + 1;"
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "line": 63,
+      "name": "hashJson",
+      "kind": "function",
+      "role": "definition",
+      "text": "function hashJson(value: unknown): string {"
+    },
+    {
       "file": "tool-implementations/_lib/index-runner.ts",
       "line": 1,
       "name": "mkdirSync",
@@ -496,16 +764,16 @@
       "kind": "import",
       "role": "import",
       "module": "./repo-files.ts",
-      "text": "import { collectFiles, isGeneratedIndexPath, isTextFile } from \"./repo-files.ts\";"
+      "text": "import { collectFiles, isGeneratedToolMaintainedPath, isTextFile } from \"./repo-files.ts\";"
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
       "line": 4,
-      "name": "isGeneratedIndexPath",
+      "name": "isGeneratedToolMaintainedPath",
       "kind": "import",
       "role": "import",
       "module": "./repo-files.ts",
-      "text": "import { collectFiles, isGeneratedIndexPath, isTextFile } from \"./repo-files.ts\";"
+      "text": "import { collectFiles, isGeneratedToolMaintainedPath, isTextFile } from \"./repo-files.ts\";"
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
@@ -514,7 +782,7 @@
       "kind": "import",
       "role": "import",
       "module": "./repo-files.ts",
-      "text": "import { collectFiles, isGeneratedIndexPath, isTextFile } from \"./repo-files.ts\";"
+      "text": "import { collectFiles, isGeneratedToolMaintainedPath, isTextFile } from \"./repo-files.ts\";"
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
@@ -528,6 +796,15 @@
     {
       "file": "tool-implementations/_lib/index-runner.ts",
       "line": 6,
+      "name": "buildIndexMaintenanceMetadata",
+      "kind": "import",
+      "role": "import",
+      "module": "./index-metadata.ts",
+      "text": "import { buildIndexMaintenanceMetadata } from \"./index-metadata.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 7,
       "name": "readJsonIfExists",
       "kind": "import",
       "role": "import",
@@ -536,7 +813,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 6,
+      "line": 7,
       "name": "stableStringify",
       "kind": "import",
       "role": "import",
@@ -545,7 +822,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 7,
+      "line": 8,
       "name": "normalizePath",
       "kind": "import",
       "role": "import",
@@ -554,7 +831,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 8,
+      "line": 9,
       "name": "IndexArtifact",
       "kind": "import",
       "role": "import",
@@ -563,7 +840,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 8,
+      "line": 9,
       "name": "IndexBuilderSpec",
       "kind": "import",
       "role": "import",
@@ -572,7 +849,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 8,
+      "line": 9,
       "name": "IndexDefinition",
       "kind": "import",
       "role": "import",
@@ -581,7 +858,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 10,
+      "line": 11,
       "name": "runIndexBuilder",
       "kind": "function",
       "role": "export",
@@ -589,7 +866,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 10,
+      "line": 11,
       "name": "runIndexBuilder",
       "kind": "function",
       "role": "definition",
@@ -597,7 +874,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 11,
+      "line": 12,
       "name": "args",
       "kind": "const",
       "role": "definition",
@@ -605,7 +882,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 12,
+      "line": 13,
       "name": "root",
       "kind": "const",
       "role": "definition",
@@ -613,7 +890,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 13,
+      "line": 14,
       "name": "artifact",
       "kind": "const",
       "role": "definition",
@@ -621,7 +898,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 14,
+      "line": 15,
       "name": "outPath",
       "kind": "const",
       "role": "definition",
@@ -629,7 +906,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 15,
+      "line": 16,
       "name": "checkOnly",
       "kind": "const",
       "role": "definition",
@@ -637,7 +914,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 16,
+      "line": 17,
       "name": "existing",
       "kind": "const",
       "role": "definition",
@@ -645,7 +922,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 17,
+      "line": 18,
       "name": "stale",
       "kind": "const",
       "role": "definition",
@@ -653,7 +930,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 40,
+      "line": 41,
       "name": "buildIndex",
       "kind": "function",
       "role": "definition",
@@ -661,7 +938,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 41,
+      "line": 42,
       "name": "files",
       "kind": "const",
       "role": "definition",
@@ -669,15 +946,15 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 42,
+      "line": 43,
       "name": "contentFiles",
       "kind": "const",
       "role": "definition",
-      "text": "const contentFiles = files.filter((file) => isTextFile(file.path) && !isGeneratedIndexPath(file.path));"
+      "text": "const contentFiles = files.filter((file) => isTextFile(file.path) && !isGeneratedToolMaintainedPath(file.path));"
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 43,
+      "line": 44,
       "name": "records",
       "kind": "const",
       "role": "definition",
@@ -685,11 +962,19 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 44,
+      "line": 45,
       "name": "def",
       "kind": "const",
       "role": "definition",
       "text": "const def: IndexDefinition = spec.definition;"
+    },
+    {
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 46,
+      "name": "maintenance",
+      "kind": "const",
+      "role": "definition",
+      "text": "const maintenance = buildIndexMaintenanceMetadata(def, records);"
     },
     {
       "file": "tool-implementations/_lib/json.ts",
@@ -845,7 +1130,16 @@
       "kind": "import",
       "role": "import",
       "module": "../types.ts",
-      "text": "import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+      "text": "import type { IndexArtifact, IndexMaintenanceMetadata, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 5,
+      "name": "IndexMaintenanceMetadata",
+      "kind": "import",
+      "role": "import",
+      "module": "../types.ts",
+      "text": "import type { IndexArtifact, IndexMaintenanceMetadata, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
@@ -854,7 +1148,7 @@
       "kind": "import",
       "role": "import",
       "module": "../types.ts",
-      "text": "import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+      "text": "import type { IndexArtifact, IndexMaintenanceMetadata, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
@@ -863,7 +1157,7 @@
       "kind": "import",
       "role": "import",
       "module": "../types.ts",
-      "text": "import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+      "text": "import type { IndexArtifact, IndexMaintenanceMetadata, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
@@ -872,7 +1166,7 @@
       "kind": "import",
       "role": "import",
       "module": "../types.ts",
-      "text": "import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+      "text": "import type { IndexArtifact, IndexMaintenanceMetadata, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
@@ -956,7 +1250,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 60,
+      "line": 64,
       "name": "parseOperatorQuery",
       "kind": "function",
       "role": "definition",
@@ -964,7 +1258,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 61,
+      "line": 65,
       "name": "positional",
       "kind": "const",
       "role": "definition",
@@ -972,7 +1266,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 62,
+      "line": 66,
       "name": "handle",
       "kind": "let",
       "role": "definition",
@@ -980,7 +1274,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 72,
+      "line": 76,
       "name": "query",
       "kind": "const",
       "role": "definition",
@@ -988,7 +1282,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 73,
+      "line": 77,
       "name": "secondaryQuery",
       "kind": "const",
       "role": "definition",
@@ -996,7 +1290,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 77,
+      "line": 81,
       "name": "filterRecords",
       "kind": "function",
       "role": "definition",
@@ -1004,7 +1298,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 84,
+      "line": 88,
       "name": "q",
       "kind": "const",
       "role": "definition",
@@ -1012,7 +1306,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 85,
+      "line": 89,
       "name": "second",
       "kind": "const",
       "role": "definition",
@@ -1020,7 +1314,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 97,
+      "line": 101,
       "name": "haystack",
       "kind": "const",
       "role": "definition",
@@ -1028,7 +1322,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 141,
+      "line": 145,
       "name": "finding",
       "kind": "const",
       "role": "definition",
@@ -1036,7 +1330,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 152,
+      "line": 156,
       "name": "toFinding",
       "kind": "function",
       "role": "definition",
@@ -1044,7 +1338,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 153,
+      "line": 157,
       "name": "file",
       "kind": "const",
       "role": "definition",
@@ -1052,7 +1346,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 164,
+      "line": 168,
       "name": "inferRisks",
       "kind": "function",
       "role": "definition",
@@ -1060,7 +1354,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 165,
+      "line": 169,
       "name": "risks",
       "kind": "const",
       "role": "definition",
@@ -1068,7 +1362,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 181,
+      "line": 185,
       "name": "suggestNextChecks",
       "kind": "function",
       "role": "definition",
@@ -1076,7 +1370,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 182,
+      "line": 186,
       "name": "suggestions",
       "kind": "const",
       "role": "definition",
@@ -1084,7 +1378,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 183,
+      "line": 187,
       "name": "indexId",
       "kind": "const",
       "role": "definition",
@@ -1092,7 +1386,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 190,
+      "line": 194,
       "name": "is",
       "kind": "type",
       "role": "definition",
@@ -1100,7 +1394,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 201,
+      "line": 205,
       "name": "loadIndex",
       "kind": "function",
       "role": "definition",
@@ -1108,7 +1402,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 202,
+      "line": 206,
       "name": "artifactPath",
       "kind": "const",
       "role": "definition",
@@ -1116,11 +1410,19 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 203,
+      "line": 207,
       "name": "json",
       "kind": "const",
       "role": "definition",
       "text": "const json = readJsonIfExists(artifactPath) as Partial<IndexArtifact> | null;"
+    },
+    {
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 254,
+      "name": "maintenance",
+      "kind": "const",
+      "role": "definition",
+      "text": "const maintenance: IndexMaintenanceMetadata ="
     },
     {
       "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
@@ -3034,14 +3336,30 @@
     {
       "file": "tool-implementations/_lib/repo-files.ts",
       "line": 64,
-      "name": "isTestFile",
+      "name": "isGeneratedToolMaintainedPath",
       "kind": "function",
       "role": "export",
-      "text": "export function isTestFile(filePath: string): boolean {"
+      "text": "export function isGeneratedToolMaintainedPath(filePath: string): boolean {"
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
       "line": 64,
+      "name": "isGeneratedToolMaintainedPath",
+      "kind": "function",
+      "role": "definition",
+      "text": "export function isGeneratedToolMaintainedPath(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 68,
+      "name": "isTestFile",
+      "kind": "function",
+      "role": "export",
+      "text": "export function isTestFile(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/_lib/repo-files.ts",
+      "line": 68,
       "name": "isTestFile",
       "kind": "function",
       "role": "definition",
@@ -3049,7 +3367,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 68,
+      "line": 72,
       "name": "isStoryFile",
       "kind": "function",
       "role": "export",
@@ -3057,7 +3375,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 68,
+      "line": 72,
       "name": "isStoryFile",
       "kind": "function",
       "role": "definition",
@@ -3065,7 +3383,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 72,
+      "line": 76,
       "name": "containsWord",
       "kind": "function",
       "role": "export",
@@ -3073,7 +3391,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 72,
+      "line": 76,
       "name": "containsWord",
       "kind": "function",
       "role": "definition",
@@ -3081,7 +3399,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 73,
+      "line": 77,
       "name": "pattern",
       "kind": "const",
       "role": "definition",
@@ -3089,7 +3407,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 77,
+      "line": 81,
       "name": "containsRegex",
       "kind": "function",
       "role": "export",
@@ -3097,7 +3415,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 77,
+      "line": 81,
       "name": "containsRegex",
       "kind": "function",
       "role": "definition",
@@ -3105,7 +3423,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 81,
+      "line": 85,
       "name": "safeRead",
       "kind": "function",
       "role": "export",
@@ -3113,7 +3431,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 81,
+      "line": 85,
       "name": "safeRead",
       "kind": "function",
       "role": "definition",
@@ -3121,7 +3439,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "line": 89,
+      "line": 93,
       "name": "escapeRegexLocal",
       "kind": "function",
       "role": "definition",
@@ -3589,14 +3907,46 @@
     {
       "file": "tool-implementations/_lib/types.ts",
       "line": 37,
-      "name": "IndexArtifact",
+      "name": "IndexShardMetadata",
       "kind": "type",
       "role": "export",
-      "text": "export type IndexArtifact = {"
+      "text": "export type IndexShardMetadata = {"
     },
     {
       "file": "tool-implementations/_lib/types.ts",
       "line": 37,
+      "name": "IndexShardMetadata",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type IndexShardMetadata = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 45,
+      "name": "IndexMaintenanceMetadata",
+      "kind": "type",
+      "role": "export",
+      "text": "export type IndexMaintenanceMetadata = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 45,
+      "name": "IndexMaintenanceMetadata",
+      "kind": "type",
+      "role": "definition",
+      "text": "export type IndexMaintenanceMetadata = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 67,
+      "name": "IndexArtifact",
+      "kind": "type",
+      "role": "export",
+      "text": "export type IndexArtifact = {"
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 67,
       "name": "IndexArtifact",
       "kind": "type",
       "role": "definition",
@@ -3604,7 +3954,7 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 56,
+      "line": 87,
       "name": "QueryOperatorSpec",
       "kind": "type",
       "role": "export",
@@ -3612,7 +3962,7 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 56,
+      "line": 87,
       "name": "QueryOperatorSpec",
       "kind": "type",
       "role": "definition",
@@ -3620,7 +3970,7 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 61,
+      "line": 92,
       "name": "LoadedIndex",
       "kind": "type",
       "role": "export",
@@ -3628,11 +3978,443 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 61,
+      "line": 92,
       "name": "LoadedIndex",
       "kind": "type",
       "role": "definition",
       "text": "export type LoadedIndex = {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 1,
+      "name": "existsSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync, readFileSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 1,
+      "name": "readFileSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync, readFileSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 2,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 3,
+      "name": "parseArgs",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/cli.ts",
+      "text": "import { parseArgs, resolveRoot } from \"../_lib/cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 3,
+      "name": "resolveRoot",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/cli.ts",
+      "text": "import { parseArgs, resolveRoot } from \"../_lib/cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 4,
+      "name": "ACTIVE_INDEX_CATALOG",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-catalog.ts",
+      "text": "import { ACTIVE_INDEX_CATALOG } from \"../_lib/index-catalog.ts\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 5,
+      "name": "readJsonIfExists",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/json.ts",
+      "text": "import { readJsonIfExists } from \"../_lib/json.ts\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 6,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/text-utils.ts",
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 8,
+      "name": "ContractFinding",
+      "kind": "type",
+      "role": "definition",
+      "text": "type ContractFinding = {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 14,
+      "name": "args",
+      "kind": "const",
+      "role": "definition",
+      "text": "const args = parseArgs(process.argv.slice(2));"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 15,
+      "name": "root",
+      "kind": "const",
+      "role": "definition",
+      "text": "const root = resolveRoot(args);"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 16,
+      "name": "findings",
+      "kind": "const",
+      "role": "definition",
+      "text": "const findings: ContractFinding[] = [];"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 22,
+      "name": "errors",
+      "kind": "const",
+      "role": "definition",
+      "text": "const errors = findings.filter((finding) => finding.severity === \"error\");"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 23,
+      "name": "result",
+      "kind": "const",
+      "role": "definition",
+      "text": "const result = {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 46,
+      "name": "finding",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const finding of findings) {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 55,
+      "name": "checkActiveIndexCatalog",
+      "kind": "function",
+      "role": "definition",
+      "text": "function checkActiveIndexCatalog(): void {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 56,
+      "name": "indexMapPath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const indexMapPath = \"prompt-files/tools/index-map.md\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 57,
+      "name": "indexMap",
+      "kind": "const",
+      "role": "definition",
+      "text": "const indexMap = readText(indexMapPath);"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 58,
+      "name": "indexMapIds",
+      "kind": "const",
+      "role": "definition",
+      "text": "const indexMapIds = parseBacktickedIds(indexMap);"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 59,
+      "name": "manifest",
+      "kind": "const",
+      "role": "definition",
+      "text": "const manifest = readJsonIfExists(path.join(root, \"tool-maintained-files\", \"indexes\", \"index-manifest.json\")) as"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 62,
+      "name": "manifestRecords",
+      "kind": "const",
+      "role": "definition",
+      "text": "const manifestRecords = Array.isArray(manifest?.records) ? (manifest.records as Record<string, unknown>[]) : [];"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 70,
+      "name": "entry",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const entry of ACTIVE_INDEX_CATALOG) {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 78,
+      "name": "manifestRow",
+      "kind": "const",
+      "role": "definition",
+      "text": "const manifestRow = manifestRecords.find((record) => record.indexId === entry.indexId);"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 98,
+      "name": "checkToolMap",
+      "kind": "function",
+      "role": "definition",
+      "text": "function checkToolMap(): void {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 99,
+      "name": "toolMap",
+      "kind": "const",
+      "role": "definition",
+      "text": "const toolMap = readText(\"prompt-files/tools/tool-map.md\");"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 100,
+      "name": "toolIds",
+      "kind": "const",
+      "role": "definition",
+      "text": "const toolIds = Array.from(parseBacktickedIds(toolMap)).filter((id) => id.endsWith(\"-query\") || id === \"retrieve-slice\");"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 101,
+      "name": "toolId",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const toolId of toolIds) {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 107,
+      "name": "checkSemanticLayer",
+      "kind": "function",
+      "role": "definition",
+      "text": "function checkSemanticLayer(): void {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 108,
+      "name": "semanticMapPath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const semanticMapPath = \"prompt-files/tools/semantic-map.md\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 109,
+      "name": "semanticMap",
+      "kind": "const",
+      "role": "definition",
+      "text": "const semanticMap = readText(semanticMapPath);"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 110,
+      "name": "semanticIds",
+      "kind": "const",
+      "role": "definition",
+      "text": "const semanticIds = parseBacktickedIds(semanticMap);"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 111,
+      "name": "requiredIds",
+      "kind": "const",
+      "role": "definition",
+      "text": "const requiredIds = [\"semantic-chunk-index\", \"build-semantic-chunk-index\", \"semantic-candidate-query\"];"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 112,
+      "name": "id",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const id of requiredIds) {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 125,
+      "name": "reservedId",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const reservedId of [\"semantic-embedding-index\", \"semantic-vector-store-manifest\"]) {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 131,
+      "name": "embeddingArtifact",
+      "kind": "const",
+      "role": "definition",
+      "text": "const embeddingArtifact = \"tool-maintained-files/semantic/semantic-embedding-index.json\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 132,
+      "name": "vectorArtifact",
+      "kind": "const",
+      "role": "definition",
+      "text": "const vectorArtifact = \"tool-maintained-files/semantic/semantic-vector-store-manifest.json\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 141,
+      "name": "validateSemanticChunkArtifact",
+      "kind": "function",
+      "role": "definition",
+      "text": "function validateSemanticChunkArtifact(): void {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 142,
+      "name": "relativePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const relativePath = \"tool-maintained-files/semantic/semantic-chunk-index.json\";"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 143,
+      "name": "artifact",
+      "kind": "const",
+      "role": "definition",
+      "text": "const artifact = readJsonIfExists(path.join(root, relativePath)) as Record<string, unknown> | null;"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 149,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records = Array.isArray(artifact.records) ? (artifact.records as Record<string, unknown>[]) : [];"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 150,
+      "name": "maintenance",
+      "kind": "const",
+      "role": "definition",
+      "text": "const maintenance = artifact.maintenance && typeof artifact.maintenance === \"object\" ? (artifact.maintenance as Record<string, unknown>) : null;"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 151,
+      "name": "semanticSupport",
+      "kind": "const",
+      "role": "definition",
+      "text": "const semanticSupport ="
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 179,
+      "name": "malformedRecordIndex",
+      "kind": "const",
+      "role": "definition",
+      "text": "const malformedRecordIndex = records.findIndex((record) => !isValidSemanticChunkRecord(record));"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 185,
+      "name": "isValidSemanticChunkRecord",
+      "kind": "function",
+      "role": "definition",
+      "text": "function isValidSemanticChunkRecord(record: Record<string, unknown>): boolean {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 202,
+      "name": "readText",
+      "kind": "function",
+      "role": "definition",
+      "text": "function readText(relativePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 203,
+      "name": "absolutePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const absolutePath = path.join(root, relativePath);"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 211,
+      "name": "expectFile",
+      "kind": "function",
+      "role": "definition",
+      "text": "function expectFile(relativePath: string, label: string): void {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 217,
+      "name": "existsRelative",
+      "kind": "function",
+      "role": "definition",
+      "text": "function existsRelative(relativePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 221,
+      "name": "parseBacktickedIds",
+      "kind": "function",
+      "role": "definition",
+      "text": "function parseBacktickedIds(markdown: string): Set<string> {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 222,
+      "name": "ids",
+      "kind": "const",
+      "role": "definition",
+      "text": "const ids = new Set<string>();"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 223,
+      "name": "line",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const line of markdown.split(/\\r?\\n/)) {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 227,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of line.matchAll(/`([^`]+)`/g)) {"
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 234,
+      "name": "add",
+      "kind": "function",
+      "role": "definition",
+      "text": "function add(severity: \"error\" | \"warning\", surface: string, message: string): void {"
     },
     {
       "file": "tool-implementations/indexes/build-accessor-index.ts",
@@ -3668,6 +4450,206 @@
       "kind": "const",
       "role": "definition",
       "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 1,
+      "name": "execFileSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:child_process",
+      "text": "import { execFileSync } from \"node:child_process\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 2,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 3,
+      "name": "fileURLToPath",
+      "kind": "import",
+      "role": "import",
+      "module": "node:url",
+      "text": "import { fileURLToPath } from \"node:url\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 4,
+      "name": "emit",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot } from \"../_lib/cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 4,
+      "name": "parseArgs",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot } from \"../_lib/cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 4,
+      "name": "resolveRoot",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot } from \"../_lib/cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 5,
+      "name": "activeIndexBuildersInMaintenanceOrder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-catalog.ts",
+      "text": "import { activeIndexBuildersInMaintenanceOrder } from \"../_lib/index-catalog.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 6,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/text-utils.ts",
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 8,
+      "name": "args",
+      "kind": "const",
+      "role": "definition",
+      "text": "const args = parseArgs(process.argv.slice(2));"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 9,
+      "name": "root",
+      "kind": "const",
+      "role": "definition",
+      "text": "const root = resolveRoot(args);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 10,
+      "name": "checkOnly",
+      "kind": "const",
+      "role": "definition",
+      "text": "const checkOnly = Boolean(args.flags.check);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 11,
+      "name": "localBuilderDir",
+      "kind": "const",
+      "role": "definition",
+      "text": "const localBuilderDir = path.dirname(fileURLToPath(import.meta.url));"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 12,
+      "name": "builders",
+      "kind": "const",
+      "role": "definition",
+      "text": "const builders = activeIndexBuildersInMaintenanceOrder().map((builder) => `${builder}.ts`);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 14,
+      "name": "results",
+      "kind": "const",
+      "role": "definition",
+      "text": "const results = builders.map((builder) => runBuilder(builder));"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 15,
+      "name": "stale",
+      "kind": "const",
+      "role": "definition",
+      "text": "const stale = results.some((result) => result.stale === true);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 16,
+      "name": "failed",
+      "kind": "const",
+      "role": "definition",
+      "text": "const failed = results.some((result) => result.exitCode !== 0);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 38,
+      "name": "runBuilder",
+      "kind": "function",
+      "role": "definition",
+      "text": "function runBuilder(builder: string): Record<string, unknown> {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 39,
+      "name": "scriptPath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const scriptPath = path.join(localBuilderDir, builder);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 40,
+      "name": "builderArgs",
+      "kind": "const",
+      "role": "definition",
+      "text": "const builderArgs = [\"--yes\", \"tsx\", scriptPath, \"--root\", root, \"--json\"];"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 44,
+      "name": "command",
+      "kind": "const",
+      "role": "definition",
+      "text": "const command = process.platform === \"win32\" ? \"cmd.exe\" : \"npx\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 45,
+      "name": "commandArgs",
+      "kind": "const",
+      "role": "definition",
+      "text": "const commandArgs = process.platform === \"win32\" ? [\"/d\", \"/s\", \"/c\", \"npx\", ...builderArgs] : builderArgs;"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 48,
+      "name": "raw",
+      "kind": "const",
+      "role": "definition",
+      "text": "const raw = execFileSync(command, commandArgs, { cwd: root, encoding: \"utf8\", stdio: [\"ignore\", \"pipe\", \"pipe\"] });"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 49,
+      "name": "parsed",
+      "kind": "const",
+      "role": "definition",
+      "text": "const parsed = JSON.parse(raw) as Record<string, unknown>;"
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 56,
+      "name": "failure",
+      "kind": "const",
+      "role": "definition",
+      "text": "const failure = error as { status?: number; stdout?: string; stderr?: string; message?: string };"
     },
     {
       "file": "tool-implementations/indexes/build-artifact-metadata-index.ts",
@@ -3878,6 +4860,256 @@
       "kind": "const",
       "role": "definition",
       "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 1,
+      "name": "createHash",
+      "kind": "import",
+      "role": "import",
+      "module": "node:crypto",
+      "text": "import { createHash } from \"node:crypto\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 2,
+      "name": "existsSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync, readFileSync, statSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 2,
+      "name": "readFileSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync, readFileSync, statSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 2,
+      "name": "statSync",
+      "kind": "import",
+      "role": "import",
+      "module": "node:fs",
+      "text": "import { existsSync, readFileSync, statSync } from \"node:fs\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 3,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 4,
+      "name": "gitSha",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/git.ts",
+      "text": "import { gitSha } from \"../_lib/git.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 5,
+      "name": "ACTIVE_INDEX_CATALOG",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-catalog.ts",
+      "text": "import { ACTIVE_INDEX_CATALOG } from \"../_lib/index-catalog.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 6,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 7,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 8,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/text-utils.ts",
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 10,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 24,
+      "name": "buildManifestRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "function buildManifestRecords(root: string): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 25,
+      "name": "currentRevision",
+      "kind": "const",
+      "role": "definition",
+      "text": "const currentRevision = gitSha(root);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 63,
+      "name": "artifactPath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const artifactPath = String(entry.artifactPath);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 64,
+      "name": "absolutePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const absolutePath = path.resolve(root, artifactPath);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 65,
+      "name": "exists",
+      "kind": "const",
+      "role": "definition",
+      "text": "const exists = existsSync(absolutePath);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 66,
+      "name": "artifact",
+      "kind": "const",
+      "role": "definition",
+      "text": "const artifact = exists ? readArtifact(absolutePath) : null;"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 67,
+      "name": "freshnessWarnings",
+      "kind": "const",
+      "role": "definition",
+      "text": "const freshnessWarnings = freshnessWarningsFor(artifact, currentRevision, exists);"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 68,
+      "name": "maintenance",
+      "kind": "const",
+      "role": "definition",
+      "text": "const maintenance = artifact && typeof artifact.maintenance === \"object\" ? (artifact.maintenance as Record<string, unknown>) : null;"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 98,
+      "name": "readArtifact",
+      "kind": "function",
+      "role": "definition",
+      "text": "function readArtifact(filePath: string): Record<string, unknown> | null {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 100,
+      "name": "parsed",
+      "kind": "const",
+      "role": "definition",
+      "text": "const parsed = JSON.parse(readFileSync(filePath, \"utf8\"));"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 107,
+      "name": "sha256",
+      "kind": "function",
+      "role": "definition",
+      "text": "function sha256(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 111,
+      "name": "freshnessWarningsFor",
+      "kind": "function",
+      "role": "definition",
+      "text": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 112,
+      "name": "warnings",
+      "kind": "const",
+      "role": "definition",
+      "text": "const warnings: string[] = [];"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 136,
+      "name": "shardingSummary",
+      "kind": "function",
+      "role": "definition",
+      "text": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 137,
+      "name": "sharding",
+      "kind": "const",
+      "role": "definition",
+      "text": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 138,
+      "name": "shards",
+      "kind": "const",
+      "role": "definition",
+      "text": "const shards = Array.isArray(sharding?.shards)"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 140,
+      "name": "entry",
+      "kind": "const",
+      "role": "definition",
+      "text": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 159,
+      "name": "semanticSupportSummary",
+      "kind": "function",
+      "role": "definition",
+      "text": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 160,
+      "name": "semanticSupport",
+      "kind": "const",
+      "role": "definition",
+      "text": "const semanticSupport ="
     },
     {
       "file": "tool-implementations/indexes/build-literal-index.ts",
@@ -4250,6 +5482,360 @@
       "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
     },
     {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 1,
+      "name": "path",
+      "kind": "import",
+      "role": "import",
+      "module": "node:path",
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 2,
+      "name": "emit",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../_lib/cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 2,
+      "name": "parseArgs",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../_lib/cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 2,
+      "name": "resolveRoot",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../_lib/cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 2,
+      "name": "toNumber",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/cli.ts",
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../_lib/cli.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 3,
+      "name": "gitLines",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/git.ts",
+      "text": "import { gitLines, gitSha } from \"../_lib/git.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 3,
+      "name": "gitSha",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/git.ts",
+      "text": "import { gitLines, gitSha } from \"../_lib/git.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 4,
+      "name": "readJsonIfExists",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/json.ts",
+      "text": "import { readJsonIfExists } from \"../_lib/json.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 5,
+      "name": "normalizePath",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/text-utils.ts",
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 6,
+      "name": "IndexArtifact",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { IndexArtifact } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 8,
+      "name": "args",
+      "kind": "const",
+      "role": "definition",
+      "text": "const args = parseArgs(process.argv.slice(2));"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 9,
+      "name": "root",
+      "kind": "const",
+      "role": "definition",
+      "text": "const root = resolveRoot(args);"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 10,
+      "name": "limit",
+      "kind": "const",
+      "role": "definition",
+      "text": "const limit = toNumber(args.flags.limit, 20);"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 11,
+      "name": "query",
+      "kind": "const",
+      "role": "definition",
+      "text": "const query = String(args.flags.query || args.positional.join(\" \")).trim();"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 12,
+      "name": "artifactPath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const artifactPath = path.resolve(root, \"tool-maintained-files\", \"semantic\", \"semantic-chunk-index.json\");"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 13,
+      "name": "artifact",
+      "kind": "const",
+      "role": "definition",
+      "text": "const artifact = readJsonIfExists(artifactPath) as IndexArtifact | null;"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 14,
+      "name": "missing",
+      "kind": "const",
+      "role": "definition",
+      "text": "const missing = !artifact || !Array.isArray(artifact.records);"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 15,
+      "name": "currentSourceRevision",
+      "kind": "const",
+      "role": "definition",
+      "text": "const currentSourceRevision = gitSha(root);"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 16,
+      "name": "workingTreeChanges",
+      "kind": "const",
+      "role": "definition",
+      "text": "const workingTreeChanges = semanticInputChanges(root);"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 17,
+      "name": "artifactIssues",
+      "kind": "const",
+      "role": "definition",
+      "text": "const artifactIssues = semanticArtifactIssues(artifact, missing);"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 18,
+      "name": "freshnessWarnings",
+      "kind": "const",
+      "role": "definition",
+      "text": "const freshnessWarnings = semanticFreshnessWarnings(missing, workingTreeChanges);"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 19,
+      "name": "queryTerms",
+      "kind": "const",
+      "role": "definition",
+      "text": "const queryTerms = normalizeQuery(query);"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 20,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records = missing ? [] : artifact.records;"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 21,
+      "name": "findings",
+      "kind": "const",
+      "role": "definition",
+      "text": "const findings = records"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 88,
+      "name": "normalizeQuery",
+      "kind": "function",
+      "role": "definition",
+      "text": "function normalizeQuery(value: string): string[] {"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 92,
+      "name": "scoreRecord",
+      "kind": "function",
+      "role": "definition",
+      "text": "function scoreRecord(record: Record<string, unknown>, terms: string[]): { record: Record<string, unknown>; score: number; matchedTerms: string[] } {"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 97,
+      "name": "haystack",
+      "kind": "const",
+      "role": "definition",
+      "text": "const haystack = ["
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 106,
+      "name": "matchedTerms",
+      "kind": "const",
+      "role": "definition",
+      "text": "const matchedTerms = terms.filter((term) => haystack.includes(term));"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 107,
+      "name": "fileBoost",
+      "kind": "const",
+      "role": "definition",
+      "text": "const fileBoost = matchedTerms.some((term) => String(record.file || \"\").toLowerCase().includes(term)) ? 3 : 0;"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 108,
+      "name": "termBoost",
+      "kind": "const",
+      "role": "definition",
+      "text": "const termBoost = Array.isArray(record.terms) ? matchedTerms.filter((term) => record.terms.includes(term)).length : 0;"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 116,
+      "name": "semanticInputChanges",
+      "kind": "function",
+      "role": "definition",
+      "text": "function semanticInputChanges(rootPath: string): string[] {"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 118,
+      "name": "filePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const filePath = line.slice(3).replace(/\\\\/g, \"/\");"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 119,
+      "name": "agentOsRelativePath",
+      "kind": "const",
+      "role": "definition",
+      "text": "const agentOsRelativePath = filePath.includes(\"Agent operating system migration/Agent OS/\")"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 126,
+      "name": "isSemanticInputPath",
+      "kind": "function",
+      "role": "definition",
+      "text": "function isSemanticInputPath(filePath: string): boolean {"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 135,
+      "name": "semanticArtifactIssues",
+      "kind": "function",
+      "role": "definition",
+      "text": "function semanticArtifactIssues(artifactValue: IndexArtifact | null, missingArtifact: boolean): string[] {"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 140,
+      "name": "issues",
+      "kind": "const",
+      "role": "definition",
+      "text": "const issues: string[] = [];"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 141,
+      "name": "recordsValue",
+      "kind": "const",
+      "role": "definition",
+      "text": "const recordsValue = Array.isArray(artifactValue.records) ? artifactValue.records : [];"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 166,
+      "name": "malformedRecord",
+      "kind": "const",
+      "role": "definition",
+      "text": "const malformedRecord = recordsValue.find((record) => !isValidSemanticRecord(record));"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 173,
+      "name": "isValidSemanticRecord",
+      "kind": "function",
+      "role": "definition",
+      "text": "function isValidSemanticRecord(record: Record<string, unknown>): boolean {"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 187,
+      "name": "semanticFreshnessWarnings",
+      "kind": "function",
+      "role": "definition",
+      "text": "function semanticFreshnessWarnings(missingArtifact: boolean, inputChanges: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 196,
+      "name": "inferRisks",
+      "kind": "function",
+      "role": "definition",
+      "text": "function inferRisks("
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 203,
+      "name": "risks",
+      "kind": "const",
+      "role": "definition",
+      "text": "const risks: string[] = [];"
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "line": 219,
+      "name": "suggestNextChecks",
+      "kind": "function",
+      "role": "definition",
+      "text": "function suggestNextChecks(findings: Record<string, unknown>[], missing: boolean, contractIssues: string[], freshnessIssues: string[]): string[] {"
+    },
+    {
       "file": "tool-implementations/operators/symbol-query.ts",
       "line": 1,
       "name": "runQueryOperator",
@@ -4275,6 +5861,227 @@
       "role": "import",
       "module": "../_lib/operators/query-runner.ts",
       "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 1,
+      "name": "createHash",
+      "kind": "import",
+      "role": "import",
+      "module": "node:crypto",
+      "text": "import { createHash } from \"node:crypto\";"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 2,
+      "name": "runIndexBuilder",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/index-runner.ts",
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 3,
+      "name": "COMMON_WORDS",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/source-extractors.ts",
+      "text": "import { COMMON_WORDS } from \"../_lib/source-extractors.ts\";"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 4,
+      "name": "FileRecord",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { FileRecord, IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 4,
+      "name": "IndexDefinition",
+      "kind": "import",
+      "role": "import",
+      "module": "../_lib/types.ts",
+      "text": "import type { FileRecord, IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 6,
+      "name": "CHUNK_LINE_COUNT",
+      "kind": "const",
+      "role": "definition",
+      "text": "const CHUNK_LINE_COUNT = 80;"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 8,
+      "name": "definition",
+      "kind": "const",
+      "role": "definition",
+      "text": "const definition: IndexDefinition = {"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 23,
+      "name": "buildSemanticChunkRecords",
+      "kind": "function",
+      "role": "definition",
+      "text": "function buildSemanticChunkRecords(files: FileRecord[]): Record<string, unknown>[] {"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 24,
+      "name": "records",
+      "kind": "const",
+      "role": "definition",
+      "text": "const records: Record<string, unknown>[] = [];"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 26,
+      "name": "file",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const file of files) {"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 27,
+      "name": "nonEmptyLines",
+      "kind": "const",
+      "role": "definition",
+      "text": "const nonEmptyLines = file.lines.filter((line) => line.trim().length > 0);"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 32,
+      "name": "start",
+      "kind": "let",
+      "role": "definition",
+      "text": "for (let start = 0; start < file.lines.length; start += CHUNK_LINE_COUNT) {"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 33,
+      "name": "chunkLines",
+      "kind": "const",
+      "role": "definition",
+      "text": "const chunkLines = file.lines.slice(start, start + CHUNK_LINE_COUNT);"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 34,
+      "name": "text",
+      "kind": "const",
+      "role": "definition",
+      "text": "const text = trimTrailingBlankLines(chunkLines).join(\"\\n\");"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 39,
+      "name": "startLine",
+      "kind": "const",
+      "role": "definition",
+      "text": "const startLine = start + 1;"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 40,
+      "name": "endLine",
+      "kind": "const",
+      "role": "definition",
+      "text": "const endLine = start + chunkLines.length;"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 41,
+      "name": "chunkId",
+      "kind": "const",
+      "role": "definition",
+      "text": "const chunkId = `${file.path}#L${startLine}-L${endLine}`;"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 63,
+      "name": "trimTrailingBlankLines",
+      "kind": "function",
+      "role": "definition",
+      "text": "function trimTrailingBlankLines(lines: string[]): string[] {"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 64,
+      "name": "result",
+      "kind": "const",
+      "role": "definition",
+      "text": "const result = [...lines];"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 71,
+      "name": "classifySurface",
+      "kind": "function",
+      "role": "definition",
+      "text": "function classifySurface(filePath: string): string {"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 90,
+      "name": "extractTerms",
+      "kind": "function",
+      "role": "definition",
+      "text": "function extractTerms(text: string): string[] {"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 91,
+      "name": "seen",
+      "kind": "const",
+      "role": "definition",
+      "text": "const seen = new Set<string>();"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 92,
+      "name": "terms",
+      "kind": "const",
+      "role": "definition",
+      "text": "const terms: string[] = [];"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 93,
+      "name": "match",
+      "kind": "const",
+      "role": "definition",
+      "text": "for (const match of text.matchAll(/[A-Za-z][A-Za-z0-9_-]{2,}/g)) {"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 94,
+      "name": "term",
+      "kind": "const",
+      "role": "definition",
+      "text": "const term = match[0].toLowerCase();"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 104,
+      "name": "excerptFor",
+      "kind": "function",
+      "role": "definition",
+      "text": "function excerptFor(text: string): string {"
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "line": 114,
+      "name": "sha256",
+      "kind": "function",
+      "role": "definition",
+      "text": "function sha256(value: string): string {"
     }
   ]
 }

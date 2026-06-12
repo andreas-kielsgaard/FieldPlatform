@@ -56,4 +56,4 @@ The change touches one local Maintained Element, has no exports or shared consum
 
 ## Memory Implication
 
-Update memory when blast radius reveals durable consumers, new affected surfaces, architecture-shaping impact, stale maps, verification gaps, or explicit uncertainty that future work must remember.
+Update memory when blast radius reveals durable consumers, new affected surfaces, architecture-shaping impact, stale maps, verification gaps, or explicit uncertainty that future work should remember.

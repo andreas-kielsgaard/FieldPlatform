@@ -1,48 +1,48 @@
 # Mode: State-Management Change
 
-## Required Orientation
+## Orientation Cues
 
 - Query generated indexes through the tools below instead of loading whole generated files.
 
-## Required Tools Or Searches
+## Evidence Cues
 
-- Skill: `state-impact-scan` for generated state-management index slices relevant to the target.
-- Tool: `route-query` for generated routing index slices relevant to the target.
-- Tool: `accessor-query` for generated accessor index slices relevant to the target.
-- Tool: `component-query` for generated component index slices relevant to the target.
-- Skill: `test-relation-scan` when the changed target needs verification-surface selection.
+- Consider Skill: `state-impact-scan` for generated state-management index slices relevant to the target.
+- Consider Tool: `route-query` for generated routing index slices relevant to the target.
+- Consider Tool: `accessor-query` for generated accessor index slices relevant to the target.
+- Consider Tool: `component-query` for generated component index slices relevant to the target.
+- Consider Skill: `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Skill: `state-impact-scan`.
-- Search duplicated derived state and mirrored server data.
-- Run affected interaction tests if available.
-- Use route/search-param checks if URL state changes.
+- Consider Skill: `state-impact-scan`.
+- Consider searching duplicated derived state and mirrored server data.
+- Consider running affected interaction tests if available.
+- Consider using route/search-param checks if URL state changes.
 
-## Implementation Instructions
+## Implementation Cues
 
 - Choose the narrowest state scope that preserves correctness.
 - Prefer derived values over duplicated state.
 - Avoid contradictory state flags.
-- Use URL state when navigation, history, or shareability matters.
-- Use server/data state for fetched or persisted data.
-- Use shared client state only when multiple distant surfaces genuinely coordinate.
-- Do not introduce global state for convenience.
+- Consider using URL state when navigation, history, or shareability matters.
+- Consider using server/data state for fetched or persisted data.
+- Consider using shared client state only when multiple distant surfaces genuinely coordinate.
+- Avoid introducing global state for convenience.
 
-## Cross-Application Impact Checks
+## Cross-Application Impact Cues
 
 - Does state belong locally, in URL, at the data boundary, or in shared client state?
 - Are derived values duplicated?
 - Are server/data values copied into client state without reason?
 - Do route semantics, caching, or accessors need updates?
 
-## Documentation Updates
+## Documentation Cues
 
-- Tool: `build-symbol-index`, or report required index refresh if the tool is unavailable.
-- Tool: `build-route-index` if URL state changes, or report required index refresh if the tool is unavailable.
-- Tool: `build-accessor-index` if server state, cache, or invalidation changes, or report required index refresh if the tool is unavailable.
-- Skill: `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
-- Update `known-debt.md` if state duplication remains temporarily.
+- Consider Tool: `build-symbol-index`, or report index refresh may be needed if the tool is unavailable.
+- Consider Tool: `build-route-index` if URL state changes, or report index refresh may be needed if the tool is unavailable.
+- Consider Tool: `build-accessor-index` if server state, cache, or invalidation changes, or report index refresh may be needed if the tool is unavailable.
+- Consider Skill: `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
+- Consider updating `known-debt.md` if state duplication remains temporarily.
 
-## Regression Checks
+## Regression Cues
 
 - Duplicate state.
 - Contradictory flags.
@@ -53,9 +53,9 @@
 
 ## Structural Maintenance Clues
 
-- Enter structural maintenance when state ownership, URL/cache/shared-state boundaries, lifecycle rules, duplicated state, or maintenance path is being decided.
+- Consider entering structural maintenance when state ownership, URL/cache/shared-state boundaries, lifecycle rules, duplicated state, or maintenance path is being decided.
 
-## Required Completion Report
+## Report Cues
 
 ```text
 Primary mode: state-management change

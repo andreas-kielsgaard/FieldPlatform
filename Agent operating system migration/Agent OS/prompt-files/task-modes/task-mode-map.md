@@ -1,8 +1,8 @@
 # Task Mode Map
 
-This file tells agents how to choose task modes before meaningful work.
+This file clues agents on how to choose task modes before meaningful work.
 
-`AGENTS.md` acts as the global router. `task-mode-usage.instructions.md` explains how to consume and execute the task-mode layer. This map focuses on selecting primary and secondary modes.
+`AGENTS.md` acts as the global router. `task-mode-usage.instructions.md` explains how to consume the task-mode layer. This map focuses on selecting primary and secondary modes as orientation cues.
 
 ## Selection Process
 
@@ -10,8 +10,8 @@ This file tells agents how to choose task modes before meaningful work.
 2. Choose the primary mode from the main source of entropy.
 3. Check the escalation triggers below.
 4. Add secondary modes for every triggered cross-surface concern.
-5. Read each selected mode file before editing.
-6. Use the selected mode files to decide required orientation, searches, updates, checks, and report fields.
+5. Read each selected mode file before meaningful edits.
+6. Use the selected mode files to decide likely orientation, evidence, updates, checks, and report fields.
 
 ## Escalation Triggers
 
@@ -36,7 +36,7 @@ Escalate beyond the local file when a change touches any of these:
 | Tool contracts, generated indexes, derived artifacts, or artifact maintenance paths | `maintenance-and-governance/documentation-or-context-update.instructions.md` |
 | Handoff, commit preparation, or final self-review | `maintenance-and-governance/review-before-commit.instructions.md` |
 
-When the task requires a decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority of a durable maintained element, enter `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md` after task-mode selection. Structural maintenance does not replace the selected task modes.
+When the task raises a concrete decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority of a durable maintained element, use `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md` after task-mode selection. Structural maintenance complements the selected task modes.
 
 ## Common Mode Combinations
 
@@ -71,8 +71,8 @@ When the task requires a decision about placement, ownership, boundary, lifecycl
 | Add a reusable card from repeated page markup. | `ui-facing/extract-reusable-pattern.instructions.md` | `ui-facing/new-component.instructions.md`, `ui-facing/visual-or-design-system-change.instructions.md`, `maintenance-and-governance/refactor.instructions.md`. |
 | Move fetched data into a shared cache. | `domain-and-data/api-or-accessor-change.instructions.md` | `domain-and-data/state-management-change.instructions.md`. |
 
-## Update Rules
+## Maintenance Cues
 
-- Update this map when a mode is added, renamed, split, merged, or retired.
-- Update when repeated agent mistakes reveal a missing escalation trigger.
-- Update when a tool or check becomes available for a standing instruction.
+- Consider updating this map when a mode is added, renamed, split, merged, or retired.
+- Consider an update when repeated agent mistakes reveal a missing escalation trigger.
+- Consider an update when a tool or check becomes available for a standing instruction, subject to the Agent OS self-update gate.

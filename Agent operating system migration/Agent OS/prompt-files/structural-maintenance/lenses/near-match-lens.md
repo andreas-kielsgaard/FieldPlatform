@@ -27,7 +27,7 @@ Almost the same is the highest-risk similarity.
 - Similar pattern search.
 - Side-by-side names, responsibilities, dependencies, and consumers.
 - UI shape versus domain meaning.
-- Variants, props, options, or parameters that would be required to share one owner.
+- Variants, props, options, or parameters that would be needed to share one owner.
 - Lifecycle and stability of both elements.
 
 ## Decision Outputs

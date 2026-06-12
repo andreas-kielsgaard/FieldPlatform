@@ -16,7 +16,7 @@ Use this file to activate Stratum 3 and 4 skills without making them mandatory c
 ## Traps
 
 - Tool temptation: skill files may mention tools, but tools should be used only when they reduce recall, search, consistency, slicing, or verification cost.
-- Semantic delegation: a skill can guide reasoning, but it must not pretend deterministic evidence decides semantic meaning.
+- Semantic delegation: a skill can guide reasoning, but it should not pretend deterministic evidence decides semantic meaning.
 - Context explosion: keep the retained skill output compact.
 - Timing: skip a skill when the active mode/behavior/lens already gives enough procedure.
 - Generated authority: generated evidence supports judgment; it does not define the rule.
@@ -29,7 +29,7 @@ Retain a compact packet:
 Skill:
 Why activated:
 Evidence gathered:
-Agent-owned judgment still required:
+Agent-owned judgment still applies:
 Next checks:
 Warnings:
 ```

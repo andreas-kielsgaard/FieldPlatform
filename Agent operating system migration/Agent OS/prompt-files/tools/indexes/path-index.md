@@ -26,4 +26,4 @@ npx --yes tsx tool-implementations/indexes/build-path-index.ts --check --json
 
 ## Output Boundary
 
-Path facts do not prove ownership, audience, or semantic authority. The index is evidence, not semantic authority.
+Path facts are not proof of ownership, audience, or semantic authority. The index is evidence, not semantic authority.

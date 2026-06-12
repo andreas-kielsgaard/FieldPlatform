@@ -3,10 +3,10 @@
   "indexId": "dependency-index",
   "stratum": 1,
   "generated": true,
-  "schemaVersion": 1,
-  "generatedAt": "2026-06-12T10:18:34.360Z",
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T15:21:29.528Z",
   "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
   "producer": "build-dependency-index",
   "artifactPath": "tool-maintained-files/indexes/dependency-index.json",
   "sourceInputs": [
@@ -17,7 +17,39 @@
   "knownBlindSpots": [
     "Does not resolve package exports, TS path aliases, or runtime dependency injection."
   ],
-  "recordCount": 139,
+  "recordCount": 173,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-dependency-index",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-dependency-index.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-dependency-index.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 1,
+      "shards": [
+        {
+          "shardId": "records-0001",
+          "startRecord": 0,
+          "endRecordExclusive": 173,
+          "recordCount": 173,
+          "sha256": "3094e3c4a2c6e6843f93e6eccccf8f694e98d29e3702d79b8885da796da47ceb"
+        }
+      ]
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
   "records": [
     {
       "importer": "tool-implementations/_lib/artifacts.ts",
@@ -65,6 +97,33 @@
       "text": "import { execFileSync } from \"node:child_process\";"
     },
     {
+      "importer": "tool-implementations/_lib/index-metadata.ts",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { createHash } from \"node:crypto\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-metadata.ts",
+      "imported": "./json.ts",
+      "resolved": "tool-implementations/_lib/json.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { stableStringify } from \"./json.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-metadata.ts",
+      "imported": "./types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition, IndexMaintenanceMetadata, IndexShardMetadata } from \"./types.ts\";"
+    },
+    {
       "importer": "tool-implementations/_lib/index-runner.ts",
       "imported": "node:fs",
       "resolved": "node:fs",
@@ -98,7 +157,7 @@
       "line": 4,
       "kind": "import",
       "crossArea": false,
-      "text": "import { collectFiles, isGeneratedIndexPath, isTextFile } from \"./repo-files.ts\";"
+      "text": "import { collectFiles, isGeneratedToolMaintainedPath, isTextFile } from \"./repo-files.ts\";"
     },
     {
       "importer": "tool-implementations/_lib/index-runner.ts",
@@ -111,9 +170,18 @@
     },
     {
       "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "./index-metadata.ts",
+      "resolved": "tool-implementations/_lib/index-metadata.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildIndexMaintenanceMetadata } from \"./index-metadata.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
       "imported": "./json.ts",
       "resolved": "tool-implementations/_lib/json.ts",
-      "line": 6,
+      "line": 7,
       "kind": "import",
       "crossArea": false,
       "text": "import { readJsonIfExists, stableStringify } from \"./json.ts\";"
@@ -122,7 +190,7 @@
       "importer": "tool-implementations/_lib/index-runner.ts",
       "imported": "./text-utils.ts",
       "resolved": "tool-implementations/_lib/text-utils.ts",
-      "line": 7,
+      "line": 8,
       "kind": "import",
       "crossArea": false,
       "text": "import { normalizePath } from \"./text-utils.ts\";"
@@ -131,7 +199,7 @@
       "importer": "tool-implementations/_lib/index-runner.ts",
       "imported": "./types.ts",
       "resolved": "tool-implementations/_lib/types.ts",
-      "line": 8,
+      "line": 9,
       "kind": "import",
       "crossArea": false,
       "text": "import type { IndexArtifact, IndexBuilderSpec, IndexDefinition } from \"./types.ts\";"
@@ -188,7 +256,7 @@
       "line": 5,
       "kind": "import",
       "crossArea": false,
-      "text": "import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+      "text": "import type { IndexArtifact, IndexMaintenanceMetadata, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
     },
     {
       "importer": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
@@ -749,6 +817,60 @@
       "text": "import path from \"node:path\";"
     },
     {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { existsSync, readFileSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/cli.ts",
+      "resolved": "tool-implementations/_lib/cli.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { parseArgs, resolveRoot } from \"../_lib/cli.ts\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/index-catalog.ts",
+      "resolved": "tool-implementations/_lib/index-catalog.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { ACTIVE_INDEX_CATALOG } from \"../_lib/index-catalog.ts\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/json.ts",
+      "resolved": "tool-implementations/_lib/json.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { readJsonIfExists } from \"../_lib/json.ts\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
       "importer": "tool-implementations/indexes/build-accessor-index.ts",
       "imported": "../_lib/index-runner.ts",
       "resolved": "tool-implementations/_lib/index-runner.ts",
@@ -774,6 +896,60 @@
       "kind": "import",
       "crossArea": false,
       "text": "import { buildAccessorRecords } from \"../_lib/records/accessor-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "node:child_process",
+      "resolved": "node:child_process",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { execFileSync } from \"node:child_process\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "node:url",
+      "resolved": "node:url",
+      "line": 3,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { fileURLToPath } from \"node:url\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "../_lib/cli.ts",
+      "resolved": "tool-implementations/_lib/cli.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { emit, parseArgs, resolveRoot } from \"../_lib/cli.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "../_lib/index-catalog.ts",
+      "resolved": "tool-implementations/_lib/index-catalog.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { activeIndexBuildersInMaintenanceOrder } from \"../_lib/index-catalog.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
     },
     {
       "importer": "tool-implementations/indexes/build-artifact-metadata-index.ts",
@@ -936,6 +1112,78 @@
       "kind": "import",
       "crossArea": false,
       "text": "import { buildFixtureRecords } from \"../_lib/records/fixture-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { createHash } from \"node:crypto\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { existsSync, readFileSync, statSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 3,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/git.ts",
+      "resolved": "tool-implementations/_lib/git.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { gitSha } from \"../_lib/git.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/index-catalog.ts",
+      "resolved": "tool-implementations/_lib/index-catalog.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { ACTIVE_INDEX_CATALOG } from \"../_lib/index-catalog.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 7,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 8,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
     },
     {
       "importer": "tool-implementations/indexes/build-literal-index.ts",
@@ -1244,6 +1492,60 @@
       "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
     },
     {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/cli.ts",
+      "resolved": "tool-implementations/_lib/cli.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../_lib/cli.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/git.ts",
+      "resolved": "tool-implementations/_lib/git.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { gitLines, gitSha } from \"../_lib/git.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/json.ts",
+      "resolved": "tool-implementations/_lib/json.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { readJsonIfExists } from \"../_lib/json.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexArtifact } from \"../_lib/types.ts\";"
+    },
+    {
       "importer": "tool-implementations/operators/symbol-query.ts",
       "imported": "../_lib/operators/query-runner.ts",
       "resolved": "tool-implementations/_lib/operators/query-runner.ts",
@@ -1269,6 +1571,42 @@
       "kind": "import",
       "crossArea": false,
       "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { createHash } from \"node:crypto\";"
+    },
+    {
+      "importer": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "../_lib/source-extractors.ts",
+      "resolved": "tool-implementations/_lib/source-extractors.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { COMMON_WORDS } from \"../_lib/source-extractors.ts\";"
+    },
+    {
+      "importer": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord, IndexDefinition } from \"../_lib/types.ts\";"
     }
   ]
 }

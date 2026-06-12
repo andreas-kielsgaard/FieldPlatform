@@ -12,7 +12,7 @@ This behavior protects against authority being duplicated across nearby prose, e
 - Audience: keep agent-critical rules in agent-facing surfaces and human explanations in human-facing surfaces.
 - Ownership: assign authority to the narrowest rightful owner with the same reason to change.
 - Contract: if the rule defines promised behavior, identify consumers, compatibility expectations, and tests.
-- Memory: record source-of-truth changes only when future agents must rely on the chosen authority.
+- Memory: record source-of-truth changes only when future agents should rely on the chosen authority.
 
 ## Procedure
 

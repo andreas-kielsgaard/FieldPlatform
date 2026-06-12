@@ -2,7 +2,7 @@ import path from "node:path";
 import { emit, parseArgs, resolveRoot, toNumber } from "../cli.ts";
 import { readJsonIfExists } from "../json.ts";
 import { escapeRegex, normalizePath, recordText } from "../text-utils.ts";
-import type { IndexArtifact, LoadedIndex, ParsedArgs, QueryOperatorSpec } from "../types.ts";
+import type { IndexArtifact, IndexMaintenanceMetadata, LoadedIndex, ParsedArgs, QueryOperatorSpec } from "../types.ts";
 
 const TERM_HANDLES = new Set(["canonical", "all", "identifiers", "ui-literals", "cooccurs", "drift", "replace-preview"]);
 
@@ -35,10 +35,14 @@ export function runQueryOperator(spec: QueryOperatorSpec): void {
       indexes: indexes.map((entry) => ({
         indexId: entry.indexId,
         artifactPath: normalizePath(path.relative(root, entry.path)),
+        schemaVersion: entry.index.schemaVersion,
         generatedAt: entry.index.generatedAt,
         sourceRevision: entry.index.sourceRevision,
         missing: entry.missing,
         recordCount: entry.index.recordCount,
+        shardCount: entry.index.maintenance.sharding.shardCount,
+        metadataMaintainedBy: entry.index.maintenance.maintainedBy,
+        semanticSupportStatus: entry.index.maintenance.semanticSupport.status,
       })),
       observedEvidence: findings,
       inferredRisk: inferRisks(spec.operatorId, handle, findings, missingIndexes),
@@ -222,10 +226,55 @@ function loadIndex(root: string, indexId: string): LoadedIndex {
         coverage: "unknown",
         knownBlindSpots: [],
         recordCount: 0,
+        maintenance: {
+          metadataVersion: 1,
+          maintainedBy: `build-${indexId}`,
+          manualMaintenance: false,
+          refreshCommand: `npx --yes tsx tool-implementations/indexes/build-${indexId}.ts --json`,
+          checkCommand: `npx --yes tsx tool-implementations/indexes/build-${indexId}.ts --check --json`,
+          sharding: {
+            strategy: "record-count",
+            targetRecordsPerShard: 500,
+            shardCount: 0,
+            shards: [],
+          },
+          semanticSupport: {
+            status: "missing-index",
+            embeddingsGenerated: false,
+            vectorStoreGenerated: false,
+            deterministicPath: "Build the index before using semantic retrieval metadata.",
+            bootPolicy: "Missing indexes provide no boot-safe semantic metadata.",
+            suggestedActivation: [],
+          },
+        },
         records: [],
       },
     };
   }
+  const maintenance: IndexMaintenanceMetadata =
+    json.maintenance && typeof json.maintenance === "object"
+      ? (json.maintenance as IndexMaintenanceMetadata)
+      : {
+          metadataVersion: 1,
+          maintainedBy: String(json.producer || `build-${indexId}`),
+          manualMaintenance: false,
+          refreshCommand: `npx --yes tsx tool-implementations/indexes/${String(json.producer || `build-${indexId}`)}.ts --json`,
+          checkCommand: `npx --yes tsx tool-implementations/indexes/${String(json.producer || `build-${indexId}`)}.ts --check --json`,
+          sharding: {
+            strategy: "legacy-unsharded",
+            targetRecordsPerShard: 0,
+            shardCount: 0,
+            shards: [],
+          },
+          semanticSupport: {
+            status: "legacy-metadata-missing",
+            embeddingsGenerated: false,
+            vectorStoreGenerated: false,
+            deterministicPath: "Regenerate this index to add deterministic maintenance metadata.",
+            bootPolicy: "Legacy indexes should not be treated as semantic retrieval substrates.",
+            suggestedActivation: [],
+          },
+        };
   return {
     indexId,
     path: artifactPath,
@@ -247,6 +296,7 @@ function loadIndex(root: string, indexId: string): LoadedIndex {
       coverage: String(json.coverage || ""),
       knownBlindSpots: Array.isArray(json.knownBlindSpots) ? json.knownBlindSpots.map(String) : [],
       recordCount: Array.isArray(json.records) ? json.records.length : 0,
+      maintenance,
       records: Array.isArray(json.records) ? (json.records as Record<string, unknown>[]) : [],
     },
   };

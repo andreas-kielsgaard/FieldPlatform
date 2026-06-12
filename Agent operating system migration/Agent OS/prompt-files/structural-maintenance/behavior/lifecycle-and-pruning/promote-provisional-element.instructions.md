@@ -10,7 +10,7 @@ This behavior protects prototypes from silently fossilizing.
 
 - Lifecycle: promotion means a local, exploratory, mockup, candidate, or provisional element becomes precedent.
 - Ownership: promoted elements need a rightful durable owner, not just a current location.
-- Boundary: promoted elements must obey architecture boundaries before others depend on them.
+- Boundary: promoted elements should satisfy architecture boundaries before others depend on them.
 - Contract: promotion makes promised behavior more stable; review I/O expectations, side effects, and tests before treating it as supported.
 - Naming/Ontology: promotion can make names or concepts canonical; unstable language should remain provisional.
 - Blast Radius: identify current and likely future consumers before making the element shared.

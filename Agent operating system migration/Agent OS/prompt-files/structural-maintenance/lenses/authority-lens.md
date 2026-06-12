@@ -54,6 +54,6 @@ The change only clarifies wording in a non-authoritative artifact and does not c
 
 ## Memory Implication
 
-Update memory when authority moves, duplicates are resolved, a rule becomes canonical, or an explanatory artifact must point to an authoritative source.
+Consider memory updates when authority moves, duplicates are resolved, a rule becomes canonical, or an explanatory artifact should point to an authoritative source.
 
 

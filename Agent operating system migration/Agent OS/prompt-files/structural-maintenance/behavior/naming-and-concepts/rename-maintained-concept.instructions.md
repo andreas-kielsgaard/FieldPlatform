@@ -36,7 +36,7 @@ This behavior protects against partial renames and accidental semantic changes.
 - The rename changes product-authoritative vocabulary.
 - The rename crosses public API, schema, route, data, generated, or tool boundaries.
 - Existing usages reveal multiple concepts hidden under one name.
-- The old name must remain for compatibility but no alias/deprecation path is defined.
+- The old name needs to remain for compatibility but no alias/deprecation path is defined.
 
 ## Memory Updates
 

@@ -34,6 +34,36 @@ export type IndexBuilderSpec = {
   buildRecords: (context: IndexBuildContext) => Record<string, unknown>[];
 };
 
+export type IndexShardMetadata = {
+  shardId: string;
+  startRecord: number;
+  endRecordExclusive: number;
+  recordCount: number;
+  sha256: string;
+};
+
+export type IndexMaintenanceMetadata = {
+  metadataVersion: number;
+  maintainedBy: string;
+  manualMaintenance: false;
+  refreshCommand: string;
+  checkCommand: string;
+  sharding: {
+    strategy: string;
+    targetRecordsPerShard: number;
+    shardCount: number;
+    shards: IndexShardMetadata[];
+  };
+  semanticSupport: {
+    status: string;
+    embeddingsGenerated: boolean;
+    vectorStoreGenerated: boolean;
+    deterministicPath: string;
+    bootPolicy: string;
+    suggestedActivation: string[];
+  };
+};
+
 export type IndexArtifact = {
   artifactId: string;
   indexId: string;
@@ -50,6 +80,7 @@ export type IndexArtifact = {
   coverage: string;
   knownBlindSpots: string[];
   recordCount: number;
+  maintenance: IndexMaintenanceMetadata;
   records: Record<string, unknown>[];
 };
 

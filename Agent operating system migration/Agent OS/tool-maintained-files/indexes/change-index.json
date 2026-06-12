@@ -3,10 +3,10 @@
   "indexId": "change-index",
   "stratum": 1,
   "generated": true,
-  "schemaVersion": 1,
-  "generatedAt": "2026-06-12T10:18:28.855Z",
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T15:21:28.127Z",
   "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
   "producer": "build-change-index",
   "artifactPath": "tool-maintained-files/indexes/change-index.json",
   "sourceInputs": [
@@ -17,43 +17,51 @@
   "knownBlindSpots": [
     "Only reflects the current working tree and available git metadata."
   ],
-  "recordCount": 202,
+  "recordCount": 117,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-change-index",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-change-index.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-change-index.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 1,
+      "shards": [
+        {
+          "shardId": "records-0001",
+          "startRecord": 0,
+          "endRecordExclusive": 117,
+          "recordCount": 117,
+          "sha256": "c2737e16956753f9a30b4b72653f3b7ae0314cb7144fb8897010b528c806d506"
+        }
+      ]
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
   "records": [
     {
       "file": "migration_agents.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "migration_agents.md",
       "artifactKind": "agent-instruction",
       "existsInWorkingTree": true
     },
     {
-      "file": "output-files/reports/agent/.gitkeep",
-      "status": "??",
-      "source": "git-status",
-      "area": "output-files",
-      "artifactKind": "file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "project-control-files/technology-architecture-map.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "project-control-files",
-      "artifactKind": "map-or-memory",
-      "existsInWorkingTree": true
-    },
-    {
       "file": "prompt-files/agent-os-map.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "map-or-memory",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/change-impact-checklists.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "map-or-memory",
@@ -61,23 +69,7 @@
     },
     {
       "file": "prompt-files/design-system-map.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "map-or-memory",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/domain-glossary.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "map-or-memory",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/experiments.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "map-or-memory",
@@ -85,15 +77,7 @@
     },
     {
       "file": "prompt-files/known-debt.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "map-or-memory",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/review-checklist.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "map-or-memory",
@@ -101,7 +85,7 @@
     },
     {
       "file": "prompt-files/skills/affected-surface-mapping.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -109,7 +93,7 @@
     },
     {
       "file": "prompt-files/skills/audience-placement.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -117,7 +101,7 @@
     },
     {
       "file": "prompt-files/skills/authority-resolution.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -125,7 +109,7 @@
     },
     {
       "file": "prompt-files/skills/boundary-verification.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -133,7 +117,7 @@
     },
     {
       "file": "prompt-files/skills/bounded-review-workflow.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -141,7 +125,7 @@
     },
     {
       "file": "prompt-files/skills/change-report-assembly.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -149,7 +133,7 @@
     },
     {
       "file": "prompt-files/skills/component-reuse-evidence.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -157,7 +141,7 @@
     },
     {
       "file": "prompt-files/skills/consumer-impact-preview.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -165,7 +149,7 @@
     },
     {
       "file": "prompt-files/skills/context-budgeting-workflow.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -173,7 +157,7 @@
     },
     {
       "file": "prompt-files/skills/design-token-drift-scan.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -181,7 +165,7 @@
     },
     {
       "file": "prompt-files/skills/docs-reference-drift-scan.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -189,7 +173,7 @@
     },
     {
       "file": "prompt-files/skills/exception-and-debt-workflow.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -197,7 +181,7 @@
     },
     {
       "file": "prompt-files/skills/generated-artifact-maintenance.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -205,7 +189,7 @@
     },
     {
       "file": "prompt-files/skills/human-doc-to-agent-instruction.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -213,7 +197,7 @@
     },
     {
       "file": "prompt-files/skills/implementation-handoff-workflow.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -221,7 +205,7 @@
     },
     {
       "file": "prompt-files/skills/index-trust-workflow.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -229,7 +213,7 @@
     },
     {
       "file": "prompt-files/skills/operational-planning.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -237,7 +221,7 @@
     },
     {
       "file": "prompt-files/skills/policy-literal-drift-scan.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -245,7 +229,7 @@
     },
     {
       "file": "prompt-files/skills/provisional-promotion-workflow.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -253,7 +237,7 @@
     },
     {
       "file": "prompt-files/skills/rename-impact-preview.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -261,7 +245,7 @@
     },
     {
       "file": "prompt-files/skills/reuse-or-branch-evidence-workflow.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -269,7 +253,7 @@
     },
     {
       "file": "prompt-files/skills/safe-rename-workflow.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -277,7 +261,7 @@
     },
     {
       "file": "prompt-files/skills/scenario-impact-scan.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -285,7 +269,7 @@
     },
     {
       "file": "prompt-files/skills/schema-fixture-drift-scan.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -293,7 +277,7 @@
     },
     {
       "file": "prompt-files/skills/skill-map.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -301,7 +285,7 @@
     },
     {
       "file": "prompt-files/skills/skill-usage.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -309,7 +293,7 @@
     },
     {
       "file": "prompt-files/skills/source-orientation-refresh.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -317,7 +301,7 @@
     },
     {
       "file": "prompt-files/skills/state-impact-scan.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -325,7 +309,7 @@
     },
     {
       "file": "prompt-files/skills/test-relation-scan.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "skill",
@@ -333,7 +317,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior-map.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "map-or-memory",
@@ -341,7 +325,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/authority-and-contracts/convert-human-doc-to-agent-instruction.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -349,15 +333,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/authority-and-contracts/define-authoritative-surface.instructions.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "agent-instruction",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/behavior/authority-and-contracts/maintain-generated-or-indexed-artifact.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -365,7 +341,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/authority-and-contracts/maintain-tool-contract.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -373,15 +349,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/extraction-and-centralization/centralize-duplicated-semantics.instructions.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "agent-instruction",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/behavior/extraction-and-centralization/demote-overgeneralized-abstraction.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -389,7 +357,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/extraction-and-centralization/extract-shared-responsibility.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -397,7 +365,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/deprecate-or-retire-element.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -405,7 +373,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/promote-provisional-element.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -413,15 +381,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/trim-unused-element.instructions.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "agent-instruction",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/behavior/movement-and-splitting/move-between-boundaries.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -429,7 +389,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/movement-and-splitting/split-overloaded-maintained-element.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -437,15 +397,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/naming-and-concepts/align-adjacent-naming.instructions.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "agent-instruction",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/behavior/naming-and-concepts/name-new-maintained-element.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -453,7 +405,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/naming-and-concepts/rename-maintained-concept.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -461,7 +413,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -469,23 +421,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/new-maintained-element-placement.instructions.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "agent-instruction",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/platform-component-placement.instructions.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "agent-instruction",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/behavior/reuse-and-extension/branch-from-near-match.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -493,7 +429,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/reuse-and-extension/composition-or-inheritance.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -501,7 +437,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/reuse-and-extension/extend-existing-owner.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -509,7 +445,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/reuse-and-extension/reuse-existing-functionality.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -517,15 +453,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/behavior/scope-and-entry/implementation-scope.instructions.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "agent-instruction",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/behavior/scope-and-entry/technology-or-standard-choice.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -533,23 +461,15 @@
     },
     {
       "file": "prompt-files/structural-maintenance/lens-map.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "map-or-memory",
       "existsInWorkingTree": true
     },
     {
-      "file": "prompt-files/structural-maintenance/lenses/audience-lens.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "md",
-      "existsInWorkingTree": true
-    },
-    {
       "file": "prompt-files/structural-maintenance/lenses/authority-lens.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "md",
@@ -557,7 +477,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/lenses/blast-radius-lens.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "md",
@@ -565,7 +485,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/lenses/boundary-lens.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "md",
@@ -573,55 +493,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/lenses/contract-lens.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "md",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/lenses/data-state-effect-lens.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "md",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/lenses/duplication-lens.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "md",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/lenses/intent-lens.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "md",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/lenses/lifecycle-lens.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "md",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/lenses/memory-lens.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "md",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/lenses/naming-ontology-lens.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "md",
@@ -629,15 +501,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/lenses/near-match-lens.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "md",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/structural-maintenance/lenses/ownership-lens.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "md",
@@ -645,7 +509,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/lenses/reuse-lens.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "md",
@@ -653,7 +517,7 @@
     },
     {
       "file": "prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -661,7 +525,7 @@
     },
     {
       "file": "prompt-files/task-modes/domain-and-data/api-or-accessor-change.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -669,7 +533,7 @@
     },
     {
       "file": "prompt-files/task-modes/domain-and-data/copy-or-naming-change.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -677,7 +541,7 @@
     },
     {
       "file": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -685,7 +549,7 @@
     },
     {
       "file": "prompt-files/task-modes/domain-and-data/database-schema-or-persistence-change.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -693,7 +557,7 @@
     },
     {
       "file": "prompt-files/task-modes/domain-and-data/domain-concept-change.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -701,7 +565,7 @@
     },
     {
       "file": "prompt-files/task-modes/domain-and-data/mock-data-change.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -709,7 +573,7 @@
     },
     {
       "file": "prompt-files/task-modes/domain-and-data/permissions-or-visibility-change.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -717,7 +581,7 @@
     },
     {
       "file": "prompt-files/task-modes/domain-and-data/state-management-change.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -725,7 +589,7 @@
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/bug-fix.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -733,7 +597,7 @@
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/documentation-or-context-update.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -741,7 +605,7 @@
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/refactor.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -749,7 +613,7 @@
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -757,7 +621,7 @@
     },
     {
       "file": "prompt-files/task-modes/task-mode-map.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "map-or-memory",
@@ -765,7 +629,7 @@
     },
     {
       "file": "prompt-files/task-modes/task-mode-usage.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -773,7 +637,7 @@
     },
     {
       "file": "prompt-files/task-modes/ui-facing/exploratory-ui-build.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -781,7 +645,7 @@
     },
     {
       "file": "prompt-files/task-modes/ui-facing/extract-reusable-pattern.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -789,7 +653,7 @@
     },
     {
       "file": "prompt-files/task-modes/ui-facing/modify-existing-component.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -797,7 +661,7 @@
     },
     {
       "file": "prompt-files/task-modes/ui-facing/new-component.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -805,7 +669,7 @@
     },
     {
       "file": "prompt-files/task-modes/ui-facing/new-route-or-page.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -813,7 +677,7 @@
     },
     {
       "file": "prompt-files/task-modes/ui-facing/visual-or-design-system-change.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -821,255 +685,23 @@
     },
     {
       "file": "prompt-files/tools/index-map.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "map-or-memory",
       "existsInWorkingTree": true
     },
     {
-      "file": "prompt-files/tools/indexes/accessor-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/artifact-metadata-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/change-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/component-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/dependency-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/doc-reference-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/fixture-scenario-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/literal-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
       "file": "prompt-files/tools/indexes/path-index.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/route-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/schema-shape-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/symbol-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/term-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/indexes/test-index.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "index-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/accessor-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/artifact-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/component-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/dependency-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/diff-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/doc-ref-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/fixture-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/literal-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/path-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/pattern-candidate-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/retrieve-slice.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/route-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/schema-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/symbol-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/term-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "prompt-files/tools/operators/test-query.md",
-      "status": "??",
-      "source": "git-status",
-      "area": "prompt-files",
-      "artifactKind": "operator-semantic-file",
       "existsInWorkingTree": true
     },
     {
       "file": "prompt-files/tools/tool-map.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "map-or-memory",
@@ -1077,7 +709,7 @@
     },
     {
       "file": "prompt-files/tools/tool-usage.instructions.md",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "prompt-files",
       "artifactKind": "agent-instruction",
@@ -1085,23 +717,7 @@
     },
     {
       "file": "tool-implementations/_lib/artifacts.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/cli.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/git.ts",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-implementations",
       "artifactKind": "source",
@@ -1109,15 +725,7 @@
     },
     {
       "file": "tool-implementations/_lib/index-runner.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/json.ts",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-implementations",
       "artifactKind": "source",
@@ -1125,127 +733,7 @@
     },
     {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/accessor-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/artifact-metadata-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/change-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/component-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/dependency-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/doc-reference-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/fixture-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/literal-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/path-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/route-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/schema-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/source-symbols.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/term-records.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/records/test-records.ts",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-implementations",
       "artifactKind": "source",
@@ -1253,23 +741,7 @@
     },
     {
       "file": "tool-implementations/_lib/repo-files.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/source-extractors.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "source",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/_lib/text-utils.ts",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-implementations",
       "artifactKind": "source",
@@ -1277,255 +749,15 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-implementations",
       "artifactKind": "source",
       "existsInWorkingTree": true
     },
     {
-      "file": "tool-implementations/indexes/build-accessor-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-artifact-metadata-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-component-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-dependency-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-doc-reference-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-fixture-scenario-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-literal-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-path-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-route-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-schema-shape-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-symbol-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-term-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/indexes/build-test-index.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "index-builder-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/accessor-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/artifact-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/component-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/dependency-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/diff-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/doc-ref-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/fixture-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/literal-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/path-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/pattern-candidate-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/retrieve-slice.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/route-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/schema-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/symbol-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/term-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
-      "file": "tool-implementations/operators/test-query.ts",
-      "status": "??",
-      "source": "git-status",
-      "area": "tool-implementations",
-      "artifactKind": "operator-script",
-      "existsInWorkingTree": true
-    },
-    {
       "file": "tool-maintained-files/indexes/accessor-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1533,7 +765,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/artifact-metadata-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1541,7 +773,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/change-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1549,7 +781,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/component-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1557,7 +789,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/dependency-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1565,7 +797,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/doc-reference-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1573,7 +805,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/fixture-scenario-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1581,7 +813,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/literal-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1589,7 +821,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/path-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1597,7 +829,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/route-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1605,7 +837,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/schema-shape-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1613,7 +845,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/symbol-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1621,7 +853,7 @@
     },
     {
       "file": "tool-maintained-files/indexes/term-index.json",
-      "status": "??",
+      "status": "M",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
@@ -1629,10 +861,130 @@
     },
     {
       "file": "tool-maintained-files/indexes/test-index.json",
+      "status": "M",
+      "source": "git-status",
+      "area": "tool-maintained-files",
+      "artifactKind": "generated-index",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "prompt-files/tools/checks/agent-os-contract-check.md",
+      "status": "??",
+      "source": "git-status",
+      "area": "prompt-files",
+      "artifactKind": "check-semantic-file",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "prompt-files/tools/indexes/build-all-indexes.md",
+      "status": "??",
+      "source": "git-status",
+      "area": "prompt-files",
+      "artifactKind": "index-semantic-file",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "prompt-files/tools/indexes/index-manifest.md",
+      "status": "??",
+      "source": "git-status",
+      "area": "prompt-files",
+      "artifactKind": "index-semantic-file",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "prompt-files/tools/operators/semantic-candidate-query.md",
+      "status": "??",
+      "source": "git-status",
+      "area": "prompt-files",
+      "artifactKind": "operator-semantic-file",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "prompt-files/tools/semantic-map.md",
+      "status": "??",
+      "source": "git-status",
+      "area": "prompt-files",
+      "artifactKind": "map-or-memory",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "prompt-files/tools/semantic/semantic-chunk-index.md",
+      "status": "??",
+      "source": "git-status",
+      "area": "prompt-files",
+      "artifactKind": "semantic-substrate-file",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "status": "??",
+      "source": "git-status",
+      "area": "tool-implementations",
+      "artifactKind": "source",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "tool-implementations/_lib/index-metadata.ts",
+      "status": "??",
+      "source": "git-status",
+      "area": "tool-implementations",
+      "artifactKind": "source",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "status": "??",
+      "source": "git-status",
+      "area": "tool-implementations",
+      "artifactKind": "check-script",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "status": "??",
+      "source": "git-status",
+      "area": "tool-implementations",
+      "artifactKind": "index-builder-script",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "status": "??",
+      "source": "git-status",
+      "area": "tool-implementations",
+      "artifactKind": "index-builder-script",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "tool-implementations/operators/semantic-candidate-query.ts",
+      "status": "??",
+      "source": "git-status",
+      "area": "tool-implementations",
+      "artifactKind": "operator-script",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "status": "??",
+      "source": "git-status",
+      "area": "tool-implementations",
+      "artifactKind": "semantic-builder-script",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "tool-maintained-files/indexes/index-manifest.json",
       "status": "??",
       "source": "git-status",
       "area": "tool-maintained-files",
       "artifactKind": "generated-index",
+      "existsInWorkingTree": true
+    },
+    {
+      "file": "tool-maintained-files/semantic/semantic-chunk-index.json",
+      "status": "??",
+      "source": "git-status",
+      "area": "tool-maintained-files",
+      "artifactKind": "generated-semantic-artifact",
       "existsInWorkingTree": true
     }
   ]

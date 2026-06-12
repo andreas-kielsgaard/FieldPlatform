@@ -14,14 +14,29 @@ export function inferArtifactKind(filePath: string): string {
   if (/prompt-files\/tools\/operators\//.test(filePath)) {
     return "operator-semantic-file";
   }
+  if (/prompt-files\/tools\/semantic\//.test(filePath)) {
+    return "semantic-substrate-file";
+  }
+  if (/prompt-files\/tools\/checks\//.test(filePath)) {
+    return "check-semantic-file";
+  }
   if (/tool-implementations\/indexes\//.test(filePath)) {
     return "index-builder-script";
   }
   if (/tool-implementations\/operators\//.test(filePath)) {
     return "operator-script";
   }
+  if (/tool-implementations\/semantic\//.test(filePath)) {
+    return "semantic-builder-script";
+  }
+  if (/tool-implementations\/checks\//.test(filePath)) {
+    return "check-script";
+  }
   if (/tool-maintained-files\/indexes\/.+\.json$/.test(filePath)) {
     return "generated-index";
+  }
+  if (/tool-maintained-files\/semantic\/.+\.json$/.test(filePath)) {
+    return "generated-semantic-artifact";
   }
   if (/map\.md$|index\.md$|registry\.md$|glossary\.md$|debt\.md$|experiments\.md$|checklist/i.test(filePath)) {
     return "map-or-memory";
@@ -39,27 +54,48 @@ export function inferArtifactKind(filePath: string): string {
 }
 
 export function hasGeneratedHint(filePath: string, lines: string[]): boolean {
-  return /tool-maintained-files\/indexes\/.+\.json$/.test(filePath) || lines.slice(0, 8).some((line) => /generated|do not edit|producer/i.test(line));
+  if (/tool-maintained-files\/(indexes|semantic)\/.+\.json$/.test(filePath)) {
+    return true;
+  }
+
+  const headerLines = lines.slice(0, 12);
+  if (headerLines.some((line) =>
+    /@generated\b/i.test(line) ||
+    /\b(?:code\s+)?generated\s+by\b/i.test(line) ||
+    /\bdo\s+not\s+edit\b/i.test(line),
+  )) {
+    return true;
+  }
+
+  return !isCodeLike(filePath) && headerLines.some((line) => /^\s*(?:producer|producerTool)\s*[:=]\s*["']?[A-Za-z0-9_-]+/i.test(line));
 }
 
 export function directEditPolicy(filePath: string, lines: string[]): string {
   if (hasGeneratedHint(filePath, lines)) {
     return "verify producer or regenerate before direct edits";
   }
-  if (/prompt-files\/tools\/indexes\/|prompt-files\/tools\/operators\/|prompt-files\/skills\//.test(filePath)) {
+  if (/prompt-files\/tools\/indexes\/|prompt-files\/tools\/operators\/|prompt-files\/tools\/semantic\/|prompt-files\/tools\/checks\/|prompt-files\/skills\//.test(filePath)) {
     return "manual semantic surface";
   }
   return "unknown";
 }
 
 export function possibleProducer(filePath: string, lines: string[]): string | null {
-  const joined = lines.slice(0, 20).join("\n");
-  const match = joined.match(/producer(?:Tool)?["':\s]+([A-Za-z0-9_-]+)/i);
-  if (match) {
-    return match[1];
+  if (!isCodeLike(filePath)) {
+    const match = lines
+      .slice(0, 20)
+      .map((line) => line.match(/^\s*(?:producer|producerTool)\s*[:=]\s*["']?([A-Za-z0-9_-]+)/i))
+      .find(Boolean);
+    if (match) {
+      return match[1];
+    }
   }
   if (/tool-maintained-files\/indexes\/(.+)\.json$/.test(filePath)) {
     const id = filePath.match(/tool-maintained-files\/indexes\/(.+)\.json$/)?.[1];
+    return id ? `build-${id}` : null;
+  }
+  if (/tool-maintained-files\/semantic\/(.+)\.json$/.test(filePath)) {
+    const id = filePath.match(/tool-maintained-files\/semantic\/(.+)\.json$/)?.[1];
     return id ? `build-${id}` : null;
   }
   return null;
@@ -82,7 +118,7 @@ export function inferAuthorityRole(filePath: string): string {
   if (/task-mode-map|behavior-map|lens-map|skill-map|tool-map|index-map/.test(filePath)) {
     return "map";
   }
-  if (/tool-maintained-files\/indexes\//.test(filePath)) {
+  if (/tool-maintained-files\/(indexes|semantic)\//.test(filePath)) {
     return "generated-evidence";
   }
   return "unknown";

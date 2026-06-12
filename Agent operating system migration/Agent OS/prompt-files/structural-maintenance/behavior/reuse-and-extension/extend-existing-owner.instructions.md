@@ -30,7 +30,7 @@ This behavior protects against expanding a module, component, service, accessor,
 - The new behavior shares the same reason to change.
 - The lifecycle, dependencies, consumers, and abstraction level match.
 - The owner name remains precise.
-- Existing consumers do not inherit irrelevant assumptions.
+- Existing consumers would inherit irrelevant assumptions.
 - No boundary leak is introduced.
 
 ## Branch Instead When

@@ -1,50 +1,50 @@
 # Mode: New Route Or Page
 
-## Required Orientation
+## Orientation Cues
 
 - `project-control-files/technology-architecture-map.md` when route placement or platform boundaries may matter
 - `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md` when deciding page-shell ownership, boundary placement, or durable route/page structure
 - `prompt-files/domain-glossary.md`
 
-## Required Tools Or Searches
+## Evidence Cues
 
-- Tool: `route-query` for generated routing index slices relevant to the target.
-- Tool: `component-query` for generated component index slices relevant to the target.
-- Tool: `literal-query` for generated permissions and visibility index slices relevant to the target.
-- Tool: `term-query` for generated naming index slices relevant to the target.
-- Skill: `state-impact-scan` for generated state-management index slices relevant to the target.
-- Skill: `test-relation-scan` when the changed target needs verification-surface selection.
+- Consider Tool: `route-query` for generated routing index slices relevant to the target.
+- Consider Tool: `component-query` for generated component index slices relevant to the target.
+- Consider Tool: `literal-query` for generated permissions and visibility index slices relevant to the target.
+- Consider Tool: `term-query` for generated naming index slices relevant to the target.
+- Consider Skill: `state-impact-scan` for generated state-management index slices relevant to the target.
+- Consider Skill: `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Tool: `build-route-index`.
-- Search for similar route families and page shells.
-- Tool: `term-query` for proposed route labels or slugs.
-- Search for policy/visibility patterns if the route is guarded.
+- Consider Tool: `build-route-index`.
+- Consider searching for similar route families and page shells.
+- Consider Tool: `term-query` for proposed route labels or slugs.
+- Consider searching for policy/visibility patterns if the route is guarded.
 
-## Implementation Instructions
+## Implementation Cues
 
 - Treat routes as product language.
 - Check whether a route family or page shell already exists.
-- Use existing layout shells unless there is a clear reason not to.
-- Do not invent route slugs casually.
-- Do not bury permission assumptions directly inside page code when a policy layer exists.
+- Consider using existing layout shells unless there is a clear reason not to.
+- Avoid inventing route slugs casually.
+- Prefer the policy layer over burying permission assumptions directly inside page code.
 - Define loading, empty, error, and unauthorized states when relevant.
 
-## Cross-Application Impact Checks
+## Cross-Application Impact Cues
 
 - Does the route introduce a new concept or label?
 - Does it require permissions, visibility, or data access rules?
 - Does it establish a repeatable page shell?
 - Does URL state need to be documented?
 
-## Documentation Updates
+## Documentation Cues
 
-- Tool: `build-route-index`, or report required index refresh if the tool is unavailable.
-- Tool: `build-literal-index` if visibility changes, or report required index refresh if the tool is unavailable.
-- Tool: `build-component-index` if a page shell becomes reusable, or report required index refresh if the tool is unavailable.
-- Update `domain-glossary.md` if route language introduces domain terms; use Tool: `build-term-index`, or report required index refresh if the tool is unavailable.
-- Tool: `build-symbol-index` if URL state changes, or report required index refresh if the tool is unavailable.
+- Consider Tool: `build-route-index`, or report index refresh may be needed if the tool is unavailable.
+- Consider Tool: `build-literal-index` if visibility changes, or report index refresh may be needed if the tool is unavailable.
+- Consider Tool: `build-component-index` if a page shell becomes reusable, or report index refresh may be needed if the tool is unavailable.
+- Consider updating `domain-glossary.md` if route language introduces domain terms; use Tool: `build-term-index`, or report index refresh may be needed if the tool is unavailable.
+- Consider Tool: `build-symbol-index` if URL state changes, or report index refresh may be needed if the tool is unavailable.
 
-## Regression Checks
+## Regression Cues
 
 - Route naming drift.
 - Duplicate page shells.
@@ -54,9 +54,9 @@
 
 ## Structural Maintenance Clues
 
-- Enter structural maintenance when route-family ownership, page-shell placement, route naming, URL state, permission/data boundary, or durable navigable structure is being decided.
+- Consider entering structural maintenance when route-family ownership, page-shell placement, route naming, URL state, permission/data boundary, or durable navigable structure is being decided.
 
-## Required Completion Report
+## Report Cues
 
 ```text
 Primary mode: new route or page

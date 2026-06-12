@@ -27,7 +27,7 @@ This behavior protects against monolith growth by splitting on divergent reasons
 ## Split When
 
 - Responsibilities have different reasons to change.
-- The current name must become vague to stay accurate.
+- The current name would become vague to stay accurate.
 - Consumers use unrelated subsets.
 - Tests or dependencies reveal independent concerns.
 - Splitting clarifies boundary direction.
@@ -52,7 +52,7 @@ Choose one:
 
 ## Stop Or Escalate When
 
-- Public API migration is required.
+- Public API migration appears likely.
 - Split crosses platform boundaries.
 - Behavior changes are being mixed into the split.
 - The split reveals duplicated semantics or a missing interface boundary.

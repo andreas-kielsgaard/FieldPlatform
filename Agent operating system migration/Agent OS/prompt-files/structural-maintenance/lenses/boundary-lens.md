@@ -34,7 +34,7 @@ Can access is not the same as should know about.
 ## Decision Outputs
 
 - Allowed direct dependency.
-- Dependency must go through accessor or interface.
+- Dependency is expected to go through accessor or interface.
 - Dependency direction violation.
 - Boundary missing; define interface.
 - Temporary exception; log debt.
@@ -52,4 +52,4 @@ The change remains within one established boundary and does not add imports, con
 
 ## Memory Implication
 
-Update memory when a boundary is added, changed, clarified, violated intentionally, or when an interface becomes the required consumption path.
+Consider memory updates when a boundary is added, changed, clarified, violated intentionally, or when an interface becomes the expected consumption path.

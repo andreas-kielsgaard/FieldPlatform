@@ -1,48 +1,48 @@
 # Mode: New Component
 
-## Required Orientation
+## Orientation Cues
 
 - `prompt-files/design-system-map.md`
 - `project-control-files/technology-architecture-map.md` when shared placement or interface boundaries may matter
 - `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md` when deciding whether logic belongs inside this component, a local helper, a shared component, or another owner
 
-## Required Tools Or Searches
+## Evidence Cues
 
-- Tool: `component-query` for generated component index slices relevant to the target.
-- Skill: `test-relation-scan` when the changed target needs verification-surface selection.
+- Consider Tool: `component-query` for generated component index slices relevant to the target.
+- Consider Skill: `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Search for similar components and local patterns.
-- Tool: `component-query`.
-- Tool: `build-component-index` if component structural indexes need refresh.
-- Tool: `term-query` for the proposed component name and purpose.
+- Consider searching for similar components and local patterns.
+- Consider Tool: `component-query`.
+- Consider Tool: `build-component-index` if component structural indexes need refresh.
+- Consider Tool: `term-query` for the proposed component name and purpose.
 - Check examples, stories, previews, or neighboring component APIs if available.
 
-## Implementation Instructions
+## Implementation Cues
 
 - Classify the component before creating it: primitive, layout component, composite component, domain component, or page-local component.
-- Do not create a shared component until existing components and local patterns have been checked.
+- Prefer creating a shared component after checking existing components and local patterns.
 - Keep page-specific components near the page.
 - Put shared components in the canonical shared component location.
 - Name the component by role or purpose, not by the first page where it appears.
-- Do not encode unstable domain concepts into a generic component.
+- Avoid encoding unstable domain concepts into a generic component.
 - Expose the smallest API that supports the known use case.
-- Do not add variants speculatively.
+- Avoid adding variants speculatively.
 
-## Cross-Application Impact Checks
+## Cross-Application Impact Cues
 
 - Could this be local instead of shared?
 - Is the API stable enough for reuse?
 - Does the component introduce visual, naming, or status conventions?
 - Does it depend on mock data or domain assumptions that should stay outside the component?
 
-## Documentation Updates
+## Documentation Cues
 
-- Tool: `build-component-index`, or report required index refresh if the tool is unavailable.
-- Update `design-system-map.md` if tokens, variants, primitives, or status treatment changed.
-- Update examples or stories if the component is shared or likely reused.
-- Skill: `test-relation-scan` for component coverage implications, or report gaps if the tool is unavailable.
+- Consider Tool: `build-component-index`, or report index refresh may be needed if the tool is unavailable.
+- Consider updating `design-system-map.md` if tokens, variants, primitives, or status treatment changed.
+- Consider updating examples or stories if the component is shared or likely reused.
+- Consider Skill: `test-relation-scan` for component coverage implications, or report gaps if the tool is unavailable.
 
-## Regression Checks
+## Regression Cues
 
 - Unnecessary abstraction.
 - Missing variants for real current states.
@@ -52,9 +52,9 @@
 
 ## Structural Maintenance Clues
 
-- Enter structural maintenance when choosing shared versus local placement, primitive versus domain ownership, API contract, variant authority, or reuse path.
+- Consider entering structural maintenance when choosing shared versus local placement, primitive versus domain ownership, API contract, variant authority, or reuse path.
 
-## Required Completion Report
+## Report Cues
 
 ```text
 Primary mode: new component

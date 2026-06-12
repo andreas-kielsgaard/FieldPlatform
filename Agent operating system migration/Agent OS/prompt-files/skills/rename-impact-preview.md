@@ -16,7 +16,7 @@ term-query, symbol-query, literal-query, route-query, fixture-query, doc-ref-que
 1. Confirm the active task mode, structural-maintenance behavior, and relevant lens.
 2. Gather only the evidence needed for the current decision.
 3. Keep raw output bounded and retain a compact evidence packet.
-4. State what the agent must still decide semantically.
+4. State what the agent still owns semantically.
 
 ## Output
 

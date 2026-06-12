@@ -2,20 +2,20 @@
 
 ## Purpose
 
-Use this file to enter the task-mode layer without loading every mode up front.
+Use this file to enter the task-mode layer after Agent OS initiation without loading every mode up front.
 
-`AGENTS.md` routes agents here. `task-mode-map.md` maps task signals to primary and secondary modes. Individual mode files define the actual procedure.
+`AGENTS.md` routes agents here. `task-mode-map.md` maps task signals to primary and secondary modes. Individual mode files define cue sets for context, evidence, checks, and reporting.
 
 ## Operating Chain
 
-Use the task-mode layer in this order:
+Use the task-mode layer in this order after Agent OS initiation:
 
 1. `AGENTS.md` explains what task modes are and when to use them.
 2. This file explains how to consume the task-mode layer.
 3. `task-mode-map.md` guides mode selection.
-4. Selected mode instruction files provide mode-specific requirements.
+4. Selected mode instruction files provide mode-specific cues.
 
-Structural maintenance is a sibling decision layer, not a task mode. Use it when selected task modes or working evidence reveal a structural decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority.
+Structural maintenance is a sibling decision layer, not a task mode. Use it when selected task modes or working evidence reveal a concrete structural decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority.
 
 ## Before Meaningful Edits
 
@@ -25,12 +25,12 @@ Structural maintenance is a sibling decision layer, not a task mode. Use it when
 4. Add secondary modes for every cross-surface concern triggered by the request.
 5. Declare the selected modes before editing durable project files.
 6. Read every selected mode instruction file.
-7. Read the maps and ledgers required by those selected mode files, but query generated indexes through skills or tools instead of loading them wholesale.
-8. If the work raises a placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, or authority decision, read `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md`.
+7. Use the maps and ledgers named by selected mode files as context cues; use `tool-maintained-files/indexes/index-manifest.json` for boot-aware index guidance; use `prompt-files/tools/semantic-map.md` for semantic-layer awareness; query raw generated indexes, semantic chunks, embeddings, or vector payloads through skills or tools instead of loading them wholesale.
+8. If the work raises a concrete placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, or authority decision, read `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md`.
 
-Do not load unrelated mode files just because they exist.
+Avoid loading unrelated mode files just because they exist.
 
-## Required Mode Declaration
+## Mode Declaration Cue
 
 Declare:
 
@@ -47,11 +47,11 @@ For small read-only tasks, this declaration may be informal. For implementation,
 
 The primary mode governs the main work.
 
-Secondary modes add impact checks, documentation updates, searches, and report fields. They do not override the primary mode unless they reveal that the original classification was wrong.
+Secondary modes add likely impact checks, documentation updates, searches, and report fields. They complement the primary mode unless they reveal that the original classification was wrong.
 
 If a secondary mode becomes the true source of risk, reclassify the task and state the change in the work summary.
 
-The task-mode map owns mode selection. Individual mode files do not own initial selection logic.
+The task-mode map owns mode-selection cues. Individual mode files provide mode-specific evidence and report cues.
 
 ## Reviewing Mode Selection During Work
 
@@ -68,7 +68,7 @@ When selection changes:
 
 1. State the updated primary and secondary modes.
 2. Read any newly selected mode instruction files.
-3. Run or perform the newly required searches and checks where available.
+3. Run or perform newly relevant searches and checks where they reduce uncertainty.
 4. Update the final report with the reason for the mode change.
 
 ## Context Loading
@@ -86,7 +86,7 @@ Default order:
 
 Avoid front-loading unrelated maps, ledgers, and mode files.
 
-Tool-maintained indexes under `tool-maintained-files/indexes/` are evidence surfaces. Do not ingest a whole generated index by default; use the relevant skills, logical tools, or a narrow slice tied to the task target.
+Tool-maintained indexes under `tool-maintained-files/indexes/` are evidence surfaces. During initiation, read `index-manifest.json` as compact mandatory boot context and `semantic-map.md` as compact semantic-layer awareness, but do not ingest whole raw generated record arrays, semantic chunks, embedding vectors, or vector-store payloads; after initiation, prefer relevant skills, logical tools, or a narrow slice tied to the task target.
 
 ## Skill, Tool, And Check Selection
 
@@ -96,9 +96,11 @@ Resolve skill IDs through `prompt-files/skills/skill-map.md`. Skill files own op
 
 Resolve deterministic tool IDs through `prompt-files/tools/tool-map.md`. Tool semantic files describe capability and boundaries. Tool scripts under `tool-implementations/` own execution.
 
-Mode files must not name tool scripts directly.
+Resolve semantic candidate retrieval through `prompt-files/tools/semantic-map.md` and `semantic-candidate-query` when exact deterministic queries are too narrow for fuzzy recall. Treat semantic candidates as leads for source reads or exact follow-up checks.
 
-If a mode expands to require a new skill, tool, or index, that is a human-owned Agent OS maintenance responsibility. Do not silently add a new requirement to a mode without verifying that the skill or tool is listed in its map and has the expected semantic file. Stratum 1 and 2 tools must also have a corresponding executable script.
+Mode files should name logical tool IDs rather than script paths.
+
+If a mode appears to need a new skill, tool, or index, treat that as a human-owned Agent OS maintenance proposal unless the user explicitly asked for Agent OS maintenance. Avoid silently adding new mode expectations without verifying that the skill or tool is listed in its map and has the expected semantic file. Stratum 1 and 2 tools should also have a corresponding executable script.
 
 Use skills before tools when the operation requires repeated multi-tool choreography, evidence shaping, context budgeting, or a semantic workflow. Use tools directly when one deterministic query handle is enough.
 
@@ -127,11 +129,11 @@ When a change reveals missing or stale mode guidance:
 
 ## Completion
 
-The final report should answer the report fields required by the selected mode files.
+The final report should consider the report cues from the selected mode files.
 
 If multiple modes were selected, combine their report requirements without repeating the same information unnecessarily.
 
-Always include:
+Usually include:
 
 - primary mode
 - secondary modes

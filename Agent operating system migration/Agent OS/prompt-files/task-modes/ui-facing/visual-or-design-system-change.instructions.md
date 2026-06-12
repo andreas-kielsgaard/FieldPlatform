@@ -1,42 +1,42 @@
 # Mode: Visual Or Design-System Change
 
-## Required Orientation
+## Orientation Cues
 
 - `prompt-files/design-system-map.md`
 
-## Required Tools Or Searches
+## Evidence Cues
 
-- Tool: `component-query` for generated component index slices relevant to the target.
-- Skill: `test-relation-scan` when the changed target needs verification-surface selection.
+- Consider Tool: `component-query` for generated component index slices relevant to the target.
+- Consider Skill: `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Skill: `design-token-drift-scan`.
-- Tool: `component-query` when shared visuals change.
-- Use component examples, previews, or Storybook if available.
-- Run visual comparisons or screenshots if available.
+- Consider Skill: `design-token-drift-scan`.
+- Consider Tool: `component-query` when shared visuals change.
+- Consider using component examples, previews, or Storybook if available.
+- Consider running visual comparisons or screenshots if available.
 
-## Implementation Instructions
+## Implementation Cues
 
 - Change shared visual rules through tokens, primitives, or shared styles where possible.
-- Do not hardcode repeated colors, spacing, typography, or status styles in components.
-- Update all consumers through the shared control surface when practical.
+- Avoid hardcoding repeated colors, spacing, typography, or status styles in components.
+- Consider updating all consumers through the shared control surface when practical.
 - Add or update examples for visible variants.
 - Distinguish a one-off visual need from a design-system rule.
 
-## Cross-Application Impact Checks
+## Cross-Application Impact Cues
 
 - Which components consume the changed token, primitive, or visual rule?
 - Does the change alter status semantics or only presentation?
 - Does the change create a new shared interaction pattern?
 - Do screenshots or examples need to be refreshed?
 
-## Documentation Updates
+## Documentation Cues
 
-- Update `design-system-map.md`.
-- Tool: `build-component-index` if component variants or primitives changed, or report required index refresh if the tool is unavailable.
-- Skill: `test-relation-scan` for visual coverage implications, or report gaps if the tool is unavailable.
-- Update the deferred logging strategy if a durable design convention is established.
+- Consider updating `design-system-map.md`.
+- Consider Tool: `build-component-index` if component variants or primitives changed, or report index refresh may be needed if the tool is unavailable.
+- Consider Skill: `test-relation-scan` for visual coverage implications, or report gaps if the tool is unavailable.
+- Consider updating the deferred logging strategy if a durable design convention is established.
 
-## Regression Checks
+## Regression Cues
 
 - Token drift.
 - Hardcoded repeated values.
@@ -46,9 +46,9 @@
 
 ## Structural Maintenance Clues
 
-- Enter structural maintenance when a visual rule becomes design-system authority, a primitive changes ownership, status treatment becomes semantic, or shared interaction contracts change.
+- Consider entering structural maintenance when a visual rule becomes design-system authority, a primitive changes ownership, status treatment becomes semantic, or shared interaction contracts change.
 
-## Required Completion Report
+## Report Cues
 
 ```text
 Primary mode: visual or design-system change

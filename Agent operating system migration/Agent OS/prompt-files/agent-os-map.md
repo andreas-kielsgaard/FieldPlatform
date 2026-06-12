@@ -15,12 +15,15 @@ This map is a lightweight orientation router for the Agent OS scaffold. It helps
 - `skills/skill-map.md`: inventories Stratum 3 aggregator skills and Stratum 4 reasoning workflow skills.
 - `tools/index-map.md`: inventories Stratum 1 generated or maintained indexes.
 - `tools/tool-map.md`: inventories Stratum 2 deterministic query handles.
+- `tools/semantic-map.md`: inventories Phase 3 query-only semantic substrates and reserved embedding/vector surfaces.
+- `tool-maintained-files/indexes/index-manifest.json`: mandatory compact boot context for index tiers, freshness, artifact hashes, shard hashes, sizes, semantic-support status, deterministic maintenance commands, and first-query guidance.
 - `project-control-files/technology-architecture-map.md`: project-specific technology and architecture setup.
 
 ## Usage Surfaces
 
 - `skills/skill-usage.instructions.md`: how to activate skills without turning them into mandatory ceremony.
 - `tools/tool-usage.instructions.md`: how to activate deterministic tools and avoid semantic delegation.
+- `tools/checks/agent-os-contract-check.md`: how to run the Agent OS contract alignment check after map, tool, index, or semantic-layer changes.
 - `structural-maintenance/structural-maintenance-usage.instructions.md`: how to enter structural maintenance and select behavior files.
 
 ## Memory Surfaces
@@ -32,7 +35,9 @@ This map is a lightweight orientation router for the Agent OS scaffold. It helps
 
 ## Generated Data Surfaces
 
+- `tool-maintained-files/indexes/index-manifest.json`: boot-safe generated manifest for active index awareness; it is compact context, not a raw-record, embedding, or vector-store substrate.
 - `tool-maintained-files/indexes/*.json`: Stratum 1 generated evidence artifacts produced by builders under `tool-implementations/indexes/`.
+- `tool-maintained-files/semantic/semantic-chunk-index.json`: Phase 3 deterministic chunk substrate produced by `tool-implementations/semantic/build-semantic-chunk-index.ts`; query-only, not boot payload.
 - `tool-maintained-files/`: tool-owned outputs such as generated indexes. Prompt files should access these through selected skills, deterministic tools, or narrow slices rather than broad ingestion.
 
-Tool-maintained files provide navigation and evidence. They do not replace source files, manual authority maps, task-mode instructions, structural-maintenance behaviors, skills, or human-initiated Agent OS maintenance decisions.
+Tool-maintained files provide navigation and evidence. They are not replacements for source files, manual authority maps, task-mode instructions, structural-maintenance behaviors, skills, or human-initiated Agent OS maintenance decisions.

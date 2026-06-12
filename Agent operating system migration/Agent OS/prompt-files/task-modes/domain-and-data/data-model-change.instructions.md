@@ -1,33 +1,33 @@
 # Mode: Data Model Change
 
-## Required Orientation
+## Orientation Cues
 
 - `prompt-files/domain-glossary.md`
 
-## Required Tools Or Searches
+## Evidence Cues
 
-- Tool: `schema-query` for generated data-model index slices relevant to the target.
-- Tool: `schema-query` for generated schema index slices relevant to the target.
-- Tool: `accessor-query` for generated accessor index slices relevant to the target.
-- Tool: `literal-query` for generated permissions and visibility index slices relevant to the target.
-- Skill: `test-relation-scan` when the changed target needs verification-surface selection.
+- Consider Tool: `schema-query` for generated data-model index slices relevant to the target.
+- Consider Tool: `schema-query` for generated schema index slices relevant to the target.
+- Consider Tool: `accessor-query` for generated accessor index slices relevant to the target.
+- Consider Tool: `literal-query` for generated permissions and visibility index slices relevant to the target.
+- Consider Skill: `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Skill: `rename-impact-preview` for changed entities or fields.
-- Skill: `schema-fixture-drift-scan`.
-- Skill: `consumer-impact-preview` for changed entity shape, relation behavior, fixture keys, accessors, examples, or tests.
-- Skill: `test-relation-scan` for changed model invariants or consumer-visible behavior.
-- Search relations, field names, fixture keys, validators, accessors, and tests.
-- Run affected model/accessor tests if available.
+- Consider Skill: `rename-impact-preview` for changed entities or fields.
+- Consider Skill: `schema-fixture-drift-scan`.
+- Consider Skill: `consumer-impact-preview` for changed entity shape, relation behavior, fixture keys, accessors, examples, or tests.
+- Consider Skill: `test-relation-scan` for changed model invariants or consumer-visible behavior.
+- Consider searching relations, field names, fixture keys, validators, accessors, and tests.
+- Consider running affected model/accessor tests if available.
 
-## Implementation Instructions
+## Implementation Cues
 
 - Define whether the change is conceptual, persisted, API-level, or UI-only.
-- Do not let UI shape become the source of truth for the model.
+- Keep UI shape from becoming the source of truth for the model.
 - Keep entity names, relations, fixtures, validators, accessors, and tests coherent.
 - Record invariants explicitly.
 - If the model is exploratory, mark open questions rather than pretending finality.
 
-## Cross-Application Impact Checks
+## Cross-Application Impact Cues
 
 - Entity and relation maps.
 - Schema and validation.
@@ -36,16 +36,16 @@
 - Permissions and visibility where data shape affects access.
 - Tests and examples.
 
-## Documentation Updates
+## Documentation Cues
 
-- Tool: `build-schema-shape-index`, or report required index refresh if the tool is unavailable.
-- Tool: `build-schema-shape-index` if persistence changes, or report required index refresh if the tool is unavailable.
-- Tool: `build-accessor-index`, or report required index refresh if the tool is unavailable.
+- Consider Tool: `build-schema-shape-index`, or report index refresh may be needed if the tool is unavailable.
+- Consider Tool: `build-schema-shape-index` if persistence changes, or report index refresh may be needed if the tool is unavailable.
+- Consider Tool: `build-accessor-index`, or report index refresh may be needed if the tool is unavailable.
 - Report fixture or scenario implications until test behavior is designed.
-- Skill: `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
-- Update the deferred logging strategy if the model decision will shape future work.
+- Consider Skill: `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
+- Consider updating the deferred logging strategy if the model decision will shape future work.
 
-## Regression Checks
+## Regression Cues
 
 - Relation mismatch across layers.
 - Invariants represented only in code comments or UI assumptions.
@@ -55,9 +55,9 @@
 
 ## Structural Maintenance Clues
 
-- Enter structural maintenance when entity ownership, invariant placement, lifecycle state, persistence boundary, or model reuse is being decided.
+- Consider entering structural maintenance when entity ownership, invariant placement, lifecycle state, persistence boundary, or model reuse is being decided.
 
-## Required Completion Report
+## Report Cues
 
 ```text
 Primary mode: data model change

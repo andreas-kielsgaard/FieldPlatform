@@ -11,7 +11,7 @@ This behavior protects semantic coherence even when artifact shape differs.
 - Duplication: centralize duplicated meaning, rule, policy, calculation, or transformation, not merely similar shape.
 - Naming/Ontology: identify canonical terms, aliases, provisional language, or unresolved vocabulary before freezing semantics.
 - Ownership: find the rightful semantic owner that can change with the rule.
-- Data/State/Effect: treat schema, derivation, policy, state, caching, side effects, and fixtures as semantic surfaces when they must change together.
+- Data/State/Effect: treat schema, derivation, policy, state, caching, side effects, and fixtures as semantic surfaces when they should change together.
 - Boundary: expose centralized semantics through the appropriate interface when consumed across layers.
 - Memory: record canonical, provisional, deprecated, or intentionally unresolved semantics.
 

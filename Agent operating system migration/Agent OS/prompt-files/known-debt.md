@@ -14,6 +14,6 @@
 
 ## Update Rules
 
-- Record deliberate shortcuts that future work must remember.
+- Record deliberate shortcuts that future work should remember.
 - Record containment and removal triggers when debt is accepted.
 - Move resolved entries to recently retired debt instead of deleting them immediately.

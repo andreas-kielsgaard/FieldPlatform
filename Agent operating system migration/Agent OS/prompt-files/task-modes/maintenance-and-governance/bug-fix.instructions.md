@@ -1,51 +1,51 @@
 # Mode: Bug Fix
 
-## Required Orientation
+## Orientation Cues
 
 Use generated-index query tools for the failing surface and read manual context:
 
 - `prompt-files/known-debt.md`
 
-## Required Tools Or Searches
+## Evidence Cues
 
-- Tool: `component-query` for generated component index slices relevant to the target.
-- Tool: `route-query` for generated routing index slices relevant to the target.
-- Tool: `accessor-query` for generated accessor index slices relevant to the target.
-- Skill: `state-impact-scan` for generated state-management index slices relevant to the target.
-- Tool: `literal-query` for generated permissions and visibility index slices relevant to the target.
-- Skill: `test-relation-scan` when the changed target needs verification-surface selection.
+- Consider Tool: `component-query` for generated component index slices relevant to the target.
+- Consider Tool: `route-query` for generated routing index slices relevant to the target.
+- Consider Tool: `accessor-query` for generated accessor index slices relevant to the target.
+- Consider Skill: `state-impact-scan` for generated state-management index slices relevant to the target.
+- Consider Tool: `literal-query` for generated permissions and visibility index slices relevant to the target.
+- Consider Skill: `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Reproduce the failure or clearly describe why reproduction is not available.
-- Run focused tests or manual checks for the failing surface.
-- Search for similar bug patterns.
-- Search related state, accessor, policy, or component consumers.
-- Skill: `consumer-impact-preview` when the fix may change behavior for consumers beyond the failing path.
-- Skill: `test-relation-scan` when adding or revising regression coverage for a contract-relevant path.
+- Try to reproduce the failure or clearly describe why reproduction is not available.
+- Consider running focused tests or manual checks for the failing surface.
+- Consider searching for similar bug patterns.
+- Consider searching related state, accessor, policy, or component consumers.
+- Consider Skill: `consumer-impact-preview` when the fix may change behavior for consumers beyond the failing path.
+- Consider Skill: `test-relation-scan` when adding or revising regression coverage for a contract-relevant path.
 
-## Implementation Instructions
+## Implementation Cues
 
 - Identify whether the root cause is local or systemic.
 - Prefer fixing the source of truth over patching the symptom.
 - Add or update a regression test where practical.
 - If no test is added, explain why.
 - Check whether the same pattern exists elsewhere.
-- Do not hide architectural debt inside a quick patch without logging it.
+- Avoid hiding architectural debt inside a quick patch without logging it.
 
-## Cross-Application Impact Checks
+## Cross-Application Impact Cues
 
 - Does the bug reveal stale documentation or maps?
 - Is the same pattern present in other components, routes, accessors, fixtures, or policies?
 - Does the fix change behavior for other consumers?
 - Does the fix indicate a missing test surface?
 
-## Documentation Updates
+## Documentation Cues
 
 - Report regression coverage implications until test behavior is designed.
-- Update `known-debt.md` if root cause is deferred.
-- Update the deferred logging strategy if the fix changes a convention.
-- Use the matching generated-index update tool if the bug exposed stale generated memory, or report required index refresh if the tool is unavailable.
+- Consider updating `known-debt.md` if root cause is deferred.
+- Consider updating the deferred logging strategy if the fix changes a convention.
+- Consider using the matching generated-index builder if the bug exposed stale generated memory, or report index refresh may be needed if the tool is unavailable.
 
-## Regression Checks
+## Regression Cues
 
 - Symptom patch without root cause.
 - Similar bugs left elsewhere.
@@ -55,9 +55,9 @@ Use generated-index query tools for the failing surface and read manual context:
 
 ## Structural Maintenance Clues
 
-- Enter structural maintenance when the fix exposes unclear ownership, boundary leakage, repeated defects, contract ambiguity, or a missing maintenance path.
+- Consider entering structural maintenance when the fix exposes unclear ownership, boundary leakage, repeated defects, contract ambiguity, or a missing maintenance path.
 
-## Required Completion Report
+## Report Cues
 
 ```text
 Primary mode: bug fix

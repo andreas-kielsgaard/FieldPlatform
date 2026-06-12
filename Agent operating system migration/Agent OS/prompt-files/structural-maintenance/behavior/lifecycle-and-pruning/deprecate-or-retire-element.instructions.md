@@ -12,7 +12,7 @@ This behavior protects against unsafe deletion and prevents obsolete maintained 
 - Contract: identify compatibility, consumer expectations, tests, and replacement promises before changing or removing supported behavior.
 - Blast Radius: identify consumers and migration risk before removing authority or compatibility.
 - Boundary: public interfaces, access paths, schema, routes, generated artifacts, and tools need explicit compatibility treatment.
-- Memory: record deprecation, replacement, migration path, retirement, and removal triggers when future agents must avoid the old precedent.
+- Memory: record deprecation, replacement, migration path, retirement, and removal triggers when future agents should avoid the old precedent.
 
 ## Procedure
 

@@ -46,7 +46,7 @@ Choose one:
 Update memory only when:
 
 - scope classification creates a durable boundary or convention
-- uncertainty must be remembered
+- uncertainty should be remembered
 - provisional work could be mistaken for architecture
 - debt is intentionally accepted
 - the decision changes future routing or behavior expectations

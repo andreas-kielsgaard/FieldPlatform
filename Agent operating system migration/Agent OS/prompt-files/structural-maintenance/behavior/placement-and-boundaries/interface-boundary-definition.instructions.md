@@ -40,7 +40,7 @@ Choose one:
 
 - UI, route, or product-runtime artifacts need raw schema, persistence, policy, or tool internals.
 - Product runtime artifacts depend on Agent OS tooling.
-- A consumer must know implementation details to use another area.
+- A consumer needs implementation details to use another area.
 - Boundary change affects public APIs or generated contracts.
 - The exception would become precedent.
 

@@ -8,7 +8,7 @@ This behavior protects against creating files, folders, modules, components, ser
 
 ## Lens Prompts
 
-- Intent: state what the new Maintained Element must make possible.
+- Intent: state what the new Maintained Element should make possible.
 - Ownership: place the element with the narrowest owner that has the same reason to change.
 - Boundary: keep dependency direction and interface expectations clear; convenient location is not sufficient.
 - Naming/Ontology: if the name carries domain meaning, align it with existing vocabulary or mark uncertainty.

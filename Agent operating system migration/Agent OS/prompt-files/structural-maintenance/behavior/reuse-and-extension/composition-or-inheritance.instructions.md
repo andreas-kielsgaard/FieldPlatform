@@ -10,8 +10,8 @@ This behavior protects against using inheritance or direct extension when compos
 
 - Reuse: identify the behavior worth reusing without assuming shared identity.
 - Ownership: composition or wrapping is preferred when the existing owner should not absorb the new responsibility.
-- Contract: wrappers, adapters, inheritance, and extension must make consumer-visible promises explicit and testable.
-- Boundary: the relationship form must not leak implementation details or reverse dependency direction.
+- Contract: wrappers, adapters, inheritance, and extension should make consumer-visible promises explicit and testable.
+- Boundary: the relationship form should not leak implementation details or reverse dependency direction.
 - Lifecycle: keep local/provisional relationships easy to replace; stabilize only intentional conventions.
 - Memory: record relationship strategy only when it becomes a durable convention or shared pattern.
 

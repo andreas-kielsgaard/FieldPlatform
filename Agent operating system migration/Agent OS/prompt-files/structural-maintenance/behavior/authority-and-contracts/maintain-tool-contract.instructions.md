@@ -25,7 +25,7 @@ Active tool contract changes require an explicit human-initiated Agent OS mainte
 4. Use `artifact-query` when a tool output, generated index, or script-maintained artifact is part of the contract.
 5. Align the tool-map row, semantic file, script path, parameters, outputs, and limitations only when the current task explicitly initiated active tool-contract maintenance.
 6. Keep incidental tool suggestions outside the active tool map; record them as proposal notes for human review.
-7. Do not claim implementation, execution, or deterministic evidence unless the script exists and was actually run.
+7. Only claim implementation, execution, or deterministic evidence when the script exists and was actually run.
 8. Add secondary generated-artifact, authority, or documentation behavior when tool outputs feed maps, docs, or instructions.
 
 ## Contract Outcomes

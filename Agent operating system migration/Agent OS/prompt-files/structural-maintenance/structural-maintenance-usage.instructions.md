@@ -2,13 +2,13 @@
 
 ## Purpose
 
-Use this layer when a task requires a structural decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority.
+Use this layer when a task raises a concrete structural decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority.
 
-Task modes classify the kind of work and the affected control surfaces. Structural maintenance guides placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, and authority decisions inside that work.
+Task modes classify the kind of work and the affected control surfaces. Structural maintenance offers judgment frames for placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, and authority decisions inside that work.
 
 This applies at any granularity: inside an existing artifact, across files, across folders, across platform components, or across agent operating-system surfaces.
 
-## Entry Rule
+## Entry Cue
 
 Enter structural maintenance when selected task modes or working evidence raise a concrete question about any of these triggers:
 
@@ -20,17 +20,17 @@ Enter structural maintenance when selected task modes or working evidence raise 
 - consumer contract, audience, or maintenance path
 - source-of-truth authority
 
-Use this layer before deciding where behavior, state, effects, responsibilities, concepts, names, examples, checks, source-of-truth statements, contracts, audience-specific guidance, maintenance paths, or authority should live.
+Use this layer as a cue before deciding where behavior, state, effects, responsibilities, concepts, names, examples, checks, source-of-truth statements, contracts, audience-specific guidance, maintenance paths, or authority should live.
 
-Use this layer before adding, moving, expanding, splitting, centralizing, renaming, promoting, demoting, deprecating, or trimming durable maintained elements.
+Use this layer when adding, moving, expanding, splitting, centralizing, renaming, promoting, demoting, deprecating, or trimming durable maintained elements could alter their long-term structure or meaning.
 
 Maintained elements include code, components, functions, hooks, schemas, accessors, fixtures, examples, tests, maps, ledgers, agent instructions, tool contracts, and documentation when they carry source-of-truth meaning.
 
-For small local edits, use only the behavior-map row that matches the structural question. Do not load unrelated behavior files.
+For small local edits, use only the behavior-map row that matches the structural question. Avoid loading unrelated behavior files.
 
 ## Lightweight Context Loading
 
-Do not load all behavior files, lens files, maps, ledgers, skill files, or tool semantic files up front.
+Avoid loading all behavior files, lens files, maps, ledgers, skill files, or tool semantic files up front.
 
 Behavior files are the runtime prompt surface for selected structural decisions. Lens files are reference definitions and maintenance surfaces. Skill files are optional operational drivers. Tool semantic files are deterministic evidence contracts. Maps and ledgers are memory surfaces.
 
@@ -52,10 +52,10 @@ Open full lens files only when:
 3. Use the behavior map to select one primary structural-maintenance behavior.
 4. Add secondary behaviors only when the primary behavior reveals another structural decision.
 5. Read only selected behavior files.
-6. Use maps, ledgers, skill files, tool semantic files, generated-index slices, and full lens files only when selected behavior files require deeper evidence, memory updates, or clarification.
+6. Use maps, ledgers, skill files, tool semantic files, generated-index slices, and full lens files only when selected behavior files suggest deeper evidence, memory updates, or clarification.
 7. Resolve skill IDs through `prompt-files/skills/skill-map.md` when operational choreography or reasoning workflow support is useful.
 8. Resolve deterministic tool IDs through `prompt-files/tools/tool-map.md` when bounded evidence or index refresh is useful.
-9. Update maps, ledgers, or structural indexes only when the behavior map or selected behavior requires it.
+9. Update maps, ledgers, or structural indexes only when the behavior map or selected behavior indicates a durable memory need, subject to the Agent OS self-update gate.
 
 ## Decision Declaration
 

@@ -20,11 +20,12 @@ Stratum 2 tools are deterministic query handles over Stratum 1 indexes or bounde
 | `schema-query` | schema-shape-index | entity shape, field usage, validator mapping, generated type mapping | Query schema-like declarations, field hints, validators, generated type hints, and relation hints. |
 | `accessor-query` | accessor-index | callers, input/output hints, read/write, cache/invalidation notes | Query accessor/API-like definitions, callers, read/write hints, imports, and cache hints. |
 | `diff-query` | change-index | changed files, changed symbols by follow-up query, changed docs, generated artifacts | Query changed files, status codes, artifact kinds, and changed area hints. |
+| `semantic-candidate-query` | semantic-chunk-index | fuzzy recall, near-match chunks, broad orientation, candidate evidence | Query deterministic text chunks for lexical semantic candidates when exact indexes are too narrow. |
 | `pattern-candidate-query` | component-index, literal-index, term-index | similar names, repeated literals, nearby terms, candidate patterns | Query repeated component-like names, similar literals, nearby terms, and candidate pattern evidence. |
 
 ## Maintenance Rules
 
 - Modes, behaviors, lenses, and skills reference logical tool IDs from this map.
 - Tool semantic files describe capability and boundaries; scripts own execution.
-- Do not ask tools to decide semantic questions such as rightful ownership, authority, audience, abstraction quality, or whether two patterns mean the same thing.
+- Avoid asking tools to decide semantic questions such as rightful ownership, authority, audience, abstraction quality, or whether two patterns mean the same thing.
 - If defining the tool input is as expensive as solving the task directly, reason directly or use a smaller query.

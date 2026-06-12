@@ -9,8 +9,8 @@ This behavior protects against both unnecessary duplication and corrupting an ex
 ## Lens Prompts
 
 - Reuse: reuse only when the existing behavior preserves meaning for the new use, not merely because it saves effort.
-- Ownership: do not make an existing owner responsible for behavior with a different reason to change.
-- Contract: reuse or adaptation must preserve promised behavior for existing consumers, or include a migration and test plan for changed expectations.
+- Ownership: avoid making an existing owner responsible for behavior with a different reason to change.
+- Contract: reuse or adaptation should preserve promised behavior for existing consumers, or include a migration and test plan for changed expectations.
 - Boundary: avoid reuse that crosses or bypasses an intended interface boundary.
 - Lifecycle: treat stable/shared, provisional, local, and deprecated elements differently as precedents.
 - Blast Radius: if reuse requires modifying shared behavior, identify likely consumers first.
@@ -45,7 +45,7 @@ This behavior protects against both unnecessary duplication and corrupting an ex
 ## Branch Or Create Local One-Off When
 
 - Reuse would require unrelated options or flags.
-- Existing consumers do not share the new assumptions.
+- Existing consumers would not share the new assumptions.
 - The existing element is provisional, deprecated, or not approved as precedent.
 - Similarity is local or unstable.
 

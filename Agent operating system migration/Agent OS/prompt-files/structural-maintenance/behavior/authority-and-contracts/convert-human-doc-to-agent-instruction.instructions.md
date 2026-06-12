@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Decide whether human-facing documentation contains guidance that agents must follow and, if so, restate that guidance in the proper agent-facing instruction surface.
+Decide whether human-facing documentation contains guidance that agents may need as operating guidance and, if so, restate that guidance in the proper agent-facing instruction surface.
 
 This behavior protects against README files, migration notes, explanatory docs, or prose summaries silently becoming runtime policy.
 

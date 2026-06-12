@@ -10,7 +10,7 @@ This behavior protects against both premature abstraction and leaving stable res
 
 - Duplication: extract only when repeated behavior has the same reason to change; local duplication can be useful during exploration.
 - Ownership: name the narrowest owner that actually owns the extracted responsibility.
-- Boundary: do not extract in a way that inverts dependencies or leaks implementation details.
+- Boundary: avoid extracting in a way that inverts dependencies or leaks implementation details.
 - Lifecycle: classify the extraction as candidate, provisional, shared, or stable.
 - Blast Radius: identify current consumers before migrating them to the extracted owner.
 - Memory: record durable extraction, partial extraction debt, or new conventions only when future agents need the precedent.
@@ -50,7 +50,7 @@ This behavior protects against both premature abstraction and leaving stable res
 
 - Extraction creates new public API or cross-layer dependency.
 - The abstraction immediately needs unrelated options.
-- Existing consumers must migrate broadly.
+- Existing consumers may need broad migration.
 - The extraction reveals duplicated semantics that should be centralized instead.
 
 ## Memory Updates

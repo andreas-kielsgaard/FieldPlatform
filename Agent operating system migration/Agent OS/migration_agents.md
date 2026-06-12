@@ -16,7 +16,7 @@ Act like a careful senior engineer working in an evolving system:
 
 `AGENTS.md` is the Agent OS bootloader. It should stay small and route agents into maps, usage files, and selected deeper context.
 
-For every non-trivial task:
+To initiate Agent OS for every non-trivial task, load the introductory bootloader, load the compact maps below, load the compact index manifest, and enter the task-mode usage file. This initiation step is firm; raw generated index record arrays are not boot-time context.
 
 1. Read or keep available these compact maps:
    - `prompt-files/task-modes/task-mode-map.md`
@@ -25,13 +25,15 @@ For every non-trivial task:
    - `prompt-files/skills/skill-map.md`
    - `prompt-files/tools/index-map.md`
    - `prompt-files/tools/tool-map.md`
-2. Start runtime execution through `prompt-files/task-modes/task-mode-usage.instructions.md`.
-3. Let selected task modes decide which mode files, maps, checks, and memory surfaces to load.
-4. Enter `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md` when durable placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, or authority decisions appear.
-5. Use `prompt-files/skills/skill-usage.instructions.md` when operational choreography or reasoning workflow support would help.
-6. Use `prompt-files/tools/tool-usage.instructions.md` only when deterministic evidence, index refresh, or bounded retrieval is useful.
+   - `prompt-files/tools/semantic-map.md`
+2. Read or keep available `tool-maintained-files/indexes/index-manifest.json` as compact boot context for index tiers, freshness, artifact hashes, shard hashes, sizes, semantic-support status, deterministic maintenance commands, and first-query guidance.
+3. Start runtime execution through `prompt-files/task-modes/task-mode-usage.instructions.md`.
+4. Let selected task modes decide which mode files, maps, checks, and memory surfaces to load.
+5. Enter `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md` when durable placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, or authority decisions appear.
+6. Use `prompt-files/skills/skill-usage.instructions.md` when operational choreography or reasoning workflow support would help.
+7. Use `prompt-files/tools/tool-usage.instructions.md` only when deterministic evidence, index refresh, or bounded retrieval is useful.
 
-Do not front-load every task mode, behavior, lens, skill, tool, map, or index. Maps are orientation surfaces. Usage files start execution. Selected files provide procedure.
+After initiation, treat modes, behaviors, lenses, skills, tools, maps, and indexes as cues. Boot-core index rows in the manifest are strong cues for source orientation and index trust; the semantic map is compact awareness for optional candidate retrieval. Raw records, semantic chunks, embedding vectors, and vector-store payloads remain query-only unless selected evidence cues make them useful. Maps are orientation surfaces. Usage files start execution. Selected files provide judgment frames and candidate evidence, not a checklist to exhaust.
 
 ## Context Hierarchy
 
@@ -47,7 +49,7 @@ Use this order of authority:
 8. `prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md` and selected behavior files when structural decisions are triggered.
 9. Selected skill files when operational support is useful.
 10. Selected tool semantic files and script outputs when deterministic evidence is useful.
-11. Task-relevant maps, ledgers, existing code, tests, examples, and structural indexes.
+11. Task-relevant maps, ledgers, existing code, tests, examples, and selected raw index slices.
 12. `known-debt.md`, `experiments.md`, and deferred logging strategy notes for historical context.
 
 If instructions conflict:
@@ -67,18 +69,19 @@ Before changing a concept, identify the places where that concept is represented
 Before creating a new pattern, confirm that an existing one does not already cover the need.
 Before finishing, update the project memory that future work depends on.
 
-Do not treat this repository as a code-generation sandbox. Treat it as a living system whose clarity must improve over time.
+Treat this repository as a living system whose clarity should improve over time, not as a code-generation sandbox.
 
 ## Tool And Skill Traps
 
-- Tool temptation: do not call a tool merely because it exists. Use tools when recall, search, consistency, slicing, freshness, or verification is the expensive part.
-- Semantic delegation: do not ask deterministic tools to decide rightful ownership, audience, authority, abstraction quality, intended behavior, or whether two patterns mean the same thing.
+- Tool temptation: avoid calling a tool merely because it exists. Use tools when recall, search, consistency, slicing, freshness, or verification is the expensive part.
+- Semantic delegation: avoid asking deterministic tools to decide rightful ownership, audience, authority, abstraction quality, intended behavior, or whether two patterns mean the same thing.
 - Index illusion: absence from an index is not proof of absence unless the index is fresh, complete for the relevant substrate, and queried at the right scope.
 - Context explosion: prefer bounded summaries, top-N results, direct consumers, and targeted slices over full raw output.
 - Expensive input: if defining the query requires as much reasoning as solving the task directly, reason directly or use a smaller query.
 - Timing: if all relevant context is already loaded and small, direct reasoning may be better than a tool call.
 - Convention dependence: metadata tools are only as good as maintained conventions. Treat unknown metadata as uncertainty.
 - Generated authority: generated indexes are evidence surfaces. Update the source, map, instruction, or producer when meaning changes.
+- Metadata maintenance: do not hand-maintain generated index metadata. Use the relevant builder or `build-all-indexes` when index metadata, shard hashes, or semantic-support metadata is stale or missing.
 
 ## Control Surfaces
 
@@ -91,6 +94,7 @@ Examples include:
 - lens files for reusable reasoning frames
 - skill files for operational routines and workflow support
 - tool and index maps for deterministic evidence capabilities
+- semantic maps for query-only fuzzy candidate substrates
 - maps and registries under `prompt-files` for project memory
 - structural indexes for generated lookup data
 - ledgers for decisions, debt, and experiments
@@ -101,7 +105,7 @@ When a change affects a control surface, use the selected task modes and structu
 
 The instruction system is living infrastructure.
 
-Update project memory when a selected task mode requires it, when a control surface changes, or when repeated correction reveals missing standing guidance.
+Use project memory cues when a selected task mode suggests it, when a control surface changes, or when repeated correction reveals missing standing guidance.
 
 If a correction has happened twice, encode it into one of:
 
@@ -111,6 +115,8 @@ If a correction has happened twice, encode it into one of:
 - a skill file, when reusable operational choreography changes
 - a map, registry, checklist, or ledger, when project memory changes
 - a tool, index, check, or script, when the instruction can be made cheaper to verify
+
+Hard gate: agents must not autonomously rewrite Agent OS global routing, task modes, structural-maintenance behaviors, lenses, skills, tool contracts, indexes, or tool-maintenance rules unless the user explicitly asks for Agent OS maintenance. When that gate is not open, record the need as a proposal or migration note.
 
 Keep `AGENTS.md` focused on global behavior and routing. Move detailed procedures into task modes, structural-maintenance files, skills, tools, or the map that owns the relevant control surface.
 
@@ -130,11 +136,11 @@ When adding exploratory code or artifacts:
 - record them in `experiments.md`
 - define what would promote, replace, or remove them
 
-Do not let experiments silently become architecture.
+Watch for experiments silently becoming architecture; promote, retire, or keep them provisional deliberately.
 
-## Required Post-Change Report
+## Post-Change Report Cues
 
-Every substantial task must end with a concise report containing:
+Substantial tasks should usually end with a concise report that considers:
 
 - primary task mode
 - secondary task modes triggered
@@ -149,7 +155,7 @@ Every substantial task must end with a concise report containing:
 - decisions recorded
 - notable risks or assumptions remaining
 
-Do not simply say "done."
+Prefer a report that leaves future agents oriented rather than simply saying "done."
 
 ## Maintaining This File
 
@@ -161,6 +167,6 @@ Update it when:
 - task-mode entry procedure changes
 - top-level maps, skills, tools, or indexes are introduced or retired
 - the repo structure changes enough that orientation becomes slower
-- a tool/check makes a global instruction enforceable
+- a tool/check makes a global instruction easier to verify
 
-Do not add detailed task, structural-maintenance, skill, or tool procedures here.
+Keep detailed task, structural-maintenance, skill, and tool procedures in their owning files.

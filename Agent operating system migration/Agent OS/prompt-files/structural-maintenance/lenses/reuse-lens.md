@@ -43,7 +43,7 @@ Reuse should preserve meaning, not merely save effort.
 ## Stop Or Escalate When
 
 - Reuse would require unrelated options or flags.
-- Existing consumers do not share the new assumptions.
+- Existing consumers would not share the new assumptions.
 - Reuse would make the existing name less precise.
 - The existing element is provisional, deprecated, or not approved as precedent.
 

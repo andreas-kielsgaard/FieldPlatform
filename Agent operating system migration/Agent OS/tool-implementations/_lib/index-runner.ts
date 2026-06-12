@@ -1,8 +1,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { emit, parseArgs, resolveRoot } from "./cli.ts";
-import { collectFiles, isGeneratedIndexPath, isTextFile } from "./repo-files.ts";
+import { collectFiles, isGeneratedToolMaintainedPath, isTextFile } from "./repo-files.ts";
 import { gitSha } from "./git.ts";
+import { buildIndexMaintenanceMetadata } from "./index-metadata.ts";
 import { readJsonIfExists, stableStringify } from "./json.ts";
 import { normalizePath } from "./text-utils.ts";
 import type { IndexArtifact, IndexBuilderSpec, IndexDefinition } from "./types.ts";
@@ -39,16 +40,17 @@ export function runIndexBuilder(spec: IndexBuilderSpec): void {
 
 function buildIndex(spec: IndexBuilderSpec, root: string): IndexArtifact {
   const files = collectFiles(root);
-  const contentFiles = files.filter((file) => isTextFile(file.path) && !isGeneratedIndexPath(file.path));
+  const contentFiles = files.filter((file) => isTextFile(file.path) && !isGeneratedToolMaintainedPath(file.path));
   const records = spec.buildRecords({ root, files, contentFiles });
   const def: IndexDefinition = spec.definition;
+  const maintenance = buildIndexMaintenanceMetadata(def, records);
 
   return {
     artifactId: def.id,
     indexId: def.id,
     stratum: 1,
     generated: true,
-    schemaVersion: 1,
+    schemaVersion: 2,
     generatedAt: new Date().toISOString(),
     sourceRoot: normalizePath(root),
     sourceRevision: gitSha(root),
@@ -59,6 +61,7 @@ function buildIndex(spec: IndexBuilderSpec, root: string): IndexArtifact {
     coverage: def.coverage,
     knownBlindSpots: def.knownBlindSpots,
     recordCount: records.length,
+    maintenance,
     records,
   };
 }

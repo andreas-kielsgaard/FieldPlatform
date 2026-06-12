@@ -3,10 +3,10 @@
   "indexId": "schema-shape-index",
   "stratum": 1,
   "generated": true,
-  "schemaVersion": 1,
-  "generatedAt": "2026-06-12T10:18:49.086Z",
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-12T15:21:39.546Z",
   "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "d7467382b6c7ab3d94b8ba1fbc48193f935230bd",
+  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
   "producer": "build-schema-shape-index",
   "artifactPath": "tool-maintained-files/indexes/schema-shape-index.json",
   "sourceInputs": [
@@ -17,7 +17,39 @@
   "knownBlindSpots": [
     "Does not replace database, ORM, or validator-specific introspection."
   ],
-  "recordCount": 67,
+  "recordCount": 72,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-schema-shape-index",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-schema-shape-index.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-schema-shape-index.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 1,
+      "shards": [
+        {
+          "shardId": "records-0001",
+          "startRecord": 0,
+          "endRecordExclusive": 72,
+          "recordCount": 72,
+          "sha256": "11103199f7dd02361cc26bee098b506ec84a07e12a50aaa4b9c6ba61aa09df02"
+        }
+      ]
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
   "records": [
     {
       "file": "migration_agents.md",
@@ -424,8 +456,30 @@
       "fields": []
     },
     {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 1,
+      "declarationKind": "type",
+      "name": "ActiveIndexCatalogRow",
+      "fields": [
+        "indexId",
+        "tier",
+        "suggestedFirstOperator",
+        "capability",
+        "artifactPath",
+        "semanticFile",
+        "builder"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 21,
+      "declarationKind": "type",
+      "name": "hints",
+      "fields": []
+    },
+    {
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 190,
+      "line": 194,
       "declarationKind": "type",
       "name": "is",
       "fields": []
@@ -513,17 +567,50 @@
       "fields": [
         "definition",
         "buildRecords",
-        "artifactId",
-        "indexId",
-        "stratum",
-        "generated",
-        "schemaVersion",
-        "generatedAt"
+        "shardId",
+        "startRecord",
+        "endRecordExclusive",
+        "recordCount",
+        "sha256"
       ]
     },
     {
       "file": "tool-implementations/_lib/types.ts",
       "line": 37,
+      "declarationKind": "type",
+      "name": "IndexShardMetadata",
+      "fields": [
+        "shardId",
+        "startRecord",
+        "endRecordExclusive",
+        "recordCount",
+        "sha256",
+        "metadataVersion",
+        "maintainedBy",
+        "manualMaintenance"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 45,
+      "declarationKind": "type",
+      "name": "IndexMaintenanceMetadata",
+      "fields": [
+        "metadataVersion",
+        "maintainedBy",
+        "manualMaintenance",
+        "refreshCommand",
+        "checkCommand",
+        "sharding",
+        "strategy",
+        "targetRecordsPerShard",
+        "shardCount",
+        "shards"
+      ]
+    },
+    {
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 67,
       "declarationKind": "type",
       "name": "IndexArtifact",
       "fields": [
@@ -542,7 +629,7 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 56,
+      "line": 87,
       "declarationKind": "type",
       "name": "QueryOperatorSpec",
       "fields": [
@@ -556,7 +643,7 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 61,
+      "line": 92,
       "declarationKind": "type",
       "name": "LoadedIndex",
       "fields": [
@@ -564,6 +651,17 @@
         "path",
         "missing",
         "index"
+      ]
+    },
+    {
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 8,
+      "declarationKind": "type",
+      "name": "ContractFinding",
+      "fields": [
+        "severity",
+        "surface",
+        "message"
       ]
     },
     {

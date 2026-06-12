@@ -2,13 +2,15 @@
 
 ## Required Orientation
 
-- `docs/agent/generated-indexes/component-registry.md`
 - `docs/agent/design-system-map.md`
 - `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md`
 - `docs/agent/project-setup/technology-architecture-map.md` when extraction crosses area, package, or platform boundaries
 - `docs/agent/known-debt.md`
 
 ## Required Tools Or Searches
+
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Search for repeated markup, classes, functions, helpers, or compositions.
 - Tool: `component-usage`.
@@ -34,7 +36,7 @@
 
 ## Documentation Updates
 
-- Update `generated-indexes/component-registry.md` for the new shared component or extraction candidate.
+- Tool: `update-component-index` for the new shared component or extraction candidate, or report required index refresh if the tool is unavailable.
 - Update the deferred logging strategy if the extraction establishes a convention.
 - Update `known-debt.md` if duplication is intentionally left.
 - Update `experiments.md` if the extraction remains provisional.
@@ -46,6 +48,10 @@
 - Missed consumers.
 - Behavior changes hidden inside refactor.
 - Overly broad props or options.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when extraction creates a new owner, centralizes duplicated semantics, establishes a reuse contract, or crosses package, platform, or area boundaries.
 
 ## Required Completion Report
 

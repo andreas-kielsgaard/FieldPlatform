@@ -3,9 +3,11 @@
 ## Required Orientation
 
 - `docs/agent/design-system-map.md`
-- `docs/agent/generated-indexes/component-registry.md`
 
 ## Required Tools Or Searches
+
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Tool: `check-token-literals`.
 - Tool: `component-usage` when shared visuals change.
@@ -30,8 +32,8 @@
 ## Documentation Updates
 
 - Update `design-system-map.md`.
-- Update `generated-indexes/component-registry.md` if component variants or primitives changed.
-- Report visual coverage implications until test behavior is designed.
+- Tool: `update-component-index` if component variants or primitives changed, or report required index refresh if the tool is unavailable.
+- Tool: `test-surface-selection` for visual coverage implications, or report gaps if the tool is unavailable.
 - Update the deferred logging strategy if a durable design convention is established.
 
 ## Regression Checks
@@ -41,6 +43,10 @@
 - Inconsistent variant rollout.
 - Unintended changes to shared components.
 - Text overlap, truncation, or visual breakage across expected viewports.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when a visual rule becomes design-system authority, a primitive changes ownership, status treatment becomes semantic, or shared interaction contracts change.
 
 ## Required Completion Report
 

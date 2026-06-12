@@ -53,7 +53,8 @@
 
 ## Refactor
 
-- Source map.
+- Agent OS map when operating-system routing changes.
+- Source-directory map query when source-tree structure matters.
 - Structural indexes.
 - Dependency graph.
 - Tests.

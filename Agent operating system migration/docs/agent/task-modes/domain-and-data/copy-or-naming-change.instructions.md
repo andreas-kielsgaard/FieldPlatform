@@ -3,12 +3,14 @@
 ## Required Orientation
 
 - `docs/agent/domain-glossary.md`
-- `docs/agent/generated-indexes/naming-index.md`
 - `docs/agent/design-system-map.md`
-- `docs/agent/generated-indexes/routing-map.md`
-- `docs/agent/generated-indexes/component-registry.md`
 
 ## Required Tools Or Searches
+
+- Tool: `query-naming-index` for generated naming index slices relevant to the target.
+- Tool: `query-routing-index` for generated routing index slices relevant to the target.
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Tool: `find-term` for terms being introduced or removed.
 - Tool: `rename-impact` for non-trivial renames.
@@ -35,9 +37,9 @@
 ## Documentation Updates
 
 - Update `domain-glossary.md` if meaning changes.
-- Update `generated-indexes/naming-index.md`.
+- Tool: `update-naming-index`, or report required index refresh if the tool is unavailable.
 - Update `design-system-map.md` if status or label families change.
-- Update `generated-indexes/routing-map.md` if route labels or slugs change.
+- Tool: `update-routing-index` if route labels or slugs change, or report required index refresh if the tool is unavailable.
 - Update the deferred logging strategy if a durable naming rule is set.
 
 ## Regression Checks
@@ -47,6 +49,10 @@
 - UI label drift without mapping.
 - Status text coupled to visual variants.
 - Unresolved aliases not recorded.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when a term becomes canonical, a route-slug or label family becomes durable, a status vocabulary crosses surfaces, or naming authority is unclear.
 
 ## Required Completion Report
 

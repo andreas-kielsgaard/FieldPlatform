@@ -38,6 +38,22 @@ This makes tool support a maintained OS surface: adding a new mode or behavior t
 
 Human documentation should explain the grouped tool structure: `docs/agent/tools/tooling-map.md` owns logical discovery, grouped `docs/agent/tools/<group>/*.instructions.md` files own agent-facing execution contracts, and grouped `tools/agent/<group>/*.ts` files are implementation placeholders or scripts.
 
+Human documentation should explain that active tool contract changes are not autonomously maintained by agents. Agents may identify tool gaps or improvement proposals during reflective work, but active changes to tooling-map rows, tool instruction contracts, or tool maintenance rules require a human-initiated Agent OS maintenance task.
+
+### Agent OS Map And Generated Source Discovery
+
+Human documentation should describe `docs/agent/agent-os-map.md` as the lightweight Agent OS orientation router. It points to task modes, structural maintenance, project setup, tools, ledgers, generated indexes, and memory surfaces; it is not a source-tree index and should not become a broad semantic map.
+
+Human documentation should distinguish the Agent OS map from generated source-tree discovery. Source-tree directory data lives in `docs/agent/structural-indexes/source-directory-map.json`, is refreshed by `source-map-indexer`, and is queried through `source-map-query` with a directory scope. The generated source-directory map contains navigation data such as directory and file names, not file contents or semantic authority.
+
+### Generated Index Access APIs
+
+Generated indexes should be documented as generated lookup artifacts accessed through matching query and update APIs. Query tools should return bounded slices with freshness and uncertainty notes. Update tools should refresh generated artifacts or report that refresh is unavailable.
+
+Human documentation should explain that generated indexes are not default orientation files for task modes. Manual authority surfaces such as `domain-glossary.md`, `known-debt.md`, `experiments.md`, `design-system-map.md`, and `project-setup/technology-architecture-map.md` remain appropriate direct reads when selected modes require them.
+
+Future documentation should preserve the open design question around generated, manual, and hybrid maps, including whether any generated index should keep a curated memory snippet and how tooling would protect that curated content.
+
 ### Root Agent Memory Surfaces
 
 Human documentation should explain the top-level `docs/agent/*.md` files and sibling subfolders as standing agent memory surfaces, not as files an agent should load by default. They should be presented by role: project setup, generated indexes, ledgers, checklists, structural-maintenance guidance, task modes, and tool instruction files.
@@ -100,7 +116,7 @@ Human documentation should note that the structural-maintenance behavior and len
 
 Lens documentation should emphasize that each lens has decision outputs, stop or escalation rules, cheap-pass rules, evidence expectations, and memory implications. This keeps lenses procedural rather than decorative.
 
-The lens map should be documented as an inventory and maintenance surface, not a separate decision map. Structural-maintenance behavior files are expected to activate relevant lenses directly once behavior-to-lens wiring is reviewed.
+The lens map should be documented as an inventory and maintenance surface, not a separate decision map. Structural-maintenance behavior files own compact runtime lens prompts, while full lens files remain reference and maintenance surfaces for deeper review or lens edits.
 
 Human documentation should reflect the structural-maintenance folder shape: usage, `behavior-map.md`, and `lens-map.md` files at the structural-maintenance root, behavior modes under `behavior/`, and lens definitions under `lenses/`.
 
@@ -147,7 +163,7 @@ During migration, this automation guidance can live under `Migration notes/` as 
 - How should human documentation describe the chain from logical tool ID to `docs/agent/tools/tooling-map.md`, grouped tool instruction file, and grouped script?
 - How should human documentation introduce the root `docs/agent/*.md` files as selective memory surfaces without encouraging agents to load all maps for every task?
 - How should human documentation introduce the difference between the technology architecture map and the structural-maintenance decision layer?
-- After source-map rewiring, which global-routing and tool references should point to `project-setup/technology-architecture-map.md`, which should point to structural-maintenance usage, and which should point to more specific maps or behaviors?
+- How should human documentation explain the split between `agent-os-map.md` for Agent OS orientation, `project-setup/technology-architecture-map.md` for project architecture setup, and `source-directory-map.json` plus query/indexer tools for source-tree discovery?
 - How should human documentation explain progressive structural-maintenance constraints without encouraging agents to run every structural check for every small task?
 - How should human documentation explain structural-maintenance lenses without making them sound like mandatory checklists for every change?
 - After the new contract, authority, audience, and authority/contract behaviors are reviewed, do additional non-code maintained artifact concerns still require separate lenses or behaviors?
@@ -162,3 +178,4 @@ During migration, this automation guidance can live under `Migration notes/` as 
 - What deterministic tool or generated index should map changed files and diffs to potentially regressed areas, relevant test surfaces, and runnable commands?
 - What verification profiles or exhaustivity budgets should humans be able to set so agents can balance speed, confidence, and resource cost without guessing undisclosed context?
 - Should recurring git maintenance become part of the target agent operating system, or remain a local project automation outside the scaffold?
+- Should generated indexes remain fully generated, become hybrid generated/manual artifacts, or move to direct query-only tooling, and would curated memory snippets be prudent?

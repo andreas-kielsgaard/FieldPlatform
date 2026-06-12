@@ -10,12 +10,15 @@
 
 ## Required Tools Or Searches
 
+- Tool: `source-map-query` when documentation depends on source-directory structure.
+- Tool: `source-map-indexer` when `source-directory-map.json` needs refresh, or report required refresh if the tool is unavailable.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
+
 - Search for duplicate or conflicting instructions.
 - Tool: `check-docs`.
 - Tool: `authority-surface-search` when a rule, map entry, instruction, or source-of-truth statement may have multiple candidate owners.
 - Tool: `audience-surface-check` when content may belong in agent-facing instructions, human docs, product copy, tests, examples, tool output, or migration notes.
 - Tool: `artifact-maintenance-path` when documentation or maps may be generated, indexed, derived, or tool-maintained.
-- Tool: `build-source-map` if documentation depends on generated structure.
 - Search references to renamed docs or modes.
 
 ## Implementation Instructions
@@ -50,6 +53,10 @@
 - Prose-only instructions where a check/script should exist.
 - Active instructions pointing to empty or retired files.
 - Missing migration status.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when documentation changes source-of-truth ownership, audience, authority, tool contracts, generated/manual boundaries, or maintenance paths.
 
 ## Required Completion Report
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-Partially addressed.
+Partially addressed; source-map placeholder ambiguity resolved.
 
 ## Note
 
@@ -21,13 +21,17 @@ This pass added placeholders for:
 - `audience-surface-check`
 - `contract-impact`
 - `contract-test-coverage`
+- `source-map-indexer`
+- `source-map-query`
+- `test-surface-selection`
+- generated-index query/update tools under `index-access`
 
-The broader placeholder alignment question remains for implementation completeness, tooling-map consistency, and future source-map-to-technology-architecture naming cleanup.
+The broader placeholder alignment question remains for implementation completeness and future output schemas. The source-map-to-technology-architecture naming cleanup is no longer represented by `build-source-map`; active source-tree discovery uses the generated source-directory map plus query/indexer tools.
 
 Follow-up work should decide whether to:
 
 - implement the grouped script placeholders
-- rename source-map-related tool IDs such as `build-source-map`
 - add more implementation-note groups as additional tool groups become implementation-ready
+- define shared output schemas for query/update index tools and test-surface selection
 
 Do not treat missing tool implementations as blocking structural-maintenance routing. Until tools exist, tool IDs are evidence categories and agents should use available local inspection without claiming tool-backed evidence.

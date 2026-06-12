@@ -19,6 +19,7 @@ The migrated Agent OS already has several useful test-related surfaces:
 - Review-before-commit guidance asks for relevant tests when available, omitted-check explanations, and a checks-run report.
 - Structural-maintenance contract reasoning treats tests, examples, fixtures, and consumers as evidence of promised behavior.
 - The `contract-test-coverage` tool contract is present and asks for relevant tests, weak or missing coverage, and candidate test surfaces.
+- The `test-surface-selection` placeholder tool now exists under `validation-and-drift`. It accepts a changed target or change summary and should return relevant test surfaces, likely commands or categories, coverage gaps, and residual uncertainty.
 
 The prior testing map was an empty template with update rules, not yet a policy that helped agents choose the smallest credible verification set, decide when broader suites are warranted, or maintain tests as durable project artifacts. Test guidance is currently distributed across task modes and structural-maintenance contract reasoning, but there is not yet a single clear Agent OS expectation for test selection and test lifecycle decisions.
 
@@ -75,6 +76,7 @@ The completion report should preserve the distinction:
 - Test selection may need to model test cost, runtime, flakiness, confidence, and broad-suite policy separately from test relevance.
 - Test maintenance rules may need an agent-facing policy surface rather than being implied by task-mode fragments.
 - `contract-test-coverage` currently defines a useful evidence contract, but it does not prove sufficiency and appears to remain implementation-planning scaffolding.
+- `test-surface-selection` should help select surfaces but must not prove sufficiency, decide product behavior, weaken tests, or update tests automatically.
 - Structural-maintenance guidance recognizes tests as maintained elements, but the Agent OS may still need explicit lifecycle expectations for renaming, moving, pruning, replacing, or repairing tests.
 - Human documentation should explain that good test behavior includes preserving behavioral signal, not simply increasing test count.
 

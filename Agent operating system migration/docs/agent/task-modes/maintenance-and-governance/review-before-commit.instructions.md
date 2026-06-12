@@ -9,6 +9,8 @@
 
 ## Required Tools Or Searches
 
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
+
 - Run typecheck, lint, and relevant tests when available and appropriate.
 - Tool: `summarize-change`.
 - Tool: `map-affected-surfaces`.
@@ -53,6 +55,10 @@
 - Docs not updated after control-surface changes.
 - Checks omitted without explanation.
 - User-owned unrelated changes included accidentally.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when final review reveals unresolved ownership, boundary, authority, contract, audience, or maintenance-path decisions.
 
 ## Required Completion Report
 

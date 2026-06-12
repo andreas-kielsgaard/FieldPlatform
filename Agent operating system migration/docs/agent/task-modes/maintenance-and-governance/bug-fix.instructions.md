@@ -2,16 +2,18 @@
 
 ## Required Orientation
 
-Read the map for the failing surface:
+Use generated-index query tools for the failing surface and read manual context:
 
-- `docs/agent/generated-indexes/component-registry.md`
-- `docs/agent/generated-indexes/routing-map.md`
-- `docs/agent/generated-indexes/accessor-map.md`
-- `docs/agent/generated-indexes/state-management-map.md`
-- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
 - `docs/agent/known-debt.md`
 
 ## Required Tools Or Searches
+
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `query-routing-index` for generated routing index slices relevant to the target.
+- Tool: `query-accessor-index` for generated accessor index slices relevant to the target.
+- Tool: `query-state-management-index` for generated state-management index slices relevant to the target.
+- Tool: `query-permissions-visibility-index` for generated permissions and visibility index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Reproduce the failure or clearly describe why reproduction is not available.
 - Run focused tests or manual checks for the failing surface.
@@ -41,7 +43,7 @@ Read the map for the failing surface:
 - Report regression coverage implications until test behavior is designed.
 - Update `known-debt.md` if root cause is deferred.
 - Update the deferred logging strategy if the fix changes a convention.
-- Update the relevant map if the bug exposed stale project memory.
+- Use the matching generated-index update tool if the bug exposed stale generated memory, or report required index refresh if the tool is unavailable.
 
 ## Regression Checks
 
@@ -50,6 +52,10 @@ Read the map for the failing surface:
 - Missing regression coverage.
 - Behavior changed beyond the failing path.
 - Debt introduced but not logged.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when the fix exposes unclear ownership, boundary leakage, repeated defects, contract ambiguity, or a missing maintenance path.
 
 ## Required Completion Report
 

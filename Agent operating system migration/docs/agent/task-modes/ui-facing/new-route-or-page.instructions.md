@@ -2,14 +2,18 @@
 
 ## Required Orientation
 
-- `docs/agent/generated-indexes/routing-map.md`
 - `docs/agent/project-setup/technology-architecture-map.md` when route placement or platform boundaries may matter
 - `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md` when deciding page-shell ownership, boundary placement, or durable route/page structure
-- `docs/agent/generated-indexes/component-registry.md`
-- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
 - `docs/agent/domain-glossary.md`
 
 ## Required Tools Or Searches
+
+- Tool: `query-routing-index` for generated routing index slices relevant to the target.
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `query-permissions-visibility-index` for generated permissions and visibility index slices relevant to the target.
+- Tool: `query-naming-index` for generated naming index slices relevant to the target.
+- Tool: `query-state-management-index` for generated state-management index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Tool: `map-routes`.
 - Search for similar route families and page shells.
@@ -34,11 +38,11 @@
 
 ## Documentation Updates
 
-- Update `generated-indexes/routing-map.md`.
-- Update `generated-indexes/permissions-and-visibility-map.md` if visibility changes.
-- Update `generated-indexes/component-registry.md` if a page shell becomes reusable.
-- Update `domain-glossary.md` or `generated-indexes/naming-index.md` if route language introduces domain terms.
-- Update `generated-indexes/state-management-map.md` if URL state changes.
+- Tool: `update-routing-index`, or report required index refresh if the tool is unavailable.
+- Tool: `update-permissions-visibility-index` if visibility changes, or report required index refresh if the tool is unavailable.
+- Tool: `update-component-index` if a page shell becomes reusable, or report required index refresh if the tool is unavailable.
+- Update `domain-glossary.md` if route language introduces domain terms; use Tool: `update-naming-index`, or report required index refresh if the tool is unavailable.
+- Tool: `update-state-management-index` if URL state changes, or report required index refresh if the tool is unavailable.
 
 ## Regression Checks
 
@@ -47,6 +51,10 @@
 - Missing unauthorized, empty, loading, or error states.
 - Policy omission.
 - Route-level data assumptions not routed through accessors.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when route-family ownership, page-shell placement, route naming, URL state, permission/data boundary, or durable navigable structure is being decided.
 
 ## Required Completion Report
 

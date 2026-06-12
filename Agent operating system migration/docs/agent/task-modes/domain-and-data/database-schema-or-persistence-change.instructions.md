@@ -2,12 +2,14 @@
 
 ## Required Orientation
 
-- `docs/agent/generated-indexes/schema-map.md`
-- `docs/agent/generated-indexes/data-model-map.md`
-- `docs/agent/generated-indexes/accessor-map.md`
 - `docs/agent/known-debt.md`
 
 ## Required Tools Or Searches
+
+- Tool: `query-schema-index` for generated schema index slices relevant to the target.
+- Tool: `query-data-model-index` for generated data-model index slices relevant to the target.
+- Tool: `query-accessor-index` for generated accessor index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Identify the canonical schema source before editing.
 - Run migration checks if available.
@@ -37,11 +39,11 @@
 
 ## Documentation Updates
 
-- Update `generated-indexes/schema-map.md`.
-- Update `generated-indexes/data-model-map.md` if model meaning changes.
-- Update `generated-indexes/accessor-map.md`.
+- Tool: `update-schema-index`, or report required index refresh if the tool is unavailable.
+- Tool: `update-data-model-index` if model meaning changes, or report required index refresh if the tool is unavailable.
+- Tool: `update-accessor-index`, or report required index refresh if the tool is unavailable.
 - Report fixture or scenario implications until test behavior is designed.
-- Report test coverage implications until test behavior is designed.
+- Tool: `test-surface-selection` for coverage implications, or report gaps if the tool is unavailable.
 - Update the deferred logging strategy if storage strategy changes.
 - Update `known-debt.md` if migration safety is deferred.
 
@@ -52,6 +54,10 @@
 - Mocks not matching persisted shape.
 - Accessors bypassed to accommodate schema changes.
 - Missing migration or rollback notes.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when choosing schema authority, migration ownership, generated-artifact maintenance, storage boundaries, or accessor responsibility.
 
 ## Required Completion Report
 

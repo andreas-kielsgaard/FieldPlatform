@@ -15,7 +15,7 @@ Use the task-mode layer in this order:
 3. `task-mode-map.md` guides mode selection.
 4. Selected mode instruction files provide mode-specific requirements.
 
-Structural maintenance is a sibling decision layer, not a task mode. Use it only when selected task modes reveal a structural decision about where a durable responsibility belongs, what contract it promises, which audience should consume it, which maintenance path should update it, or which surface owns authority.
+Structural maintenance is a sibling decision layer, not a task mode. Use it when selected task modes or working evidence reveal a structural decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority.
 
 ## Before Meaningful Edits
 
@@ -26,7 +26,7 @@ Structural maintenance is a sibling decision layer, not a task mode. Use it only
 5. Declare the selected modes before editing durable project files.
 6. Read every selected mode instruction file.
 7. Read the maps and ledgers required by those selected mode files, but query generated indexes through tools instead of loading them wholesale.
-8. If the work requires a structural decision, read `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md`.
+8. If the work raises a placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, or authority decision, read `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md`.
 
 Do not load unrelated mode files just because they exist.
 
@@ -81,7 +81,7 @@ Default order:
 2. Selected secondary mode files.
 3. The maps and ledgers named by those mode files.
 4. `docs/agent/project-setup/technology-architecture-map.md` when platform, directory, technology-area, source/generated, or interface boundaries may matter.
-5. `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md` when the task requires a structural decision about a durable responsibility.
+5. `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md` when the task raises a placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, or authority decision.
 6. Relevant structural indexes or tool outputs, when available.
 
 Avoid front-loading unrelated maps, ledgers, and mode files.
@@ -104,7 +104,6 @@ For now, tool instruction files may assume their scripts have the expected capab
 
 Classify new code or artifacts as one of:
 
-
 | Classification         | Meaning                                                       |
 | ---------------------- | ------------------------------------------------------------- |
 | Local one-off          | Specific to the current surface and easy to delete.           |
@@ -113,7 +112,6 @@ Classify new code or artifacts as one of:
 | Domain component       | Reusable UI or behavior tied to a stable domain concept.      |
 | Provisional experiment | Exploratory work that needs promotion or retirement criteria. |
 | Stable architecture    | Durable structure that future work should rely on.            |
-
 
 ## Documentation And Memory Updates
 

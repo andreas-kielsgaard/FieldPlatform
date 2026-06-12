@@ -2,7 +2,7 @@
 
 ## Status
 
-Partially complete.
+Current source-map ambiguity closed for the migrated scaffold.
 
 ## Note
 
@@ -10,10 +10,12 @@ Partially complete.
 
 Most task-mode scaffold references to the old source-map concept have been rewired to either `project-setup/technology-architecture-map.md` or `structural-maintenance/structural-maintenance-usage.instructions.md`.
 
-Known reference areas to revisit:
+The remaining ambiguity was closed by splitting the concepts:
 
-- `Agent operating system migration/migration_agents.md`
-- source-map-related tooling names, including `build-source-map`
-- migration documentation notes that still describe source-map documentation
+- `docs/agent/agent-os-map.md` is the lightweight Agent OS orientation router.
+- `docs/agent/structural-indexes/source-directory-map.json` is generated source-tree directory data.
+- `source-map-indexer` refreshes the generated source-directory map.
+- `source-map-query` returns bounded directory/file-name slices for a requested directory scope.
+- `build-source-map` was removed from the active scaffold.
 
-The follow-up should decide whether remaining old source-map references point to project setup, structural-maintenance usage, generated indexes, or a more specific map or behavior file.
+Historical migration notes may still mention `source-map` when describing the old ambiguity. Active scaffold references should not point to `docs/agent/source-map.md`.

@@ -72,4 +72,4 @@ Some decisions become clearer when lenses are combined:
 - Add a lens only when a recurring distinction is not covered by the existing set.
 - Retire or merge a lens if it becomes decorative or duplicates another lens.
 - Keep each lens procedural: evidence, decision outputs, stop rules, cheap pass, and memory implication are required.
-- Do not add lens-to-behavior wiring or `migration_agents.md` references until that wiring is explicitly reviewed.
+- Behavior files own compact runtime lens prompts. Full lens files remain reference and maintenance surfaces; add or revise behavior lens prompts only when the behavior file itself is being maintained, and add `migration_agents.md` references only when global routing is explicitly reviewed.

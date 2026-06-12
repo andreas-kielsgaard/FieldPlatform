@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Use this layer when a task requires a structural decision about where a durable responsibility belongs, what contract it promises, who should consume or maintain it, or which surface owns authority.
+Use this layer when a task requires a structural decision about placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance path, or authority.
 
 Task modes classify the kind of work and the affected control surfaces. Structural maintenance guides placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, and authority decisions inside that work.
 
@@ -10,7 +10,17 @@ This applies at any granularity: inside an existing artifact, across files, acro
 
 ## Entry Rule
 
-Enter structural maintenance before deciding where behavior, state, effects, responsibilities, concepts, names, examples, checks, source-of-truth statements, contracts, audience-specific guidance, maintenance paths, or authority should live.
+Enter structural maintenance when selected task modes or working evidence raise a concrete question about any of these triggers:
+
+- placement or ownership of a maintained element
+- boundary or interface responsibility
+- lifecycle, promotion, deprecation, or pruning
+- naming, concept, or ontology authority
+- reuse, near-match, duplication, extraction, or centralization
+- consumer contract, audience, or maintenance path
+- source-of-truth authority
+
+Use this layer before deciding where behavior, state, effects, responsibilities, concepts, names, examples, checks, source-of-truth statements, contracts, audience-specific guidance, maintenance paths, or authority should live.
 
 Use this layer before adding, moving, expanding, splitting, centralizing, renaming, promoting, demoting, deprecating, or trimming durable maintained elements.
 
@@ -38,7 +48,7 @@ Open full lens files only when:
 ## Operating Chain
 
 1. Select task modes through `docs/agent/task-modes/task-mode-usage.instructions.md`.
-2. If the task requires a structural decision about a durable responsibility, read `behavior-map.md`.
+2. If the task raises a placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, or authority decision, read `behavior-map.md`.
 3. Use the behavior map to select one primary structural-maintenance behavior.
 4. Add secondary behaviors only when the primary behavior reveals another structural decision.
 5. Read only selected behavior files.

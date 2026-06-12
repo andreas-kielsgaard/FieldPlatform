@@ -8,7 +8,7 @@ In this layer, a Maintained Element means any maintained repository element that
 
 ## Behavior Selection Flow
 
-1. Identify whether the task requires a structural decision about a durable responsibility.
+1. Identify whether the task raises a placement, ownership, boundary, lifecycle, naming, reuse, duplication, contract, audience, maintenance-path, or authority decision.
 2. Locate the smallest matching behavior row below.
 3. Select one primary behavior before loading behavior files.
 4. Check the alternate-behavior guidance to avoid selecting the wrong primary behavior.

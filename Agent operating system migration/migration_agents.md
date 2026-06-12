@@ -31,7 +31,7 @@ Use this order of authority:
 1. Explicit user request.
 2. This `AGENTS.md`.
 3. The nearest nested `AGENTS.md` if present.
-4. `docs/agent/source-map.md`.
+4. `docs/agent/agent-os-map.md`.
 5. `docs/agent/task-modes/task-mode-usage.instructions.md`.
 6. `docs/agent/task-modes/task-mode-map.md`.
 7. The selected task-mode instruction file(s).

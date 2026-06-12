@@ -2,13 +2,16 @@
 
 ## Required Orientation
 
-- `docs/agent/generated-indexes/accessor-map.md`
-- `docs/agent/generated-indexes/schema-map.md`
-- `docs/agent/generated-indexes/data-model-map.md`
-- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
-- `docs/agent/generated-indexes/state-management-map.md`
+- Query generated indexes through the tools below instead of loading whole generated files.
 
 ## Required Tools Or Searches
+
+- Tool: `query-accessor-index` for generated accessor index slices relevant to the target.
+- Tool: `query-schema-index` for generated schema index slices relevant to the target.
+- Tool: `query-data-model-index` for generated data-model index slices relevant to the target.
+- Tool: `query-permissions-visibility-index` for generated permissions and visibility index slices relevant to the target.
+- Tool: `query-state-management-index` for generated state-management index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Tool: `accessor-usage`.
 - Tool: `symbol-search` for accessor names and API routes.
@@ -37,10 +40,10 @@
 
 ## Documentation Updates
 
-- Update `generated-indexes/accessor-map.md`.
-- Update `generated-indexes/state-management-map.md` if cache or server-state behavior changes.
-- Update `generated-indexes/permissions-and-visibility-map.md` if access logic changes.
-- Report test coverage implications until test behavior is designed.
+- Tool: `update-accessor-index`, or report required index refresh if the tool is unavailable.
+- Tool: `update-state-management-index` if cache or server-state behavior changes, or report required index refresh if the tool is unavailable.
+- Tool: `update-permissions-visibility-index` if access logic changes, or report required index refresh if the tool is unavailable.
+- Tool: `test-surface-selection` for coverage implications, or report gaps if the tool is unavailable.
 - Update `known-debt.md` if direct access remains temporarily.
 
 ## Regression Checks
@@ -50,6 +53,10 @@
 - Cache invalidation misses.
 - Policy checks moved into arbitrary components.
 - Mocks still shaped like old responses.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when the accessor boundary, return-shape contract, cache lifecycle, authorization placement, or data-access ownership is being established or changed.
 
 ## Required Completion Report
 

@@ -5,9 +5,15 @@
 - `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md`
 - `docs/agent/project-setup/technology-architecture-map.md` when refactor changes placement, ownership, or interface boundaries
 - `docs/agent/known-debt.md`
-- The map that owns the target area, such as `generated-indexes/component-registry.md`, `generated-indexes/accessor-map.md`, `generated-indexes/schema-map.md`, or `generated-indexes/routing-map.md`.
+- Query generated indexes through the tools below instead of loading whole generated files.
 
 ## Required Tools Or Searches
+
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `query-accessor-index` for generated accessor index slices relevant to the target.
+- Tool: `query-schema-index` for generated schema index slices relevant to the target.
+- Tool: `query-routing-index` for generated routing index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Search all affected imports and consumers.
 - Tool: `map-deps`.
@@ -39,8 +45,8 @@
 
 - Use structural maintenance when structure or ownership changes.
 - Update `project-setup/technology-architecture-map.md` if platform, directory, source/generated, or interface boundaries change.
-- Update `generated-indexes/component-registry.md` if component ownership changes.
-- Update `generated-indexes/accessor-map.md` if data boundaries change.
+- Tool: `update-component-index` if component ownership changes, or report required index refresh if the tool is unavailable.
+- Tool: `update-accessor-index` if data boundaries change, or report required index refresh if the tool is unavailable.
 - Update the deferred logging strategy if a structural convention is established.
 - Update `known-debt.md` if refactor is partial.
 
@@ -51,6 +57,10 @@
 - Dependency cycles.
 - Public API drift.
 - Refactor mixed with hidden feature work.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when a no-behavior-change refactor still changes placement, ownership, boundaries, reuse, duplication, contracts, or maintenance paths.
 
 ## Required Completion Report
 

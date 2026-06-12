@@ -2,12 +2,14 @@
 
 ## Required Orientation
 
-- `docs/agent/generated-indexes/component-registry.md`
 - `docs/agent/design-system-map.md`
 - `docs/agent/project-setup/technology-architecture-map.md` when shared placement or interface boundaries may matter
 - `docs/agent/structural-maintenance/structural-maintenance-usage.instructions.md` when deciding whether logic belongs inside this component, a local helper, a shared component, or another owner
 
 ## Required Tools Or Searches
+
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Search for similar components and local patterns.
 - Tool: `component-usage`.
@@ -35,10 +37,10 @@
 
 ## Documentation Updates
 
-- Update `generated-indexes/component-registry.md`.
+- Tool: `update-component-index`, or report required index refresh if the tool is unavailable.
 - Update `design-system-map.md` if tokens, variants, primitives, or status treatment changed.
 - Update examples or stories if the component is shared or likely reused.
-- Report component coverage implications until test behavior is designed.
+- Tool: `test-surface-selection` for component coverage implications, or report gaps if the tool is unavailable.
 
 ## Regression Checks
 
@@ -47,6 +49,10 @@
 - Speculative variants.
 - Domain-specific assumptions hidden in a generic component.
 - Component API broader than its known use.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when choosing shared versus local placement, primitive versus domain ownership, API contract, variant authority, or reuse path.
 
 ## Required Completion Report
 

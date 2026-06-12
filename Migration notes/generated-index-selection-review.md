@@ -36,9 +36,11 @@ These files are likely to become large, volatile, and better consumed through bo
 
 ## Unsupported Functionality
 
-The generated indexes do not yet have implemented tools. Tool placeholders define some intended capabilities, but they do not yet produce or refresh these files.
+The generated indexes do not yet have implemented tools. Tool placeholders now define intended query/update API pairs for each current generated index, but they do not yet produce or refresh these files.
 
 Future work should decide which indexes are generated, which are curated, which are hybrid, and which should be replaced by direct tool queries without storing a Markdown artifact.
+
+Access to generated index data should start from bounded query tools. Refresh should go through matching update tools or be reported as unavailable. Future review should consider whether a generated index may keep a curated memory snippet, and if so how that snippet avoids being overwritten by index regeneration.
 
 ## Possible Future Indexes
 

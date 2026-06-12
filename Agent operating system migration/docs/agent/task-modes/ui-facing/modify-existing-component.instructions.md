@@ -2,10 +2,12 @@
 
 ## Required Orientation
 
-- `docs/agent/generated-indexes/component-registry.md`
 - `docs/agent/design-system-map.md`
 
 ## Required Tools Or Searches
+
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Find all component consumers before changing API or behavior.
 - Tool: `component-usage`.
@@ -31,9 +33,9 @@
 
 ## Documentation Updates
 
-- Update `generated-indexes/component-registry.md` for API, variant, purpose, ownership, or status changes.
+- Tool: `update-component-index` for API, variant, purpose, ownership, or status changes, or report required index refresh if the tool is unavailable.
 - Update `design-system-map.md` if the component changes shared visual rules.
-- Report coverage implications until test behavior is designed.
+- Tool: `test-surface-selection` for coverage implications, or report gaps if the tool is unavailable.
 - Update `known-debt.md` if compatibility work is intentionally deferred.
 
 ## Regression Checks
@@ -43,6 +45,10 @@
 - Variant behavior drift.
 - Component becoming too broad or too domain-specific.
 - Missing migration for renamed props or states.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when the component API, abstraction level, ownership, split/rename path, variant contract, or domain boundary changes.
 
 ## Required Completion Report
 

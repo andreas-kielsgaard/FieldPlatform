@@ -3,14 +3,16 @@
 ## Required Orientation
 
 - `docs/agent/domain-glossary.md`
-- `docs/agent/generated-indexes/naming-index.md`
-- `docs/agent/generated-indexes/data-model-map.md`
-- `docs/agent/generated-indexes/schema-map.md`
-- `docs/agent/generated-indexes/accessor-map.md`
-- `docs/agent/generated-indexes/routing-map.md`
-- `docs/agent/generated-indexes/permissions-and-visibility-map.md`
 
 ## Required Tools Or Searches
+
+- Tool: `query-naming-index` for generated naming index slices relevant to the target.
+- Tool: `query-data-model-index` for generated data-model index slices relevant to the target.
+- Tool: `query-schema-index` for generated schema index slices relevant to the target.
+- Tool: `query-accessor-index` for generated accessor index slices relevant to the target.
+- Tool: `query-routing-index` for generated routing index slices relevant to the target.
+- Tool: `query-permissions-visibility-index` for generated permissions and visibility index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Tool: `find-term`.
 - Tool: `rename-impact`.
@@ -38,11 +40,11 @@
 ## Documentation Updates
 
 - Update `domain-glossary.md`.
-- Update `generated-indexes/naming-index.md`.
-- Update `generated-indexes/data-model-map.md` if relations or invariants changed.
+- Tool: `update-naming-index`, or report required index refresh if the tool is unavailable.
+- Tool: `update-data-model-index` if relations or invariants changed, or report required index refresh if the tool is unavailable.
 - Update the deferred logging strategy if the concept change affects future work.
 - Report fixture or scenario implications until test behavior is designed.
-- Update any other map whose represented surface changed.
+- Use the matching generated-index update tool for any other generated surface changed, or report required index refresh if the tool is unavailable.
 
 ## Regression Checks
 
@@ -52,6 +54,10 @@
 - Fixtures retaining stale semantics.
 - Accessors returning mixed concept shapes.
 - Tests still asserting old language accidentally.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when a concept is split, merged, canonized, renamed across surfaces, promoted from provisional use, or assigned to a new authority surface.
 
 ## Required Completion Report
 

@@ -2,12 +2,15 @@
 
 ## Required Orientation
 
-- `docs/agent/generated-indexes/state-management-map.md`
-- `docs/agent/generated-indexes/routing-map.md`
-- `docs/agent/generated-indexes/accessor-map.md`
-- `docs/agent/generated-indexes/component-registry.md`
+- Query generated indexes through the tools below instead of loading whole generated files.
 
 ## Required Tools Or Searches
+
+- Tool: `query-state-management-index` for generated state-management index slices relevant to the target.
+- Tool: `query-routing-index` for generated routing index slices relevant to the target.
+- Tool: `query-accessor-index` for generated accessor index slices relevant to the target.
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Tool: `state-consumer-search`.
 - Search duplicated derived state and mirrored server data.
@@ -33,10 +36,10 @@
 
 ## Documentation Updates
 
-- Update `generated-indexes/state-management-map.md`.
-- Update `generated-indexes/routing-map.md` if URL state changes.
-- Update `generated-indexes/accessor-map.md` if server state, cache, or invalidation changes.
-- Report test coverage implications until test behavior is designed.
+- Tool: `update-state-management-index`, or report required index refresh if the tool is unavailable.
+- Tool: `update-routing-index` if URL state changes, or report required index refresh if the tool is unavailable.
+- Tool: `update-accessor-index` if server state, cache, or invalidation changes, or report required index refresh if the tool is unavailable.
+- Tool: `test-surface-selection` for coverage implications, or report gaps if the tool is unavailable.
 - Update `known-debt.md` if state duplication remains temporarily.
 
 ## Regression Checks
@@ -47,6 +50,10 @@
 - URL/back-button/shareability behavior.
 - Hidden state transitions in effects.
 - Global store introduced for convenience.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when state ownership, URL/cache/shared-state boundaries, lifecycle rules, duplicated state, or maintenance path is being decided.
 
 ## Required Completion Report
 

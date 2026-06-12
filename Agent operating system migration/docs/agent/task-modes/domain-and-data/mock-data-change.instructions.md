@@ -3,11 +3,13 @@
 ## Required Orientation
 
 - `docs/agent/domain-glossary.md`
-- `docs/agent/generated-indexes/data-model-map.md`
-- `docs/agent/generated-indexes/schema-map.md`
-- `docs/agent/generated-indexes/component-registry.md`
 
 ## Required Tools Or Searches
+
+- Tool: `query-data-model-index` for generated data-model index slices relevant to the target.
+- Tool: `query-schema-index` for generated schema index slices relevant to the target.
+- Tool: `query-component-index` for generated component index slices relevant to the target.
+- Tool: `test-surface-selection` when the changed target needs verification-surface selection.
 
 - Tool: `find-term` for represented concepts.
 - Tool: `validate-fixtures`.
@@ -37,8 +39,8 @@
 
 - Report fixture or scenario implications until test behavior is designed.
 - Update `domain-glossary.md` if the scenario introduces terms.
-- Update `generated-indexes/data-model-map.md` if relation assumptions change.
-- Update `generated-indexes/component-registry.md` if examples depend on the scenario.
+- Tool: `update-data-model-index` if relation assumptions change, or report required index refresh if the tool is unavailable.
+- Tool: `update-component-index` if examples depend on the scenario, or report required index refresh if the tool is unavailable.
 - Update `experiments.md` if the mock carries provisional product assumptions.
 
 ## Regression Checks
@@ -48,6 +50,10 @@
 - Scenarios named too generically to reveal intent.
 - Tests passing only because stale mock assumptions remain.
 - Product assumptions encoded without documentation.
+
+## Structural Maintenance Clues
+
+- Enter structural maintenance when mock data becomes a durable fixture, scenario, product assumption, example contract, or maintained data source.
 
 ## Required Completion Report
 

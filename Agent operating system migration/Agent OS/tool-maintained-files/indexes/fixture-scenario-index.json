@@ -4,9 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-12T15:21:43.377Z",
-  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+  "generatedAt": "2026-06-14T07:27:33.718Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
   "producer": "build-fixture-scenario-index",
   "artifactPath": "tool-maintained-files/indexes/fixture-scenario-index.json",
   "sourceInputs": [
@@ -17,7 +19,7 @@
   "knownBlindSpots": [
     "Project-specific scenario registries may require custom parsing later."
   ],
-  "recordCount": 36,
+  "recordCount": 37,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-fixture-scenario-index",
@@ -32,9 +34,9 @@
         {
           "shardId": "records-0001",
           "startRecord": 0,
-          "endRecordExclusive": 36,
-          "recordCount": 36,
-          "sha256": "1b9028410c87e224d746de5c81c430350991f87f428dcd7075551c643e9e2c30"
+          "endRecordExclusive": 37,
+          "recordCount": 37,
+          "sha256": "a09dcb097c024a06e89e1e2e3dc6baae02d7ae4477d332c58fde30197cc715ee"
         }
       ]
     },
@@ -51,6 +53,50 @@
     }
   },
   "records": [
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "kind": "fixture-or-scenario",
+      "representedTerms": [
+        "Check",
+        "Cues",
+        "Deterministic",
+        "Pre-Development",
+        "Purpose",
+        "Readiness",
+        "Run",
+        "already",
+        "application",
+        "architectural",
+        "architecture",
+        "checks",
+        "choices",
+        "cost",
+        "current",
+        "deterministic",
+        "development",
+        "exists",
+        "git",
+        "goal",
+        "make",
+        "making",
+        "pre-decisions",
+        "pretending",
+        "product",
+        "project-control",
+        "ready",
+        "reasonable",
+        "settled",
+        "starting",
+        "status",
+        "substrate",
+        "technology",
+        "their",
+        "unresolved",
+        "without"
+      ],
+      "exports": [],
+      "consumers": []
+    },
     {
       "file": "prompt-files/change-impact-checklists.md",
       "kind": "fixture-or-scenario",

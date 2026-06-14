@@ -27,6 +27,7 @@ export type IndexBuildContext = {
   root: string;
   files: FileRecord[];
   contentFiles: FileRecord[];
+  args: ParsedArgs;
 };
 
 export type IndexBuilderSpec = {
@@ -72,6 +73,8 @@ export type IndexArtifact = {
   schemaVersion: number;
   generatedAt: string;
   sourceRoot: string;
+  pathReference: string;
+  sourceState: string;
   sourceRevision: string | null;
   producer: string;
   artifactPath: string;

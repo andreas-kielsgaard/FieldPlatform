@@ -18,6 +18,7 @@ Checks include:
 - Phase 3 semantic map rows with matching active semantic files, scripts, and artifacts
 - Phase 4 semantic chunk artifact shape, including schema v2, record count, builder-owned maintenance, and no-embedding/no-vector status
 - reserved embedding/vector surfaces staying reserved unless deliberately implemented
+- generated artifact portability, including no structured machine-specific absolute paths in tool-maintained JSON
 
 Boundaries:
 

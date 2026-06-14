@@ -82,6 +82,8 @@ Treat this repository as a living system whose clarity should improve over time,
 - Convention dependence: metadata tools are only as good as maintained conventions. Treat unknown metadata as uncertainty.
 - Generated authority: generated indexes are evidence surfaces. Update the source, map, instruction, or producer when meaning changes.
 - Metadata maintenance: do not hand-maintain generated index metadata. Use the relevant builder or `build-all-indexes` when index metadata, shard hashes, or semantic-support metadata is stale or missing.
+- Relocatable paths: generated artifacts use Agent OS root-relative paths. Run tools from the Agent OS root or pass `--root` after directory restructuring.
+- Commit truth: generated artifacts are locally authoritative while work is in progress, but files included in a commit should reflect the source structure being committed. Use `change-index` commit view when needed, then refresh local truth after committing if local work remains.
 
 ## Control Surfaces
 

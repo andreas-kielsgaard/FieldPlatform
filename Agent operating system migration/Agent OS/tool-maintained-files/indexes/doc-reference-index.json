@@ -4,9 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-12T15:21:33.429Z",
-  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+  "generatedAt": "2026-06-14T07:27:20.423Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
   "producer": "build-doc-reference-index",
   "artifactPath": "tool-maintained-files/indexes/doc-reference-index.json",
   "sourceInputs": [
@@ -17,7 +19,7 @@
   "knownBlindSpots": [
     "External URLs, generated anchors, and prose-only references may need manual review."
   ],
-  "recordCount": 1930,
+  "recordCount": 1953,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-doc-reference-index",
@@ -34,28 +36,28 @@
           "startRecord": 0,
           "endRecordExclusive": 500,
           "recordCount": 500,
-          "sha256": "c8462b552bbcf82eadaa8c8f3fc587ee6216cffa972525bf8f295b8541237393"
+          "sha256": "748b7f6bc221487ff6c9f3d702c31fec9588bf1b361201b8bc5f178550c75490"
         },
         {
           "shardId": "records-0002",
           "startRecord": 500,
           "endRecordExclusive": 1000,
           "recordCount": 500,
-          "sha256": "da287159608ce77e13cb4432cbc749bf023e1e62b728752f363a2d25a8ccff69"
+          "sha256": "2f0d56f91c05cc5997fdaa6e3f5f349df6a210957fa54f5e199e70222b31f93c"
         },
         {
           "shardId": "records-0003",
           "startRecord": 1000,
           "endRecordExclusive": 1500,
           "recordCount": 500,
-          "sha256": "f72db1edba66b81da8b215a7860af408cf2bfa4a36369a4af6e4e4d903844366"
+          "sha256": "82327ae2ce9299c98451dc43639909d1d33bc5dfeee70742a647852b559c0383"
         },
         {
           "shardId": "records-0004",
           "startRecord": 1500,
-          "endRecordExclusive": 1930,
-          "recordCount": 430,
-          "sha256": "2a6e854b34800a7e881982c169290f0146f2be06ae037e78a15d92538a45af7c"
+          "endRecordExclusive": 1953,
+          "recordCount": 453,
+          "sha256": "0929b268d101c13523227898d54ad24506d2ed4363837dd5fd1c9938227f6c27"
         }
       ]
     },
@@ -334,27 +336,34 @@
     {
       "file": "migration_agents.md",
       "line": 86,
+      "kind": "inline-id",
+      "target": "change-index",
+      "text": "- Commit truth: generated artifacts are locally authoritative while work is in progress, but files included in a commit should reflect the source structure being committed. Use `change-index` commit view when needed, then refresh local trut"
+    },
+    {
+      "file": "migration_agents.md",
+      "line": 88,
       "kind": "heading",
       "text": "Control Surfaces",
       "anchor": "control-surfaces"
     },
     {
       "file": "migration_agents.md",
-      "line": 98,
+      "line": 100,
       "kind": "inline-id",
       "target": "prompt-files",
       "text": "- maps and registries under `prompt-files` for project memory"
     },
     {
       "file": "migration_agents.md",
-      "line": 104,
+      "line": 106,
       "kind": "heading",
       "text": "Documentation And Memory Updates",
       "anchor": "documentation-and-memory-updates"
     },
     {
       "file": "migration_agents.md",
-      "line": 112,
+      "line": 114,
       "kind": "inline-path",
       "text": "AGENTS.md",
       "target": "AGENTS.md",
@@ -364,7 +373,7 @@
     },
     {
       "file": "migration_agents.md",
-      "line": 121,
+      "line": 123,
       "kind": "inline-path",
       "text": "AGENTS.md",
       "target": "AGENTS.md",
@@ -374,14 +383,14 @@
     },
     {
       "file": "migration_agents.md",
-      "line": 123,
+      "line": 125,
       "kind": "heading",
       "text": "Debt And Experimentation Discipline",
       "anchor": "debt-and-experimentation-discipline"
     },
     {
       "file": "migration_agents.md",
-      "line": 129,
+      "line": 131,
       "kind": "inline-path",
       "text": "known-debt.md",
       "target": "known-debt.md",
@@ -391,7 +400,7 @@
     },
     {
       "file": "migration_agents.md",
-      "line": 136,
+      "line": 138,
       "kind": "inline-path",
       "text": "experiments.md",
       "target": "experiments.md",
@@ -401,27 +410,111 @@
     },
     {
       "file": "migration_agents.md",
-      "line": 141,
+      "line": 143,
       "kind": "heading",
       "text": "Post-Change Report Cues",
       "anchor": "post-change-report-cues"
     },
     {
       "file": "migration_agents.md",
-      "line": 160,
+      "line": 162,
       "kind": "heading",
       "text": "Maintaining This File",
       "anchor": "maintaining-this-file"
     },
     {
       "file": "migration_agents.md",
-      "line": 162,
+      "line": 164,
       "kind": "inline-path",
       "text": "AGENTS.md",
       "target": "AGENTS.md",
       "local": true,
       "resolvedExists": false,
       "nearby": "`AGENTS.md` is not static, but it should stay small."
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 1,
+      "kind": "heading",
+      "text": "Pre-Development Readiness",
+      "anchor": "pre-development-readiness"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 3,
+      "kind": "heading",
+      "text": "Purpose",
+      "anchor": "purpose"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 9,
+      "kind": "heading",
+      "text": "Deterministic Check Cues",
+      "anchor": "deterministic-check-cues"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 21,
+      "kind": "heading",
+      "text": "Generated Artifact Commit Policy",
+      "anchor": "generated-artifact-commit-policy"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 27,
+      "kind": "inline-id",
+      "target": "change-index",
+      "text": "`change-index` has a specific commit-prep mode:"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 33,
+      "kind": "inline-id",
+      "target": "build-all-indexes",
+      "text": "`build-all-indexes` can pass that mode through to `change-index`:"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 33,
+      "kind": "inline-id",
+      "target": "change-index",
+      "text": "`build-all-indexes` can pass that mode through to `change-index`:"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 43,
+      "kind": "heading",
+      "text": "Relocatable Path Policy",
+      "anchor": "relocatable-path-policy"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 49,
+      "kind": "heading",
+      "text": "Development Environment Cues",
+      "anchor": "development-environment-cues"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 63,
+      "kind": "heading",
+      "text": "Embeddings And Vector Store Cue",
+      "anchor": "embeddings-and-vector-store-cue"
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 77,
+      "kind": "inline-id",
+      "target": "semantic-candidate-query",
+      "text": "Until those choices are made, use `semantic-candidate-query` and exact indexes as the supported semantic retrieval path."
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 79,
+      "kind": "heading",
+      "text": "Right-Timed Deferred Actions",
+      "anchor": "right-timed-deferred-actions"
     },
     {
       "file": "project-control-files/technology-architecture-map.md",
@@ -434,43 +527,67 @@
       "file": "project-control-files/technology-architecture-map.md",
       "line": 9,
       "kind": "heading",
+      "text": "Provisional Status",
+      "anchor": "provisional-status"
+    },
+    {
+      "file": "project-control-files/technology-architecture-map.md",
+      "line": 15,
+      "kind": "inline-path",
+      "text": "project-control-files/pre-development-readiness.md",
+      "target": "project-control-files/pre-development-readiness.md",
+      "local": true,
+      "resolvedExists": false,
+      "nearby": "Pre-development readiness should include preparing the dev environment to support accepted pre-decisions while keeping open choices explicit. See `project-control-files/pre-development-readiness.md` for the semantic readiness cues and deter"
+    },
+    {
+      "file": "project-control-files/technology-architecture-map.md",
+      "line": 17,
+      "kind": "heading",
       "text": "Architecture Stance",
       "anchor": "architecture-stance"
     },
     {
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 17,
+      "line": 25,
       "kind": "heading",
       "text": "Proposed Top-Level Partitions",
       "anchor": "proposed-top-level-partitions"
     },
     {
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 36,
+      "line": 44,
       "kind": "heading",
       "text": "Dependency Direction",
       "anchor": "dependency-direction"
     },
     {
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 48,
+      "line": 56,
       "kind": "heading",
       "text": "Source And Generated Boundaries",
       "anchor": "source-and-generated-boundaries"
     },
     {
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 57,
+      "line": 65,
       "kind": "heading",
-      "text": "Framework Defaults",
-      "anchor": "framework-defaults"
+      "text": "Provisional Framework Defaults",
+      "anchor": "provisional-framework-defaults"
     },
     {
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 70,
+      "line": 79,
       "kind": "heading",
       "text": "Open Architecture Choices",
       "anchor": "open-architecture-choices"
+    },
+    {
+      "file": "project-control-files/technology-architecture-map.md",
+      "line": 87,
+      "kind": "inline-id",
+      "target": "semantic-candidate-query",
+      "text": "| Embeddings and vector store | Defer implementation. Keep the existing `semantic-candidate-query` lexical path active. | Repository scale, retrieval failures, privacy requirements, model/provider choice, vector-store location, and artifact"
     },
     {
       "file": "prompt-files/agent-os-map.md",
@@ -615,14 +732,24 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 22,
+      "line": 21,
+      "kind": "inline-path",
+      "text": "project-control-files/pre-development-readiness.md",
+      "target": "project-control-files/pre-development-readiness.md",
+      "local": true,
+      "resolvedExists": false,
+      "nearby": "- `project-control-files/pre-development-readiness.md`: semantic readiness cues and deterministic check cues before architecture choices or product development."
+    },
+    {
+      "file": "prompt-files/agent-os-map.md",
+      "line": 23,
       "kind": "heading",
       "text": "Usage Surfaces",
       "anchor": "usage-surfaces"
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 24,
+      "line": 25,
       "kind": "inline-path",
       "text": "skills/skill-usage.instructions.md",
       "target": "skills/skill-usage.instructions.md",
@@ -632,7 +759,7 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 25,
+      "line": 26,
       "kind": "inline-path",
       "text": "tools/tool-usage.instructions.md",
       "target": "tools/tool-usage.instructions.md",
@@ -642,7 +769,7 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 26,
+      "line": 27,
       "kind": "inline-path",
       "text": "tools/checks/agent-os-contract-check.md",
       "target": "tools/checks/agent-os-contract-check.md",
@@ -652,7 +779,7 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 27,
+      "line": 28,
       "kind": "inline-path",
       "text": "structural-maintenance/structural-maintenance-usage.instructions.md",
       "target": "structural-maintenance/structural-maintenance-usage.instructions.md",
@@ -662,14 +789,14 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 29,
+      "line": 30,
       "kind": "heading",
       "text": "Memory Surfaces",
       "anchor": "memory-surfaces"
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 31,
+      "line": 32,
       "kind": "inline-path",
       "text": "domain-glossary.md",
       "target": "domain-glossary.md",
@@ -679,7 +806,7 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 32,
+      "line": 33,
       "kind": "inline-path",
       "text": "design-system-map.md",
       "target": "design-system-map.md",
@@ -689,7 +816,7 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 33,
+      "line": 34,
       "kind": "inline-path",
       "text": "known-debt.md",
       "target": "known-debt.md",
@@ -699,7 +826,7 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 34,
+      "line": 35,
       "kind": "inline-path",
       "text": "experiments.md",
       "target": "experiments.md",
@@ -709,14 +836,14 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 36,
+      "line": 37,
       "kind": "heading",
       "text": "Generated Data Surfaces",
       "anchor": "generated-data-surfaces"
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 38,
+      "line": 39,
       "kind": "inline-path",
       "text": "tool-maintained-files/indexes/index-manifest.json",
       "target": "tool-maintained-files/indexes/index-manifest.json",
@@ -726,7 +853,7 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 39,
+      "line": 40,
       "kind": "inline-path",
       "text": "tool-maintained-files/indexes/*.json",
       "target": "tool-maintained-files/indexes/*.json",
@@ -736,7 +863,7 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 40,
+      "line": 41,
       "kind": "inline-path",
       "text": "tool-maintained-files/semantic/semantic-chunk-index.json",
       "target": "tool-maintained-files/semantic/semantic-chunk-index.json",
@@ -746,7 +873,7 @@
     },
     {
       "file": "prompt-files/agent-os-map.md",
-      "line": 40,
+      "line": 41,
       "kind": "inline-path",
       "text": "tool-implementations/semantic/build-semantic-chunk-index.ts",
       "target": "tool-implementations/semantic/build-semantic-chunk-index.ts",
@@ -9825,28 +9952,38 @@
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 23,
+      "line": 21,
+      "kind": "inline-path",
+      "text": "change-index.json",
+      "target": "change-index.json",
+      "local": true,
+      "resolvedExists": false,
+      "nearby": "- Consider `build-change-index --commit-view` or `build-all-indexes --commit-view` when generated index artifacts will be committed and `change-index.json` should represent committed truth rather than local dirtiness."
+    },
+    {
+      "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
+      "line": 24,
       "kind": "heading",
       "text": "Implementation Cues",
       "anchor": "implementation-cues"
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 31,
+      "line": 33,
       "kind": "heading",
       "text": "Cross-Application Impact Cues",
       "anchor": "cross-application-impact-cues"
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 43,
+      "line": 45,
       "kind": "heading",
       "text": "Documentation Cues",
       "anchor": "documentation-cues"
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 45,
+      "line": 47,
       "kind": "inline-path",
       "text": "known-debt.md",
       "target": "known-debt.md",
@@ -9856,7 +9993,7 @@
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 46,
+      "line": 48,
       "kind": "inline-path",
       "text": "experiments.md",
       "target": "experiments.md",
@@ -9866,21 +10003,21 @@
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 50,
+      "line": 52,
       "kind": "heading",
       "text": "Regression Cues",
       "anchor": "regression-cues"
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 59,
+      "line": 61,
       "kind": "heading",
       "text": "Structural Maintenance Clues",
       "anchor": "structural-maintenance-clues"
     },
     {
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 63,
+      "line": 65,
       "kind": "heading",
       "text": "Report Cues",
       "anchor": "report-cues"
@@ -12222,21 +12359,21 @@
       "target": "tool-maintained-files/indexes/change-index.json",
       "local": true,
       "resolvedExists": false,
-      "nearby": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, and changed surface hints. |"
+      "nearby": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, changed surface hints, and a committed-baseline mode for commit preparation. |"
     },
     {
       "file": "prompt-files/tools/index-map.md",
       "line": 12,
       "kind": "inline-id",
       "target": "change-index",
-      "text": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, and changed surface hints. |"
+      "text": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, changed surface hints, and a committed-baseline mode for commit preparation. |"
     },
     {
       "file": "prompt-files/tools/index-map.md",
       "line": 12,
       "kind": "inline-id",
       "target": "build-change-index",
-      "text": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, and changed surface hints. |"
+      "text": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, changed surface hints, and a committed-baseline mode for commit preparation. |"
     },
     {
       "file": "prompt-files/tools/index-map.md",
@@ -12583,7 +12720,17 @@
     },
     {
       "file": "prompt-files/tools/index-map.md",
-      "line": 37,
+      "line": 39,
+      "kind": "inline-path",
+      "text": "change-index.json",
+      "target": "change-index.json",
+      "local": true,
+      "resolvedExists": false,
+      "nearby": "- Use `build-change-index --commit-view` or `build-all-indexes --commit-view` when `change-index.json` should represent the committed baseline rather than the dirty working tree."
+    },
+    {
+      "file": "prompt-files/tools/index-map.md",
+      "line": 40,
       "kind": "inline-id",
       "target": "build-all-indexes",
       "text": "- Keep semantic chunk, embedding, and vector-store builders out of `build-all-indexes` unless their artifacts are explicitly promoted into the active index catalog."
@@ -12780,10 +12927,27 @@
     },
     {
       "file": "prompt-files/tools/indexes/build-all-indexes.md",
-      "line": 24,
+      "line": 23,
+      "kind": "inline-id",
+      "target": "change-index",
+      "text": "- `--commit-view`, which passes committed-baseline mode through to `change-index` only"
+    },
+    {
+      "file": "prompt-files/tools/indexes/build-all-indexes.md",
+      "line": 25,
       "kind": "heading",
       "text": "Boundaries",
       "anchor": "boundaries"
+    },
+    {
+      "file": "prompt-files/tools/indexes/build-all-indexes.md",
+      "line": 31,
+      "kind": "inline-path",
+      "text": "change-index.json",
+      "target": "change-index.json",
+      "local": true,
+      "resolvedExists": false,
+      "nearby": "For ordinary local work, use default working-tree mode so generated indexes remain locally authoritative. For commit preparation, use `--commit-view` when `change-index.json` should describe the committed baseline instead of local dirtiness"
     },
     {
       "file": "prompt-files/tools/indexes/change-index.md",
@@ -12809,20 +12973,30 @@
     {
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 14,
+      "kind": "inline-path",
+      "text": "change-index.json",
+      "target": "change-index.json",
+      "local": true,
+      "resolvedExists": false,
+      "nearby": "Use commit view when `change-index.json` is being prepared for a commit and should not preserve unrelated local working-tree dirtiness."
+    },
+    {
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 16,
       "kind": "heading",
       "text": "Responsible Object",
       "anchor": "responsible-object"
     },
     {
       "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 16,
+      "line": 18,
       "kind": "inline-id",
       "target": "build-change-index",
       "text": "- Builder: `build-change-index`"
     },
     {
       "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 17,
+      "line": 19,
       "kind": "inline-path",
       "text": "tool-implementations/indexes/build-change-index.ts",
       "target": "tool-implementations/indexes/build-change-index.ts",
@@ -12832,7 +13006,7 @@
     },
     {
       "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 18,
+      "line": 20,
       "kind": "inline-path",
       "text": "tool-maintained-files/indexes/change-index.json",
       "target": "tool-maintained-files/indexes/change-index.json",
@@ -12842,14 +13016,14 @@
     },
     {
       "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 20,
+      "line": 22,
       "kind": "heading",
       "text": "Execution",
       "anchor": "execution"
     },
     {
       "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 27,
+      "line": 30,
       "kind": "heading",
       "text": "Output Boundary",
       "anchor": "output-boundary"
@@ -13267,21 +13441,21 @@
     },
     {
       "file": "prompt-files/tools/indexes/path-index.md",
-      "line": 14,
+      "line": 16,
       "kind": "heading",
       "text": "Responsible Object",
       "anchor": "responsible-object"
     },
     {
       "file": "prompt-files/tools/indexes/path-index.md",
-      "line": 16,
+      "line": 18,
       "kind": "inline-id",
       "target": "build-path-index",
       "text": "- Builder: `build-path-index`"
     },
     {
       "file": "prompt-files/tools/indexes/path-index.md",
-      "line": 17,
+      "line": 19,
       "kind": "inline-path",
       "text": "tool-implementations/indexes/build-path-index.ts",
       "target": "tool-implementations/indexes/build-path-index.ts",
@@ -13291,7 +13465,7 @@
     },
     {
       "file": "prompt-files/tools/indexes/path-index.md",
-      "line": 18,
+      "line": 20,
       "kind": "inline-path",
       "text": "tool-maintained-files/indexes/path-index.json",
       "target": "tool-maintained-files/indexes/path-index.json",
@@ -13301,14 +13475,14 @@
     },
     {
       "file": "prompt-files/tools/indexes/path-index.md",
-      "line": 20,
+      "line": 22,
       "kind": "heading",
       "text": "Execution",
       "anchor": "execution"
     },
     {
       "file": "prompt-files/tools/indexes/path-index.md",
-      "line": 27,
+      "line": 29,
       "kind": "heading",
       "text": "Output Boundary",
       "anchor": "output-boundary"
@@ -14887,35 +15061,42 @@
     },
     {
       "file": "prompt-files/tools/tool-usage.instructions.md",
-      "line": 28,
+      "line": 29,
+      "kind": "inline-id",
+      "target": "change-index",
+      "text": "- Commit truth: generated artifacts are local evidence while work is in progress; generated files included in a commit should reflect the source structure being committed. Use `change-index` commit view when needed, then refresh local truth"
+    },
+    {
+      "file": "prompt-files/tools/tool-usage.instructions.md",
+      "line": 30,
       "kind": "inline-id",
       "target": "build-all-indexes",
       "text": "- Semantic payload boundary: semantic chunk, embedding, and vector-store builders should remain separate from `build-all-indexes` until their artifacts are explicitly promoted into the active index catalog."
     },
     {
       "file": "prompt-files/tools/tool-usage.instructions.md",
-      "line": 29,
+      "line": 31,
       "kind": "inline-id",
       "target": "semantic-candidate-query",
       "text": "- Semantic overreach: use `semantic-candidate-query` as fuzzy candidate evidence, then verify with source, exact operators, or bounded slices before drawing conclusions."
     },
     {
       "file": "prompt-files/tools/tool-usage.instructions.md",
-      "line": 31,
+      "line": 33,
       "kind": "heading",
       "text": "Contract Checks",
       "anchor": "contract-checks"
     },
     {
       "file": "prompt-files/tools/tool-usage.instructions.md",
-      "line": 33,
+      "line": 35,
       "kind": "inline-id",
       "target": "agent-os-contract-check",
       "text": "`agent-os-contract-check` is a maintenance aid after Agent OS maps, tool rows, index rows, semantic-layer rows, scripts, or generated artifact locations change. It checks alignment; it does not prove semantic correctness."
     },
     {
       "file": "prompt-files/tools/tool-usage.instructions.md",
-      "line": 35,
+      "line": 37,
       "kind": "heading",
       "text": "Output Use",
       "anchor": "output-use"

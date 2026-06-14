@@ -4,9 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-12T15:21:54.061Z",
-  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+  "generatedAt": "2026-06-14T07:27:41.434Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
   "producer": "build-index-manifest",
   "artifactPath": "tool-maintained-files/indexes/index-manifest.json",
   "sourceInputs": [
@@ -35,7 +37,7 @@
           "startRecord": 0,
           "endRecordExclusive": 15,
           "recordCount": 15,
-          "sha256": "add692d7e63874f170503fc51cbdf6824b91738a7390d26199615e63b3777c0c"
+          "sha256": "26955788f8619e05b52c709d7a7c7ba91d40a8b91999179b0d55618c01f015ca"
         }
       ]
     },
@@ -69,7 +71,10 @@
       "schemaVersion": 2,
       "recordCount": 15,
       "generatedAt": null,
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "sourceRoot": ".",
+      "pathReference": "Paths are relative to the Agent OS root; run tools from that root or pass --root.",
+      "sourceState": "manifest-self-row",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-index-manifest",
       "freshnessPolicy": "Refresh when active index tiers, capabilities, artifacts, builders, or first-query guidance changes.",
       "coverage": "Compact tier, freshness, size, hash, and first-query guidance for active evidence indexes.",
@@ -112,12 +117,15 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 100919,
-      "sha256": "b6d3420a6a43f9d60f8fd8b3988d1a84100fb68c96def6ee05d0343c11cce905",
+      "byteSize": 68029,
+      "sha256": "b5e939b6207a3f8c6bfe9f64907393813c574506769b60ffac79f0646e06d202",
       "schemaVersion": 2,
-      "recordCount": 255,
-      "generatedAt": "2026-06-12T15:21:22.548Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 256,
+      "generatedAt": "2026-06-14T07:27:11.770Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-path-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Files, directories, extensions, areas, inferred artifact kinds, and generated/manual hints.",
@@ -134,9 +142,9 @@
           {
             "shardId": "records-0001",
             "startRecord": 0,
-            "endRecordExclusive": 255,
-            "recordCount": 255,
-            "sha256": "a0c431ff78b4986312877d1afada8ea577a13a5ca6d542c9a498ab932c4c9b43"
+            "endRecordExclusive": 256,
+            "recordCount": 256,
+            "sha256": "09c9a54ea246793dfe28fa359155be10563b4b13b6912cff62dd49045f0826ac"
           }
         ]
       },
@@ -168,15 +176,18 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 31309,
-      "sha256": "99d2a907daabe3b8012ee0d0b999bcee178587e641bf73686e7911b055e11a24",
+      "byteSize": 2416,
+      "sha256": "0117510a242fd0b14cf756e5c2f2d6fb9b8daaf53b5453bc88ca7a53951c6781",
       "schemaVersion": 2,
-      "recordCount": 117,
-      "generatedAt": "2026-06-12T15:21:28.127Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 0,
+      "generatedAt": "2026-06-14T07:27:13.684Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "committed-baseline",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-change-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
-      "coverage": "Changed files, status codes, generated/manual hints, and likely changed surfaces.",
+      "coverage": "Changed files, status codes, generated/manual hints, likely changed surfaces, and optional committed-baseline view for commit preparation.",
       "metadataVersion": 1,
       "metadataMaintainedBy": "build-change-index",
       "manualMaintenance": false,
@@ -185,16 +196,8 @@
       "sharding": {
         "strategy": "record-count",
         "targetRecordsPerShard": 500,
-        "shardCount": 1,
-        "shards": [
-          {
-            "shardId": "records-0001",
-            "startRecord": 0,
-            "endRecordExclusive": 117,
-            "recordCount": 117,
-            "sha256": "c2737e16956753f9a30b4b72653f3b7ae0314cb7144fb8897010b528c806d506"
-          }
-        ]
+        "shardCount": 0,
+        "shards": []
       },
       "semanticSupport": {
         "status": "metadata-ready",
@@ -208,7 +211,8 @@
         ]
       },
       "knownBlindSpots": [
-        "Only reflects the current working tree and available git metadata."
+        "Default mode reflects the current working tree and available git metadata.",
+        "Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness."
       ],
       "freshnessWarnings": []
     },
@@ -224,12 +228,15 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 58653,
-      "sha256": "e8063bc74ef033f5a81229fab7a0d9cec8bcd2329937b43b9fed8ee9f5289b01",
+      "byteSize": 58465,
+      "sha256": "6230b9d6197eebd25905e7713b0a18558f2aefebc588172eee420c1dd9108393",
       "schemaVersion": 2,
-      "recordCount": 173,
-      "generatedAt": "2026-06-12T15:21:29.528Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 172,
+      "generatedAt": "2026-06-14T07:27:15.817Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-dependency-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Import edges, module specifiers, relative resolutions, and rough dependency direction evidence.",
@@ -246,9 +253,9 @@
           {
             "shardId": "records-0001",
             "startRecord": 0,
-            "endRecordExclusive": 173,
-            "recordCount": 173,
-            "sha256": "3094e3c4a2c6e6843f93e6eccccf8f694e98d29e3702d79b8885da796da47ceb"
+            "endRecordExclusive": 172,
+            "recordCount": 172,
+            "sha256": "4cf7acca3a250557afc8ea73405e4dca7d77237d55d25284a039fede8b4f707a"
           }
         ]
       },
@@ -280,12 +287,15 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 197324,
-      "sha256": "7e385713c56ae0a2a9346b10884240f11fdf7795c192f02ad0638704476142a4",
+      "byteSize": 202360,
+      "sha256": "ba7a99b3d280c45acb4cb7b3cb15c50845f36c163318e51d520dde1f42a1fbaa",
       "schemaVersion": 2,
-      "recordCount": 724,
-      "generatedAt": "2026-06-12T15:21:31.598Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 742,
+      "generatedAt": "2026-06-14T07:27:18.271Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-symbol-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Exported, imported, and locally declared symbols discoverable with lightweight source scanning.",
@@ -304,14 +314,14 @@
             "startRecord": 0,
             "endRecordExclusive": 500,
             "recordCount": 500,
-            "sha256": "0fca9590dc49a2de966f9127835648ec40fb1d527d539c663989e178fb032dc5"
+            "sha256": "26d4a324092adb3f95f8e513633d2d4907d1ecc76c93c729d6ab2c9a858100fe"
           },
           {
             "shardId": "records-0002",
             "startRecord": 500,
-            "endRecordExclusive": 724,
-            "recordCount": 224,
-            "sha256": "c6f24dea839d035800944503270b03cb63c07c0358f76ebc12f2eedc4bd2fb3f"
+            "endRecordExclusive": 742,
+            "recordCount": 242,
+            "sha256": "30d33fb813c1987f622ec987eb83397584c2eb34f0d67a06f2ed3476009105b0"
           }
         ]
       },
@@ -343,12 +353,15 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 589057,
-      "sha256": "a584ec3fdcc243e07ac0e1f007f9c477807f8c147e661faf1b78480c364acbd0",
+      "byteSize": 596627,
+      "sha256": "8b40adfe9d3451933ddad83911ad51b7d4e0cab060a5806f07ab5209d6aded75",
       "schemaVersion": 2,
-      "recordCount": 1930,
-      "generatedAt": "2026-06-12T15:21:33.429Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 1953,
+      "generatedAt": "2026-06-14T07:27:20.423Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-doc-reference-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Markdown links, headings, file references, instruction references, tool IDs, and likely broken local links.",
@@ -367,28 +380,28 @@
             "startRecord": 0,
             "endRecordExclusive": 500,
             "recordCount": 500,
-            "sha256": "c8462b552bbcf82eadaa8c8f3fc587ee6216cffa972525bf8f295b8541237393"
+            "sha256": "748b7f6bc221487ff6c9f3d702c31fec9588bf1b361201b8bc5f178550c75490"
           },
           {
             "shardId": "records-0002",
             "startRecord": 500,
             "endRecordExclusive": 1000,
             "recordCount": 500,
-            "sha256": "da287159608ce77e13cb4432cbc749bf023e1e62b728752f363a2d25a8ccff69"
+            "sha256": "2f0d56f91c05cc5997fdaa6e3f5f349df6a210957fa54f5e199e70222b31f93c"
           },
           {
             "shardId": "records-0003",
             "startRecord": 1000,
             "endRecordExclusive": 1500,
             "recordCount": 500,
-            "sha256": "f72db1edba66b81da8b215a7860af408cf2bfa4a36369a4af6e4e4d903844366"
+            "sha256": "82327ae2ce9299c98451dc43639909d1d33bc5dfeee70742a647852b559c0383"
           },
           {
             "shardId": "records-0004",
             "startRecord": 1500,
-            "endRecordExclusive": 1930,
-            "recordCount": 430,
-            "sha256": "2a6e854b34800a7e881982c169290f0146f2be06ae037e78a15d92538a45af7c"
+            "endRecordExclusive": 1953,
+            "recordCount": 453,
+            "sha256": "0929b268d101c13523227898d54ad24506d2ed4363837dd5fd1c9938227f6c27"
           }
         ]
       },
@@ -420,12 +433,15 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 67818,
-      "sha256": "714da4bb8cf3047368f4ace9d0a367b298e65f85999324d8bb4a15403f363c46",
+      "byteSize": 68185,
+      "sha256": "431b5c5b8511531e46d5e97d7703a8bb318b288c8ece3a51f26a2da3a1b8cbf3",
       "schemaVersion": 2,
-      "recordCount": 217,
-      "generatedAt": "2026-06-12T15:21:35.546Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 218,
+      "generatedAt": "2026-06-14T07:27:22.470Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-artifact-metadata-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Artifact kind, generated/manual/hybrid hints, direct-edit safety hints, and possible producers.",
@@ -442,9 +458,9 @@
           {
             "shardId": "records-0001",
             "startRecord": 0,
-            "endRecordExclusive": 217,
-            "recordCount": 217,
-            "sha256": "6be25b57981db90d331383475a02a4949ab95fc3fb3b8a6aee21b55aa6dd18af"
+            "endRecordExclusive": 218,
+            "recordCount": 218,
+            "sha256": "0cb1decb4da066d5e4909da5d5aad2f19018127805df8ad6cf01e7fd62edf1a6"
           }
         ]
       },
@@ -476,12 +492,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 14306,
-      "sha256": "8f34919453536519c3858a0c2bdffaa0d754ff51f848b72be0621b0f728349c0",
+      "byteSize": 14537,
+      "sha256": "5de034daf4af4efd413d2f968d57437f1b5b85a8becbe0cd22d8528d12d26d8d",
       "schemaVersion": 2,
       "recordCount": 25,
-      "generatedAt": "2026-06-12T15:21:36.860Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "generatedAt": "2026-06-14T07:27:25.347Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-component-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "PascalCase component definitions, consumers, stories, tests, and props hints.",
@@ -500,7 +519,7 @@
             "startRecord": 0,
             "endRecordExclusive": 25,
             "recordCount": 25,
-            "sha256": "f36c9c8f57adf4d46bedb9fa434876f6ad6c808931021b0586c20a5e9d374e69"
+            "sha256": "8da99d341ce6135b04c80572cfe0e12ee93cf4f4584c0701b304c91828382dd8"
           }
         ]
       },
@@ -532,12 +551,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 69287,
-      "sha256": "eb500c832c6d86a1b592e6395b5cb3ff3c06e02f00abe814111df70587d4a4a3",
+      "byteSize": 74463,
+      "sha256": "89efb0f6724129c397741c798eaccdf14ac9cff3b976939422fa3a9704477ad0",
       "schemaVersion": 2,
-      "recordCount": 191,
-      "generatedAt": "2026-06-12T15:21:38.221Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 204,
+      "generatedAt": "2026-06-14T07:27:27.272Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-accessor-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Accessor/API-like definitions, callers, read/write hints, cache hints, and boundary names.",
@@ -554,9 +576,9 @@
           {
             "shardId": "records-0001",
             "startRecord": 0,
-            "endRecordExclusive": 191,
-            "recordCount": 191,
-            "sha256": "ab4756ed035095e982d9368b8b7d536951d20aaeb82008b2f262f4d7186e9896"
+            "endRecordExclusive": 204,
+            "recordCount": 204,
+            "sha256": "18ebc3c6920081b05908b9a8a31ccdac2c7a09456e5716a18dbcb7036c70b558"
           }
         ]
       },
@@ -588,12 +610,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 18805,
-      "sha256": "c91490f24502bf285fef718a213003abbf2ba17641bdd67d5fb10bf5a0806a49",
+      "byteSize": 19098,
+      "sha256": "8dd58b543046fed92141294841a8815d9b8362dfab62fe7d36da907b6986c84b",
       "schemaVersion": 2,
-      "recordCount": 72,
-      "generatedAt": "2026-06-12T15:21:39.546Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 73,
+      "generatedAt": "2026-06-14T07:27:30.111Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-schema-shape-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Schema-like declarations, validators, fields, relation hints, and generated type references.",
@@ -610,9 +635,9 @@
           {
             "shardId": "records-0001",
             "startRecord": 0,
-            "endRecordExclusive": 72,
-            "recordCount": 72,
-            "sha256": "11103199f7dd02361cc26bee098b506ec84a07e12a50aaa4b9c6ba61aa09df02"
+            "endRecordExclusive": 73,
+            "recordCount": 73,
+            "sha256": "7b7701aec258daa5e3d3ec1e6cff9dc69185e8085a4139184390f4a03c64653d"
           }
         ]
       },
@@ -644,12 +669,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 2027,
-      "sha256": "f50fb7d41af3ade2c615bda9f6ee8be6ff77b9978fd995691c339f75db7e2e71",
+      "byteSize": 2132,
+      "sha256": "f167546ef67c47269548521d4dbc668294d9449ad467abfb901a0a1aa1c0425d",
       "schemaVersion": 2,
       "recordCount": 0,
-      "generatedAt": "2026-06-12T15:21:41.589Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "generatedAt": "2026-06-14T07:27:32.009Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-test-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Test and story files, likely tested subjects, imports, fixture references, and route/component hints.",
@@ -692,12 +720,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 33605,
-      "sha256": "ae5392fe626a79a50f88df953c88ade8e7792caf907acc9bd2950d0628b4bef6",
+      "byteSize": 34631,
+      "sha256": "1480077d2fff6d021ce53d8c85baa49d1359e69efb85e1a00f2b130e27c70fc6",
       "schemaVersion": 2,
-      "recordCount": 36,
-      "generatedAt": "2026-06-12T15:21:43.377Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 37,
+      "generatedAt": "2026-06-14T07:27:33.718Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-fixture-scenario-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Fixture/scenario artifacts, consumers, represented terms, and shape hints.",
@@ -714,9 +745,9 @@
           {
             "shardId": "records-0001",
             "startRecord": 0,
-            "endRecordExclusive": 36,
-            "recordCount": 36,
-            "sha256": "1b9028410c87e224d746de5c81c430350991f87f428dcd7075551c643e9e2c30"
+            "endRecordExclusive": 37,
+            "recordCount": 37,
+            "sha256": "a09dcb097c024a06e89e1e2e3dc6baae02d7ae4477d332c58fde30197cc715ee"
           }
         ]
       },
@@ -748,12 +779,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 2043,
-      "sha256": "38fb472dd621ae6231dbd0de2071e5f530aa216a9e8bcea3e41b4a4319376ecb",
+      "byteSize": 2148,
+      "sha256": "bf519afaddcde02265e7276f5c8a08721757614fec417e8b32fd139cae5bd8b6",
       "schemaVersion": 2,
       "recordCount": 0,
-      "generatedAt": "2026-06-12T15:21:45.163Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "generatedAt": "2026-06-14T07:27:35.322Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-route-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Route-like files, inferred route paths, params, route families, pages, layouts, and handlers.",
@@ -796,12 +830,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 655526,
-      "sha256": "16ee83fcf0bbe812f102efb0efe6fa69d820e0121565eb15b5e4bd91559767ea",
+      "byteSize": 679352,
+      "sha256": "21138c2d8cfe7fcfdff093a255678552c0d2c40c2f787a52f0544c3fc2aa42d9",
       "schemaVersion": 2,
-      "recordCount": 2073,
-      "generatedAt": "2026-06-12T15:21:46.987Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 2150,
+      "generatedAt": "2026-06-14T07:27:37.498Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-literal-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "String literals, role-like values, status-like values, token-like values, and arbitrary style-like values.",
@@ -820,35 +857,35 @@
             "startRecord": 0,
             "endRecordExclusive": 500,
             "recordCount": 500,
-            "sha256": "c800013ef2202fc9ee83d990d5d798fed7669bda8e419e188f6f7204a176905d"
+            "sha256": "0c774ca215dde9d1e1f1a412d5bc466653c4909b5b3e6ce60c119176356b7e50"
           },
           {
             "shardId": "records-0002",
             "startRecord": 500,
             "endRecordExclusive": 1000,
             "recordCount": 500,
-            "sha256": "ca8bada574d934c7e17e25da57832e26aeaf817b6dd44208d608bf96b6499227"
+            "sha256": "b294972bbdfb2a04940a74c4fa1d5391cf57b2fda6c2e220a548aca4b67aba24"
           },
           {
             "shardId": "records-0003",
             "startRecord": 1000,
             "endRecordExclusive": 1500,
             "recordCount": 500,
-            "sha256": "3c41edc72dabe3722ff107d4f7656e34f3afa6c0de5c6e14024b5f0872c29415"
+            "sha256": "79953d405ce27967d618c5fb4468cc6b0a05b6c4162d2c8b8c02aaacdcf7dd11"
           },
           {
             "shardId": "records-0004",
             "startRecord": 1500,
             "endRecordExclusive": 2000,
             "recordCount": 500,
-            "sha256": "420b4f63fe3580a879e1a716dee4f90bf03c33398d14c43f558bc67cba01b683"
+            "sha256": "294d5cdc36f5c563650039d068334226f44ec08abab9428470475c63dbe468e5"
           },
           {
             "shardId": "records-0005",
             "startRecord": 2000,
-            "endRecordExclusive": 2073,
-            "recordCount": 73,
-            "sha256": "d391efa610489ab32d73cc2e632be8cb7042917b1d006062415bc1f6d7360e36"
+            "endRecordExclusive": 2150,
+            "recordCount": 150,
+            "sha256": "6a6bfebec214e8d13cd3a63f31f7c05b247f07395cf3c198a9e647aa805cb4b9"
           }
         ]
       },
@@ -880,12 +917,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 10938636,
-      "sha256": "d9b805e31f76291ecd3759307028349e35550dcb672f7e331c1edda37043a02d",
+      "byteSize": 11347153,
+      "sha256": "e211de6530be8e4f3194135696816b626127646f502f2330eedd131d28a7de80",
       "schemaVersion": 2,
-      "recordCount": 35220,
-      "generatedAt": "2026-06-12T15:21:52.342Z",
-      "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+      "recordCount": 36444,
+      "generatedAt": "2026-06-14T07:27:39.488Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
       "producer": "build-term-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Domain terms, headings, identifiers, UI-looking literals, and nearby language occurrences.",
@@ -897,7 +937,7 @@
       "sharding": {
         "strategy": "record-count",
         "targetRecordsPerShard": 500,
-        "shardCount": 71,
+        "shardCount": 73,
         "shards": [
           {
             "shardId": "records-0001",
@@ -911,490 +951,504 @@
             "startRecord": 500,
             "endRecordExclusive": 1000,
             "recordCount": 500,
-            "sha256": "a6d1c06da8683c431525e63703306137f768c2bd6502b830ebf528224b4fa1fe"
+            "sha256": "a91c1b7e1ba0defce19084e07340295dd83d13f5e0682ad5dfd71a9e7323ce75"
           },
           {
             "shardId": "records-0003",
             "startRecord": 1000,
             "endRecordExclusive": 1500,
             "recordCount": 500,
-            "sha256": "615b19810eb31888026d75ef1f8a4d2c4e5e04356a926d38c5d3d61d672c1ae4"
+            "sha256": "d39ca62553f1cc55642f56430c7ba0879bbcca6c3fa3765fe51d583848d29bcc"
           },
           {
             "shardId": "records-0004",
             "startRecord": 1500,
             "endRecordExclusive": 2000,
             "recordCount": 500,
-            "sha256": "6ab869767e3a81e3e15d68e541add73ab5cf4bb8464811caf4b57d0dbdb5a589"
+            "sha256": "f5f2ef6df8009f4ceb4eea244f5ea4e14abca71eca59fcfeec77d3e2c53e0723"
           },
           {
             "shardId": "records-0005",
             "startRecord": 2000,
             "endRecordExclusive": 2500,
             "recordCount": 500,
-            "sha256": "03b01737549327224bf32614235d878aeb80af683f5ebc9a3c86a5ef4891217f"
+            "sha256": "173fa558ed24f11a24bb16263daddaf737612f1365195391d55301939dc2b56d"
           },
           {
             "shardId": "records-0006",
             "startRecord": 2500,
             "endRecordExclusive": 3000,
             "recordCount": 500,
-            "sha256": "0e7c63fd71d192413d4a21aaf317202d5dbcf20f4732098a7e505d6ae92454a6"
+            "sha256": "4a0f8026e811b992b0f1cf22b19e63ec32d493935c09ad1cf37d443c90d0387b"
           },
           {
             "shardId": "records-0007",
             "startRecord": 3000,
             "endRecordExclusive": 3500,
             "recordCount": 500,
-            "sha256": "8027874482d02e2104db4210a6bccdb24296d6b9dbd5e8f0b06b2b5252c004cc"
+            "sha256": "e3d64b01f01d7db39671309c1c29b03d3976b1777bcc69a3ffb5cb8e42875322"
           },
           {
             "shardId": "records-0008",
             "startRecord": 3500,
             "endRecordExclusive": 4000,
             "recordCount": 500,
-            "sha256": "017caa5789559050a417a7b0a8a3c7d2fcafe091049bcd58dfb6a3bc9fc4420a"
+            "sha256": "ef65cea34e041ea8d0f12b5c6898f5ea55d45dbb850431047f00c9e273fd83d8"
           },
           {
             "shardId": "records-0009",
             "startRecord": 4000,
             "endRecordExclusive": 4500,
             "recordCount": 500,
-            "sha256": "fa520863655e37435c7c6046eb78cef400de46e538359b458853f3a96216c6e8"
+            "sha256": "cf200ed7212e4d5a8e92e5bba98712a42d1efbd910e616eec507bd4b79d266cf"
           },
           {
             "shardId": "records-0010",
             "startRecord": 4500,
             "endRecordExclusive": 5000,
             "recordCount": 500,
-            "sha256": "274d575528e5f2f756823f96b98bae92cd2b04e1140146da7b0959b6918be21b"
+            "sha256": "d6a0adb039b73da4406aca3253fc23fe83955f3ade2ffd9daa88bbf0f3c6e2ec"
           },
           {
             "shardId": "records-0011",
             "startRecord": 5000,
             "endRecordExclusive": 5500,
             "recordCount": 500,
-            "sha256": "c02b19f2a378b79668a06867f53cd1d1ec6293eeaede399a0466e48872a8a62d"
+            "sha256": "6a2f0613d73e13c00fd3d4e1b03a69595e58a24fa07747818f405469a9c0412a"
           },
           {
             "shardId": "records-0012",
             "startRecord": 5500,
             "endRecordExclusive": 6000,
             "recordCount": 500,
-            "sha256": "0dab8fc1dde13bbac89c9c75b9d8d3e7d67896c2edb711ca260404bd2ff782ff"
+            "sha256": "7e5f47f37e884d03489648c68d89ae6ef30e9e81e9db3c81d49a71eb824b6cef"
           },
           {
             "shardId": "records-0013",
             "startRecord": 6000,
             "endRecordExclusive": 6500,
             "recordCount": 500,
-            "sha256": "94b08dc3517f114fc3734848e0169ef1478b6df73112020c959d85aad4d566f2"
+            "sha256": "17739535c963d35f3586b535370e1dc25155a5ad73c21858ade7acfc67dee7af"
           },
           {
             "shardId": "records-0014",
             "startRecord": 6500,
             "endRecordExclusive": 7000,
             "recordCount": 500,
-            "sha256": "51382e5b6dda91aa6910bde01225e29eac1a08fd6d57eb013aaf5153f510c09c"
+            "sha256": "2e2d9b1863125f2b9c7b9eaf6c8512086ad019708fdb5c0fcaf4b4d05dd3402e"
           },
           {
             "shardId": "records-0015",
             "startRecord": 7000,
             "endRecordExclusive": 7500,
             "recordCount": 500,
-            "sha256": "8eef6b7d9927a7b21f35aee8161f1c809ddcb7bc59a0045b55eab001ea4c7036"
+            "sha256": "a0ea0114fe787f6989883880a6cb5f287e878204fc89302fff24128f5ebc52ec"
           },
           {
             "shardId": "records-0016",
             "startRecord": 7500,
             "endRecordExclusive": 8000,
             "recordCount": 500,
-            "sha256": "d2c2deb407ca4f2a80edb5e3a8f2e7af3b544074ba9a31b7065198f945231efe"
+            "sha256": "ca8221e177bddc9c7dbbe05a54f2fdd79dce67a11eaa2866b4a0b834f7e86532"
           },
           {
             "shardId": "records-0017",
             "startRecord": 8000,
             "endRecordExclusive": 8500,
             "recordCount": 500,
-            "sha256": "b2e50c4751b3f9139fa3701b4ff625d0e88a89263987c6cb1ec583ed36963da6"
+            "sha256": "ac03f92c78e39d5e06c5a4ce4d60bcd20aba4a8ea693f72b64aaa8488dcaa09f"
           },
           {
             "shardId": "records-0018",
             "startRecord": 8500,
             "endRecordExclusive": 9000,
             "recordCount": 500,
-            "sha256": "9e478ab263886d75018177ab88968e271c3e55be0a8b1383fc032fdbcd8194d8"
+            "sha256": "a9e131ff7064a4b79c63a1e03163a71e207ce3fcb2d25bcb21a9746d024b1936"
           },
           {
             "shardId": "records-0019",
             "startRecord": 9000,
             "endRecordExclusive": 9500,
             "recordCount": 500,
-            "sha256": "6e5bbfb4e2c2c172d8017b799510d16281c46efbae558a091ed73f6931c9ec4b"
+            "sha256": "539926f1c25910cf4c82c235f6777019c1880b331dd5333d9efbd02b6e0d772e"
           },
           {
             "shardId": "records-0020",
             "startRecord": 9500,
             "endRecordExclusive": 10000,
             "recordCount": 500,
-            "sha256": "23842218030f769eeaceab949667fdc24b26861c99bc3bd748520445ec8a6280"
+            "sha256": "03d4acbcb5610fc7dfc5aa5f49f0a5ecf1ee5664e3803adb66bf46e435af5d75"
           },
           {
             "shardId": "records-0021",
             "startRecord": 10000,
             "endRecordExclusive": 10500,
             "recordCount": 500,
-            "sha256": "a9c6c8d5927a5867721f91410c152b68a23ffe860ab42ba3bbce44ec53d726e1"
+            "sha256": "065de3a31a0c0b9f0e5a4e5537aacb762f071a3900907e1989a8bcead3e1d857"
           },
           {
             "shardId": "records-0022",
             "startRecord": 10500,
             "endRecordExclusive": 11000,
             "recordCount": 500,
-            "sha256": "512bc58403e19e95aabe239f8154c22a8538778cb939f048a617e0afbe663516"
+            "sha256": "6fb7a3dd55855c86e1e2edf127ff60a04dd29e15c826d8250cce52adde81fe77"
           },
           {
             "shardId": "records-0023",
             "startRecord": 11000,
             "endRecordExclusive": 11500,
             "recordCount": 500,
-            "sha256": "9955d01da9c88498ac7e68b6638d996f2d4bc6960dce0969bcc7e079d2f45e3c"
+            "sha256": "e05e4c5101fba9053f952400d870d7e8b286045c11075acc3f9ee9abc5235869"
           },
           {
             "shardId": "records-0024",
             "startRecord": 11500,
             "endRecordExclusive": 12000,
             "recordCount": 500,
-            "sha256": "5039db4ff1893a114ac82e8549ee8c1b066cfe3c8eaf71f990185c21fd51901a"
+            "sha256": "708a8596e44ad5c40e0efedd57d91a310716945bfdddf1baadffdf9a9579f5a7"
           },
           {
             "shardId": "records-0025",
             "startRecord": 12000,
             "endRecordExclusive": 12500,
             "recordCount": 500,
-            "sha256": "c64e4bf1674aba5c1c27384367f0bc04a993f94925ff9c678f49ba6c07be9eaf"
+            "sha256": "c0d8277182c8640c1c00027327bc1e379368f49dfae9ede1fad96bfa519fe2fc"
           },
           {
             "shardId": "records-0026",
             "startRecord": 12500,
             "endRecordExclusive": 13000,
             "recordCount": 500,
-            "sha256": "c06ef860c59d30baf6ff40e49a88ec6a213f6fbd6ae6c70265eaffa275a7d0e1"
+            "sha256": "0edb2c3abc5df252d666fc70ecefd30ffd7d9a3e073a544e9a210e45ba0256b0"
           },
           {
             "shardId": "records-0027",
             "startRecord": 13000,
             "endRecordExclusive": 13500,
             "recordCount": 500,
-            "sha256": "7730e8c66ae4d5ead324b7df9bb3daca1651e0d57ec186b2a0df13d06badc1e7"
+            "sha256": "ac8842fb4f2ec974fff9d1313de119bcaf3f5650a12411f570651a0663c2b57a"
           },
           {
             "shardId": "records-0028",
             "startRecord": 13500,
             "endRecordExclusive": 14000,
             "recordCount": 500,
-            "sha256": "f4bd0971303323ec29ce00342c938ddc1849d4e628ee74f2644affd219a1f556"
+            "sha256": "b05eb4959bc3997d250464bc5d6fe0dac31d9e4b649969192e5f45e2aded2a88"
           },
           {
             "shardId": "records-0029",
             "startRecord": 14000,
             "endRecordExclusive": 14500,
             "recordCount": 500,
-            "sha256": "31b51f5d963c70710dbbc8520dc7a5ab3f367eb0a24090979f7ae873336f3b40"
+            "sha256": "850c20f9acaf88bc585f841f3d88f62e6e518cc23f0aee893259c1fd3c5dfadc"
           },
           {
             "shardId": "records-0030",
             "startRecord": 14500,
             "endRecordExclusive": 15000,
             "recordCount": 500,
-            "sha256": "d1a605c60fb92457ffb8ee26fa9fed093ae560cbebd7e91253f1953def36f065"
+            "sha256": "d5f61911568cf949a6dc3e2bfe396d6cd8ee4227f1caf689268bd92597d23efd"
           },
           {
             "shardId": "records-0031",
             "startRecord": 15000,
             "endRecordExclusive": 15500,
             "recordCount": 500,
-            "sha256": "e5b4cba9c65f1c7383eb886bf96e2dd68a39fe910202a83469eccb681f1cd16e"
+            "sha256": "cb150b69d7fc0af5f77ec9f72d55b7523154026001060c17fc7e1435fdbf22d7"
           },
           {
             "shardId": "records-0032",
             "startRecord": 15500,
             "endRecordExclusive": 16000,
             "recordCount": 500,
-            "sha256": "101f9eb7b67dd9c940df973ee3112a6061c0675f8c16866aa1b3779d9caff6b8"
+            "sha256": "927e230324bae86f65827a5b4d7769a132cd1b746d30af56a79632c995e2bb94"
           },
           {
             "shardId": "records-0033",
             "startRecord": 16000,
             "endRecordExclusive": 16500,
             "recordCount": 500,
-            "sha256": "4ac4f24b567a8b7355d9bec4942a6bafbf600e53526ef9a5e14621363e9f868f"
+            "sha256": "e6b143efe7827a7877569369b5cef75f993cef57d489c170236156e6d22f4d61"
           },
           {
             "shardId": "records-0034",
             "startRecord": 16500,
             "endRecordExclusive": 17000,
             "recordCount": 500,
-            "sha256": "50ad3c8fcd34109db1e73accf09d1d0125c2988062c3d8537e37536c37447ca6"
+            "sha256": "5ae2e7a66d2c4a44573d2aa79c5d903af4322622e1e45d0fe0977462b93b544b"
           },
           {
             "shardId": "records-0035",
             "startRecord": 17000,
             "endRecordExclusive": 17500,
             "recordCount": 500,
-            "sha256": "1d93dd0a0f1d98c9d3ee9b9f50a21e12307921faf5619888c81aac5129f99308"
+            "sha256": "505d8a73d4b6c440bed81df2c67144e2a44441c128e5268301f849edb9e06d29"
           },
           {
             "shardId": "records-0036",
             "startRecord": 17500,
             "endRecordExclusive": 18000,
             "recordCount": 500,
-            "sha256": "164a15c00c94acb4e0c2f4725684e16453e8ed326e876fe5f9d9f1ff2e6de8fc"
+            "sha256": "1721f6b8080c6cac873771a8ce1fec9ed98558b106df756adb2fe44a73970be4"
           },
           {
             "shardId": "records-0037",
             "startRecord": 18000,
             "endRecordExclusive": 18500,
             "recordCount": 500,
-            "sha256": "84b24c8e12f3ace2cd333c63a3188e96117d820ef83f2fde6046ea83deb663b2"
+            "sha256": "8d504966177ecb1cf109679d78e51978ce343bc2f6875181b7c5474ae68b888f"
           },
           {
             "shardId": "records-0038",
             "startRecord": 18500,
             "endRecordExclusive": 19000,
             "recordCount": 500,
-            "sha256": "c2093bbf89d696eec1b28ec8040631d68d1d88d987c3cabda5c5c07fe4ddcf7e"
+            "sha256": "3d1fe5a5d70ffc676f25b050d32e7c973ec24f9408032409de316542dec1f195"
           },
           {
             "shardId": "records-0039",
             "startRecord": 19000,
             "endRecordExclusive": 19500,
             "recordCount": 500,
-            "sha256": "79d370d9474f04aaeec7d28136813e251cdcb9ed7dd756bd07c6add2e2454a6b"
+            "sha256": "061a0d4cbbbfc5af2b011262a79d68a05bad11edb5a53960e6aeef1832a04ed2"
           },
           {
             "shardId": "records-0040",
             "startRecord": 19500,
             "endRecordExclusive": 20000,
             "recordCount": 500,
-            "sha256": "5723434a7e0e0071ce7c81cf4f312029c41cdbf11f88120d07898218d5697696"
+            "sha256": "32cf6a52f03425ce4b1954e7ddf37437bb11fea888a50c70e5b920826bc02d9d"
           },
           {
             "shardId": "records-0041",
             "startRecord": 20000,
             "endRecordExclusive": 20500,
             "recordCount": 500,
-            "sha256": "28efbf296fcc0dbdd35c6b65b885cb16af9a7e89af7bd02dde41e4157c476b66"
+            "sha256": "f839979ad655c0ecf7631d374dcf462df429fcd963531818e8c12b668d80364f"
           },
           {
             "shardId": "records-0042",
             "startRecord": 20500,
             "endRecordExclusive": 21000,
             "recordCount": 500,
-            "sha256": "9b7d9232cfde6561b2ecbdea5d8c383368bbc809eb794d4c134b08a1e63e94cc"
+            "sha256": "090784ba2d9f91198dc57986a936ebf6dc64ecb85b7ca8a4d24d23ccc5828156"
           },
           {
             "shardId": "records-0043",
             "startRecord": 21000,
             "endRecordExclusive": 21500,
             "recordCount": 500,
-            "sha256": "b763c02af8b7a3deb5e71ac641d83e1c88b7de3d4f13edb9dd7b4b28a401490a"
+            "sha256": "67ede63572c84ea534e9697cb922186f9706a229b6ba4a568b3f26b9c330c503"
           },
           {
             "shardId": "records-0044",
             "startRecord": 21500,
             "endRecordExclusive": 22000,
             "recordCount": 500,
-            "sha256": "07206d04327764b0194a1f448e639950de1596572b20c8247794742a6c3b008d"
+            "sha256": "c72d74a1316c155d3af1d20d4cdedb055c04f870ad0cc831bd4350ffee322059"
           },
           {
             "shardId": "records-0045",
             "startRecord": 22000,
             "endRecordExclusive": 22500,
             "recordCount": 500,
-            "sha256": "88763baddcfa039e2117c6e018b23e7de6010d4edccfdffff5a4a35768e2252f"
+            "sha256": "4c28e2dc89d273e1f9dc1f05465b31ee32443005389bb4ea048642b6c6862bc3"
           },
           {
             "shardId": "records-0046",
             "startRecord": 22500,
             "endRecordExclusive": 23000,
             "recordCount": 500,
-            "sha256": "1a0b3ff6e5952017921e6e001ac2245c53efed3d724d8f5db2b4d062983234e3"
+            "sha256": "4b97c8cff6ba2127252279747ad1cd5766a6418ad4cc039bee86bc07bc220bcc"
           },
           {
             "shardId": "records-0047",
             "startRecord": 23000,
             "endRecordExclusive": 23500,
             "recordCount": 500,
-            "sha256": "a55139dab2e3df976e0ef2a6e7c76b031662f7596bf8ceb622cb6028420abd6f"
+            "sha256": "62d3621b25ab8405cc30249127e30818cbec6a612d97ad7a5a04f2e2a9939e50"
           },
           {
             "shardId": "records-0048",
             "startRecord": 23500,
             "endRecordExclusive": 24000,
             "recordCount": 500,
-            "sha256": "63db26e62d520e5a2194ffaa542d18843704dcc08ead949cb8f5452d8d2f8aed"
+            "sha256": "30554192c0ee1c59b09b42d21d9dceabac7ac6782230590a13505c3ca98b461d"
           },
           {
             "shardId": "records-0049",
             "startRecord": 24000,
             "endRecordExclusive": 24500,
             "recordCount": 500,
-            "sha256": "366f48893cf5190feb5c9eef9da2ccd745d6b7096024de2d8a2f75d2dcefc5d3"
+            "sha256": "68d8dbedf1ae4c58aac6912281396d1c6908e4f9e438fb8d65ca3d723f41c66e"
           },
           {
             "shardId": "records-0050",
             "startRecord": 24500,
             "endRecordExclusive": 25000,
             "recordCount": 500,
-            "sha256": "aeaf9ef2a776973b193038fd1f9b39bebc46465999d65f770ad09393dd5a37e9"
+            "sha256": "e34488cab11c9e2f15c3c41b223b6926c209f27735a64f7c07faab92328f1672"
           },
           {
             "shardId": "records-0051",
             "startRecord": 25000,
             "endRecordExclusive": 25500,
             "recordCount": 500,
-            "sha256": "67ef0e4f6113d506c826d001a5c5509182483a41379ca15b303547071cb1ce71"
+            "sha256": "ef229b7feb42f4cf9d0a79207f904c284cc9ad05188b7ae0c05af0f57f45ce24"
           },
           {
             "shardId": "records-0052",
             "startRecord": 25500,
             "endRecordExclusive": 26000,
             "recordCount": 500,
-            "sha256": "86dc4b898e7ae9a877ecac8543dc71b23571ad5271951f2a81ee624e78cfae5d"
+            "sha256": "b023c709f52cbcac750f30fb37b2ee49391ba048bd0e6163229c6df0f6af2605"
           },
           {
             "shardId": "records-0053",
             "startRecord": 26000,
             "endRecordExclusive": 26500,
             "recordCount": 500,
-            "sha256": "3eb53f88d585c4a6fa72536154e892c7b0a4ec009dc055a12e2b50f780819529"
+            "sha256": "b9a203766592e8bfba996013a1fab750b9f8fc98062e50ec0c2b2f5edeebf282"
           },
           {
             "shardId": "records-0054",
             "startRecord": 26500,
             "endRecordExclusive": 27000,
             "recordCount": 500,
-            "sha256": "12785456b3ed0dcd658e79aec4d67bcc993abe5eb5f3034703241376db358797"
+            "sha256": "7d3516d527711116d1857909bc53119d1735a3671bd9782a70f360de25a409f1"
           },
           {
             "shardId": "records-0055",
             "startRecord": 27000,
             "endRecordExclusive": 27500,
             "recordCount": 500,
-            "sha256": "6f9bc0711aaa0048e5a23267aa9ba58f25bc58c2eb8d605aec8f25a7ae8973d7"
+            "sha256": "3ef2dd3a64c957e55eb691f74b58cf6e1be03f790150d1b50df6318f345c4f87"
           },
           {
             "shardId": "records-0056",
             "startRecord": 27500,
             "endRecordExclusive": 28000,
             "recordCount": 500,
-            "sha256": "a8306603a4e9a05ab608289b12ae605c397e930e015af6ec50cbb748d4227f57"
+            "sha256": "a013efe387af889cab94fbfd4e461af8b39ba84fe5cda187719325321ded70a9"
           },
           {
             "shardId": "records-0057",
             "startRecord": 28000,
             "endRecordExclusive": 28500,
             "recordCount": 500,
-            "sha256": "06f348f53c6240a264666c1aa389b79f01f54120ff522a12f2fd323674312bf8"
+            "sha256": "51e8e52e7b0670d2aa98fb329f0ecd0f9f5d2620924a05acfd1bd3d452c76ab6"
           },
           {
             "shardId": "records-0058",
             "startRecord": 28500,
             "endRecordExclusive": 29000,
             "recordCount": 500,
-            "sha256": "50415db9e26a8e22f2bed26c6014516da4b0869d619bc6e6cf7e403e7f995ebb"
+            "sha256": "70940d3966e4123cc6f0a3dfb38d4c9d673f928f1f8514b0825bfce4a7af0661"
           },
           {
             "shardId": "records-0059",
             "startRecord": 29000,
             "endRecordExclusive": 29500,
             "recordCount": 500,
-            "sha256": "df24017294c72ab293a4362bb73becb4ded8cf321cf3ca8e7a01118a6664b46e"
+            "sha256": "7a5bb514ade19a97136d7fbef8d599128438a7f856cbc93d7c026cf04ef1103b"
           },
           {
             "shardId": "records-0060",
             "startRecord": 29500,
             "endRecordExclusive": 30000,
             "recordCount": 500,
-            "sha256": "c835112b9bd92b0e4de62d14176b909dd1a0473a90eec06fa8c15bc362bce47c"
+            "sha256": "eb500dcae977847791792b73bef1988cd7072864216db16038249be7826ae328"
           },
           {
             "shardId": "records-0061",
             "startRecord": 30000,
             "endRecordExclusive": 30500,
             "recordCount": 500,
-            "sha256": "0d3dbd04ef664eb3a31b074252897174037bf9b04c7694897d0b75420cc0c297"
+            "sha256": "f8eee0afca6e42d0216442ce4df4bd97fc51785e6d79ba67c552903c0a880852"
           },
           {
             "shardId": "records-0062",
             "startRecord": 30500,
             "endRecordExclusive": 31000,
             "recordCount": 500,
-            "sha256": "cb10314e62281238186595f4be9a48c95031bd6a64be77fb4403179417173a38"
+            "sha256": "e0d74e47bede950b1df0890559a28f0bd30e1eb1ff4240ae46395ffa904c4a80"
           },
           {
             "shardId": "records-0063",
             "startRecord": 31000,
             "endRecordExclusive": 31500,
             "recordCount": 500,
-            "sha256": "d7bd39ddf51b2118905822d1c1299a18787582d29dde656ed17496544b964491"
+            "sha256": "10ab9ef5a9bc106f593b77694c56294d1ec033058bb05da826428f531adc82fc"
           },
           {
             "shardId": "records-0064",
             "startRecord": 31500,
             "endRecordExclusive": 32000,
             "recordCount": 500,
-            "sha256": "f53fc89d05b3c0c339224c2269ea0d32868797a73775c13ee9c0be3a25857c95"
+            "sha256": "f037d1e25db1023392911d21ce8d751848f57a6a2c29dab23562d1313b5cab9c"
           },
           {
             "shardId": "records-0065",
             "startRecord": 32000,
             "endRecordExclusive": 32500,
             "recordCount": 500,
-            "sha256": "17d1a0aa5ffa6cffb182514f450707c69d2f555875a200d400b3a432a7b501ba"
+            "sha256": "f68bb5c6842dfca1a13ad9e8d8b938626b7a7766f20c64f4525bc55db016dadc"
           },
           {
             "shardId": "records-0066",
             "startRecord": 32500,
             "endRecordExclusive": 33000,
             "recordCount": 500,
-            "sha256": "6959c4cbb53b3622c0860904338b0920f0d7f91e9efd54b65bdca51457a49f5d"
+            "sha256": "c75e6a8bb1f3195a25518cc430847e933e4d7904d8535f2b515d477c2052b777"
           },
           {
             "shardId": "records-0067",
             "startRecord": 33000,
             "endRecordExclusive": 33500,
             "recordCount": 500,
-            "sha256": "7a04499988b73b113d684d76d29f748777795e4ea46e265d2b5e2828c2abe154"
+            "sha256": "51c122194324f4327cf13748b70eff65ce2963351eba573ea3bd030ac7851e39"
           },
           {
             "shardId": "records-0068",
             "startRecord": 33500,
             "endRecordExclusive": 34000,
             "recordCount": 500,
-            "sha256": "995230869dac2aa5a3f72cb9f247bf10a8817795148ea03f5bebbbe15362f469"
+            "sha256": "2c42502ee45a954cd765cce01cb7a57623767bd2d82f5a2d5a8ffe1163af490d"
           },
           {
             "shardId": "records-0069",
             "startRecord": 34000,
             "endRecordExclusive": 34500,
             "recordCount": 500,
-            "sha256": "d8806444b556109faf9ebbe70540ac16dcf5459643df032416bb488cad363ec1"
+            "sha256": "1f0eb7f1eee2aa31abc757934502b46d244c7e3fc91aa16373ff2ed1b98d047b"
           },
           {
             "shardId": "records-0070",
             "startRecord": 34500,
             "endRecordExclusive": 35000,
             "recordCount": 500,
-            "sha256": "08dbb33e45b91d7f98c93d0f1aa17b3056aa7877dae62f159b04f4e506ccdf93"
+            "sha256": "d56cbcbdf5b8d5328d578416491daa883cb75b95d77f04596cf0482ecf1f2f58"
           },
           {
             "shardId": "records-0071",
             "startRecord": 35000,
-            "endRecordExclusive": 35220,
-            "recordCount": 220,
-            "sha256": "b4507a466aa9cb5bbd06266fa4e4b35ef38e711648af96b5291eae59e3a7b62c"
+            "endRecordExclusive": 35500,
+            "recordCount": 500,
+            "sha256": "8ebd3b26bb6d17c76c3c7789b12f868226fa4d85fea990054a4922173c916cf3"
+          },
+          {
+            "shardId": "records-0072",
+            "startRecord": 35500,
+            "endRecordExclusive": 36000,
+            "recordCount": 500,
+            "sha256": "008f0a0563d861ac5f62235d308fe1dbccffefec47c020abe12b3f2f525b5e30"
+          },
+          {
+            "shardId": "records-0073",
+            "startRecord": 36000,
+            "endRecordExclusive": 36444,
+            "recordCount": 444,
+            "sha256": "ad8f50e9653bda0da02b1e86ff63f7771d14e5fd8d4e0274d73c910fc31790d9"
           }
         ]
       },

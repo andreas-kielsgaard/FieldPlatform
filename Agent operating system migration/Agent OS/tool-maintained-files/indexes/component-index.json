@@ -4,9 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-12T15:21:36.860Z",
-  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+  "generatedAt": "2026-06-14T07:27:25.347Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
   "producer": "build-component-index",
   "artifactPath": "tool-maintained-files/indexes/component-index.json",
   "sourceInputs": [
@@ -34,7 +36,7 @@
           "startRecord": 0,
           "endRecordExclusive": 25,
           "recordCount": 25,
-          "sha256": "f36c9c8f57adf4d46bedb9fa434876f6ad6c808931021b0586c20a5e9d374e69"
+          "sha256": "8da99d341ce6135b04c80572cfe0e12ee93cf4f4584c0701b304c91828382dd8"
         }
       ]
     },
@@ -103,7 +105,8 @@
       "consumers": [
         "tool-implementations/_lib/cli.ts",
         "tool-implementations/_lib/operators/query-runner.ts",
-        "tool-implementations/_lib/operators/retrieve-slice-runner.ts"
+        "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+        "tool-implementations/_lib/records/change-records.ts"
       ],
       "stories": [],
       "tests": [],
@@ -117,7 +120,8 @@
       "consumers": [
         "tool-implementations/_lib/cli.ts",
         "tool-implementations/_lib/operators/query-runner.ts",
-        "tool-implementations/_lib/operators/retrieve-slice-runner.ts"
+        "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+        "tool-implementations/_lib/records/change-records.ts"
       ],
       "stories": [],
       "tests": [],
@@ -258,7 +262,7 @@
     {
       "component": "IndexBuilderSpec",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 32,
+      "line": 33,
       "exportRole": "export",
       "consumers": [
         "tool-implementations/_lib/index-runner.ts"
@@ -270,7 +274,7 @@
     {
       "component": "IndexBuilderSpec",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 32,
+      "line": 33,
       "exportRole": "definition",
       "consumers": [
         "tool-implementations/_lib/index-runner.ts"
@@ -282,7 +286,7 @@
     {
       "component": "IndexShardMetadata",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 37,
+      "line": 38,
       "exportRole": "export",
       "consumers": [
         "tool-implementations/_lib/index-metadata.ts"
@@ -294,7 +298,7 @@
     {
       "component": "IndexShardMetadata",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 37,
+      "line": 38,
       "exportRole": "definition",
       "consumers": [
         "tool-implementations/_lib/index-metadata.ts"
@@ -306,7 +310,7 @@
     {
       "component": "IndexMaintenanceMetadata",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 45,
+      "line": 46,
       "exportRole": "export",
       "consumers": [
         "tool-implementations/_lib/index-metadata.ts",
@@ -319,7 +323,7 @@
     {
       "component": "IndexMaintenanceMetadata",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 45,
+      "line": 46,
       "exportRole": "definition",
       "consumers": [
         "tool-implementations/_lib/index-metadata.ts",
@@ -332,7 +336,7 @@
     {
       "component": "IndexArtifact",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 67,
+      "line": 68,
       "exportRole": "export",
       "consumers": [
         "tool-implementations/_lib/index-runner.ts",
@@ -346,7 +350,7 @@
     {
       "component": "IndexArtifact",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 67,
+      "line": 68,
       "exportRole": "definition",
       "consumers": [
         "tool-implementations/_lib/index-runner.ts",
@@ -360,7 +364,7 @@
     {
       "component": "QueryOperatorSpec",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 87,
+      "line": 90,
       "exportRole": "export",
       "consumers": [
         "tool-implementations/_lib/operators/query-runner.ts"
@@ -372,7 +376,7 @@
     {
       "component": "QueryOperatorSpec",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 87,
+      "line": 90,
       "exportRole": "definition",
       "consumers": [
         "tool-implementations/_lib/operators/query-runner.ts"
@@ -384,7 +388,7 @@
     {
       "component": "LoadedIndex",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 92,
+      "line": 95,
       "exportRole": "export",
       "consumers": [
         "tool-implementations/_lib/operators/query-runner.ts"
@@ -396,7 +400,7 @@
     {
       "component": "LoadedIndex",
       "file": "tool-implementations/_lib/types.ts",
-      "line": 92,
+      "line": 95,
       "exportRole": "definition",
       "consumers": [
         "tool-implementations/_lib/operators/query-runner.ts"

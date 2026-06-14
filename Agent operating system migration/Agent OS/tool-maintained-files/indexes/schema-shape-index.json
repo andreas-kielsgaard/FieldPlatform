@@ -4,9 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-12T15:21:39.546Z",
-  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+  "generatedAt": "2026-06-14T07:27:30.111Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
   "producer": "build-schema-shape-index",
   "artifactPath": "tool-maintained-files/indexes/schema-shape-index.json",
   "sourceInputs": [
@@ -17,7 +19,7 @@
   "knownBlindSpots": [
     "Does not replace database, ORM, or validator-specific introspection."
   ],
-  "recordCount": 72,
+  "recordCount": 73,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-schema-shape-index",
@@ -32,9 +34,9 @@
         {
           "shardId": "records-0001",
           "startRecord": 0,
-          "endRecordExclusive": 72,
-          "recordCount": 72,
-          "sha256": "11103199f7dd02361cc26bee098b506ec84a07e12a50aaa4b9c6ba61aa09df02"
+          "endRecordExclusive": 73,
+          "recordCount": 73,
+          "sha256": "7b7701aec258daa5e3d3ec1e6cff9dc69185e8085a4139184390f4a03c64653d"
         }
       ]
     },
@@ -56,6 +58,13 @@
       "line": 13,
       "declarationKind": "class",
       "name": "concerns",
+      "fields": []
+    },
+    {
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 69,
+      "declarationKind": "model",
+      "name": "or",
       "fields": []
     },
     {
@@ -555,13 +564,14 @@
         "root",
         "files",
         "contentFiles",
+        "args",
         "definition",
         "buildRecords"
       ]
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 32,
+      "line": 33,
       "declarationKind": "type",
       "name": "IndexBuilderSpec",
       "fields": [
@@ -576,7 +586,7 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 37,
+      "line": 38,
       "declarationKind": "type",
       "name": "IndexShardMetadata",
       "fields": [
@@ -592,7 +602,7 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 45,
+      "line": 46,
       "declarationKind": "type",
       "name": "IndexMaintenanceMetadata",
       "fields": [
@@ -610,7 +620,7 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 67,
+      "line": 68,
       "declarationKind": "type",
       "name": "IndexArtifact",
       "fields": [
@@ -621,15 +631,15 @@
         "schemaVersion",
         "generatedAt",
         "sourceRoot",
+        "pathReference",
+        "sourceState",
         "sourceRevision",
-        "producer",
-        "artifactPath",
-        "sourceInputs"
+        "producer"
       ]
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 87,
+      "line": 90,
       "declarationKind": "type",
       "name": "QueryOperatorSpec",
       "fields": [
@@ -643,7 +653,7 @@
     },
     {
       "file": "tool-implementations/_lib/types.ts",
-      "line": 92,
+      "line": 95,
       "declarationKind": "type",
       "name": "LoadedIndex",
       "fields": [

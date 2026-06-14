@@ -4,9 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-12T15:21:22.548Z",
-  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+  "generatedAt": "2026-06-14T07:27:11.770Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
   "producer": "build-path-index",
   "artifactPath": "tool-maintained-files/indexes/path-index.json",
   "sourceInputs": [
@@ -17,7 +19,7 @@
   "knownBlindSpots": [
     "Artifact kind is inferred from paths and file names, not full semantic ownership."
   ],
-  "recordCount": 255,
+  "recordCount": 256,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-path-index",
@@ -32,9 +34,9 @@
         {
           "shardId": "records-0001",
           "startRecord": 0,
-          "endRecordExclusive": 255,
-          "recordCount": 255,
-          "sha256": "a0c431ff78b4986312877d1afada8ea577a13a5ca6d542c9a498ab932c4c9b43"
+          "endRecordExclusive": 256,
+          "recordCount": 256,
+          "sha256": "09c9a54ea246793dfe28fa359155be10563b4b13b6912cff62dd49045f0826ac"
         }
       ]
     },
@@ -93,7 +95,7 @@
       "path": "project-control-files",
       "kind": "directory",
       "area": "project-control-files",
-      "fileCount": 1,
+      "fileCount": 2,
       "childDirs": []
     },
     {
@@ -371,9 +373,8 @@
       "area": "migration_agents.md",
       "name": "migration_agents.md",
       "ext": ".md",
-      "size": 9604,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/migration_agents.md"
+      "size": 10042,
+      "generatedHint": false
     },
     {
       "path": "output-files/reports/agent/.gitkeep",
@@ -382,8 +383,16 @@
       "name": ".gitkeep",
       "ext": "",
       "size": 0,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/output-files/reports/agent/.gitkeep"
+      "generatedHint": false
+    },
+    {
+      "path": "project-control-files/pre-development-readiness.md",
+      "kind": "md",
+      "area": "project-control-files",
+      "name": "pre-development-readiness.md",
+      "ext": ".md",
+      "size": 4852,
+      "generatedHint": false
     },
     {
       "path": "project-control-files/technology-architecture-map.md",
@@ -391,9 +400,8 @@
       "area": "project-control-files",
       "name": "technology-architecture-map.md",
       "ext": ".md",
-      "size": 6216,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/project-control-files/technology-architecture-map.md"
+      "size": 7483,
+      "generatedHint": false
     },
     {
       "path": "prompt-files/agent-os-map.md",
@@ -401,9 +409,8 @@
       "area": "prompt-files",
       "name": "agent-os-map.md",
       "ext": ".md",
-      "size": 3315,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/agent-os-map.md"
+      "size": 3476,
+      "generatedHint": false
     },
     {
       "path": "prompt-files/change-impact-checklists.md",
@@ -412,8 +419,7 @@
       "name": "change-impact-checklists.md",
       "ext": ".md",
       "size": 1286,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/change-impact-checklists.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/design-system-map.md",
@@ -422,8 +428,7 @@
       "name": "design-system-map.md",
       "ext": ".md",
       "size": 627,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/design-system-map.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/domain-glossary.md",
@@ -432,8 +437,7 @@
       "name": "domain-glossary.md",
       "ext": ".md",
       "size": 517,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/domain-glossary.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/experiments.md",
@@ -442,8 +446,7 @@
       "name": "experiments.md",
       "ext": ".md",
       "size": 550,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/experiments.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/known-debt.md",
@@ -452,8 +455,7 @@
       "name": "known-debt.md",
       "ext": ".md",
       "size": 462,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/known-debt.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/review-checklist.md",
@@ -462,8 +464,7 @@
       "name": "review-checklist.md",
       "ext": ".md",
       "size": 1275,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/review-checklist.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/affected-surface-mapping.md",
@@ -472,8 +473,7 @@
       "name": "affected-surface-mapping.md",
       "ext": ".md",
       "size": 906,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/affected-surface-mapping.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/audience-placement.md",
@@ -482,8 +482,7 @@
       "name": "audience-placement.md",
       "ext": ".md",
       "size": 895,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/audience-placement.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/authority-resolution.md",
@@ -492,8 +491,7 @@
       "name": "authority-resolution.md",
       "ext": ".md",
       "size": 846,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/authority-resolution.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/boundary-verification.md",
@@ -502,8 +500,7 @@
       "name": "boundary-verification.md",
       "ext": ".md",
       "size": 843,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/boundary-verification.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/bounded-review-workflow.md",
@@ -512,8 +509,7 @@
       "name": "bounded-review-workflow.md",
       "ext": ".md",
       "size": 834,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/bounded-review-workflow.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/change-report-assembly.md",
@@ -522,8 +518,7 @@
       "name": "change-report-assembly.md",
       "ext": ".md",
       "size": 854,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/change-report-assembly.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/component-reuse-evidence.md",
@@ -532,8 +527,7 @@
       "name": "component-reuse-evidence.md",
       "ext": ".md",
       "size": 866,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/component-reuse-evidence.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/consumer-impact-preview.md",
@@ -542,8 +536,7 @@
       "name": "consumer-impact-preview.md",
       "ext": ".md",
       "size": 883,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/consumer-impact-preview.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/context-budgeting-workflow.md",
@@ -552,8 +545,7 @@
       "name": "context-budgeting-workflow.md",
       "ext": ".md",
       "size": 827,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/context-budgeting-workflow.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/design-token-drift-scan.md",
@@ -562,8 +554,7 @@
       "name": "design-token-drift-scan.md",
       "ext": ".md",
       "size": 830,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/design-token-drift-scan.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/docs-reference-drift-scan.md",
@@ -572,8 +563,7 @@
       "name": "docs-reference-drift-scan.md",
       "ext": ".md",
       "size": 817,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/docs-reference-drift-scan.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/exception-and-debt-workflow.md",
@@ -582,8 +572,7 @@
       "name": "exception-and-debt-workflow.md",
       "ext": ".md",
       "size": 858,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/exception-and-debt-workflow.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/generated-artifact-maintenance.md",
@@ -592,8 +581,7 @@
       "name": "generated-artifact-maintenance.md",
       "ext": ".md",
       "size": 852,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/generated-artifact-maintenance.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/human-doc-to-agent-instruction.md",
@@ -602,8 +590,7 @@
       "name": "human-doc-to-agent-instruction.md",
       "ext": ".md",
       "size": 888,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/human-doc-to-agent-instruction.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/implementation-handoff-workflow.md",
@@ -612,8 +599,7 @@
       "name": "implementation-handoff-workflow.md",
       "ext": ".md",
       "size": 849,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/implementation-handoff-workflow.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/index-trust-workflow.md",
@@ -622,8 +608,7 @@
       "name": "index-trust-workflow.md",
       "ext": ".md",
       "size": 1156,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/index-trust-workflow.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/operational-planning.md",
@@ -632,8 +617,7 @@
       "name": "operational-planning.md",
       "ext": ".md",
       "size": 813,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/operational-planning.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/policy-literal-drift-scan.md",
@@ -642,8 +626,7 @@
       "name": "policy-literal-drift-scan.md",
       "ext": ".md",
       "size": 825,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/policy-literal-drift-scan.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/provisional-promotion-workflow.md",
@@ -652,8 +635,7 @@
       "name": "provisional-promotion-workflow.md",
       "ext": ".md",
       "size": 853,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/provisional-promotion-workflow.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/rename-impact-preview.md",
@@ -662,8 +644,7 @@
       "name": "rename-impact-preview.md",
       "ext": ".md",
       "size": 876,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/rename-impact-preview.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/reuse-or-branch-evidence-workflow.md",
@@ -672,8 +653,7 @@
       "name": "reuse-or-branch-evidence-workflow.md",
       "ext": ".md",
       "size": 891,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/reuse-or-branch-evidence-workflow.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/safe-rename-workflow.md",
@@ -682,8 +662,7 @@
       "name": "safe-rename-workflow.md",
       "ext": ".md",
       "size": 885,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/safe-rename-workflow.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/scenario-impact-scan.md",
@@ -692,8 +671,7 @@
       "name": "scenario-impact-scan.md",
       "ext": ".md",
       "size": 857,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/scenario-impact-scan.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/schema-fixture-drift-scan.md",
@@ -702,8 +680,7 @@
       "name": "schema-fixture-drift-scan.md",
       "ext": ".md",
       "size": 867,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/schema-fixture-drift-scan.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/skill-map.md",
@@ -712,8 +689,7 @@
       "name": "skill-map.md",
       "ext": ".md",
       "size": 7040,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/skill-map.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/skill-usage.instructions.md",
@@ -722,8 +698,7 @@
       "name": "skill-usage.instructions.md",
       "ext": ".md",
       "size": 1238,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/skill-usage.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/source-orientation-refresh.md",
@@ -732,8 +707,7 @@
       "name": "source-orientation-refresh.md",
       "ext": ".md",
       "size": 868,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/source-orientation-refresh.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/state-impact-scan.md",
@@ -742,8 +716,7 @@
       "name": "state-impact-scan.md",
       "ext": ".md",
       "size": 880,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/state-impact-scan.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/skills/test-relation-scan.md",
@@ -752,8 +725,7 @@
       "name": "test-relation-scan.md",
       "ext": ".md",
       "size": 831,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/skills/test-relation-scan.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior-map.md",
@@ -762,8 +734,7 @@
       "name": "behavior-map.md",
       "ext": ".md",
       "size": 22338,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior-map.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/authority-and-contracts/convert-human-doc-to-agent-instruction.instructions.md",
@@ -772,8 +743,7 @@
       "name": "convert-human-doc-to-agent-instruction.instructions.md",
       "ext": ".md",
       "size": 2821,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/authority-and-contracts/convert-human-doc-to-agent-instruction.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/authority-and-contracts/define-authoritative-surface.instructions.md",
@@ -782,8 +752,7 @@
       "name": "define-authoritative-surface.instructions.md",
       "ext": ".md",
       "size": 2988,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/authority-and-contracts/define-authoritative-surface.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/authority-and-contracts/maintain-generated-or-indexed-artifact.instructions.md",
@@ -792,8 +761,7 @@
       "name": "maintain-generated-or-indexed-artifact.instructions.md",
       "ext": ".md",
       "size": 2986,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/authority-and-contracts/maintain-generated-or-indexed-artifact.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/authority-and-contracts/maintain-tool-contract.instructions.md",
@@ -802,8 +770,7 @@
       "name": "maintain-tool-contract.instructions.md",
       "ext": ".md",
       "size": 3920,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/authority-and-contracts/maintain-tool-contract.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/extraction-and-centralization/centralize-duplicated-semantics.instructions.md",
@@ -812,8 +779,7 @@
       "name": "centralize-duplicated-semantics.instructions.md",
       "ext": ".md",
       "size": 3014,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/extraction-and-centralization/centralize-duplicated-semantics.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/extraction-and-centralization/demote-overgeneralized-abstraction.instructions.md",
@@ -822,8 +788,7 @@
       "name": "demote-overgeneralized-abstraction.instructions.md",
       "ext": ".md",
       "size": 2575,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/extraction-and-centralization/demote-overgeneralized-abstraction.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/extraction-and-centralization/extract-shared-responsibility.instructions.md",
@@ -832,8 +797,7 @@
       "name": "extract-shared-responsibility.instructions.md",
       "ext": ".md",
       "size": 2795,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/extraction-and-centralization/extract-shared-responsibility.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/deprecate-or-retire-element.instructions.md",
@@ -842,8 +806,7 @@
       "name": "deprecate-or-retire-element.instructions.md",
       "ext": ".md",
       "size": 2936,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/deprecate-or-retire-element.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/promote-provisional-element.instructions.md",
@@ -852,8 +815,7 @@
       "name": "promote-provisional-element.instructions.md",
       "ext": ".md",
       "size": 3156,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/promote-provisional-element.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/trim-unused-element.instructions.md",
@@ -862,8 +824,7 @@
       "name": "trim-unused-element.instructions.md",
       "ext": ".md",
       "size": 2828,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/lifecycle-and-pruning/trim-unused-element.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/movement-and-splitting/move-between-boundaries.instructions.md",
@@ -872,8 +833,7 @@
       "name": "move-between-boundaries.instructions.md",
       "ext": ".md",
       "size": 2720,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/movement-and-splitting/move-between-boundaries.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/movement-and-splitting/split-overloaded-maintained-element.instructions.md",
@@ -882,8 +842,7 @@
       "name": "split-overloaded-maintained-element.instructions.md",
       "ext": ".md",
       "size": 2638,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/movement-and-splitting/split-overloaded-maintained-element.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/naming-and-concepts/align-adjacent-naming.instructions.md",
@@ -892,8 +851,7 @@
       "name": "align-adjacent-naming.instructions.md",
       "ext": ".md",
       "size": 2737,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/naming-and-concepts/align-adjacent-naming.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/naming-and-concepts/name-new-maintained-element.instructions.md",
@@ -902,8 +860,7 @@
       "name": "name-new-maintained-element.instructions.md",
       "ext": ".md",
       "size": 2679,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/naming-and-concepts/name-new-maintained-element.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/naming-and-concepts/rename-maintained-concept.instructions.md",
@@ -912,8 +869,7 @@
       "name": "rename-maintained-concept.instructions.md",
       "ext": ".md",
       "size": 2703,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/naming-and-concepts/rename-maintained-concept.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md",
@@ -922,8 +878,7 @@
       "name": "interface-boundary-definition.instructions.md",
       "ext": ".md",
       "size": 2921,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/placement-and-boundaries/interface-boundary-definition.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/new-maintained-element-placement.instructions.md",
@@ -932,8 +887,7 @@
       "name": "new-maintained-element-placement.instructions.md",
       "ext": ".md",
       "size": 3106,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/placement-and-boundaries/new-maintained-element-placement.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/placement-and-boundaries/platform-component-placement.instructions.md",
@@ -942,8 +896,7 @@
       "name": "platform-component-placement.instructions.md",
       "ext": ".md",
       "size": 2712,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/placement-and-boundaries/platform-component-placement.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/reuse-and-extension/branch-from-near-match.instructions.md",
@@ -952,8 +905,7 @@
       "name": "branch-from-near-match.instructions.md",
       "ext": ".md",
       "size": 2842,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/reuse-and-extension/branch-from-near-match.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/reuse-and-extension/composition-or-inheritance.instructions.md",
@@ -962,8 +914,7 @@
       "name": "composition-or-inheritance.instructions.md",
       "ext": ".md",
       "size": 3282,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/reuse-and-extension/composition-or-inheritance.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/reuse-and-extension/extend-existing-owner.instructions.md",
@@ -972,8 +923,7 @@
       "name": "extend-existing-owner.instructions.md",
       "ext": ".md",
       "size": 2942,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/reuse-and-extension/extend-existing-owner.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/reuse-and-extension/reuse-existing-functionality.instructions.md",
@@ -982,8 +932,7 @@
       "name": "reuse-existing-functionality.instructions.md",
       "ext": ".md",
       "size": 2990,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/reuse-and-extension/reuse-existing-functionality.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/scope-and-entry/implementation-scope.instructions.md",
@@ -992,8 +941,7 @@
       "name": "implementation-scope.instructions.md",
       "ext": ".md",
       "size": 2837,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/scope-and-entry/implementation-scope.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/behavior/scope-and-entry/technology-or-standard-choice.instructions.md",
@@ -1002,8 +950,7 @@
       "name": "technology-or-standard-choice.instructions.md",
       "ext": ".md",
       "size": 2840,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/behavior/scope-and-entry/technology-or-standard-choice.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lens-map.md",
@@ -1012,8 +959,7 @@
       "name": "lens-map.md",
       "ext": ".md",
       "size": 4875,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lens-map.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/audience-lens.md",
@@ -1022,8 +968,7 @@
       "name": "audience-lens.md",
       "ext": ".md",
       "size": 2403,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/audience-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/authority-lens.md",
@@ -1032,8 +977,7 @@
       "name": "authority-lens.md",
       "ext": ".md",
       "size": 2653,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/authority-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/blast-radius-lens.md",
@@ -1042,8 +986,7 @@
       "name": "blast-radius-lens.md",
       "ext": ".md",
       "size": 1880,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/blast-radius-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/boundary-lens.md",
@@ -1052,8 +995,7 @@
       "name": "boundary-lens.md",
       "ext": ".md",
       "size": 1952,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/boundary-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/contract-lens.md",
@@ -1062,8 +1004,7 @@
       "name": "contract-lens.md",
       "ext": ".md",
       "size": 2731,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/contract-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/data-state-effect-lens.md",
@@ -1072,8 +1013,7 @@
       "name": "data-state-effect-lens.md",
       "ext": ".md",
       "size": 2047,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/data-state-effect-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/duplication-lens.md",
@@ -1082,8 +1022,7 @@
       "name": "duplication-lens.md",
       "ext": ".md",
       "size": 1951,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/duplication-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/intent-lens.md",
@@ -1092,8 +1031,7 @@
       "name": "intent-lens.md",
       "ext": ".md",
       "size": 2236,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/intent-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/lifecycle-lens.md",
@@ -1102,8 +1040,7 @@
       "name": "lifecycle-lens.md",
       "ext": ".md",
       "size": 2000,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/lifecycle-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/memory-lens.md",
@@ -1112,8 +1049,7 @@
       "name": "memory-lens.md",
       "ext": ".md",
       "size": 2129,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/memory-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/naming-ontology-lens.md",
@@ -1122,8 +1058,7 @@
       "name": "naming-ontology-lens.md",
       "ext": ".md",
       "size": 1979,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/naming-ontology-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/near-match-lens.md",
@@ -1132,8 +1067,7 @@
       "name": "near-match-lens.md",
       "ext": ".md",
       "size": 1879,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/near-match-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/ownership-lens.md",
@@ -1142,8 +1076,7 @@
       "name": "ownership-lens.md",
       "ext": ".md",
       "size": 1890,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/ownership-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/lenses/reuse-lens.md",
@@ -1152,8 +1085,7 @@
       "name": "reuse-lens.md",
       "ext": ".md",
       "size": 1842,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/lenses/reuse-lens.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md",
@@ -1162,8 +1094,7 @@
       "name": "structural-maintenance-usage.instructions.md",
       "ext": ".md",
       "size": 4749,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/structural-maintenance/structural-maintenance-usage.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/domain-and-data/api-or-accessor-change.instructions.md",
@@ -1172,8 +1103,7 @@
       "name": "api-or-accessor-change.instructions.md",
       "ext": ".md",
       "size": 3194,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/domain-and-data/api-or-accessor-change.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/domain-and-data/copy-or-naming-change.instructions.md",
@@ -1182,8 +1112,7 @@
       "name": "copy-or-naming-change.instructions.md",
       "ext": ".md",
       "size": 2533,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/domain-and-data/copy-or-naming-change.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/domain-and-data/data-model-change.instructions.md",
@@ -1192,8 +1121,7 @@
       "name": "data-model-change.instructions.md",
       "ext": ".md",
       "size": 3123,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/domain-and-data/data-model-change.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/domain-and-data/database-schema-or-persistence-change.instructions.md",
@@ -1202,8 +1130,7 @@
       "name": "database-schema-or-persistence-change.instructions.md",
       "ext": ".md",
       "size": 3247,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/domain-and-data/database-schema-or-persistence-change.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/domain-and-data/domain-concept-change.instructions.md",
@@ -1212,8 +1139,7 @@
       "name": "domain-concept-change.instructions.md",
       "ext": ".md",
       "size": 3259,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/domain-and-data/domain-concept-change.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/domain-and-data/mock-data-change.instructions.md",
@@ -1222,8 +1148,7 @@
       "name": "mock-data-change.instructions.md",
       "ext": ".md",
       "size": 2914,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/domain-and-data/mock-data-change.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/domain-and-data/permissions-or-visibility-change.instructions.md",
@@ -1232,8 +1157,7 @@
       "name": "permissions-or-visibility-change.instructions.md",
       "ext": ".md",
       "size": 2681,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/domain-and-data/permissions-or-visibility-change.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/domain-and-data/state-management-change.instructions.md",
@@ -1242,8 +1166,7 @@
       "name": "state-management-change.instructions.md",
       "ext": ".md",
       "size": 2916,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/domain-and-data/state-management-change.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/maintenance-and-governance/bug-fix.instructions.md",
@@ -1252,8 +1175,7 @@
       "name": "bug-fix.instructions.md",
       "ext": ".md",
       "size": 2970,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/maintenance-and-governance/bug-fix.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/maintenance-and-governance/documentation-or-context-update.instructions.md",
@@ -1262,8 +1184,7 @@
       "name": "documentation-or-context-update.instructions.md",
       "ext": ".md",
       "size": 3515,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/maintenance-and-governance/documentation-or-context-update.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/maintenance-and-governance/refactor.instructions.md",
@@ -1272,8 +1193,7 @@
       "name": "refactor.instructions.md",
       "ext": ".md",
       "size": 3510,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/maintenance-and-governance/refactor.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
@@ -1281,9 +1201,8 @@
       "area": "prompt-files",
       "name": "review-before-commit.instructions.md",
       "ext": ".md",
-      "size": 2670,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md"
+      "size": 3072,
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/task-mode-map.md",
@@ -1292,8 +1211,7 @@
       "name": "task-mode-map.md",
       "ext": ".md",
       "size": 8871,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/task-mode-map.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/task-mode-usage.instructions.md",
@@ -1302,8 +1220,7 @@
       "name": "task-mode-usage.instructions.md",
       "ext": ".md",
       "size": 7932,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/task-mode-usage.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/ui-facing/exploratory-ui-build.instructions.md",
@@ -1312,8 +1229,7 @@
       "name": "exploratory-ui-build.instructions.md",
       "ext": ".md",
       "size": 3315,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/ui-facing/exploratory-ui-build.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/ui-facing/extract-reusable-pattern.instructions.md",
@@ -1322,8 +1238,7 @@
       "name": "extract-reusable-pattern.instructions.md",
       "ext": ".md",
       "size": 2674,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/ui-facing/extract-reusable-pattern.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/ui-facing/modify-existing-component.instructions.md",
@@ -1332,8 +1247,7 @@
       "name": "modify-existing-component.instructions.md",
       "ext": ".md",
       "size": 2509,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/ui-facing/modify-existing-component.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/ui-facing/new-component.instructions.md",
@@ -1342,8 +1256,7 @@
       "name": "new-component.instructions.md",
       "ext": ".md",
       "size": 2989,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/ui-facing/new-component.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/ui-facing/new-route-or-page.instructions.md",
@@ -1352,8 +1265,7 @@
       "name": "new-route-or-page.instructions.md",
       "ext": ".md",
       "size": 3278,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/ui-facing/new-route-or-page.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/task-modes/ui-facing/visual-or-design-system-change.instructions.md",
@@ -1362,8 +1274,7 @@
       "name": "visual-or-design-system-change.instructions.md",
       "ext": ".md",
       "size": 2403,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/task-modes/ui-facing/visual-or-design-system-change.instructions.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/checks/agent-os-contract-check.md",
@@ -1371,9 +1282,8 @@
       "area": "prompt-files",
       "name": "agent-os-contract-check.md",
       "ext": ".md",
-      "size": 1036,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/checks/agent-os-contract-check.md"
+      "size": 1150,
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/index-map.md",
@@ -1381,9 +1291,8 @@
       "area": "prompt-files",
       "name": "index-map.md",
       "ext": ".md",
-      "size": 4925,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/index-map.md"
+      "size": 5493,
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/accessor-index.md",
@@ -1392,8 +1301,7 @@
       "name": "accessor-index.md",
       "ext": ".md",
       "size": 821,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/accessor-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/artifact-metadata-index.md",
@@ -1402,8 +1310,7 @@
       "name": "artifact-metadata-index.md",
       "ext": ".md",
       "size": 889,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/artifact-metadata-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/build-all-indexes.md",
@@ -1411,9 +1318,8 @@
       "area": "prompt-files",
       "name": "build-all-indexes.md",
       "ext": ".md",
-      "size": 1018,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/build-all-indexes.md"
+      "size": 1463,
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/change-index.md",
@@ -1421,9 +1327,8 @@
       "area": "prompt-files",
       "name": "change-index.md",
       "ext": ".md",
-      "size": 769,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/change-index.md"
+      "size": 1275,
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/component-index.md",
@@ -1432,8 +1337,7 @@
       "name": "component-index.md",
       "ext": ".md",
       "size": 798,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/component-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/dependency-index.md",
@@ -1442,8 +1346,7 @@
       "name": "dependency-index.md",
       "ext": ".md",
       "size": 806,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/dependency-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/doc-reference-index.md",
@@ -1452,8 +1355,7 @@
       "name": "doc-reference-index.md",
       "ext": ".md",
       "size": 814,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/doc-reference-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/fixture-scenario-index.md",
@@ -1462,8 +1364,7 @@
       "name": "fixture-scenario-index.md",
       "ext": ".md",
       "size": 836,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/fixture-scenario-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/index-manifest.md",
@@ -1472,8 +1373,7 @@
       "name": "index-manifest.md",
       "ext": ".md",
       "size": 1518,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/index-manifest.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/literal-index.md",
@@ -1482,8 +1382,7 @@
       "name": "literal-index.md",
       "ext": ".md",
       "size": 836,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/literal-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/path-index.md",
@@ -1491,9 +1390,8 @@
       "area": "prompt-files",
       "name": "path-index.md",
       "ext": ".md",
-      "size": 827,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/path-index.md"
+      "size": 970,
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/route-index.md",
@@ -1502,8 +1400,7 @@
       "name": "route-index.md",
       "ext": ".md",
       "size": 744,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/route-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/schema-shape-index.md",
@@ -1512,8 +1409,7 @@
       "name": "schema-shape-index.md",
       "ext": ".md",
       "size": 821,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/schema-shape-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/symbol-index.md",
@@ -1522,8 +1418,7 @@
       "name": "symbol-index.md",
       "ext": ".md",
       "size": 808,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/symbol-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/term-index.md",
@@ -1532,8 +1427,7 @@
       "name": "term-index.md",
       "ext": ".md",
       "size": 732,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/term-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/indexes/test-index.md",
@@ -1542,8 +1436,7 @@
       "name": "test-index.md",
       "ext": ".md",
       "size": 744,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/indexes/test-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/accessor-query.md",
@@ -1552,8 +1445,7 @@
       "name": "accessor-query.md",
       "ext": ".md",
       "size": 718,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/accessor-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/artifact-query.md",
@@ -1562,8 +1454,7 @@
       "name": "artifact-query.md",
       "ext": ".md",
       "size": 764,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/artifact-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/component-query.md",
@@ -1572,8 +1463,7 @@
       "name": "component-query.md",
       "ext": ".md",
       "size": 707,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/component-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/dependency-query.md",
@@ -1582,8 +1472,7 @@
       "name": "dependency-query.md",
       "ext": ".md",
       "size": 741,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/dependency-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/diff-query.md",
@@ -1592,8 +1481,7 @@
       "name": "diff-query.md",
       "ext": ".md",
       "size": 723,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/diff-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/doc-ref-query.md",
@@ -1602,8 +1490,7 @@
       "name": "doc-ref-query.md",
       "ext": ".md",
       "size": 713,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/doc-ref-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/fixture-query.md",
@@ -1612,8 +1499,7 @@
       "name": "fixture-query.md",
       "ext": ".md",
       "size": 735,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/fixture-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/literal-query.md",
@@ -1622,8 +1508,7 @@
       "name": "literal-query.md",
       "ext": ".md",
       "size": 724,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/literal-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/path-query.md",
@@ -1632,8 +1517,7 @@
       "name": "path-query.md",
       "ext": ".md",
       "size": 717,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/path-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/pattern-candidate-query.md",
@@ -1642,8 +1526,7 @@
       "name": "pattern-candidate-query.md",
       "ext": ".md",
       "size": 783,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/pattern-candidate-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/retrieve-slice.md",
@@ -1652,8 +1535,7 @@
       "name": "retrieve-slice.md",
       "ext": ".md",
       "size": 698,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/retrieve-slice.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/route-query.md",
@@ -1662,8 +1544,7 @@
       "name": "route-query.md",
       "ext": ".md",
       "size": 655,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/route-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/schema-query.md",
@@ -1672,8 +1553,7 @@
       "name": "schema-query.md",
       "ext": ".md",
       "size": 727,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/schema-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/semantic-candidate-query.md",
@@ -1682,8 +1562,7 @@
       "name": "semantic-candidate-query.md",
       "ext": ".md",
       "size": 1063,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/semantic-candidate-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/symbol-query.md",
@@ -1692,8 +1571,7 @@
       "name": "symbol-query.md",
       "ext": ".md",
       "size": 676,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/symbol-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/term-query.md",
@@ -1702,8 +1580,7 @@
       "name": "term-query.md",
       "ext": ".md",
       "size": 724,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/term-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/operators/test-query.md",
@@ -1712,8 +1589,7 @@
       "name": "test-query.md",
       "ext": ".md",
       "size": 696,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/operators/test-query.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/semantic-map.md",
@@ -1722,8 +1598,7 @@
       "name": "semantic-map.md",
       "ext": ".md",
       "size": 2747,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/semantic-map.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/semantic/semantic-chunk-index.md",
@@ -1732,8 +1607,7 @@
       "name": "semantic-chunk-index.md",
       "ext": ".md",
       "size": 1074,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/semantic/semantic-chunk-index.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/tool-map.md",
@@ -1742,8 +1616,7 @@
       "name": "tool-map.md",
       "ext": ".md",
       "size": 4033,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/tool-map.md"
+      "generatedHint": false
     },
     {
       "path": "prompt-files/tools/tool-usage.instructions.md",
@@ -1751,9 +1624,8 @@
       "area": "prompt-files",
       "name": "tool-usage.instructions.md",
       "ext": ".md",
-      "size": 2708,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/prompt-files/tools/tool-usage.instructions.md"
+      "size": 3152,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/artifacts.ts",
@@ -1762,8 +1634,7 @@
       "name": "artifacts.ts",
       "ext": ".ts",
       "size": 4105,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/artifacts.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/cli.ts",
@@ -1772,8 +1643,7 @@
       "name": "cli.ts",
       "ext": ".ts",
       "size": 2679,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/cli.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/git.ts",
@@ -1782,8 +1652,7 @@
       "name": "git.ts",
       "ext": ".ts",
       "size": 581,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/git.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/index-catalog.ts",
@@ -1792,8 +1661,7 @@
       "name": "index-catalog.ts",
       "ext": ".ts",
       "size": 3244,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/index-catalog.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/index-metadata.ts",
@@ -1802,8 +1670,7 @@
       "name": "index-metadata.ts",
       "ext": ".ts",
       "size": 2669,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/index-metadata.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/index-runner.ts",
@@ -1811,9 +1678,8 @@
       "area": "tool-implementations",
       "name": "index-runner.ts",
       "ext": ".ts",
-      "size": 2522,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/index-runner.ts"
+      "size": 3345,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/json.ts",
@@ -1822,8 +1688,7 @@
       "name": "json.ts",
       "ext": ".ts",
       "size": 892,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/json.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/operators/query-runner.ts",
@@ -1831,9 +1696,8 @@
       "area": "tool-implementations",
       "name": "query-runner.ts",
       "ext": ".ts",
-      "size": 13084,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/operators/query-runner.ts"
+      "size": 13392,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
@@ -1842,8 +1706,7 @@
       "name": "retrieve-slice-runner.ts",
       "ext": ".ts",
       "size": 1839,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/operators/retrieve-slice-runner.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/accessor-records.ts",
@@ -1852,8 +1715,7 @@
       "name": "accessor-records.ts",
       "ext": ".ts",
       "size": 1089,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/accessor-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/artifact-metadata-records.ts",
@@ -1862,8 +1724,7 @@
       "name": "artifact-metadata-records.ts",
       "ext": ".ts",
       "size": 664,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/artifact-metadata-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/change-records.ts",
@@ -1871,9 +1732,8 @@
       "area": "tool-implementations",
       "name": "change-records.ts",
       "ext": ".ts",
-      "size": 2173,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/change-records.ts"
+      "size": 2478,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/component-records.ts",
@@ -1882,8 +1742,7 @@
       "name": "component-records.ts",
       "ext": ".ts",
       "size": 1732,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/component-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/dependency-records.ts",
@@ -1892,8 +1751,7 @@
       "name": "dependency-records.ts",
       "ext": ".ts",
       "size": 1498,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/dependency-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/doc-reference-records.ts",
@@ -1902,8 +1760,7 @@
       "name": "doc-reference-records.ts",
       "ext": ".ts",
       "size": 2015,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/doc-reference-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/fixture-records.ts",
@@ -1912,8 +1769,7 @@
       "name": "fixture-records.ts",
       "ext": ".ts",
       "size": 875,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/fixture-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/literal-records.ts",
@@ -1922,8 +1778,7 @@
       "name": "literal-records.ts",
       "ext": ".ts",
       "size": 1475,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/literal-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/path-records.ts",
@@ -1931,9 +1786,8 @@
       "area": "tool-implementations",
       "name": "path-records.ts",
       "ext": ".ts",
-      "size": 1710,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/path-records.ts"
+      "size": 1582,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/route-records.ts",
@@ -1942,8 +1796,7 @@
       "name": "route-records.ts",
       "ext": ".ts",
       "size": 1154,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/route-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/schema-records.ts",
@@ -1952,8 +1805,7 @@
       "name": "schema-records.ts",
       "ext": ".ts",
       "size": 1160,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/schema-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/source-symbols.ts",
@@ -1962,8 +1814,7 @@
       "name": "source-symbols.ts",
       "ext": ".ts",
       "size": 2157,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/source-symbols.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/term-records.ts",
@@ -1972,8 +1823,7 @@
       "name": "term-records.ts",
       "ext": ".ts",
       "size": 1401,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/term-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/records/test-records.ts",
@@ -1982,8 +1832,7 @@
       "name": "test-records.ts",
       "ext": ".ts",
       "size": 715,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/records/test-records.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/repo-files.ts",
@@ -1992,8 +1841,7 @@
       "name": "repo-files.ts",
       "ext": ".ts",
       "size": 2920,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/repo-files.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/source-extractors.ts",
@@ -2002,8 +1850,7 @@
       "name": "source-extractors.ts",
       "ext": ".ts",
       "size": 2144,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/source-extractors.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/text-utils.ts",
@@ -2012,8 +1859,7 @@
       "name": "text-utils.ts",
       "ext": ".ts",
       "size": 1417,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/text-utils.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/_lib/types.ts",
@@ -2021,9 +1867,8 @@
       "area": "tool-implementations",
       "name": "types.ts",
       "ext": ".ts",
-      "size": 2075,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/_lib/types.ts"
+      "size": 2143,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/checks/check-agent-os-contracts.ts",
@@ -2031,9 +1876,8 @@
       "area": "tool-implementations",
       "name": "check-agent-os-contracts.ts",
       "ext": ".ts",
-      "size": 10196,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/checks/check-agent-os-contracts.ts"
+      "size": 12345,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-accessor-index.ts",
@@ -2042,8 +1886,7 @@
       "name": "build-accessor-index.ts",
       "ext": ".ts",
       "size": 790,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-accessor-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-all-indexes.ts",
@@ -2051,9 +1894,8 @@
       "area": "tool-implementations",
       "name": "build-all-indexes.ts",
       "ext": ".ts",
-      "size": 2439,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-all-indexes.ts"
+      "size": 2858,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-artifact-metadata-index.ts",
@@ -2062,8 +1904,7 @@
       "name": "build-artifact-metadata-index.ts",
       "ext": ".ts",
       "size": 827,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-artifact-metadata-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-change-index.ts",
@@ -2071,9 +1912,8 @@
       "area": "tool-implementations",
       "name": "build-change-index.ts",
       "ext": ".ts",
-      "size": 755,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-change-index.ts"
+      "size": 1013,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-component-index.ts",
@@ -2082,8 +1922,7 @@
       "name": "build-component-index.ts",
       "ext": ".ts",
       "size": 749,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-component-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-dependency-index.ts",
@@ -2092,8 +1931,7 @@
       "name": "build-dependency-index.ts",
       "ext": ".ts",
       "size": 782,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-dependency-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-doc-reference-index.ts",
@@ -2102,8 +1940,7 @@
       "name": "build-doc-reference-index.ts",
       "ext": ".ts",
       "size": 829,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-doc-reference-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-fixture-scenario-index.ts",
@@ -2112,8 +1949,7 @@
       "name": "build-fixture-scenario-index.ts",
       "ext": ".ts",
       "size": 751,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-fixture-scenario-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-index-manifest.ts",
@@ -2121,9 +1957,8 @@
       "area": "tool-implementations",
       "name": "build-index-manifest.ts",
       "ext": ".ts",
-      "size": 8026,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-index-manifest.ts"
+      "size": 8395,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-literal-index.ts",
@@ -2132,8 +1967,7 @@
       "name": "build-literal-index.ts",
       "ext": ".ts",
       "size": 788,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-literal-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-path-index.ts",
@@ -2141,9 +1975,8 @@
       "area": "tool-implementations",
       "name": "build-path-index.ts",
       "ext": ".ts",
-      "size": 699,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-path-index.ts"
+      "size": 686,
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-route-index.ts",
@@ -2152,8 +1985,7 @@
       "name": "build-route-index.ts",
       "ext": ".ts",
       "size": 720,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-route-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-schema-shape-index.ts",
@@ -2162,8 +1994,7 @@
       "name": "build-schema-shape-index.ts",
       "ext": ".ts",
       "size": 766,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-schema-shape-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-symbol-index.ts",
@@ -2172,8 +2003,7 @@
       "name": "build-symbol-index.ts",
       "ext": ".ts",
       "size": 728,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-symbol-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-term-index.ts",
@@ -2182,8 +2012,7 @@
       "name": "build-term-index.ts",
       "ext": ".ts",
       "size": 705,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-term-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/indexes/build-test-index.ts",
@@ -2192,8 +2021,7 @@
       "name": "build-test-index.ts",
       "ext": ".ts",
       "size": 719,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/indexes/build-test-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/accessor-query.ts",
@@ -2202,8 +2030,7 @@
       "name": "accessor-query.ts",
       "ext": ".ts",
       "size": 154,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/accessor-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/artifact-query.ts",
@@ -2212,8 +2039,7 @@
       "name": "artifact-query.ts",
       "ext": ".ts",
       "size": 163,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/artifact-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/component-query.ts",
@@ -2222,8 +2048,7 @@
       "name": "component-query.ts",
       "ext": ".ts",
       "size": 156,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/component-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/dependency-query.ts",
@@ -2232,8 +2057,7 @@
       "name": "dependency-query.ts",
       "ext": ".ts",
       "size": 158,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/dependency-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/diff-query.ts",
@@ -2242,8 +2066,7 @@
       "name": "diff-query.ts",
       "ext": ".ts",
       "size": 148,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/diff-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/doc-ref-query.ts",
@@ -2252,8 +2075,7 @@
       "name": "doc-ref-query.ts",
       "ext": ".ts",
       "size": 158,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/doc-ref-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/fixture-query.ts",
@@ -2262,8 +2084,7 @@
       "name": "fixture-query.ts",
       "ext": ".ts",
       "size": 161,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/fixture-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/literal-query.ts",
@@ -2272,8 +2093,7 @@
       "name": "literal-query.ts",
       "ext": ".ts",
       "size": 152,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/literal-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/path-query.ts",
@@ -2282,8 +2102,7 @@
       "name": "path-query.ts",
       "ext": ".ts",
       "size": 146,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/path-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/pattern-candidate-query.ts",
@@ -2292,8 +2111,7 @@
       "name": "pattern-candidate-query.ts",
       "ext": ".ts",
       "size": 195,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/pattern-candidate-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/retrieve-slice.ts",
@@ -2302,8 +2120,7 @@
       "name": "retrieve-slice.ts",
       "ext": ".ts",
       "size": 117,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/retrieve-slice.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/route-query.ts",
@@ -2312,8 +2129,7 @@
       "name": "route-query.ts",
       "ext": ".ts",
       "size": 148,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/route-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/schema-query.ts",
@@ -2322,8 +2138,7 @@
       "name": "schema-query.ts",
       "ext": ".ts",
       "size": 156,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/schema-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/semantic-candidate-query.ts",
@@ -2332,8 +2147,7 @@
       "name": "semantic-candidate-query.ts",
       "ext": ".ts",
       "size": 9559,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/semantic-candidate-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/symbol-query.ts",
@@ -2342,8 +2156,7 @@
       "name": "symbol-query.ts",
       "ext": ".ts",
       "size": 150,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/symbol-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/term-query.ts",
@@ -2352,8 +2165,7 @@
       "name": "term-query.ts",
       "ext": ".ts",
       "size": 146,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/term-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/operators/test-query.ts",
@@ -2362,8 +2174,7 @@
       "name": "test-query.ts",
       "ext": ".ts",
       "size": 146,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/operators/test-query.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-implementations/semantic/build-semantic-chunk-index.ts",
@@ -2372,8 +2183,7 @@
       "name": "build-semantic-chunk-index.ts",
       "ext": ".ts",
       "size": 3593,
-      "generatedHint": false,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-implementations/semantic/build-semantic-chunk-index.ts"
+      "generatedHint": false
     },
     {
       "path": "tool-maintained-files/indexes/accessor-index.json",
@@ -2381,9 +2191,8 @@
       "area": "tool-maintained-files",
       "name": "accessor-index.json",
       "ext": ".json",
-      "size": 60210,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/accessor-index.json"
+      "size": 74463,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/artifact-metadata-index.json",
@@ -2391,9 +2200,8 @@
       "area": "tool-maintained-files",
       "name": "artifact-metadata-index.json",
       "ext": ".json",
-      "size": 67818,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/artifact-metadata-index.json"
+      "size": 68185,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/change-index.json",
@@ -2401,9 +2209,8 @@
       "area": "tool-maintained-files",
       "name": "change-index.json",
       "ext": ".json",
-      "size": 31309,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/change-index.json"
+      "size": 11586,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/component-index.json",
@@ -2411,9 +2218,8 @@
       "area": "tool-maintained-files",
       "name": "component-index.json",
       "ext": ".json",
-      "size": 14306,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/component-index.json"
+      "size": 14537,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/dependency-index.json",
@@ -2421,9 +2227,8 @@
       "area": "tool-maintained-files",
       "name": "dependency-index.json",
       "ext": ".json",
-      "size": 58334,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/dependency-index.json"
+      "size": 58465,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/doc-reference-index.json",
@@ -2431,9 +2236,8 @@
       "area": "tool-maintained-files",
       "name": "doc-reference-index.json",
       "ext": ".json",
-      "size": 589057,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/doc-reference-index.json"
+      "size": 596627,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/fixture-scenario-index.json",
@@ -2441,9 +2245,8 @@
       "area": "tool-maintained-files",
       "name": "fixture-scenario-index.json",
       "ext": ".json",
-      "size": 33627,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/fixture-scenario-index.json"
+      "size": 34631,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/index-manifest.json",
@@ -2451,9 +2254,8 @@
       "area": "tool-maintained-files",
       "name": "index-manifest.json",
       "ext": ".json",
-      "size": 63401,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/index-manifest.json"
+      "size": 67817,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/literal-index.json",
@@ -2461,9 +2263,8 @@
       "area": "tool-maintained-files",
       "name": "literal-index.json",
       "ext": ".json",
-      "size": 632580,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/literal-index.json"
+      "size": 679352,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/path-index.json",
@@ -2471,9 +2272,8 @@
       "area": "tool-maintained-files",
       "name": "path-index.json",
       "ext": ".json",
-      "size": 100915,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/path-index.json"
+      "size": 68028,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/route-index.json",
@@ -2481,9 +2281,8 @@
       "area": "tool-maintained-files",
       "name": "route-index.json",
       "ext": ".json",
-      "size": 2043,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/route-index.json"
+      "size": 2148,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/schema-shape-index.json",
@@ -2491,9 +2290,8 @@
       "area": "tool-maintained-files",
       "name": "schema-shape-index.json",
       "ext": ".json",
-      "size": 18805,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/schema-shape-index.json"
+      "size": 19098,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/symbol-index.json",
@@ -2501,9 +2299,8 @@
       "area": "tool-maintained-files",
       "name": "symbol-index.json",
       "ext": ".json",
-      "size": 190502,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/symbol-index.json"
+      "size": 202360,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/term-index.json",
@@ -2511,9 +2308,8 @@
       "area": "tool-maintained-files",
       "name": "term-index.json",
       "ext": ".json",
-      "size": 10759553,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/term-index.json"
+      "size": 11347153,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/indexes/test-index.json",
@@ -2521,9 +2317,8 @@
       "area": "tool-maintained-files",
       "name": "test-index.json",
       "ext": ".json",
-      "size": 2027,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/indexes/test-index.json"
+      "size": 2132,
+      "generatedHint": true
     },
     {
       "path": "tool-maintained-files/semantic/semantic-chunk-index.json",
@@ -2531,9 +2326,8 @@
       "area": "tool-maintained-files",
       "name": "semantic-chunk-index.json",
       "ext": ".json",
-      "size": 759153,
-      "generatedHint": true,
-      "absolutePath": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS/tool-maintained-files/semantic/semantic-chunk-index.json"
+      "size": 781698,
+      "generatedHint": true
     }
   ]
 }

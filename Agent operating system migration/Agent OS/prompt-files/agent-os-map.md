@@ -18,6 +18,7 @@ This map is a lightweight orientation router for the Agent OS scaffold. It helps
 - `tools/semantic-map.md`: inventories Phase 3 query-only semantic substrates and reserved embedding/vector surfaces.
 - `tool-maintained-files/indexes/index-manifest.json`: mandatory compact boot context for index tiers, freshness, artifact hashes, shard hashes, sizes, semantic-support status, deterministic maintenance commands, and first-query guidance.
 - `project-control-files/technology-architecture-map.md`: project-specific technology and architecture setup.
+- `project-control-files/pre-development-readiness.md`: semantic readiness cues and deterministic check cues before architecture choices or product development.
 
 ## Usage Surfaces
 

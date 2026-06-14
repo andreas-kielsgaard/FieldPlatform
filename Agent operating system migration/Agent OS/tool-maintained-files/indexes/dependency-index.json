@@ -4,9 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-12T15:21:29.528Z",
-  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+  "generatedAt": "2026-06-14T07:27:15.817Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
   "producer": "build-dependency-index",
   "artifactPath": "tool-maintained-files/indexes/dependency-index.json",
   "sourceInputs": [
@@ -17,7 +19,7 @@
   "knownBlindSpots": [
     "Does not resolve package exports, TS path aliases, or runtime dependency injection."
   ],
-  "recordCount": 173,
+  "recordCount": 172,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-dependency-index",
@@ -32,9 +34,9 @@
         {
           "shardId": "records-0001",
           "startRecord": 0,
-          "endRecordExclusive": 173,
-          "recordCount": 173,
-          "sha256": "3094e3c4a2c6e6843f93e6eccccf8f694e98d29e3702d79b8885da796da47ceb"
+          "endRecordExclusive": 172,
+          "recordCount": 172,
+          "sha256": "4cf7acca3a250557afc8ea73405e4dca7d77237d55d25284a039fede8b4f707a"
         }
       ]
     },
@@ -391,7 +393,7 @@
       "line": 3,
       "kind": "import",
       "crossArea": false,
-      "text": "import type { FileRecord } from \"../types.ts\";"
+      "text": "import type { FileRecord, ParsedArgs } from \"../types.ts\";"
     },
     {
       "importer": "tool-implementations/_lib/records/change-records.ts",
@@ -610,15 +612,6 @@
       "text": "import { hasGeneratedHint, inferArtifactKind } from \"../artifacts.ts\";"
     },
     {
-      "importer": "tool-implementations/_lib/records/path-records.ts",
-      "imported": "../text-utils.ts",
-      "resolved": "tool-implementations/_lib/text-utils.ts",
-      "line": 4,
-      "kind": "import",
-      "crossArea": false,
-      "text": "import { normalizePath } from \"../text-utils.ts\";"
-    },
-    {
       "importer": "tool-implementations/_lib/records/route-records.ts",
       "imported": "../types.ts",
       "resolved": "tool-implementations/_lib/types.ts",
@@ -823,7 +816,7 @@
       "line": 1,
       "kind": "import",
       "crossArea": true,
-      "text": "import { existsSync, readFileSync } from \"node:fs\";"
+      "text": "import { existsSync, readFileSync, readdirSync } from \"node:fs\";"
     },
     {
       "importer": "tool-implementations/checks/check-agent-os-contracts.ts",

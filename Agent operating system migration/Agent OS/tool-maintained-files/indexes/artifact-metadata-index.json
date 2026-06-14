@@ -4,9 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-12T15:21:35.546Z",
-  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+  "generatedAt": "2026-06-14T07:27:22.470Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
   "producer": "build-artifact-metadata-index",
   "artifactPath": "tool-maintained-files/indexes/artifact-metadata-index.json",
   "sourceInputs": [
@@ -17,7 +19,7 @@
   "knownBlindSpots": [
     "Humans can bypass conventions; unknown metadata is uncertainty, not proof."
   ],
-  "recordCount": 217,
+  "recordCount": 218,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-artifact-metadata-index",
@@ -32,9 +34,9 @@
         {
           "shardId": "records-0001",
           "startRecord": 0,
-          "endRecordExclusive": 217,
-          "recordCount": 217,
-          "sha256": "6be25b57981db90d331383475a02a4949ab95fc3fb3b8a6aee21b55aa6dd18af"
+          "endRecordExclusive": 218,
+          "recordCount": 218,
+          "sha256": "0cb1decb4da066d5e4909da5d5aad2f19018127805df8ad6cf01e7fd62edf1a6"
         }
       ]
     },
@@ -63,6 +65,15 @@
     {
       "path": "output-files/reports/agent/.gitkeep",
       "kind": "file",
+      "generatedHint": false,
+      "directEditPolicy": "unknown",
+      "possibleProducer": null,
+      "audience": "project",
+      "authorityRole": "unknown"
+    },
+    {
+      "path": "project-control-files/pre-development-readiness.md",
+      "kind": "md",
       "generatedHint": false,
       "directEditPolicy": "unknown",
       "possibleProducer": null,

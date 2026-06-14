@@ -1,11 +1,15 @@
 import { existsSync } from "node:fs";
 import path from "node:path";
-import type { FileRecord } from "../types.ts";
+import type { FileRecord, ParsedArgs } from "../types.ts";
 import { inferArtifactKind } from "../artifacts.ts";
 import { gitLines } from "../git.ts";
 import { areaOf, normalizePath } from "../text-utils.ts";
 
-export function buildChangeRecords(root: string, files: FileRecord[]): Record<string, unknown>[] {
+export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {
+  if (isCommittedBaselineMode(args)) {
+    return [];
+  }
+
   const statusLines = gitLines(root, ["status", "--short", "--untracked-files=all"]);
   const changedFiles = new Set<string>();
   const records: Record<string, unknown>[] = [];
@@ -52,4 +56,11 @@ function inWorkingTree(root: string, relativePath: string): boolean {
     return false;
   }
   return existsSync(path.resolve(root, relativePath));
+}
+
+function isCommittedBaselineMode(args?: ParsedArgs): boolean {
+  if (!args) {
+    return false;
+  }
+  return args.flags.committed === true || args.flags["commit-view"] === true || args.flags.mode === "committed";
 }

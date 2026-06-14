@@ -1,9 +1,8 @@
 import path from "node:path";
 import type { FileRecord } from "../types.ts";
 import { hasGeneratedHint, inferArtifactKind } from "../artifacts.ts";
-import { normalizePath } from "../text-utils.ts";
 
-export function buildPathRecords(root: string, files: FileRecord[]): Record<string, unknown>[] {
+export function buildPathRecords(files: FileRecord[]): Record<string, unknown>[] {
   const dirs = new Map<string, { path: string; kind: string; fileCount: number; childDirs: Set<string> }>();
 
   for (const file of files) {
@@ -42,7 +41,6 @@ export function buildPathRecords(root: string, files: FileRecord[]): Record<stri
     ext: file.ext,
     size: file.size,
     generatedHint: hasGeneratedHint(file.path, file.lines),
-    absolutePath: normalizePath(path.resolve(root, file.path)),
   }));
 
   return [...dirRecords, ...fileRecords];

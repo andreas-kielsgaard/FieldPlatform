@@ -11,7 +11,7 @@ import type { IndexArtifact, IndexBuilderSpec, IndexDefinition } from "./types.t
 export function runIndexBuilder(spec: IndexBuilderSpec): void {
   const args = parseArgs(process.argv.slice(2));
   const root = resolveRoot(args);
-  const artifact = buildIndex(spec, root);
+  const artifact = buildIndex(spec, root, args);
   const outPath = path.resolve(root, String(args.flags.out || spec.definition.artifactPath));
   const checkOnly = Boolean(args.flags.check);
   const existing = readJsonIfExists(outPath);
@@ -38,10 +38,10 @@ export function runIndexBuilder(spec: IndexBuilderSpec): void {
   );
 }
 
-function buildIndex(spec: IndexBuilderSpec, root: string): IndexArtifact {
+function buildIndex(spec: IndexBuilderSpec, root: string, args: ReturnType<typeof parseArgs>): IndexArtifact {
   const files = collectFiles(root);
   const contentFiles = files.filter((file) => isTextFile(file.path) && !isGeneratedToolMaintainedPath(file.path));
-  const records = spec.buildRecords({ root, files, contentFiles });
+  const records = spec.buildRecords({ root, files, contentFiles, args });
   const def: IndexDefinition = spec.definition;
   const maintenance = buildIndexMaintenanceMetadata(def, records);
 
@@ -52,8 +52,10 @@ function buildIndex(spec: IndexBuilderSpec, root: string): IndexArtifact {
     generated: true,
     schemaVersion: 2,
     generatedAt: new Date().toISOString(),
-    sourceRoot: normalizePath(root),
-    sourceRevision: gitSha(root),
+    sourceRoot: ".",
+    pathReference: "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+    sourceState: sourceStateFor(args),
+    sourceRevision: sourceRevisionFor(root, args),
     producer: def.producer,
     artifactPath: def.artifactPath,
     sourceInputs: def.sourceInputs,
@@ -64,4 +66,24 @@ function buildIndex(spec: IndexBuilderSpec, root: string): IndexArtifact {
     maintenance,
     records,
   };
+}
+
+function sourceStateFor(args: ReturnType<typeof parseArgs>): string {
+  if (typeof args.flags["source-state"] === "string") {
+    return args.flags["source-state"];
+  }
+  if (args.flags.committed || args.flags["commit-view"]) {
+    return "committed-baseline";
+  }
+  if (typeof args.flags.mode === "string") {
+    return args.flags.mode;
+  }
+  return "working-tree";
+}
+
+function sourceRevisionFor(root: string, args: ReturnType<typeof parseArgs>): string | null {
+  if (typeof args.flags["source-revision"] === "string") {
+    return args.flags["source-revision"];
+  }
+  return gitSha(root);
 }

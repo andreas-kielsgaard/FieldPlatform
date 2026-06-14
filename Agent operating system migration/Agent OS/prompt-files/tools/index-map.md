@@ -9,7 +9,7 @@ Stratum 1 indexes are generated or maintained substrates. They make repository f
 |---|---|---|---|---|
 | `index-manifest` | mandatory-boot-context | `build-index-manifest` | `tool-maintained-files/indexes/index-manifest.json` | Compact tier, freshness, size, artifact hash, shard hash, semantic-support, maintenance-command, and first-query guidance for active evidence indexes. |
 | `path-index` | boot-core | `build-path-index` | `tool-maintained-files/indexes/path-index.json` | Files, directories, extensions, areas, inferred artifact types, and generated/manual hints. |
-| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, and changed surface hints. |
+| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, changed surface hints, and a committed-baseline mode for commit preparation. |
 | `dependency-index` | boot-core | `build-dependency-index` | `tool-maintained-files/indexes/dependency-index.json` | Import, export-from, dynamic import, and require edges with rough cross-area hints. |
 | `symbol-index` | boot-core | `build-symbol-index` | `tool-maintained-files/indexes/symbol-index.json` | Exported, imported, and locally declared symbols from lightweight source scanning. |
 | `doc-reference-index` | boot-core | `build-doc-reference-index` | `tool-maintained-files/indexes/doc-reference-index.json` | Markdown links, headings, inline path references, inline IDs, and local existence hints. |
@@ -34,6 +34,9 @@ Stratum 1 indexes are generated or maintained substrates. They make repository f
 - Read this map and the manifest to understand available substrates before selecting query operators.
 - Refresh an index before relying on absence, broad impact, or generated/manual maintenance-path evidence.
 - Use `build-all-indexes` when more than one index may be stale, when maintenance metadata is missing, or when shard or semantic-support metadata needs deterministic regeneration.
+- Generated artifacts use Agent OS root-relative paths. Run tools from the Agent OS root or pass `--root` when the directory is relocated.
+- Treat generated artifacts as locally authoritative for the local repo state. Before committing generated index artifacts, make sure the generated files reflect the source structure being committed.
+- Use `build-change-index --commit-view` or `build-all-indexes --commit-view` when `change-index.json` should represent the committed baseline rather than the dirty working tree.
 - Keep semantic chunk, embedding, and vector-store builders out of `build-all-indexes` unless their artifacts are explicitly promoted into the active index catalog.
 - Do not hand-maintain shard hashes, content hashes, generated timestamps, record counts, semantic-support status, or index maintenance commands.
 - Treat missing metadata as uncertainty.

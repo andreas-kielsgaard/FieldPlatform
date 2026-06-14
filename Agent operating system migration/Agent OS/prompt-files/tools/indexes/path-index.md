@@ -11,6 +11,8 @@ Files, directories, extensions, areas, inferred artifact types, and generated/ma
 
 Use when an agent needs bounded source-tree orientation, artifact kind evidence, or a safer alternative to loading broad directory listings.
 
+Paths in generated records are relative to the Agent OS root. If the Agent OS directory is relocated, run from the new root or pass `--root`.
+
 ## Responsible Object
 
 - Builder: `build-path-index`

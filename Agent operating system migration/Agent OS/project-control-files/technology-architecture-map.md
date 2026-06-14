@@ -6,6 +6,14 @@ Describe the project-specific technology architecture spine: top-level responsib
 
 This file is a setup map for the project architecture. It is not the structural-maintenance decision layer and should not decide every local placement or refactor.
 
+## Provisional Status
+
+This map is currently provisional. It captures architectural pre-decisions and low-entropy defaults so development can begin deliberately, but the application architecture and technology choices are still being explored.
+
+Use this map to make candidate structure visible, not to treat unsettled choices as final. When a choice becomes durable, record the decision in the appropriate decision surface, such as `docs/adr/` after the application scaffold exists.
+
+Pre-development readiness should include preparing the dev environment to support accepted pre-decisions while keeping open choices explicit. See `project-control-files/pre-development-readiness.md` for the semantic readiness cues and deterministic checks that support this map.
+
 ## Architecture Stance
 
 Start as a modular monolith in a TypeScript workspace monorepo.
@@ -54,7 +62,7 @@ Use boring, machine-friendly path names for runtime code and tools.
 | Tool semantic files and scripts | Tool-maintained indexes or reports | Treat outputs as evidence, not semantic authority. |
 | Product context docs | Rendered or indexed context views | Product context remains authoritative; rendered/indexed views are derived. |
 
-## Framework Defaults
+## Provisional Framework Defaults
 
 | Concern | Default direction |
 |---|---|
@@ -66,6 +74,7 @@ Use boring, machine-friendly path names for runtime code and tools.
 | Unit and package tests | Vitest or equivalent TypeScript-native runner. |
 | Browser-level checks | Playwright or equivalent E2E/browser runner. |
 | Authentication | Dedicated auth boundary; provider choice remains open. |
+| Semantic retrieval | Lexical semantic chunks only for now; embeddings and vector stores remain deferred until provider, storage, privacy, cost, and usefulness choices are made. |
 
 ## Open Architecture Choices
 
@@ -75,4 +84,5 @@ Use boring, machine-friendly path names for runtime code and tools.
 | Auth.js vs Clerk or another provider | Keep auth behind a dedicated boundary until provider choice is made. | Organization, user-management, hosting, or compliance requirements are clearer. |
 | Admin app | Keep optional. | Administrative workflows become real product scope. |
 | Service extraction | Modular monolith first. | Runtime boundaries become durable enough to justify operational cost. |
+| Embeddings and vector store | Defer implementation. Keep the existing `semantic-candidate-query` lexical path active. | Repository scale, retrieval failures, privacy requirements, model/provider choice, vector-store location, and artifact commit policy are clear enough to justify the maintenance surface. |
 

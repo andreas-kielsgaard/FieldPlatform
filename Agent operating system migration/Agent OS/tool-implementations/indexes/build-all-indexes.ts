@@ -8,6 +8,7 @@ import { normalizePath } from "../_lib/text-utils.ts";
 const args = parseArgs(process.argv.slice(2));
 const root = resolveRoot(args);
 const checkOnly = Boolean(args.flags.check);
+const commitView = Boolean(args.flags["commit-view"] || args.flags.committed);
 const localBuilderDir = path.dirname(fileURLToPath(import.meta.url));
 const builders = activeIndexBuildersInMaintenanceOrder().map((builder) => `${builder}.ts`);
 
@@ -23,10 +24,16 @@ emit(
     check: checkOnly,
     stale,
     wrote: !checkOnly,
+    commitView,
     recordCount: results.reduce((sum, result) => sum + Number(result.recordCount || 0), 0),
     generatedAt: new Date().toISOString(),
     results,
-    warnings: failed ? ["One or more index builders failed."] : [],
+    warnings: [
+      ...(failed ? ["One or more index builders failed."] : []),
+      ...(commitView
+        ? ["Commit view passes committed-baseline mode to change-index only; other indexes should be regenerated when the working tree matches the intended commit."]
+        : []),
+    ],
   },
   args,
 );
@@ -40,6 +47,9 @@ function runBuilder(builder: string): Record<string, unknown> {
   const builderArgs = ["--yes", "tsx", scriptPath, "--root", root, "--json"];
   if (checkOnly) {
     builderArgs.push("--check");
+  }
+  if (commitView && builder === "build-change-index.ts") {
+    builderArgs.push("--commit-view");
   }
   const command = process.platform === "win32" ? "cmd.exe" : "npx";
   const commandArgs = process.platform === "win32" ? ["/d", "/s", "/c", "npx", ...builderArgs] : builderArgs;

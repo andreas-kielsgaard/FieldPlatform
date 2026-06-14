@@ -25,6 +25,8 @@ Use this file to activate deterministic Stratum 1 and 2 tools without treating t
 - Convention dependence: metadata tools are only as good as the conventions humans and agents preserve.
 - Generated authority: generated indexes are evidence surfaces, not semantic authority.
 - Manual metadata drift: do not hand-edit generated index metadata. Use the relevant builder or `build-all-indexes` when generated metadata is missing, stale, or inconsistent.
+- Relocatable paths: generated artifacts should use Agent OS root-relative paths. Run tools from the Agent OS root or pass `--root` after directory restructuring.
+- Commit truth: generated artifacts are local evidence while work is in progress; generated files included in a commit should reflect the source structure being committed. Use `change-index` commit view when needed, then refresh local truth after the commit if local work remains.
 - Semantic payload boundary: semantic chunk, embedding, and vector-store builders should remain separate from `build-all-indexes` until their artifacts are explicitly promoted into the active index catalog.
 - Semantic overreach: use `semantic-candidate-query` as fuzzy candidate evidence, then verify with source, exact operators, or bounded slices before drawing conclusions.
 

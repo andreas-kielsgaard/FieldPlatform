@@ -4,9 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-12T15:21:46.987Z",
-  "sourceRoot": "C:/Users/user/Documents/App/Agent operating system migration/Agent OS",
-  "sourceRevision": "36622b8befb51b48dbf93817d1ad3768bc7a9ef1",
+  "generatedAt": "2026-06-14T07:27:37.498Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "78888e77b5f9ceabfcd9201a71d8012710b8bceb",
   "producer": "build-literal-index",
   "artifactPath": "tool-maintained-files/indexes/literal-index.json",
   "sourceInputs": [
@@ -17,7 +19,7 @@
   "knownBlindSpots": [
     "Does not know whether a literal is product copy, test data, or implementation detail without context."
   ],
-  "recordCount": 2073,
+  "recordCount": 2150,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-literal-index",
@@ -34,35 +36,35 @@
           "startRecord": 0,
           "endRecordExclusive": 500,
           "recordCount": 500,
-          "sha256": "c800013ef2202fc9ee83d990d5d798fed7669bda8e419e188f6f7204a176905d"
+          "sha256": "0c774ca215dde9d1e1f1a412d5bc466653c4909b5b3e6ce60c119176356b7e50"
         },
         {
           "shardId": "records-0002",
           "startRecord": 500,
           "endRecordExclusive": 1000,
           "recordCount": 500,
-          "sha256": "ca8bada574d934c7e17e25da57832e26aeaf817b6dd44208d608bf96b6499227"
+          "sha256": "b294972bbdfb2a04940a74c4fa1d5391cf57b2fda6c2e220a548aca4b67aba24"
         },
         {
           "shardId": "records-0003",
           "startRecord": 1000,
           "endRecordExclusive": 1500,
           "recordCount": 500,
-          "sha256": "3c41edc72dabe3722ff107d4f7656e34f3afa6c0de5c6e14024b5f0872c29415"
+          "sha256": "79953d405ce27967d618c5fb4468cc6b0a05b6c4162d2c8b8c02aaacdcf7dd11"
         },
         {
           "shardId": "records-0004",
           "startRecord": 1500,
           "endRecordExclusive": 2000,
           "recordCount": 500,
-          "sha256": "420b4f63fe3580a879e1a716dee4f90bf03c33398d14c43f558bc67cba01b683"
+          "sha256": "294d5cdc36f5c563650039d068334226f44ec08abab9428470475c63dbe468e5"
         },
         {
           "shardId": "records-0005",
           "startRecord": 2000,
-          "endRecordExclusive": 2073,
-          "recordCount": 73,
-          "sha256": "d391efa610489ab32d73cc2e632be8cb7042917b1d006062415bc1f6d7360e36"
+          "endRecordExclusive": 2150,
+          "recordCount": 150,
+          "sha256": "6a6bfebec214e8d13cd3a63f31f7c05b247f07395cf3c198a9e647aa805cb4b9"
         }
       ]
     },
@@ -269,305 +271,466 @@
       "nearby": "- Metadata maintenance: do not hand-maintain generated index metadata. Use the relevant builder or `build-all-indexes` when index metadata, shard hashes, or semantic-support metadata is stale or missing."
     },
     {
+      "value": "--root",
+      "file": "migration_agents.md",
+      "line": 85,
+      "category": "string",
+      "nearby": "- Relocatable paths: generated artifacts use Agent OS root-relative paths. Run tools from the Agent OS root or pass `--root` after directory restructuring."
+    },
+    {
+      "value": "change-index",
+      "file": "migration_agents.md",
+      "line": 86,
+      "category": "string",
+      "nearby": "- Commit truth: generated artifacts are locally authoritative while work is in progress, but files included in a commit should reflect the source structure being committed. Use `change-index` commit view when needed, then refresh local trut"
+    },
+    {
       "value": "prompt-files",
       "file": "migration_agents.md",
-      "line": 98,
+      "line": 100,
       "category": "string",
       "nearby": "- maps and registries under `prompt-files` for project memory"
     },
     {
       "value": "AGENTS.md",
       "file": "migration_agents.md",
-      "line": 112,
+      "line": 114,
       "category": "string",
       "nearby": "- `AGENTS.md`, when global routing or posture changes"
     },
     {
       "value": "AGENTS",
       "file": "migration_agents.md",
-      "line": 112,
+      "line": 114,
       "category": "token-like",
       "nearby": "- `AGENTS.md`, when global routing or posture changes"
     },
     {
       "value": "AGENTS.md",
       "file": "migration_agents.md",
-      "line": 121,
+      "line": 123,
       "category": "string",
       "nearby": "Keep `AGENTS.md` focused on global behavior and routing. Move detailed procedures into task modes, structural-maintenance files, skills, tools, or the map that owns the relevant control surface."
     },
     {
       "value": "AGENTS",
       "file": "migration_agents.md",
-      "line": 121,
+      "line": 123,
       "category": "token-like",
       "nearby": "Keep `AGENTS.md` focused on global behavior and routing. Move detailed procedures into task modes, structural-maintenance files, skills, tools, or the map that owns the relevant control surface."
     },
     {
       "value": "known-debt.md",
       "file": "migration_agents.md",
-      "line": 129,
+      "line": 131,
       "category": "string",
       "nearby": "- log it in `known-debt.md`"
     },
     {
       "value": "experiments.md",
       "file": "migration_agents.md",
-      "line": 136,
+      "line": 138,
       "category": "string",
       "nearby": "- record them in `experiments.md`"
     },
     {
       "value": "done.",
       "file": "migration_agents.md",
-      "line": 158,
+      "line": 160,
       "category": "string",
       "nearby": "Prefer a report that leaves future agents oriented rather than simply saying \"done.\""
     },
     {
       "value": "AGENTS.md",
       "file": "migration_agents.md",
-      "line": 162,
+      "line": 164,
       "category": "string",
       "nearby": "`AGENTS.md` is not static, but it should stay small."
     },
     {
       "value": "AGENTS",
       "file": "migration_agents.md",
-      "line": 162,
+      "line": 164,
       "category": "token-like",
       "nearby": "`AGENTS.md` is not static, but it should stay small."
     },
     {
+      "value": "git status --short --branch",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 13,
+      "category": "string",
+      "nearby": "- `git status --short --branch` to confirm branch, untracked files, and local change shape."
+    },
+    {
+      "value": "npx --yes tsx tool-implementations/checks/check-agent-os-contracts.ts --json",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 14,
+      "category": "string",
+      "nearby": "- `npx --yes tsx tool-implementations/checks/check-agent-os-contracts.ts --json` after Agent OS maps, tools, indexes, semantic surfaces, or generated artifacts change."
+    },
+    {
+      "value": "npx --yes tsx tool-implementations/indexes/build-all-indexes.ts --check --json",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 15,
+      "category": "string",
+      "nearby": "- `npx --yes tsx tool-implementations/indexes/build-all-indexes.ts --check --json` when active Stratum 1 freshness or metadata matters."
+    },
+    {
+      "value": "npx --yes tsx tool-implementations/semantic/build-semantic-chunk-index.ts --check --json",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 16,
+      "category": "string",
+      "nearby": "- `npx --yes tsx tool-implementations/semantic/build-semantic-chunk-index.ts --check --json` when semantic candidate substrate freshness matters."
+    },
+    {
+      "value": "tool-maintained-files/",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 17,
+      "category": "string",
+      "nearby": "- Parse generated JSON under `tool-maintained-files/` after builder changes."
+    },
+    {
+      "value": "JSON",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 17,
+      "category": "token-like",
+      "nearby": "- Parse generated JSON under `tool-maintained-files/` after builder changes."
+    },
+    {
+      "value": "change-index",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 27,
+      "category": "string",
+      "nearby": "`change-index` has a specific commit-prep mode:"
+    },
+    {
+      "value": "build-all-indexes",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 33,
+      "category": "string",
+      "nearby": "`build-all-indexes` can pass that mode through to `change-index`:"
+    },
+    {
+      "value": "change-index",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 33,
+      "category": "string",
+      "nearby": "`build-all-indexes` can pass that mode through to `change-index`:"
+    },
+    {
+      "value": "--root",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 47,
+      "category": "string",
+      "nearby": "When a tool needs to run from a different directory, pass `--root` with the Agent OS root. The generated artifact `pathReference` field describes this convention. Contract checks should catch structured absolute-path leaks in tool-maintaine"
+    },
+    {
+      "value": "pathReference",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 47,
+      "category": "string",
+      "nearby": "When a tool needs to run from a different directory, pass `--root` with the Agent OS root. The generated artifact `pathReference` field describes this convention. Contract checks should catch structured absolute-path leaks in tool-maintaine"
+    },
+    {
+      "value": "JSON",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 47,
+      "category": "token-like",
+      "nearby": "When a tool needs to run from a different directory, pass `--root` with the Agent OS root. The generated artifact `pathReference` field describes this convention. Contract checks should catch structured absolute-path leaks in tool-maintaine"
+    },
+    {
+      "value": "ORM",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 58,
+      "category": "token-like",
+      "nearby": "- Persistence tooling only after the database and ORM direction are accepted."
+    },
+    {
+      "value": "semantic-candidate-query",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 77,
+      "category": "string",
+      "nearby": "Until those choices are made, use `semantic-candidate-query` and exact indexes as the supported semantic retrieval path."
+    },
+    {
+      "value": "tsconfig",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 83,
+      "category": "string",
+      "nearby": "- AST or LSP-backed symbol/dependency indexing: after the TypeScript workspace, `tsconfig`, and product source exist."
+    },
+    {
+      "value": "AST",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 83,
+      "category": "token-like",
+      "nearby": "- AST or LSP-backed symbol/dependency indexing: after the TypeScript workspace, `tsconfig`, and product source exist."
+    },
+    {
+      "value": "LSP",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 83,
+      "category": "token-like",
+      "nearby": "- AST or LSP-backed symbol/dependency indexing: after the TypeScript workspace, `tsconfig`, and product source exist."
+    },
+    {
+      "value": "MCP",
+      "file": "project-control-files/pre-development-readiness.md",
+      "line": 88,
+      "category": "token-like",
+      "nearby": "- Public tool or MCP integration: after local deterministic scripts prove which evidence paths need shared cross-agent access."
+    },
+    {
+      "value": "docs/adr/",
+      "file": "project-control-files/technology-architecture-map.md",
+      "line": 13,
+      "category": "string",
+      "nearby": "Use this map to make candidate structure visible, not to treat unsettled choices as final. When a choice becomes durable, record the decision in the appropriate decision surface, such as `docs/adr/` after the application scaffold exists."
+    },
+    {
+      "value": "project-control-files/pre-development-readiness.md",
+      "file": "project-control-files/technology-architecture-map.md",
+      "line": 15,
+      "category": "string",
+      "nearby": "Pre-development readiness should include preparing the dev environment to support accepted pre-decisions while keeping open choices explicit. See `project-control-files/pre-development-readiness.md` for the semantic readiness cues and deter"
+    },
+    {
       "value": "docs/context/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 21,
+      "line": 29,
       "category": "string",
       "nearby": "| `docs/context/` | Product and design authority that humans maintain as canonical project context. | Product truth should not live only in code comments, mocks, or generated indexes. |"
     },
     {
       "value": "docs/adr/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 22,
+      "line": 30,
       "category": "string",
       "nearby": "| `docs/adr/` | Architecture decision records and durable project decisions. | Use when a decision affects future project shape. |"
     },
     {
       "value": "apps/web/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 23,
+      "line": 31,
       "category": "string",
       "nearby": "| `apps/web/` | Participant-facing Next.js application. | Main deployable web surface. |"
     },
     {
       "value": "apps/storybook/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 24,
+      "line": 32,
       "category": "string",
       "nearby": "| `apps/storybook/` | Component workshop and visual inspection surface. | Supports shared UI development and review. |"
     },
     {
       "value": "apps/admin/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 25,
+      "line": 33,
       "category": "string",
       "nearby": "| `apps/admin/` | Optional administrative surface. | Add only when it becomes a real deployable surface. |"
     },
     {
       "value": "packages/domain/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 26,
+      "line": 34,
       "category": "string",
       "nearby": "| `packages/domain/` | Entities, value objects, invariants, lifecycle rules, and meaning-bearing calculations. | Must not depend on UI or persistence implementation. |"
     },
     {
       "value": "packages/application/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 27,
+      "line": 35,
       "category": "string",
       "nearby": "| `packages/application/` | Use cases, command handlers, query services, and ports. | Coordinates domain work and boundary interactions. |"
     },
     {
       "value": "packages/persistence/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 28,
+      "line": 36,
       "category": "string",
       "nearby": "| `packages/persistence/` | Database schema, migrations, ORM models, repository implementations, and persistence adapters. | Implements persistence behind application/domain ports. |"
     },
     {
       "value": "ORM",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 28,
+      "line": 36,
       "category": "token-like",
       "nearby": "| `packages/persistence/` | Database schema, migrations, ORM models, repository implementations, and persistence adapters. | Implements persistence behind application/domain ports. |"
     },
     {
       "value": "packages/contracts/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 29,
+      "line": 37,
       "category": "string",
       "nearby": "| `packages/contracts/` | DTOs, validation schemas, API contracts, event contracts, and boundary types. | Prefer Zod or equivalent runtime validation for untrusted boundaries. |"
     },
     {
       "value": "API",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 29,
+      "line": 37,
       "category": "token-like",
       "nearby": "| `packages/contracts/` | DTOs, validation schemas, API contracts, event contracts, and boundary types. | Prefer Zod or equivalent runtime validation for untrusted boundaries. |"
     },
     {
       "value": "packages/ui/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 30,
+      "line": 38,
       "category": "string",
       "nearby": "| `packages/ui/` | Design tokens, primitives, reusable components, and shared presentation patterns. | Product-specific pages should not become the source of shared primitives by accident. |"
     },
     {
       "value": "packages/integrations/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 31,
+      "line": 39,
       "category": "string",
       "nearby": "| `packages/integrations/` | External services, webhooks, adapters, and provider-specific code. | Keep external dependency behavior out of domain code. |"
     },
     {
       "value": "packages/config/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 32,
+      "line": 40,
       "category": "string",
       "nearby": "| `packages/config/` | Shared TypeScript, lint, test, build, and workspace configuration. | Keeps tooling configuration explicit and reusable. |"
     },
     {
       "value": "tools/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 33,
+      "line": 41,
       "category": "string",
       "nearby": "| `tools/` | Project scripts, codemods, structural analysis, and agent-support tooling. | Tool output should not become product runtime dependency unless explicitly designed. |"
     },
     {
       "value": "infra/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 34,
+      "line": 42,
       "category": "string",
       "nearby": "| `infra/` | Deployment, observability, and environment infrastructure. | Runtime infrastructure ownership belongs here rather than in app code. |"
     },
     {
       "value": "apps/web/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 40,
+      "line": 48,
       "category": "string",
       "nearby": "| `apps/web/` | `packages/application/`, `packages/contracts/`, `packages/ui/`, approved server-side persistence access where framework conventions allow it. | Tool internals, generated indexes as product authority, unrelated app surfaces. "
     },
     {
       "value": "packages/application/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 40,
+      "line": 48,
       "category": "string",
       "nearby": "| `apps/web/` | `packages/application/`, `packages/contracts/`, `packages/ui/`, approved server-side persistence access where framework conventions allow it. | Tool internals, generated indexes as product authority, unrelated app surfaces. "
     },
     {
       "value": "packages/contracts/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 40,
+      "line": 48,
       "category": "string",
       "nearby": "| `apps/web/` | `packages/application/`, `packages/contracts/`, `packages/ui/`, approved server-side persistence access where framework conventions allow it. | Tool internals, generated indexes as product authority, unrelated app surfaces. "
     },
     {
       "value": "packages/ui/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 40,
+      "line": 48,
       "category": "string",
       "nearby": "| `apps/web/` | `packages/application/`, `packages/contracts/`, `packages/ui/`, approved server-side persistence access where framework conventions allow it. | Tool internals, generated indexes as product authority, unrelated app surfaces. "
     },
     {
       "value": "packages/ui/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 41,
+      "line": 49,
       "category": "string",
       "nearby": "| `packages/ui/` | Design tokens, local UI utilities, stable public contracts. | Domain persistence, application orchestration, external service adapters. |"
     },
     {
       "value": "packages/application/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 42,
+      "line": 50,
       "category": "string",
       "nearby": "| `packages/application/` | `packages/domain/`, `packages/contracts/`, ports, approved infrastructure interfaces. | UI components, concrete persistence details when a port should exist. |"
     },
     {
       "value": "packages/domain/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 42,
+      "line": 50,
       "category": "string",
       "nearby": "| `packages/application/` | `packages/domain/`, `packages/contracts/`, ports, approved infrastructure interfaces. | UI components, concrete persistence details when a port should exist. |"
     },
     {
       "value": "packages/contracts/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 42,
+      "line": 50,
       "category": "string",
       "nearby": "| `packages/application/` | `packages/domain/`, `packages/contracts/`, ports, approved infrastructure interfaces. | UI components, concrete persistence details when a port should exist. |"
     },
     {
       "value": "packages/domain/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 43,
+      "line": 51,
       "category": "string",
       "nearby": "| `packages/domain/` | Other domain primitives and stable contracts. | UI, persistence implementations, framework runtime, external service adapters. |"
     },
     {
       "value": "packages/persistence/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 44,
+      "line": 52,
       "category": "string",
       "nearby": "| `packages/persistence/` | Database clients, migrations, schema tooling, domain/application ports. | UI components or product presentation logic. |"
     },
     {
       "value": "packages/integrations/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 45,
+      "line": 53,
       "category": "string",
       "nearby": "| `packages/integrations/` | External SDKs, adapter contracts, application ports. | Domain rules that should remain provider-independent. |"
     },
     {
       "value": "tools/",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 46,
+      "line": 54,
       "category": "string",
       "nearby": "| `tools/` | Repository files, generated indexes, scripts, project metadata. | Product runtime code as a required runtime dependency. |"
     },
     {
       "value": "ORM",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 52,
+      "line": 60,
       "category": "token-like",
       "nearby": "| Schema definitions and migrations | ORM clients, generated types, schema indexes | Update source and regenerate; do not hand-edit generated output. |"
     },
     {
       "value": "ORM",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 63,
+      "line": 71,
       "category": "token-like",
       "nearby": "| ORM/default database toolkit | Prisma by default; Drizzle remains the thinner SQL-shaped alternative. |"
     },
     {
       "value": "SQL",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 63,
+      "line": 71,
       "category": "token-like",
       "nearby": "| ORM/default database toolkit | Prisma by default; Drizzle remains the thinner SQL-shaped alternative. |"
     },
     {
       "value": "E2E",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 67,
+      "line": 75,
       "category": "token-like",
       "nearby": "| Browser-level checks | Playwright or equivalent E2E/browser runner. |"
     },
     {
       "value": "SQL",
       "file": "project-control-files/technology-architecture-map.md",
-      "line": 74,
+      "line": 83,
       "category": "token-like",
       "nearby": "| Prisma vs Drizzle | Prisma is the lower-entropy default for central schema and generated types. | Persistence requirements demand a thinner SQL-first layer or Prisma creates too much framework pressure. |"
+    },
+    {
+      "value": "semantic-candidate-query",
+      "file": "project-control-files/technology-architecture-map.md",
+      "line": 87,
+      "category": "string",
+      "nearby": "| Embeddings and vector store | Defer implementation. Keep the existing `semantic-candidate-query` lexical path active. | Repository scale, retrieval failures, privacy requirements, model/provider choice, vector-store location, and artifact"
     },
     {
       "value": "../migration_agents.md",
@@ -661,100 +824,107 @@
       "nearby": "- `project-control-files/technology-architecture-map.md`: project-specific technology and architecture setup."
     },
     {
+      "value": "project-control-files/pre-development-readiness.md",
+      "file": "prompt-files/agent-os-map.md",
+      "line": 21,
+      "category": "string",
+      "nearby": "- `project-control-files/pre-development-readiness.md`: semantic readiness cues and deterministic check cues before architecture choices or product development."
+    },
+    {
       "value": "skills/skill-usage.instructions.md",
       "file": "prompt-files/agent-os-map.md",
-      "line": 24,
+      "line": 25,
       "category": "string",
       "nearby": "- `skills/skill-usage.instructions.md`: how to activate skills without turning them into mandatory ceremony."
     },
     {
       "value": "tools/tool-usage.instructions.md",
       "file": "prompt-files/agent-os-map.md",
-      "line": 25,
+      "line": 26,
       "category": "string",
       "nearby": "- `tools/tool-usage.instructions.md`: how to activate deterministic tools and avoid semantic delegation."
     },
     {
       "value": "tools/checks/agent-os-contract-check.md",
       "file": "prompt-files/agent-os-map.md",
-      "line": 26,
+      "line": 27,
       "category": "string",
       "nearby": "- `tools/checks/agent-os-contract-check.md`: how to run the Agent OS contract alignment check after map, tool, index, or semantic-layer changes."
     },
     {
       "value": "structural-maintenance/structural-maintenance-usage.instructions.md",
       "file": "prompt-files/agent-os-map.md",
-      "line": 27,
+      "line": 28,
       "category": "string",
       "nearby": "- `structural-maintenance/structural-maintenance-usage.instructions.md`: how to enter structural maintenance and select behavior files."
     },
     {
       "value": "domain-glossary.md",
       "file": "prompt-files/agent-os-map.md",
-      "line": 31,
+      "line": 32,
       "category": "string",
       "nearby": "- `domain-glossary.md`: manual authority for domain language."
     },
     {
       "value": "design-system-map.md",
       "file": "prompt-files/agent-os-map.md",
-      "line": 32,
+      "line": 33,
       "category": "string",
       "nearby": "- `design-system-map.md`: manual authority for design-system guidance."
     },
     {
       "value": "known-debt.md",
       "file": "prompt-files/agent-os-map.md",
-      "line": 33,
+      "line": 34,
       "category": "string",
       "nearby": "- `known-debt.md`: intentional debt and removal triggers."
     },
     {
       "value": "experiments.md",
       "file": "prompt-files/agent-os-map.md",
-      "line": 34,
+      "line": 35,
       "category": "string",
       "nearby": "- `experiments.md`: provisional work and promotion or retirement criteria."
     },
     {
       "value": "tool-maintained-files/indexes/index-manifest.json",
       "file": "prompt-files/agent-os-map.md",
-      "line": 38,
+      "line": 39,
       "category": "string",
       "nearby": "- `tool-maintained-files/indexes/index-manifest.json`: boot-safe generated manifest for active index awareness; it is compact context, not a raw-record, embedding, or vector-store substrate."
     },
     {
       "value": "tool-maintained-files/indexes/*.json",
       "file": "prompt-files/agent-os-map.md",
-      "line": 39,
+      "line": 40,
       "category": "string",
       "nearby": "- `tool-maintained-files/indexes/*.json`: Stratum 1 generated evidence artifacts produced by builders under `tool-implementations/indexes/`."
     },
     {
       "value": "tool-implementations/indexes/",
       "file": "prompt-files/agent-os-map.md",
-      "line": 39,
+      "line": 40,
       "category": "string",
       "nearby": "- `tool-maintained-files/indexes/*.json`: Stratum 1 generated evidence artifacts produced by builders under `tool-implementations/indexes/`."
     },
     {
       "value": "tool-maintained-files/semantic/semantic-chunk-index.json",
       "file": "prompt-files/agent-os-map.md",
-      "line": 40,
+      "line": 41,
       "category": "string",
       "nearby": "- `tool-maintained-files/semantic/semantic-chunk-index.json`: Phase 3 deterministic chunk substrate produced by `tool-implementations/semantic/build-semantic-chunk-index.ts`; query-only, not boot payload."
     },
     {
       "value": "tool-implementations/semantic/build-semantic-chunk-index.ts",
       "file": "prompt-files/agent-os-map.md",
-      "line": 40,
+      "line": 41,
       "category": "string",
       "nearby": "- `tool-maintained-files/semantic/semantic-chunk-index.json`: Phase 3 deterministic chunk substrate produced by `tool-implementations/semantic/build-semantic-chunk-index.ts`; query-only, not boot payload."
     },
     {
       "value": "tool-maintained-files/",
       "file": "prompt-files/agent-os-map.md",
-      "line": 41,
+      "line": 42,
       "category": "string",
       "nearby": "- `tool-maintained-files/`: tool-owned outputs such as generated indexes. Prompt files should access these through selected skills, deterministic tools, or narrow slices rather than broad ingestion."
     },
@@ -4616,16 +4786,37 @@
       "nearby": "- Consider Tool: `artifact-query` when generated, indexed, derived, or tool-maintained artifacts changed."
     },
     {
+      "value": "build-change-index --commit-view",
+      "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
+      "line": 21,
+      "category": "string",
+      "nearby": "- Consider `build-change-index --commit-view` or `build-all-indexes --commit-view` when generated index artifacts will be committed and `change-index.json` should represent committed truth rather than local dirtiness."
+    },
+    {
+      "value": "build-all-indexes --commit-view",
+      "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
+      "line": 21,
+      "category": "string",
+      "nearby": "- Consider `build-change-index --commit-view` or `build-all-indexes --commit-view` when generated index artifacts will be committed and `change-index.json` should represent committed truth rather than local dirtiness."
+    },
+    {
+      "value": "change-index.json",
+      "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
+      "line": 21,
+      "category": "string",
+      "nearby": "- Consider `build-change-index --commit-view` or `build-all-indexes --commit-view` when generated index artifacts will be committed and `change-index.json` should represent committed truth rather than local dirtiness."
+    },
+    {
       "value": "known-debt.md",
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 45,
+      "line": 47,
       "category": "string",
       "nearby": "- Consider updating `known-debt.md` if any shortcut remains."
     },
     {
       "value": "experiments.md",
       "file": "prompt-files/task-modes/maintenance-and-governance/review-before-commit.instructions.md",
-      "line": 46,
+      "line": 48,
       "category": "string",
       "nearby": "- Consider updating `experiments.md` if provisional code exists."
     },
@@ -6121,6 +6312,13 @@
       "nearby": "- active index catalog alignment with `index-map.md` and `index-manifest.json`"
     },
     {
+      "value": "JSON",
+      "file": "prompt-files/tools/checks/agent-os-contract-check.md",
+      "line": 21,
+      "category": "token-like",
+      "nearby": "- generated artifact portability, including no structured machine-specific absolute paths in tool-maintained JSON"
+    },
+    {
       "value": "index-manifest",
       "file": "prompt-files/tools/index-map.md",
       "line": 6,
@@ -6174,21 +6372,21 @@
       "file": "prompt-files/tools/index-map.md",
       "line": 12,
       "category": "string",
-      "nearby": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, and changed surface hints. |"
+      "nearby": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, changed surface hints, and a committed-baseline mode for commit preparation. |"
     },
     {
       "value": "build-change-index",
       "file": "prompt-files/tools/index-map.md",
       "line": 12,
       "category": "string",
-      "nearby": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, and changed surface hints. |"
+      "nearby": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, changed surface hints, and a committed-baseline mode for commit preparation. |"
     },
     {
       "value": "tool-maintained-files/indexes/change-index.json",
       "file": "prompt-files/tools/index-map.md",
       "line": 12,
       "category": "string",
-      "nearby": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, and changed surface hints. |"
+      "nearby": "| `change-index` | boot-core | `build-change-index` | `tool-maintained-files/indexes/change-index.json` | Current git status, changed files, artifact kind hints, changed surface hints, and a committed-baseline mode for commit preparation. |"
     },
     {
       "value": "dependency-index",
@@ -6485,9 +6683,37 @@
       "nearby": "- Use `build-all-indexes` when more than one index may be stale, when maintenance metadata is missing, or when shard or semantic-support metadata needs deterministic regeneration."
     },
     {
-      "value": "build-all-indexes",
+      "value": "--root",
       "file": "prompt-files/tools/index-map.md",
       "line": 37,
+      "category": "string",
+      "nearby": "- Generated artifacts use Agent OS root-relative paths. Run tools from the Agent OS root or pass `--root` when the directory is relocated."
+    },
+    {
+      "value": "build-change-index --commit-view",
+      "file": "prompt-files/tools/index-map.md",
+      "line": 39,
+      "category": "string",
+      "nearby": "- Use `build-change-index --commit-view` or `build-all-indexes --commit-view` when `change-index.json` should represent the committed baseline rather than the dirty working tree."
+    },
+    {
+      "value": "build-all-indexes --commit-view",
+      "file": "prompt-files/tools/index-map.md",
+      "line": 39,
+      "category": "string",
+      "nearby": "- Use `build-change-index --commit-view` or `build-all-indexes --commit-view` when `change-index.json` should represent the committed baseline rather than the dirty working tree."
+    },
+    {
+      "value": "change-index.json",
+      "file": "prompt-files/tools/index-map.md",
+      "line": 39,
+      "category": "string",
+      "nearby": "- Use `build-change-index --commit-view` or `build-all-indexes --commit-view` when `change-index.json` should represent the committed baseline rather than the dirty working tree."
+    },
+    {
+      "value": "build-all-indexes",
+      "file": "prompt-files/tools/index-map.md",
+      "line": 40,
       "category": "string",
       "nearby": "- Keep semantic chunk, embedding, and vector-store builders out of `build-all-indexes` unless their artifacts are explicitly promoted into the active index catalog."
     },
@@ -6590,30 +6816,65 @@
       "nearby": "- `--json`"
     },
     {
+      "value": "--commit-view",
+      "file": "prompt-files/tools/indexes/build-all-indexes.md",
+      "line": 23,
+      "category": "string",
+      "nearby": "- `--commit-view`, which passes committed-baseline mode through to `change-index` only"
+    },
+    {
+      "value": "change-index",
+      "file": "prompt-files/tools/indexes/build-all-indexes.md",
+      "line": 23,
+      "category": "string",
+      "nearby": "- `--commit-view`, which passes committed-baseline mode through to `change-index` only"
+    },
+    {
       "value": "--check",
       "file": "prompt-files/tools/indexes/build-all-indexes.md",
-      "line": 28,
+      "line": 29,
       "category": "string",
       "nearby": "It may write generated index artifacts unless `--check` is used. It should not include future semantic chunk, embedding, or vector-store builders unless those builders are explicitly promoted into the active index catalog."
     },
     {
+      "value": "--commit-view",
+      "file": "prompt-files/tools/indexes/build-all-indexes.md",
+      "line": 31,
+      "category": "string",
+      "nearby": "For ordinary local work, use default working-tree mode so generated indexes remain locally authoritative. For commit preparation, use `--commit-view` when `change-index.json` should describe the committed baseline instead of local dirtiness"
+    },
+    {
+      "value": "change-index.json",
+      "file": "prompt-files/tools/indexes/build-all-indexes.md",
+      "line": 31,
+      "category": "string",
+      "nearby": "For ordinary local work, use default working-tree mode so generated indexes remain locally authoritative. For commit preparation, use `--commit-view` when `change-index.json` should describe the committed baseline instead of local dirtiness"
+    },
+    {
+      "value": "change-index.json",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 14,
+      "category": "string",
+      "nearby": "Use commit view when `change-index.json` is being prepared for a commit and should not preserve unrelated local working-tree dirtiness."
+    },
+    {
       "value": "build-change-index",
       "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 16,
+      "line": 18,
       "category": "string",
       "nearby": "- Builder: `build-change-index`"
     },
     {
       "value": "tool-implementations/indexes/build-change-index.ts",
       "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 17,
+      "line": 19,
       "category": "string",
       "nearby": "- Script: `tool-implementations/indexes/build-change-index.ts`"
     },
     {
       "value": "tool-maintained-files/indexes/change-index.json",
       "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 18,
+      "line": 20,
       "category": "string",
       "nearby": "- Artifact: `tool-maintained-files/indexes/change-index.json`"
     },
@@ -6730,23 +6991,30 @@
       "nearby": "- Artifact: `tool-maintained-files/indexes/literal-index.json`"
     },
     {
+      "value": "--root",
+      "file": "prompt-files/tools/indexes/path-index.md",
+      "line": 14,
+      "category": "string",
+      "nearby": "Paths in generated records are relative to the Agent OS root. If the Agent OS directory is relocated, run from the new root or pass `--root`."
+    },
+    {
       "value": "build-path-index",
       "file": "prompt-files/tools/indexes/path-index.md",
-      "line": 16,
+      "line": 18,
       "category": "string",
       "nearby": "- Builder: `build-path-index`"
     },
     {
       "value": "tool-implementations/indexes/build-path-index.ts",
       "file": "prompt-files/tools/indexes/path-index.md",
-      "line": 17,
+      "line": 19,
       "category": "string",
       "nearby": "- Script: `tool-implementations/indexes/build-path-index.ts`"
     },
     {
       "value": "tool-maintained-files/indexes/path-index.json",
       "file": "prompt-files/tools/indexes/path-index.md",
-      "line": 18,
+      "line": 20,
       "category": "string",
       "nearby": "- Artifact: `tool-maintained-files/indexes/path-index.json`"
     },
@@ -7332,23 +7600,37 @@
       "nearby": "- Manual metadata drift: do not hand-edit generated index metadata. Use the relevant builder or `build-all-indexes` when generated metadata is missing, stale, or inconsistent."
     },
     {
-      "value": "build-all-indexes",
+      "value": "--root",
       "file": "prompt-files/tools/tool-usage.instructions.md",
       "line": 28,
+      "category": "string",
+      "nearby": "- Relocatable paths: generated artifacts should use Agent OS root-relative paths. Run tools from the Agent OS root or pass `--root` after directory restructuring."
+    },
+    {
+      "value": "change-index",
+      "file": "prompt-files/tools/tool-usage.instructions.md",
+      "line": 29,
+      "category": "string",
+      "nearby": "- Commit truth: generated artifacts are local evidence while work is in progress; generated files included in a commit should reflect the source structure being committed. Use `change-index` commit view when needed, then refresh local truth"
+    },
+    {
+      "value": "build-all-indexes",
+      "file": "prompt-files/tools/tool-usage.instructions.md",
+      "line": 30,
       "category": "string",
       "nearby": "- Semantic payload boundary: semantic chunk, embedding, and vector-store builders should remain separate from `build-all-indexes` until their artifacts are explicitly promoted into the active index catalog."
     },
     {
       "value": "semantic-candidate-query",
       "file": "prompt-files/tools/tool-usage.instructions.md",
-      "line": 29,
+      "line": 31,
       "category": "string",
       "nearby": "- Semantic overreach: use `semantic-candidate-query` as fuzzy candidate evidence, then verify with source, exact operators, or bounded slices before drawing conclusions."
     },
     {
       "value": "agent-os-contract-check",
       "file": "prompt-files/tools/tool-usage.instructions.md",
-      "line": 33,
+      "line": 35,
       "category": "string",
       "nearby": "`agent-os-contract-check` is a maintenance aid after Agent OS maps, tool rows, index rows, semantic-layer rows, scripts, or generated artifact locations change. It checks alignment; it does not prove semantic correctness."
     },
@@ -8529,11 +8811,88 @@
       "nearby": "writeFileSync(outPath, `${JSON.stringify(artifact, null, 2)}\\n`, \"utf8\");"
     },
     {
+      "value": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 56,
+      "category": "string",
+      "nearby": "pathReference: \"Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.\","
+    },
+    {
       "value": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "file": "tool-implementations/_lib/index-runner.ts",
-      "line": 60,
+      "line": 62,
       "category": "string",
       "nearby": "freshnessPolicy: \"Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.\","
+    },
+    {
+      "value": "source-state",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 72,
+      "category": "string",
+      "nearby": "if (typeof args.flags[\"source-state\"] === \"string\") {"
+    },
+    {
+      "value": "string",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 72,
+      "category": "string",
+      "nearby": "if (typeof args.flags[\"source-state\"] === \"string\") {"
+    },
+    {
+      "value": "source-state",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 73,
+      "category": "string",
+      "nearby": "return args.flags[\"source-state\"];"
+    },
+    {
+      "value": "commit-view",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 75,
+      "category": "string",
+      "nearby": "if (args.flags.committed || args.flags[\"commit-view\"]) {"
+    },
+    {
+      "value": "committed-baseline",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 76,
+      "category": "string",
+      "nearby": "return \"committed-baseline\";"
+    },
+    {
+      "value": "string",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 78,
+      "category": "string",
+      "nearby": "if (typeof args.flags.mode === \"string\") {"
+    },
+    {
+      "value": "working-tree",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 81,
+      "category": "string",
+      "nearby": "return \"working-tree\";"
+    },
+    {
+      "value": "source-revision",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 85,
+      "category": "string",
+      "nearby": "if (typeof args.flags[\"source-revision\"] === \"string\") {"
+    },
+    {
+      "value": "string",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 85,
+      "category": "string",
+      "nearby": "if (typeof args.flags[\"source-revision\"] === \"string\") {"
+    },
+    {
+      "value": "source-revision",
+      "file": "tool-implementations/_lib/index-runner.ts",
+      "line": 86,
+      "category": "string",
+      "nearby": "return args.flags[\"source-revision\"];"
     },
     {
       "value": "node:fs",
@@ -9089,156 +9448,184 @@
       "nearby": "const artifactPath = path.resolve(root, \"tool-maintained-files\", \"indexes\", `${indexId}.json`);"
     },
     {
-      "value": "build-${indexId}",
+      "value": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 221,
+      "category": "string",
+      "nearby": "pathReference: \"Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.\","
+    },
+    {
+      "value": "missing-index",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
       "line": 222,
+      "category": "string",
+      "nearby": "sourceState: \"missing-index\","
+    },
+    {
+      "value": "build-${indexId}",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 224,
       "category": "string",
       "nearby": "producer: `build-${indexId}`,"
     },
     {
       "value": "Missing index.",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 225,
+      "line": 227,
       "category": "string",
       "nearby": "freshnessPolicy: \"Missing index.\","
     },
     {
       "value": "unknown",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 226,
+      "line": 228,
       "category": "string",
       "nearby": "coverage: \"unknown\","
     },
     {
       "value": "build-${indexId}",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 231,
+      "line": 233,
       "category": "string",
       "nearby": "maintainedBy: `build-${indexId}`,"
     },
     {
       "value": "npx --yes tsx tool-implementations/indexes/build-${indexId}.ts --json",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 233,
+      "line": 235,
       "category": "string",
       "nearby": "refreshCommand: `npx --yes tsx tool-implementations/indexes/build-${indexId}.ts --json`,"
     },
     {
       "value": "npx --yes tsx tool-implementations/indexes/build-${indexId}.ts --check --json",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 234,
+      "line": 236,
       "category": "string",
       "nearby": "checkCommand: `npx --yes tsx tool-implementations/indexes/build-${indexId}.ts --check --json`,"
     },
     {
       "value": "record-count",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 236,
+      "line": 238,
       "category": "string",
       "nearby": "strategy: \"record-count\","
     },
     {
       "value": "missing-index",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 242,
+      "line": 244,
       "category": "string",
       "nearby": "status: \"missing-index\","
     },
     {
       "value": "Build the index before using semantic retrieval metadata.",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 245,
+      "line": 247,
       "category": "string",
       "nearby": "deterministicPath: \"Build the index before using semantic retrieval metadata.\","
     },
     {
       "value": "Missing indexes provide no boot-safe semantic metadata.",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 246,
+      "line": 248,
       "category": "string",
       "nearby": "bootPolicy: \"Missing indexes provide no boot-safe semantic metadata.\","
     },
     {
       "value": "object",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 255,
+      "line": 257,
       "category": "string",
       "nearby": "json.maintenance && typeof json.maintenance === \"object\""
     },
     {
       "value": "build-${indexId}",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 259,
+      "line": 261,
       "category": "string",
       "nearby": "maintainedBy: String(json.producer || `build-${indexId}`),"
     },
     {
       "value": "npx --yes tsx tool-implementations/indexes/${String(json.producer || ",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 261,
+      "line": 263,
       "category": "string",
       "nearby": "refreshCommand: `npx --yes tsx tool-implementations/indexes/${String(json.producer || `build-${indexId}`)}.ts --json`,"
     },
     {
       "value": ")}.ts --json",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 261,
+      "line": 263,
       "category": "string",
       "nearby": "refreshCommand: `npx --yes tsx tool-implementations/indexes/${String(json.producer || `build-${indexId}`)}.ts --json`,"
     },
     {
       "value": "npx --yes tsx tool-implementations/indexes/${String(json.producer || ",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 262,
+      "line": 264,
       "category": "string",
       "nearby": "checkCommand: `npx --yes tsx tool-implementations/indexes/${String(json.producer || `build-${indexId}`)}.ts --check --json`,"
     },
     {
       "value": ")}.ts --check --json",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 262,
+      "line": 264,
       "category": "string",
       "nearby": "checkCommand: `npx --yes tsx tool-implementations/indexes/${String(json.producer || `build-${indexId}`)}.ts --check --json`,"
     },
     {
       "value": "legacy-unsharded",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 264,
+      "line": 266,
       "category": "string",
       "nearby": "strategy: \"legacy-unsharded\","
     },
     {
       "value": "legacy-metadata-missing",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 270,
+      "line": 272,
       "category": "string",
       "nearby": "status: \"legacy-metadata-missing\","
     },
     {
       "value": "Regenerate this index to add deterministic maintenance metadata.",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 273,
+      "line": 275,
       "category": "string",
       "nearby": "deterministicPath: \"Regenerate this index to add deterministic maintenance metadata.\","
     },
     {
       "value": "Legacy indexes should not be treated as semantic retrieval substrates.",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 274,
+      "line": 276,
       "category": "string",
       "nearby": "bootPolicy: \"Legacy indexes should not be treated as semantic retrieval substrates.\","
     },
     {
+      "value": "Paths are relative to the Agent OS root.",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 293,
+      "category": "string",
+      "nearby": "pathReference: String(json.pathReference || \"Paths are relative to the Agent OS root.\"),"
+    },
+    {
+      "value": "working-tree",
+      "file": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 294,
+      "category": "string",
+      "nearby": "sourceState: String(json.sourceState || \"working-tree\"),"
+    },
+    {
       "value": "string",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 291,
+      "line": 295,
       "category": "string",
       "nearby": "sourceRevision: typeof json.sourceRevision === \"string\" ? json.sourceRevision : null,"
     },
     {
       "value": "build-${indexId}",
       "file": "tool-implementations/_lib/operators/query-runner.ts",
-      "line": 292,
+      "line": 296,
       "category": "string",
       "nearby": "producer: String(json.producer || `build-${indexId}`),"
     },
@@ -9408,7 +9795,7 @@
       "file": "tool-implementations/_lib/records/change-records.ts",
       "line": 3,
       "category": "string",
-      "nearby": "import type { FileRecord } from \"../types.ts\";"
+      "nearby": "import type { FileRecord, ParsedArgs } from \"../types.ts\";"
     },
     {
       "value": "../artifacts.ts",
@@ -9434,86 +9821,100 @@
     {
       "value": "status",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 9,
+      "line": 13,
       "category": "string",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
     {
       "value": "--short",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 9,
+      "line": 13,
       "category": "string",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
     {
       "value": "--untracked-files=all",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 9,
+      "line": 13,
       "category": "string",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
     {
       "value": "modified",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 14,
+      "line": 18,
       "category": "string",
       "nearby": "const status = line.slice(0, 2).trim() || \"modified\";"
     },
     {
       "value": "$/g, ",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 15,
+      "line": 19,
       "category": "string",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
     {
       "value": "git-status",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 20,
+      "line": 24,
       "category": "string",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
     {
       "value": "diff",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 23,
+      "line": 27,
       "category": "string",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
     {
       "value": "--name-only",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 23,
+      "line": 27,
       "category": "string",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
     {
       "value": "diff",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 32,
+      "line": 36,
       "category": "string",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
     {
       "value": "git-diff",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 32,
+      "line": 36,
       "category": "string",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
     {
       "value": "${rootName}/",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 43,
+      "line": 47,
       "category": "string",
       "nearby": "const prefixed = `${rootName}/`;"
     },
     {
       "value": "../",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 51,
+      "line": 55,
       "category": "string",
       "nearby": "if (!relativePath || relativePath.startsWith(\"../\") || path.isAbsolute(relativePath)) {"
+    },
+    {
+      "value": "commit-view",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 65,
+      "category": "string",
+      "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
+    },
+    {
+      "value": "committed",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 65,
+      "category": "string",
+      "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
     {
       "value": "../types.ts",
@@ -9929,37 +10330,30 @@
       "nearby": "import { hasGeneratedHint, inferArtifactKind } from \"../artifacts.ts\";"
     },
     {
-      "value": "../text-utils.ts",
-      "file": "tool-implementations/_lib/records/path-records.ts",
-      "line": 4,
-      "category": "string",
-      "nearby": "import { normalizePath } from \"../text-utils.ts\";"
-    },
-    {
       "value": ", kind: ",
       "file": "tool-implementations/_lib/records/path-records.ts",
-      "line": 18,
+      "line": 17,
       "category": "string",
       "nearby": "const existing = dirs.get(dirPath) || { path: dirPath || \".\", kind: \"directory\", fileCount: 0, childDirs: new Set<string>() };"
     },
     {
       "value": " ? ",
       "file": "tool-implementations/_lib/records/path-records.ts",
-      "line": 32,
+      "line": 31,
       "category": "string",
       "nearby": "area: dir.path === \".\" ? \".\" : dir.path.split(\"/\")[0],"
     },
     {
       "value": " : dir.path.split(",
       "file": "tool-implementations/_lib/records/path-records.ts",
-      "line": 32,
+      "line": 31,
       "category": "string",
       "nearby": "area: dir.path === \".\" ? \".\" : dir.path.split(\"/\")[0],"
     },
     {
       "value": ")[0] || ",
       "file": "tool-implementations/_lib/records/path-records.ts",
-      "line": 40,
+      "line": 39,
       "category": "string",
       "nearby": "area: file.path.split(\"/\")[0] || \".\","
     },
@@ -11046,7 +11440,7 @@
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
       "line": 1,
       "category": "string",
-      "nearby": "import { existsSync, readFileSync } from \"node:fs\";"
+      "nearby": "import { existsSync, readFileSync, readdirSync } from \"node:fs\";"
     },
     {
       "value": "node:path",
@@ -11107,987 +11501,1092 @@
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 22,
+      "line": 23,
       "category": "status-like",
       "nearby": "const errors = findings.filter((finding) => finding.severity === \"error\");"
     },
     {
       "value": "agent-os-contract-check",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 24,
+      "line": 25,
       "category": "string",
       "nearby": "checkId: \"agent-os-contract-check\","
     },
     {
       "value": "Agent OS maps, semantic files, scripts, or generated artifacts are out of sync.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 30,
+      "line": 31,
       "category": "string",
       "nearby": "inferredRisk: errors.length > 0 ? [\"Agent OS maps, semantic files, scripts, or generated artifacts are out of sync.\"] : [],"
     },
     {
       "value": "Repair the missing or mismatched contract surface, then rerun this check.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 33,
+      "line": 34,
       "category": "string",
       "nearby": "? [\"Repair the missing or mismatched contract surface, then rerun this check.\"]"
     },
     {
       "value": "Rerun after changing Agent OS maps, tool contracts, index builders, or semantic-layer contracts.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 34,
+      "line": 35,
       "category": "string",
       "nearby": ": [\"Rerun after changing Agent OS maps, tool contracts, index builders, or semantic-layer contracts.\"],"
     },
     {
       "value": "warning",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 35,
+      "line": 36,
       "category": "status-like",
       "nearby": "warnings: findings.filter((finding) => finding.severity === \"warning\").map((finding) => finding.message),"
     },
     {
       "value": "This check verifies structural contract alignment only.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 37,
+      "line": 38,
       "category": "string",
       "nearby": "\"This check verifies structural contract alignment only.\","
     },
     {
       "value": "It does not prove semantic correctness of prompt guidance, builder records, or operator ranking.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 38,
+      "line": 39,
       "category": "string",
       "nearby": "\"It does not prove semantic correctness of prompt guidance, builder records, or operator ranking.\","
     },
     {
       "value": "${JSON.stringify(result, null, 2)}\\n",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 43,
+      "line": 44,
       "category": "string",
       "nearby": "process.stdout.write(`${JSON.stringify(result, null, 2)}\\n`);"
     },
     {
       "value": "JSON",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 43,
+      "line": 44,
       "category": "token-like",
       "nearby": "process.stdout.write(`${JSON.stringify(result, null, 2)}\\n`);"
     },
     {
       "value": "agent-os-contract-check: ${result.passed ? ",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 45,
+      "line": 46,
       "category": "string",
       "nearby": "process.stdout.write(`agent-os-contract-check: ${result.passed ? \"passed\" : \"failed\"}\\n`);"
     },
     {
       "value": " : ",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 45,
+      "line": 46,
       "category": "string",
       "nearby": "process.stdout.write(`agent-os-contract-check: ${result.passed ? \"passed\" : \"failed\"}\\n`);"
     },
     {
       "value": "}\\n",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 45,
+      "line": 46,
       "category": "string",
       "nearby": "process.stdout.write(`agent-os-contract-check: ${result.passed ? \"passed\" : \"failed\"}\\n`);"
     },
     {
       "value": "- ${finding.severity}: ${finding.surface}: ${finding.message}\\n",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 47,
+      "line": 48,
       "category": "string",
       "nearby": "process.stdout.write(`- ${finding.severity}: ${finding.surface}: ${finding.message}\\n`);"
     },
     {
       "value": "prompt-files/tools/index-map.md",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 56,
+      "line": 57,
       "category": "string",
       "nearby": "const indexMapPath = \"prompt-files/tools/index-map.md\";"
     },
     {
       "value": "tool-maintained-files",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 59,
+      "line": 60,
       "category": "string",
       "nearby": "const manifest = readJsonIfExists(path.join(root, \"tool-maintained-files\", \"indexes\", \"index-manifest.json\")) as"
     },
     {
       "value": "indexes",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 59,
+      "line": 60,
       "category": "string",
       "nearby": "const manifest = readJsonIfExists(path.join(root, \"tool-maintained-files\", \"indexes\", \"index-manifest.json\")) as"
     },
     {
       "value": "index-manifest.json",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 59,
+      "line": 60,
       "category": "string",
       "nearby": "const manifest = readJsonIfExists(path.join(root, \"tool-maintained-files\", \"indexes\", \"index-manifest.json\")) as"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 65,
+      "line": 66,
       "category": "status-like",
       "nearby": "add(\"error\", \"index-manifest\", \"Missing or unparsable tool-maintained-files/indexes/index-manifest.json.\");"
     },
     {
       "value": "index-manifest",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 65,
+      "line": 66,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", \"Missing or unparsable tool-maintained-files/indexes/index-manifest.json.\");"
     },
     {
       "value": "Missing or unparsable tool-maintained-files/indexes/index-manifest.json.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 65,
+      "line": 66,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", \"Missing or unparsable tool-maintained-files/indexes/index-manifest.json.\");"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 67,
+      "line": 68,
       "category": "status-like",
       "nearby": "add(\"error\", \"index-manifest\", \"index-manifest artifact schemaVersion should be 2.\");"
     },
     {
       "value": "index-manifest",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 67,
+      "line": 68,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", \"index-manifest artifact schemaVersion should be 2.\");"
     },
     {
       "value": "index-manifest artifact schemaVersion should be 2.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 67,
+      "line": 68,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", \"index-manifest artifact schemaVersion should be 2.\");"
     },
     {
       "value": "ACTIVE_INDEX_CATALOG",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 70,
+      "line": 71,
       "category": "token-like",
       "nearby": "for (const entry of ACTIVE_INDEX_CATALOG) {"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 72,
+      "line": 73,
       "category": "status-like",
       "nearby": "add(\"error\", \"index-map\", `Missing active index row for ${entry.indexId}.`);"
     },
     {
       "value": "index-map",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 72,
+      "line": 73,
       "category": "string",
       "nearby": "add(\"error\", \"index-map\", `Missing active index row for ${entry.indexId}.`);"
     },
     {
       "value": "Missing active index row for ${entry.indexId}.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 72,
+      "line": 73,
       "category": "string",
       "nearby": "add(\"error\", \"index-map\", `Missing active index row for ${entry.indexId}.`);"
     },
     {
       "value": "${entry.indexId} semantic file",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 74,
+      "line": 75,
       "category": "string",
       "nearby": "expectFile(entry.semanticFile, `${entry.indexId} semantic file`);"
     },
     {
       "value": "tool-implementations/indexes/${entry.builder}.ts",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 75,
+      "line": 76,
       "category": "string",
       "nearby": "expectFile(`tool-implementations/indexes/${entry.builder}.ts`, `${entry.indexId} builder`);"
     },
     {
       "value": "${entry.indexId} builder",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 75,
+      "line": 76,
       "category": "string",
       "nearby": "expectFile(`tool-implementations/indexes/${entry.builder}.ts`, `${entry.indexId} builder`);"
     },
     {
       "value": "${entry.indexId} artifact",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 76,
+      "line": 77,
       "category": "string",
       "nearby": "expectFile(entry.artifactPath, `${entry.indexId} artifact`);"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 80,
+      "line": 81,
       "category": "status-like",
       "nearby": "add(\"error\", \"index-manifest\", `Missing manifest record for ${entry.indexId}.`);"
     },
     {
       "value": "index-manifest",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 80,
+      "line": 81,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", `Missing manifest record for ${entry.indexId}.`);"
     },
     {
       "value": "Missing manifest record for ${entry.indexId}.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 80,
+      "line": 81,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", `Missing manifest record for ${entry.indexId}.`);"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 84,
+      "line": 85,
       "category": "status-like",
       "nearby": "add(\"error\", \"index-manifest\", `${entry.indexId} tier mismatch: manifest has ${String(manifestRow.tier)}; catalog has ${entry.tier}.`);"
     },
     {
       "value": "index-manifest",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 84,
+      "line": 85,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", `${entry.indexId} tier mismatch: manifest has ${String(manifestRow.tier)}; catalog has ${entry.tier}.`);"
     },
     {
       "value": "${entry.indexId} tier mismatch: manifest has ${String(manifestRow.tier)}; catalog has ${entry.tier}.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 84,
+      "line": 85,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", `${entry.indexId} tier mismatch: manifest has ${String(manifestRow.tier)}; catalog has ${entry.tier}.`);"
     },
     {
       "value": "index-manifest",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 86,
+      "line": 87,
       "category": "string",
       "nearby": "if (entry.indexId === \"index-manifest\" && manifestRow.schemaVersion !== 2) {"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 87,
+      "line": 88,
       "category": "status-like",
       "nearby": "add(\"error\", \"index-manifest\", \"index-manifest self-row schemaVersion should be 2.\");"
     },
     {
       "value": "index-manifest",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 87,
+      "line": 88,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", \"index-manifest self-row schemaVersion should be 2.\");"
     },
     {
       "value": "index-manifest self-row schemaVersion should be 2.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 87,
+      "line": 88,
       "category": "string",
       "nearby": "add(\"error\", \"index-manifest\", \"index-manifest self-row schemaVersion should be 2.\");"
     },
     {
       "value": "build-all-indexes",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 91,
+      "line": 92,
       "category": "string",
       "nearby": "if (!indexMapIds.has(\"build-all-indexes\")) {"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 92,
+      "line": 93,
       "category": "status-like",
       "nearby": "add(\"error\", \"index-map\", \"Missing build-all-indexes maintenance command row.\");"
     },
     {
       "value": "index-map",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 92,
+      "line": 93,
       "category": "string",
       "nearby": "add(\"error\", \"index-map\", \"Missing build-all-indexes maintenance command row.\");"
     },
     {
       "value": "Missing build-all-indexes maintenance command row.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 92,
+      "line": 93,
       "category": "string",
       "nearby": "add(\"error\", \"index-map\", \"Missing build-all-indexes maintenance command row.\");"
     },
     {
       "value": "prompt-files/tools/indexes/build-all-indexes.md",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 94,
+      "line": 95,
       "category": "string",
       "nearby": "expectFile(\"prompt-files/tools/indexes/build-all-indexes.md\", \"build-all-indexes semantic file\");"
     },
     {
       "value": "build-all-indexes semantic file",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 94,
+      "line": 95,
       "category": "string",
       "nearby": "expectFile(\"prompt-files/tools/indexes/build-all-indexes.md\", \"build-all-indexes semantic file\");"
     },
     {
       "value": "tool-implementations/indexes/build-all-indexes.ts",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 95,
+      "line": 96,
       "category": "string",
       "nearby": "expectFile(\"tool-implementations/indexes/build-all-indexes.ts\", \"build-all-indexes script\");"
     },
     {
       "value": "build-all-indexes script",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 95,
+      "line": 96,
       "category": "string",
       "nearby": "expectFile(\"tool-implementations/indexes/build-all-indexes.ts\", \"build-all-indexes script\");"
     },
     {
       "value": "prompt-files/tools/tool-map.md",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 99,
+      "line": 100,
       "category": "string",
       "nearby": "const toolMap = readText(\"prompt-files/tools/tool-map.md\");"
     },
     {
       "value": "-query",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 100,
+      "line": 101,
       "category": "string",
       "nearby": "const toolIds = Array.from(parseBacktickedIds(toolMap)).filter((id) => id.endsWith(\"-query\") || id === \"retrieve-slice\");"
     },
     {
       "value": "retrieve-slice",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 100,
+      "line": 101,
       "category": "string",
       "nearby": "const toolIds = Array.from(parseBacktickedIds(toolMap)).filter((id) => id.endsWith(\"-query\") || id === \"retrieve-slice\");"
     },
     {
       "value": "prompt-files/tools/operators/${toolId}.md",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 102,
+      "line": 103,
       "category": "string",
       "nearby": "expectFile(`prompt-files/tools/operators/${toolId}.md`, `${toolId} semantic file`);"
     },
     {
       "value": "${toolId} semantic file",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 102,
+      "line": 103,
       "category": "string",
       "nearby": "expectFile(`prompt-files/tools/operators/${toolId}.md`, `${toolId} semantic file`);"
     },
     {
       "value": "tool-implementations/operators/${toolId}.ts",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 103,
+      "line": 104,
       "category": "string",
       "nearby": "expectFile(`tool-implementations/operators/${toolId}.ts`, `${toolId} operator script`);"
     },
     {
       "value": "${toolId} operator script",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 103,
+      "line": 104,
       "category": "string",
       "nearby": "expectFile(`tool-implementations/operators/${toolId}.ts`, `${toolId} operator script`);"
     },
     {
       "value": "prompt-files/tools/semantic-map.md",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 108,
+      "line": 109,
       "category": "string",
       "nearby": "const semanticMapPath = \"prompt-files/tools/semantic-map.md\";"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 111,
+      "line": 112,
       "category": "string",
       "nearby": "const requiredIds = [\"semantic-chunk-index\", \"build-semantic-chunk-index\", \"semantic-candidate-query\"];"
     },
     {
       "value": "build-semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 111,
+      "line": 112,
       "category": "string",
       "nearby": "const requiredIds = [\"semantic-chunk-index\", \"build-semantic-chunk-index\", \"semantic-candidate-query\"];"
     },
     {
       "value": "semantic-candidate-query",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 111,
+      "line": 112,
       "category": "string",
       "nearby": "const requiredIds = [\"semantic-chunk-index\", \"build-semantic-chunk-index\", \"semantic-candidate-query\"];"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 114,
+      "line": 115,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-map\", `Missing Phase 3 semantic-layer row or reference for ${id}.`);"
     },
     {
       "value": "semantic-map",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 114,
+      "line": 115,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-map\", `Missing Phase 3 semantic-layer row or reference for ${id}.`);"
     },
     {
       "value": "Missing Phase 3 semantic-layer row or reference for ${id}.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 114,
+      "line": 115,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-map\", `Missing Phase 3 semantic-layer row or reference for ${id}.`);"
     },
     {
       "value": "prompt-files/tools/semantic/semantic-chunk-index.md",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 118,
+      "line": 119,
       "category": "string",
       "nearby": "expectFile(\"prompt-files/tools/semantic/semantic-chunk-index.md\", \"semantic-chunk-index semantic file\");"
     },
     {
       "value": "semantic-chunk-index semantic file",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 118,
+      "line": 119,
       "category": "string",
       "nearby": "expectFile(\"prompt-files/tools/semantic/semantic-chunk-index.md\", \"semantic-chunk-index semantic file\");"
     },
     {
       "value": "tool-implementations/semantic/build-semantic-chunk-index.ts",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 119,
+      "line": 120,
       "category": "string",
       "nearby": "expectFile(\"tool-implementations/semantic/build-semantic-chunk-index.ts\", \"semantic-chunk-index builder\");"
     },
     {
       "value": "semantic-chunk-index builder",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 119,
+      "line": 120,
       "category": "string",
       "nearby": "expectFile(\"tool-implementations/semantic/build-semantic-chunk-index.ts\", \"semantic-chunk-index builder\");"
     },
     {
       "value": "tool-maintained-files/semantic/semantic-chunk-index.json",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 120,
+      "line": 121,
       "category": "string",
       "nearby": "expectFile(\"tool-maintained-files/semantic/semantic-chunk-index.json\", \"semantic-chunk-index artifact\");"
     },
     {
       "value": "semantic-chunk-index artifact",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 120,
+      "line": 121,
       "category": "string",
       "nearby": "expectFile(\"tool-maintained-files/semantic/semantic-chunk-index.json\", \"semantic-chunk-index artifact\");"
     },
     {
       "value": "prompt-files/tools/operators/semantic-candidate-query.md",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 121,
+      "line": 122,
       "category": "string",
       "nearby": "expectFile(\"prompt-files/tools/operators/semantic-candidate-query.md\", \"semantic-candidate-query semantic file\");"
     },
     {
       "value": "semantic-candidate-query semantic file",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 121,
+      "line": 122,
       "category": "string",
       "nearby": "expectFile(\"prompt-files/tools/operators/semantic-candidate-query.md\", \"semantic-candidate-query semantic file\");"
     },
     {
       "value": "tool-implementations/operators/semantic-candidate-query.ts",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 122,
+      "line": 123,
       "category": "string",
       "nearby": "expectFile(\"tool-implementations/operators/semantic-candidate-query.ts\", \"semantic-candidate-query operator script\");"
     },
     {
       "value": "semantic-candidate-query operator script",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 122,
+      "line": 123,
       "category": "string",
       "nearby": "expectFile(\"tool-implementations/operators/semantic-candidate-query.ts\", \"semantic-candidate-query operator script\");"
     },
     {
       "value": "semantic-embedding-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 125,
+      "line": 126,
       "category": "string",
       "nearby": "for (const reservedId of [\"semantic-embedding-index\", \"semantic-vector-store-manifest\"]) {"
     },
     {
       "value": "semantic-vector-store-manifest",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 125,
+      "line": 126,
       "category": "string",
       "nearby": "for (const reservedId of [\"semantic-embedding-index\", \"semantic-vector-store-manifest\"]) {"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 127,
+      "line": 128,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-map\", `Missing reserved future semantic ID ${reservedId}.`);"
     },
     {
       "value": "semantic-map",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 127,
+      "line": 128,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-map\", `Missing reserved future semantic ID ${reservedId}.`);"
     },
     {
       "value": "Missing reserved future semantic ID ${reservedId}.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 127,
+      "line": 128,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-map\", `Missing reserved future semantic ID ${reservedId}.`);"
     },
     {
       "value": "tool-maintained-files/semantic/semantic-embedding-index.json",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 131,
+      "line": 132,
       "category": "string",
       "nearby": "const embeddingArtifact = \"tool-maintained-files/semantic/semantic-embedding-index.json\";"
     },
     {
       "value": "tool-maintained-files/semantic/semantic-vector-store-manifest.json",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 132,
+      "line": 133,
       "category": "string",
       "nearby": "const vectorArtifact = \"tool-maintained-files/semantic/semantic-vector-store-manifest.json\";"
     },
     {
       "value": "warning",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 134,
+      "line": 135,
       "category": "status-like",
       "nearby": "add(\"warning\", \"semantic-layer\", `${embeddingArtifact} exists even though embeddings are not active in the current semantic map.`);"
     },
     {
       "value": "semantic-layer",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 134,
+      "line": 135,
       "category": "string",
       "nearby": "add(\"warning\", \"semantic-layer\", `${embeddingArtifact} exists even though embeddings are not active in the current semantic map.`);"
     },
     {
       "value": "${embeddingArtifact} exists even though embeddings are not active in the current semantic map.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 134,
+      "line": 135,
       "category": "string",
       "nearby": "add(\"warning\", \"semantic-layer\", `${embeddingArtifact} exists even though embeddings are not active in the current semantic map.`);"
     },
     {
       "value": "warning",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 137,
+      "line": 138,
       "category": "status-like",
       "nearby": "add(\"warning\", \"semantic-layer\", `${vectorArtifact} exists even though vector-store payloads are not active in the current semantic map.`);"
     },
     {
       "value": "semantic-layer",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 137,
+      "line": 138,
       "category": "string",
       "nearby": "add(\"warning\", \"semantic-layer\", `${vectorArtifact} exists even though vector-store payloads are not active in the current semantic map.`);"
     },
     {
       "value": "${vectorArtifact} exists even though vector-store payloads are not active in the current semantic map.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 137,
+      "line": 138,
       "category": "string",
       "nearby": "add(\"warning\", \"semantic-layer\", `${vectorArtifact} exists even though vector-store payloads are not active in the current semantic map.`);"
     },
     {
       "value": "tool-maintained-files/semantic/semantic-chunk-index.json",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 142,
+      "line": 143,
       "category": "string",
       "nearby": "const relativePath = \"tool-maintained-files/semantic/semantic-chunk-index.json\";"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 145,
+      "line": 146,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", `${relativePath} is missing or unparsable.`);"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 145,
+      "line": 146,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", `${relativePath} is missing or unparsable.`);"
     },
     {
       "value": "${relativePath} is missing or unparsable.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 145,
+      "line": 146,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", `${relativePath} is missing or unparsable.`);"
     },
     {
       "value": "object",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 150,
+      "line": 151,
       "category": "string",
       "nearby": "const maintenance = artifact.maintenance && typeof artifact.maintenance === \"object\" ? (artifact.maintenance as Record<string, unknown>) : null;"
     },
     {
       "value": "object",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 152,
+      "line": 153,
       "category": "string",
       "nearby": "maintenance?.semanticSupport && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 155,
+      "line": 156,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"schemaVersion should be 2.\");"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 155,
+      "line": 156,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"schemaVersion should be 2.\");"
     },
     {
       "value": "schemaVersion should be 2.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 155,
+      "line": 156,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"schemaVersion should be 2.\");"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 158,
+      "line": 159,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"generated should be true.\");"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 158,
+      "line": 159,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"generated should be true.\");"
     },
     {
       "value": "generated should be true.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 158,
+      "line": 159,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"generated should be true.\");"
     },
     {
       "value": "build-semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 160,
+      "line": 161,
       "category": "string",
       "nearby": "if (artifact.producer !== \"build-semantic-chunk-index\") {"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 161,
+      "line": 162,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"producer should be build-semantic-chunk-index.\");"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 161,
+      "line": 162,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"producer should be build-semantic-chunk-index.\");"
     },
     {
       "value": "producer should be build-semantic-chunk-index.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 161,
+      "line": 162,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"producer should be build-semantic-chunk-index.\");"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 164,
+      "line": 165,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", `artifactPath should be ${relativePath}.`);"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 164,
+      "line": 165,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", `artifactPath should be ${relativePath}.`);"
     },
     {
       "value": "artifactPath should be ${relativePath}.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 164,
+      "line": 165,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", `artifactPath should be ${relativePath}.`);"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 167,
+      "line": 168,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"recordCount should match records length.\");"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 167,
+      "line": 168,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"recordCount should match records length.\");"
     },
     {
       "value": "recordCount should match records length.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 167,
+      "line": 168,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"recordCount should match records length.\");"
     },
     {
       "value": "build-semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 169,
+      "line": 170,
       "category": "string",
       "nearby": "if (maintenance?.maintainedBy !== \"build-semantic-chunk-index\") {"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 170,
+      "line": 171,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"maintenance.maintainedBy should be build-semantic-chunk-index.\");"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 170,
+      "line": 171,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"maintenance.maintainedBy should be build-semantic-chunk-index.\");"
     },
     {
       "value": "maintenance.maintainedBy should be build-semantic-chunk-index.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 170,
+      "line": 171,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"maintenance.maintainedBy should be build-semantic-chunk-index.\");"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 173,
+      "line": 174,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"semanticSupport.embeddingsGenerated should remain false until embeddings are active.\");"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 173,
+      "line": 174,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"semanticSupport.embeddingsGenerated should remain false until embeddings are active.\");"
     },
     {
       "value": "semanticSupport.embeddingsGenerated should remain false until embeddings are active.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 173,
+      "line": 174,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"semanticSupport.embeddingsGenerated should remain false until embeddings are active.\");"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 176,
+      "line": 177,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"semanticSupport.vectorStoreGenerated should remain false until vector stores are active.\");"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 176,
+      "line": 177,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"semanticSupport.vectorStoreGenerated should remain false until vector stores are active.\");"
     },
     {
       "value": "semanticSupport.vectorStoreGenerated should remain false until vector stores are active.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 176,
+      "line": 177,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", \"semanticSupport.vectorStoreGenerated should remain false until vector stores are active.\");"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 181,
+      "line": 182,
       "category": "status-like",
       "nearby": "add(\"error\", \"semantic-chunk-index\", `record ${malformedRecordIndex} is missing required bounded candidate fields.`);"
     },
     {
       "value": "semantic-chunk-index",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 181,
+      "line": 182,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", `record ${malformedRecordIndex} is missing required bounded candidate fields.`);"
     },
     {
       "value": "record ${malformedRecordIndex} is missing required bounded candidate fields.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 181,
+      "line": 182,
       "category": "string",
       "nearby": "add(\"error\", \"semantic-chunk-index\", `record ${malformedRecordIndex} is missing required bounded candidate fields.`);"
     },
     {
-      "value": "string",
+      "value": "tool-maintained-files",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
       "line": 187,
+      "category": "string",
+      "nearby": "const artifactFiles = listJsonFiles(\"tool-maintained-files\");"
+    },
+    {
+      "value": ".json",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 208,
+      "category": "string",
+      "nearby": "} else if (entry.isFile() && childRelative.endsWith(\".json\")) {"
+    },
+    {
+      "value": "object",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 220,
+      "category": "string",
+      "nearby": "if (!value || typeof value !== \"object\") {"
+    },
+    {
+      "value": "absolutePath",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 226,
+      "category": "string",
+      "nearby": "if (key === \"absolutePath\") {"
+    },
+    {
+      "value": "error",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 227,
+      "category": "status-like",
+      "nearby": "add(\"error\", surface, `Generated artifact contains absolutePath at ${nextPath.join(\".\")}. Use Agent OS root-relative paths instead.`);"
+    },
+    {
+      "value": "Generated artifact contains absolutePath at ${nextPath.join(",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 227,
+      "category": "string",
+      "nearby": "add(\"error\", surface, `Generated artifact contains absolutePath at ${nextPath.join(\".\")}. Use Agent OS root-relative paths instead.`);"
+    },
+    {
+      "value": ")}. Use Agent OS root-relative paths instead.",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 227,
+      "category": "string",
+      "nearby": "add(\"error\", surface, `Generated artifact contains absolutePath at ${nextPath.join(\".\")}. Use Agent OS root-relative paths instead.`);"
+    },
+    {
+      "value": "string",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 229,
+      "category": "string",
+      "nearby": "if (typeof entry === \"string\" && looksLikeAbsoluteLocalPath(entry) && shouldCheckAbsolutePathValue(key)) {"
+    },
+    {
+      "value": "error",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 230,
+      "category": "status-like",
+      "nearby": "add(\"error\", surface, `Generated artifact contains local absolute path at ${nextPath.join(\".\")}. Use Agent OS root-relative paths instead.`);"
+    },
+    {
+      "value": "Generated artifact contains local absolute path at ${nextPath.join(",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 230,
+      "category": "string",
+      "nearby": "add(\"error\", surface, `Generated artifact contains local absolute path at ${nextPath.join(\".\")}. Use Agent OS root-relative paths instead.`);"
+    },
+    {
+      "value": ")}. Use Agent OS root-relative paths instead.",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 230,
+      "category": "string",
+      "nearby": "add(\"error\", surface, `Generated artifact contains local absolute path at ${nextPath.join(\".\")}. Use Agent OS root-relative paths instead.`);"
+    },
+    {
+      "value": "text",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 237,
+      "category": "string",
+      "nearby": "return ![\"text\", \"excerpt\", \"nearby\", \"detail\"].includes(key);"
+    },
+    {
+      "value": "excerpt",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 237,
+      "category": "string",
+      "nearby": "return ![\"text\", \"excerpt\", \"nearby\", \"detail\"].includes(key);"
+    },
+    {
+      "value": "nearby",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 237,
+      "category": "string",
+      "nearby": "return ![\"text\", \"excerpt\", \"nearby\", \"detail\"].includes(key);"
+    },
+    {
+      "value": "detail",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 237,
+      "category": "string",
+      "nearby": "return ![\"text\", \"excerpt\", \"nearby\", \"detail\"].includes(key);"
+    },
+    {
+      "value": "string",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 246,
       "category": "string",
       "nearby": "typeof record.chunkId === \"string\" &&"
     },
     {
       "value": "string",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 188,
+      "line": 247,
       "category": "string",
       "nearby": "typeof record.file === \"string\" &&"
     },
     {
       "value": "number",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 189,
+      "line": 248,
       "category": "string",
       "nearby": "typeof record.startLine === \"number\" &&"
     },
     {
       "value": "number",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 190,
+      "line": 249,
       "category": "string",
       "nearby": "typeof record.endLine === \"number\" &&"
     },
     {
       "value": "number",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 191,
+      "line": 250,
       "category": "string",
       "nearby": "typeof record.lineCount === \"number\" &&"
     },
     {
       "value": "string",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 192,
+      "line": 251,
       "category": "string",
       "nearby": "typeof record.chunkHash === \"string\" &&"
     },
     {
       "value": "string",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 193,
+      "line": 252,
       "category": "string",
       "nearby": "typeof record.surface === \"string\" &&"
     },
     {
       "value": "string",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 195,
+      "line": 254,
       "category": "string",
       "nearby": "typeof record.excerpt === \"string\" &&"
     },
     {
       "value": "string",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 196,
+      "line": 255,
       "category": "string",
       "nearby": "typeof record.text === \"string\" &&"
     },
     {
       "value": "not-generated",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 197,
+      "line": 256,
       "category": "string",
       "nearby": "record.embeddingStatus === \"not-generated\" &&"
     },
     {
       "value": "not-generated",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 198,
+      "line": 257,
       "category": "string",
       "nearby": "record.vectorStatus === \"not-generated\""
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 205,
+      "line": 264,
       "category": "status-like",
       "nearby": "add(\"error\", relativePath, \"Missing file.\");"
     },
     {
       "value": "Missing file.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 205,
+      "line": 264,
       "category": "string",
       "nearby": "add(\"error\", relativePath, \"Missing file.\");"
     },
     {
       "value": "utf8",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 208,
+      "line": 267,
       "category": "string",
       "nearby": "return readFileSync(absolutePath, \"utf8\");"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 213,
+      "line": 272,
       "category": "status-like",
       "nearby": "add(\"error\", label, `Missing ${relativePath}.`);"
     },
     {
       "value": "Missing ${relativePath}.",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 213,
+      "line": 272,
       "category": "string",
       "nearby": "add(\"error\", label, `Missing ${relativePath}.`);"
     },
     {
       "value": "([^",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 227,
+      "line": 286,
       "category": "string",
       "nearby": "for (const match of line.matchAll(/`([^`]+)`/g)) {"
     },
     {
       "value": "error",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 234,
+      "line": 293,
       "category": "status-like",
       "nearby": "function add(severity: \"error\" | \"warning\", surface: string, message: string): void {"
     },
     {
       "value": "warning",
       "file": "tool-implementations/checks/check-agent-os-contracts.ts",
-      "line": 234,
+      "line": 293,
       "category": "status-like",
       "nearby": "function add(severity: \"error\" | \"warning\", surface: string, message: string): void {"
     },
@@ -12204,170 +12703,191 @@
       "nearby": "import { normalizePath } from \"../_lib/text-utils.ts\";"
     },
     {
+      "value": "commit-view",
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 11,
+      "category": "string",
+      "nearby": "const commitView = Boolean(args.flags[\"commit-view\"] || args.flags.committed);"
+    },
+    {
       "value": "${builder}.ts",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 12,
+      "line": 13,
       "category": "string",
       "nearby": "const builders = activeIndexBuildersInMaintenanceOrder().map((builder) => `${builder}.ts`);"
     },
     {
       "value": "build-all-indexes",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 20,
+      "line": 21,
       "category": "string",
       "nearby": "builder: \"build-all-indexes\","
     },
     {
       "value": "all-indexes",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 21,
+      "line": 22,
       "category": "string",
       "nearby": "indexId: \"all-indexes\","
     },
     {
       "value": "tool-maintained-files/indexes",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 22,
+      "line": 23,
       "category": "string",
       "nearby": "artifactPath: \"tool-maintained-files/indexes\","
     },
     {
       "value": "One or more index builders failed.",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 29,
+      "line": 32,
       "category": "string",
-      "nearby": "warnings: failed ? [\"One or more index builders failed.\"] : [],"
+      "nearby": "...(failed ? [\"One or more index builders failed.\"] : []),"
     },
     {
       "value": "--yes",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 40,
+      "line": 47,
       "category": "string",
       "nearby": "const builderArgs = [\"--yes\", \"tsx\", scriptPath, \"--root\", root, \"--json\"];"
     },
     {
       "value": "tsx",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 40,
+      "line": 47,
       "category": "string",
       "nearby": "const builderArgs = [\"--yes\", \"tsx\", scriptPath, \"--root\", root, \"--json\"];"
     },
     {
       "value": "--root",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 40,
+      "line": 47,
       "category": "string",
       "nearby": "const builderArgs = [\"--yes\", \"tsx\", scriptPath, \"--root\", root, \"--json\"];"
     },
     {
       "value": "--json",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 40,
+      "line": 47,
       "category": "string",
       "nearby": "const builderArgs = [\"--yes\", \"tsx\", scriptPath, \"--root\", root, \"--json\"];"
     },
     {
       "value": "--check",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 42,
+      "line": 49,
       "category": "string",
       "nearby": "builderArgs.push(\"--check\");"
     },
     {
+      "value": "build-change-index.ts",
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 51,
+      "category": "string",
+      "nearby": "if (commitView && builder === \"build-change-index.ts\") {"
+    },
+    {
+      "value": "--commit-view",
+      "file": "tool-implementations/indexes/build-all-indexes.ts",
+      "line": 52,
+      "category": "string",
+      "nearby": "builderArgs.push(\"--commit-view\");"
+    },
+    {
       "value": "win32",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 44,
+      "line": 54,
       "category": "string",
       "nearby": "const command = process.platform === \"win32\" ? \"cmd.exe\" : \"npx\";"
     },
     {
       "value": "cmd.exe",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 44,
+      "line": 54,
       "category": "string",
       "nearby": "const command = process.platform === \"win32\" ? \"cmd.exe\" : \"npx\";"
     },
     {
       "value": "npx",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 44,
+      "line": 54,
       "category": "string",
       "nearby": "const command = process.platform === \"win32\" ? \"cmd.exe\" : \"npx\";"
     },
     {
       "value": "win32",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 45,
+      "line": 55,
       "category": "string",
       "nearby": "const commandArgs = process.platform === \"win32\" ? [\"/d\", \"/s\", \"/c\", \"npx\", ...builderArgs] : builderArgs;"
     },
     {
       "value": "/d",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 45,
+      "line": 55,
       "category": "string",
       "nearby": "const commandArgs = process.platform === \"win32\" ? [\"/d\", \"/s\", \"/c\", \"npx\", ...builderArgs] : builderArgs;"
     },
     {
       "value": "/s",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 45,
+      "line": 55,
       "category": "string",
       "nearby": "const commandArgs = process.platform === \"win32\" ? [\"/d\", \"/s\", \"/c\", \"npx\", ...builderArgs] : builderArgs;"
     },
     {
       "value": "/c",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 45,
+      "line": 55,
       "category": "string",
       "nearby": "const commandArgs = process.platform === \"win32\" ? [\"/d\", \"/s\", \"/c\", \"npx\", ...builderArgs] : builderArgs;"
     },
     {
       "value": "npx",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 45,
+      "line": 55,
       "category": "string",
       "nearby": "const commandArgs = process.platform === \"win32\" ? [\"/d\", \"/s\", \"/c\", \"npx\", ...builderArgs] : builderArgs;"
     },
     {
       "value": "utf8",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 48,
+      "line": 58,
       "category": "string",
       "nearby": "const raw = execFileSync(command, commandArgs, { cwd: root, encoding: \"utf8\", stdio: [\"ignore\", \"pipe\", \"pipe\"] });"
     },
     {
       "value": "ignore",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 48,
+      "line": 58,
       "category": "string",
       "nearby": "const raw = execFileSync(command, commandArgs, { cwd: root, encoding: \"utf8\", stdio: [\"ignore\", \"pipe\", \"pipe\"] });"
     },
     {
       "value": "pipe",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 48,
+      "line": 58,
       "category": "string",
       "nearby": "const raw = execFileSync(command, commandArgs, { cwd: root, encoding: \"utf8\", stdio: [\"ignore\", \"pipe\", \"pipe\"] });"
     },
     {
       "value": "pipe",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 48,
+      "line": 58,
       "category": "string",
       "nearby": "const raw = execFileSync(command, commandArgs, { cwd: root, encoding: \"utf8\", stdio: [\"ignore\", \"pipe\", \"pipe\"] });"
     },
     {
       "value": "JSON",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 49,
+      "line": 59,
       "category": "token-like",
       "nearby": "const parsed = JSON.parse(raw) as Record<string, unknown>;"
     },
     {
       "value": "Unknown builder failure.",
       "file": "tool-implementations/indexes/build-all-indexes.ts",
-      "line": 62,
+      "line": 72,
       "category": "string",
       "nearby": "stderr: failure.stderr || failure.message || \"Unknown builder failure.\","
     },
@@ -12477,25 +12997,18 @@
       "nearby": "artifactPath: \"tool-maintained-files/indexes/change-index.json\","
     },
     {
-      "value": "git status --short --untracked-files=all, git diff --name-only, and changed file metadata",
+      "value": "git status --short --untracked-files=all, git diff --name-only, changed file metadata, or committed-baseline mode",
       "file": "tool-implementations/indexes/build-change-index.ts",
       "line": 9,
       "category": "string",
-      "nearby": "sourceInputs: [\"git status --short --untracked-files=all, git diff --name-only, and changed file metadata\"],"
+      "nearby": "sourceInputs: [\"git status --short --untracked-files=all, git diff --name-only, changed file metadata, or committed-baseline mode\"],"
     },
     {
-      "value": "Changed files, status codes, generated/manual hints, and likely changed surfaces.",
+      "value": "Default mode reflects the current working tree and available git metadata.",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 10,
+      "line": 12,
       "category": "string",
-      "nearby": "coverage: \"Changed files, status codes, generated/manual hints, and likely changed surfaces.\","
-    },
-    {
-      "value": "Only reflects the current working tree and available git metadata.",
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 11,
-      "category": "string",
-      "nearby": "knownBlindSpots: [\"Only reflects the current working tree and available git metadata.\"],"
+      "nearby": "\"Default mode reflects the current working tree and available git metadata.\","
     },
     {
       "value": "../_lib/index-runner.ts",
@@ -12904,240 +13417,268 @@
       "nearby": "recordCount: ACTIVE_INDEX_CATALOG.length,"
     },
     {
-      "value": "Refresh when active index tiers, capabilities, artifacts, builders, or first-query guidance changes.",
+      "value": "Paths are relative to the Agent OS root; run tools from that root or pass --root.",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 40,
+      "category": "string",
+      "nearby": "pathReference: \"Paths are relative to the Agent OS root; run tools from that root or pass --root.\","
+    },
+    {
+      "value": "manifest-self-row",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 41,
+      "category": "string",
+      "nearby": "sourceState: \"manifest-self-row\","
+    },
+    {
+      "value": "Refresh when active index tiers, capabilities, artifacts, builders, or first-query guidance changes.",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 44,
       "category": "string",
       "nearby": "freshnessPolicy: \"Refresh when active index tiers, capabilities, artifacts, builders, or first-query guidance changes.\","
     },
     {
       "value": "build-index-manifest",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 44,
+      "line": 47,
       "category": "string",
       "nearby": "metadataMaintainedBy: \"build-index-manifest\","
     },
     {
       "value": "npx --yes tsx tool-implementations/indexes/build-index-manifest.ts --json",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 46,
+      "line": 49,
       "category": "string",
       "nearby": "refreshCommand: \"npx --yes tsx tool-implementations/indexes/build-index-manifest.ts --json\","
     },
     {
       "value": "npx --yes tsx tool-implementations/indexes/build-index-manifest.ts --check --json",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 47,
+      "line": 50,
       "category": "string",
       "nearby": "checkCommand: \"npx --yes tsx tool-implementations/indexes/build-index-manifest.ts --check --json\","
     },
     {
       "value": "top-level-artifact-maintenance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 49,
+      "line": 52,
       "category": "string",
       "nearby": "strategy: \"top-level-artifact-maintenance\","
     },
     {
       "value": "The manifest omits its own byte size and content hash to avoid self-referential freshness churn.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 56,
+      "line": 59,
       "category": "string",
       "nearby": "\"The manifest omits its own byte size and content hash to avoid self-referential freshness churn.\","
     },
     {
       "value": "The manifest summarizes index artifacts; it does not include raw index records.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 57,
+      "line": 60,
       "category": "string",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
     {
       "value": "Self hash intentionally omitted; validate this artifact with build-index-manifest --check --json.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 59,
+      "line": 62,
       "category": "string",
       "nearby": "freshnessWarnings: [\"Self hash intentionally omitted; validate this artifact with build-index-manifest --check --json.\"],"
     },
     {
       "value": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 68,
+      "line": 71,
       "category": "string",
       "nearby": "const maintenance = artifact && typeof artifact.maintenance === \"object\" ? (artifact.maintenance as Record<string, unknown>) : null;"
     },
     {
       "value": "boot-core",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 73,
+      "line": 76,
       "category": "string",
       "nearby": "bootloaderRole: entry.tier === \"boot-core\" ? \"boot-aware strong cue\" : \"selective cue\","
     },
     {
       "value": "boot-aware strong cue",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 73,
+      "line": 76,
       "category": "string",
       "nearby": "bootloaderRole: entry.tier === \"boot-core\" ? \"boot-aware strong cue\" : \"selective cue\","
     },
     {
       "value": "selective cue",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 73,
+      "line": 76,
       "category": "string",
       "nearby": "bootloaderRole: entry.tier === \"boot-core\" ? \"boot-aware strong cue\" : \"selective cue\","
     },
     {
       "value": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 74,
+      "line": 77,
       "category": "string",
       "nearby": "loadPolicy: \"Read manifest row at boot; query raw records only through selected tools or bounded slices.\","
     },
     {
+      "value": "Paths are relative to the Agent OS root.",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 85,
+      "category": "string",
+      "nearby": "pathReference: artifact?.pathReference ?? \"Paths are relative to the Agent OS root.\","
+    },
+    {
+      "value": "unknown",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 86,
+      "category": "string",
+      "nearby": "sourceState: artifact?.sourceState ?? \"unknown\","
+    },
+    {
       "value": "Missing artifact.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 83,
+      "line": 89,
       "category": "string",
       "nearby": "freshnessPolicy: artifact?.freshnessPolicy ?? \"Missing artifact.\","
     },
     {
       "value": "npx --yes tsx tool-implementations/indexes/${entry.builder}.ts --json",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 88,
+      "line": 94,
       "category": "string",
       "nearby": "refreshCommand: maintenance?.refreshCommand ?? `npx --yes tsx tool-implementations/indexes/${entry.builder}.ts --json`,"
     },
     {
       "value": "npx --yes tsx tool-implementations/indexes/${entry.builder}.ts --check --json",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 89,
+      "line": 95,
       "category": "string",
       "nearby": "checkCommand: maintenance?.checkCommand ?? `npx --yes tsx tool-implementations/indexes/${entry.builder}.ts --check --json`,"
     },
     {
       "value": "utf8",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 100,
+      "line": 106,
       "category": "string",
       "nearby": "const parsed = JSON.parse(readFileSync(filePath, \"utf8\"));"
     },
     {
       "value": "JSON",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 100,
+      "line": 106,
       "category": "token-like",
       "nearby": "const parsed = JSON.parse(readFileSync(filePath, \"utf8\"));"
     },
     {
       "value": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 101,
+      "line": 107,
       "category": "string",
       "nearby": "return parsed && typeof parsed === \"object\" ? (parsed as Record<string, unknown>) : null;"
     },
     {
       "value": "sha256",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 108,
+      "line": 114,
       "category": "string",
       "nearby": "return createHash(\"sha256\").update(readFileSync(filePath)).digest(\"hex\");"
     },
     {
       "value": "hex",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 108,
+      "line": 114,
       "category": "string",
       "nearby": "return createHash(\"sha256\").update(readFileSync(filePath)).digest(\"hex\");"
     },
     {
       "value": "Index artifact is missing.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 114,
+      "line": 120,
       "category": "string",
       "nearby": "warnings.push(\"Index artifact is missing.\");"
     },
     {
       "value": "Index artifact could not be parsed.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 118,
+      "line": 124,
       "category": "string",
       "nearby": "warnings.push(\"Index artifact could not be parsed.\");"
     },
     {
       "value": "Index artifact is missing generatedAt.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 122,
+      "line": 128,
       "category": "string",
       "nearby": "warnings.push(\"Index artifact is missing generatedAt.\");"
     },
     {
       "value": "Index artifact is missing sourceRevision.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 125,
+      "line": 131,
       "category": "string",
       "nearby": "warnings.push(\"Index artifact is missing sourceRevision.\");"
     },
     {
       "value": "Index artifact is missing deterministic maintenance metadata; regenerate it with its builder.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 128,
+      "line": 134,
       "category": "string",
       "nearby": "warnings.push(\"Index artifact is missing deterministic maintenance metadata; regenerate it with its builder.\");"
     },
     {
       "value": "Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 131,
+      "line": 137,
       "category": "string",
       "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
     },
     {
       "value": "HEAD",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 131,
+      "line": 137,
       "category": "token-like",
       "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
     },
     {
       "value": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
+      "line": 143,
       "category": "string",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
     {
       "value": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 140,
+      "line": 146,
       "category": "string",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
     {
       "value": "missing",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 152,
+      "line": 158,
       "category": "string",
       "nearby": "strategy: sharding?.strategy ?? \"missing\","
     },
     {
       "value": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 161,
+      "line": 167,
       "category": "string",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
     {
       "value": "metadata-ready",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 163,
+      "line": 169,
       "category": "string",
       "nearby": "status: semanticSupport?.status ?? \"metadata-ready\","
     },
     {
       "value": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 171,
+      "line": 177,
       "category": "string",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },

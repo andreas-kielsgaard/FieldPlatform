@@ -11,4 +11,4 @@ const definition: IndexDefinition = {
   knownBlindSpots: ["Artifact kind is inferred from paths and file names, not full semantic ownership."],
 };
 
-runIndexBuilder({ definition, buildRecords: ({ root, files }) => buildPathRecords(root, files) });
+runIndexBuilder({ definition, buildRecords: ({ files }) => buildPathRecords(files) });

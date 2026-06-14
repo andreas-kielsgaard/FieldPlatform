@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { parseArgs, resolveRoot } from "../_lib/cli.ts";
 import { ACTIVE_INDEX_CATALOG } from "../_lib/index-catalog.ts";
@@ -18,6 +18,7 @@ const findings: ContractFinding[] = [];
 checkActiveIndexCatalog();
 checkToolMap();
 checkSemanticLayer();
+checkGeneratedArtifactPortability();
 
 const errors = findings.filter((finding) => finding.severity === "error");
 const result = {
@@ -180,6 +181,64 @@ function validateSemanticChunkArtifact(): void {
   if (malformedRecordIndex >= 0) {
     add("error", "semantic-chunk-index", `record ${malformedRecordIndex} is missing required bounded candidate fields.`);
   }
+}
+
+function checkGeneratedArtifactPortability(): void {
+  const artifactFiles = listJsonFiles("tool-maintained-files");
+  for (const relativePath of artifactFiles) {
+    const artifact = readJsonIfExists(path.join(root, relativePath));
+    if (!artifact) {
+      continue;
+    }
+    inspectPortableValue(relativePath, artifact, []);
+  }
+}
+
+function listJsonFiles(relativeDir: string): string[] {
+  const absoluteDir = path.join(root, relativeDir);
+  if (!existsSync(absoluteDir)) {
+    return [];
+  }
+
+  const results: string[] = [];
+  for (const entry of readdirSync(absoluteDir, { withFileTypes: true })) {
+    const childRelative = normalizePath(path.join(relativeDir, entry.name));
+    if (entry.isDirectory()) {
+      results.push(...listJsonFiles(childRelative));
+    } else if (entry.isFile() && childRelative.endsWith(".json")) {
+      results.push(childRelative);
+    }
+  }
+  return results;
+}
+
+function inspectPortableValue(surface: string, value: unknown, keyPath: string[]): void {
+  if (Array.isArray(value)) {
+    value.forEach((entry, index) => inspectPortableValue(surface, entry, [...keyPath, String(index)]));
+    return;
+  }
+  if (!value || typeof value !== "object") {
+    return;
+  }
+
+  for (const [key, entry] of Object.entries(value as Record<string, unknown>)) {
+    const nextPath = [...keyPath, key];
+    if (key === "absolutePath") {
+      add("error", surface, `Generated artifact contains absolutePath at ${nextPath.join(".")}. Use Agent OS root-relative paths instead.`);
+    }
+    if (typeof entry === "string" && looksLikeAbsoluteLocalPath(entry) && shouldCheckAbsolutePathValue(key)) {
+      add("error", surface, `Generated artifact contains local absolute path at ${nextPath.join(".")}. Use Agent OS root-relative paths instead.`);
+    }
+    inspectPortableValue(surface, entry, nextPath);
+  }
+}
+
+function shouldCheckAbsolutePathValue(key: string): boolean {
+  return !["text", "excerpt", "nearby", "detail"].includes(key);
+}
+
+function looksLikeAbsoluteLocalPath(value: string): boolean {
+  return /^[A-Za-z]:[\\/]/.test(value) || /^\/(Users|home)\//.test(value);
 }
 
 function isValidSemanticChunkRecord(record: Record<string, unknown>): boolean {

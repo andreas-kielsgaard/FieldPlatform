@@ -1,0 +1,16 @@
+node_modules/
+.pnpm-store/
+
+.env
+.env.*
+!.env.example
+
+apps/web/.react-router/
+apps/web/build/
+apps/web/node_modules/
+apps/web/storybook-static/
+
+coverage/
+apps/web/playwright-report/
+apps/web/test-results/
+*.log

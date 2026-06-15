@@ -2,6 +2,20 @@
 
 Migration coordination instructions for agents working at the root of this repository.
 
+## Agent OS Activation
+
+The migrated Agent OS is now active through this root instruction file.
+
+For every non-trivial task, first load:
+
+- `Agent operating system migration/Agent OS/migration_agents.md`
+
+Treat that file as the active Agent OS bootloader while the migration remains staged. Resolve paths named by that bootloader relative to:
+
+- `Agent operating system migration/Agent OS/`
+
+The root `AGENTS.md` still owns migration safety, branch/worktree protection, pre-migration boundaries, promotion gates, migration-note handling, and migration progress reporting. If root migration rules conflict with the migrated Agent OS bootloader during the staged migration, preserve the root migration safety rule unless the user explicitly overrides it.
+
 ## Current Migration Task
 
 This root is being used to migrate the project into a new agent-aware development operating system.
@@ -38,7 +52,7 @@ Use the nearest relevant `AGENTS.md` for the area being edited:
 
 - Root `AGENTS.md`: migration coordination, root folder notes, and how to interpret nested instruction sets during the migration.
 - `Pre-migration project/AGENTS.md`: pre-migration project instructions. Use this when inspecting or editing pre-migration project content.
-- `Agent operating system migration/Agent OS/migration_agents.md`: proposed migrated repo instruction contract. This is intentionally not named `AGENTS.md` during migration so it is not automatically ingested as an active instruction file.
+- `Agent operating system migration/Agent OS/migration_agents.md`: active migrated Agent OS bootloader, loaded through this root `AGENTS.md` while the scaffold remains staged.
 
 The current user instruction always wins for the immediate task.
 

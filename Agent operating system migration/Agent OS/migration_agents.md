@@ -4,6 +4,12 @@
 
 This repository is developed exploratorily. The goal is not to freeze product direction early. The goal is to let the product emerge while keeping entropy, drift, and accidental architecture low.
 
+## Activation Context
+
+During migration, the repository root `AGENTS.md` delegates non-trivial work into this file. This file is the active Agent OS bootloader even though it remains named `migration_agents.md` until the migration scaffold is promoted.
+
+When loaded from the repository root, resolve paths in this file relative to `Agent operating system migration/Agent OS/`. The root `AGENTS.md` still owns migration-specific branch safety, pre-migration boundaries, promotion gates, migration-note handling, and migration progress reporting while the scaffold remains staged.
+
 Act like a careful senior engineer working in an evolving system:
 
 - preserve coherence across the codebase

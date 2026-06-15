@@ -238,11 +238,59 @@ Changes to active Agent OS authority surfaces, including global routing, task mo
 
 Documentation should distinguish routine project-memory updates made within an explicitly requested task from changes to the operating system's own rules. The former may be part of normal task completion when the selected mode requires it; the latter should pass through an explicit promotion gate.
 
+### Decision-Readiness Documentation
+
+When the Agent OS setup review shifts from framework hardening into project decisions, human documentation should present the remaining migration notes as a decision queue. It should distinguish notes that are framework blockers, notes that are policy choices before product development, notes that are right-timed after the application substrate exists, and notes that are historical because the active scaffold now covers them.
+
+This queue should keep old scaffold paths and retired placeholder tool names out of runtime guidance. Historical notes can remain as migration evidence, but final documentation should translate their active decisions into current Agent OS paths, skill IDs, tool IDs, project-control files, and verification gates.
+
+### Field Platform Development-Readiness Documentation
+
+Human documentation should explain how Field Platform setup decisions move from provisional Agent OS project-control files into durable application-scaffold documentation. The current scaffold already exposes `Agent OS/project-control-files/technology-architecture-map.md` and `Agent OS/project-control-files/pre-development-readiness.md` as project-control surfaces, so implementation planning should avoid creating parallel authority under `docs/agent/project-setup/` without first deciding how that folder relates to those existing control files.
+
+Once the Field Platform stack choices are accepted, documentation should cue agents to update the provisional technology architecture map before runtime scaffolding, then mirror or promote durable decisions into application documentation such as ADRs only after the application scaffold exists. Product rails such as field orientation, stewardship, reviewable relation claims, visibility/publication/review separation, account/profile separation, and ways-in should remain explicit project-control guidance until a more durable product-context authority is created.
+
+Development-readiness documentation should distinguish executable readiness from conceptual scaffold readiness for Phase 5 and beyond. The scaffold may define Docker/Postgres, Drizzle, auth, contract, Storybook, and test targets before the local machine can run every service; local prerequisites such as Docker availability should be called out explicitly before treating persistence work as ready to execute.
+
+Documentation should also distinguish a passing boundary check from complete boundary-policy coverage. When dependency-cruiser is introduced, readiness notes should identify which intended import rules are enforced, which remain prose-only, and whether small negative fixtures or rule-validation examples are needed before relying on the check as architectural protection.
+
+After Stage 4 hardening, human documentation should describe boundary enforcement as both live dependency-cruiser rules and a synthetic rule-validation script. The dependency check proves current source compliance; the synthetic validator proves selected forbidden and allowed import pairs still exercise the intended route, module-layer, UI, cross-module, unresolved-import, and Agent OS generated-artifact rules.
+
+Phase 5-9 readiness documentation should distinguish project dependency readiness from machine prerequisite readiness. The npm workspace can have Drizzle, Auth.js, Storybook, Playwright, Testing Library, Tailwind, Radix, and related entrypoints installed while local Postgres execution is still blocked until Windows WSL/Docker prerequisites are installed from an elevated session and Docker Compose can start the PostgreSQL service.
+
+After resolving the project-side Phase 5-9 gaps, human documentation should present these phases as scaffold-ready rather than feature-complete. The scaffold now has an initial Drizzle schema and generated migration, Auth.js boundary files, Zod contract surfaces, fixture validation, semantic UI primitives and Storybook stories, Vitest policy/domain tests, and Playwright public-orientation smoke tests. The remaining machine prerequisite is Docker engine availability: Docker CLI and Compose may be on PATH while Docker Desktop, WSL, and the daemon are still unavailable.
+
+Phase 5 documentation should mention the staged closure commands: `corepack pnpm docker:install-prereqs:windows` is an Administrator-only Windows helper for enabling WSL2 prerequisites and installing Docker Desktop, while `tools/scripts/install-windows-docker-prereqs-admin.bat` is the double-click/right-click Administrator entrypoint for the same setup. `tools/scripts/repair-wsl-docker-and-verify-phase5-admin.bat` is the follow-up repair path that uses the corrected optional-feature check, updates WSL, confirms `hypervisorlaunchtype`, restarts WSL and Docker Desktop, waits for the daemon, and runs `corepack pnpm phase5:verify`. `tools/scripts/start-docker-and-verify-phase5.bat` remains a lighter post-restart runner. `corepack pnpm phase5:verify` checks Docker CLI, Compose, daemon availability, starts Postgres, waits for readiness, applies Drizzle migrations, and reports Compose status. Phase 5 should not be called fully executable until `phase5:verify` passes against a running Docker daemon.
+
+The WSL/Docker repair BAT should remain a launcher over a PowerShell implementation when commands need PowerShell pipelines. Raw BAT/cmd execution can misparse commands such as `Select-String`, `Select-Object`, and `ForEach-Object`, producing misleading "not recognized" errors before the actual Docker or WSL diagnosis is reached.
+
+The Docker Desktop installer can complete while Phase 5 still remains machine-blocked if WSL optional features, WSL version, Docker's WSL distro initialization, enterprise/App Control policy, BIOS virtualization, or nested virtualization are not aligned. `phase5:verify` should report Windows virtualization diagnostics when Docker daemon startup fails, but `Win32_Processor` virtualization fields can be inconclusive when Hyper-V/VBS is already active. Treat the corrected optional-feature check, `wsl --version`, `wsl --status`, `wsl -l -v`, `bcdedit` hypervisor launch type, Docker Desktop UI state, and `docker version` together before concluding that BIOS or host-VM nested virtualization is the blocker.
+
+Phase 5 was finalized once Docker Desktop/WSL became operational and `corepack pnpm phase5:verify` passed against local PostgreSQL. Human documentation should note the PostgreSQL 18 Docker image volume convention: mount the named local volume at `/var/lib/postgresql`, not `/var/lib/postgresql/data`, so the image can create version-specific data directories such as `/var/lib/postgresql/18/docker`. A failed first boot with the old mount path may require resetting the initial local development volume before rerunning migrations.
+
+Documentation should explain that Storybook for the Field Platform uses a dedicated Storybook Vite config, not the React Router app Vite config. This avoids pulling React Router framework plugins into component preview builds while preserving Tailwind and tsconfig path resolution for UI stories.
+
+Final-phase readiness documentation should distinguish the staging workspace `agent:index` placeholder from the Agent OS index builder commands. Phase 10 should not be marked complete until the intended application/project-setup indexes have a real runnable entrypoint, the Agent OS `tsx`-based maintenance commands are executable in the prepared environment, and generated index freshness can be checked without relying on stale or pre-scaffold artifacts.
+
+### Agent OS Activation Documentation
+
+Human documentation should now explain that the root `AGENTS.md` delegates non-trivial work into `Agent operating system migration/Agent OS/migration_agents.md` while the migration remains staged. The root file still owns migration safety, branch/worktree protection, pre-migration boundaries, promotion gates, migration-note handling, and progress reporting.
+
+Documentation should call out the path-resolution rule introduced during activation: paths inside `migration_agents.md` are resolved relative to `Agent operating system migration/Agent OS/` when agents load it through the repository root.
+
 ### Git Maintenance Automation
 
 Daily git maintenance that commits and pushes work needs an explicit agent-facing routine, not only human-facing README guidance. The routine should cover branch verification, user-owned file protection, coherent commit slicing, no direct commits to `main`, relevant lightweight checks, push behavior, and completion reporting.
 
 During migration, this automation guidance can live under `Migration notes/` as root coordination material. A later migration decision should decide whether recurring git maintenance belongs in the target agent operating system as a formal maintenance-and-governance task mode, a checklist, or a local automation-only instruction.
+
+Commit-preparation documentation should explain how to separate real scaffold changes from generated or local noise. Large line counts may come from expected committed artifacts such as `pnpm-lock.yaml` and Drizzle migration metadata, while ignored local runtime artifacts such as `node_modules`, `.react-router`, `build`, `storybook-static`, Playwright reports, and test results should stay out of commits. User-owned local files such as `App.code-workspace` and external-agent scratch notes can be kept out of the commit with local Git excludes rather than by deleting or staging them.
+
+### External-Agent Agent OS Handoff
+
+Human documentation may need a compact external-agent handoff path for Agent OS discussion when the real scaffold has too many files for another agent's input window. Such a handoff should be clearly labeled as a condensed discussion artifact, not canonical source.
+
+The handoff should preserve the split between root migration safety, the real Agent OS layout, bootloader behavior, task modes, structural maintenance, skills/tools/indexes, project-control rails, and source-file provenance. It should also state which generated artifacts and implementation files were intentionally omitted so external agents do not confuse compact summaries with source-of-truth behavior.
 
 ## Open Documentation Questions
 

@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDirs": [".", "./.react-router/types"],
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "types": ["node", "vite/client"],
+    "paths": {
+      "~/*": ["./src/*", "./app/*"]
+    }
+  },
+  "include": [
+    ".react-router/types/**/*",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    "app/**/*",
+    "drizzle.config.ts",
+    "e2e/**/*.ts",
+    "playwright.config.ts",
+    "src/**/*",
+    "tests/**/*.ts",
+    "react-router.config.ts",
+    "vite.config.ts",
+    "vitest.config.ts"
+  ]
+}

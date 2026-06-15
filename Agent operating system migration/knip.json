@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "workspaces": {
+    "apps/web": {
+      "entry": ["app/root.tsx", "app/routes.ts", "app/routes/**/*.tsx", "src/**/*.ts"],
+      "project": ["app/**/*.{ts,tsx}", "src/**/*.{ts,tsx}"]
+    },
+    "tools/agent-tools": {
+      "entry": ["src/index.mjs"],
+      "project": ["src/**/*"]
+    }
+  }
+}

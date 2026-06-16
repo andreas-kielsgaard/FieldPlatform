@@ -3,6 +3,7 @@ import path from "node:path";
 import type { FileRecord, ParsedArgs } from "../types.ts";
 import { inferArtifactKind } from "../artifacts.ts";
 import { gitLines } from "../git.ts";
+import { isGeneratedToolMaintainedPath } from "../repo-files.ts";
 import { areaOf, normalizePath } from "../text-utils.ts";
 
 export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {
@@ -17,7 +18,7 @@ export function buildChangeRecords(root: string, files: FileRecord[], args?: Par
   for (const line of statusLines) {
     const status = line.slice(0, 2).trim() || "modified";
     const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^"|"$/g, ""));
-    if (!filePath || !inWorkingTree(root, filePath)) {
+    if (!filePath || isGeneratedToolMaintainedPath(filePath) || !inWorkingTree(root, filePath)) {
       continue;
     }
     changedFiles.add(filePath);
@@ -26,7 +27,7 @@ export function buildChangeRecords(root: string, files: FileRecord[], args?: Par
 
   for (const filePath of gitLines(root, ["diff", "--name-only"])) {
     const normalized = normalizeGitPath(root, filePath);
-    if (normalized && inWorkingTree(root, normalized)) {
+    if (normalized && !isGeneratedToolMaintainedPath(normalized) && inWorkingTree(root, normalized)) {
       changedFiles.add(normalized);
     }
   }

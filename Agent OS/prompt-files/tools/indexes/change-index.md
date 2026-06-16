@@ -29,6 +29,6 @@ npx --yes tsx tool-implementations/indexes/build-change-index.ts --commit-view -
 
 ## Output Boundary
 
-Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records.
+Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Commit-view output intentionally represents the committed baseline and may contain no changed-file records.
 
 The index is evidence, not semantic authority. After a commit, refresh default mode again if local uncommitted work should be represented in the local file.

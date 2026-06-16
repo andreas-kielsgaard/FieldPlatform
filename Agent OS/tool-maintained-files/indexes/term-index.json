@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T16:00:13.907Z",
+  "generatedAt": "2026-06-16T16:09:36.071Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
   "producer": "build-term-index",
   "artifactPath": "tool-maintained-files/indexes/term-index.json",
   "sourceInputs": [
@@ -19,7 +19,7 @@
   "knownBlindSpots": [
     "Term meaning and canonical status remain semantic judgments."
   ],
-  "recordCount": 38060,
+  "recordCount": 38090,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-term-index",
@@ -400,175 +400,175 @@
           "startRecord": 26000,
           "endRecordExclusive": 26500,
           "recordCount": 500,
-          "sha256": "6dabd01db621c7a2c71f2190b1e29b11d603d0d56693af093d4f8a249e976f81"
+          "sha256": "245d1762987ebe4e5c7772af0e9b502685aed557478635f937729035f4d44c68"
         },
         {
           "shardId": "records-0054",
           "startRecord": 26500,
           "endRecordExclusive": 27000,
           "recordCount": 500,
-          "sha256": "808dbd881f243540f9d648cd42d244ad3449e57ad086bdf1293c48c5d7cc9e13"
+          "sha256": "589cb419e241bbaffb3f7c0dccb90a298ecf241fd5c6c85b4613bc742b3cba74"
         },
         {
           "shardId": "records-0055",
           "startRecord": 27000,
           "endRecordExclusive": 27500,
           "recordCount": 500,
-          "sha256": "b4a06fc8415d64c511f530dcae96325eefde892f7ee910c8037cef47a335d53a"
+          "sha256": "e762afd4cd06b393d7b2f1494ac2374d293719af899e8046f85353d483f55c02"
         },
         {
           "shardId": "records-0056",
           "startRecord": 27500,
           "endRecordExclusive": 28000,
           "recordCount": 500,
-          "sha256": "ddb6f75e13f6538a84f504281c13e2b58b74173841b3238e2865b41e30b2519a"
+          "sha256": "cc7101d66102131120caa300fee704d5af6b155d1a102b7ec2dcb07a9e246ba0"
         },
         {
           "shardId": "records-0057",
           "startRecord": 28000,
           "endRecordExclusive": 28500,
           "recordCount": 500,
-          "sha256": "9c57ff1f3b8528bcd5229622f8c635deb63c0b7ff57ed3f2ce16643ded2a6799"
+          "sha256": "644af9d2a62c49b172fa42a5d8ee223d85a3aaa252e8d5770dea832c732becd2"
         },
         {
           "shardId": "records-0058",
           "startRecord": 28500,
           "endRecordExclusive": 29000,
           "recordCount": 500,
-          "sha256": "e13dcbdadc18292ee4328e31b3119da80b1b66a7a6c459dcf2d50d013489021d"
+          "sha256": "870f2ecc173a6e9ce9b46adff178f3d305123ce4ff0f24d5429ce88f2ac707a8"
         },
         {
           "shardId": "records-0059",
           "startRecord": 29000,
           "endRecordExclusive": 29500,
           "recordCount": 500,
-          "sha256": "7bfbae699129be1ded841931d8d96af318a022b3b078ac5dd383fa859ac3ab9d"
+          "sha256": "a2a27b5e52e1107c91d41dd903d75005b994c6748b8d7a2f6576436d94b37ebf"
         },
         {
           "shardId": "records-0060",
           "startRecord": 29500,
           "endRecordExclusive": 30000,
           "recordCount": 500,
-          "sha256": "72169d0fd288e5aa0a37d4a6a22a1cd764e927cf7c579a889bfe20aac3f6b180"
+          "sha256": "e92ef617e0ffae589875012db01f363cba22afa0b1bcd133805b3390e171fd20"
         },
         {
           "shardId": "records-0061",
           "startRecord": 30000,
           "endRecordExclusive": 30500,
           "recordCount": 500,
-          "sha256": "70bdf9824ecc46c06c255ad40acfd1c128fd134889ce78ab3daac11790d2da72"
+          "sha256": "b7cb9343b64ec0e295c11a993503ce09b671eef1dbe8324d236dcb935c3b4aed"
         },
         {
           "shardId": "records-0062",
           "startRecord": 30500,
           "endRecordExclusive": 31000,
           "recordCount": 500,
-          "sha256": "3f70637644358118255951c9a79ed32efc189e825ea28e25323a0aec6922c3cf"
+          "sha256": "f1640f6b7ac2084493aa34de3404e4d5023b8fee0ad7db349eddafe64f7fb2cb"
         },
         {
           "shardId": "records-0063",
           "startRecord": 31000,
           "endRecordExclusive": 31500,
           "recordCount": 500,
-          "sha256": "b0bb6ad2b12fa4493f201427dbec5f29c849dfe23dc023e2466ab01fac639a12"
+          "sha256": "48c1278071aaa04a7400347082a36cdc76ce98f2d35977fa19d240c5460998c6"
         },
         {
           "shardId": "records-0064",
           "startRecord": 31500,
           "endRecordExclusive": 32000,
           "recordCount": 500,
-          "sha256": "3e7b42f0ddccb28b38107c70e0c6240c0f2750b17ac5b9228806214971d74d54"
+          "sha256": "d347483d7bf790507358bdf9dad3c1c82c0b00ed58917a97afb340b6f31f281a"
         },
         {
           "shardId": "records-0065",
           "startRecord": 32000,
           "endRecordExclusive": 32500,
           "recordCount": 500,
-          "sha256": "3523e388cc013d7b33de30525ee8e5cfca2a9bcce0f4962c0a4481481ae756a2"
+          "sha256": "a019ad3d302cb38057e8cc480e7810b35bb144386b711b035641767e5764452b"
         },
         {
           "shardId": "records-0066",
           "startRecord": 32500,
           "endRecordExclusive": 33000,
           "recordCount": 500,
-          "sha256": "6ba0b8d04415e2173c28336d2e6d713132b272ae143fd94ef881a70d12394dff"
+          "sha256": "32628ccd3d54c64b22e0b7045550183e06c60cf95a5dd47b0bc87ff41a5c55f5"
         },
         {
           "shardId": "records-0067",
           "startRecord": 33000,
           "endRecordExclusive": 33500,
           "recordCount": 500,
-          "sha256": "f3e6f0476b26cebf289e56597fb4bda4606099f00b6eb302af69764a8a84f617"
+          "sha256": "a8a9646e5cd4a3fe2b8f0c9252e469852dd3decf32294e55a859a7effc389b3e"
         },
         {
           "shardId": "records-0068",
           "startRecord": 33500,
           "endRecordExclusive": 34000,
           "recordCount": 500,
-          "sha256": "639b5565ab5a14479be795e58231de89818bb1ea162d4c7e9c6641fb9dc5635e"
+          "sha256": "8024c6f8d4254d73c2168eb66389f7430052ea6c479de41f27f0154f142fc509"
         },
         {
           "shardId": "records-0069",
           "startRecord": 34000,
           "endRecordExclusive": 34500,
           "recordCount": 500,
-          "sha256": "b682ae8f5377dd07d8140a001d5ffc3dc037e7ed254cf15b0abd85d6973f1525"
+          "sha256": "c47239bceeedc48a7804cf058e3d05bdfa41c80633920b9e95038dca758a741c"
         },
         {
           "shardId": "records-0070",
           "startRecord": 34500,
           "endRecordExclusive": 35000,
           "recordCount": 500,
-          "sha256": "db5a46229d211297082881695c70965586485d989508f703a556c59041985e62"
+          "sha256": "52e6622a6b14f0e4e991b304a3780b26b8d9153b2c403748300f383b8e6d5ac4"
         },
         {
           "shardId": "records-0071",
           "startRecord": 35000,
           "endRecordExclusive": 35500,
           "recordCount": 500,
-          "sha256": "9c245abbf5879185a8991bd8aee2f8db85ffca0daf3d6927d11fb39e42f4eec7"
+          "sha256": "92503e49dd809c38fe04ec4ca8f759fdd024070438ee13262838e061ddabcc9b"
         },
         {
           "shardId": "records-0072",
           "startRecord": 35500,
           "endRecordExclusive": 36000,
           "recordCount": 500,
-          "sha256": "fa92bc9332b9fdf66538987972202c7097ef4c039ee0a09a668a0c56e56f2da7"
+          "sha256": "d394721314e29a17dd23ff07a7acd35cbda45636bd6aa77ecb0b014d12e7fb65"
         },
         {
           "shardId": "records-0073",
           "startRecord": 36000,
           "endRecordExclusive": 36500,
           "recordCount": 500,
-          "sha256": "018bc9d2a4f12cca56437f02135cd56eaf1a3b2f220095044aa38387685481bc"
+          "sha256": "14d41b76515f34f0014fe46e008ef101a7434b884547295e2ce2f59981f8847a"
         },
         {
           "shardId": "records-0074",
           "startRecord": 36500,
           "endRecordExclusive": 37000,
           "recordCount": 500,
-          "sha256": "ee0919828b0bcbc73dd79fff57fe0785042def468925213de1b6a940eee421ce"
+          "sha256": "f5598b346d007d6bfa95d82fd3763a030fbdf09249db9626a9bf2c49d3bbaae5"
         },
         {
           "shardId": "records-0075",
           "startRecord": 37000,
           "endRecordExclusive": 37500,
           "recordCount": 500,
-          "sha256": "8452cddae9d90fa49a3ace509bb973c60b5f95c9c71c899e9501e12267945d7c"
+          "sha256": "9af8b3a49ce3d7d72c181fab04a2c52acbe4af18e3b190b9c2d07097bee0e78c"
         },
         {
           "shardId": "records-0076",
           "startRecord": 37500,
           "endRecordExclusive": 38000,
           "recordCount": 500,
-          "sha256": "f2ead6c88078ebb2b240ebb7219eba9eb7709e5a7dc2be71071d52435c0cc880"
+          "sha256": "da1f691e6302a3ba64c6d18ca5cfe4605faebb8a777e6e9eb02bfa67412a92ca"
         },
         {
           "shardId": "records-0077",
           "startRecord": 38000,
-          "endRecordExclusive": 38060,
-          "recordCount": 60,
-          "sha256": "fa9a82579e4602fe123ca02eac7aa41cff55131c64ae29bf67245f82746fe708"
+          "endRecordExclusive": 38090,
+          "recordCount": 90,
+          "sha256": "2737055b6b118dcd7c78477275bfe346237dba3f151debb761bbcb09ef30dd9e"
         }
       ]
     },
@@ -209319,7 +209319,7 @@
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "term": "reflects",
@@ -209327,7 +209327,7 @@
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "term": "current",
@@ -209335,7 +209335,7 @@
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "term": "working",
@@ -209343,7 +209343,7 @@
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "term": "tree",
@@ -209351,7 +209351,7 @@
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "term": "available",
@@ -209359,7 +209359,7 @@
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "term": "git",
@@ -209367,7 +209367,7 @@
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "term": "metadata",
@@ -209375,71 +209375,55 @@
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
-      "term": "commit-view",
-      "raw": "Commit-view",
+      "term": "generated",
+      "raw": "Generated",
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
-      "term": "intentionally",
-      "raw": "intentionally",
+      "term": "artifacts",
+      "raw": "artifacts",
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
-      "term": "represents",
-      "raw": "represents",
+      "term": "under",
+      "raw": "under",
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
-      "term": "committed",
-      "raw": "committed",
+      "term": "tool-maintained-files",
+      "raw": "tool-maintained-files",
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
-      "term": "baseline",
-      "raw": "baseline",
+      "term": "excluded",
+      "raw": "excluded",
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
-      "term": "may",
-      "raw": "may",
+      "term": "dirty",
+      "raw": "dirty",
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
-    },
-    {
-      "term": "contain",
-      "raw": "contain",
-      "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 32,
-      "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
-    },
-    {
-      "term": "changed-file",
-      "raw": "changed-file",
-      "file": "prompt-files/tools/indexes/change-index.md",
-      "line": 32,
-      "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "term": "records",
@@ -209447,7 +209431,127 @@
       "file": "prompt-files/tools/indexes/change-index.md",
       "line": 32,
       "surface": "prose",
-      "nearby": "Default output reflects the current working tree and available git metadata. Commit-view output intentionally represents the committed baseline and may contain no changed-file records."
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "index",
+      "raw": "index",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "refreshes",
+      "raw": "refreshes",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "make",
+      "raw": "make",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "change-index",
+      "raw": "change-index",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "ui-or-string-literal",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "stale",
+      "raw": "stale",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "definition",
+      "raw": "definition",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "commit-view",
+      "raw": "Commit-view",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "intentionally",
+      "raw": "intentionally",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "represents",
+      "raw": "represents",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "committed",
+      "raw": "committed",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "baseline",
+      "raw": "baseline",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "may",
+      "raw": "may",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "contain",
+      "raw": "contain",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "changed-file",
+      "raw": "changed-file",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "term": "records",
+      "raw": "records",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "surface": "prose",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "term": "index",
@@ -245623,7 +245727,7 @@
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "surface": "ui-or-string-literal",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "term": "sourceroot",
@@ -245631,7 +245735,15 @@
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "surface": "ui-or-string-literal",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+    },
+    {
+      "term": "sourcestate",
+      "raw": "sourceState",
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 25,
+      "surface": "ui-or-string-literal",
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "term": "sourcerevision",
@@ -245639,7 +245751,7 @@
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "surface": "ui-or-string-literal",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "term": "size",
@@ -245647,7 +245759,7 @@
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "surface": "ui-or-string-literal",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "term": "absolutepath",
@@ -245655,7 +245767,7 @@
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "surface": "ui-or-string-literal",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "term": "includes",
@@ -245663,7 +245775,7 @@
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "surface": "identifier",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "term": "key",
@@ -245671,7 +245783,7 @@
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "surface": "identifier",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "term": "continue",
@@ -256519,13 +256631,37 @@
       "file": "tool-implementations/_lib/records/change-records.ts",
       "line": 6,
       "surface": "identifier",
+      "nearby": "import { isGeneratedToolMaintainedPath } from \"../repo-files.ts\";"
+    },
+    {
+      "term": "isgeneratedtoolmaintainedpath",
+      "raw": "isGeneratedToolMaintainedPath",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 6,
+      "surface": "identifier",
+      "nearby": "import { isGeneratedToolMaintainedPath } from \"../repo-files.ts\";"
+    },
+    {
+      "term": "repo-files",
+      "raw": "repo-files",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 6,
+      "surface": "identifier",
+      "nearby": "import { isGeneratedToolMaintainedPath } from \"../repo-files.ts\";"
+    },
+    {
+      "term": "import",
+      "raw": "import",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 7,
+      "surface": "identifier",
       "nearby": "import { areaOf, normalizePath } from \"../text-utils.ts\";"
     },
     {
       "term": "areaof",
       "raw": "areaOf",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 6,
+      "line": 7,
       "surface": "identifier",
       "nearby": "import { areaOf, normalizePath } from \"../text-utils.ts\";"
     },
@@ -256533,7 +256669,7 @@
       "term": "normalizepath",
       "raw": "normalizePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 6,
+      "line": 7,
       "surface": "identifier",
       "nearby": "import { areaOf, normalizePath } from \"../text-utils.ts\";"
     },
@@ -256541,7 +256677,7 @@
       "term": "text-utils",
       "raw": "text-utils",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 6,
+      "line": 7,
       "surface": "identifier",
       "nearby": "import { areaOf, normalizePath } from \"../text-utils.ts\";"
     },
@@ -256549,7 +256685,7 @@
       "term": "export",
       "raw": "export",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256557,7 +256693,7 @@
       "term": "function",
       "raw": "function",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256565,7 +256701,7 @@
       "term": "buildchangerecords",
       "raw": "buildChangeRecords",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256573,7 +256709,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256581,7 +256717,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256589,7 +256725,7 @@
       "term": "files",
       "raw": "files",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256597,7 +256733,7 @@
       "term": "filerecord",
       "raw": "FileRecord",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256605,7 +256741,7 @@
       "term": "args",
       "raw": "args",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256613,7 +256749,7 @@
       "term": "parsedargs",
       "raw": "ParsedArgs",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256621,7 +256757,7 @@
       "term": "record",
       "raw": "Record",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256629,7 +256765,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256637,7 +256773,7 @@
       "term": "unknown",
       "raw": "unknown",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "surface": "identifier",
       "nearby": "export function buildChangeRecords(root: string, files: FileRecord[], args?: ParsedArgs): Record<string, unknown>[] {"
     },
@@ -256645,7 +256781,7 @@
       "term": "iscommittedbaselinemode",
       "raw": "isCommittedBaselineMode",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 9,
+      "line": 10,
       "surface": "identifier",
       "nearby": "if (isCommittedBaselineMode(args)) {"
     },
@@ -256653,7 +256789,7 @@
       "term": "args",
       "raw": "args",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 9,
+      "line": 10,
       "surface": "identifier",
       "nearby": "if (isCommittedBaselineMode(args)) {"
     },
@@ -256661,7 +256797,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 10,
+      "line": 11,
       "surface": "prose",
       "nearby": "return [];"
     },
@@ -256669,7 +256805,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "surface": "identifier",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
@@ -256677,7 +256813,7 @@
       "term": "statuslines",
       "raw": "statusLines",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "surface": "identifier",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
@@ -256685,7 +256821,7 @@
       "term": "gitlines",
       "raw": "gitLines",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "surface": "identifier",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
@@ -256693,7 +256829,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "surface": "identifier",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
@@ -256701,7 +256837,7 @@
       "term": "status",
       "raw": "status",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "surface": "ui-or-string-literal",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
@@ -256709,7 +256845,7 @@
       "term": "short",
       "raw": "short",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "surface": "identifier",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
@@ -256717,7 +256853,7 @@
       "term": "untracked-files",
       "raw": "untracked-files",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "surface": "identifier",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
@@ -256725,7 +256861,7 @@
       "term": "all",
       "raw": "all",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "surface": "identifier",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
@@ -256733,7 +256869,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 14,
+      "line": 15,
       "surface": "identifier",
       "nearby": "const changedFiles = new Set<string>();"
     },
@@ -256741,7 +256877,7 @@
       "term": "changedfiles",
       "raw": "changedFiles",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 14,
+      "line": 15,
       "surface": "identifier",
       "nearby": "const changedFiles = new Set<string>();"
     },
@@ -256749,7 +256885,7 @@
       "term": "new",
       "raw": "new",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 14,
+      "line": 15,
       "surface": "identifier",
       "nearby": "const changedFiles = new Set<string>();"
     },
@@ -256757,7 +256893,7 @@
       "term": "set",
       "raw": "Set",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 14,
+      "line": 15,
       "surface": "identifier",
       "nearby": "const changedFiles = new Set<string>();"
     },
@@ -256765,7 +256901,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 14,
+      "line": 15,
       "surface": "identifier",
       "nearby": "const changedFiles = new Set<string>();"
     },
@@ -256773,7 +256909,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 15,
+      "line": 16,
       "surface": "identifier",
       "nearby": "const records: Record<string, unknown>[] = [];"
     },
@@ -256781,7 +256917,7 @@
       "term": "records",
       "raw": "records",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 15,
+      "line": 16,
       "surface": "identifier",
       "nearby": "const records: Record<string, unknown>[] = [];"
     },
@@ -256789,7 +256925,7 @@
       "term": "record",
       "raw": "Record",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 15,
+      "line": 16,
       "surface": "identifier",
       "nearby": "const records: Record<string, unknown>[] = [];"
     },
@@ -256797,7 +256933,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 15,
+      "line": 16,
       "surface": "identifier",
       "nearby": "const records: Record<string, unknown>[] = [];"
     },
@@ -256805,7 +256941,7 @@
       "term": "unknown",
       "raw": "unknown",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 15,
+      "line": 16,
       "surface": "identifier",
       "nearby": "const records: Record<string, unknown>[] = [];"
     },
@@ -256813,7 +256949,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "for (const line of statusLines) {"
     },
@@ -256821,7 +256957,7 @@
       "term": "line",
       "raw": "line",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "for (const line of statusLines) {"
     },
@@ -256829,7 +256965,7 @@
       "term": "statuslines",
       "raw": "statusLines",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "for (const line of statusLines) {"
     },
@@ -256837,7 +256973,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 18,
+      "line": 19,
       "surface": "identifier",
       "nearby": "const status = line.slice(0, 2).trim() || \"modified\";"
     },
@@ -256845,7 +256981,7 @@
       "term": "status",
       "raw": "status",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 18,
+      "line": 19,
       "surface": "identifier",
       "nearby": "const status = line.slice(0, 2).trim() || \"modified\";"
     },
@@ -256853,7 +256989,7 @@
       "term": "line",
       "raw": "line",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 18,
+      "line": 19,
       "surface": "identifier",
       "nearby": "const status = line.slice(0, 2).trim() || \"modified\";"
     },
@@ -256861,7 +256997,7 @@
       "term": "slice",
       "raw": "slice",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 18,
+      "line": 19,
       "surface": "identifier",
       "nearby": "const status = line.slice(0, 2).trim() || \"modified\";"
     },
@@ -256869,7 +257005,7 @@
       "term": "trim",
       "raw": "trim",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 18,
+      "line": 19,
       "surface": "identifier",
       "nearby": "const status = line.slice(0, 2).trim() || \"modified\";"
     },
@@ -256877,7 +257013,7 @@
       "term": "modified",
       "raw": "modified",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 18,
+      "line": 19,
       "surface": "ui-or-string-literal",
       "nearby": "const status = line.slice(0, 2).trim() || \"modified\";"
     },
@@ -256885,7 +257021,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "surface": "identifier",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
@@ -256893,7 +257029,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "surface": "identifier",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
@@ -256901,7 +257037,7 @@
       "term": "normalizegitpath",
       "raw": "normalizeGitPath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "surface": "identifier",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
@@ -256909,7 +257045,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "surface": "identifier",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
@@ -256917,7 +257053,7 @@
       "term": "line",
       "raw": "line",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "surface": "identifier",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
@@ -256925,7 +257061,7 @@
       "term": "slice",
       "raw": "slice",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "surface": "identifier",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
@@ -256933,7 +257069,7 @@
       "term": "trim",
       "raw": "trim",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "surface": "identifier",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
@@ -256941,7 +257077,7 @@
       "term": "replace",
       "raw": "replace",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "surface": "identifier",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
@@ -256949,39 +257085,55 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 20,
+      "line": 21,
       "surface": "identifier",
-      "nearby": "if (!filePath || !inWorkingTree(root, filePath)) {"
+      "nearby": "if (!filePath || isGeneratedToolMaintainedPath(filePath) || !inWorkingTree(root, filePath)) {"
     },
     {
-      "term": "inworkingtree",
-      "raw": "inWorkingTree",
+      "term": "isgeneratedtoolmaintainedpath",
+      "raw": "isGeneratedToolMaintainedPath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 20,
+      "line": 21,
       "surface": "identifier",
-      "nearby": "if (!filePath || !inWorkingTree(root, filePath)) {"
-    },
-    {
-      "term": "root",
-      "raw": "root",
-      "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 20,
-      "surface": "identifier",
-      "nearby": "if (!filePath || !inWorkingTree(root, filePath)) {"
+      "nearby": "if (!filePath || isGeneratedToolMaintainedPath(filePath) || !inWorkingTree(root, filePath)) {"
     },
     {
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 20,
+      "line": 21,
       "surface": "identifier",
-      "nearby": "if (!filePath || !inWorkingTree(root, filePath)) {"
+      "nearby": "if (!filePath || isGeneratedToolMaintainedPath(filePath) || !inWorkingTree(root, filePath)) {"
+    },
+    {
+      "term": "inworkingtree",
+      "raw": "inWorkingTree",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 21,
+      "surface": "identifier",
+      "nearby": "if (!filePath || isGeneratedToolMaintainedPath(filePath) || !inWorkingTree(root, filePath)) {"
+    },
+    {
+      "term": "root",
+      "raw": "root",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 21,
+      "surface": "identifier",
+      "nearby": "if (!filePath || isGeneratedToolMaintainedPath(filePath) || !inWorkingTree(root, filePath)) {"
+    },
+    {
+      "term": "filepath",
+      "raw": "filePath",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 21,
+      "surface": "identifier",
+      "nearby": "if (!filePath || isGeneratedToolMaintainedPath(filePath) || !inWorkingTree(root, filePath)) {"
     },
     {
       "term": "continue",
       "raw": "continue",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 21,
+      "line": 22,
       "surface": "prose",
       "nearby": "continue;"
     },
@@ -256989,7 +257141,7 @@
       "term": "changedfiles",
       "raw": "changedFiles",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 23,
+      "line": 24,
       "surface": "identifier",
       "nearby": "changedFiles.add(filePath);"
     },
@@ -256997,7 +257149,7 @@
       "term": "add",
       "raw": "add",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 23,
+      "line": 24,
       "surface": "identifier",
       "nearby": "changedFiles.add(filePath);"
     },
@@ -257005,7 +257157,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 23,
+      "line": 24,
       "surface": "identifier",
       "nearby": "changedFiles.add(filePath);"
     },
@@ -257013,7 +257165,7 @@
       "term": "records",
       "raw": "records",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257021,7 +257173,7 @@
       "term": "push",
       "raw": "push",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257029,7 +257181,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257037,7 +257189,7 @@
       "term": "status",
       "raw": "status",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257045,7 +257197,7 @@
       "term": "source",
       "raw": "source",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257053,7 +257205,7 @@
       "term": "git-status",
       "raw": "git-status",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "ui-or-string-literal",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257061,7 +257213,7 @@
       "term": "area",
       "raw": "area",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257069,7 +257221,7 @@
       "term": "areaof",
       "raw": "areaOf",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257077,7 +257229,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257085,7 +257237,7 @@
       "term": "artifactkind",
       "raw": "artifactKind",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257093,7 +257245,7 @@
       "term": "inferartifactkind",
       "raw": "inferArtifactKind",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257101,7 +257253,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257109,7 +257261,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 27,
+      "line": 28,
       "surface": "identifier",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
@@ -257117,7 +257269,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 27,
+      "line": 28,
       "surface": "identifier",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
@@ -257125,7 +257277,7 @@
       "term": "gitlines",
       "raw": "gitLines",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 27,
+      "line": 28,
       "surface": "identifier",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
@@ -257133,7 +257285,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 27,
+      "line": 28,
       "surface": "identifier",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
@@ -257141,7 +257293,7 @@
       "term": "diff",
       "raw": "diff",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 27,
+      "line": 28,
       "surface": "ui-or-string-literal",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
@@ -257149,7 +257301,7 @@
       "term": "name-only",
       "raw": "name-only",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 27,
+      "line": 28,
       "surface": "identifier",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
@@ -257157,7 +257309,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 28,
+      "line": 29,
       "surface": "identifier",
       "nearby": "const normalized = normalizeGitPath(root, filePath);"
     },
@@ -257165,7 +257317,7 @@
       "term": "normalized",
       "raw": "normalized",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 28,
+      "line": 29,
       "surface": "identifier",
       "nearby": "const normalized = normalizeGitPath(root, filePath);"
     },
@@ -257173,7 +257325,7 @@
       "term": "normalizegitpath",
       "raw": "normalizeGitPath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 28,
+      "line": 29,
       "surface": "identifier",
       "nearby": "const normalized = normalizeGitPath(root, filePath);"
     },
@@ -257181,7 +257333,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 28,
+      "line": 29,
       "surface": "identifier",
       "nearby": "const normalized = normalizeGitPath(root, filePath);"
     },
@@ -257189,7 +257341,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 28,
+      "line": 29,
       "surface": "identifier",
       "nearby": "const normalized = normalizeGitPath(root, filePath);"
     },
@@ -257197,39 +257349,55 @@
       "term": "normalized",
       "raw": "normalized",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 29,
+      "line": 30,
       "surface": "identifier",
-      "nearby": "if (normalized && inWorkingTree(root, normalized)) {"
+      "nearby": "if (normalized && !isGeneratedToolMaintainedPath(normalized) && inWorkingTree(root, normalized)) {"
     },
     {
-      "term": "inworkingtree",
-      "raw": "inWorkingTree",
+      "term": "isgeneratedtoolmaintainedpath",
+      "raw": "isGeneratedToolMaintainedPath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 29,
+      "line": 30,
       "surface": "identifier",
-      "nearby": "if (normalized && inWorkingTree(root, normalized)) {"
-    },
-    {
-      "term": "root",
-      "raw": "root",
-      "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 29,
-      "surface": "identifier",
-      "nearby": "if (normalized && inWorkingTree(root, normalized)) {"
+      "nearby": "if (normalized && !isGeneratedToolMaintainedPath(normalized) && inWorkingTree(root, normalized)) {"
     },
     {
       "term": "normalized",
       "raw": "normalized",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 29,
+      "line": 30,
       "surface": "identifier",
-      "nearby": "if (normalized && inWorkingTree(root, normalized)) {"
+      "nearby": "if (normalized && !isGeneratedToolMaintainedPath(normalized) && inWorkingTree(root, normalized)) {"
+    },
+    {
+      "term": "inworkingtree",
+      "raw": "inWorkingTree",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 30,
+      "surface": "identifier",
+      "nearby": "if (normalized && !isGeneratedToolMaintainedPath(normalized) && inWorkingTree(root, normalized)) {"
+    },
+    {
+      "term": "root",
+      "raw": "root",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 30,
+      "surface": "identifier",
+      "nearby": "if (normalized && !isGeneratedToolMaintainedPath(normalized) && inWorkingTree(root, normalized)) {"
+    },
+    {
+      "term": "normalized",
+      "raw": "normalized",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 30,
+      "surface": "identifier",
+      "nearby": "if (normalized && !isGeneratedToolMaintainedPath(normalized) && inWorkingTree(root, normalized)) {"
     },
     {
       "term": "changedfiles",
       "raw": "changedFiles",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 30,
+      "line": 31,
       "surface": "identifier",
       "nearby": "changedFiles.add(normalized);"
     },
@@ -257237,7 +257405,7 @@
       "term": "add",
       "raw": "add",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 30,
+      "line": 31,
       "surface": "identifier",
       "nearby": "changedFiles.add(normalized);"
     },
@@ -257245,7 +257413,7 @@
       "term": "normalized",
       "raw": "normalized",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 30,
+      "line": 31,
       "surface": "identifier",
       "nearby": "changedFiles.add(normalized);"
     },
@@ -257253,7 +257421,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 34,
+      "line": 35,
       "surface": "identifier",
       "nearby": "for (const filePath of changedFiles) {"
     },
@@ -257261,7 +257429,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 34,
+      "line": 35,
       "surface": "identifier",
       "nearby": "for (const filePath of changedFiles) {"
     },
@@ -257269,7 +257437,7 @@
       "term": "changedfiles",
       "raw": "changedFiles",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 34,
+      "line": 35,
       "surface": "identifier",
       "nearby": "for (const filePath of changedFiles) {"
     },
@@ -257277,7 +257445,7 @@
       "term": "records",
       "raw": "records",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 35,
+      "line": 36,
       "surface": "identifier",
       "nearby": "if (!records.some((record) => record.file === filePath)) {"
     },
@@ -257285,7 +257453,7 @@
       "term": "some",
       "raw": "some",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 35,
+      "line": 36,
       "surface": "identifier",
       "nearby": "if (!records.some((record) => record.file === filePath)) {"
     },
@@ -257293,7 +257461,7 @@
       "term": "record",
       "raw": "record",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 35,
+      "line": 36,
       "surface": "identifier",
       "nearby": "if (!records.some((record) => record.file === filePath)) {"
     },
@@ -257301,7 +257469,7 @@
       "term": "record",
       "raw": "record",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 35,
+      "line": 36,
       "surface": "identifier",
       "nearby": "if (!records.some((record) => record.file === filePath)) {"
     },
@@ -257309,7 +257477,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 35,
+      "line": 36,
       "surface": "identifier",
       "nearby": "if (!records.some((record) => record.file === filePath)) {"
     },
@@ -257317,7 +257485,7 @@
       "term": "records",
       "raw": "records",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257325,7 +257493,7 @@
       "term": "push",
       "raw": "push",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257333,7 +257501,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257341,7 +257509,7 @@
       "term": "status",
       "raw": "status",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257349,7 +257517,7 @@
       "term": "diff",
       "raw": "diff",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "ui-or-string-literal",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257357,7 +257525,7 @@
       "term": "source",
       "raw": "source",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257365,7 +257533,7 @@
       "term": "git-diff",
       "raw": "git-diff",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "ui-or-string-literal",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257373,7 +257541,7 @@
       "term": "area",
       "raw": "area",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257381,7 +257549,7 @@
       "term": "areaof",
       "raw": "areaOf",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257389,7 +257557,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257397,7 +257565,7 @@
       "term": "artifactkind",
       "raw": "artifactKind",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257405,7 +257573,7 @@
       "term": "inferartifactkind",
       "raw": "inferArtifactKind",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257413,7 +257581,7 @@
       "term": "filepath",
       "raw": "filePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "surface": "identifier",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
@@ -257421,7 +257589,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 40,
+      "line": 41,
       "surface": "identifier",
       "nearby": "const knownFiles = new Set(files.map((file) => file.path));"
     },
@@ -257429,7 +257597,7 @@
       "term": "knownfiles",
       "raw": "knownFiles",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 40,
+      "line": 41,
       "surface": "identifier",
       "nearby": "const knownFiles = new Set(files.map((file) => file.path));"
     },
@@ -257437,7 +257605,7 @@
       "term": "new",
       "raw": "new",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 40,
+      "line": 41,
       "surface": "identifier",
       "nearby": "const knownFiles = new Set(files.map((file) => file.path));"
     },
@@ -257445,7 +257613,7 @@
       "term": "set",
       "raw": "Set",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 40,
+      "line": 41,
       "surface": "identifier",
       "nearby": "const knownFiles = new Set(files.map((file) => file.path));"
     },
@@ -257453,7 +257621,7 @@
       "term": "files",
       "raw": "files",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 40,
+      "line": 41,
       "surface": "identifier",
       "nearby": "const knownFiles = new Set(files.map((file) => file.path));"
     },
@@ -257461,7 +257629,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 41,
+      "line": 42,
       "surface": "identifier",
       "nearby": "return records.map((record) => ({ ...record, existsInWorkingTree: knownFiles.has(String(record.file)) }));"
     },
@@ -257469,7 +257637,7 @@
       "term": "records",
       "raw": "records",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 41,
+      "line": 42,
       "surface": "identifier",
       "nearby": "return records.map((record) => ({ ...record, existsInWorkingTree: knownFiles.has(String(record.file)) }));"
     },
@@ -257477,7 +257645,7 @@
       "term": "record",
       "raw": "record",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 41,
+      "line": 42,
       "surface": "identifier",
       "nearby": "return records.map((record) => ({ ...record, existsInWorkingTree: knownFiles.has(String(record.file)) }));"
     },
@@ -257485,7 +257653,7 @@
       "term": "record",
       "raw": "record",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 41,
+      "line": 42,
       "surface": "identifier",
       "nearby": "return records.map((record) => ({ ...record, existsInWorkingTree: knownFiles.has(String(record.file)) }));"
     },
@@ -257493,7 +257661,7 @@
       "term": "existsinworkingtree",
       "raw": "existsInWorkingTree",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 41,
+      "line": 42,
       "surface": "identifier",
       "nearby": "return records.map((record) => ({ ...record, existsInWorkingTree: knownFiles.has(String(record.file)) }));"
     },
@@ -257501,7 +257669,7 @@
       "term": "knownfiles",
       "raw": "knownFiles",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 41,
+      "line": 42,
       "surface": "identifier",
       "nearby": "return records.map((record) => ({ ...record, existsInWorkingTree: knownFiles.has(String(record.file)) }));"
     },
@@ -257509,7 +257677,7 @@
       "term": "string",
       "raw": "String",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 41,
+      "line": 42,
       "surface": "identifier",
       "nearby": "return records.map((record) => ({ ...record, existsInWorkingTree: knownFiles.has(String(record.file)) }));"
     },
@@ -257517,7 +257685,7 @@
       "term": "record",
       "raw": "record",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 41,
+      "line": 42,
       "surface": "identifier",
       "nearby": "return records.map((record) => ({ ...record, existsInWorkingTree: knownFiles.has(String(record.file)) }));"
     },
@@ -257525,7 +257693,7 @@
       "term": "function",
       "raw": "function",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 44,
+      "line": 45,
       "surface": "identifier",
       "nearby": "function normalizeGitPath(root: string, value: string): string {"
     },
@@ -257533,7 +257701,7 @@
       "term": "normalizegitpath",
       "raw": "normalizeGitPath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 44,
+      "line": 45,
       "surface": "identifier",
       "nearby": "function normalizeGitPath(root: string, value: string): string {"
     },
@@ -257541,7 +257709,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 44,
+      "line": 45,
       "surface": "identifier",
       "nearby": "function normalizeGitPath(root: string, value: string): string {"
     },
@@ -257549,7 +257717,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 44,
+      "line": 45,
       "surface": "identifier",
       "nearby": "function normalizeGitPath(root: string, value: string): string {"
     },
@@ -257557,7 +257725,7 @@
       "term": "value",
       "raw": "value",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 44,
+      "line": 45,
       "surface": "identifier",
       "nearby": "function normalizeGitPath(root: string, value: string): string {"
     },
@@ -257565,7 +257733,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 44,
+      "line": 45,
       "surface": "identifier",
       "nearby": "function normalizeGitPath(root: string, value: string): string {"
     },
@@ -257573,7 +257741,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 44,
+      "line": 45,
       "surface": "identifier",
       "nearby": "function normalizeGitPath(root: string, value: string): string {"
     },
@@ -257581,7 +257749,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 45,
+      "line": 46,
       "surface": "identifier",
       "nearby": "const normalized = normalizePath(value);"
     },
@@ -257589,7 +257757,7 @@
       "term": "normalized",
       "raw": "normalized",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 45,
+      "line": 46,
       "surface": "identifier",
       "nearby": "const normalized = normalizePath(value);"
     },
@@ -257597,7 +257765,7 @@
       "term": "normalizepath",
       "raw": "normalizePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 45,
+      "line": 46,
       "surface": "identifier",
       "nearby": "const normalized = normalizePath(value);"
     },
@@ -257605,7 +257773,7 @@
       "term": "value",
       "raw": "value",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 45,
+      "line": 46,
       "surface": "identifier",
       "nearby": "const normalized = normalizePath(value);"
     },
@@ -257613,7 +257781,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 46,
+      "line": 47,
       "surface": "identifier",
       "nearby": "const rootName = path.basename(root);"
     },
@@ -257621,7 +257789,7 @@
       "term": "rootname",
       "raw": "rootName",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 46,
+      "line": 47,
       "surface": "identifier",
       "nearby": "const rootName = path.basename(root);"
     },
@@ -257629,7 +257797,7 @@
       "term": "basename",
       "raw": "basename",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 46,
+      "line": 47,
       "surface": "identifier",
       "nearby": "const rootName = path.basename(root);"
     },
@@ -257637,7 +257805,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 46,
+      "line": 47,
       "surface": "identifier",
       "nearby": "const rootName = path.basename(root);"
     },
@@ -257645,7 +257813,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 47,
+      "line": 48,
       "surface": "identifier",
       "nearby": "const prefixed = `${rootName}/`;"
     },
@@ -257653,7 +257821,7 @@
       "term": "prefixed",
       "raw": "prefixed",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 47,
+      "line": 48,
       "surface": "identifier",
       "nearby": "const prefixed = `${rootName}/`;"
     },
@@ -257661,7 +257829,7 @@
       "term": "rootname",
       "raw": "rootName",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 47,
+      "line": 48,
       "surface": "identifier",
       "nearby": "const prefixed = `${rootName}/`;"
     },
@@ -257669,7 +257837,7 @@
       "term": "normalized",
       "raw": "normalized",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 48,
+      "line": 49,
       "surface": "identifier",
       "nearby": "if (normalized.startsWith(prefixed)) {"
     },
@@ -257677,7 +257845,7 @@
       "term": "startswith",
       "raw": "startsWith",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 48,
+      "line": 49,
       "surface": "identifier",
       "nearby": "if (normalized.startsWith(prefixed)) {"
     },
@@ -257685,7 +257853,7 @@
       "term": "prefixed",
       "raw": "prefixed",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 48,
+      "line": 49,
       "surface": "identifier",
       "nearby": "if (normalized.startsWith(prefixed)) {"
     },
@@ -257693,7 +257861,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 49,
+      "line": 50,
       "surface": "identifier",
       "nearby": "return normalized.slice(prefixed.length);"
     },
@@ -257701,7 +257869,7 @@
       "term": "normalized",
       "raw": "normalized",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 49,
+      "line": 50,
       "surface": "identifier",
       "nearby": "return normalized.slice(prefixed.length);"
     },
@@ -257709,7 +257877,7 @@
       "term": "slice",
       "raw": "slice",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 49,
+      "line": 50,
       "surface": "identifier",
       "nearby": "return normalized.slice(prefixed.length);"
     },
@@ -257717,7 +257885,7 @@
       "term": "prefixed",
       "raw": "prefixed",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 49,
+      "line": 50,
       "surface": "identifier",
       "nearby": "return normalized.slice(prefixed.length);"
     },
@@ -257725,7 +257893,7 @@
       "term": "length",
       "raw": "length",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 49,
+      "line": 50,
       "surface": "identifier",
       "nearby": "return normalized.slice(prefixed.length);"
     },
@@ -257733,7 +257901,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 51,
+      "line": 52,
       "surface": "prose",
       "nearby": "return normalized;"
     },
@@ -257741,7 +257909,7 @@
       "term": "normalized",
       "raw": "normalized",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 51,
+      "line": 52,
       "surface": "prose",
       "nearby": "return normalized;"
     },
@@ -257749,7 +257917,7 @@
       "term": "function",
       "raw": "function",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 54,
+      "line": 55,
       "surface": "identifier",
       "nearby": "function inWorkingTree(root: string, relativePath: string): boolean {"
     },
@@ -257757,7 +257925,7 @@
       "term": "inworkingtree",
       "raw": "inWorkingTree",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 54,
+      "line": 55,
       "surface": "identifier",
       "nearby": "function inWorkingTree(root: string, relativePath: string): boolean {"
     },
@@ -257765,7 +257933,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 54,
+      "line": 55,
       "surface": "identifier",
       "nearby": "function inWorkingTree(root: string, relativePath: string): boolean {"
     },
@@ -257773,7 +257941,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 54,
+      "line": 55,
       "surface": "identifier",
       "nearby": "function inWorkingTree(root: string, relativePath: string): boolean {"
     },
@@ -257781,7 +257949,7 @@
       "term": "relativepath",
       "raw": "relativePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 54,
+      "line": 55,
       "surface": "identifier",
       "nearby": "function inWorkingTree(root: string, relativePath: string): boolean {"
     },
@@ -257789,7 +257957,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 54,
+      "line": 55,
       "surface": "identifier",
       "nearby": "function inWorkingTree(root: string, relativePath: string): boolean {"
     },
@@ -257797,7 +257965,7 @@
       "term": "boolean",
       "raw": "boolean",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 54,
+      "line": 55,
       "surface": "identifier",
       "nearby": "function inWorkingTree(root: string, relativePath: string): boolean {"
     },
@@ -257805,7 +257973,7 @@
       "term": "relativepath",
       "raw": "relativePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 55,
+      "line": 56,
       "surface": "identifier",
       "nearby": "if (!relativePath || relativePath.startsWith(\"../\") || path.isAbsolute(relativePath)) {"
     },
@@ -257813,7 +257981,7 @@
       "term": "relativepath",
       "raw": "relativePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 55,
+      "line": 56,
       "surface": "identifier",
       "nearby": "if (!relativePath || relativePath.startsWith(\"../\") || path.isAbsolute(relativePath)) {"
     },
@@ -257821,7 +257989,7 @@
       "term": "startswith",
       "raw": "startsWith",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 55,
+      "line": 56,
       "surface": "identifier",
       "nearby": "if (!relativePath || relativePath.startsWith(\"../\") || path.isAbsolute(relativePath)) {"
     },
@@ -257829,7 +257997,7 @@
       "term": "isabsolute",
       "raw": "isAbsolute",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 55,
+      "line": 56,
       "surface": "identifier",
       "nearby": "if (!relativePath || relativePath.startsWith(\"../\") || path.isAbsolute(relativePath)) {"
     },
@@ -257837,7 +258005,7 @@
       "term": "relativepath",
       "raw": "relativePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 55,
+      "line": 56,
       "surface": "identifier",
       "nearby": "if (!relativePath || relativePath.startsWith(\"../\") || path.isAbsolute(relativePath)) {"
     },
@@ -257845,7 +258013,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 56,
+      "line": 57,
       "surface": "prose",
       "nearby": "return false;"
     },
@@ -257853,7 +258021,7 @@
       "term": "false",
       "raw": "false",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 56,
+      "line": 57,
       "surface": "prose",
       "nearby": "return false;"
     },
@@ -257861,7 +258029,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 58,
+      "line": 59,
       "surface": "identifier",
       "nearby": "return existsSync(path.resolve(root, relativePath));"
     },
@@ -257869,7 +258037,7 @@
       "term": "existssync",
       "raw": "existsSync",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 58,
+      "line": 59,
       "surface": "identifier",
       "nearby": "return existsSync(path.resolve(root, relativePath));"
     },
@@ -257877,7 +258045,7 @@
       "term": "resolve",
       "raw": "resolve",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 58,
+      "line": 59,
       "surface": "identifier",
       "nearby": "return existsSync(path.resolve(root, relativePath));"
     },
@@ -257885,7 +258053,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 58,
+      "line": 59,
       "surface": "identifier",
       "nearby": "return existsSync(path.resolve(root, relativePath));"
     },
@@ -257893,7 +258061,7 @@
       "term": "relativepath",
       "raw": "relativePath",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 58,
+      "line": 59,
       "surface": "identifier",
       "nearby": "return existsSync(path.resolve(root, relativePath));"
     },
@@ -257901,7 +258069,7 @@
       "term": "function",
       "raw": "function",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 61,
+      "line": 62,
       "surface": "identifier",
       "nearby": "function isCommittedBaselineMode(args?: ParsedArgs): boolean {"
     },
@@ -257909,31 +258077,7 @@
       "term": "iscommittedbaselinemode",
       "raw": "isCommittedBaselineMode",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 61,
-      "surface": "identifier",
-      "nearby": "function isCommittedBaselineMode(args?: ParsedArgs): boolean {"
-    },
-    {
-      "term": "args",
-      "raw": "args",
-      "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 61,
-      "surface": "identifier",
-      "nearby": "function isCommittedBaselineMode(args?: ParsedArgs): boolean {"
-    },
-    {
-      "term": "parsedargs",
-      "raw": "ParsedArgs",
-      "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 61,
-      "surface": "identifier",
-      "nearby": "function isCommittedBaselineMode(args?: ParsedArgs): boolean {"
-    },
-    {
-      "term": "boolean",
-      "raw": "boolean",
-      "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 61,
+      "line": 62,
       "surface": "identifier",
       "nearby": "function isCommittedBaselineMode(args?: ParsedArgs): boolean {"
     },
@@ -257943,13 +258087,37 @@
       "file": "tool-implementations/_lib/records/change-records.ts",
       "line": 62,
       "surface": "identifier",
+      "nearby": "function isCommittedBaselineMode(args?: ParsedArgs): boolean {"
+    },
+    {
+      "term": "parsedargs",
+      "raw": "ParsedArgs",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 62,
+      "surface": "identifier",
+      "nearby": "function isCommittedBaselineMode(args?: ParsedArgs): boolean {"
+    },
+    {
+      "term": "boolean",
+      "raw": "boolean",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 62,
+      "surface": "identifier",
+      "nearby": "function isCommittedBaselineMode(args?: ParsedArgs): boolean {"
+    },
+    {
+      "term": "args",
+      "raw": "args",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 63,
+      "surface": "identifier",
       "nearby": "if (!args) {"
     },
     {
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 63,
+      "line": 64,
       "surface": "prose",
       "nearby": "return false;"
     },
@@ -257957,7 +258125,7 @@
       "term": "false",
       "raw": "false",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 63,
+      "line": 64,
       "surface": "prose",
       "nearby": "return false;"
     },
@@ -257965,7 +258133,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -257973,7 +258141,7 @@
       "term": "args",
       "raw": "args",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -257981,7 +258149,7 @@
       "term": "flags",
       "raw": "flags",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -257989,7 +258157,7 @@
       "term": "committed",
       "raw": "committed",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "ui-or-string-literal",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -257997,7 +258165,7 @@
       "term": "true",
       "raw": "true",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -258005,7 +258173,7 @@
       "term": "args",
       "raw": "args",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -258013,7 +258181,7 @@
       "term": "flags",
       "raw": "flags",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -258021,7 +258189,7 @@
       "term": "commit-view",
       "raw": "commit-view",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "ui-or-string-literal",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -258029,7 +258197,7 @@
       "term": "true",
       "raw": "true",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -258037,7 +258205,7 @@
       "term": "args",
       "raw": "args",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -258045,7 +258213,7 @@
       "term": "flags",
       "raw": "flags",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -258053,7 +258221,7 @@
       "term": "mode",
       "raw": "mode",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "identifier",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -258061,7 +258229,7 @@
       "term": "committed",
       "raw": "committed",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "surface": "ui-or-string-literal",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -284906,76 +285074,12 @@
       "nearby": "\"Default mode reflects the current working tree and available git metadata.\","
     },
     {
-      "term": "committed-baseline",
-      "raw": "Committed-baseline",
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
-      "surface": "prose",
-      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
-    },
-    {
-      "term": "mode",
-      "raw": "mode",
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
-      "surface": "prose",
-      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
-    },
-    {
-      "term": "intentionally",
-      "raw": "intentionally",
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
-      "surface": "prose",
-      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
-    },
-    {
-      "term": "omits",
-      "raw": "omits",
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
-      "surface": "prose",
-      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
-    },
-    {
-      "term": "local",
-      "raw": "local",
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
-      "surface": "prose",
-      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
-    },
-    {
-      "term": "working-tree",
-      "raw": "working-tree",
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
-      "surface": "prose",
-      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
-    },
-    {
-      "term": "changes",
-      "raw": "changes",
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
-      "surface": "prose",
-      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
-    },
-    {
-      "term": "committed",
-      "raw": "committed",
-      "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
-      "surface": "prose",
-      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
-    },
-    {
       "term": "generated",
-      "raw": "generated",
+      "raw": "Generated",
       "file": "tool-implementations/indexes/build-change-index.ts",
       "line": 13,
       "surface": "prose",
-      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
     },
     {
       "term": "artifacts",
@@ -284983,13 +285087,149 @@
       "file": "tool-implementations/indexes/build-change-index.ts",
       "line": 13,
       "surface": "prose",
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
+    },
+    {
+      "term": "under",
+      "raw": "under",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 13,
+      "surface": "prose",
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
+    },
+    {
+      "term": "tool-maintained-files",
+      "raw": "tool-maintained-files",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 13,
+      "surface": "prose",
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
+    },
+    {
+      "term": "excluded",
+      "raw": "excluded",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 13,
+      "surface": "prose",
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
+    },
+    {
+      "term": "avoid",
+      "raw": "avoid",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 13,
+      "surface": "prose",
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
+    },
+    {
+      "term": "self-referential",
+      "raw": "self-referential",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 13,
+      "surface": "prose",
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
+    },
+    {
+      "term": "stale",
+      "raw": "stale",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 13,
+      "surface": "prose",
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
+    },
+    {
+      "term": "checks",
+      "raw": "checks",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 13,
+      "surface": "prose",
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
+    },
+    {
+      "term": "committed-baseline",
+      "raw": "Committed-baseline",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
+      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+    },
+    {
+      "term": "mode",
+      "raw": "mode",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
+      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+    },
+    {
+      "term": "intentionally",
+      "raw": "intentionally",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
+      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+    },
+    {
+      "term": "omits",
+      "raw": "omits",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
+      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+    },
+    {
+      "term": "local",
+      "raw": "local",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
+      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+    },
+    {
+      "term": "working-tree",
+      "raw": "working-tree",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
+      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+    },
+    {
+      "term": "changes",
+      "raw": "changes",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
+      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+    },
+    {
+      "term": "committed",
+      "raw": "committed",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
+      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+    },
+    {
+      "term": "generated",
+      "raw": "generated",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
+      "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
+    },
+    {
+      "term": "artifacts",
+      "raw": "artifacts",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 14,
+      "surface": "prose",
       "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
     },
     {
       "term": "preserve",
       "raw": "preserve",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
+      "line": 14,
       "surface": "prose",
       "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
     },
@@ -284997,7 +285237,7 @@
       "term": "pre-commit",
       "raw": "pre-commit",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
+      "line": 14,
       "surface": "prose",
       "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
     },
@@ -285005,7 +285245,7 @@
       "term": "dirtiness",
       "raw": "dirtiness",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 13,
+      "line": 14,
       "surface": "prose",
       "nearby": "\"Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.\","
     },
@@ -285013,7 +285253,7 @@
       "term": "runindexbuilder",
       "raw": "runIndexBuilder",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },
@@ -285021,7 +285261,7 @@
       "term": "definition",
       "raw": "definition",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },
@@ -285029,7 +285269,7 @@
       "term": "buildrecords",
       "raw": "buildRecords",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },
@@ -285037,7 +285277,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },
@@ -285045,7 +285285,7 @@
       "term": "files",
       "raw": "files",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },
@@ -285053,7 +285293,7 @@
       "term": "args",
       "raw": "args",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },
@@ -285061,7 +285301,7 @@
       "term": "buildchangerecords",
       "raw": "buildChangeRecords",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },
@@ -285069,7 +285309,7 @@
       "term": "root",
       "raw": "root",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },
@@ -285077,7 +285317,7 @@
       "term": "files",
       "raw": "files",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },
@@ -285085,7 +285325,7 @@
       "term": "args",
       "raw": "args",
       "file": "tool-implementations/indexes/build-change-index.ts",
-      "line": 17,
+      "line": 18,
       "surface": "identifier",
       "nearby": "runIndexBuilder({ definition, buildRecords: ({ root, files, args }) => buildChangeRecords(root, files, args) });"
     },

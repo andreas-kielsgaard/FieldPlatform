@@ -22,7 +22,7 @@ function stripVolatile(value: unknown): unknown {
   if (value && typeof value === "object") {
     const result: Record<string, unknown> = {};
     for (const [key, entry] of Object.entries(value as Record<string, unknown>)) {
-      if (["generatedAt", "sourceRoot", "sourceRevision", "size", "absolutePath"].includes(key)) {
+      if (["generatedAt", "sourceRoot", "sourceState", "sourceRevision", "size", "absolutePath"].includes(key)) {
         continue;
       }
       result[key] = stripVolatile(entry);

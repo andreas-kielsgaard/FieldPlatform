@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T15:59:46.675Z",
+  "generatedAt": "2026-06-16T16:09:11.660Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
   "producer": "build-path-index",
   "artifactPath": "tool-maintained-files/indexes/path-index.json",
   "sourceInputs": [
@@ -1461,7 +1461,7 @@
       "area": "prompt-files",
       "name": "change-index.md",
       "ext": ".md",
-      "size": 1309,
+      "size": 1467,
       "generatedHint": false
     },
     {
@@ -1821,7 +1821,7 @@
       "area": "tool-implementations",
       "name": "json.ts",
       "ext": ".ts",
-      "size": 924,
+      "size": 938,
       "generatedHint": false
     },
     {
@@ -1866,7 +1866,7 @@
       "area": "tool-implementations",
       "name": "change-records.ts",
       "ext": ".ts",
-      "size": 2544,
+      "size": 2684,
       "generatedHint": false
     },
     {
@@ -2046,7 +2046,7 @@
       "area": "tool-implementations",
       "name": "build-change-index.ts",
       "ext": ".ts",
-      "size": 1030,
+      "size": 1142,
       "generatedHint": false
     },
     {
@@ -2343,7 +2343,7 @@
       "area": "tool-maintained-files",
       "name": "change-index.json",
       "ext": ".json",
-      "size": 8870,
+      "size": 3710,
       "generatedHint": true
     },
     {
@@ -2361,7 +2361,7 @@
       "area": "tool-maintained-files",
       "name": "dependency-index.json",
       "ext": ".json",
-      "size": 58465,
+      "size": 58801,
       "generatedHint": true
     },
     {
@@ -2370,7 +2370,7 @@
       "area": "tool-maintained-files",
       "name": "doc-reference-index.json",
       "ext": ".json",
-      "size": 620622,
+      "size": 621029,
       "generatedHint": true
     },
     {
@@ -2388,7 +2388,7 @@
       "area": "tool-maintained-files",
       "name": "index-manifest.json",
       "ext": ".json",
-      "size": 69112,
+      "size": 69230,
       "generatedHint": true
     },
     {
@@ -2397,7 +2397,7 @@
       "area": "tool-maintained-files",
       "name": "literal-index.json",
       "ext": ".json",
-      "size": 698568,
+      "size": 700395,
       "generatedHint": true
     },
     {
@@ -2433,7 +2433,7 @@
       "area": "tool-maintained-files",
       "name": "symbol-index.json",
       "ext": ".json",
-      "size": 202347,
+      "size": 202661,
       "generatedHint": true
     },
     {
@@ -2442,7 +2442,7 @@
       "area": "tool-maintained-files",
       "name": "term-index.json",
       "ext": ".json",
-      "size": 11827866,
+      "size": 11840111,
       "generatedHint": true
     },
     {
@@ -2469,7 +2469,7 @@
       "area": "tool-maintained-files",
       "name": "dependency-map.json",
       "ext": ".json",
-      "size": 87052,
+      "size": 87329,
       "generatedHint": true
     },
     {

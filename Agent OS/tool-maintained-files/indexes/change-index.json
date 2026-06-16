@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T15:59:48.465Z",
+  "generatedAt": "2026-06-16T16:09:13.403Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "committed-baseline",
-  "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
   "producer": "build-change-index",
   "artifactPath": "tool-maintained-files/indexes/change-index.json",
   "sourceInputs": [
@@ -18,6 +18,7 @@
   "coverage": "Changed files, status codes, generated/manual hints, likely changed surfaces, and optional committed-baseline view for commit preparation.",
   "knownBlindSpots": [
     "Default mode reflects the current working tree and available git metadata.",
+    "Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.",
     "Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness."
   ],
   "recordCount": 0,

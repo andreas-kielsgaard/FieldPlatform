@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T15:59:56.444Z",
+  "generatedAt": "2026-06-16T16:09:18.678Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
   "producer": "build-doc-reference-index",
   "artifactPath": "tool-maintained-files/indexes/doc-reference-index.json",
   "sourceInputs": [
@@ -19,7 +19,7 @@
   "knownBlindSpots": [
     "External URLs, generated anchors, and prose-only references may need manual review."
   ],
-  "recordCount": 2042,
+  "recordCount": 2043,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-doc-reference-index",
@@ -57,14 +57,14 @@
           "startRecord": 1500,
           "endRecordExclusive": 2000,
           "recordCount": 500,
-          "sha256": "0675468e9fcb2d3dd1401911c49db9ada4c3413c47ce32a63753773af7d1607c"
+          "sha256": "f1e2c4f0658b37d4783f9aa4ca7ee3e2f77752b427a66f3ea1c79853d163fa5a"
         },
         {
           "shardId": "records-0005",
           "startRecord": 2000,
-          "endRecordExclusive": 2042,
-          "recordCount": 42,
-          "sha256": "6131a42274ba5df7762d0399d6863e669ce384554c5ee88df3a9d1f0827cbf6f"
+          "endRecordExclusive": 2043,
+          "recordCount": 43,
+          "sha256": "75e5cb97979c25b0f3cf243d42047acdb3ddbca109f26268de8f43e5c698d9e1"
         }
       ]
     },
@@ -13762,6 +13762,13 @@
       "kind": "heading",
       "text": "Output Boundary",
       "anchor": "output-boundary"
+    },
+    {
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "kind": "inline-id",
+      "target": "change-index",
+      "text": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
     },
     {
       "file": "prompt-files/tools/indexes/component-index.md",

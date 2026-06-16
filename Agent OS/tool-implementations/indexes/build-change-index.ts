@@ -10,6 +10,7 @@ const definition: IndexDefinition = {
   coverage: "Changed files, status codes, generated/manual hints, likely changed surfaces, and optional committed-baseline view for commit preparation.",
   knownBlindSpots: [
     "Default mode reflects the current working tree and available git metadata.",
+    "Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.",
     "Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness.",
   ],
 };

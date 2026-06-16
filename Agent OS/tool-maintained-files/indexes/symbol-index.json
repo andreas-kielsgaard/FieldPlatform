@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T15:59:54.250Z",
+  "generatedAt": "2026-06-16T16:09:16.879Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
   "producer": "build-symbol-index",
   "artifactPath": "tool-maintained-files/indexes/symbol-index.json",
   "sourceInputs": [
@@ -19,7 +19,7 @@
   "knownBlindSpots": [
     "Regex scanning is not a full compiler or AST and may miss dynamic or language-specific symbols."
   ],
-  "recordCount": 742,
+  "recordCount": 743,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-symbol-index",
@@ -36,14 +36,14 @@
           "startRecord": 0,
           "endRecordExclusive": 500,
           "recordCount": 500,
-          "sha256": "96a20a8165156e69ac5088850935214c376e121f5075fb555e191a04b41541b4"
+          "sha256": "692cb6987a514031437017c252b374f34cb5a9af6bbd4ef82903446588d6aaa6"
         },
         {
           "shardId": "records-0002",
           "startRecord": 500,
-          "endRecordExclusive": 742,
-          "recordCount": 242,
-          "sha256": "008ddabf0346666175c5f5e8dba299b82789b26d282c05a06a0ac01e9faed4f0"
+          "endRecordExclusive": 743,
+          "recordCount": 243,
+          "sha256": "b5ef13fca4f215a912df81b641ce53c533a8a4733028f63a21733b907fa2a09a"
         }
       ]
     },
@@ -1824,6 +1824,15 @@
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
       "line": 6,
+      "name": "isGeneratedToolMaintainedPath",
+      "kind": "import",
+      "role": "import",
+      "module": "../repo-files.ts",
+      "text": "import { isGeneratedToolMaintainedPath } from \"../repo-files.ts\";"
+    },
+    {
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 7,
       "name": "areaOf",
       "kind": "import",
       "role": "import",
@@ -1832,7 +1841,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 6,
+      "line": 7,
       "name": "normalizePath",
       "kind": "import",
       "role": "import",
@@ -1841,7 +1850,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "name": "buildChangeRecords",
       "kind": "function",
       "role": "export",
@@ -1849,7 +1858,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 8,
+      "line": 9,
       "name": "buildChangeRecords",
       "kind": "function",
       "role": "definition",
@@ -1857,7 +1866,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "name": "statusLines",
       "kind": "const",
       "role": "definition",
@@ -1865,7 +1874,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 14,
+      "line": 15,
       "name": "changedFiles",
       "kind": "const",
       "role": "definition",
@@ -1873,7 +1882,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 15,
+      "line": 16,
       "name": "records",
       "kind": "const",
       "role": "definition",
@@ -1881,7 +1890,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 17,
+      "line": 18,
       "name": "line",
       "kind": "const",
       "role": "definition",
@@ -1889,7 +1898,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 18,
+      "line": 19,
       "name": "status",
       "kind": "const",
       "role": "definition",
@@ -1897,7 +1906,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "name": "filePath",
       "kind": "const",
       "role": "definition",
@@ -1905,7 +1914,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 27,
+      "line": 28,
       "name": "filePath",
       "kind": "const",
       "role": "definition",
@@ -1913,7 +1922,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 28,
+      "line": 29,
       "name": "normalized",
       "kind": "const",
       "role": "definition",
@@ -1921,7 +1930,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 34,
+      "line": 35,
       "name": "filePath",
       "kind": "const",
       "role": "definition",
@@ -1929,7 +1938,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 40,
+      "line": 41,
       "name": "knownFiles",
       "kind": "const",
       "role": "definition",
@@ -1937,7 +1946,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 44,
+      "line": 45,
       "name": "normalizeGitPath",
       "kind": "function",
       "role": "definition",
@@ -1945,7 +1954,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 45,
+      "line": 46,
       "name": "normalized",
       "kind": "const",
       "role": "definition",
@@ -1953,7 +1962,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 46,
+      "line": 47,
       "name": "rootName",
       "kind": "const",
       "role": "definition",
@@ -1961,7 +1970,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 47,
+      "line": 48,
       "name": "prefixed",
       "kind": "const",
       "role": "definition",
@@ -1969,7 +1978,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 54,
+      "line": 55,
       "name": "inWorkingTree",
       "kind": "function",
       "role": "definition",
@@ -1977,7 +1986,7 @@
     },
     {
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 61,
+      "line": 62,
       "name": "isCommittedBaselineMode",
       "kind": "function",
       "role": "definition",

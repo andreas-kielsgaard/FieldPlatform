@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T16:00:11.775Z",
+  "generatedAt": "2026-06-16T16:09:33.637Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
   "producer": "build-literal-index",
   "artifactPath": "tool-maintained-files/indexes/literal-index.json",
   "sourceInputs": [
@@ -19,7 +19,7 @@
   "knownBlindSpots": [
     "Does not know whether a literal is product copy, test data, or implementation detail without context."
   ],
-  "recordCount": 2224,
+  "recordCount": 2229,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-literal-index",
@@ -50,21 +50,21 @@
           "startRecord": 1000,
           "endRecordExclusive": 1500,
           "recordCount": 500,
-          "sha256": "6ea3a71479b030ed9ea911d0288700324d5e9178affb3a9672bc5125950043ae"
+          "sha256": "4bc45b0870e78599cc873f56296976217b79ea597e4210e4ae57f39cd8ea9849"
         },
         {
           "shardId": "records-0004",
           "startRecord": 1500,
           "endRecordExclusive": 2000,
           "recordCount": 500,
-          "sha256": "3aa1addf8ee8e013989314b572439c38351f8a453a563a4c1990453ac471ec4c"
+          "sha256": "ec2aa3a6e8bb03adac3db5b4a789acd337e30849738554630ed45dfda0c4cc9a"
         },
         {
           "shardId": "records-0005",
           "startRecord": 2000,
-          "endRecordExclusive": 2224,
-          "recordCount": 224,
-          "sha256": "6db6bae7603f8c40f01661ca6b05f0cf2ac8bd4e3be9b32ba8c27ac86951ef42"
+          "endRecordExclusive": 2229,
+          "recordCount": 229,
+          "sha256": "0240d8af75f8042a0ae2724b1101edef1d034e1f183f0a5f4f4f4a15a3755118"
         }
       ]
     },
@@ -7397,6 +7397,20 @@
       "nearby": "- Artifact: `tool-maintained-files/indexes/change-index.json`"
     },
     {
+      "value": "tool-maintained-files/",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "category": "string",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
+      "value": "change-index",
+      "file": "prompt-files/tools/indexes/change-index.md",
+      "line": 32,
+      "category": "string",
+      "nearby": "Default output reflects the current working tree and available git metadata. Generated Agent OS artifacts under `tool-maintained-files/` are excluded from dirty records so index refreshes do not make `change-index` stale by definition. Comm"
+    },
+    {
       "value": "build-component-index",
       "file": "prompt-files/tools/indexes/component-index.md",
       "line": 16,
@@ -9452,35 +9466,42 @@
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "category": "string",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "value": "sourceRoot",
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "category": "string",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+    },
+    {
+      "value": "sourceState",
+      "file": "tool-implementations/_lib/json.ts",
+      "line": 25,
+      "category": "string",
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "value": "sourceRevision",
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "category": "string",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "value": "size",
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "category": "string",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "value": "absolutePath",
       "file": "tool-implementations/_lib/json.ts",
       "line": 25,
       "category": "string",
-      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
+      "nearby": "if ([\"generatedAt\", \"sourceRoot\", \"sourceState\", \"sourceRevision\", \"size\", \"absolutePath\"].includes(key)) {"
     },
     {
       "value": "node:path",
@@ -10330,107 +10351,114 @@
       "nearby": "import { gitLines } from \"../git.ts\";"
     },
     {
-      "value": "../text-utils.ts",
+      "value": "../repo-files.ts",
       "file": "tool-implementations/_lib/records/change-records.ts",
       "line": 6,
+      "category": "string",
+      "nearby": "import { isGeneratedToolMaintainedPath } from \"../repo-files.ts\";"
+    },
+    {
+      "value": "../text-utils.ts",
+      "file": "tool-implementations/_lib/records/change-records.ts",
+      "line": 7,
       "category": "string",
       "nearby": "import { areaOf, normalizePath } from \"../text-utils.ts\";"
     },
     {
       "value": "status",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "category": "string",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
     {
       "value": "--short",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "category": "string",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
     {
       "value": "--untracked-files=all",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 13,
+      "line": 14,
       "category": "string",
       "nearby": "const statusLines = gitLines(root, [\"status\", \"--short\", \"--untracked-files=all\"]);"
     },
     {
       "value": "modified",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 18,
+      "line": 19,
       "category": "string",
       "nearby": "const status = line.slice(0, 2).trim() || \"modified\";"
     },
     {
       "value": "$/g, ",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 19,
+      "line": 20,
       "category": "string",
       "nearby": "const filePath = normalizeGitPath(root, line.slice(3).trim().replace(/^\"|\"$/g, \"\"));"
     },
     {
       "value": "git-status",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 24,
+      "line": 25,
       "category": "string",
       "nearby": "records.push({ file: filePath, status, source: \"git-status\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
     {
       "value": "diff",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 27,
+      "line": 28,
       "category": "string",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
     {
       "value": "--name-only",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 27,
+      "line": 28,
       "category": "string",
       "nearby": "for (const filePath of gitLines(root, [\"diff\", \"--name-only\"])) {"
     },
     {
       "value": "diff",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "category": "string",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
     {
       "value": "git-diff",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 36,
+      "line": 37,
       "category": "string",
       "nearby": "records.push({ file: filePath, status: \"diff\", source: \"git-diff\", area: areaOf(filePath), artifactKind: inferArtifactKind(filePath) });"
     },
     {
       "value": "${rootName}/",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 47,
+      "line": 48,
       "category": "string",
       "nearby": "const prefixed = `${rootName}/`;"
     },
     {
       "value": "../",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 55,
+      "line": 56,
       "category": "string",
       "nearby": "if (!relativePath || relativePath.startsWith(\"../\") || path.isAbsolute(relativePath)) {"
     },
     {
       "value": "commit-view",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "category": "string",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
     {
       "value": "committed",
       "file": "tool-implementations/_lib/records/change-records.ts",
-      "line": 65,
+      "line": 66,
       "category": "string",
       "nearby": "return args.flags.committed === true || args.flags[\"commit-view\"] === true || args.flags.mode === \"committed\";"
     },
@@ -13527,6 +13555,13 @@
       "line": 12,
       "category": "string",
       "nearby": "\"Default mode reflects the current working tree and available git metadata.\","
+    },
+    {
+      "value": "Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.",
+      "file": "tool-implementations/indexes/build-change-index.ts",
+      "line": 13,
+      "category": "string",
+      "nearby": "\"Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.\","
     },
     {
       "value": "../_lib/index-runner.ts",

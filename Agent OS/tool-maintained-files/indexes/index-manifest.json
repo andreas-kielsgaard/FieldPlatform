@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T16:00:16.021Z",
+  "generatedAt": "2026-06-16T16:09:38.569Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
   "producer": "build-index-manifest",
   "artifactPath": "tool-maintained-files/indexes/index-manifest.json",
   "sourceInputs": [
@@ -37,7 +37,7 @@
           "startRecord": 0,
           "endRecordExclusive": 15,
           "recordCount": 15,
-          "sha256": "1fb795b70695ebc9c12cee53d2ecd1eca39746e61d86173a74da29bb0b6337af"
+          "sha256": "52422d6636beaef8e21cdb3ab5fb3f37ffbbf23243b2147a9c27316738ff1f70"
         }
       ]
     },
@@ -74,7 +74,7 @@
       "sourceRoot": ".",
       "pathReference": "Paths are relative to the Agent OS root; run tools from that root or pass --root.",
       "sourceState": "manifest-self-row",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-index-manifest",
       "freshnessPolicy": "Refresh when active index tiers, capabilities, artifacts, builders, or first-query guidance changes.",
       "coverage": "Compact tier, freshness, size, hash, and first-query guidance for active evidence indexes.",
@@ -118,14 +118,14 @@
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
       "byteSize": 74483,
-      "sha256": "7b557d282cad9738f7cebb6bcd2f8fc55a8afee01250d2c148c2dfe987133862",
+      "sha256": "f630b27afd9558e6e0ef10cd77766f72aa147d3254e78bf7fbc75135ac38b02f",
       "schemaVersion": 2,
       "recordCount": 281,
-      "generatedAt": "2026-06-16T15:59:46.675Z",
+      "generatedAt": "2026-06-16T16:09:11.660Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-path-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Files, directories, extensions, areas, inferred artifact kinds, and generated/manual hints.",
@@ -176,15 +176,15 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 2416,
-      "sha256": "6143ae1d7a13a748c0e98cf16096f2b4c6edf9395eb5b1dbdc7409ec5bd1ab73",
+      "byteSize": 2533,
+      "sha256": "6d45c456b797d8aa6f529d7dc75d9d9beb1daff56005c838678ec88fec623b28",
       "schemaVersion": 2,
       "recordCount": 0,
-      "generatedAt": "2026-06-16T15:59:48.465Z",
+      "generatedAt": "2026-06-16T16:09:13.403Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "committed-baseline",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-change-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Changed files, status codes, generated/manual hints, likely changed surfaces, and optional committed-baseline view for commit preparation.",
@@ -212,6 +212,7 @@
       },
       "knownBlindSpots": [
         "Default mode reflects the current working tree and available git metadata.",
+        "Generated Agent OS artifacts under tool-maintained-files are excluded to avoid self-referential stale checks.",
         "Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness."
       ],
       "freshnessWarnings": []
@@ -228,15 +229,15 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 58465,
-      "sha256": "650f0c533987fc4ccdbda54f3cda9b04304d6f4594814d99b61c89c885417837",
+      "byteSize": 58801,
+      "sha256": "97742f9f3190177691a16c2c9f84f2a9f1fb43354b120e0b1803355e52ce4aaf",
       "schemaVersion": 2,
-      "recordCount": 172,
-      "generatedAt": "2026-06-16T15:59:51.565Z",
+      "recordCount": 173,
+      "generatedAt": "2026-06-16T16:09:15.128Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-dependency-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Import edges, module specifiers, relative resolutions, and rough dependency direction evidence.",
@@ -253,9 +254,9 @@
           {
             "shardId": "records-0001",
             "startRecord": 0,
-            "endRecordExclusive": 172,
-            "recordCount": 172,
-            "sha256": "4cf7acca3a250557afc8ea73405e4dca7d77237d55d25284a039fede8b4f707a"
+            "endRecordExclusive": 173,
+            "recordCount": 173,
+            "sha256": "2d273fdbcf9da1f9bf9f24a120d9e465bb350be9044284fe517e7528ce2a2412"
           }
         ]
       },
@@ -287,15 +288,15 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 202347,
-      "sha256": "c11b6509591cf42c393936a25d08951b217ecfecf2a1cd2665aa08fe14e2b8fd",
+      "byteSize": 202661,
+      "sha256": "858a5d92b92238ddcc3f2d16bbc78af9483b9411423def526942b095897686b3",
       "schemaVersion": 2,
-      "recordCount": 742,
-      "generatedAt": "2026-06-16T15:59:54.250Z",
+      "recordCount": 743,
+      "generatedAt": "2026-06-16T16:09:16.879Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-symbol-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Exported, imported, and locally declared symbols discoverable with lightweight source scanning.",
@@ -314,14 +315,14 @@
             "startRecord": 0,
             "endRecordExclusive": 500,
             "recordCount": 500,
-            "sha256": "96a20a8165156e69ac5088850935214c376e121f5075fb555e191a04b41541b4"
+            "sha256": "692cb6987a514031437017c252b374f34cb5a9af6bbd4ef82903446588d6aaa6"
           },
           {
             "shardId": "records-0002",
             "startRecord": 500,
-            "endRecordExclusive": 742,
-            "recordCount": 242,
-            "sha256": "008ddabf0346666175c5f5e8dba299b82789b26d282c05a06a0ac01e9faed4f0"
+            "endRecordExclusive": 743,
+            "recordCount": 243,
+            "sha256": "b5ef13fca4f215a912df81b641ce53c533a8a4733028f63a21733b907fa2a09a"
           }
         ]
       },
@@ -353,15 +354,15 @@
       "bootloaderRole": "boot-aware strong cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 620622,
-      "sha256": "46847788a879ea6a6a5dc8101c390410a2e4328482afbf4f9289b9e1fb9825c1",
+      "byteSize": 621029,
+      "sha256": "98905da29880134dc5abdf6ee54271bdb963f912788466c694e2bb823b31fe78",
       "schemaVersion": 2,
-      "recordCount": 2042,
-      "generatedAt": "2026-06-16T15:59:56.444Z",
+      "recordCount": 2043,
+      "generatedAt": "2026-06-16T16:09:18.678Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-doc-reference-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Markdown links, headings, file references, instruction references, tool IDs, and likely broken local links.",
@@ -401,14 +402,14 @@
             "startRecord": 1500,
             "endRecordExclusive": 2000,
             "recordCount": 500,
-            "sha256": "0675468e9fcb2d3dd1401911c49db9ada4c3413c47ce32a63753773af7d1607c"
+            "sha256": "f1e2c4f0658b37d4783f9aa4ca7ee3e2f77752b427a66f3ea1c79853d163fa5a"
           },
           {
             "shardId": "records-0005",
             "startRecord": 2000,
-            "endRecordExclusive": 2042,
-            "recordCount": 42,
-            "sha256": "6131a42274ba5df7762d0399d6863e669ce384554c5ee88df3a9d1f0827cbf6f"
+            "endRecordExclusive": 2043,
+            "recordCount": 43,
+            "sha256": "75e5cb97979c25b0f3cf243d42047acdb3ddbca109f26268de8f43e5c698d9e1"
           }
         ]
       },
@@ -441,14 +442,14 @@
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
       "byteSize": 75186,
-      "sha256": "080b4a1c7515362567b22827dc8e626be78a02c4daf080ca14d9e2353fc2f769",
+      "sha256": "6e80723f660687a9afb2aa417a6eae623a77a0445c96ee5f9454cdc7f211db1f",
       "schemaVersion": 2,
       "recordCount": 241,
-      "generatedAt": "2026-06-16T15:59:58.363Z",
+      "generatedAt": "2026-06-16T16:09:20.372Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-artifact-metadata-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Artifact kind, generated/manual/hybrid hints, direct-edit safety hints, and possible producers.",
@@ -500,14 +501,14 @@
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
       "byteSize": 14537,
-      "sha256": "928fda512000d8d818dc54b7a96875f293ba1c6b28d1240fc92e882d16aba51e",
+      "sha256": "be3922a703d2c19344849730e417b80501f6be842eefcd062bd8ccdba40b7120",
       "schemaVersion": 2,
       "recordCount": 25,
-      "generatedAt": "2026-06-16T16:00:00.432Z",
+      "generatedAt": "2026-06-16T16:09:22.084Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-component-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "PascalCase component definitions, consumers, stories, tests, and props hints.",
@@ -559,14 +560,14 @@
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
       "byteSize": 74463,
-      "sha256": "7613f8fa88549ce0902c536910d4e5b71cb0152a1345bc23734e227c349e83f7",
+      "sha256": "7df04720a6b35822f7f43a8a5ce2aaf0837c164f665479c5d7c962adac44dc0c",
       "schemaVersion": 2,
       "recordCount": 204,
-      "generatedAt": "2026-06-16T16:00:02.670Z",
+      "generatedAt": "2026-06-16T16:09:24.130Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-accessor-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Accessor/API-like definitions, callers, read/write hints, cache hints, and boundary names.",
@@ -618,14 +619,14 @@
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
       "byteSize": 19999,
-      "sha256": "738deac1c85c3716100e3c92b5f94e011cb7e2b628a848b15e9c635ebb2162c5",
+      "sha256": "fd5ab463cb03cca3b27bc1976d52053eb27a44dfa0b818e3223f5cc87a6e56ae",
       "schemaVersion": 2,
       "recordCount": 78,
-      "generatedAt": "2026-06-16T16:00:04.694Z",
+      "generatedAt": "2026-06-16T16:09:25.883Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-schema-shape-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Schema-like declarations, validators, fields, relation hints, and generated type references.",
@@ -677,14 +678,14 @@
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
       "byteSize": 2132,
-      "sha256": "0d4f187c81c43c450505f72c060c9edf8b1e4673a9628a7900aa9666a5a1f404",
+      "sha256": "4da6ac92ec4aed1d52d7ef6991dfee9fc84c5bbb910aa3777ab9b359bb9415b2",
       "schemaVersion": 2,
       "recordCount": 0,
-      "generatedAt": "2026-06-16T16:00:06.581Z",
+      "generatedAt": "2026-06-16T16:09:28.050Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-test-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Test and story files, likely tested subjects, imports, fixture references, and route/component hints.",
@@ -728,14 +729,14 @@
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
       "byteSize": 36414,
-      "sha256": "b5c60e14bbf90d9360705844ae1b8cea961fd53415df36cdeaac756f121a47b1",
+      "sha256": "b3c4b0c4d8f0506059ad9349287fd73368b4ea80921cf5d7ba77cc4168bd68ac",
       "schemaVersion": 2,
       "recordCount": 39,
-      "generatedAt": "2026-06-16T16:00:08.471Z",
+      "generatedAt": "2026-06-16T16:09:29.799Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-fixture-scenario-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Fixture/scenario artifacts, consumers, represented terms, and shape hints.",
@@ -787,14 +788,14 @@
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
       "byteSize": 2148,
-      "sha256": "e1e23683459574f3a31bda0e85db5ca74017f2b79866cbf7414a8444b1b6ad87",
+      "sha256": "ce705925a134fa6b250b974e58104140a49bbbf0fb1d0ca5c2aaa05df32d0187",
       "schemaVersion": 2,
       "recordCount": 0,
-      "generatedAt": "2026-06-16T16:00:09.993Z",
+      "generatedAt": "2026-06-16T16:09:31.683Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-route-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Route-like files, inferred route paths, params, route families, pages, layouts, and handlers.",
@@ -837,15 +838,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 698568,
-      "sha256": "69a973a0dfe458511e68af3cc43dd766e59984cba484e6ec2eef52ba4b5cf5fd",
+      "byteSize": 700395,
+      "sha256": "fb50d181187abfe6b0925ee74f35f09342936c4c0f335707a4ed7a8b0b729e8c",
       "schemaVersion": 2,
-      "recordCount": 2224,
-      "generatedAt": "2026-06-16T16:00:11.775Z",
+      "recordCount": 2229,
+      "generatedAt": "2026-06-16T16:09:33.637Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-literal-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "String literals, role-like values, status-like values, token-like values, and arbitrary style-like values.",
@@ -878,21 +879,21 @@
             "startRecord": 1000,
             "endRecordExclusive": 1500,
             "recordCount": 500,
-            "sha256": "6ea3a71479b030ed9ea911d0288700324d5e9178affb3a9672bc5125950043ae"
+            "sha256": "4bc45b0870e78599cc873f56296976217b79ea597e4210e4ae57f39cd8ea9849"
           },
           {
             "shardId": "records-0004",
             "startRecord": 1500,
             "endRecordExclusive": 2000,
             "recordCount": 500,
-            "sha256": "3aa1addf8ee8e013989314b572439c38351f8a453a563a4c1990453ac471ec4c"
+            "sha256": "ec2aa3a6e8bb03adac3db5b4a789acd337e30849738554630ed45dfda0c4cc9a"
           },
           {
             "shardId": "records-0005",
             "startRecord": 2000,
-            "endRecordExclusive": 2224,
-            "recordCount": 224,
-            "sha256": "6db6bae7603f8c40f01661ca6b05f0cf2ac8bd4e3be9b32ba8c27ac86951ef42"
+            "endRecordExclusive": 2229,
+            "recordCount": 229,
+            "sha256": "0240d8af75f8042a0ae2724b1101edef1d034e1f183f0a5f4f4f4a15a3755118"
           }
         ]
       },
@@ -924,15 +925,15 @@
       "bootloaderRole": "selective cue",
       "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
       "exists": true,
-      "byteSize": 11827866,
-      "sha256": "ba98a714b60b5d78a6eefcaedfe9f9e2a761f96a3503c6c4fba7b528f66c541a",
+      "byteSize": 11840111,
+      "sha256": "30c31e7e810ee909192b84080ac1121b2cdfffd4ba92e37b108d1c855c1f76ad",
       "schemaVersion": 2,
-      "recordCount": 38060,
-      "generatedAt": "2026-06-16T16:00:13.907Z",
+      "recordCount": 38090,
+      "generatedAt": "2026-06-16T16:09:36.071Z",
       "sourceRoot": ".",
       "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
       "sourceState": "working-tree",
-      "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+      "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
       "producer": "build-term-index",
       "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
       "coverage": "Domain terms, headings, identifiers, UI-looking literals, and nearby language occurrences.",
@@ -1315,175 +1316,175 @@
             "startRecord": 26000,
             "endRecordExclusive": 26500,
             "recordCount": 500,
-            "sha256": "6dabd01db621c7a2c71f2190b1e29b11d603d0d56693af093d4f8a249e976f81"
+            "sha256": "245d1762987ebe4e5c7772af0e9b502685aed557478635f937729035f4d44c68"
           },
           {
             "shardId": "records-0054",
             "startRecord": 26500,
             "endRecordExclusive": 27000,
             "recordCount": 500,
-            "sha256": "808dbd881f243540f9d648cd42d244ad3449e57ad086bdf1293c48c5d7cc9e13"
+            "sha256": "589cb419e241bbaffb3f7c0dccb90a298ecf241fd5c6c85b4613bc742b3cba74"
           },
           {
             "shardId": "records-0055",
             "startRecord": 27000,
             "endRecordExclusive": 27500,
             "recordCount": 500,
-            "sha256": "b4a06fc8415d64c511f530dcae96325eefde892f7ee910c8037cef47a335d53a"
+            "sha256": "e762afd4cd06b393d7b2f1494ac2374d293719af899e8046f85353d483f55c02"
           },
           {
             "shardId": "records-0056",
             "startRecord": 27500,
             "endRecordExclusive": 28000,
             "recordCount": 500,
-            "sha256": "ddb6f75e13f6538a84f504281c13e2b58b74173841b3238e2865b41e30b2519a"
+            "sha256": "cc7101d66102131120caa300fee704d5af6b155d1a102b7ec2dcb07a9e246ba0"
           },
           {
             "shardId": "records-0057",
             "startRecord": 28000,
             "endRecordExclusive": 28500,
             "recordCount": 500,
-            "sha256": "9c57ff1f3b8528bcd5229622f8c635deb63c0b7ff57ed3f2ce16643ded2a6799"
+            "sha256": "644af9d2a62c49b172fa42a5d8ee223d85a3aaa252e8d5770dea832c732becd2"
           },
           {
             "shardId": "records-0058",
             "startRecord": 28500,
             "endRecordExclusive": 29000,
             "recordCount": 500,
-            "sha256": "e13dcbdadc18292ee4328e31b3119da80b1b66a7a6c459dcf2d50d013489021d"
+            "sha256": "870f2ecc173a6e9ce9b46adff178f3d305123ce4ff0f24d5429ce88f2ac707a8"
           },
           {
             "shardId": "records-0059",
             "startRecord": 29000,
             "endRecordExclusive": 29500,
             "recordCount": 500,
-            "sha256": "7bfbae699129be1ded841931d8d96af318a022b3b078ac5dd383fa859ac3ab9d"
+            "sha256": "a2a27b5e52e1107c91d41dd903d75005b994c6748b8d7a2f6576436d94b37ebf"
           },
           {
             "shardId": "records-0060",
             "startRecord": 29500,
             "endRecordExclusive": 30000,
             "recordCount": 500,
-            "sha256": "72169d0fd288e5aa0a37d4a6a22a1cd764e927cf7c579a889bfe20aac3f6b180"
+            "sha256": "e92ef617e0ffae589875012db01f363cba22afa0b1bcd133805b3390e171fd20"
           },
           {
             "shardId": "records-0061",
             "startRecord": 30000,
             "endRecordExclusive": 30500,
             "recordCount": 500,
-            "sha256": "70bdf9824ecc46c06c255ad40acfd1c128fd134889ce78ab3daac11790d2da72"
+            "sha256": "b7cb9343b64ec0e295c11a993503ce09b671eef1dbe8324d236dcb935c3b4aed"
           },
           {
             "shardId": "records-0062",
             "startRecord": 30500,
             "endRecordExclusive": 31000,
             "recordCount": 500,
-            "sha256": "3f70637644358118255951c9a79ed32efc189e825ea28e25323a0aec6922c3cf"
+            "sha256": "f1640f6b7ac2084493aa34de3404e4d5023b8fee0ad7db349eddafe64f7fb2cb"
           },
           {
             "shardId": "records-0063",
             "startRecord": 31000,
             "endRecordExclusive": 31500,
             "recordCount": 500,
-            "sha256": "b0bb6ad2b12fa4493f201427dbec5f29c849dfe23dc023e2466ab01fac639a12"
+            "sha256": "48c1278071aaa04a7400347082a36cdc76ce98f2d35977fa19d240c5460998c6"
           },
           {
             "shardId": "records-0064",
             "startRecord": 31500,
             "endRecordExclusive": 32000,
             "recordCount": 500,
-            "sha256": "3e7b42f0ddccb28b38107c70e0c6240c0f2750b17ac5b9228806214971d74d54"
+            "sha256": "d347483d7bf790507358bdf9dad3c1c82c0b00ed58917a97afb340b6f31f281a"
           },
           {
             "shardId": "records-0065",
             "startRecord": 32000,
             "endRecordExclusive": 32500,
             "recordCount": 500,
-            "sha256": "3523e388cc013d7b33de30525ee8e5cfca2a9bcce0f4962c0a4481481ae756a2"
+            "sha256": "a019ad3d302cb38057e8cc480e7810b35bb144386b711b035641767e5764452b"
           },
           {
             "shardId": "records-0066",
             "startRecord": 32500,
             "endRecordExclusive": 33000,
             "recordCount": 500,
-            "sha256": "6ba0b8d04415e2173c28336d2e6d713132b272ae143fd94ef881a70d12394dff"
+            "sha256": "32628ccd3d54c64b22e0b7045550183e06c60cf95a5dd47b0bc87ff41a5c55f5"
           },
           {
             "shardId": "records-0067",
             "startRecord": 33000,
             "endRecordExclusive": 33500,
             "recordCount": 500,
-            "sha256": "f3e6f0476b26cebf289e56597fb4bda4606099f00b6eb302af69764a8a84f617"
+            "sha256": "a8a9646e5cd4a3fe2b8f0c9252e469852dd3decf32294e55a859a7effc389b3e"
           },
           {
             "shardId": "records-0068",
             "startRecord": 33500,
             "endRecordExclusive": 34000,
             "recordCount": 500,
-            "sha256": "639b5565ab5a14479be795e58231de89818bb1ea162d4c7e9c6641fb9dc5635e"
+            "sha256": "8024c6f8d4254d73c2168eb66389f7430052ea6c479de41f27f0154f142fc509"
           },
           {
             "shardId": "records-0069",
             "startRecord": 34000,
             "endRecordExclusive": 34500,
             "recordCount": 500,
-            "sha256": "b682ae8f5377dd07d8140a001d5ffc3dc037e7ed254cf15b0abd85d6973f1525"
+            "sha256": "c47239bceeedc48a7804cf058e3d05bdfa41c80633920b9e95038dca758a741c"
           },
           {
             "shardId": "records-0070",
             "startRecord": 34500,
             "endRecordExclusive": 35000,
             "recordCount": 500,
-            "sha256": "db5a46229d211297082881695c70965586485d989508f703a556c59041985e62"
+            "sha256": "52e6622a6b14f0e4e991b304a3780b26b8d9153b2c403748300f383b8e6d5ac4"
           },
           {
             "shardId": "records-0071",
             "startRecord": 35000,
             "endRecordExclusive": 35500,
             "recordCount": 500,
-            "sha256": "9c245abbf5879185a8991bd8aee2f8db85ffca0daf3d6927d11fb39e42f4eec7"
+            "sha256": "92503e49dd809c38fe04ec4ca8f759fdd024070438ee13262838e061ddabcc9b"
           },
           {
             "shardId": "records-0072",
             "startRecord": 35500,
             "endRecordExclusive": 36000,
             "recordCount": 500,
-            "sha256": "fa92bc9332b9fdf66538987972202c7097ef4c039ee0a09a668a0c56e56f2da7"
+            "sha256": "d394721314e29a17dd23ff07a7acd35cbda45636bd6aa77ecb0b014d12e7fb65"
           },
           {
             "shardId": "records-0073",
             "startRecord": 36000,
             "endRecordExclusive": 36500,
             "recordCount": 500,
-            "sha256": "018bc9d2a4f12cca56437f02135cd56eaf1a3b2f220095044aa38387685481bc"
+            "sha256": "14d41b76515f34f0014fe46e008ef101a7434b884547295e2ce2f59981f8847a"
           },
           {
             "shardId": "records-0074",
             "startRecord": 36500,
             "endRecordExclusive": 37000,
             "recordCount": 500,
-            "sha256": "ee0919828b0bcbc73dd79fff57fe0785042def468925213de1b6a940eee421ce"
+            "sha256": "f5598b346d007d6bfa95d82fd3763a030fbdf09249db9626a9bf2c49d3bbaae5"
           },
           {
             "shardId": "records-0075",
             "startRecord": 37000,
             "endRecordExclusive": 37500,
             "recordCount": 500,
-            "sha256": "8452cddae9d90fa49a3ace509bb973c60b5f95c9c71c899e9501e12267945d7c"
+            "sha256": "9af8b3a49ce3d7d72c181fab04a2c52acbe4af18e3b190b9c2d07097bee0e78c"
           },
           {
             "shardId": "records-0076",
             "startRecord": 37500,
             "endRecordExclusive": 38000,
             "recordCount": 500,
-            "sha256": "f2ead6c88078ebb2b240ebb7219eba9eb7709e5a7dc2be71071d52435c0cc880"
+            "sha256": "da1f691e6302a3ba64c6d18ca5cfe4605faebb8a777e6e9eb02bfa67412a92ca"
           },
           {
             "shardId": "records-0077",
             "startRecord": 38000,
-            "endRecordExclusive": 38060,
-            "recordCount": 60,
-            "sha256": "fa9a82579e4602fe123ca02eac7aa41cff55131c64ae29bf67245f82746fe708"
+            "endRecordExclusive": 38090,
+            "recordCount": 90,
+            "sha256": "2737055b6b118dcd7c78477275bfe346237dba3f151debb761bbcb09ef30dd9e"
           }
         ]
       },

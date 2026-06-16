@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T15:59:51.565Z",
+  "generatedAt": "2026-06-16T16:09:15.128Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
+  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
   "producer": "build-dependency-index",
   "artifactPath": "tool-maintained-files/indexes/dependency-index.json",
   "sourceInputs": [
@@ -19,7 +19,7 @@
   "knownBlindSpots": [
     "Does not resolve package exports, TS path aliases, or runtime dependency injection."
   ],
-  "recordCount": 172,
+  "recordCount": 173,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-dependency-index",
@@ -34,9 +34,9 @@
         {
           "shardId": "records-0001",
           "startRecord": 0,
-          "endRecordExclusive": 172,
-          "recordCount": 172,
-          "sha256": "4cf7acca3a250557afc8ea73405e4dca7d77237d55d25284a039fede8b4f707a"
+          "endRecordExclusive": 173,
+          "recordCount": 173,
+          "sha256": "2d273fdbcf9da1f9bf9f24a120d9e465bb350be9044284fe517e7528ce2a2412"
         }
       ]
     },
@@ -415,9 +415,18 @@
     },
     {
       "importer": "tool-implementations/_lib/records/change-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { isGeneratedToolMaintainedPath } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/change-records.ts",
       "imported": "../text-utils.ts",
       "resolved": "tool-implementations/_lib/text-utils.ts",
-      "line": 6,
+      "line": 7,
       "kind": "import",
       "crossArea": false,
       "text": "import { areaOf, normalizePath } from \"../text-utils.ts\";"

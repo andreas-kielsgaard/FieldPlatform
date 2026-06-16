@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T15:50:39.604Z",
+  "generatedAt": "2026-06-16T16:00:00.432Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+  "sourceRevision": "f1d1d9ec4ec971f5046d83f08a90a2dd60aa4f45",
   "producer": "build-component-index",
   "artifactPath": "tool-maintained-files/indexes/component-index.json",
   "sourceInputs": [

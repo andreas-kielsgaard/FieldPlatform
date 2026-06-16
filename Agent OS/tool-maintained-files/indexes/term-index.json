@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T16:09:36.071Z",
+  "generatedAt": "2026-06-16T16:14:32.702Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
+  "sourceRevision": "7714d44ca86750f38b916f5ab8c0668f496801a9",
   "producer": "build-term-index",
   "artifactPath": "tool-maintained-files/indexes/term-index.json",
   "sourceInputs": [
@@ -19,7 +19,7 @@
   "knownBlindSpots": [
     "Term meaning and canonical status remain semantic judgments."
   ],
-  "recordCount": 38090,
+  "recordCount": 38074,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-term-index",
@@ -533,42 +533,42 @@
           "startRecord": 35500,
           "endRecordExclusive": 36000,
           "recordCount": 500,
-          "sha256": "d394721314e29a17dd23ff07a7acd35cbda45636bd6aa77ecb0b014d12e7fb65"
+          "sha256": "c445edd210897b5b07829465fede26a0994a902e86d477732f4371e2c6662ce1"
         },
         {
           "shardId": "records-0073",
           "startRecord": 36000,
           "endRecordExclusive": 36500,
           "recordCount": 500,
-          "sha256": "14d41b76515f34f0014fe46e008ef101a7434b884547295e2ce2f59981f8847a"
+          "sha256": "6164cf8d1b9cc21d151b78201b36c39c16a83ce91a59df02aeee67c4fd796cf7"
         },
         {
           "shardId": "records-0074",
           "startRecord": 36500,
           "endRecordExclusive": 37000,
           "recordCount": 500,
-          "sha256": "f5598b346d007d6bfa95d82fd3763a030fbdf09249db9626a9bf2c49d3bbaae5"
+          "sha256": "acd5d2dfee22235fe763a3507a341e13a37ce6bdb1f7824b49bea4a8c589b42f"
         },
         {
           "shardId": "records-0075",
           "startRecord": 37000,
           "endRecordExclusive": 37500,
           "recordCount": 500,
-          "sha256": "9af8b3a49ce3d7d72c181fab04a2c52acbe4af18e3b190b9c2d07097bee0e78c"
+          "sha256": "4f94e39f7986bf8eacab897fa82b7bdeca8484022f7dc04796786abd5a45efe4"
         },
         {
           "shardId": "records-0076",
           "startRecord": 37500,
           "endRecordExclusive": 38000,
           "recordCount": 500,
-          "sha256": "da1f691e6302a3ba64c6d18ca5cfe4605faebb8a777e6e9eb02bfa67412a92ca"
+          "sha256": "bd033ed52dd9a9a676221e5deeccc0196b0bcfa2d755bbe1ad04b907ba00bd9b"
         },
         {
           "shardId": "records-0077",
           "startRecord": 38000,
-          "endRecordExclusive": 38090,
-          "recordCount": 90,
-          "sha256": "2737055b6b118dcd7c78477275bfe346237dba3f151debb761bbcb09ef30dd9e"
+          "endRecordExclusive": 38074,
+          "recordCount": 74,
+          "sha256": "21d545b0d82d47134aded6610678ea1824da16833b59dc4751cf7c9853afcd2d"
         }
       ]
     },
@@ -287426,42 +287426,10 @@
       "nearby": "import type { IndexDefinition } from \"../_lib/types.ts\";"
     },
     {
-      "term": "import",
-      "raw": "import",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 8,
-      "surface": "identifier",
-      "nearby": "import { normalizePath } from \"../_lib/text-utils.ts\";"
-    },
-    {
-      "term": "normalizepath",
-      "raw": "normalizePath",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 8,
-      "surface": "identifier",
-      "nearby": "import { normalizePath } from \"../_lib/text-utils.ts\";"
-    },
-    {
-      "term": "lib",
-      "raw": "lib",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 8,
-      "surface": "identifier",
-      "nearby": "import { normalizePath } from \"../_lib/text-utils.ts\";"
-    },
-    {
-      "term": "text-utils",
-      "raw": "text-utils",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 8,
-      "surface": "identifier",
-      "nearby": "import { normalizePath } from \"../_lib/text-utils.ts\";"
-    },
-    {
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 10,
+      "line": 9,
       "surface": "identifier",
       "nearby": "const definition: IndexDefinition = {"
     },
@@ -287469,7 +287437,7 @@
       "term": "definition",
       "raw": "definition",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 10,
+      "line": 9,
       "surface": "identifier",
       "nearby": "const definition: IndexDefinition = {"
     },
@@ -287477,7 +287445,7 @@
       "term": "indexdefinition",
       "raw": "IndexDefinition",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 10,
+      "line": 9,
       "surface": "identifier",
       "nearby": "const definition: IndexDefinition = {"
     },
@@ -287485,7 +287453,7 @@
       "term": "index-manifest",
       "raw": "index-manifest",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 11,
+      "line": 10,
       "surface": "ui-or-string-literal",
       "nearby": "id: \"index-manifest\","
     },
@@ -287493,7 +287461,7 @@
       "term": "producer",
       "raw": "producer",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 12,
+      "line": 11,
       "surface": "identifier",
       "nearby": "producer: \"build-index-manifest\","
     },
@@ -287501,7 +287469,7 @@
       "term": "build-index-manifest",
       "raw": "build-index-manifest",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 12,
+      "line": 11,
       "surface": "ui-or-string-literal",
       "nearby": "producer: \"build-index-manifest\","
     },
@@ -287509,7 +287477,7 @@
       "term": "artifactpath",
       "raw": "artifactPath",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 13,
+      "line": 12,
       "surface": "identifier",
       "nearby": "artifactPath: \"tool-maintained-files/indexes/index-manifest.json\","
     },
@@ -287517,7 +287485,7 @@
       "term": "tool-maintained-files",
       "raw": "tool-maintained-files",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 13,
+      "line": 12,
       "surface": "identifier",
       "nearby": "artifactPath: \"tool-maintained-files/indexes/index-manifest.json\","
     },
@@ -287525,7 +287493,7 @@
       "term": "indexes",
       "raw": "indexes",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 13,
+      "line": 12,
       "surface": "identifier",
       "nearby": "artifactPath: \"tool-maintained-files/indexes/index-manifest.json\","
     },
@@ -287533,7 +287501,7 @@
       "term": "index-manifest",
       "raw": "index-manifest",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 13,
+      "line": 12,
       "surface": "identifier",
       "nearby": "artifactPath: \"tool-maintained-files/indexes/index-manifest.json\","
     },
@@ -287541,7 +287509,7 @@
       "term": "json",
       "raw": "json",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 13,
+      "line": 12,
       "surface": "identifier",
       "nearby": "artifactPath: \"tool-maintained-files/indexes/index-manifest.json\","
     },
@@ -287549,7 +287517,7 @@
       "term": "sourceinputs",
       "raw": "sourceInputs",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287557,7 +287525,7 @@
       "term": "active",
       "raw": "active",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287565,7 +287533,7 @@
       "term": "stratum",
       "raw": "Stratum",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287573,7 +287541,7 @@
       "term": "index",
       "raw": "index",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287581,7 +287549,7 @@
       "term": "artifacts",
       "raw": "artifacts",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287589,7 +287557,7 @@
       "term": "index",
       "raw": "index",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287597,7 +287565,7 @@
       "term": "tier",
       "raw": "tier",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287605,7 +287573,7 @@
       "term": "policy",
       "raw": "policy",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287613,7 +287581,7 @@
       "term": "query",
       "raw": "query",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287621,7 +287589,7 @@
       "term": "guidance",
       "raw": "guidance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "surface": "identifier",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
@@ -287629,7 +287597,7 @@
       "term": "coverage",
       "raw": "coverage",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287637,7 +287605,7 @@
       "term": "compact",
       "raw": "Compact",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287645,7 +287613,7 @@
       "term": "boot-aware",
       "raw": "boot-aware",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287653,7 +287621,7 @@
       "term": "metadata",
       "raw": "metadata",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287661,7 +287629,7 @@
       "term": "active",
       "raw": "active",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287669,7 +287637,7 @@
       "term": "evidence",
       "raw": "evidence",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287677,7 +287645,7 @@
       "term": "indexes",
       "raw": "indexes",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287685,7 +287653,7 @@
       "term": "including",
       "raw": "including",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287693,7 +287661,7 @@
       "term": "tier",
       "raw": "tier",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287701,7 +287669,7 @@
       "term": "freshness",
       "raw": "freshness",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287709,7 +287677,7 @@
       "term": "size",
       "raw": "size",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287717,7 +287685,7 @@
       "term": "hash",
       "raw": "hash",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287725,7 +287693,7 @@
       "term": "first-query",
       "raw": "first-query",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287733,7 +287701,7 @@
       "term": "guidance",
       "raw": "guidance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 15,
+      "line": 14,
       "surface": "identifier",
       "nearby": "coverage: \"Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.\","
     },
@@ -287741,7 +287709,7 @@
       "term": "knownblindspots",
       "raw": "knownBlindSpots",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 16,
+      "line": 15,
       "surface": "identifier",
       "nearby": "knownBlindSpots: ["
     },
@@ -287749,7 +287717,7 @@
       "term": "manifest",
       "raw": "manifest",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 17,
+      "line": 16,
       "surface": "prose",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
@@ -287757,7 +287725,7 @@
       "term": "summarizes",
       "raw": "summarizes",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 17,
+      "line": 16,
       "surface": "prose",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
@@ -287765,7 +287733,7 @@
       "term": "index",
       "raw": "index",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 17,
+      "line": 16,
       "surface": "prose",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
@@ -287773,7 +287741,7 @@
       "term": "artifacts",
       "raw": "artifacts",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 17,
+      "line": 16,
       "surface": "prose",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
@@ -287781,7 +287749,7 @@
       "term": "include",
       "raw": "include",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 17,
+      "line": 16,
       "surface": "prose",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
@@ -287789,7 +287757,7 @@
       "term": "raw",
       "raw": "raw",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 17,
+      "line": 16,
       "surface": "prose",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
@@ -287797,7 +287765,7 @@
       "term": "index",
       "raw": "index",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 17,
+      "line": 16,
       "surface": "prose",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
@@ -287805,7 +287773,7 @@
       "term": "records",
       "raw": "records",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 17,
+      "line": 16,
       "surface": "prose",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
@@ -287813,7 +287781,7 @@
       "term": "manifest",
       "raw": "manifest",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "surface": "prose",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
     },
@@ -287821,7 +287789,7 @@
       "term": "excludes",
       "raw": "excludes",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "surface": "prose",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
     },
@@ -287829,7 +287797,7 @@
       "term": "own",
       "raw": "own",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "surface": "prose",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
     },
@@ -287837,7 +287805,7 @@
       "term": "artifact",
       "raw": "artifact",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "surface": "prose",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
     },
@@ -287845,7 +287813,7 @@
       "term": "hash",
       "raw": "hash",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "surface": "prose",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
     },
@@ -287853,7 +287821,7 @@
       "term": "avoid",
       "raw": "avoid",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "surface": "prose",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
     },
@@ -287861,7 +287829,7 @@
       "term": "self-referential",
       "raw": "self-referential",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "surface": "prose",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
     },
@@ -287869,7 +287837,7 @@
       "term": "freshness",
       "raw": "freshness",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "surface": "prose",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
     },
@@ -287877,9 +287845,65 @@
       "term": "churn",
       "raw": "churn",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "surface": "prose",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
+    },
+    {
+      "term": "artifact",
+      "raw": "Artifact",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 18,
+      "surface": "prose",
+      "nearby": "\"Artifact sourceRevision is provenance metadata and is not used as a freshness failure.\","
+    },
+    {
+      "term": "sourcerevision",
+      "raw": "sourceRevision",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 18,
+      "surface": "prose",
+      "nearby": "\"Artifact sourceRevision is provenance metadata and is not used as a freshness failure.\","
+    },
+    {
+      "term": "provenance",
+      "raw": "provenance",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 18,
+      "surface": "prose",
+      "nearby": "\"Artifact sourceRevision is provenance metadata and is not used as a freshness failure.\","
+    },
+    {
+      "term": "metadata",
+      "raw": "metadata",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 18,
+      "surface": "prose",
+      "nearby": "\"Artifact sourceRevision is provenance metadata and is not used as a freshness failure.\","
+    },
+    {
+      "term": "used",
+      "raw": "used",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 18,
+      "surface": "prose",
+      "nearby": "\"Artifact sourceRevision is provenance metadata and is not used as a freshness failure.\","
+    },
+    {
+      "term": "freshness",
+      "raw": "freshness",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 18,
+      "surface": "prose",
+      "nearby": "\"Artifact sourceRevision is provenance metadata and is not used as a freshness failure.\","
+    },
+    {
+      "term": "failure",
+      "raw": "failure",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 18,
+      "surface": "prose",
+      "nearby": "\"Artifact sourceRevision is provenance metadata and is not used as a freshness failure.\","
     },
     {
       "term": "runindexbuilder",
@@ -289231,7 +289255,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 70,
       "surface": "identifier",
-      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, currentRevision, exists);"
+      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, exists);"
     },
     {
       "term": "freshnesswarnings",
@@ -289239,7 +289263,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 70,
       "surface": "identifier",
-      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, currentRevision, exists);"
+      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, exists);"
     },
     {
       "term": "freshnesswarningsfor",
@@ -289247,7 +289271,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 70,
       "surface": "identifier",
-      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, currentRevision, exists);"
+      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, exists);"
     },
     {
       "term": "artifact",
@@ -289255,15 +289279,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 70,
       "surface": "identifier",
-      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, currentRevision, exists);"
-    },
-    {
-      "term": "currentrevision",
-      "raw": "currentRevision",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 70,
-      "surface": "identifier",
-      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, currentRevision, exists);"
+      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, exists);"
     },
     {
       "term": "exists",
@@ -289271,7 +289287,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 70,
       "surface": "identifier",
-      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, currentRevision, exists);"
+      "nearby": "const freshnessWarnings = freshnessWarningsFor(artifact, exists);"
     },
     {
       "term": "const",
@@ -290735,7 +290751,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "freshnesswarningsfor",
@@ -290743,7 +290759,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "artifact",
@@ -290751,7 +290767,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "record",
@@ -290759,7 +290775,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "string",
@@ -290767,7 +290783,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "unknown",
@@ -290775,7 +290791,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "null",
@@ -290783,31 +290799,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
-    },
-    {
-      "term": "currentrevision",
-      "raw": "currentRevision",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 117,
-      "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
-    },
-    {
-      "term": "string",
-      "raw": "string",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 117,
-      "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
-    },
-    {
-      "term": "null",
-      "raw": "null",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 117,
-      "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "exists",
@@ -290815,7 +290807,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "boolean",
@@ -290823,7 +290815,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "string",
@@ -290831,7 +290823,7 @@
       "file": "tool-implementations/indexes/build-index-manifest.ts",
       "line": 117,
       "surface": "identifier",
-      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "nearby": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "term": "const",
@@ -291218,130 +291210,10 @@
       "nearby": "warnings.push(\"Index artifact is missing deterministic maintenance metadata; regenerate it with its builder.\");"
     },
     {
-      "term": "currentrevision",
-      "raw": "currentRevision",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 136,
-      "surface": "identifier",
-      "nearby": "if (currentRevision && artifact.sourceRevision && artifact.sourceRevision !== currentRevision) {"
-    },
-    {
-      "term": "artifact",
-      "raw": "artifact",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 136,
-      "surface": "identifier",
-      "nearby": "if (currentRevision && artifact.sourceRevision && artifact.sourceRevision !== currentRevision) {"
-    },
-    {
-      "term": "sourcerevision",
-      "raw": "sourceRevision",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 136,
-      "surface": "identifier",
-      "nearby": "if (currentRevision && artifact.sourceRevision && artifact.sourceRevision !== currentRevision) {"
-    },
-    {
-      "term": "artifact",
-      "raw": "artifact",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 136,
-      "surface": "identifier",
-      "nearby": "if (currentRevision && artifact.sourceRevision && artifact.sourceRevision !== currentRevision) {"
-    },
-    {
-      "term": "sourcerevision",
-      "raw": "sourceRevision",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 136,
-      "surface": "identifier",
-      "nearby": "if (currentRevision && artifact.sourceRevision && artifact.sourceRevision !== currentRevision) {"
-    },
-    {
-      "term": "currentrevision",
-      "raw": "currentRevision",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 136,
-      "surface": "identifier",
-      "nearby": "if (currentRevision && artifact.sourceRevision && artifact.sourceRevision !== currentRevision) {"
-    },
-    {
-      "term": "warnings",
-      "raw": "warnings",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "surface": "identifier",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
-      "term": "push",
-      "raw": "push",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "surface": "identifier",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
-      "term": "index",
-      "raw": "Index",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "surface": "identifier",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
-      "term": "sourcerevision",
-      "raw": "sourceRevision",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "surface": "identifier",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
-      "term": "differs",
-      "raw": "differs",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "surface": "identifier",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
-      "term": "current",
-      "raw": "current",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "surface": "identifier",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
-      "term": "head",
-      "raw": "HEAD",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "surface": "identifier",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
-      "term": "normalizepath",
-      "raw": "normalizePath",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "surface": "identifier",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
-      "term": "currentrevision",
-      "raw": "currentRevision",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "surface": "identifier",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 139,
+      "line": 136,
       "surface": "prose",
       "nearby": "return warnings;"
     },
@@ -291349,7 +291221,7 @@
       "term": "warnings",
       "raw": "warnings",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 139,
+      "line": 136,
       "surface": "prose",
       "nearby": "return warnings;"
     },
@@ -291357,7 +291229,7 @@
       "term": "function",
       "raw": "function",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291365,7 +291237,7 @@
       "term": "shardingsummary",
       "raw": "shardingSummary",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291373,7 +291245,7 @@
       "term": "maintenance",
       "raw": "maintenance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291381,7 +291253,7 @@
       "term": "record",
       "raw": "Record",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291389,7 +291261,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291397,7 +291269,7 @@
       "term": "unknown",
       "raw": "unknown",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291405,7 +291277,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291413,7 +291285,7 @@
       "term": "record",
       "raw": "Record",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291421,7 +291293,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291429,7 +291301,7 @@
       "term": "unknown",
       "raw": "unknown",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "surface": "identifier",
       "nearby": "function shardingSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291437,7 +291309,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291445,7 +291317,7 @@
       "term": "sharding",
       "raw": "sharding",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291453,7 +291325,7 @@
       "term": "maintenance",
       "raw": "maintenance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291461,7 +291333,7 @@
       "term": "typeof",
       "raw": "typeof",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291469,7 +291341,7 @@
       "term": "maintenance",
       "raw": "maintenance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291477,7 +291349,7 @@
       "term": "sharding",
       "raw": "sharding",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291485,7 +291357,7 @@
       "term": "object",
       "raw": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "ui-or-string-literal",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291493,7 +291365,7 @@
       "term": "maintenance",
       "raw": "maintenance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291501,7 +291373,7 @@
       "term": "sharding",
       "raw": "sharding",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291509,7 +291381,7 @@
       "term": "record",
       "raw": "Record",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291517,7 +291389,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291525,7 +291397,7 @@
       "term": "unknown",
       "raw": "unknown",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291533,7 +291405,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "surface": "identifier",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
@@ -291541,7 +291413,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 144,
+      "line": 141,
       "surface": "identifier",
       "nearby": "const shards = Array.isArray(sharding?.shards)"
     },
@@ -291549,7 +291421,7 @@
       "term": "shards",
       "raw": "shards",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 144,
+      "line": 141,
       "surface": "identifier",
       "nearby": "const shards = Array.isArray(sharding?.shards)"
     },
@@ -291557,7 +291429,7 @@
       "term": "array",
       "raw": "Array",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 144,
+      "line": 141,
       "surface": "identifier",
       "nearby": "const shards = Array.isArray(sharding?.shards)"
     },
@@ -291565,7 +291437,7 @@
       "term": "isarray",
       "raw": "isArray",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 144,
+      "line": 141,
       "surface": "identifier",
       "nearby": "const shards = Array.isArray(sharding?.shards)"
     },
@@ -291573,7 +291445,7 @@
       "term": "sharding",
       "raw": "sharding",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 144,
+      "line": 141,
       "surface": "identifier",
       "nearby": "const shards = Array.isArray(sharding?.shards)"
     },
@@ -291581,7 +291453,7 @@
       "term": "shards",
       "raw": "shards",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 144,
+      "line": 141,
       "surface": "identifier",
       "nearby": "const shards = Array.isArray(sharding?.shards)"
     },
@@ -291589,7 +291461,7 @@
       "term": "sharding",
       "raw": "sharding",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 145,
+      "line": 142,
       "surface": "identifier",
       "nearby": "? sharding.shards.map((shard) => {"
     },
@@ -291597,7 +291469,7 @@
       "term": "shards",
       "raw": "shards",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 145,
+      "line": 142,
       "surface": "identifier",
       "nearby": "? sharding.shards.map((shard) => {"
     },
@@ -291605,7 +291477,7 @@
       "term": "shard",
       "raw": "shard",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 145,
+      "line": 142,
       "surface": "identifier",
       "nearby": "? sharding.shards.map((shard) => {"
     },
@@ -291613,7 +291485,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "identifier",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291621,7 +291493,7 @@
       "term": "entry",
       "raw": "entry",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "identifier",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291629,7 +291501,7 @@
       "term": "shard",
       "raw": "shard",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "identifier",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291637,7 +291509,7 @@
       "term": "typeof",
       "raw": "typeof",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "identifier",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291645,7 +291517,7 @@
       "term": "shard",
       "raw": "shard",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "identifier",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291653,7 +291525,7 @@
       "term": "object",
       "raw": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "ui-or-string-literal",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291661,7 +291533,7 @@
       "term": "shard",
       "raw": "shard",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "identifier",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291669,7 +291541,7 @@
       "term": "record",
       "raw": "Record",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "identifier",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291677,7 +291549,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "identifier",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291685,7 +291557,7 @@
       "term": "unknown",
       "raw": "unknown",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "surface": "identifier",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
@@ -291693,7 +291565,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 147,
+      "line": 144,
       "surface": "identifier",
       "nearby": "return {"
     },
@@ -291701,7 +291573,7 @@
       "term": "shardid",
       "raw": "shardId",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 148,
+      "line": 145,
       "surface": "identifier",
       "nearby": "shardId: entry.shardId ?? null,"
     },
@@ -291709,7 +291581,7 @@
       "term": "entry",
       "raw": "entry",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 148,
+      "line": 145,
       "surface": "identifier",
       "nearby": "shardId: entry.shardId ?? null,"
     },
@@ -291717,7 +291589,7 @@
       "term": "shardid",
       "raw": "shardId",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 148,
+      "line": 145,
       "surface": "identifier",
       "nearby": "shardId: entry.shardId ?? null,"
     },
@@ -291725,7 +291597,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 148,
+      "line": 145,
       "surface": "identifier",
       "nearby": "shardId: entry.shardId ?? null,"
     },
@@ -291733,7 +291605,7 @@
       "term": "startrecord",
       "raw": "startRecord",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 149,
+      "line": 146,
       "surface": "identifier",
       "nearby": "startRecord: entry.startRecord ?? null,"
     },
@@ -291741,7 +291613,7 @@
       "term": "entry",
       "raw": "entry",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 149,
+      "line": 146,
       "surface": "identifier",
       "nearby": "startRecord: entry.startRecord ?? null,"
     },
@@ -291749,7 +291621,7 @@
       "term": "startrecord",
       "raw": "startRecord",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 149,
+      "line": 146,
       "surface": "identifier",
       "nearby": "startRecord: entry.startRecord ?? null,"
     },
@@ -291757,7 +291629,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 149,
+      "line": 146,
       "surface": "identifier",
       "nearby": "startRecord: entry.startRecord ?? null,"
     },
@@ -291765,7 +291637,7 @@
       "term": "endrecordexclusive",
       "raw": "endRecordExclusive",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 150,
+      "line": 147,
       "surface": "identifier",
       "nearby": "endRecordExclusive: entry.endRecordExclusive ?? null,"
     },
@@ -291773,7 +291645,7 @@
       "term": "entry",
       "raw": "entry",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 150,
+      "line": 147,
       "surface": "identifier",
       "nearby": "endRecordExclusive: entry.endRecordExclusive ?? null,"
     },
@@ -291781,7 +291653,7 @@
       "term": "endrecordexclusive",
       "raw": "endRecordExclusive",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 150,
+      "line": 147,
       "surface": "identifier",
       "nearby": "endRecordExclusive: entry.endRecordExclusive ?? null,"
     },
@@ -291789,7 +291661,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 150,
+      "line": 147,
       "surface": "identifier",
       "nearby": "endRecordExclusive: entry.endRecordExclusive ?? null,"
     },
@@ -291797,7 +291669,7 @@
       "term": "recordcount",
       "raw": "recordCount",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 151,
+      "line": 148,
       "surface": "identifier",
       "nearby": "recordCount: entry.recordCount ?? null,"
     },
@@ -291805,7 +291677,7 @@
       "term": "entry",
       "raw": "entry",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 151,
+      "line": 148,
       "surface": "identifier",
       "nearby": "recordCount: entry.recordCount ?? null,"
     },
@@ -291813,7 +291685,7 @@
       "term": "recordcount",
       "raw": "recordCount",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 151,
+      "line": 148,
       "surface": "identifier",
       "nearby": "recordCount: entry.recordCount ?? null,"
     },
@@ -291821,7 +291693,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 151,
+      "line": 148,
       "surface": "identifier",
       "nearby": "recordCount: entry.recordCount ?? null,"
     },
@@ -291829,7 +291701,7 @@
       "term": "sha256",
       "raw": "sha256",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 152,
+      "line": 149,
       "surface": "identifier",
       "nearby": "sha256: entry.sha256 ?? null,"
     },
@@ -291837,7 +291709,7 @@
       "term": "entry",
       "raw": "entry",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 152,
+      "line": 149,
       "surface": "identifier",
       "nearby": "sha256: entry.sha256 ?? null,"
     },
@@ -291845,7 +291717,7 @@
       "term": "sha256",
       "raw": "sha256",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 152,
+      "line": 149,
       "surface": "identifier",
       "nearby": "sha256: entry.sha256 ?? null,"
     },
@@ -291853,7 +291725,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 152,
+      "line": 149,
       "surface": "identifier",
       "nearby": "sha256: entry.sha256 ?? null,"
     },
@@ -291861,7 +291733,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 157,
+      "line": 154,
       "surface": "identifier",
       "nearby": "return {"
     },
@@ -291869,7 +291741,7 @@
       "term": "strategy",
       "raw": "strategy",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 158,
+      "line": 155,
       "surface": "identifier",
       "nearby": "strategy: sharding?.strategy ?? \"missing\","
     },
@@ -291877,7 +291749,7 @@
       "term": "sharding",
       "raw": "sharding",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 158,
+      "line": 155,
       "surface": "identifier",
       "nearby": "strategy: sharding?.strategy ?? \"missing\","
     },
@@ -291885,7 +291757,7 @@
       "term": "strategy",
       "raw": "strategy",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 158,
+      "line": 155,
       "surface": "identifier",
       "nearby": "strategy: sharding?.strategy ?? \"missing\","
     },
@@ -291893,7 +291765,7 @@
       "term": "missing",
       "raw": "missing",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 158,
+      "line": 155,
       "surface": "ui-or-string-literal",
       "nearby": "strategy: sharding?.strategy ?? \"missing\","
     },
@@ -291901,7 +291773,7 @@
       "term": "targetrecordspershard",
       "raw": "targetRecordsPerShard",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 159,
+      "line": 156,
       "surface": "identifier",
       "nearby": "targetRecordsPerShard: sharding?.targetRecordsPerShard ?? null,"
     },
@@ -291909,7 +291781,7 @@
       "term": "sharding",
       "raw": "sharding",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 159,
+      "line": 156,
       "surface": "identifier",
       "nearby": "targetRecordsPerShard: sharding?.targetRecordsPerShard ?? null,"
     },
@@ -291917,7 +291789,7 @@
       "term": "targetrecordspershard",
       "raw": "targetRecordsPerShard",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 159,
+      "line": 156,
       "surface": "identifier",
       "nearby": "targetRecordsPerShard: sharding?.targetRecordsPerShard ?? null,"
     },
@@ -291925,7 +291797,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 159,
+      "line": 156,
       "surface": "identifier",
       "nearby": "targetRecordsPerShard: sharding?.targetRecordsPerShard ?? null,"
     },
@@ -291933,7 +291805,7 @@
       "term": "shardcount",
       "raw": "shardCount",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 160,
+      "line": 157,
       "surface": "identifier",
       "nearby": "shardCount: sharding?.shardCount ?? shards.length,"
     },
@@ -291941,7 +291813,7 @@
       "term": "sharding",
       "raw": "sharding",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 160,
+      "line": 157,
       "surface": "identifier",
       "nearby": "shardCount: sharding?.shardCount ?? shards.length,"
     },
@@ -291949,7 +291821,7 @@
       "term": "shardcount",
       "raw": "shardCount",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 160,
+      "line": 157,
       "surface": "identifier",
       "nearby": "shardCount: sharding?.shardCount ?? shards.length,"
     },
@@ -291957,7 +291829,7 @@
       "term": "shards",
       "raw": "shards",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 160,
+      "line": 157,
       "surface": "identifier",
       "nearby": "shardCount: sharding?.shardCount ?? shards.length,"
     },
@@ -291965,7 +291837,7 @@
       "term": "length",
       "raw": "length",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 160,
+      "line": 157,
       "surface": "identifier",
       "nearby": "shardCount: sharding?.shardCount ?? shards.length,"
     },
@@ -291973,7 +291845,7 @@
       "term": "shards",
       "raw": "shards",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 161,
+      "line": 158,
       "surface": "prose",
       "nearby": "shards,"
     },
@@ -291981,7 +291853,7 @@
       "term": "function",
       "raw": "function",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291989,7 +291861,7 @@
       "term": "semanticsupportsummary",
       "raw": "semanticSupportSummary",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -291997,7 +291869,7 @@
       "term": "maintenance",
       "raw": "maintenance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -292005,7 +291877,7 @@
       "term": "record",
       "raw": "Record",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -292013,7 +291885,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -292021,7 +291893,7 @@
       "term": "unknown",
       "raw": "unknown",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -292029,7 +291901,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -292037,7 +291909,7 @@
       "term": "record",
       "raw": "Record",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -292045,7 +291917,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -292053,7 +291925,7 @@
       "term": "unknown",
       "raw": "unknown",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "surface": "identifier",
       "nearby": "function semanticSupportSummary(maintenance: Record<string, unknown> | null): Record<string, unknown> {"
     },
@@ -292061,7 +291933,7 @@
       "term": "const",
       "raw": "const",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 166,
+      "line": 163,
       "surface": "identifier",
       "nearby": "const semanticSupport ="
     },
@@ -292069,7 +291941,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 166,
+      "line": 163,
       "surface": "identifier",
       "nearby": "const semanticSupport ="
     },
@@ -292077,7 +291949,7 @@
       "term": "maintenance",
       "raw": "maintenance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292085,7 +291957,7 @@
       "term": "typeof",
       "raw": "typeof",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292093,7 +291965,7 @@
       "term": "maintenance",
       "raw": "maintenance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292101,7 +291973,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292109,7 +291981,7 @@
       "term": "object",
       "raw": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "ui-or-string-literal",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292117,7 +291989,7 @@
       "term": "maintenance",
       "raw": "maintenance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292125,7 +291997,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292133,7 +292005,7 @@
       "term": "record",
       "raw": "Record",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292141,7 +292013,7 @@
       "term": "string",
       "raw": "string",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292149,7 +292021,7 @@
       "term": "unknown",
       "raw": "unknown",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292157,7 +292029,7 @@
       "term": "null",
       "raw": "null",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "surface": "identifier",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
@@ -292165,7 +292037,7 @@
       "term": "return",
       "raw": "return",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 168,
+      "line": 165,
       "surface": "identifier",
       "nearby": "return {"
     },
@@ -292173,7 +292045,7 @@
       "term": "status",
       "raw": "status",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 169,
+      "line": 166,
       "surface": "identifier",
       "nearby": "status: semanticSupport?.status ?? \"metadata-ready\","
     },
@@ -292181,7 +292053,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 169,
+      "line": 166,
       "surface": "identifier",
       "nearby": "status: semanticSupport?.status ?? \"metadata-ready\","
     },
@@ -292189,7 +292061,7 @@
       "term": "status",
       "raw": "status",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 169,
+      "line": 166,
       "surface": "identifier",
       "nearby": "status: semanticSupport?.status ?? \"metadata-ready\","
     },
@@ -292197,7 +292069,7 @@
       "term": "metadata-ready",
       "raw": "metadata-ready",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 169,
+      "line": 166,
       "surface": "ui-or-string-literal",
       "nearby": "status: semanticSupport?.status ?? \"metadata-ready\","
     },
@@ -292205,7 +292077,7 @@
       "term": "embeddingsgenerated",
       "raw": "embeddingsGenerated",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 170,
+      "line": 167,
       "surface": "identifier",
       "nearby": "embeddingsGenerated: semanticSupport?.embeddingsGenerated ?? false,"
     },
@@ -292213,7 +292085,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 170,
+      "line": 167,
       "surface": "identifier",
       "nearby": "embeddingsGenerated: semanticSupport?.embeddingsGenerated ?? false,"
     },
@@ -292221,7 +292093,7 @@
       "term": "embeddingsgenerated",
       "raw": "embeddingsGenerated",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 170,
+      "line": 167,
       "surface": "identifier",
       "nearby": "embeddingsGenerated: semanticSupport?.embeddingsGenerated ?? false,"
     },
@@ -292229,7 +292101,7 @@
       "term": "false",
       "raw": "false",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 170,
+      "line": 167,
       "surface": "identifier",
       "nearby": "embeddingsGenerated: semanticSupport?.embeddingsGenerated ?? false,"
     },
@@ -292237,7 +292109,7 @@
       "term": "vectorstoregenerated",
       "raw": "vectorStoreGenerated",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 171,
+      "line": 168,
       "surface": "identifier",
       "nearby": "vectorStoreGenerated: semanticSupport?.vectorStoreGenerated ?? false,"
     },
@@ -292245,7 +292117,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 171,
+      "line": 168,
       "surface": "identifier",
       "nearby": "vectorStoreGenerated: semanticSupport?.vectorStoreGenerated ?? false,"
     },
@@ -292253,7 +292125,7 @@
       "term": "vectorstoregenerated",
       "raw": "vectorStoreGenerated",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 171,
+      "line": 168,
       "surface": "identifier",
       "nearby": "vectorStoreGenerated: semanticSupport?.vectorStoreGenerated ?? false,"
     },
@@ -292261,7 +292133,7 @@
       "term": "false",
       "raw": "false",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 171,
+      "line": 168,
       "surface": "identifier",
       "nearby": "vectorStoreGenerated: semanticSupport?.vectorStoreGenerated ?? false,"
     },
@@ -292269,7 +292141,7 @@
       "term": "deterministicpath",
       "raw": "deterministicPath",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 172,
+      "line": 169,
       "surface": "identifier",
       "nearby": "deterministicPath:"
     },
@@ -292277,7 +292149,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 173,
+      "line": 170,
       "surface": "prose",
       "nearby": "semanticSupport?.deterministicPath ??"
     },
@@ -292285,7 +292157,7 @@
       "term": "deterministicpath",
       "raw": "deterministicPath",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 173,
+      "line": 170,
       "surface": "prose",
       "nearby": "semanticSupport?.deterministicPath ??"
     },
@@ -292293,7 +292165,7 @@
       "term": "semantic",
       "raw": "Semantic",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292301,7 +292173,7 @@
       "term": "chunks",
       "raw": "chunks",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292309,7 +292181,7 @@
       "term": "embeddings",
       "raw": "embeddings",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292317,7 +292189,7 @@
       "term": "vector",
       "raw": "vector",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292325,7 +292197,7 @@
       "term": "stores",
       "raw": "stores",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292333,7 +292205,7 @@
       "term": "produced",
       "raw": "produced",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292341,7 +292213,7 @@
       "term": "deterministic",
       "raw": "deterministic",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292349,7 +292221,7 @@
       "term": "builder",
       "raw": "builder",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292357,7 +292229,7 @@
       "term": "maintain",
       "raw": "maintain",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292365,7 +292237,7 @@
       "term": "them",
       "raw": "them",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292373,7 +292245,7 @@
       "term": "hand",
       "raw": "hand",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 174,
+      "line": 171,
       "surface": "prose",
       "nearby": "\"Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.\","
     },
@@ -292381,7 +292253,7 @@
       "term": "bootpolicy",
       "raw": "bootPolicy",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 175,
+      "line": 172,
       "surface": "identifier",
       "nearby": "bootPolicy:"
     },
@@ -292389,7 +292261,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 176,
+      "line": 173,
       "surface": "prose",
       "nearby": "semanticSupport?.bootPolicy ??"
     },
@@ -292397,7 +292269,7 @@
       "term": "bootpolicy",
       "raw": "bootPolicy",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 176,
+      "line": 173,
       "surface": "prose",
       "nearby": "semanticSupport?.bootPolicy ??"
     },
@@ -292405,7 +292277,7 @@
       "term": "boot",
       "raw": "Boot",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292413,7 +292285,7 @@
       "term": "context",
       "raw": "context",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292421,7 +292293,7 @@
       "term": "may",
       "raw": "may",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292429,7 +292301,7 @@
       "term": "include",
       "raw": "include",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292437,7 +292309,7 @@
       "term": "semantic",
       "raw": "semantic",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292445,7 +292317,7 @@
       "term": "availability",
       "raw": "availability",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292453,7 +292325,7 @@
       "term": "metadata",
       "raw": "metadata",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292461,7 +292333,7 @@
       "term": "embedding",
       "raw": "embedding",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292469,7 +292341,7 @@
       "term": "vectors",
       "raw": "vectors",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292477,7 +292349,7 @@
       "term": "semantic",
       "raw": "semantic",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292485,7 +292357,7 @@
       "term": "chunks",
       "raw": "chunks",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292493,7 +292365,7 @@
       "term": "remain",
       "raw": "remain",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292501,7 +292373,7 @@
       "term": "query-only",
       "raw": "query-only",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "surface": "prose",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },
@@ -292509,7 +292381,7 @@
       "term": "suggestedactivation",
       "raw": "suggestedActivation",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 178,
+      "line": 175,
       "surface": "identifier",
       "nearby": "suggestedActivation: Array.isArray(semanticSupport?.suggestedActivation) ? semanticSupport.suggestedActivation : [],"
     },
@@ -292517,7 +292389,7 @@
       "term": "array",
       "raw": "Array",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 178,
+      "line": 175,
       "surface": "identifier",
       "nearby": "suggestedActivation: Array.isArray(semanticSupport?.suggestedActivation) ? semanticSupport.suggestedActivation : [],"
     },
@@ -292525,7 +292397,7 @@
       "term": "isarray",
       "raw": "isArray",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 178,
+      "line": 175,
       "surface": "identifier",
       "nearby": "suggestedActivation: Array.isArray(semanticSupport?.suggestedActivation) ? semanticSupport.suggestedActivation : [],"
     },
@@ -292533,7 +292405,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 178,
+      "line": 175,
       "surface": "identifier",
       "nearby": "suggestedActivation: Array.isArray(semanticSupport?.suggestedActivation) ? semanticSupport.suggestedActivation : [],"
     },
@@ -292541,7 +292413,7 @@
       "term": "suggestedactivation",
       "raw": "suggestedActivation",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 178,
+      "line": 175,
       "surface": "identifier",
       "nearby": "suggestedActivation: Array.isArray(semanticSupport?.suggestedActivation) ? semanticSupport.suggestedActivation : [],"
     },
@@ -292549,7 +292421,7 @@
       "term": "semanticsupport",
       "raw": "semanticSupport",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 178,
+      "line": 175,
       "surface": "identifier",
       "nearby": "suggestedActivation: Array.isArray(semanticSupport?.suggestedActivation) ? semanticSupport.suggestedActivation : [],"
     },
@@ -292557,7 +292429,7 @@
       "term": "suggestedactivation",
       "raw": "suggestedActivation",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 178,
+      "line": 175,
       "surface": "identifier",
       "nearby": "suggestedActivation: Array.isArray(semanticSupport?.suggestedActivation) ? semanticSupport.suggestedActivation : [],"
     },

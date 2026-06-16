@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T16:09:29.799Z",
+  "generatedAt": "2026-06-16T16:14:27.278Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
+  "sourceRevision": "7714d44ca86750f38b916f5ab8c0668f496801a9",
   "producer": "build-fixture-scenario-index",
   "artifactPath": "tool-maintained-files/indexes/fixture-scenario-index.json",
   "sourceInputs": [

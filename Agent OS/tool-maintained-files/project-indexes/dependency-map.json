@@ -3,7 +3,7 @@
   "indexId": "dependency-map",
   "generated": true,
   "schemaVersion": 1,
-  "generatedAt": "2026-06-16T16:07:00.587Z",
+  "generatedAt": "2026-06-16T16:12:09.912Z",
   "sourceRoot": ".",
   "pathReference": "Record paths are relative to the Field Platform repository root.",
   "sourceState": "working-tree",
@@ -25,7 +25,7 @@
     "refreshCommand": "corepack pnpm agent:index",
     "checkCommand": "corepack pnpm agent:index:check"
   },
-  "recordCount": 335,
+  "recordCount": 334,
   "records": [
     {
       "importer": "Agent OS/tool-implementations/_lib/artifacts.ts",
@@ -1024,14 +1024,6 @@
       "imported": "../_lib/types.ts",
       "resolved": "Agent OS/tool-implementations/_lib/types.ts",
       "line": 7,
-      "kind": "import",
-      "importerArea": "agent-os"
-    },
-    {
-      "importer": "Agent OS/tool-implementations/indexes/build-index-manifest.ts",
-      "imported": "../_lib/text-utils.ts",
-      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
-      "line": 8,
       "kind": "import",
       "importerArea": "agent-os"
     },

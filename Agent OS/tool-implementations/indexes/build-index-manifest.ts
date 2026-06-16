@@ -5,7 +5,6 @@ import { gitSha } from "../_lib/git.ts";
 import { ACTIVE_INDEX_CATALOG } from "../_lib/index-catalog.ts";
 import { runIndexBuilder } from "../_lib/index-runner.ts";
 import type { IndexDefinition } from "../_lib/types.ts";
-import { normalizePath } from "../_lib/text-utils.ts";
 
 const definition: IndexDefinition = {
   id: "index-manifest",
@@ -16,6 +15,7 @@ const definition: IndexDefinition = {
   knownBlindSpots: [
     "The manifest summarizes index artifacts; it does not include raw index records.",
     "The manifest excludes its own artifact hash to avoid self-referential freshness churn.",
+    "Artifact sourceRevision is provenance metadata and is not used as a freshness failure.",
   ],
 };
 
@@ -67,7 +67,7 @@ function buildManifestRecords(root: string): Record<string, unknown>[] {
     const absolutePath = path.resolve(root, artifactPath);
     const exists = existsSync(absolutePath);
     const artifact = exists ? readArtifact(absolutePath) : null;
-    const freshnessWarnings = freshnessWarningsFor(artifact, currentRevision, exists);
+    const freshnessWarnings = freshnessWarningsFor(artifact, exists);
     const maintenance = artifact && typeof artifact.maintenance === "object" ? (artifact.maintenance as Record<string, unknown>) : null;
 
     return {
@@ -114,7 +114,7 @@ function sha256(filePath: string): string {
   return createHash("sha256").update(readFileSync(filePath)).digest("hex");
 }
 
-function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {
+function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {
   const warnings: string[] = [];
   if (!exists) {
     warnings.push("Index artifact is missing.");
@@ -132,9 +132,6 @@ function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentR
   }
   if (!artifact.maintenance) {
     warnings.push("Index artifact is missing deterministic maintenance metadata; regenerate it with its builder.");
-  }
-  if (currentRevision && artifact.sourceRevision && artifact.sourceRevision !== currentRevision) {
-    warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);
   }
   return warnings;
 }

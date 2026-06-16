@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T16:09:11.660Z",
+  "generatedAt": "2026-06-16T16:14:06.854Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
+  "sourceRevision": "7714d44ca86750f38b916f5ab8c0668f496801a9",
   "producer": "build-path-index",
   "artifactPath": "tool-maintained-files/indexes/path-index.json",
   "sourceInputs": [
@@ -2091,7 +2091,7 @@
       "area": "tool-implementations",
       "name": "build-index-manifest.ts",
       "ext": ".ts",
-      "size": 8575,
+      "size": 8340,
       "generatedHint": false
     },
     {
@@ -2325,7 +2325,7 @@
       "area": "tool-maintained-files",
       "name": "accessor-index.json",
       "ext": ".json",
-      "size": 74463,
+      "size": 73802,
       "generatedHint": true
     },
     {
@@ -2343,7 +2343,7 @@
       "area": "tool-maintained-files",
       "name": "change-index.json",
       "ext": ".json",
-      "size": 3710,
+      "size": 3023,
       "generatedHint": true
     },
     {
@@ -2361,7 +2361,7 @@
       "area": "tool-maintained-files",
       "name": "dependency-index.json",
       "ext": ".json",
-      "size": 58801,
+      "size": 58470,
       "generatedHint": true
     },
     {
@@ -2388,7 +2388,7 @@
       "area": "tool-maintained-files",
       "name": "index-manifest.json",
       "ext": ".json",
-      "size": 69230,
+      "size": 69324,
       "generatedHint": true
     },
     {
@@ -2397,7 +2397,7 @@
       "area": "tool-maintained-files",
       "name": "literal-index.json",
       "ext": ".json",
-      "size": 700395,
+      "size": 699873,
       "generatedHint": true
     },
     {
@@ -2433,7 +2433,7 @@
       "area": "tool-maintained-files",
       "name": "symbol-index.json",
       "ext": ".json",
-      "size": 202661,
+      "size": 202318,
       "generatedHint": true
     },
     {
@@ -2442,7 +2442,7 @@
       "area": "tool-maintained-files",
       "name": "term-index.json",
       "ext": ".json",
-      "size": 11840111,
+      "size": 11834820,
       "generatedHint": true
     },
     {
@@ -2469,7 +2469,7 @@
       "area": "tool-maintained-files",
       "name": "dependency-map.json",
       "ext": ".json",
-      "size": 87329,
+      "size": 87046,
       "generatedHint": true
     },
     {

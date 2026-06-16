@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T16:09:16.879Z",
+  "generatedAt": "2026-06-16T16:14:13.945Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
+  "sourceRevision": "7714d44ca86750f38b916f5ab8c0668f496801a9",
   "producer": "build-symbol-index",
   "artifactPath": "tool-maintained-files/indexes/symbol-index.json",
   "sourceInputs": [
@@ -19,7 +19,7 @@
   "knownBlindSpots": [
     "Regex scanning is not a full compiler or AST and may miss dynamic or language-specific symbols."
   ],
-  "recordCount": 743,
+  "recordCount": 742,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-symbol-index",
@@ -41,9 +41,9 @@
         {
           "shardId": "records-0002",
           "startRecord": 500,
-          "endRecordExclusive": 743,
-          "recordCount": 243,
-          "sha256": "b5ef13fca4f215a912df81b641ce53c533a8a4733028f63a21733b907fa2a09a"
+          "endRecordExclusive": 742,
+          "recordCount": 242,
+          "sha256": "d558442f464d539e6fae84892851593d77be2549da76925f0c9543de5dd283fe"
         }
       ]
     },
@@ -5100,16 +5100,7 @@
     },
     {
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 8,
-      "name": "normalizePath",
-      "kind": "import",
-      "role": "import",
-      "module": "../_lib/text-utils.ts",
-      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
-    },
-    {
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 10,
+      "line": 9,
       "name": "definition",
       "kind": "const",
       "role": "definition",
@@ -5169,7 +5160,7 @@
       "name": "freshnessWarnings",
       "kind": "const",
       "role": "definition",
-      "text": "const freshnessWarnings = freshnessWarningsFor(artifact, currentRevision, exists);"
+      "text": "const freshnessWarnings = freshnessWarningsFor(artifact, exists);"
     },
     {
       "file": "tool-implementations/indexes/build-index-manifest.ts",
@@ -5209,7 +5200,7 @@
       "name": "freshnessWarningsFor",
       "kind": "function",
       "role": "definition",
-      "text": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, currentRevision: string | null, exists: boolean): string[] {"
+      "text": "function freshnessWarningsFor(artifact: Record<string, unknown> | null, exists: boolean): string[] {"
     },
     {
       "file": "tool-implementations/indexes/build-index-manifest.ts",
@@ -5221,7 +5212,7 @@
     },
     {
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 142,
+      "line": 139,
       "name": "shardingSummary",
       "kind": "function",
       "role": "definition",
@@ -5229,7 +5220,7 @@
     },
     {
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "name": "sharding",
       "kind": "const",
       "role": "definition",
@@ -5237,7 +5228,7 @@
     },
     {
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 144,
+      "line": 141,
       "name": "shards",
       "kind": "const",
       "role": "definition",
@@ -5245,7 +5236,7 @@
     },
     {
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "name": "entry",
       "kind": "const",
       "role": "definition",
@@ -5253,7 +5244,7 @@
     },
     {
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 165,
+      "line": 162,
       "name": "semanticSupportSummary",
       "kind": "function",
       "role": "definition",
@@ -5261,7 +5252,7 @@
     },
     {
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 166,
+      "line": 163,
       "name": "semanticSupport",
       "kind": "const",
       "role": "definition",

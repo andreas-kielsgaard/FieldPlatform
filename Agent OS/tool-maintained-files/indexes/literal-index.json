@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T16:09:33.637Z",
+  "generatedAt": "2026-06-16T16:14:30.716Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
+  "sourceRevision": "7714d44ca86750f38b916f5ab8c0668f496801a9",
   "producer": "build-literal-index",
   "artifactPath": "tool-maintained-files/indexes/literal-index.json",
   "sourceInputs": [
@@ -19,7 +19,7 @@
   "knownBlindSpots": [
     "Does not know whether a literal is product copy, test data, or implementation detail without context."
   ],
-  "recordCount": 2229,
+  "recordCount": 2227,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-literal-index",
@@ -57,14 +57,14 @@
           "startRecord": 1500,
           "endRecordExclusive": 2000,
           "recordCount": 500,
-          "sha256": "ec2aa3a6e8bb03adac3db5b4a789acd337e30849738554630ed45dfda0c4cc9a"
+          "sha256": "50a48e7241e9d5d9229675c728de9f53cf49c8d6e7869a6fc0a275a358dafb03"
         },
         {
           "shardId": "records-0005",
           "startRecord": 2000,
-          "endRecordExclusive": 2229,
-          "recordCount": 229,
-          "sha256": "0240d8af75f8042a0ae2724b1101edef1d034e1f183f0a5f4f4f4a15a3755118"
+          "endRecordExclusive": 2227,
+          "recordCount": 227,
+          "sha256": "676d1e372f3bfd4e96bde7656452b27a993c972307ab06194d5b32ba57d455bd"
         }
       ]
     },
@@ -13886,53 +13886,53 @@
       "nearby": "import type { IndexDefinition } from \"../_lib/types.ts\";"
     },
     {
-      "value": "../_lib/text-utils.ts",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 8,
-      "category": "string",
-      "nearby": "import { normalizePath } from \"../_lib/text-utils.ts\";"
-    },
-    {
       "value": "index-manifest",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 11,
+      "line": 10,
       "category": "string",
       "nearby": "id: \"index-manifest\","
     },
     {
       "value": "build-index-manifest",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 12,
+      "line": 11,
       "category": "string",
       "nearby": "producer: \"build-index-manifest\","
     },
     {
       "value": "tool-maintained-files/indexes/index-manifest.json",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 13,
+      "line": 12,
       "category": "string",
       "nearby": "artifactPath: \"tool-maintained-files/indexes/index-manifest.json\","
     },
     {
       "value": "active Stratum 1 index artifacts, index tier policy, and query guidance",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 14,
+      "line": 13,
       "category": "string",
       "nearby": "sourceInputs: [\"active Stratum 1 index artifacts, index tier policy, and query guidance\"],"
     },
     {
       "value": "The manifest summarizes index artifacts; it does not include raw index records.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 17,
+      "line": 16,
       "category": "string",
       "nearby": "\"The manifest summarizes index artifacts; it does not include raw index records.\","
     },
     {
       "value": "The manifest excludes its own artifact hash to avoid self-referential freshness churn.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 18,
+      "line": 17,
       "category": "string",
       "nearby": "\"The manifest excludes its own artifact hash to avoid self-referential freshness churn.\","
+    },
+    {
+      "value": "Artifact sourceRevision is provenance metadata and is not used as a freshness failure.",
+      "file": "tool-implementations/indexes/build-index-manifest.ts",
+      "line": 18,
+      "category": "string",
+      "nearby": "\"Artifact sourceRevision is provenance metadata and is not used as a freshness failure.\","
     },
     {
       "value": "ACTIVE_INDEX_CATALOG",
@@ -14180,58 +14180,44 @@
       "nearby": "warnings.push(\"Index artifact is missing deterministic maintenance metadata; regenerate it with its builder.\");"
     },
     {
-      "value": "Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "category": "string",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
-      "value": "HEAD",
-      "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 137,
-      "category": "token-like",
-      "nearby": "warnings.push(`Index sourceRevision differs from current HEAD ${normalizePath(currentRevision)}.`);"
-    },
-    {
       "value": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 143,
+      "line": 140,
       "category": "string",
       "nearby": "const sharding = maintenance && typeof maintenance.sharding === \"object\" ? (maintenance.sharding as Record<string, unknown>) : null;"
     },
     {
       "value": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 146,
+      "line": 143,
       "category": "string",
       "nearby": "const entry = shard && typeof shard === \"object\" ? (shard as Record<string, unknown>) : {};"
     },
     {
       "value": "missing",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 158,
+      "line": 155,
       "category": "string",
       "nearby": "strategy: sharding?.strategy ?? \"missing\","
     },
     {
       "value": "object",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 167,
+      "line": 164,
       "category": "string",
       "nearby": "maintenance && typeof maintenance.semanticSupport === \"object\" ? (maintenance.semanticSupport as Record<string, unknown>) : null;"
     },
     {
       "value": "metadata-ready",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 169,
+      "line": 166,
       "category": "string",
       "nearby": "status: semanticSupport?.status ?? \"metadata-ready\","
     },
     {
       "value": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
       "file": "tool-implementations/indexes/build-index-manifest.ts",
-      "line": 177,
+      "line": 174,
       "category": "string",
       "nearby": "\"Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.\","
     },

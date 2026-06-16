@@ -4,11 +4,11 @@
   "stratum": 1,
   "generated": true,
   "schemaVersion": 2,
-  "generatedAt": "2026-06-16T16:09:15.128Z",
+  "generatedAt": "2026-06-16T16:14:11.805Z",
   "sourceRoot": ".",
   "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
   "sourceState": "working-tree",
-  "sourceRevision": "901dd8d7059a17ad1126c5ff136df02a5927bd46",
+  "sourceRevision": "7714d44ca86750f38b916f5ab8c0668f496801a9",
   "producer": "build-dependency-index",
   "artifactPath": "tool-maintained-files/indexes/dependency-index.json",
   "sourceInputs": [
@@ -19,7 +19,7 @@
   "knownBlindSpots": [
     "Does not resolve package exports, TS path aliases, or runtime dependency injection."
   ],
-  "recordCount": 173,
+  "recordCount": 172,
   "maintenance": {
     "metadataVersion": 1,
     "maintainedBy": "build-dependency-index",
@@ -34,9 +34,9 @@
         {
           "shardId": "records-0001",
           "startRecord": 0,
-          "endRecordExclusive": 173,
-          "recordCount": 173,
-          "sha256": "2d273fdbcf9da1f9bf9f24a120d9e465bb350be9044284fe517e7528ce2a2412"
+          "endRecordExclusive": 172,
+          "recordCount": 172,
+          "sha256": "fdfffa8b1552896e37a35ae16f7ae5aca5ac2a0458c23ca25aa880fccc8d3c6e"
         }
       ]
     },
@@ -1177,15 +1177,6 @@
       "kind": "import",
       "crossArea": false,
       "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
-    },
-    {
-      "importer": "tool-implementations/indexes/build-index-manifest.ts",
-      "imported": "../_lib/text-utils.ts",
-      "resolved": "tool-implementations/_lib/text-utils.ts",
-      "line": 8,
-      "kind": "import",
-      "crossArea": false,
-      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
     },
     {
       "importer": "tool-implementations/indexes/build-literal-index.ts",

@@ -1,0 +1,169 @@
+{
+  "artifactId": "module-map",
+  "indexId": "module-map",
+  "generated": true,
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-16T15:48:02.978Z",
+  "sourceRoot": ".",
+  "pathReference": "Record paths are relative to the Field Platform repository root.",
+  "sourceState": "working-tree",
+  "producer": "tools/agent-tools/src/index.mjs",
+  "artifactPath": "Agent OS/tool-maintained-files/project-indexes/module-map.json",
+  "sourceInputs": [
+    "apps/web/src/modules/*"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad project impact, route/module/schema coverage, or setup evidence.",
+  "coverage": "Module folders, public entrypoints, known layers, and module-local files.",
+  "knownBlindSpots": [
+    "Project structural indexes are lightweight evidence and do not replace source reads.",
+    "Static import parsing does not fully resolve package exports or runtime dependency injection."
+  ],
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "tools/agent-tools/src/index.mjs",
+    "manualMaintenance": false,
+    "refreshCommand": "corepack pnpm agent:index",
+    "checkCommand": "corepack pnpm agent:index:check"
+  },
+  "recordCount": 11,
+  "records": [
+    {
+      "module": "accounts",
+      "path": "apps/web/src/modules/accounts",
+      "publicEntrypoint": "apps/web/src/modules/accounts/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [],
+      "fileCount": 1,
+      "exports": [
+        "AccountId",
+        "accountsModule"
+      ]
+    },
+    {
+      "module": "communities",
+      "path": "apps/web/src/modules/communities",
+      "publicEntrypoint": "apps/web/src/modules/communities/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [
+        "contracts"
+      ],
+      "fileCount": 2,
+      "exports": [
+        "getCommunitiesIndexView",
+        "getCommunityDetailView",
+        "getHomeOrientationView"
+      ]
+    },
+    {
+      "module": "events",
+      "path": "apps/web/src/modules/events",
+      "publicEntrypoint": "apps/web/src/modules/events/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [],
+      "fileCount": 1,
+      "exports": [
+        "getEventDetailView"
+      ]
+    },
+    {
+      "module": "field-signals",
+      "path": "apps/web/src/modules/field-signals",
+      "publicEntrypoint": "apps/web/src/modules/field-signals/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [],
+      "fileCount": 1,
+      "exports": [
+        "getSignalsIndexView"
+      ]
+    },
+    {
+      "module": "offerings",
+      "path": "apps/web/src/modules/offerings",
+      "publicEntrypoint": "apps/web/src/modules/offerings/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [],
+      "fileCount": 1,
+      "exports": [
+        "offeringsModule"
+      ]
+    },
+    {
+      "module": "participation",
+      "path": "apps/web/src/modules/participation",
+      "publicEntrypoint": "apps/web/src/modules/participation/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [],
+      "fileCount": 1,
+      "exports": [
+        "participationModule"
+      ]
+    },
+    {
+      "module": "profiles",
+      "path": "apps/web/src/modules/profiles",
+      "publicEntrypoint": "apps/web/src/modules/profiles/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [
+        "contracts",
+        "domain"
+      ],
+      "fileCount": 4,
+      "exports": [
+        "ProfileId",
+        "getProfileView"
+      ]
+    },
+    {
+      "module": "relation-claims",
+      "path": "apps/web/src/modules/relation-claims",
+      "publicEntrypoint": "apps/web/src/modules/relation-claims/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [
+        "contracts",
+        "domain"
+      ],
+      "fileCount": 5,
+      "exports": [
+        "relationClaimsModule"
+      ]
+    },
+    {
+      "module": "stewardship",
+      "path": "apps/web/src/modules/stewardship",
+      "publicEntrypoint": "apps/web/src/modules/stewardship/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [
+        "domain"
+      ],
+      "fileCount": 3,
+      "exports": [
+        "getStewardDashboardView"
+      ]
+    },
+    {
+      "module": "visibility",
+      "path": "apps/web/src/modules/visibility",
+      "publicEntrypoint": "apps/web/src/modules/visibility/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [],
+      "fileCount": 1,
+      "exports": [
+        "visibilityAxes"
+      ]
+    },
+    {
+      "module": "ways-in",
+      "path": "apps/web/src/modules/ways-in",
+      "publicEntrypoint": "apps/web/src/modules/ways-in/index.ts",
+      "publicEntrypointExists": true,
+      "layers": [
+        "contracts",
+        "domain"
+      ],
+      "fileCount": 4,
+      "exports": [
+        "waysInModule"
+      ]
+    }
+  ]
+}

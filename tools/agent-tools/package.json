@@ -1,0 +1,11 @@
+{
+  "name": "agent-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "boundary:validate": "node src/validate-boundary-rules.mjs",
+    "index": "node src/index.mjs",
+    "index:check": "node src/index.mjs --check",
+    "phase5:verify": "node src/verify-phase5.mjs"
+  }
+}

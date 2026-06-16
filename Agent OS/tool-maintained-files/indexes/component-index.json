@@ -1,0 +1,423 @@
+{
+  "artifactId": "component-index",
+  "indexId": "component-index",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-16T15:50:39.604Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+  "producer": "build-component-index",
+  "artifactPath": "tool-maintained-files/indexes/component-index.json",
+  "sourceInputs": [
+    "TS/JS/TSX/JSX source files and story/test paths"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "PascalCase component definitions, consumers, stories, tests, and props hints.",
+  "knownBlindSpots": [
+    "Does not execute framework compilers and may confuse non-component PascalCase symbols."
+  ],
+  "recordCount": 25,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-component-index",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-component-index.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-component-index.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 1,
+      "shards": [
+        {
+          "shardId": "records-0001",
+          "startRecord": 0,
+          "endRecordExclusive": 25,
+          "recordCount": 25,
+          "sha256": "8da99d341ce6135b04c80572cfe0e12ee93cf4f4584c0701b304c91828382dd8"
+        }
+      ]
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
+  "records": [
+    {
+      "component": "ActiveIndexCatalogRow",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 1,
+      "exportRole": "export",
+      "consumers": [],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "ActiveIndexCatalogRow",
+      "file": "tool-implementations/_lib/index-catalog.ts",
+      "line": 1,
+      "exportRole": "definition",
+      "consumers": [],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "JsonValue",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/cli.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "JsonValue",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/cli.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "ParsedArgs",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/cli.ts",
+        "tool-implementations/_lib/operators/query-runner.ts",
+        "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+        "tool-implementations/_lib/records/change-records.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "ParsedArgs",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/cli.ts",
+        "tool-implementations/_lib/operators/query-runner.ts",
+        "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+        "tool-implementations/_lib/records/change-records.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "FileRecord",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 8,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/records/accessor-records.ts",
+        "tool-implementations/_lib/records/artifact-metadata-records.ts",
+        "tool-implementations/_lib/records/change-records.ts",
+        "tool-implementations/_lib/records/component-records.ts",
+        "tool-implementations/_lib/records/dependency-records.ts",
+        "tool-implementations/_lib/records/doc-reference-records.ts",
+        "tool-implementations/_lib/records/fixture-records.ts",
+        "tool-implementations/_lib/records/literal-records.ts",
+        "tool-implementations/_lib/records/path-records.ts",
+        "tool-implementations/_lib/records/route-records.ts",
+        "tool-implementations/_lib/records/schema-records.ts",
+        "tool-implementations/_lib/records/source-symbols.ts",
+        "tool-implementations/_lib/records/term-records.ts",
+        "tool-implementations/_lib/records/test-records.ts",
+        "tool-implementations/_lib/repo-files.ts",
+        "tool-implementations/semantic/build-semantic-chunk-index.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "FileRecord",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 8,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/records/accessor-records.ts",
+        "tool-implementations/_lib/records/artifact-metadata-records.ts",
+        "tool-implementations/_lib/records/change-records.ts",
+        "tool-implementations/_lib/records/component-records.ts",
+        "tool-implementations/_lib/records/dependency-records.ts",
+        "tool-implementations/_lib/records/doc-reference-records.ts",
+        "tool-implementations/_lib/records/fixture-records.ts",
+        "tool-implementations/_lib/records/literal-records.ts",
+        "tool-implementations/_lib/records/path-records.ts",
+        "tool-implementations/_lib/records/route-records.ts",
+        "tool-implementations/_lib/records/schema-records.ts",
+        "tool-implementations/_lib/records/source-symbols.ts",
+        "tool-implementations/_lib/records/term-records.ts",
+        "tool-implementations/_lib/records/test-records.ts",
+        "tool-implementations/_lib/repo-files.ts",
+        "tool-implementations/semantic/build-semantic-chunk-index.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexDefinition",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 17,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/index-metadata.ts",
+        "tool-implementations/_lib/index-runner.ts",
+        "tool-implementations/indexes/build-accessor-index.ts",
+        "tool-implementations/indexes/build-artifact-metadata-index.ts",
+        "tool-implementations/indexes/build-change-index.ts",
+        "tool-implementations/indexes/build-component-index.ts",
+        "tool-implementations/indexes/build-dependency-index.ts",
+        "tool-implementations/indexes/build-doc-reference-index.ts",
+        "tool-implementations/indexes/build-fixture-scenario-index.ts",
+        "tool-implementations/indexes/build-index-manifest.ts",
+        "tool-implementations/indexes/build-literal-index.ts",
+        "tool-implementations/indexes/build-path-index.ts",
+        "tool-implementations/indexes/build-route-index.ts",
+        "tool-implementations/indexes/build-schema-shape-index.ts",
+        "tool-implementations/indexes/build-symbol-index.ts",
+        "tool-implementations/indexes/build-term-index.ts",
+        "tool-implementations/indexes/build-test-index.ts",
+        "tool-implementations/semantic/build-semantic-chunk-index.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexDefinition",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 17,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/index-metadata.ts",
+        "tool-implementations/_lib/index-runner.ts",
+        "tool-implementations/indexes/build-accessor-index.ts",
+        "tool-implementations/indexes/build-artifact-metadata-index.ts",
+        "tool-implementations/indexes/build-change-index.ts",
+        "tool-implementations/indexes/build-component-index.ts",
+        "tool-implementations/indexes/build-dependency-index.ts",
+        "tool-implementations/indexes/build-doc-reference-index.ts",
+        "tool-implementations/indexes/build-fixture-scenario-index.ts",
+        "tool-implementations/indexes/build-index-manifest.ts",
+        "tool-implementations/indexes/build-literal-index.ts",
+        "tool-implementations/indexes/build-path-index.ts",
+        "tool-implementations/indexes/build-route-index.ts",
+        "tool-implementations/indexes/build-schema-shape-index.ts",
+        "tool-implementations/indexes/build-symbol-index.ts",
+        "tool-implementations/indexes/build-term-index.ts",
+        "tool-implementations/indexes/build-test-index.ts",
+        "tool-implementations/semantic/build-semantic-chunk-index.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexBuildContext",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 26,
+      "exportRole": "export",
+      "consumers": [],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexBuildContext",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 26,
+      "exportRole": "definition",
+      "consumers": [],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexBuilderSpec",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 33,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexBuilderSpec",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 33,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexShardMetadata",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 38,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/index-metadata.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexShardMetadata",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 38,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/index-metadata.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexMaintenanceMetadata",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 46,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/index-metadata.ts",
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexMaintenanceMetadata",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 46,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/index-metadata.ts",
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexArtifact",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 68,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts",
+        "tool-implementations/_lib/operators/query-runner.ts",
+        "tool-implementations/operators/semantic-candidate-query.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "IndexArtifact",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 68,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/index-runner.ts",
+        "tool-implementations/_lib/operators/query-runner.ts",
+        "tool-implementations/operators/semantic-candidate-query.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "QueryOperatorSpec",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 90,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "QueryOperatorSpec",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 90,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "LoadedIndex",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 95,
+      "exportRole": "export",
+      "consumers": [
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "LoadedIndex",
+      "file": "tool-implementations/_lib/types.ts",
+      "line": 95,
+      "exportRole": "definition",
+      "consumers": [
+        "tool-implementations/_lib/operators/query-runner.ts"
+      ],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    },
+    {
+      "component": "ContractFinding",
+      "file": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "line": 8,
+      "exportRole": "definition",
+      "consumers": [],
+      "stories": [],
+      "tests": [],
+      "propsHints": []
+    }
+  ]
+}

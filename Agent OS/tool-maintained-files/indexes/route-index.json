@@ -1,0 +1,48 @@
+{
+  "artifactId": "route-index",
+  "indexId": "route-index",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-16T15:50:49.886Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+  "producer": "build-route-index",
+  "artifactPath": "tool-maintained-files/indexes/route-index.json",
+  "sourceInputs": [
+    "app, pages, route, page, and layout file paths"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "Route-like files, inferred route paths, params, route families, pages, layouts, and handlers.",
+  "knownBlindSpots": [
+    "Framework-specific routing beyond common file conventions is not fully resolved."
+  ],
+  "recordCount": 0,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-route-index",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-route-index.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-route-index.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 0,
+      "shards": []
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
+  "records": []
+}

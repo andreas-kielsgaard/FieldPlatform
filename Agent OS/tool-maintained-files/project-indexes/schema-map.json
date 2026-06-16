@@ -1,0 +1,279 @@
+{
+  "artifactId": "schema-map",
+  "indexId": "schema-map",
+  "generated": true,
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-16T15:48:02.978Z",
+  "sourceRoot": ".",
+  "pathReference": "Record paths are relative to the Field Platform repository root.",
+  "sourceState": "working-tree",
+  "producer": "tools/agent-tools/src/index.mjs",
+  "artifactPath": "Agent OS/tool-maintained-files/project-indexes/schema-map.json",
+  "sourceInputs": [
+    "Drizzle schema files and Zod contract files"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad project impact, route/module/schema coverage, or setup evidence.",
+  "coverage": "Drizzle table/enum/relation declarations and Zod schema declarations.",
+  "knownBlindSpots": [
+    "Project structural indexes are lightweight evidence and do not replace source reads.",
+    "Static import parsing does not fully resolve package exports or runtime dependency injection."
+  ],
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "tools/agent-tools/src/index.mjs",
+    "manualMaintenance": false,
+    "refreshCommand": "corepack pnpm agent:index",
+    "checkCommand": "corepack pnpm agent:index:check"
+  },
+  "recordCount": 45,
+  "records": [
+    {
+      "file": "apps/web/src/modules/communities/contracts/community.view.ts",
+      "exportName": "communityOrientationViewSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/modules/profiles/contracts/profile.view.ts",
+      "exportName": "profileDataVisibilitySchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/modules/relation-claims/contracts/relation-claim.input.ts",
+      "exportName": "relationClaimInputSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/modules/relation-claims/contracts/relation-claim.view.ts",
+      "exportName": "relationClaimViewSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/modules/ways-in/contracts/ways-in.view.ts",
+      "exportName": "waysInBlockSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/modules/ways-in/contracts/ways-in.view.ts",
+      "exportName": "waysInItemSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/form.ts",
+      "exportName": "nonEmptyFormStringSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/form.ts",
+      "exportName": "optionalFormStringSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/ids.ts",
+      "exportName": "accountIdSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/ids.ts",
+      "exportName": "authUserIdSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/ids.ts",
+      "exportName": "profileIdSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/ids.ts",
+      "exportName": "relationClaimIdSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/ids.ts",
+      "exportName": "representationIdSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/pagination.ts",
+      "exportName": "paginationInputSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/pagination.ts",
+      "exportName": "paginationResultSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/route-params.ts",
+      "exportName": "handleParamSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/route-params.ts",
+      "exportName": "slugParamSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/states.ts",
+      "exportName": "participationKindSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/states.ts",
+      "exportName": "publicationStatusSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/states.ts",
+      "exportName": "representationKindSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/states.ts",
+      "exportName": "reviewStateSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/contracts/states.ts",
+      "exportName": "visibilityScopeSchema",
+      "kind": "zod-schema"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/accounts.ts",
+      "exportName": "accounts",
+      "kind": "drizzle-table",
+      "dbName": "accounts"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/auth.ts",
+      "exportName": "authProviderAccounts",
+      "kind": "drizzle-table",
+      "dbName": "auth_provider_accounts"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/auth.ts",
+      "exportName": "authSessions",
+      "kind": "drizzle-table",
+      "dbName": "auth_sessions"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/auth.ts",
+      "exportName": "authUsers",
+      "kind": "drizzle-table",
+      "dbName": "auth_users"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/auth.ts",
+      "exportName": "authVerificationTokens",
+      "kind": "drizzle-table",
+      "dbName": "auth_verification_tokens"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/communities.ts",
+      "exportName": "communities",
+      "kind": "drizzle-table",
+      "dbName": "communities"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/contributions.ts",
+      "exportName": "contributions",
+      "kind": "drizzle-table",
+      "dbName": "contributions"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/events.ts",
+      "exportName": "events",
+      "kind": "drizzle-table",
+      "dbName": "events"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/field-signals.ts",
+      "exportName": "fieldSignals",
+      "kind": "drizzle-table",
+      "dbName": "field_signals"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/offerings.ts",
+      "exportName": "offerings",
+      "kind": "drizzle-table",
+      "dbName": "offerings"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/participation.ts",
+      "exportName": "participationKindEnum",
+      "kind": "drizzle-enum",
+      "dbName": "participation_kind"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/participation.ts",
+      "exportName": "participationRelations",
+      "kind": "drizzle-table",
+      "dbName": "participation_relations"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/profiles.ts",
+      "exportName": "profiles",
+      "kind": "drizzle-table",
+      "dbName": "profiles"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/profiles.ts",
+      "exportName": "profileVisibilitySettings",
+      "kind": "drizzle-table",
+      "dbName": "profile_visibility_settings"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/relation-claims.ts",
+      "exportName": "relationClaims",
+      "kind": "drizzle-table",
+      "dbName": "relation_claims"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/representations.ts",
+      "exportName": "publicationStatusEnum",
+      "kind": "drizzle-enum",
+      "dbName": "publication_status"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/representations.ts",
+      "exportName": "representationKindEnum",
+      "kind": "drizzle-enum",
+      "dbName": "representation_kind"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/representations.ts",
+      "exportName": "representations",
+      "kind": "drizzle-table",
+      "dbName": "representations"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/representations.ts",
+      "exportName": "reviewStateEnum",
+      "kind": "drizzle-enum",
+      "dbName": "review_state"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/representations.ts",
+      "exportName": "visibilityScopeEnum",
+      "kind": "drizzle-enum",
+      "dbName": "visibility_scope"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/stewardship.ts",
+      "exportName": "stewardshipRoleEnum",
+      "kind": "drizzle-enum",
+      "dbName": "stewardship_role"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/stewardship.ts",
+      "exportName": "stewardships",
+      "kind": "drizzle-table",
+      "dbName": "stewardships"
+    },
+    {
+      "file": "apps/web/src/shared/db/schema/ways-in.ts",
+      "exportName": "waysIn",
+      "kind": "drizzle-table",
+      "dbName": "ways_in"
+    }
+  ]
+}

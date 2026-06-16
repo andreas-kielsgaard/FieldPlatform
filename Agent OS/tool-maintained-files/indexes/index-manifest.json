@@ -1,0 +1,1507 @@
+{
+  "artifactId": "index-manifest",
+  "indexId": "index-manifest",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-16T15:50:56.370Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+  "producer": "build-index-manifest",
+  "artifactPath": "tool-maintained-files/indexes/index-manifest.json",
+  "sourceInputs": [
+    "active Stratum 1 index artifacts, index tier policy, and query guidance"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "Compact boot-aware metadata for active evidence indexes, including tier, freshness, size, hash, and first-query guidance.",
+  "knownBlindSpots": [
+    "The manifest summarizes index artifacts; it does not include raw index records.",
+    "The manifest excludes its own artifact hash to avoid self-referential freshness churn."
+  ],
+  "recordCount": 15,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-index-manifest",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-index-manifest.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-index-manifest.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 1,
+      "shards": [
+        {
+          "shardId": "records-0001",
+          "startRecord": 0,
+          "endRecordExclusive": 15,
+          "recordCount": 15,
+          "sha256": "3124ef58c9a48b52487fb39c78de35829918f9e2e9fce08617c9ff666f508dec"
+        }
+      ]
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
+  "records": [
+    {
+      "indexId": "index-manifest",
+      "tier": "mandatory-boot-context",
+      "suggestedFirstOperator": "path-query or bounded read",
+      "capability": "Compact tier, freshness, size, hash, and first-query guidance for active evidence indexes.",
+      "artifactPath": "tool-maintained-files/indexes/index-manifest.json",
+      "semanticFile": "prompt-files/tools/indexes/index-manifest.md",
+      "builder": "build-index-manifest",
+      "stratum": 1,
+      "bootloaderRole": "mandatory boot context",
+      "loadPolicy": "Read this compact artifact during Agent OS initiation; do not load raw generated index record arrays at boot.",
+      "exists": true,
+      "byteSize": null,
+      "sha256": null,
+      "schemaVersion": 2,
+      "recordCount": 15,
+      "generatedAt": null,
+      "sourceRoot": ".",
+      "pathReference": "Paths are relative to the Agent OS root; run tools from that root or pass --root.",
+      "sourceState": "manifest-self-row",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-index-manifest",
+      "freshnessPolicy": "Refresh when active index tiers, capabilities, artifacts, builders, or first-query guidance changes.",
+      "coverage": "Compact tier, freshness, size, hash, and first-query guidance for active evidence indexes.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-index-manifest",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-index-manifest.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-index-manifest.ts --check --json",
+      "sharding": {
+        "strategy": "top-level-artifact-maintenance",
+        "targetRecordsPerShard": 500,
+        "shardCount": null,
+        "shards": []
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": []
+      },
+      "knownBlindSpots": [
+        "The manifest omits its own byte size and content hash to avoid self-referential freshness churn.",
+        "The manifest summarizes index artifacts; it does not include raw index records."
+      ],
+      "freshnessWarnings": [
+        "Self hash intentionally omitted; validate this artifact with build-index-manifest --check --json."
+      ]
+    },
+    {
+      "indexId": "path-index",
+      "tier": "boot-core",
+      "suggestedFirstOperator": "path-query",
+      "capability": "Files, directories, extensions, areas, inferred artifact types, and generated/manual hints.",
+      "artifactPath": "tool-maintained-files/indexes/path-index.json",
+      "semanticFile": "prompt-files/tools/indexes/path-index.md",
+      "builder": "build-path-index",
+      "stratum": 1,
+      "bootloaderRole": "boot-aware strong cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 74482,
+      "sha256": "3d369448281e2787e8549bbe3a8f33b5e9f6e520d25f287a3bd3f1790bf68432",
+      "schemaVersion": 2,
+      "recordCount": 281,
+      "generatedAt": "2026-06-16T15:50:25.333Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-path-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Files, directories, extensions, areas, inferred artifact kinds, and generated/manual hints.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-path-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-path-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-path-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 1,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 281,
+            "recordCount": 281,
+            "sha256": "0745c5ac5dc52e8284191970027e20ec9c40d7f4373aa57d343daf452d751ceb"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Artifact kind is inferred from paths and file names, not full semantic ownership."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "change-index",
+      "tier": "boot-core",
+      "suggestedFirstOperator": "diff-query",
+      "capability": "Current git status, changed files, artifact kind hints, and changed surface hints.",
+      "artifactPath": "tool-maintained-files/indexes/change-index.json",
+      "semanticFile": "prompt-files/tools/indexes/change-index.md",
+      "builder": "build-change-index",
+      "stratum": 1,
+      "bootloaderRole": "boot-aware strong cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 2416,
+      "sha256": "efb3be78d5cd7dcb4e7ffe82f12eb78c68899c7c76077e0ac2b199ed32d928b0",
+      "schemaVersion": 2,
+      "recordCount": 0,
+      "generatedAt": "2026-06-16T15:50:27.186Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "committed-baseline",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-change-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Changed files, status codes, generated/manual hints, likely changed surfaces, and optional committed-baseline view for commit preparation.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-change-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-change-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-change-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 0,
+        "shards": []
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Default mode reflects the current working tree and available git metadata.",
+        "Committed-baseline mode intentionally omits local working-tree changes so committed generated artifacts do not preserve pre-commit dirtiness."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "dependency-index",
+      "tier": "boot-core",
+      "suggestedFirstOperator": "dependency-query",
+      "capability": "Import, export-from, dynamic import, and require edges with rough cross-area hints.",
+      "artifactPath": "tool-maintained-files/indexes/dependency-index.json",
+      "semanticFile": "prompt-files/tools/indexes/dependency-index.md",
+      "builder": "build-dependency-index",
+      "stratum": 1,
+      "bootloaderRole": "boot-aware strong cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 58465,
+      "sha256": "fa8898483500c90f3a638e1dffd3de6fce97764377fe6fbb36ab54d90db69c06",
+      "schemaVersion": 2,
+      "recordCount": 172,
+      "generatedAt": "2026-06-16T15:50:29.825Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-dependency-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Import edges, module specifiers, relative resolutions, and rough dependency direction evidence.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-dependency-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-dependency-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-dependency-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 1,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 172,
+            "recordCount": 172,
+            "sha256": "4cf7acca3a250557afc8ea73405e4dca7d77237d55d25284a039fede8b4f707a"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Does not resolve package exports, TS path aliases, or runtime dependency injection."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "symbol-index",
+      "tier": "boot-core",
+      "suggestedFirstOperator": "symbol-query",
+      "capability": "Exported, imported, and locally declared symbols from lightweight source scanning.",
+      "artifactPath": "tool-maintained-files/indexes/symbol-index.json",
+      "semanticFile": "prompt-files/tools/indexes/symbol-index.md",
+      "builder": "build-symbol-index",
+      "stratum": 1,
+      "bootloaderRole": "boot-aware strong cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 202347,
+      "sha256": "3a635cadf11070b1fe1ba024d48635ccf00d7bb4e5b1b3b381d83c8c0ce8cb0d",
+      "schemaVersion": 2,
+      "recordCount": 742,
+      "generatedAt": "2026-06-16T15:50:32.792Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-symbol-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Exported, imported, and locally declared symbols discoverable with lightweight source scanning.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-symbol-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-symbol-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-symbol-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 2,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 500,
+            "recordCount": 500,
+            "sha256": "96a20a8165156e69ac5088850935214c376e121f5075fb555e191a04b41541b4"
+          },
+          {
+            "shardId": "records-0002",
+            "startRecord": 500,
+            "endRecordExclusive": 742,
+            "recordCount": 242,
+            "sha256": "008ddabf0346666175c5f5e8dba299b82789b26d282c05a06a0ac01e9faed4f0"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Regex scanning is not a full compiler or AST and may miss dynamic or language-specific symbols."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "doc-reference-index",
+      "tier": "boot-core",
+      "suggestedFirstOperator": "doc-ref-query",
+      "capability": "Markdown links, headings, inline path references, inline IDs, and local existence hints.",
+      "artifactPath": "tool-maintained-files/indexes/doc-reference-index.json",
+      "semanticFile": "prompt-files/tools/indexes/doc-reference-index.md",
+      "builder": "build-doc-reference-index",
+      "stratum": 1,
+      "bootloaderRole": "boot-aware strong cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 620622,
+      "sha256": "f9640cc5bfb9e0840e6909d36b39e8d8b234d6d479da178a702e39c6face79fd",
+      "schemaVersion": 2,
+      "recordCount": 2042,
+      "generatedAt": "2026-06-16T15:50:35.028Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-doc-reference-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Markdown links, headings, file references, instruction references, tool IDs, and likely broken local links.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-doc-reference-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-doc-reference-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-doc-reference-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 5,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 500,
+            "recordCount": 500,
+            "sha256": "a04e13d21855871e2c259ba9092f67f820f5bb01ce4622603f0401dd1110dcb4"
+          },
+          {
+            "shardId": "records-0002",
+            "startRecord": 500,
+            "endRecordExclusive": 1000,
+            "recordCount": 500,
+            "sha256": "8d68333bec757ac182dcc83196c15b8a4db551eb2b17cf47aec42695ab49fa28"
+          },
+          {
+            "shardId": "records-0003",
+            "startRecord": 1000,
+            "endRecordExclusive": 1500,
+            "recordCount": 500,
+            "sha256": "fd31d1678bdf6219504426422cfe0653990c6fc0ff3666441e06b55daab1e4a8"
+          },
+          {
+            "shardId": "records-0004",
+            "startRecord": 1500,
+            "endRecordExclusive": 2000,
+            "recordCount": 500,
+            "sha256": "0675468e9fcb2d3dd1401911c49db9ada4c3413c47ce32a63753773af7d1607c"
+          },
+          {
+            "shardId": "records-0005",
+            "startRecord": 2000,
+            "endRecordExclusive": 2042,
+            "recordCount": 42,
+            "sha256": "6131a42274ba5df7762d0399d6863e669ce384554c5ee88df3a9d1f0827cbf6f"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "External URLs, generated anchors, and prose-only references may need manual review."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "artifact-metadata-index",
+      "tier": "boot-core",
+      "suggestedFirstOperator": "artifact-query",
+      "capability": "Artifact kind, generated/manual hints, direct-edit policy hints, producer hints, audience, and authority-role hints.",
+      "artifactPath": "tool-maintained-files/indexes/artifact-metadata-index.json",
+      "semanticFile": "prompt-files/tools/indexes/artifact-metadata-index.md",
+      "builder": "build-artifact-metadata-index",
+      "stratum": 1,
+      "bootloaderRole": "boot-aware strong cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 75186,
+      "sha256": "deb726ec8b614a22c47eb65612ca3d107be58e76dea346b231135a23d78a7386",
+      "schemaVersion": 2,
+      "recordCount": 241,
+      "generatedAt": "2026-06-16T15:50:37.111Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-artifact-metadata-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Artifact kind, generated/manual/hybrid hints, direct-edit safety hints, and possible producers.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-artifact-metadata-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-artifact-metadata-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-artifact-metadata-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 1,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 241,
+            "recordCount": 241,
+            "sha256": "86eb8d88d7d7e578c2c2bfa1ed6540b093c18c75fc8706580f924a9f52dd182f"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Humans can bypass conventions; unknown metadata is uncertainty, not proof."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "component-index",
+      "tier": "strong-cue",
+      "suggestedFirstOperator": "component-query",
+      "capability": "PascalCase component definitions, consumers, stories, tests, and props hints.",
+      "artifactPath": "tool-maintained-files/indexes/component-index.json",
+      "semanticFile": "prompt-files/tools/indexes/component-index.md",
+      "builder": "build-component-index",
+      "stratum": 1,
+      "bootloaderRole": "selective cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 14537,
+      "sha256": "e14db7f259cc2fb7f89c9972ece19cafbd1b95c64b3a9bf82198a1ab437f52c8",
+      "schemaVersion": 2,
+      "recordCount": 25,
+      "generatedAt": "2026-06-16T15:50:39.604Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-component-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "PascalCase component definitions, consumers, stories, tests, and props hints.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-component-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-component-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-component-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 1,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 25,
+            "recordCount": 25,
+            "sha256": "8da99d341ce6135b04c80572cfe0e12ee93cf4f4584c0701b304c91828382dd8"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Does not execute framework compilers and may confuse non-component PascalCase symbols."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "accessor-index",
+      "tier": "strong-cue",
+      "suggestedFirstOperator": "accessor-query",
+      "capability": "Accessor/API-like definitions, imports, read/write hints, cache hints, and boundary names.",
+      "artifactPath": "tool-maintained-files/indexes/accessor-index.json",
+      "semanticFile": "prompt-files/tools/indexes/accessor-index.md",
+      "builder": "build-accessor-index",
+      "stratum": 1,
+      "bootloaderRole": "selective cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 74463,
+      "sha256": "c8dcbb20ec0295bc911c0ca9778c9ef5db0d24a0dc11206ab7afb004b0e0e6a3",
+      "schemaVersion": 2,
+      "recordCount": 204,
+      "generatedAt": "2026-06-16T15:50:42.022Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-accessor-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Accessor/API-like definitions, callers, read/write hints, cache hints, and boundary names.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-accessor-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-accessor-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-accessor-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 1,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 204,
+            "recordCount": 204,
+            "sha256": "18ebc3c6920081b05908b9a8a31ccdac2c7a09456e5716a18dbcb7036c70b558"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Does not infer runtime behavior, authorization, caching semantics, or compatibility promises."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "schema-shape-index",
+      "tier": "strong-cue",
+      "suggestedFirstOperator": "schema-query",
+      "capability": "Schema-like declarations, validators, fields, relations, and generated type hints.",
+      "artifactPath": "tool-maintained-files/indexes/schema-shape-index.json",
+      "semanticFile": "prompt-files/tools/indexes/schema-shape-index.md",
+      "builder": "build-schema-shape-index",
+      "stratum": 1,
+      "bootloaderRole": "selective cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 19999,
+      "sha256": "2c21a3a340f3657e7a31b365071b2d91bbd18e75df9682d75a4816d09b2aa902",
+      "schemaVersion": 2,
+      "recordCount": 78,
+      "generatedAt": "2026-06-16T15:50:43.860Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-schema-shape-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Schema-like declarations, validators, fields, relation hints, and generated type references.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-schema-shape-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-schema-shape-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-schema-shape-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 1,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 78,
+            "recordCount": 78,
+            "sha256": "2a4f4f19664e67a98e66de68af608dc68592cf73dc0805d219b115cb76455ce5"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Does not replace database, ORM, or validator-specific introspection."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "test-index",
+      "tier": "strong-cue",
+      "suggestedFirstOperator": "test-query",
+      "capability": "Test and story files, imports, likely subjects, fixture references, and route/component hints.",
+      "artifactPath": "tool-maintained-files/indexes/test-index.json",
+      "semanticFile": "prompt-files/tools/indexes/test-index.md",
+      "builder": "build-test-index",
+      "stratum": 1,
+      "bootloaderRole": "selective cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 2132,
+      "sha256": "df17db77eb4557226e69783e81e9112e9d3a9590f9c16b21a2bd8eead9f27a3c",
+      "schemaVersion": 2,
+      "recordCount": 0,
+      "generatedAt": "2026-06-16T15:50:45.859Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-test-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Test and story files, likely tested subjects, imports, fixture references, and route/component hints.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-test-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-test-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-test-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 0,
+        "shards": []
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Does not execute tests or prove semantic coverage."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "fixture-scenario-index",
+      "tier": "strong-cue",
+      "suggestedFirstOperator": "fixture-query",
+      "capability": "Fixture, mock, seed, scenario, demo-data, and example artifacts with represented term hints.",
+      "artifactPath": "tool-maintained-files/indexes/fixture-scenario-index.json",
+      "semanticFile": "prompt-files/tools/indexes/fixture-scenario-index.md",
+      "builder": "build-fixture-scenario-index",
+      "stratum": 1,
+      "bootloaderRole": "selective cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 36414,
+      "sha256": "f9f94a3ac12700c5b8741ec46333d2e635502a9fa6bbc929cbe65b1014fc5d64",
+      "schemaVersion": 2,
+      "recordCount": 39,
+      "generatedAt": "2026-06-16T15:50:47.731Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-fixture-scenario-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Fixture/scenario artifacts, consumers, represented terms, and shape hints.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-fixture-scenario-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-fixture-scenario-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-fixture-scenario-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 1,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 39,
+            "recordCount": 39,
+            "sha256": "13c92c7eeed69fe9ca502fc83e533777f1e2adb493fa3cc43752f429df9e40de"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Project-specific scenario registries may require custom parsing later."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "route-index",
+      "tier": "specialized-cue",
+      "suggestedFirstOperator": "route-query",
+      "capability": "Route-like files, inferred route paths, params, families, pages, layouts, and handlers.",
+      "artifactPath": "tool-maintained-files/indexes/route-index.json",
+      "semanticFile": "prompt-files/tools/indexes/route-index.md",
+      "builder": "build-route-index",
+      "stratum": 1,
+      "bootloaderRole": "selective cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 2148,
+      "sha256": "3f8e43fca0bb51198aa3ebd8fe3467ec9402374e7280a2cadc001f66736bd09c",
+      "schemaVersion": 2,
+      "recordCount": 0,
+      "generatedAt": "2026-06-16T15:50:49.886Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-route-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Route-like files, inferred route paths, params, route families, pages, layouts, and handlers.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-route-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-route-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-route-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 0,
+        "shards": []
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Framework-specific routing beyond common file conventions is not fully resolved."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "literal-index",
+      "tier": "specialized-cue",
+      "suggestedFirstOperator": "literal-query",
+      "capability": "Quoted strings, policy-like values, status-like values, token-like values, and arbitrary style-like values.",
+      "artifactPath": "tool-maintained-files/indexes/literal-index.json",
+      "semanticFile": "prompt-files/tools/indexes/literal-index.md",
+      "builder": "build-literal-index",
+      "stratum": 1,
+      "bootloaderRole": "selective cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 698568,
+      "sha256": "4018c8460fca021d6ff5de102151c4b3d1db993cd4301d6c3217e75b480b58dc",
+      "schemaVersion": 2,
+      "recordCount": 2224,
+      "generatedAt": "2026-06-16T15:50:51.748Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-literal-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "String literals, role-like values, status-like values, token-like values, and arbitrary style-like values.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-literal-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-literal-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-literal-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 5,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 500,
+            "recordCount": 500,
+            "sha256": "844754309cccab71cae32b2d6a115c4da2314416e721c236b13f3395509cbea0"
+          },
+          {
+            "shardId": "records-0002",
+            "startRecord": 500,
+            "endRecordExclusive": 1000,
+            "recordCount": 500,
+            "sha256": "ee3fab37c528ae805f24a067d2b7bc02a792b8ce8af742f4c57afd25f20fd1f5"
+          },
+          {
+            "shardId": "records-0003",
+            "startRecord": 1000,
+            "endRecordExclusive": 1500,
+            "recordCount": 500,
+            "sha256": "6ea3a71479b030ed9ea911d0288700324d5e9178affb3a9672bc5125950043ae"
+          },
+          {
+            "shardId": "records-0004",
+            "startRecord": 1500,
+            "endRecordExclusive": 2000,
+            "recordCount": 500,
+            "sha256": "3aa1addf8ee8e013989314b572439c38351f8a453a563a4c1990453ac471ec4c"
+          },
+          {
+            "shardId": "records-0005",
+            "startRecord": 2000,
+            "endRecordExclusive": 2224,
+            "recordCount": 224,
+            "sha256": "6db6bae7603f8c40f01661ca6b05f0cf2ac8bd4e3be9b32ba8c27ac86951ef42"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Does not know whether a literal is product copy, test data, or implementation detail without context."
+      ],
+      "freshnessWarnings": []
+    },
+    {
+      "indexId": "term-index",
+      "tier": "specialized-cue",
+      "suggestedFirstOperator": "term-query",
+      "capability": "Domain terms, headings, identifiers, UI-looking literals, and nearby language.",
+      "artifactPath": "tool-maintained-files/indexes/term-index.json",
+      "semanticFile": "prompt-files/tools/indexes/term-index.md",
+      "builder": "build-term-index",
+      "stratum": 1,
+      "bootloaderRole": "selective cue",
+      "loadPolicy": "Read manifest row at boot; query raw records only through selected tools or bounded slices.",
+      "exists": true,
+      "byteSize": 11827866,
+      "sha256": "7c3bacf81aecac99c79d3a43a2d36a2d3ac8dcb8591e619e9881666eed6c2431",
+      "schemaVersion": 2,
+      "recordCount": 38060,
+      "generatedAt": "2026-06-16T15:50:54.134Z",
+      "sourceRoot": ".",
+      "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+      "sourceState": "working-tree",
+      "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+      "producer": "build-term-index",
+      "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+      "coverage": "Domain terms, headings, identifiers, UI-looking literals, and nearby language occurrences.",
+      "metadataVersion": 1,
+      "metadataMaintainedBy": "build-term-index",
+      "manualMaintenance": false,
+      "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-term-index.ts --json",
+      "checkCommand": "npx --yes tsx tool-implementations/indexes/build-term-index.ts --check --json",
+      "sharding": {
+        "strategy": "record-count",
+        "targetRecordsPerShard": 500,
+        "shardCount": 77,
+        "shards": [
+          {
+            "shardId": "records-0001",
+            "startRecord": 0,
+            "endRecordExclusive": 500,
+            "recordCount": 500,
+            "sha256": "251f11e87acdd444197450ebeea46f5e3c80b390aa7158f80c47cac6ca0b4d5f"
+          },
+          {
+            "shardId": "records-0002",
+            "startRecord": 500,
+            "endRecordExclusive": 1000,
+            "recordCount": 500,
+            "sha256": "51f1d9f8391ee9ad752d3b84b78493134486c2d5e4de4e35589af704d60f6fb2"
+          },
+          {
+            "shardId": "records-0003",
+            "startRecord": 1000,
+            "endRecordExclusive": 1500,
+            "recordCount": 500,
+            "sha256": "4e7ae30680704fad293b732774272ed22d17e92c5b54559c8c0720b63c44c747"
+          },
+          {
+            "shardId": "records-0004",
+            "startRecord": 1500,
+            "endRecordExclusive": 2000,
+            "recordCount": 500,
+            "sha256": "439d09603a66d0207eae8b09c61f4417679ed70f59815073ea9632a49c1a702d"
+          },
+          {
+            "shardId": "records-0005",
+            "startRecord": 2000,
+            "endRecordExclusive": 2500,
+            "recordCount": 500,
+            "sha256": "dd2cebf2a2110d453d13965a3ed5fc39c888902833e3e359d56712741a2955f7"
+          },
+          {
+            "shardId": "records-0006",
+            "startRecord": 2500,
+            "endRecordExclusive": 3000,
+            "recordCount": 500,
+            "sha256": "66c2b20068a0344435f39607b28472328daf03eed35b4e2899b51b4f007988e6"
+          },
+          {
+            "shardId": "records-0007",
+            "startRecord": 3000,
+            "endRecordExclusive": 3500,
+            "recordCount": 500,
+            "sha256": "e9ba981e37462731e42546a4be46ecc22d3a7766776a8aa9f3df2f98d909961f"
+          },
+          {
+            "shardId": "records-0008",
+            "startRecord": 3500,
+            "endRecordExclusive": 4000,
+            "recordCount": 500,
+            "sha256": "05871bd86c55e8704150bc09f5919853feb169136d7f85dd611318d9bb30a2b9"
+          },
+          {
+            "shardId": "records-0009",
+            "startRecord": 4000,
+            "endRecordExclusive": 4500,
+            "recordCount": 500,
+            "sha256": "10da7ae4bea9d34dea81694a1d36e8a54792dd794795b0943c1493d3fbd7551c"
+          },
+          {
+            "shardId": "records-0010",
+            "startRecord": 4500,
+            "endRecordExclusive": 5000,
+            "recordCount": 500,
+            "sha256": "5f2393746551dca950a94de7834aa9f593023e15568bfb4f9f4d42ea5f8e62a3"
+          },
+          {
+            "shardId": "records-0011",
+            "startRecord": 5000,
+            "endRecordExclusive": 5500,
+            "recordCount": 500,
+            "sha256": "cec03ae47ed7b7bc9d633cb091298cb2849dcc271a9bc86df963ae0931b45a77"
+          },
+          {
+            "shardId": "records-0012",
+            "startRecord": 5500,
+            "endRecordExclusive": 6000,
+            "recordCount": 500,
+            "sha256": "ac8ffae7ad736be80b070174752bb17d99949283300d1e6ad913689432d98f87"
+          },
+          {
+            "shardId": "records-0013",
+            "startRecord": 6000,
+            "endRecordExclusive": 6500,
+            "recordCount": 500,
+            "sha256": "eb46bb6cbabc66be8b97c5c1275bd055cb4592472f84350f49d5ad7049fcd59f"
+          },
+          {
+            "shardId": "records-0014",
+            "startRecord": 6500,
+            "endRecordExclusive": 7000,
+            "recordCount": 500,
+            "sha256": "fa56470439200cb916ea54a153057c3a8cb4e6193d1401e8c600abf7b12fa94d"
+          },
+          {
+            "shardId": "records-0015",
+            "startRecord": 7000,
+            "endRecordExclusive": 7500,
+            "recordCount": 500,
+            "sha256": "b954a94cf2464444fec87d33e2997a74b5b66a1f4e9f767a8e794f92eebb967d"
+          },
+          {
+            "shardId": "records-0016",
+            "startRecord": 7500,
+            "endRecordExclusive": 8000,
+            "recordCount": 500,
+            "sha256": "f88474bbe643d2de87011f71c01f0fce656c1a04a2f0501e588bfa37dd78cfe8"
+          },
+          {
+            "shardId": "records-0017",
+            "startRecord": 8000,
+            "endRecordExclusive": 8500,
+            "recordCount": 500,
+            "sha256": "89dc4c8b85153a3eb07cb4a5d9f6633a319657b5a6a1f55153f27afe57ff7ceb"
+          },
+          {
+            "shardId": "records-0018",
+            "startRecord": 8500,
+            "endRecordExclusive": 9000,
+            "recordCount": 500,
+            "sha256": "8671fe52208aa9e2243a75d3db8ced68041410b20fc18c129b32d07f237bb406"
+          },
+          {
+            "shardId": "records-0019",
+            "startRecord": 9000,
+            "endRecordExclusive": 9500,
+            "recordCount": 500,
+            "sha256": "dcde1cea07b2552e6552f1f30c11857fc4441b34ceecd5c0898a6c907106814b"
+          },
+          {
+            "shardId": "records-0020",
+            "startRecord": 9500,
+            "endRecordExclusive": 10000,
+            "recordCount": 500,
+            "sha256": "6e89be526eb2935e2712b7eac097f82c1acfa8fcb3bd6a8c6323e74cdf50d88d"
+          },
+          {
+            "shardId": "records-0021",
+            "startRecord": 10000,
+            "endRecordExclusive": 10500,
+            "recordCount": 500,
+            "sha256": "bad18a6875302c5acad9aff290f291534b6ed3dd6e116a75630c4d974b3b3660"
+          },
+          {
+            "shardId": "records-0022",
+            "startRecord": 10500,
+            "endRecordExclusive": 11000,
+            "recordCount": 500,
+            "sha256": "2fd8313d6940353f1e797fbd6fe7e04407d462ffdcf27f64820517c68455f96a"
+          },
+          {
+            "shardId": "records-0023",
+            "startRecord": 11000,
+            "endRecordExclusive": 11500,
+            "recordCount": 500,
+            "sha256": "ebbded8d69030eb868a1b6d9749c4ca933d6f2b8d0976b708905e5fa3fe98948"
+          },
+          {
+            "shardId": "records-0024",
+            "startRecord": 11500,
+            "endRecordExclusive": 12000,
+            "recordCount": 500,
+            "sha256": "ef5c848c1787740a300be5feed12deb907c1c7e17fecd89086b51fd232c3d0c7"
+          },
+          {
+            "shardId": "records-0025",
+            "startRecord": 12000,
+            "endRecordExclusive": 12500,
+            "recordCount": 500,
+            "sha256": "2b4c39eb747fe8bbad235727f8f121c9d6f343dac41162845d32548f0530b084"
+          },
+          {
+            "shardId": "records-0026",
+            "startRecord": 12500,
+            "endRecordExclusive": 13000,
+            "recordCount": 500,
+            "sha256": "0589c07c22754f0819f1a5e1d5ba892f8bf021fdf601f372a946bf97b5100b56"
+          },
+          {
+            "shardId": "records-0027",
+            "startRecord": 13000,
+            "endRecordExclusive": 13500,
+            "recordCount": 500,
+            "sha256": "ff2e3312e244febd724ab33aeccf48b0514a028fe297c9465fe1053a2fd78760"
+          },
+          {
+            "shardId": "records-0028",
+            "startRecord": 13500,
+            "endRecordExclusive": 14000,
+            "recordCount": 500,
+            "sha256": "53e7085871088c68fd84654da5dbfc97bb42abf75725a03b634dec8953847998"
+          },
+          {
+            "shardId": "records-0029",
+            "startRecord": 14000,
+            "endRecordExclusive": 14500,
+            "recordCount": 500,
+            "sha256": "3fce7c5ecb02f45b95f8342249af99ab207d41948b17a6888c7ab0141e5bdfa5"
+          },
+          {
+            "shardId": "records-0030",
+            "startRecord": 14500,
+            "endRecordExclusive": 15000,
+            "recordCount": 500,
+            "sha256": "4e82e1f1c37ea3436c592517e95b732b3cb286e90b92446b1527f65853cde0b8"
+          },
+          {
+            "shardId": "records-0031",
+            "startRecord": 15000,
+            "endRecordExclusive": 15500,
+            "recordCount": 500,
+            "sha256": "0c9f2fc30c6b2967c328f12bc403b2e65ab48e4f933d70063993c989ecf11d0d"
+          },
+          {
+            "shardId": "records-0032",
+            "startRecord": 15500,
+            "endRecordExclusive": 16000,
+            "recordCount": 500,
+            "sha256": "e2b44ae68ee6c6dc5b1e8c502832fd69fdf596145c8ed46caf36304f087667a1"
+          },
+          {
+            "shardId": "records-0033",
+            "startRecord": 16000,
+            "endRecordExclusive": 16500,
+            "recordCount": 500,
+            "sha256": "d6a04cc283db420b9aa3dbdb6339589b313346f54e0ff0193c4bd48e1f08f8e6"
+          },
+          {
+            "shardId": "records-0034",
+            "startRecord": 16500,
+            "endRecordExclusive": 17000,
+            "recordCount": 500,
+            "sha256": "c0975be15767ebe9332feac6a57229a155482b8dafa554b9dee19dcc6be49d65"
+          },
+          {
+            "shardId": "records-0035",
+            "startRecord": 17000,
+            "endRecordExclusive": 17500,
+            "recordCount": 500,
+            "sha256": "860c0144ed9cca8ea7d52f61e4121c491f719cf8166d720f96343bf92dbec336"
+          },
+          {
+            "shardId": "records-0036",
+            "startRecord": 17500,
+            "endRecordExclusive": 18000,
+            "recordCount": 500,
+            "sha256": "82f995f782c15d3abf113f4f898e7ebdfbd740723ccdd1ca572bc37c8eda62cb"
+          },
+          {
+            "shardId": "records-0037",
+            "startRecord": 18000,
+            "endRecordExclusive": 18500,
+            "recordCount": 500,
+            "sha256": "7d0e7721083a92c3c86ada86a65e986cc8ba9a4aa6fa256aa5de73b8443bd6fe"
+          },
+          {
+            "shardId": "records-0038",
+            "startRecord": 18500,
+            "endRecordExclusive": 19000,
+            "recordCount": 500,
+            "sha256": "c4ec7412f41c900822d7ac455e69877172cd3088342daa5160e11f67c5b6936b"
+          },
+          {
+            "shardId": "records-0039",
+            "startRecord": 19000,
+            "endRecordExclusive": 19500,
+            "recordCount": 500,
+            "sha256": "2c61486aacdf66c350ba1b2debd73f6aacc3b9452b3116727ca7e2d23454d510"
+          },
+          {
+            "shardId": "records-0040",
+            "startRecord": 19500,
+            "endRecordExclusive": 20000,
+            "recordCount": 500,
+            "sha256": "43da7f96baa3bb1a016bd3428fb5532106210b43d6d3db1eed3d5138ebecd59e"
+          },
+          {
+            "shardId": "records-0041",
+            "startRecord": 20000,
+            "endRecordExclusive": 20500,
+            "recordCount": 500,
+            "sha256": "ff89115ea4222ba1ea4381dbec699437c166596b76ee774c1124b2bc1f426074"
+          },
+          {
+            "shardId": "records-0042",
+            "startRecord": 20500,
+            "endRecordExclusive": 21000,
+            "recordCount": 500,
+            "sha256": "b787010cd0b8bc43b7626ec57af9952b2c37583252ac1ffb800d5ec0135e3148"
+          },
+          {
+            "shardId": "records-0043",
+            "startRecord": 21000,
+            "endRecordExclusive": 21500,
+            "recordCount": 500,
+            "sha256": "7ee45be1d17b085d2abf1838c4192095f486b5dc7aca82e0b6ce51b1b46796a6"
+          },
+          {
+            "shardId": "records-0044",
+            "startRecord": 21500,
+            "endRecordExclusive": 22000,
+            "recordCount": 500,
+            "sha256": "3d1b060c2f9ac28ee0598a8253c95d9e7aaa51847e16eefa3075b22137e2fb49"
+          },
+          {
+            "shardId": "records-0045",
+            "startRecord": 22000,
+            "endRecordExclusive": 22500,
+            "recordCount": 500,
+            "sha256": "f39b35406a987215870f5d49df5529e6a69358355eacf7fa88bae4fe77a62281"
+          },
+          {
+            "shardId": "records-0046",
+            "startRecord": 22500,
+            "endRecordExclusive": 23000,
+            "recordCount": 500,
+            "sha256": "d15eed943054e7f651bb3aaba4312a18db3528c7d376c9b8271ba2f30bdb41e5"
+          },
+          {
+            "shardId": "records-0047",
+            "startRecord": 23000,
+            "endRecordExclusive": 23500,
+            "recordCount": 500,
+            "sha256": "40e34519b63967332dd97ce3b1ae33134bb8d3973465c724ff31b51c7e2fb7ec"
+          },
+          {
+            "shardId": "records-0048",
+            "startRecord": 23500,
+            "endRecordExclusive": 24000,
+            "recordCount": 500,
+            "sha256": "6402e97f14a4e3f66371b364efa4a546c7bea9af885afec9af8ee3574acfab24"
+          },
+          {
+            "shardId": "records-0049",
+            "startRecord": 24000,
+            "endRecordExclusive": 24500,
+            "recordCount": 500,
+            "sha256": "f99056a419ddcfbf8e6cd7a645c0e8e49c39c28607477f9454a47ddeb2d470ae"
+          },
+          {
+            "shardId": "records-0050",
+            "startRecord": 24500,
+            "endRecordExclusive": 25000,
+            "recordCount": 500,
+            "sha256": "3e4cb960964aa7c58eb3dbe272d0180ebfb82252d7c5b2665ae3d8576c7e835e"
+          },
+          {
+            "shardId": "records-0051",
+            "startRecord": 25000,
+            "endRecordExclusive": 25500,
+            "recordCount": 500,
+            "sha256": "0a5caab529696f3e5ec2530466444020b6ca9686232b834adae5dfc12c34c8de"
+          },
+          {
+            "shardId": "records-0052",
+            "startRecord": 25500,
+            "endRecordExclusive": 26000,
+            "recordCount": 500,
+            "sha256": "8f478bea35f66faab0b79c6bf47609ae82597fe4384eb68f7694d31e480b5292"
+          },
+          {
+            "shardId": "records-0053",
+            "startRecord": 26000,
+            "endRecordExclusive": 26500,
+            "recordCount": 500,
+            "sha256": "6dabd01db621c7a2c71f2190b1e29b11d603d0d56693af093d4f8a249e976f81"
+          },
+          {
+            "shardId": "records-0054",
+            "startRecord": 26500,
+            "endRecordExclusive": 27000,
+            "recordCount": 500,
+            "sha256": "808dbd881f243540f9d648cd42d244ad3449e57ad086bdf1293c48c5d7cc9e13"
+          },
+          {
+            "shardId": "records-0055",
+            "startRecord": 27000,
+            "endRecordExclusive": 27500,
+            "recordCount": 500,
+            "sha256": "b4a06fc8415d64c511f530dcae96325eefde892f7ee910c8037cef47a335d53a"
+          },
+          {
+            "shardId": "records-0056",
+            "startRecord": 27500,
+            "endRecordExclusive": 28000,
+            "recordCount": 500,
+            "sha256": "ddb6f75e13f6538a84f504281c13e2b58b74173841b3238e2865b41e30b2519a"
+          },
+          {
+            "shardId": "records-0057",
+            "startRecord": 28000,
+            "endRecordExclusive": 28500,
+            "recordCount": 500,
+            "sha256": "9c57ff1f3b8528bcd5229622f8c635deb63c0b7ff57ed3f2ce16643ded2a6799"
+          },
+          {
+            "shardId": "records-0058",
+            "startRecord": 28500,
+            "endRecordExclusive": 29000,
+            "recordCount": 500,
+            "sha256": "e13dcbdadc18292ee4328e31b3119da80b1b66a7a6c459dcf2d50d013489021d"
+          },
+          {
+            "shardId": "records-0059",
+            "startRecord": 29000,
+            "endRecordExclusive": 29500,
+            "recordCount": 500,
+            "sha256": "7bfbae699129be1ded841931d8d96af318a022b3b078ac5dd383fa859ac3ab9d"
+          },
+          {
+            "shardId": "records-0060",
+            "startRecord": 29500,
+            "endRecordExclusive": 30000,
+            "recordCount": 500,
+            "sha256": "72169d0fd288e5aa0a37d4a6a22a1cd764e927cf7c579a889bfe20aac3f6b180"
+          },
+          {
+            "shardId": "records-0061",
+            "startRecord": 30000,
+            "endRecordExclusive": 30500,
+            "recordCount": 500,
+            "sha256": "70bdf9824ecc46c06c255ad40acfd1c128fd134889ce78ab3daac11790d2da72"
+          },
+          {
+            "shardId": "records-0062",
+            "startRecord": 30500,
+            "endRecordExclusive": 31000,
+            "recordCount": 500,
+            "sha256": "3f70637644358118255951c9a79ed32efc189e825ea28e25323a0aec6922c3cf"
+          },
+          {
+            "shardId": "records-0063",
+            "startRecord": 31000,
+            "endRecordExclusive": 31500,
+            "recordCount": 500,
+            "sha256": "b0bb6ad2b12fa4493f201427dbec5f29c849dfe23dc023e2466ab01fac639a12"
+          },
+          {
+            "shardId": "records-0064",
+            "startRecord": 31500,
+            "endRecordExclusive": 32000,
+            "recordCount": 500,
+            "sha256": "3e7b42f0ddccb28b38107c70e0c6240c0f2750b17ac5b9228806214971d74d54"
+          },
+          {
+            "shardId": "records-0065",
+            "startRecord": 32000,
+            "endRecordExclusive": 32500,
+            "recordCount": 500,
+            "sha256": "3523e388cc013d7b33de30525ee8e5cfca2a9bcce0f4962c0a4481481ae756a2"
+          },
+          {
+            "shardId": "records-0066",
+            "startRecord": 32500,
+            "endRecordExclusive": 33000,
+            "recordCount": 500,
+            "sha256": "6ba0b8d04415e2173c28336d2e6d713132b272ae143fd94ef881a70d12394dff"
+          },
+          {
+            "shardId": "records-0067",
+            "startRecord": 33000,
+            "endRecordExclusive": 33500,
+            "recordCount": 500,
+            "sha256": "f3e6f0476b26cebf289e56597fb4bda4606099f00b6eb302af69764a8a84f617"
+          },
+          {
+            "shardId": "records-0068",
+            "startRecord": 33500,
+            "endRecordExclusive": 34000,
+            "recordCount": 500,
+            "sha256": "639b5565ab5a14479be795e58231de89818bb1ea162d4c7e9c6641fb9dc5635e"
+          },
+          {
+            "shardId": "records-0069",
+            "startRecord": 34000,
+            "endRecordExclusive": 34500,
+            "recordCount": 500,
+            "sha256": "b682ae8f5377dd07d8140a001d5ffc3dc037e7ed254cf15b0abd85d6973f1525"
+          },
+          {
+            "shardId": "records-0070",
+            "startRecord": 34500,
+            "endRecordExclusive": 35000,
+            "recordCount": 500,
+            "sha256": "db5a46229d211297082881695c70965586485d989508f703a556c59041985e62"
+          },
+          {
+            "shardId": "records-0071",
+            "startRecord": 35000,
+            "endRecordExclusive": 35500,
+            "recordCount": 500,
+            "sha256": "9c245abbf5879185a8991bd8aee2f8db85ffca0daf3d6927d11fb39e42f4eec7"
+          },
+          {
+            "shardId": "records-0072",
+            "startRecord": 35500,
+            "endRecordExclusive": 36000,
+            "recordCount": 500,
+            "sha256": "fa92bc9332b9fdf66538987972202c7097ef4c039ee0a09a668a0c56e56f2da7"
+          },
+          {
+            "shardId": "records-0073",
+            "startRecord": 36000,
+            "endRecordExclusive": 36500,
+            "recordCount": 500,
+            "sha256": "018bc9d2a4f12cca56437f02135cd56eaf1a3b2f220095044aa38387685481bc"
+          },
+          {
+            "shardId": "records-0074",
+            "startRecord": 36500,
+            "endRecordExclusive": 37000,
+            "recordCount": 500,
+            "sha256": "ee0919828b0bcbc73dd79fff57fe0785042def468925213de1b6a940eee421ce"
+          },
+          {
+            "shardId": "records-0075",
+            "startRecord": 37000,
+            "endRecordExclusive": 37500,
+            "recordCount": 500,
+            "sha256": "8452cddae9d90fa49a3ace509bb973c60b5f95c9c71c899e9501e12267945d7c"
+          },
+          {
+            "shardId": "records-0076",
+            "startRecord": 37500,
+            "endRecordExclusive": 38000,
+            "recordCount": 500,
+            "sha256": "f2ead6c88078ebb2b240ebb7219eba9eb7709e5a7dc2be71071d52435c0cc880"
+          },
+          {
+            "shardId": "records-0077",
+            "startRecord": 38000,
+            "endRecordExclusive": 38060,
+            "recordCount": 60,
+            "sha256": "fa9a82579e4602fe123ca02eac7aa41cff55131c64ae29bf67245f82746fe708"
+          }
+        ]
+      },
+      "semanticSupport": {
+        "status": "metadata-ready",
+        "embeddingsGenerated": false,
+        "vectorStoreGenerated": false,
+        "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+        "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "suggestedActivation": [
+          "Use deterministic operators first when exact evidence is enough.",
+          "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+        ]
+      },
+      "knownBlindSpots": [
+        "Term meaning and canonical status remain semantic judgments."
+      ],
+      "freshnessWarnings": []
+    }
+  ]
+}

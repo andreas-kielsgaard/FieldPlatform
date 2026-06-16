@@ -1,0 +1,2703 @@
+{
+  "artifactId": "dependency-map",
+  "indexId": "dependency-map",
+  "generated": true,
+  "schemaVersion": 1,
+  "generatedAt": "2026-06-16T15:48:02.978Z",
+  "sourceRoot": ".",
+  "pathReference": "Record paths are relative to the Field Platform repository root.",
+  "sourceState": "working-tree",
+  "producer": "tools/agent-tools/src/index.mjs",
+  "artifactPath": "Agent OS/tool-maintained-files/project-indexes/dependency-map.json",
+  "sourceInputs": [
+    "TypeScript and JavaScript import/export statements in project source"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad project impact, route/module/schema coverage, or setup evidence.",
+  "coverage": "Static import, export-from, dynamic import, and require edges.",
+  "knownBlindSpots": [
+    "Project structural indexes are lightweight evidence and do not replace source reads.",
+    "Static import parsing does not fully resolve package exports or runtime dependency injection."
+  ],
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "tools/agent-tools/src/index.mjs",
+    "manualMaintenance": false,
+    "refreshCommand": "corepack pnpm agent:index",
+    "checkCommand": "corepack pnpm agent:index:check"
+  },
+  "recordCount": 334,
+  "records": [
+    {
+      "importer": "Agent OS/tool-implementations/_lib/artifacts.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/artifacts.ts",
+      "imported": "./repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/cli.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/cli.ts",
+      "imported": "./types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/git.ts",
+      "imported": "node:child_process",
+      "resolved": "node:child_process",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-metadata.ts",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-metadata.ts",
+      "imported": "./json.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/json.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-metadata.ts",
+      "imported": "./types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "imported": "./cli.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/cli.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "imported": "./repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "imported": "./git.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/git.ts",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "imported": "./index-metadata.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-metadata.ts",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "imported": "./json.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/json.ts",
+      "line": 7,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "imported": "./text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 8,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "imported": "./types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 9,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/json.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "../cli.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/cli.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "../json.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/json.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "../cli.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/cli.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/accessor-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/accessor-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/accessor-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/source-extractors.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/accessor-records.ts",
+      "imported": "./source-symbols.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/source-symbols.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "imported": "../artifacts.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/artifacts.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/change-records.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/change-records.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/change-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/change-records.ts",
+      "imported": "../artifacts.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/artifacts.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/change-records.ts",
+      "imported": "../git.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/git.ts",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/change-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/component-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/component-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/component-records.ts",
+      "imported": "./source-symbols.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/source-symbols.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/dependency-records.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/dependency-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/dependency-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/dependency-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/doc-reference-records.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/doc-reference-records.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/doc-reference-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/doc-reference-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/fixture-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/fixture-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/fixture-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/source-extractors.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/fixture-records.ts",
+      "imported": "./source-symbols.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/source-symbols.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/literal-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/literal-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/literal-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/path-records.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/path-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/path-records.ts",
+      "imported": "../artifacts.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/artifacts.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/route-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/schema-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/schema-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/schema-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/schema-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/source-extractors.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/source-symbols.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/source-symbols.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/source-symbols.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/term-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/term-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/term-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/term-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/source-extractors.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/test-records.ts",
+      "imported": "../types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/test-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/records/test-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/source-extractors.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "imported": "./types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "imported": "./text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/source-extractors.ts",
+      "imported": "./text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/source-extractors.ts",
+      "imported": "./repo-files.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/cli.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/cli.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/index-catalog.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-catalog.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/json.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/json.ts",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-accessor-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-accessor-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-accessor-index.ts",
+      "imported": "../_lib/records/accessor-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/accessor-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "node:child_process",
+      "resolved": "node:child_process",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "node:url",
+      "resolved": "node:url",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "../_lib/cli.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/cli.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "../_lib/index-catalog.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-catalog.ts",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "imported": "../_lib/records/artifact-metadata-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-change-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-change-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-change-index.ts",
+      "imported": "../_lib/records/change-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/change-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-component-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-component-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-component-index.ts",
+      "imported": "../_lib/records/component-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/component-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-dependency-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-dependency-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-dependency-index.ts",
+      "imported": "../_lib/records/dependency-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/dependency-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-doc-reference-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-doc-reference-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-doc-reference-index.ts",
+      "imported": "../_lib/records/doc-reference-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "imported": "../_lib/records/fixture-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/fixture-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/git.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/git.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/index-catalog.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-catalog.ts",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 7,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 8,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-literal-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-literal-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-literal-index.ts",
+      "imported": "../_lib/records/literal-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/literal-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-path-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-path-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-path-index.ts",
+      "imported": "../_lib/records/path-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/path-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-route-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-route-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-route-index.ts",
+      "imported": "../_lib/records/route-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/route-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-schema-shape-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-schema-shape-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-schema-shape-index.ts",
+      "imported": "../_lib/records/schema-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/schema-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-symbol-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-symbol-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-symbol-index.ts",
+      "imported": "../_lib/records/source-symbols.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/source-symbols.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-term-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-term-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-term-index.ts",
+      "imported": "../_lib/records/term-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/term-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-test-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-test-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/indexes/build-test-index.ts",
+      "imported": "../_lib/records/test-records.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/records/test-records.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/accessor-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/artifact-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/component-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/dependency-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/diff-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/doc-ref-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/fixture-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/literal-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/path-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/pattern-candidate-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/retrieve-slice.ts",
+      "imported": "../_lib/operators/retrieve-slice-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/route-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/schema-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/cli.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/cli.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/git.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/git.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/json.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/json.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/text-utils.ts",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/symbol-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/term-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/operators/test-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/index-runner.ts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "../_lib/source-extractors.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/source-extractors.ts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "Agent OS/tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "Agent OS/tool-implementations/_lib/types.ts",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "agent-os"
+    },
+    {
+      "importer": "apps/web/.storybook/main.ts",
+      "imported": "@storybook/react-vite",
+      "resolved": "@storybook/react-vite",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/.storybook/preview.ts",
+      "imported": "@storybook/react-vite",
+      "resolved": "@storybook/react-vite",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/.storybook/preview.ts",
+      "imported": "../app/styles.css",
+      "resolved": "apps/web/app/styles.css",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/.storybook/vite.config.ts",
+      "imported": "@tailwindcss/vite",
+      "resolved": "@tailwindcss/vite",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/.storybook/vite.config.ts",
+      "imported": "vite",
+      "resolved": "vite",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/app/root.tsx",
+      "imported": "react",
+      "resolved": "react",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/root.tsx",
+      "imported": "./styles.css",
+      "resolved": "apps/web/app/styles.css",
+      "line": 11,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes.ts",
+      "imported": "@react-router/dev/routes",
+      "resolved": "@react-router/dev/routes",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/_index.tsx",
+      "imported": "~/modules/communities",
+      "resolved": "apps/web/src/modules/communities",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/_index.tsx",
+      "imported": "./+types/_index",
+      "resolved": "apps/web/app/routes/+types/_index",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/communities._index.tsx",
+      "imported": "~/modules/communities",
+      "resolved": "apps/web/src/modules/communities",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/communities._index.tsx",
+      "imported": "./+types/communities._index",
+      "resolved": "apps/web/app/routes/+types/communities._index",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/communities.$slug.tsx",
+      "imported": "~/modules/communities",
+      "resolved": "apps/web/src/modules/communities",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/communities.$slug.tsx",
+      "imported": "./+types/communities.$slug",
+      "resolved": "apps/web/app/routes/+types/communities.$slug",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/events.$slug.tsx",
+      "imported": "~/modules/events",
+      "resolved": "apps/web/src/modules/events",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/events.$slug.tsx",
+      "imported": "./+types/events.$slug",
+      "resolved": "apps/web/app/routes/+types/events.$slug",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/profile.$handle.tsx",
+      "imported": "~/modules/profiles",
+      "resolved": "apps/web/src/modules/profiles",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/profile.$handle.tsx",
+      "imported": "./+types/profile.$handle",
+      "resolved": "apps/web/app/routes/+types/profile.$handle",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/signals._index.tsx",
+      "imported": "~/modules/field-signals",
+      "resolved": "apps/web/src/modules/field-signals",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/signals._index.tsx",
+      "imported": "./+types/signals._index",
+      "resolved": "apps/web/app/routes/+types/signals._index",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/steward/dashboard.tsx",
+      "imported": "~/modules/stewardship",
+      "resolved": "apps/web/src/modules/stewardship",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/app/routes/steward/dashboard.tsx",
+      "imported": "./+types/dashboard",
+      "resolved": "apps/web/app/routes/steward/+types/dashboard",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-routes"
+    },
+    {
+      "importer": "apps/web/drizzle.config.ts",
+      "imported": "dotenv/config",
+      "resolved": "dotenv/config",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/drizzle.config.ts",
+      "imported": "drizzle-kit",
+      "resolved": "drizzle-kit",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/e2e/public-orientation.spec.ts",
+      "imported": "@playwright/test",
+      "resolved": "@playwright/test",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/playwright.config.ts",
+      "imported": "@playwright/test",
+      "resolved": "@playwright/test",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/react-router.config.ts",
+      "imported": "@react-router/dev/config",
+      "resolved": "@react-router/dev/config",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/src/modules/communities/contracts/community.view.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/communities/index.ts",
+      "imported": "./contracts/community.view",
+      "resolved": "apps/web/src/modules/communities/contracts/community.view",
+      "line": 40,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/profiles/contracts/profile.view.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/profiles/domain/profile-visibility.test.ts",
+      "imported": "vitest",
+      "resolved": "vitest",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/profiles/domain/profile-visibility.test.ts",
+      "imported": "./profile-visibility",
+      "resolved": "apps/web/src/modules/profiles/domain/profile-visibility",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/profiles/domain/profile-visibility.ts",
+      "imported": "../contracts/profile.view",
+      "resolved": "apps/web/src/modules/profiles/contracts/profile.view",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/profiles/index.ts",
+      "imported": "./contracts/profile.view",
+      "resolved": "apps/web/src/modules/profiles/contracts/profile.view",
+      "line": 11,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/profiles/index.ts",
+      "imported": "./domain/profile-visibility",
+      "resolved": "apps/web/src/modules/profiles/domain/profile-visibility",
+      "line": 12,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/contracts/relation-claim.input.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/contracts/relation-claim.input.ts",
+      "imported": "~/shared/contracts",
+      "resolved": "apps/web/src/shared/contracts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/contracts/relation-claim.view.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/contracts/relation-claim.view.ts",
+      "imported": "~/shared/contracts",
+      "resolved": "apps/web/src/shared/contracts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/domain/review-state.test.ts",
+      "imported": "vitest",
+      "resolved": "vitest",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/domain/review-state.test.ts",
+      "imported": "./review-state",
+      "resolved": "apps/web/src/modules/relation-claims/domain/review-state",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/domain/review-state.ts",
+      "imported": "~/shared/contracts",
+      "resolved": "apps/web/src/shared/contracts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/index.ts",
+      "imported": "./contracts/relation-claim.input",
+      "resolved": "apps/web/src/modules/relation-claims/contracts/relation-claim.input",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/index.ts",
+      "imported": "./contracts/relation-claim.view",
+      "resolved": "apps/web/src/modules/relation-claims/contracts/relation-claim.view",
+      "line": 7,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/relation-claims/index.ts",
+      "imported": "./domain/review-state",
+      "resolved": "apps/web/src/modules/relation-claims/domain/review-state",
+      "line": 8,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/stewardship/domain/authority.test.ts",
+      "imported": "vitest",
+      "resolved": "vitest",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/stewardship/domain/authority.test.ts",
+      "imported": "./authority",
+      "resolved": "apps/web/src/modules/stewardship/domain/authority",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/stewardship/index.ts",
+      "imported": "./domain/authority",
+      "resolved": "apps/web/src/modules/stewardship/domain/authority",
+      "line": 9,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/ways-in/contracts/ways-in.view.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/ways-in/domain/ways-in.test.ts",
+      "imported": "vitest",
+      "resolved": "vitest",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/ways-in/domain/ways-in.test.ts",
+      "imported": "./ways-in",
+      "resolved": "apps/web/src/modules/ways-in/domain/ways-in",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/ways-in/domain/ways-in.ts",
+      "imported": "../contracts/ways-in.view",
+      "resolved": "apps/web/src/modules/ways-in/contracts/ways-in.view",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/ways-in/index.ts",
+      "imported": "./contracts/ways-in.view",
+      "resolved": "apps/web/src/modules/ways-in/contracts/ways-in.view",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/modules/ways-in/index.ts",
+      "imported": "./domain/ways-in",
+      "resolved": "apps/web/src/modules/ways-in/domain/ways-in",
+      "line": 7,
+      "kind": "import",
+      "importerArea": "web-modules"
+    },
+    {
+      "importer": "apps/web/src/shared/auth/actor.server.ts",
+      "imported": "../contracts",
+      "resolved": "apps/web/src/shared/contracts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/auth/actor.server.ts",
+      "imported": "./types",
+      "resolved": "apps/web/src/shared/auth/types",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/auth/index.ts",
+      "imported": "./types",
+      "resolved": "apps/web/src/shared/auth/types",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/auth/require-authenticated-account.server.ts",
+      "imported": "./session.server",
+      "resolved": "apps/web/src/shared/auth/session.server",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/auth/session.server.ts",
+      "imported": "./types",
+      "resolved": "apps/web/src/shared/auth/types",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/auth/types.ts",
+      "imported": "../contracts",
+      "resolved": "apps/web/src/shared/contracts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/form.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/ids.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/index.ts",
+      "imported": "./form",
+      "resolved": "apps/web/src/shared/contracts/form",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/index.ts",
+      "imported": "./ids",
+      "resolved": "apps/web/src/shared/contracts/ids",
+      "line": 7,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/index.ts",
+      "imported": "./pagination",
+      "resolved": "apps/web/src/shared/contracts/pagination",
+      "line": 8,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/index.ts",
+      "imported": "./route-params",
+      "resolved": "apps/web/src/shared/contracts/route-params",
+      "line": 9,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/index.ts",
+      "imported": "./states",
+      "resolved": "apps/web/src/shared/contracts/states",
+      "line": 10,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/pagination.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/route-params.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/contracts/states.ts",
+      "imported": "zod",
+      "resolved": "zod",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/client.server.ts",
+      "imported": "drizzle-orm/node-postgres",
+      "resolved": "drizzle-orm/node-postgres",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/client.server.ts",
+      "imported": "pg",
+      "resolved": "pg",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/client.server.ts",
+      "imported": "./schema",
+      "resolved": "apps/web/src/shared/db/schema",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/index.ts",
+      "imported": "./client.server",
+      "resolved": "apps/web/src/shared/db/client.server",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/index.ts",
+      "imported": "./client.server",
+      "resolved": "apps/web/src/shared/db/client.server",
+      "line": 7,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/index.ts",
+      "imported": "./schema",
+      "resolved": "apps/web/src/shared/db/schema",
+      "line": 8,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/accounts.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/accounts.ts",
+      "imported": "./auth",
+      "resolved": "apps/web/src/shared/db/schema/auth",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/accounts.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/auth.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/communities.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/communities.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/communities.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/contributions.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/contributions.ts",
+      "imported": "./accounts",
+      "resolved": "apps/web/src/shared/db/schema/accounts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/contributions.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/contributions.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/events.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/events.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/events.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/field-signals.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/field-signals.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/field-signals.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./accounts",
+      "resolved": "apps/web/src/shared/db/schema/accounts",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./auth",
+      "resolved": "apps/web/src/shared/db/schema/auth",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./communities",
+      "resolved": "apps/web/src/shared/db/schema/communities",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./contributions",
+      "resolved": "apps/web/src/shared/db/schema/contributions",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./events",
+      "resolved": "apps/web/src/shared/db/schema/events",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./field-signals",
+      "resolved": "apps/web/src/shared/db/schema/field-signals",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./offerings",
+      "resolved": "apps/web/src/shared/db/schema/offerings",
+      "line": 7,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./participation",
+      "resolved": "apps/web/src/shared/db/schema/participation",
+      "line": 8,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./profiles",
+      "resolved": "apps/web/src/shared/db/schema/profiles",
+      "line": 9,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./relation-claims",
+      "resolved": "apps/web/src/shared/db/schema/relation-claims",
+      "line": 10,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 11,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./stewardship",
+      "resolved": "apps/web/src/shared/db/schema/stewardship",
+      "line": 12,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/index.ts",
+      "imported": "./ways-in",
+      "resolved": "apps/web/src/shared/db/schema/ways-in",
+      "line": 13,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/offerings.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/offerings.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/offerings.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/participation.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/participation.ts",
+      "imported": "./accounts",
+      "resolved": "apps/web/src/shared/db/schema/accounts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/participation.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/participation.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/profiles.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/profiles.ts",
+      "imported": "./accounts",
+      "resolved": "apps/web/src/shared/db/schema/accounts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/profiles.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/relation-claims.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/relation-claims.ts",
+      "imported": "./accounts",
+      "resolved": "apps/web/src/shared/db/schema/accounts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/relation-claims.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/relation-claims.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/representations.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/representations.ts",
+      "imported": "./accounts",
+      "resolved": "apps/web/src/shared/db/schema/accounts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/representations.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/shared.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/stewardship.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/stewardship.ts",
+      "imported": "./accounts",
+      "resolved": "apps/web/src/shared/db/schema/accounts",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/stewardship.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/stewardship.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/ways-in.ts",
+      "imported": "drizzle-orm/pg-core",
+      "resolved": "drizzle-orm/pg-core",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/ways-in.ts",
+      "imported": "./representations",
+      "resolved": "apps/web/src/shared/db/schema/representations",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/db/schema/ways-in.ts",
+      "imported": "./shared",
+      "resolved": "apps/web/src/shared/db/schema/shared",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/fixtures/field-platform-fixtures.ts",
+      "imported": "~/modules/communities",
+      "resolved": "apps/web/src/modules/communities",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/fixtures/field-platform-fixtures.ts",
+      "imported": "~/modules/ways-in",
+      "resolved": "apps/web/src/modules/ways-in",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/fixtures/validate-fixtures.test.ts",
+      "imported": "vitest",
+      "resolved": "vitest",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/fixtures/validate-fixtures.test.ts",
+      "imported": "./validate-fixtures",
+      "resolved": "apps/web/src/shared/fixtures/validate-fixtures",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/fixtures/validate-fixtures.ts",
+      "imported": "~/modules/communities",
+      "resolved": "apps/web/src/modules/communities",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/fixtures/validate-fixtures.ts",
+      "imported": "~/modules/ways-in",
+      "resolved": "apps/web/src/modules/ways-in",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/fixtures/validate-fixtures.ts",
+      "imported": "./field-platform-fixtures",
+      "resolved": "apps/web/src/shared/fixtures/field-platform-fixtures",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/policy/index.ts",
+      "imported": "./visibility",
+      "resolved": "apps/web/src/shared/policy/visibility",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/policy/visibility.test.ts",
+      "imported": "vitest",
+      "resolved": "vitest",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/policy/visibility.test.ts",
+      "imported": "./visibility",
+      "resolved": "apps/web/src/shared/policy/visibility",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/policy/visibility.ts",
+      "imported": "../auth",
+      "resolved": "apps/web/src/shared/auth",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/policy/visibility.ts",
+      "imported": "../contracts",
+      "resolved": "apps/web/src/shared/contracts",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/ui/index.ts",
+      "imported": "./semantic-primitives",
+      "resolved": "apps/web/src/shared/ui/semantic-primitives",
+      "line": 6,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/src/shared/ui/semantic-primitives.tsx",
+      "imported": "clsx",
+      "resolved": "clsx",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "web-shared"
+    },
+    {
+      "importer": "apps/web/tests/setup.ts",
+      "imported": "@testing-library/jest-dom/vitest",
+      "resolved": "@testing-library/jest-dom/vitest",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/vite.config.ts",
+      "imported": "@react-router/dev/vite",
+      "resolved": "@react-router/dev/vite",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/vite.config.ts",
+      "imported": "@tailwindcss/vite",
+      "resolved": "@tailwindcss/vite",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/vite.config.ts",
+      "imported": "vite",
+      "resolved": "vite",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "apps/web/vitest.config.ts",
+      "imported": "vitest/config",
+      "resolved": "vitest/config",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "apps"
+    },
+    {
+      "importer": "dependency-cruiser.config.cjs",
+      "imported": "dependency-cruiser",
+      "resolved": "dependency-cruiser",
+      "line": 19,
+      "kind": "import",
+      "importerArea": "dependency-cruiser.config.cjs"
+    },
+    {
+      "importer": "tools/agent-tools/src/index.mjs",
+      "imported": "node:child_process",
+      "resolved": "node:child_process",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/index.mjs",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/index.mjs",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/index.mjs",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 4,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/index.mjs",
+      "imported": "node:url",
+      "resolved": "node:url",
+      "line": 5,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/validate-boundary-rules.mjs",
+      "imported": "node:module",
+      "resolved": "node:module",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/validate-boundary-rules.mjs",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/validate-boundary-rules.mjs",
+      "imported": "node:url",
+      "resolved": "node:url",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/verify-phase5.mjs",
+      "imported": "node:child_process",
+      "resolved": "node:child_process",
+      "line": 1,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/verify-phase5.mjs",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "importerArea": "tools"
+    },
+    {
+      "importer": "tools/agent-tools/src/verify-phase5.mjs",
+      "imported": "node:url",
+      "resolved": "node:url",
+      "line": 3,
+      "kind": "import",
+      "importerArea": "tools"
+    }
+  ]
+}

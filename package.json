@@ -1,0 +1,39 @@
+{
+  "name": "field-platform-staging",
+  "private": true,
+  "packageManager": "pnpm@11.6.0",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "dev": "corepack pnpm --filter web dev",
+    "build": "corepack pnpm --filter web build",
+    "typecheck": "corepack pnpm -r --if-present typecheck",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "check": "corepack pnpm lint && corepack pnpm typecheck && corepack pnpm test && corepack pnpm depcruise && corepack pnpm boundary:validate",
+    "test": "corepack pnpm -r --if-present test",
+    "test:e2e": "corepack pnpm --filter web test:e2e",
+    "storybook": "corepack pnpm --filter web storybook",
+    "boundary:validate": "corepack pnpm --filter agent-tools boundary:validate",
+    "phase5:verify": "corepack pnpm --filter agent-tools phase5:verify",
+    "phase5:verify:bat": "tools\\scripts\\start-docker-and-verify-phase5.bat",
+    "docker:install-prereqs:windows": "powershell -ExecutionPolicy Bypass -File tools/scripts/install-windows-docker-prereqs.ps1",
+    "docker:install-prereqs:windows:bat": "tools\\scripts\\install-windows-docker-prereqs-admin.bat",
+    "docker:repair-wsl:windows:bat": "tools\\scripts\\repair-wsl-docker-and-verify-phase5-admin.bat",
+    "db:up": "docker compose up -d postgres",
+    "db:ps": "docker compose ps",
+    "db:generate": "corepack pnpm --filter web db:generate",
+    "db:migrate": "corepack pnpm --filter web db:migrate",
+    "db:seed": "corepack pnpm --filter web db:seed",
+    "depcruise": "dependency-cruiser --config dependency-cruiser.config.cjs apps/web/app apps/web/src",
+    "agent:index": "corepack pnpm --filter agent-tools index",
+    "agent:index:check": "corepack pnpm --filter agent-tools index:check"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.0",
+    "dependency-cruiser": "17.4.3",
+    "tsx": "4.22.4",
+    "typescript": "6.0.3"
+  }
+}

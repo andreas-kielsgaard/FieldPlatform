@@ -1,0 +1,1605 @@
+{
+  "artifactId": "dependency-index",
+  "indexId": "dependency-index",
+  "stratum": 1,
+  "generated": true,
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-16T15:50:29.825Z",
+  "sourceRoot": ".",
+  "pathReference": "Paths in this artifact are relative to the Agent OS root. Run tools from that root or pass --root to relocate safely.",
+  "sourceState": "working-tree",
+  "sourceRevision": "164976dd9fd628f4619e70d1eb17e67ba628e262",
+  "producer": "build-dependency-index",
+  "artifactPath": "tool-maintained-files/indexes/dependency-index.json",
+  "sourceInputs": [
+    "import, export-from, dynamic import, and require statements"
+  ],
+  "freshnessPolicy": "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+  "coverage": "Import edges, module specifiers, relative resolutions, and rough dependency direction evidence.",
+  "knownBlindSpots": [
+    "Does not resolve package exports, TS path aliases, or runtime dependency injection."
+  ],
+  "recordCount": 172,
+  "maintenance": {
+    "metadataVersion": 1,
+    "maintainedBy": "build-dependency-index",
+    "manualMaintenance": false,
+    "refreshCommand": "npx --yes tsx tool-implementations/indexes/build-dependency-index.ts --json",
+    "checkCommand": "npx --yes tsx tool-implementations/indexes/build-dependency-index.ts --check --json",
+    "sharding": {
+      "strategy": "record-count",
+      "targetRecordsPerShard": 500,
+      "shardCount": 1,
+      "shards": [
+        {
+          "shardId": "records-0001",
+          "startRecord": 0,
+          "endRecordExclusive": 172,
+          "recordCount": 172,
+          "sha256": "4cf7acca3a250557afc8ea73405e4dca7d77237d55d25284a039fede8b4f707a"
+        }
+      ]
+    },
+    "semanticSupport": {
+      "status": "metadata-ready",
+      "embeddingsGenerated": false,
+      "vectorStoreGenerated": false,
+      "deterministicPath": "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
+      "bootPolicy": "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+      "suggestedActivation": [
+        "Use deterministic operators first when exact evidence is enough.",
+        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation."
+      ]
+    }
+  },
+  "records": [
+    {
+      "importer": "tool-implementations/_lib/artifacts.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/artifacts.ts",
+      "imported": "./repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { isCodeLike, isStoryFile, isTestFile } from \"./repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/cli.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/cli.ts",
+      "imported": "./types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { JsonValue, ParsedArgs } from \"./types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/git.ts",
+      "imported": "node:child_process",
+      "resolved": "node:child_process",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { execFileSync } from \"node:child_process\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-metadata.ts",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { createHash } from \"node:crypto\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-metadata.ts",
+      "imported": "./json.ts",
+      "resolved": "tool-implementations/_lib/json.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { stableStringify } from \"./json.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-metadata.ts",
+      "imported": "./types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition, IndexMaintenanceMetadata, IndexShardMetadata } from \"./types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { mkdirSync, writeFileSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "./cli.ts",
+      "resolved": "tool-implementations/_lib/cli.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { emit, parseArgs, resolveRoot } from \"./cli.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "./repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { collectFiles, isGeneratedToolMaintainedPath, isTextFile } from \"./repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "./git.ts",
+      "resolved": "tool-implementations/_lib/git.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { gitSha } from \"./git.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "./index-metadata.ts",
+      "resolved": "tool-implementations/_lib/index-metadata.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildIndexMaintenanceMetadata } from \"./index-metadata.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "./json.ts",
+      "resolved": "tool-implementations/_lib/json.ts",
+      "line": 7,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { readJsonIfExists, stableStringify } from \"./json.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "./text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 8,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"./text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/index-runner.ts",
+      "imported": "./types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 9,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexArtifact, IndexBuilderSpec, IndexDefinition } from \"./types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/json.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { existsSync, readFileSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "../cli.ts",
+      "resolved": "tool-implementations/_lib/cli.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "../json.ts",
+      "resolved": "tool-implementations/_lib/json.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { readJsonIfExists } from \"../json.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { escapeRegex, normalizePath, recordText } from \"../text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/query-runner.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexArtifact, IndexMaintenanceMetadata, LoadedIndex, ParsedArgs, QueryOperatorSpec } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { existsSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "../cli.ts",
+      "resolved": "tool-implementations/_lib/cli.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../cli.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { safeRead } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"../text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { ParsedArgs } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/accessor-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/accessor-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { containsRegex } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/accessor-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "tool-implementations/_lib/source-extractors.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { extractImports, inferReadWriteHint } from \"../source-extractors.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/accessor-records.ts",
+      "imported": "./source-symbols.ts",
+      "resolved": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildSymbolRecords } from \"./source-symbols.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "imported": "../artifacts.ts",
+      "resolved": "tool-implementations/_lib/artifacts.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { directEditPolicy, hasGeneratedHint, inferArtifactKind, inferAudience, inferAuthorityRole, possibleProducer } from \"../artifacts.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/change-records.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { existsSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/change-records.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/change-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord, ParsedArgs } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/change-records.ts",
+      "imported": "../artifacts.ts",
+      "resolved": "tool-implementations/_lib/artifacts.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { inferArtifactKind } from \"../artifacts.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/change-records.ts",
+      "imported": "../git.ts",
+      "resolved": "tool-implementations/_lib/git.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { gitLines } from \"../git.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/change-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { areaOf, normalizePath } from \"../text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/component-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/component-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { containsWord, isStoryFile, isTestFile } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/component-records.ts",
+      "imported": "./source-symbols.ts",
+      "resolved": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildSymbolRecords } from \"./source-symbols.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/dependency-records.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/dependency-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/dependency-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { isCodeLike } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/dependency-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { areaOf, matchAll, normalizePath, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { existsSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { matchAll, slug, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/fixture-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/fixture-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { containsRegex } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/fixture-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "tool-implementations/_lib/source-extractors.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { extractTerms } from \"../source-extractors.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/fixture-records.ts",
+      "imported": "./source-symbols.ts",
+      "resolved": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildSymbolRecords } from \"./source-symbols.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/literal-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/literal-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { isTextFile } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/literal-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { matchAll, trimLine } from \"../text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/path-records.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/path-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/path-records.ts",
+      "imported": "../artifacts.ts",
+      "resolved": "tool-implementations/_lib/artifacts.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { hasGeneratedHint, inferArtifactKind } from \"../artifacts.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/route-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/schema-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/schema-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { containsRegex } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/schema-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { matchAll } from \"../text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/schema-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "tool-implementations/_lib/source-extractors.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { nearbyFieldHints } from \"../source-extractors.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/source-symbols.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/source-symbols.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { isCodeLike } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/source-symbols.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { matchAll, trimLine, uniqueRecords } from \"../text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/term-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/term-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { isTextFile } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/term-records.ts",
+      "imported": "../text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { matchAll } from \"../text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/term-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "tool-implementations/_lib/source-extractors.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { COMMON_WORDS } from \"../source-extractors.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/test-records.ts",
+      "imported": "../types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"../types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/test-records.ts",
+      "imported": "../repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { isStoryFile, isTestFile } from \"../repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/records/test-records.ts",
+      "imported": "../source-extractors.ts",
+      "resolved": "tool-implementations/_lib/source-extractors.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { extractImports, extractLikelySubjects, extractTerms } from \"../source-extractors.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/repo-files.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { readFileSync, readdirSync, statSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/repo-files.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/repo-files.ts",
+      "imported": "./types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord } from \"./types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/repo-files.ts",
+      "imported": "./text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"./text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/source-extractors.ts",
+      "imported": "./text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { matchAll } from \"./text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/source-extractors.ts",
+      "imported": "./repo-files.ts",
+      "resolved": "tool-implementations/_lib/repo-files.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { containsRegex } from \"./repo-files.ts\";"
+    },
+    {
+      "importer": "tool-implementations/_lib/text-utils.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { existsSync, readFileSync, readdirSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/cli.ts",
+      "resolved": "tool-implementations/_lib/cli.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { parseArgs, resolveRoot } from \"../_lib/cli.ts\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/index-catalog.ts",
+      "resolved": "tool-implementations/_lib/index-catalog.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { ACTIVE_INDEX_CATALOG } from \"../_lib/index-catalog.ts\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/json.ts",
+      "resolved": "tool-implementations/_lib/json.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { readJsonIfExists } from \"../_lib/json.ts\";"
+    },
+    {
+      "importer": "tool-implementations/checks/check-agent-os-contracts.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-accessor-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-accessor-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-accessor-index.ts",
+      "imported": "../_lib/records/accessor-records.ts",
+      "resolved": "tool-implementations/_lib/records/accessor-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildAccessorRecords } from \"../_lib/records/accessor-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "node:child_process",
+      "resolved": "node:child_process",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { execFileSync } from \"node:child_process\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "node:url",
+      "resolved": "node:url",
+      "line": 3,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { fileURLToPath } from \"node:url\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "../_lib/cli.ts",
+      "resolved": "tool-implementations/_lib/cli.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { emit, parseArgs, resolveRoot } from \"../_lib/cli.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "../_lib/index-catalog.ts",
+      "resolved": "tool-implementations/_lib/index-catalog.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { activeIndexBuildersInMaintenanceOrder } from \"../_lib/index-catalog.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-all-indexes.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-artifact-metadata-index.ts",
+      "imported": "../_lib/records/artifact-metadata-records.ts",
+      "resolved": "tool-implementations/_lib/records/artifact-metadata-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildArtifactMetadataRecords } from \"../_lib/records/artifact-metadata-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-change-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-change-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-change-index.ts",
+      "imported": "../_lib/records/change-records.ts",
+      "resolved": "tool-implementations/_lib/records/change-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildChangeRecords } from \"../_lib/records/change-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-component-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-component-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-component-index.ts",
+      "imported": "../_lib/records/component-records.ts",
+      "resolved": "tool-implementations/_lib/records/component-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildComponentRecords } from \"../_lib/records/component-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-dependency-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-dependency-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-dependency-index.ts",
+      "imported": "../_lib/records/dependency-records.ts",
+      "resolved": "tool-implementations/_lib/records/dependency-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildDependencyRecords } from \"../_lib/records/dependency-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-doc-reference-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-doc-reference-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-doc-reference-index.ts",
+      "imported": "../_lib/records/doc-reference-records.ts",
+      "resolved": "tool-implementations/_lib/records/doc-reference-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildDocReferenceRecords } from \"../_lib/records/doc-reference-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-fixture-scenario-index.ts",
+      "imported": "../_lib/records/fixture-records.ts",
+      "resolved": "tool-implementations/_lib/records/fixture-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildFixtureRecords } from \"../_lib/records/fixture-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { createHash } from \"node:crypto\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "node:fs",
+      "resolved": "node:fs",
+      "line": 2,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { existsSync, readFileSync, statSync } from \"node:fs\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 3,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/git.ts",
+      "resolved": "tool-implementations/_lib/git.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { gitSha } from \"../_lib/git.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/index-catalog.ts",
+      "resolved": "tool-implementations/_lib/index-catalog.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { ACTIVE_INDEX_CATALOG } from \"../_lib/index-catalog.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 7,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-index-manifest.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 8,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-literal-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-literal-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-literal-index.ts",
+      "imported": "../_lib/records/literal-records.ts",
+      "resolved": "tool-implementations/_lib/records/literal-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildLiteralRecords } from \"../_lib/records/literal-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-path-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-path-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-path-index.ts",
+      "imported": "../_lib/records/path-records.ts",
+      "resolved": "tool-implementations/_lib/records/path-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildPathRecords } from \"../_lib/records/path-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-route-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-route-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-route-index.ts",
+      "imported": "../_lib/records/route-records.ts",
+      "resolved": "tool-implementations/_lib/records/route-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildRouteRecords } from \"../_lib/records/route-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-schema-shape-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-schema-shape-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-schema-shape-index.ts",
+      "imported": "../_lib/records/schema-records.ts",
+      "resolved": "tool-implementations/_lib/records/schema-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildSchemaRecords } from \"../_lib/records/schema-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-symbol-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-symbol-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-symbol-index.ts",
+      "imported": "../_lib/records/source-symbols.ts",
+      "resolved": "tool-implementations/_lib/records/source-symbols.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildSymbolRecords } from \"../_lib/records/source-symbols.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-term-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-term-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-term-index.ts",
+      "imported": "../_lib/records/term-records.ts",
+      "resolved": "tool-implementations/_lib/records/term-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildTermRecords } from \"../_lib/records/term-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-test-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-test-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexDefinition } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/indexes/build-test-index.ts",
+      "imported": "../_lib/records/test-records.ts",
+      "resolved": "tool-implementations/_lib/records/test-records.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { buildTestRecords } from \"../_lib/records/test-records.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/accessor-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/artifact-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/component-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/dependency-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/diff-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/doc-ref-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/fixture-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/literal-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/path-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/pattern-candidate-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/retrieve-slice.ts",
+      "imported": "../_lib/operators/retrieve-slice-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/retrieve-slice-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runRetrieveSliceOperator } from \"../_lib/operators/retrieve-slice-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/route-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/schema-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "node:path",
+      "resolved": "node:path",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import path from \"node:path\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/cli.ts",
+      "resolved": "tool-implementations/_lib/cli.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { emit, parseArgs, resolveRoot, toNumber } from \"../_lib/cli.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/git.ts",
+      "resolved": "tool-implementations/_lib/git.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { gitLines, gitSha } from \"../_lib/git.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/json.ts",
+      "resolved": "tool-implementations/_lib/json.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { readJsonIfExists } from \"../_lib/json.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/text-utils.ts",
+      "resolved": "tool-implementations/_lib/text-utils.ts",
+      "line": 5,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { normalizePath } from \"../_lib/text-utils.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/semantic-candidate-query.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 6,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { IndexArtifact } from \"../_lib/types.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/symbol-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/term-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/operators/test-query.ts",
+      "imported": "../_lib/operators/query-runner.ts",
+      "resolved": "tool-implementations/_lib/operators/query-runner.ts",
+      "line": 1,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runQueryOperator } from \"../_lib/operators/query-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "node:crypto",
+      "resolved": "node:crypto",
+      "line": 1,
+      "kind": "import",
+      "crossArea": true,
+      "text": "import { createHash } from \"node:crypto\";"
+    },
+    {
+      "importer": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "../_lib/index-runner.ts",
+      "resolved": "tool-implementations/_lib/index-runner.ts",
+      "line": 2,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { runIndexBuilder } from \"../_lib/index-runner.ts\";"
+    },
+    {
+      "importer": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "../_lib/source-extractors.ts",
+      "resolved": "tool-implementations/_lib/source-extractors.ts",
+      "line": 3,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import { COMMON_WORDS } from \"../_lib/source-extractors.ts\";"
+    },
+    {
+      "importer": "tool-implementations/semantic/build-semantic-chunk-index.ts",
+      "imported": "../_lib/types.ts",
+      "resolved": "tool-implementations/_lib/types.ts",
+      "line": 4,
+      "kind": "import",
+      "crossArea": false,
+      "text": "import type { FileRecord, IndexDefinition } from \"../_lib/types.ts\";"
+    }
+  ]
+}

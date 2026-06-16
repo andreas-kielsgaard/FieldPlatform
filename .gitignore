@@ -1,0 +1,38 @@
+# Dependencies and package-manager state
+node_modules/
+.pnpm-store/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local editor and workspace state
+App.code-workspace
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# App build and generated runtime output
+apps/web/.react-router/
+apps/web/build/
+apps/web/node_modules/
+apps/web/storybook-static/
+
+coverage/
+apps/web/playwright-report/
+apps/web/test-results/
+
+# Agent OS transient reports
+Agent OS/output-files/reports/**
+!Agent OS/output-files/reports/
+!Agent OS/output-files/reports/agent/
+!Agent OS/output-files/reports/agent/.gitkeep
+
+# Logs and local caches
+*.log
+.cache/
+.vite/

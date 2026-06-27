@@ -1,31 +1,13 @@
-
-# Skill: change-report-assembly
-
-Stratum: 3 aggregator skill.
+﻿# Skill: change-report-assembly
 
 ## Purpose
 
-Use for substantial task handoff or review reporting.
+Use only when substantial task handoff or review reporting is explicitly requested or clearly needed. Normal task completion should use a compact final summary instead of a persistent report.
 
-## Underlying Tools
+## Active Command Support
+
+Use `corepack pnpm change-verification` as the verification-plan input when a substantial report is explicitly requested.
+
+## Legacy Underlying Tools
 
 affected-surface-mapping, diff-query, test-relation-scan
-
-## Operating Pattern
-
-1. Confirm the active task mode, structural-maintenance behavior, and relevant lens.
-2. Gather only the evidence needed for the current decision.
-3. Keep raw output bounded and retain a compact evidence packet.
-4. State what the agent still owns semantically.
-
-## Output
-
-Structured completion report scaffold with judgment fields left to the agent.
-
-## Context Risk
-
-Low. Use the smallest useful evidence path and stop when the decision has enough support.
-
-## Does Not
-
-This skill does not replace mode, behavior, lens, or agent judgment. It does not mutate files unless a separate explicit implementation task does so.

@@ -59,7 +59,7 @@ function buildIndex(spec: IndexBuilderSpec, root: string, args: ReturnType<typeo
     producer: def.producer,
     artifactPath: def.artifactPath,
     sourceInputs: def.sourceInputs,
-    freshnessPolicy: "Refresh before relying on absence, broad impact, or generated/manual maintenance-path evidence.",
+    freshnessPolicy: "Legacy artifact; do not rely on it for ordinary development. Refresh only during explicit legacy Agent OS index maintenance.",
     coverage: def.coverage,
     knownBlindSpots: def.knownBlindSpots,
     recordCount: records.length,

@@ -28,11 +28,11 @@ export function buildIndexMaintenanceMetadata(definition: IndexDefinition, recor
       embeddingsGenerated: false,
       vectorStoreGenerated: false,
       deterministicPath:
-        "Semantic chunks, embeddings, and vector stores should be produced by a deterministic builder before use; do not maintain them by hand.",
-      bootPolicy: "Boot context may include semantic availability metadata only; embedding vectors and semantic chunks remain query-only.",
+        "Legacy semantic chunks, embeddings, and vector stores should be produced by a deterministic builder only during explicit legacy maintenance; do not maintain them by hand.",
+      bootPolicy: "Legacy semantic availability metadata is not ordinary boot context; embedding vectors and semantic chunks remain inactive.",
       suggestedActivation: [
-        "Use deterministic operators first when exact evidence is enough.",
-        "Use semantic retrieval only for fuzzy recall, near-match discovery, reuse evidence, rename candidates, or broad source orientation.",
+        "Do not use semantic retrieval during ordinary development.",
+        "Use only when an explicit legacy Agent OS semantic/index maintenance task calls for it.",
       ],
     },
   };

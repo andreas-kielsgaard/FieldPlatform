@@ -15,6 +15,10 @@
     "test": "corepack pnpm -r --if-present test",
     "test:e2e": "corepack pnpm --filter web test:e2e",
     "storybook": "corepack pnpm --filter web storybook",
+    "change-surface": "node tools/agent-tools/src/change-surface.mjs",
+    "test-selection": "node tools/agent-tools/src/test-selection.mjs",
+    "change-verification": "node tools/agent-tools/src/change-verification.mjs",
+    "repo-health": "node tools/agent-tools/src/repo-health.mjs",
     "boundary:validate": "corepack pnpm --filter agent-tools boundary:validate",
     "phase5:verify": "corepack pnpm --filter agent-tools phase5:verify",
     "phase5:verify:bat": "tools\\scripts\\start-docker-and-verify-phase5.bat",
@@ -27,8 +31,7 @@
     "db:migrate": "corepack pnpm --filter web db:migrate",
     "db:seed": "corepack pnpm --filter web db:seed",
     "depcruise": "dependency-cruiser --config dependency-cruiser.config.cjs apps/web/app apps/web/src",
-    "agent:index": "corepack pnpm --filter agent-tools index",
-    "agent:index:check": "corepack pnpm --filter agent-tools index:check"
+    "depcruise:active-source": "dependency-cruiser --config dependency-cruiser.config.cjs apps/web/app apps/web/src tools/agent-tools/src"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.0",

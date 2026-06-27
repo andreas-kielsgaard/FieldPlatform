@@ -1,8 +1,11 @@
-# semantic-candidate-query
+﻿# semantic-candidate-query
+
+Legacy inactive: retained for the retired Agent OS generated index/query pipeline. Do not use for ordinary development; use only when an explicit legacy Agent OS index/tool maintenance task calls for it.
+
 
 Stratum 2 candidate operator over `semantic-chunk-index`.
 
-Use this when a task needs fuzzy recall or near-match leads and exact operators such as `path-query`, `term-query`, `symbol-query`, `component-query`, or `doc-ref-query` are too narrow.
+Legacy use only: this was for tasks needing fuzzy recall or near-match leads when exact legacy operators such as `path-query`, `term-query`, `symbol-query`, `component-query`, or `doc-ref-query` were too narrow.
 
 Run:
 

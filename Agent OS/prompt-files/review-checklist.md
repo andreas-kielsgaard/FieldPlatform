@@ -6,8 +6,8 @@
 - Affected surfaces listed.
 - Checks run.
 - Docs or maps updated.
-- Debt logged if introduced.
-- Experiment logged if provisional.
+- Debt recorded or reported if introduced.
+- Experiment recorded or reported if provisional.
 - Naming impacts considered.
 - Policy impacts considered.
 - Schema and accessor impacts considered.
@@ -22,9 +22,9 @@
 - Did local state absorb a shared concern?
 - Did mock data become a hidden contract?
 - Did a permission or visibility rule move into local UI logic?
-- Did the change introduce unlogged debt or provisional code?
+- Did the change introduce unacknowledged debt or provisional code?
 
-## Post-Change Report Fields
+## Compact Completion Summary Fields
 
 | Field | Notes |
 |---|---|

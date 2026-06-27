@@ -4,8 +4,14 @@
   "type": "module",
   "scripts": {
     "boundary:validate": "node src/validate-boundary-rules.mjs",
-    "index": "node src/index.mjs",
-    "index:check": "node src/index.mjs --check",
+    "change-surface": "node src/change-surface.mjs",
+    "test-selection": "node src/test-selection.mjs",
+    "change-verification": "node src/change-verification.mjs",
+    "repo-health": "node src/repo-health.mjs",
+    "index": "node -e \"console.error('agent-tools index is retired from ordinary development. Use legacy:index only for an explicit Agent OS maintenance task.'); process.exit(1)\"",
+    "index:check": "node -e \"console.error('agent-tools index:check is retired from ordinary development. Use legacy:index:check only for an explicit Agent OS maintenance task.'); process.exit(1)\"",
+    "legacy:index": "node src/index.mjs",
+    "legacy:index:check": "node src/index.mjs --check",
     "phase5:verify": "node src/verify-phase5.mjs"
   }
 }

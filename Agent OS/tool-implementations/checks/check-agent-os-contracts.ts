@@ -15,7 +15,7 @@ const args = parseArgs(process.argv.slice(2));
 const root = resolveRoot(args);
 const findings: ContractFinding[] = [];
 
-checkActiveIndexCatalog();
+checkLegacyIndexCatalog();
 checkToolMap();
 checkSemanticLayer();
 checkGeneratedArtifactPortability();
@@ -28,11 +28,11 @@ const result = {
   errorCount: errors.length,
   warningCount: findings.length - errors.length,
   observedEvidence: findings,
-  inferredRisk: errors.length > 0 ? ["Agent OS maps, semantic files, scripts, or generated artifacts are out of sync."] : [],
+  inferredRisk: errors.length > 0 ? ["Legacy Agent OS maps, semantic files, scripts, or generated artifacts are out of sync."] : [],
   suggestedNextChecks:
     errors.length > 0
-      ? ["Repair the missing or mismatched contract surface, then rerun this check."]
-      : ["Rerun after changing Agent OS maps, tool contracts, index builders, or semantic-layer contracts."],
+      ? ["Repair the missing or mismatched legacy contract surface, then rerun this check only if the legacy maintenance task calls for it."]
+      : ["Rerun only after explicit legacy Agent OS map, tool-contract, index-builder, or semantic-layer maintenance."],
   warnings: findings.filter((finding) => finding.severity === "warning").map((finding) => finding.message),
   limitations: [
     "This check verifies structural contract alignment only.",
@@ -53,8 +53,8 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-function checkActiveIndexCatalog(): void {
-  const indexMapPath = "prompt-files/tools/index-map.md";
+function checkLegacyIndexCatalog(): void {
+  const indexMapPath = "prompt-files/agent-attention-system/maps/index-map.md";
   const indexMap = readText(indexMapPath);
   const indexMapIds = parseBacktickedIds(indexMap);
   const manifest = readJsonIfExists(path.join(root, "tool-maintained-files", "indexes", "index-manifest.json")) as
@@ -70,7 +70,7 @@ function checkActiveIndexCatalog(): void {
 
   for (const entry of ACTIVE_INDEX_CATALOG) {
     if (!indexMapIds.has(entry.indexId)) {
-      add("error", "index-map", `Missing active index row for ${entry.indexId}.`);
+      add("error", "index-map", `Missing legacy index row for ${entry.indexId}.`);
     }
     expectFile(entry.semanticFile, `${entry.indexId} semantic file`);
     expectFile(`tool-implementations/indexes/${entry.builder}.ts`, `${entry.indexId} builder`);
@@ -97,7 +97,7 @@ function checkActiveIndexCatalog(): void {
 }
 
 function checkToolMap(): void {
-  const toolMap = readText("prompt-files/tools/tool-map.md");
+  const toolMap = readText("prompt-files/agent-attention-system/maps/tool-map.md");
   const toolIds = Array.from(parseBacktickedIds(toolMap)).filter((id) => id.endsWith("-query") || id === "retrieve-slice");
   for (const toolId of toolIds) {
     expectFile(`prompt-files/tools/operators/${toolId}.md`, `${toolId} semantic file`);
@@ -106,7 +106,7 @@ function checkToolMap(): void {
 }
 
 function checkSemanticLayer(): void {
-  const semanticMapPath = "prompt-files/tools/semantic-map.md";
+  const semanticMapPath = "prompt-files/agent-attention-system/maps/semantic-map.md";
   const semanticMap = readText(semanticMapPath);
   const semanticIds = parseBacktickedIds(semanticMap);
   const requiredIds = ["semantic-chunk-index", "build-semantic-chunk-index", "semantic-candidate-query"];

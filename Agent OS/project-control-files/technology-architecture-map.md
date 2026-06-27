@@ -18,30 +18,28 @@ Start as an application-owned modular monolith in a TypeScript/Node workspace.
 
 Use React Router framework mode for the web app, PostgreSQL as the system of record, Drizzle as the default data-access layer, Zod at runtime boundaries, Auth.js behind an app-owned auth boundary, and pnpm workspaces without Turborepo or Nx initially.
 
-Prefer folders-first module boundaries over early package splits. Split runtime code into physical packages only after an area earns independent release, test, dependency, or ownership cadence.
+Prefer folders-first module boundaries over early package splits.
 
-## Accepted Phase 1 Stack
+## Modules and tools Stack
 
 | Concern | Accepted direction |
 |---|---|
 | Runtime and language | TypeScript on Node 24. |
 | Package manager | pnpm workspaces, pinned with `packageManager`. |
 | Monorepo orchestration | None initially. Add Turborepo or Nx only when real package/task complexity appears. |
-| Web app | React Router framework mode with explicit `app/routes.ts` route config. |
-| Product architecture | Application-owned modular monolith. |
-| Database | PostgreSQL from day one, including local Docker development. |
-| Data access | Drizzle by default; raw SQL allowed for complex queries. |
+| Web app | React Router framework mode with explicit `app/routes.ts` root route config. |
+| Database | PostgreSQL + Docker |
+| Data access | Drizzle.  |
 | Validation and contracts | Zod at params, forms, DTOs, fixtures, persisted JSON, and other boundary crossings. |
 | Auth | Auth.js behind `shared/auth`; provider identity is not product authority. |
 | Styling and UI primitives | Tailwind, CSS variables, Radix primitives, and named product components. |
-| UI workshop | Narrow Storybook later for recurring semantic primitives and states. |
-| Unit and integration tests | Vitest. |
-| Browser checks | Playwright for a small set of critical flows. |
+| UI workshop | Storybook |
+| Unit and integration tests | Vitest |
+| Browser checks | Playwright |
 | Formatting and linting | Biome. |
-| Boundary enforcement | dependency-cruiser blocking once source substrate exists. |
-| Unused/dead code checks | Knip advisory first. |
+| Boundary enforcement | dependency-cruiser |
+| Unused/dead code checks | Knip |
 | Deployment target | Local first; Render/Railway compatible later. |
-| Semantic/vector/graph | Deferred until real content and user evidence justify them. |
 
 ## Rejected Or Deferred Defaults
 
@@ -65,10 +63,11 @@ Do not start with:
 | `apps/web/app/` | React Router delivery layer. | Route modules, root, route config, framework entries, and route-only concerns. |
 | `apps/web/src/modules/` | Product/application modules. | Feature-owned application behavior, domain concepts, persistence adapters, contracts, and module UI. |
 | `apps/web/src/shared/` | Shared runtime infrastructure and primitives. | Auth boundary, config, contracts, db client boundary, errors, policy, UI primitives, utilities. |
-| `apps/web/drizzle/` | Drizzle migration output and database tooling artifacts. | Stage 5 adds real schema and migrations. |
-| `tools/` | Project scripts and agent-support tooling outside runtime code. | Tool output must not become product runtime dependency. |
+| `apps/web/src/shared/db/schema/` | Drizzle database-definition TypeScript source. | Table and enum declarations for persistence; not domain models or application behavior. Drizzle config points to `./src/shared/db/schema/index.ts`. |
+| `apps/web/drizzle/` | Drizzle migration output and database tooling artifacts. | Generated SQL migrations and Drizzle metadata; review and commit generated changes, but do not casually hand-edit them. |
+| `tools/` | Project scripts and agent-support tooling outside runtime code, including legacy index tooling. | Tool output must not become product runtime dependency. |
 | `infra/` | Docker, CI, deployment, and environment infrastructure. | Runtime infrastructure ownership belongs here rather than inside app modules. |
-| `Agent OS/` | Agent operating-system prompt, tool, skill, and generated-index scaffold. | Agent OS surfaces remain separate from product runtime source. |
+| `Agent OS/` | Agent operating-system prompt, tool, skill, and legacy generated-index scaffold. | Agent OS surfaces remain separate from product runtime source. |
 | `Agent OS/tool-maintained-files/` | Generated Agent OS evidence artifacts. | Evidence only; never semantic authority for product code. |
 | `docs/adr/` | Durable architecture decision records after the app scaffold exists. | Do not use ADRs before the source substrate exists unless a decision is truly durable. |
 | `docs/context/` | Future human-maintained product/design context. | Product truth should not live only in code comments, mocks, or generated indexes. |
@@ -112,7 +111,7 @@ Other modules and routes may import from `src/modules/<module>/index.ts`. They m
 | `apps/web/src/shared/ui/` | Design tokens, UI utilities, accessible primitives. | Domain persistence, application orchestration, auth server internals, policy engines. |
 | `apps/web/src/shared/auth/` | Auth provider libraries and app-owned actor/session mapping. | Product authority, stewardship rules, visibility rules, or publishing rights. |
 | `apps/web/src/shared/policy/` | App-owned authorization, visibility, review, and publishing decisions. | Route components or UI presentation. |
-| `tools/` | Repository files, scripts, generated indexes, project metadata. | Product runtime code as a required runtime dependency. |
+| `tools/` | Repository files, scripts, legacy generated indexes, project metadata. | Product runtime code as a required runtime dependency. |
 | Runtime source | Runtime source and approved generated types. | `Agent OS/tool-maintained-files/` generated evidence artifacts. |
 
 ## Source And Generated Boundaries
@@ -120,10 +119,19 @@ Other modules and routes may import from `src/modules/<module>/index.ts`. They m
 | Source | Generated or derived output | Rule |
 |---|---|---|
 | Drizzle schema and migrations | SQL migrations, schema indexes, generated DB evidence | Update source and regenerate; do not hand-edit generated output. |
-| Route and component source | Route, component, dependency, symbol, and test indexes | Refresh through Agent OS tools when the substrate exists. |
-| Tool semantic files and scripts | Tool-maintained indexes or reports | Treat outputs as evidence, not semantic authority. |
-| Product context docs | Rendered or indexed context views | Product context remains authoritative; rendered/indexed views are derived. |
+| Route and component source | Legacy route, component, dependency, symbol, and test indexes | Retired from ordinary development; refresh only for explicit legacy Agent OS index maintenance. |
+| Tool semantic files and scripts | Legacy tool-maintained indexes or reports | Treat outputs as evidence, not semantic authority; do not refresh during ordinary product work. |
 | Project-control files | Agent-facing setup and architecture memory | Update directly when a durable setup decision changes. |
+
+## Drizzle Schema Boundary
+
+PostgreSQL remains the system of record. The live database definition exists in PostgreSQL after migrations are applied.
+
+Drizzle table and enum declarations under `apps/web/src/shared/db/schema/` are database-definition artifacts, not domain models and not application behavior. Schema files may define tables, columns, enums, constraints, indexes, defaults, foreign keys, and relation metadata needed for persistence.
+
+Drizzle schema files may be imported by Drizzle Kit, shared database client setup, database tooling, and module persistence implementations. Routes, UI, domain logic, and application orchestration must not import Drizzle schema directly. Application logic should access persistence through module-owned persistence interfaces or functions, not through table objects.
+
+Generated SQL migrations under `apps/web/drizzle/` are derived artifacts that should be reviewed and committed, not casually hand-edited.
 
 ## Revisit Triggers
 

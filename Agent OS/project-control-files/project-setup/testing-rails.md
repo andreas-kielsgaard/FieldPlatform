@@ -9,6 +9,11 @@ Use:
 - Storybook for recurring semantic UI primitives and state vocabulary
 - dependency-cruiser and boundary validation for import rules
 - Biome and TypeScript for formatting/lint/type evidence
+- `change-surface` for changed and affected active source surfaces
+- `test-selection` for runner-discovered test relations
+- `change-verification` for per-change verification planning
+- `repo-health` for whole-repository health summaries
+- `depcruise:active-source` for active app and development-tool dependency checks
 
 ## Bias
 

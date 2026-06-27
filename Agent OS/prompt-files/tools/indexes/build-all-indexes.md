@@ -1,21 +1,24 @@
-# Index Maintenance: build-all-indexes
+﻿# Index Maintenance: build-all-indexes
+
+Legacy inactive: retained for the retired Agent OS generated index/query pipeline. Do not use for ordinary development; use only when an explicit legacy Agent OS index/tool maintenance task calls for it.
+
 
 ## Capability
 
-Deterministic maintenance command for refreshing or checking the active Stratum 1 index set and `index-manifest`.
+Legacy maintenance command for refreshing or checking the retired Stratum 1 index set and `index-manifest`.
 
 ## Use When
 
-- More than one index may be stale.
-- Manifest rows report missing or legacy maintenance metadata.
-- Shard hashes, record counts, generated timestamps, or semantic-support metadata need regeneration.
-- A task needs a single bounded freshness check for the active index layer.
+- An explicit legacy Agent OS index-maintenance task needs more than one retired index refreshed or checked.
+- Manifest rows report missing or legacy maintenance metadata during legacy maintenance.
+- Shard hashes, record counts, generated timestamps, or semantic-support metadata need regeneration for a legacy artifact.
+- A legacy maintenance task needs a single bounded freshness check for the retired index layer.
 
 ## Execution
 
 Script: `tool-implementations/indexes/build-all-indexes.ts`
 
-The script runs builders from the explicit active index catalog, with `build-index-manifest` last. It supports:
+The script runs builders from the explicit legacy index catalog, with `build-index-manifest` last. It supports:
 
 - `--root`
 - `--check`
@@ -26,6 +29,6 @@ The script runs builders from the explicit active index catalog, with `build-ind
 
 This command is an index-maintenance helper, not a semantic authority and not a query operator.
 
-It may write generated index artifacts unless `--check` is used. It should not include future semantic chunk, embedding, or vector-store builders unless those builders are explicitly promoted into the active index catalog.
+It may write generated index artifacts unless `--check` is used. It should not include future semantic chunk, embedding, or vector-store builders unless a future replacement design explicitly reintroduces them.
 
-For ordinary local work, use default working-tree mode so generated indexes remain locally authoritative. For commit preparation, use `--commit-view` when `change-index.json` should describe the committed baseline instead of local dirtiness. Other indexes should be committed only when their generated source shape matches the source files being committed.
+Do not run this command for ordinary local work or normal commit preparation. Use `--commit-view` only during explicit legacy index maintenance when `change-index.json` should describe the committed baseline instead of local dirtiness. Other legacy indexes should be committed only when the task explicitly includes them.

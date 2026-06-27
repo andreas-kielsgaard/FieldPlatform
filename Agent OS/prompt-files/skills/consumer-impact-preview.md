@@ -1,31 +1,13 @@
-
-# Skill: consumer-impact-preview
-
-Stratum: 3 aggregator skill.
+﻿# Skill: consumer-impact-preview
 
 ## Purpose
 
 Use when changed behavior may affect consumers or examples.
 
-## Underlying Tools
+## Active Command Support
+
+Use `corepack pnpm change-surface` to find dependency-affected active source surfaces, then inspect source directly for semantic consumer impact.
+
+## Legacy Underlying Tools
 
 symbol-query, component-query, accessor-query, route-query, doc-ref-query, test-query
-
-## Operating Pattern
-
-1. Confirm the active task mode, structural-maintenance behavior, and relevant lens.
-2. Gather only the evidence needed for the current decision.
-3. Keep raw output bounded and retain a compact evidence packet.
-4. State what the agent still owns semantically.
-
-## Output
-
-Consumer tree and impacted docs/tests/examples for a typed surface.
-
-## Context Risk
-
-Medium. Use the smallest useful evidence path and stop when the decision has enough support.
-
-## Does Not
-
-This skill does not replace mode, behavior, lens, or agent judgment. It does not mutate files unless a separate explicit implementation task does so.

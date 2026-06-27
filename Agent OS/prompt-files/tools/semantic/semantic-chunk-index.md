@@ -1,4 +1,7 @@
-# semantic-chunk-index
+﻿# semantic-chunk-index
+
+Legacy inactive: retained for the retired Agent OS generated index/query pipeline. Do not use for ordinary development; use only when an explicit legacy Agent OS index/tool maintenance task calls for it.
+
 
 Deterministic Phase 3 semantic substrate with Phase 4 freshness and contract hardening.
 

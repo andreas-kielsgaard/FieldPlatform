@@ -1,31 +1,13 @@
-
-# Skill: source-orientation-refresh
-
-Stratum: 3 aggregator skill.
+﻿# Skill: source-orientation-refresh
 
 ## Purpose
 
-Use when source orientation or generated index freshness matters.
+Use when selected source reads are needed after human-maintained maps are insufficient. Generated index freshness is legacy Agent OS index maintenance only.
 
-## Underlying Tools
+## Active Command Support
+
+Use `corepack pnpm change-surface` for changed/affected active source orientation and `corepack pnpm repo-health` for broad health context.
+
+## Legacy Underlying Tools
 
 index-manifest, build-all-indexes, build-path-index, doc-ref-query, artifact-query
-
-## Operating Pattern
-
-1. Confirm the active task mode, structural-maintenance behavior, and relevant lens.
-2. Gather only the evidence needed for the current decision.
-3. Keep raw output bounded and retain a compact evidence packet.
-4. State what the agent still owns semantically.
-
-## Output
-
-Stale orientation/index warning and refresh plan.
-
-## Context Risk
-
-Low. Use the smallest useful evidence path and stop when the decision has enough support.
-
-## Does Not
-
-This skill does not replace mode, behavior, lens, or agent judgment. It does not mutate files unless a separate explicit implementation task does so.

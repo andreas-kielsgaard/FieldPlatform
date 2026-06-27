@@ -1,14 +1,17 @@
-# Index: index-manifest
+﻿# Index: index-manifest
+
+Legacy inactive: retained for the retired Agent OS generated index/query pipeline. Do not use for ordinary development; use only when an explicit legacy Agent OS index/tool maintenance task calls for it.
+
 
 ## Capability
 
-Compact boot-aware manifest for active Stratum 1 evidence indexes.
+Legacy compact manifest for the retired Stratum 1 evidence indexes.
 
 ## Use When
 
-- Agent OS is initiated and needs index awareness without loading raw generated records.
-- An agent needs freshness, size, hash, record-count, tier, or first-query guidance for an index.
-- Index trust or context-budget decisions depend on knowing which indexes are boot-core, strong cues, or specialized cues.
+- An explicit legacy Agent OS index-maintenance task needs index awareness without loading raw generated records.
+- A legacy maintenance task needs freshness, size, hash, record-count, tier, or historical first-query guidance for an index.
+- Legacy index trust or context-budget review depends on knowing which indexes were boot-core, strong cues, or specialized cues.
 
 ## Output Shape
 
@@ -33,7 +36,7 @@ Each record summarizes one active evidence index with:
 
 ## Boundaries
 
-This manifest is mandatory boot context. Raw generated index records remain query-only unless selected tools, skills, modes, or behaviors make them useful.
+This manifest is no longer mandatory boot context. Raw generated index records remain inactive unless an explicit legacy Agent OS index-maintenance task calls for them.
 
 Shard metadata, semantic-readiness metadata, and maintenance commands are produced by index builders. Do not maintain them by hand.
 

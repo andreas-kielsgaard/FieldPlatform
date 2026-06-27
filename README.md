@@ -79,29 +79,35 @@ corepack pnpm dev
 
 ```powershell
 corepack pnpm check
+corepack pnpm change-surface
+corepack pnpm test-selection
+corepack pnpm change-verification
+corepack pnpm repo-health
+corepack pnpm depcruise:active-source
 corepack pnpm --filter web build
 corepack pnpm test:e2e
 corepack pnpm storybook
-corepack pnpm agent:index
-corepack pnpm agent:index:check
 ```
 
 `corepack pnpm check` runs linting, typechecking, unit tests, dependency-cruiser, and boundary-rule validation.
+
+The replacement development-tool surface is intentionally small:
+
+- `change-surface`: changed files and structurally affected active source surfaces.
+- `test-selection`: runner-discovered Vitest and Playwright test relations.
+- `change-verification`: per-change verification plan without running checks.
+- `repo-health`: whole-repository health summary independent of a diff.
+- `depcruise:active-source`: dependency-cruiser over active app and development-tool source.
 
 ## Agent OS
 
 Agents should start with `AGENTS.md`, then load `Agent OS/agent-os-bootloader.md` for non-trivial work. Field Platform-specific product, architecture, schema, testing, deployment, and generated-evidence rails are routed through:
 
 ```text
-Agent OS/project-control-files/project-setup/project-setup-map.md
+Agent OS/project-control-files/project-setup-map.md
 ```
 
-Generated Agent OS and project indexes are evidence, not authority. After structural, routing, schema, Agent OS, or project setup changes, refresh them with:
-
-```powershell
-corepack pnpm agent:index
-corepack pnpm agent:index:check
-```
+Legacy Agent OS and project indexes are evidence, not authority, and are retired from ordinary development. Use human-maintained maps, source reads, the replacement development tools, and standard project checks for normal work; do not refresh legacy indexes unless explicitly asked for legacy Agent OS index maintenance.
 
 ## Git Hygiene
 

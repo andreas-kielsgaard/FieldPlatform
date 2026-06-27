@@ -1,31 +1,13 @@
-
-# Skill: bounded-review-workflow
-
-Stratum: 4 reasoning workflow skill.
+﻿# Skill: bounded-review-workflow
 
 ## Purpose
 
 Use before final review when exhaustive checking would be noisy.
 
-## Underlying Tools
+## Active Command Support
+
+Use `corepack pnpm change-verification` for a per-change verification plan and `corepack pnpm repo-health` for whole-repository health.
+
+## Legacy Underlying Tools
 
 affected-surface-mapping, test-relation-scan, change-report-assembly
-
-## Operating Pattern
-
-1. Confirm the active task mode, structural-maintenance behavior, and relevant lens.
-2. Gather only the evidence needed for the current decision.
-3. Keep raw output bounded and retain a compact evidence packet.
-4. State what the agent still owns semantically.
-
-## Output
-
-Narrow review/check path.
-
-## Context Risk
-
-Low. Use the smallest useful evidence path and stop when the decision has enough support.
-
-## Does Not
-
-This skill does not replace mode, behavior, lens, or agent judgment. It does not mutate files unless a separate explicit implementation task does so.

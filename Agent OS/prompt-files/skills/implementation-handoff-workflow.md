@@ -1,31 +1,9 @@
-
-# Skill: implementation-handoff-workflow
-
-Stratum: 4 reasoning workflow skill.
+﻿# Skill: implementation-handoff-workflow
 
 ## Purpose
 
-Use when reporting substantial completed implementation work.
+Use only when a substantial implementation handoff is explicitly requested or clearly needed. Normal task completion should use a compact final summary instead of a persistent handoff file.
 
-## Underlying Tools
+## Legacy Underlying Tools
 
 change-report-assembly, diff-query
-
-## Operating Pattern
-
-1. Confirm the active task mode, structural-maintenance behavior, and relevant lens.
-2. Gather only the evidence needed for the current decision.
-3. Keep raw output bounded and retain a compact evidence packet.
-4. State what the agent still owns semantically.
-
-## Output
-
-Final handoff using deterministic evidence plus agent-owned judgment.
-
-## Context Risk
-
-Low. Use the smallest useful evidence path and stop when the decision has enough support.
-
-## Does Not
-
-This skill does not replace mode, behavior, lens, or agent judgment. It does not mutate files unless a separate explicit implementation task does so.

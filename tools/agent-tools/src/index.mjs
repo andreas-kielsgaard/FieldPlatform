@@ -4,6 +4,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSy
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+// Legacy broad index builder. Retained only for explicit Agent OS index-maintenance tasks.
 const stagingRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 const agentOsRoot = path.join(stagingRoot, "Agent OS");
 const projectIndexDir = path.join(agentOsRoot, "tool-maintained-files", "project-indexes");
@@ -181,8 +182,8 @@ function buildProjectArtifacts(files) {
       sha256: hashComparable(artifact),
       sourceInputs: artifact.sourceInputs,
       coverage: artifact.coverage,
-      refreshCommand: "corepack pnpm agent:index",
-      checkCommand: "corepack pnpm agent:index:check",
+      refreshCommand: "corepack pnpm --filter agent-tools legacy:index",
+      checkCommand: "corepack pnpm --filter agent-tools legacy:index:check",
     })),
   });
 
@@ -203,7 +204,7 @@ function makeArtifact({ indexId, sourceInputs, coverage, records }) {
     artifactPath: `${projectIndexRelativeDir}/${indexId}.json`,
     sourceInputs,
     freshnessPolicy:
-      "Refresh before relying on absence, broad project impact, route/module/schema coverage, or setup evidence.",
+      "Legacy artifact; do not rely on it for ordinary development. Refresh only during explicit legacy Agent OS index maintenance.",
     coverage,
     knownBlindSpots: [
       "Project structural indexes are lightweight evidence and do not replace source reads.",
@@ -213,8 +214,8 @@ function makeArtifact({ indexId, sourceInputs, coverage, records }) {
       metadataVersion: 1,
       maintainedBy: "tools/agent-tools/src/index.mjs",
       manualMaintenance: false,
-      refreshCommand: "corepack pnpm agent:index",
-      checkCommand: "corepack pnpm agent:index:check",
+      refreshCommand: "corepack pnpm --filter agent-tools legacy:index",
+      checkCommand: "corepack pnpm --filter agent-tools legacy:index:check",
     },
     recordCount: records.length,
     records,

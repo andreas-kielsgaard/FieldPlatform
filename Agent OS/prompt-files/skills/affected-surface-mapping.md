@@ -1,31 +1,13 @@
-
-# Skill: affected-surface-mapping
-
-Stratum: 3 aggregator skill.
+﻿# Skill: affected-surface-mapping
 
 ## Purpose
 
-Use when a planned or actual change may affect more than the directly edited files.
+A planned or actual change may affect more than the directly edited files.
 
-## Underlying Tools
+## Active Command Support
+
+Use `corepack pnpm change-surface` for changed files and dependency-cruiser-derived affected active source surfaces.
+
+## Legacy Underlying Tools
 
 diff-query, symbol-query, dependency-query, route-query, component-query, term-query, doc-ref-query
-
-## Operating Pattern
-
-1. Confirm the active task mode, structural-maintenance behavior, and relevant lens.
-2. Gather only the evidence needed for the current decision.
-3. Keep raw output bounded and retain a compact evidence packet.
-4. State what the agent still owns semantically.
-
-## Output
-
-Bounded touched and likely affected surface packet.
-
-## Context Risk
-
-Medium. Use the smallest useful evidence path and stop when the decision has enough support.
-
-## Does Not
-
-This skill does not replace mode, behavior, lens, or agent judgment. It does not mutate files unless a separate explicit implementation task does so.

@@ -17,7 +17,7 @@ The Field Platform project setup layer owns project-specific decisions that futu
 - testing and deployment rails
 - generated project evidence expectations
 
-For Field Platform architecture, schema, feature, boundary, testing, deployment, or structural-maintenance work, load `project-setup-map.md`, then load only the adjacent file that matches the concern.
+For Field Platform architecture, schema, feature, boundary, testing, deployment, or structural-maintenance work, load `project-control-files/project-setup-map.md`, then load only the `project-setup/` file that matches the concern.
 
 ## Authority Boundary
 
@@ -26,7 +26,7 @@ Use this order for project-specific setup questions:
 1. Explicit user request.
 2. Root migration safety instructions while staged.
 3. `agent-os-bootloader.md` bootloader behavior.
-4. `project-setup-map.md` and selected adjacent project setup files.
+4. `project-control-files/project-setup-map.md` and selected `project-setup/` setup files.
 5. Existing project-control files.
 6. Source, tests, generated evidence, and tool output.
 

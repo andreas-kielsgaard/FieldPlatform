@@ -11,34 +11,36 @@ The goal is to make the development substrate ready for the current architectura
 Run deterministic checks when their substrate exists and their cost is reasonable:
 
 - `git status --short --branch` to confirm branch, untracked files, and local change shape.
+- `corepack pnpm change-surface` to identify changed and dependency-affected active source surfaces.
+- `corepack pnpm test-selection` to identify runner-discovered test relations.
+- `corepack pnpm change-verification` to produce a per-change verification plan.
+- `corepack pnpm repo-health` to summarize whole-repository health independent of a diff.
+- `corepack pnpm depcruise:active-source` to check dependency-cruiser rules over active app and development-tool source.
 - `npx --yes tsx tool-implementations/checks/check-agent-os-contracts.ts --json` after Agent OS maps, tools, indexes, semantic surfaces, or generated artifacts change.
-- `npx --yes tsx tool-implementations/indexes/build-all-indexes.ts --check --json` when active Stratum 1 freshness or metadata matters.
-- `npx --yes tsx tool-implementations/semantic/build-semantic-chunk-index.ts --check --json` when semantic candidate substrate freshness matters.
+- Legacy generated index and semantic chunk freshness checks are retired from ordinary readiness review. Use them only for an explicit legacy Agent OS index-maintenance task.
 - Parse generated JSON under `tool-maintained-files/` after builder changes.
 
 These checks are evidence. They do not decide product architecture, technology fit, ownership, or readiness by themselves.
 
-## Generated Artifact Commit Policy
+## Legacy Generated Artifact Commit Policy
 
-Generated index artifacts are locally authoritative for the local repository state.
+Legacy generated index artifacts are evidence only. They are not locally authoritative for ordinary development.
 
-For ordinary local work, refresh generated indexes against the current working tree. For commit preparation, make sure generated artifacts included in the commit reflect the structure being committed, not unrelated local dirtiness.
+For ordinary local work, do not refresh legacy generated indexes. For commit preparation, avoid including legacy generated index artifacts unless explicitly requested.
 
-`change-index` has a specific commit-prep mode:
+Legacy `change-index` has a specific commit-prep mode for explicit legacy index maintenance:
 
 ```powershell
 npx --yes tsx tool-implementations/indexes/build-change-index.ts --commit-view --json
 ```
 
-`build-all-indexes` can pass that mode through to `change-index`:
+Legacy `build-all-indexes` can pass that mode through to `change-index` during explicit legacy index maintenance:
 
 ```powershell
 npx --yes tsx tool-implementations/indexes/build-all-indexes.ts --commit-view --json
 ```
 
-After the commit, if local uncommitted work remains, refresh the ordinary working-tree view again so local generated files return to local truth.
-
-Avoid partial commits where generated artifacts were refreshed from a different source shape than the source files being committed. If that mismatch exists, either commit the matching source and generated artifacts together or defer the generated artifact update.
+Avoid partial commits where legacy generated artifacts were refreshed from a different source shape than the source files being committed. If that mismatch exists, either commit the matching source and generated artifacts together during explicit legacy maintenance or defer the generated artifact update.
 
 ## Relocatable Path Policy
 
@@ -74,7 +76,7 @@ Before implementing them, decide:
 - refresh cost and stale-result warnings
 - measurable retrieval failure that justifies the added maintenance surface
 
-Until those choices are made, use `semantic-candidate-query` and exact indexes as the supported semantic retrieval path.
+Use human-maintained maps, selected source reads, `rg`, standard project checks, and the replacement development tools instead of semantic candidate or exact generated-index retrieval during ordinary development.
 
 ## Right-Timed Deferred Actions
 

@@ -57,12 +57,32 @@ export const contextFoundationLimitations = Object.freeze([
   "No files are written.",
 ]);
 
-export const contextManifestWarnings = Object.freeze([
+const defaultContextManifestWarnings = Object.freeze([
   "Manifest entries are local filesystem evidence only.",
 ]);
 
-export const contextManifestLimitations = Object.freeze([
+const freshnessContextManifestWarnings = Object.freeze([
+  "Manifest entries include local Git status and filesystem hash evidence when available.",
+]);
+
+const defaultContextManifestLimitations = Object.freeze([
   "Discovery is bounded to adapter source groups.",
   "Excluded entries appear only for matching files present locally.",
   "No files are written.",
 ]);
+
+const freshnessContextManifestLimitations = Object.freeze([
+  "Discovery is bounded to adapter source groups.",
+  "Missing files appear only when local Git reports a tracked path.",
+  "No files are written.",
+]);
+
+export function contextManifestWarnings(options = {}) {
+  return options.withFreshness ? freshnessContextManifestWarnings : defaultContextManifestWarnings;
+}
+
+export function contextManifestLimitations(options = {}) {
+  return options.withFreshness
+    ? freshnessContextManifestLimitations
+    : defaultContextManifestLimitations;
+}

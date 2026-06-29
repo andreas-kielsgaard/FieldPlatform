@@ -1,5 +1,18 @@
+import { CONTEXT_CONTRACT_VERSION } from "../schemas/shared.mjs";
 import { COMMAND_ENVELOPE_SCHEMA_VERSION, CONTEXT_COMMAND_NAMESPACE } from "./command-envelope.mjs";
+import { CONTEXT_PATH_FORMAT, isRepoRelativePosixPath } from "./repo-paths.mjs";
 import { expectedContextSchemaIds } from "./schema-registry.mjs";
+
+const documentKindValues = new Set([
+  "source",
+  "test",
+  "config",
+  "schema",
+  "documentation",
+  "generated",
+  "archive",
+  "unknown",
+]);
 
 export function validateCommandEnvelope(envelope, options = {}) {
   const errors = [];
@@ -84,6 +97,53 @@ export function validateAdapterConfig(config) {
   };
 }
 
+export function validateFileManifest(manifest, options = {}) {
+  const errors = [];
+
+  if (!isObject(manifest)) {
+    return invalid("File manifest must be an object.");
+  }
+
+  expectString(errors, manifest.adapterId, "adapterId");
+  if (options.adapterId) {
+    expectEqual(errors, manifest.adapterId, options.adapterId, "adapterId");
+  }
+  expectEqual(errors, manifest.schemaVersion, CONTEXT_CONTRACT_VERSION, "schemaVersion");
+  expectIsoDateTime(errors, manifest.generatedAt, "generatedAt");
+
+  if (!Array.isArray(manifest.files)) {
+    errors.push("files must be an array.");
+  } else {
+    for (const [index, file] of manifest.files.entries()) {
+      validateSourceFileMetadataInto(errors, file, `files[${index}]`, options);
+    }
+  }
+
+  if (manifest.limitations !== undefined) {
+    expectStringArray(errors, manifest.limitations, "limitations");
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
+}
+
+export function validateSourceFileMetadata(file, options = {}) {
+  const errors = [];
+
+  if (!isObject(file)) {
+    return invalid("Source file metadata must be an object.");
+  }
+
+  validateSourceFileMetadataInto(errors, file, "file", options);
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
+}
+
 function validateSchemaRegistryData(errors, data) {
   if (!isObject(data)) {
     errors.push("data must contain schema registry fields.");
@@ -119,6 +179,44 @@ function validateSchemaRegistryData(errors, data) {
   }
 }
 
+function validateSourceFileMetadataInto(errors, file, prefix, options) {
+  if (!isObject(file)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  expectString(errors, file.adapterId, `${prefix}.adapterId`);
+  if (options.adapterId) {
+    expectEqual(errors, file.adapterId, options.adapterId, `${prefix}.adapterId`);
+  }
+  if (file.repoId !== undefined) {
+    expectString(errors, file.repoId, `${prefix}.repoId`);
+  }
+  expectRepoRelativePath(errors, file.path, `${prefix}.path`);
+  expectEqual(errors, file.pathFormat, CONTEXT_PATH_FORMAT, `${prefix}.pathFormat`);
+  if (!documentKindValues.has(file.documentKind)) {
+    errors.push(`${prefix}.documentKind must be a known document kind.`);
+  }
+  expectString(errors, file.sourceGroup, `${prefix}.sourceGroup`);
+  expectString(errors, file.language, `${prefix}.language`);
+  if (!["included", "excluded"].includes(file.inclusionStatus)) {
+    errors.push(`${prefix}.inclusionStatus must be included or excluded.`);
+  }
+  if (
+    file.exclusionReason !== undefined &&
+    file.exclusionReason !== null &&
+    typeof file.exclusionReason !== "string"
+  ) {
+    errors.push(`${prefix}.exclusionReason must be a string or null.`);
+  }
+  if (!isObject(file.flags)) {
+    errors.push(`${prefix}.flags must be an object.`);
+  } else {
+    expectBoolean(errors, file.flags.generated, `${prefix}.flags.generated`);
+    expectBoolean(errors, file.flags.archive, `${prefix}.flags.archive`);
+  }
+}
+
 function invalid(message) {
   return {
     valid: false,
@@ -148,6 +246,12 @@ function expectStringArray(errors, value, field) {
   }
 }
 
+function expectBoolean(errors, value, field) {
+  if (typeof value !== "boolean") {
+    errors.push(`${field} must be a boolean.`);
+  }
+}
+
 function expectIsoDateTime(errors, value, field) {
   expectString(errors, value, field);
   if (typeof value === "string" && Number.isNaN(Date.parse(value))) {
@@ -160,7 +264,7 @@ function expectRepoRelativePath(errors, value, field) {
   if (typeof value !== "string") {
     return;
   }
-  if (value.includes("\\") || value.startsWith("/") || /^[A-Za-z]:/.test(value)) {
+  if (!isRepoRelativePosixPath(value)) {
     errors.push(`${field} must be a repo-relative POSIX path.`);
   }
 }

@@ -1,5 +1,6 @@
 import { contextFoundationLimitations } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
+import { buildManifestEnvelope, printManifestSummary } from "./manifest-command.mjs";
 import { buildSchemasEnvelope, printSchemasSummary } from "./schemas-command.mjs";
 
 export function runContextCli(argv, io = {}) {
@@ -16,6 +17,9 @@ export function runContextCli(argv, io = {}) {
   const [commandName, ...commandArgs] = parsed.positional;
   if (commandName === "schemas") {
     return runSchemasCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
+  }
+  if (commandName === "manifest") {
+    return runManifestCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
   }
 
   const message = `Unknown agent-os context command: ${commandName}`;
@@ -61,6 +65,31 @@ function runSchemasCommand(argv, io) {
   return 0;
 }
 
+function runManifestCommand(argv, io) {
+  const parsed = parseArgs(argv);
+  const flags = {
+    ...io.inheritedFlags,
+    ...parsed.flags,
+  };
+
+  if (flags.help || flags.h) {
+    printManifestHelp(io.stdout);
+    return 0;
+  }
+
+  const envelope = buildManifestEnvelope({
+    generatedAt: io.now().toISOString(),
+  });
+
+  if (flags.json) {
+    io.stdout.write(`${JSON.stringify(envelope, null, 2)}\n`);
+  } else {
+    printManifestSummary(envelope, io.stdout);
+  }
+
+  return 0;
+}
+
 function parseArgs(argv) {
   const flags = {};
   const positional = [];
@@ -95,11 +124,28 @@ Inspect Agent OS context-tool contracts.
 Usage:
   corepack pnpm agent-os context --help
   corepack pnpm agent-os context schemas --json
+  corepack pnpm agent-os context manifest --json
 
 Commands:
+  manifest   Emit the on-demand Field Platform file manifest.
   schemas    Inspect available context schemas and capability state.
 
 Options:
+  --help     Show this help.
+`);
+}
+
+function printManifestHelp(stdout) {
+  stdout.write(`agent-os context manifest
+
+Emit the on-demand Field Platform file manifest.
+
+Usage:
+  corepack pnpm agent-os context manifest --json
+  corepack pnpm agent-os context manifest --help
+
+Options:
+  --json     Emit the shared machine-readable command envelope.
   --help     Show this help.
 `);
 }

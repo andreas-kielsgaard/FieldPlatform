@@ -77,7 +77,7 @@
       "adapterId": "field-platform",
       "repoId": "field-platform",
       "configSource": "tools/agent-tools/src/context/adapters/field-platform-adapter-config.mjs",
-      "sourceGroupCount": 2
+      "sourceGroupCount": 6
     },
     "generatedArtifacts": []
   }

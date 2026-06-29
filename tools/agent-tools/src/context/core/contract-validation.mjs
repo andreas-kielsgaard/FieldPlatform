@@ -1,5 +1,6 @@
-import { CONTEXT_CONTRACT_VERSION, CONTEXT_PATH_FORMAT } from "../schemas/shared.mjs";
+import { CONTEXT_CONTRACT_VERSION } from "../schemas/shared.mjs";
 import { COMMAND_ENVELOPE_SCHEMA_VERSION, CONTEXT_COMMAND_NAMESPACE } from "./command-envelope.mjs";
+import { CONTEXT_PATH_FORMAT, isRepoRelativePosixPath } from "./repo-paths.mjs";
 import { expectedContextSchemaIds } from "./schema-registry.mjs";
 
 const documentKindValues = new Set([
@@ -263,7 +264,7 @@ function expectRepoRelativePath(errors, value, field) {
   if (typeof value !== "string") {
     return;
   }
-  if (value.includes("\\") || value.startsWith("/") || /^[A-Za-z]:/.test(value)) {
+  if (!isRepoRelativePosixPath(value)) {
     errors.push(`${field} must be a repo-relative POSIX path.`);
   }
 }

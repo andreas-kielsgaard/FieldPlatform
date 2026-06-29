@@ -1,16 +1,13 @@
 import assert from "node:assert/strict";
-import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
-import { fileURLToPath } from "node:url";
 
 import { buildManifestEnvelope } from "../../src/context/cli/manifest-command.mjs";
 import { buildSchemasEnvelope } from "../../src/context/cli/schemas-command.mjs";
 import {
   validateAdapterConfig,
-  validateCommandEnvelope,
   validateFileManifest,
 } from "../../src/context/core/contract-validation.mjs";
 import { buildFileManifest } from "../../src/context/core/file-manifest.mjs";
@@ -18,9 +15,17 @@ import {
   expectedContextSchemaIds,
   getContextSchemaRegistry,
 } from "../../src/context/core/schema-registry.mjs";
-
-const testDirectory = path.dirname(fileURLToPath(import.meta.url));
-const workspaceRoot = path.resolve(testDirectory, "../../../..");
+import {
+  assertDeterministicJsonEqual,
+  assertSchemasEnvelopeLooseFields,
+  assertValidCommandEnvelope,
+  fixturePath,
+  loadJsonFixture,
+  normalizeSchemasEnvelopeForGolden,
+  runWorkspaceCommand,
+  toRepoRelativePath,
+  workspaceRoot,
+} from "./context-test-helpers.mjs";
 
 test("schema registry contains every expected schema ID", () => {
   const registry = getContextSchemaRegistry();
@@ -51,14 +56,11 @@ test("command envelope validates for the schemas JSON output", () => {
   const envelope = buildSchemasEnvelope({
     generatedAt: "2026-06-29T00:00:00.000Z",
   });
-  const result = validateCommandEnvelope(envelope, {
+  assertValidCommandEnvelope(envelope, {
     name: "schemas",
     adapterId: "field-platform",
     requireSchemaRegistryData: true,
   });
-
-  assert.deepEqual(result.errors, []);
-  assert.equal(result.valid, true);
 });
 
 test("command envelope validates for the manifest JSON output", () => {
@@ -66,18 +68,12 @@ test("command envelope validates for the manifest JSON output", () => {
     generatedAt: "2026-06-29T00:00:00.000Z",
     repoRoot: workspaceRoot,
   });
-  const envelopeResult = validateCommandEnvelope(envelope, {
+
+  assertValidCommandEnvelope(envelope, {
     name: "manifest",
     adapterId: "field-platform",
   });
-  const manifestResult = validateFileManifest(envelope.data, {
-    adapterId: "field-platform",
-  });
-
-  assert.deepEqual(envelopeResult.errors, []);
-  assert.equal(envelopeResult.valid, true);
-  assert.deepEqual(manifestResult.errors, []);
-  assert.equal(manifestResult.valid, true);
+  assertValidFileManifest(envelope.data);
 });
 
 test("manifest includes active app source and agent-tools source", () => {
@@ -131,8 +127,8 @@ test("manifest includes project config and guidance as non-runtime source groups
   });
 });
 
-test("manifest excludes generated output and archive paths by policy", () => {
-  const repoRoot = createTempRepo([
+test("manifest excludes generated output and archive paths by policy", (t) => {
+  const repoRoot = createTempRepo(t, [
     "apps/web/app/root.tsx",
     "apps/web/build/server/index.js",
     "apps/web/.react-router/types/+types/root.ts",
@@ -210,28 +206,56 @@ test("manifest paths are repo-relative POSIX paths", () => {
 });
 
 test("adapter/config fixture validates", () => {
-  const fixturePath = path.join(testDirectory, "fixtures", "field-platform-adapter.config.json");
-  const config = JSON.parse(readFileSync(fixturePath, "utf8"));
+  const config = loadJsonFixture("field-platform-adapter.config.json");
   const result = validateAdapterConfig(config);
 
   assert.deepEqual(result.errors, []);
   assert.equal(result.valid, true);
 });
 
-test("CLI returns valid JSON for agent-os context schemas --json", () => {
+test("shared context fixture corpus includes source policy and intelligence cases", () => {
+  const fixtureFiles = [
+    "synthetic-context-repo/apps/web/src/source-intelligence/source-policy.ts",
+    "synthetic-context-repo/apps/web/src/source-intelligence/source-policy.test.ts",
+    "synthetic-context-repo/config/source-intelligence.config.json",
+    "synthetic-context-repo/generated/source-intelligence.generated.json",
+    "synthetic-context-repo/Archive/legacy-source-policy.md",
+    "synthetic-context-repo/docs/source-intelligence.md",
+  ];
+  const repoRelativePaths = fixtureFiles.map((file) =>
+    toRepoRelativePath(fixturePath(...file.split("/"))),
+  );
+
+  assert.deepEqual(repoRelativePaths, [
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/apps/web/src/source-intelligence/source-policy.ts",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/apps/web/src/source-intelligence/source-policy.test.ts",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/config/source-intelligence.config.json",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/generated/source-intelligence.generated.json",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/Archive/legacy-source-policy.md",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/docs/source-intelligence.md",
+  ]);
+
+  for (const repoRelativePath of repoRelativePaths) {
+    assert.equal(existsSync(path.join(workspaceRoot, repoRelativePath)), true);
+  }
+});
+
+test("CLI schemas JSON envelope matches the golden shape without pinning generatedAt", () => {
   const run = runWorkspaceCommand(["pnpm", "agent-os", "context", "schemas", "--json"]);
 
   assert.equal(run.status, 0, run.stderr || run.stdout);
 
   const parsed = JSON.parse(run.stdout);
-  const result = validateCommandEnvelope(parsed, {
+  assertValidCommandEnvelope(parsed, {
     name: "schemas",
     adapterId: "field-platform",
     requireSchemaRegistryData: true,
   });
-
-  assert.deepEqual(result.errors, []);
-  assert.equal(result.valid, true);
+  assertSchemasEnvelopeLooseFields(parsed);
+  assertDeterministicJsonEqual(
+    normalizeSchemasEnvelopeForGolden(parsed),
+    loadJsonFixture("goldens", "schemas-envelope.golden.json"),
+  );
 });
 
 test("CLI returns valid JSON for agent-os context manifest --json", () => {
@@ -240,18 +264,11 @@ test("CLI returns valid JSON for agent-os context manifest --json", () => {
   assert.equal(run.status, 0, run.stderr || run.stdout);
 
   const parsed = JSON.parse(run.stdout);
-  const envelopeResult = validateCommandEnvelope(parsed, {
+  assertValidCommandEnvelope(parsed, {
     name: "manifest",
     adapterId: "field-platform",
   });
-  const manifestResult = validateFileManifest(parsed.data, {
-    adapterId: "field-platform",
-  });
-
-  assert.deepEqual(envelopeResult.errors, []);
-  assert.equal(envelopeResult.valid, true);
-  assert.deepEqual(manifestResult.errors, []);
-  assert.equal(manifestResult.valid, true);
+  assertValidFileManifest(parsed.data);
 });
 
 test("manifest command does not create a committed manifest artifact", () => {
@@ -290,6 +307,15 @@ test("schema inspection does not create generated Agent OS artifacts", () => {
   assert.equal(existsSync(path.join(workspaceRoot, "Agent OS", "tool-maintained-files")), false);
 });
 
+function assertValidFileManifest(manifest) {
+  const result = validateFileManifest(manifest, {
+    adapterId: "field-platform",
+  });
+
+  assert.deepEqual(result.errors, []);
+  assert.equal(result.valid, true);
+}
+
 function assertManifestEntry(manifest, filePath, expected) {
   const entry = manifest.files.find((file) => file.path === filePath);
   assert.ok(entry, `${filePath} should be present in the manifest`);
@@ -307,8 +333,9 @@ function assertManifestEntry(manifest, filePath, expected) {
   }
 }
 
-function createTempRepo(repoPaths) {
+function createTempRepo(t, repoPaths) {
   const repoRoot = mkdtempSync(path.join(tmpdir(), "agent-os-manifest-"));
+  t.after(() => rmSync(repoRoot, { recursive: true, force: true }));
 
   for (const repoPath of repoPaths) {
     const absolutePath = path.join(repoRoot, ...repoPath.split("/"));
@@ -317,22 +344,4 @@ function createTempRepo(repoPaths) {
   }
 
   return repoRoot;
-}
-
-function runWorkspaceCommand(corepackArgs) {
-  if (process.platform === "win32") {
-    return spawnSync("cmd.exe", ["/d", "/s", "/c", "corepack", ...corepackArgs], {
-      cwd: workspaceRoot,
-      encoding: "utf8",
-      shell: false,
-      maxBuffer: 1024 * 1024 * 10,
-    });
-  }
-
-  return spawnSync("corepack", corepackArgs, {
-    cwd: workspaceRoot,
-    encoding: "utf8",
-    shell: false,
-    maxBuffer: 1024 * 1024 * 10,
-  });
 }

@@ -2,7 +2,8 @@ import { readdirSync } from "node:fs";
 import path from "node:path";
 
 import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
-import { CONTEXT_CONTRACT_VERSION, CONTEXT_PATH_FORMAT } from "../schemas/shared.mjs";
+import { CONTEXT_CONTRACT_VERSION } from "../schemas/shared.mjs";
+import { CONTEXT_PATH_FORMAT, toRepoRelativePosixPath } from "./repo-paths.mjs";
 
 const PRUNED_DIRECTORIES = new Set([".git", "node_modules", ".pnpm-store"]);
 
@@ -13,7 +14,7 @@ export function buildFileManifest({
 } = {}) {
   const resolvedRepoRoot = path.resolve(repoRoot, adapterConfig.repoRoot ?? ".");
   const files = discoverRepoFiles(resolvedRepoRoot)
-    .map((repoPath) => buildFileEntry(repoPath, adapterConfig))
+    .map((repoPath) => buildFileEntry(repoPath, adapterConfig, resolvedRepoRoot))
     .filter(Boolean)
     .sort((left, right) => left.path.localeCompare(right.path));
 
@@ -22,16 +23,11 @@ export function buildFileManifest({
     schemaVersion: CONTEXT_CONTRACT_VERSION,
     generatedAt,
     files,
-    limitations: [
-      "Discovery is bounded to Field Platform adapter source groups.",
-      "Excluded files are reported only when they exist locally and match adapter exclusion globs.",
-      "No file contents, chunks, symbols, dependency edges, embeddings, or manifest artifacts are generated.",
-    ],
   };
 }
 
-function buildFileEntry(repoPath, adapterConfig) {
-  const match = selectPolicyMatch(repoPath, adapterConfig.sourceGroups);
+function buildFileEntry(repoPath, adapterConfig, repoRoot) {
+  const match = selectPolicyMatch(repoPath, adapterConfig.sourceGroups, repoRoot);
   if (!match) {
     return null;
   }
@@ -43,7 +39,6 @@ function buildFileEntry(repoPath, adapterConfig) {
 
   return {
     adapterId: adapterConfig.adapterId,
-    repoId: adapterConfig.repoId,
     path: repoPath,
     pathFormat: CONTEXT_PATH_FORMAT,
     documentKind: classifyDocumentKind(repoPath, match.group, flags),
@@ -58,11 +53,11 @@ function buildFileEntry(repoPath, adapterConfig) {
   };
 }
 
-function selectPolicyMatch(repoPath, sourceGroups) {
+function selectPolicyMatch(repoPath, sourceGroups, repoRoot) {
   const matches = [];
 
   for (const group of sourceGroups) {
-    const groupRoot = normalizeRepoPath(group.root);
+    const groupRoot = normalizeGroupRoot(group.root, repoRoot);
     if (!pathIsUnderRoot(repoPath, groupRoot)) {
       continue;
     }
@@ -114,7 +109,7 @@ function walkDirectory(directory, repoRoot, files) {
     }
 
     if (entry.isFile()) {
-      files.push(toPosixPath(path.relative(repoRoot, path.join(directory, entry.name))));
+      files.push(toRepoRelativePosixPath(path.join(directory, entry.name), { repoRoot }));
     }
   }
 }
@@ -160,7 +155,11 @@ function segmentMatches(pattern, value) {
 }
 
 function splitGlobPath(value) {
-  return normalizeRepoPath(value).split("/").filter(Boolean);
+  return String(value ?? "")
+    .replaceAll("\\", "/")
+    .replace(/^[.]\//, "")
+    .split("/")
+    .filter(Boolean);
 }
 
 function classifyDocumentKind(repoPath, group, flags) {
@@ -266,12 +265,11 @@ function isDocumentationPath(repoPath) {
   return repoPath.endsWith(".md");
 }
 
-function normalizeRepoPath(value) {
-  return toPosixPath(String(value ?? "")).replace(/^[.]\//, "");
-}
-
-function toPosixPath(value) {
-  return value.replaceAll("\\", "/");
+function normalizeGroupRoot(root, repoRoot) {
+  if (root === ".") {
+    return ".";
+  }
+  return toRepoRelativePosixPath(root, { repoRoot });
 }
 
 function escapeRegExp(value) {

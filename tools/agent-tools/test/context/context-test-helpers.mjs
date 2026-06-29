@@ -43,16 +43,44 @@ export function assertValidCommandEnvelope(envelope, options = {}) {
   assert.equal(result.valid, true);
 }
 
-export function normalizeCommandEnvelopeForGolden(envelope) {
+export function normalizeSchemasEnvelopeForGolden(envelope) {
   assert.match(envelope.command.generatedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
 
   return {
-    ...envelope,
+    schemaVersion: envelope.schemaVersion,
     command: {
-      ...envelope.command,
+      namespace: envelope.command.namespace,
+      name: envelope.command.name,
       generatedAt: "<ISO_DATE_TIME>",
+      adapterId: envelope.command.adapterId,
+    },
+    status: envelope.status,
+    data: {
+      registryId: envelope.data.registryId,
+      registryVersion: envelope.data.registryVersion,
+      schemas: envelope.data.schemas.map((schema) => ({
+        id: schema.id,
+        version: schema.version,
+        filePath: schema.filePath,
+        title: schema.title,
+      })),
+      schemaCount: envelope.data.schemaCount,
+      adapter: {
+        adapterId: envelope.data.adapter.adapterId,
+        repoId: envelope.data.adapter.repoId,
+        configSource: envelope.data.adapter.configSource,
+        sourceGroupCount: envelope.data.adapter.sourceGroupCount,
+      },
+      generatedArtifacts: envelope.data.generatedArtifacts,
     },
   };
+}
+
+export function assertSchemasEnvelopeLooseFields(envelope) {
+  assertStringArray(envelope.warnings, "warnings");
+  assertStringArray(envelope.limitations, "limitations");
+  assertCapabilityArray(envelope.data.implementedCapabilities, "data.implementedCapabilities");
+  assertCapabilityArray(envelope.data.unimplementedCapabilities, "data.unimplementedCapabilities");
 }
 
 export function assertDeterministicJsonEqual(actual, expected) {
@@ -98,4 +126,37 @@ function sortJsonValue(value) {
 
 function isPlainObject(value) {
   return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function assertStringArray(value, field) {
+  assert.equal(Array.isArray(value), true, `${field} must be an array.`);
+  assert.equal(
+    value.every((item) => typeof item === "string"),
+    true,
+    `${field} must contain only strings.`,
+  );
+}
+
+function assertCapabilityArray(value, field) {
+  assert.equal(Array.isArray(value), true, `${field} must be an array.`);
+
+  for (const [index, capability] of value.entries()) {
+    assert.equal(isPlainObject(capability), true, `${field}[${index}] must be an object.`);
+    assert.equal(typeof capability.id, "string", `${field}[${index}].id must be a string.`);
+    assert.equal(typeof capability.status, "string", `${field}[${index}].status must be a string.`);
+    if ("description" in capability) {
+      assert.equal(
+        typeof capability.description,
+        "string",
+        `${field}[${index}].description must be a string.`,
+      );
+    }
+    if ("reason" in capability) {
+      assert.equal(
+        typeof capability.reason,
+        "string",
+        `${field}[${index}].reason must be a string.`,
+      );
+    }
+  }
 }

@@ -72,65 +72,6 @@
         "title": "Agent OS Context Schema Registry"
       }
     ],
-    "implementedCapabilities": [
-      {
-        "id": "context-cli-help",
-        "status": "implemented",
-        "description": "Print help for the initial `agent-os context` CLI namespace."
-      },
-      {
-        "id": "schema-registry-inspection",
-        "status": "implemented",
-        "description": "Emit the context schema registry through `agent-os context schemas --json`."
-      },
-      {
-        "id": "command-envelope-contract",
-        "status": "implemented",
-        "description": "Wrap JSON context CLI output in the shared command envelope."
-      },
-      {
-        "id": "adapter-config-contract",
-        "status": "implemented",
-        "description": "Define and validate the Field Platform adapter/config contract shape."
-      }
-    ],
-    "unimplementedCapabilities": [
-      {
-        "id": "source-indexing",
-        "status": "unimplemented",
-        "reason": "Out of scope for the contract-foundation slice."
-      },
-      {
-        "id": "symbol-extraction",
-        "status": "unimplemented",
-        "reason": "Out of scope for the contract-foundation slice."
-      },
-      {
-        "id": "lexical-search",
-        "status": "unimplemented",
-        "reason": "Out of scope for the contract-foundation slice."
-      },
-      {
-        "id": "dependency-evidence",
-        "status": "unimplemented",
-        "reason": "Out of scope for the contract-foundation slice."
-      },
-      {
-        "id": "embeddings-or-vector-search",
-        "status": "unimplemented",
-        "reason": "No embeddings, vectors, databases, or external stores are introduced in this slice."
-      },
-      {
-        "id": "manifest-generation",
-        "status": "unimplemented",
-        "reason": "Only contracts and adapter fixtures are defined; no manifest artifact is generated."
-      },
-      {
-        "id": "agent-os-prompt-weaving",
-        "status": "unimplemented",
-        "reason": "Prompt-side weaving and catalogues are explicitly outside this slice."
-      }
-    ],
     "schemaCount": 10,
     "adapter": {
       "adapterId": "field-platform",
@@ -139,13 +80,5 @@
       "sourceGroupCount": 2
     },
     "generatedArtifacts": []
-  },
-  "warnings": [
-    "This command reports contracts only; it does not read, index, chunk, search, or embed source files."
-  ],
-  "limitations": [
-    "Schema validation is intentionally lightweight and local to the agent-tools package.",
-    "No generated manifests, Agent OS tool implementations, tool-maintained files, databases, vectors, or prompt weaving are created.",
-    "Capability lists describe current implementation state; unimplemented entries are contractual placeholders for future slices."
-  ]
+  }
 }

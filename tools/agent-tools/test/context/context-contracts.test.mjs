@@ -11,10 +11,11 @@ import {
 } from "../../src/context/core/schema-registry.mjs";
 import {
   assertDeterministicJsonEqual,
+  assertSchemasEnvelopeLooseFields,
   assertValidCommandEnvelope,
   fixturePath,
   loadJsonFixture,
-  normalizeCommandEnvelopeForGolden,
+  normalizeSchemasEnvelopeForGolden,
   runWorkspaceCommand,
   toRepoRelativePath,
   workspaceRoot,
@@ -102,8 +103,9 @@ test("CLI schemas JSON envelope matches the golden shape without pinning generat
     adapterId: "field-platform",
     requireSchemaRegistryData: true,
   });
+  assertSchemasEnvelopeLooseFields(parsed);
   assertDeterministicJsonEqual(
-    normalizeCommandEnvelopeForGolden(parsed),
+    normalizeSchemasEnvelopeForGolden(parsed),
     loadJsonFixture("goldens", "schemas-envelope.golden.json"),
   );
 });

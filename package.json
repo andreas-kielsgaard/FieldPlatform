@@ -19,6 +19,7 @@
     "test-selection": "node tools/agent-tools/src/test-selection.mjs",
     "change-verification": "node tools/agent-tools/src/change-verification.mjs",
     "repo-health": "node tools/agent-tools/src/repo-health.mjs",
+    "agent-os": "node tools/agent-tools/src/agent-os.mjs",
     "boundary:validate": "corepack pnpm --filter agent-tools boundary:validate",
     "phase5:verify": "corepack pnpm --filter agent-tools phase5:verify",
     "phase5:verify:bat": "tools\\scripts\\start-docker-and-verify-phase5.bat",

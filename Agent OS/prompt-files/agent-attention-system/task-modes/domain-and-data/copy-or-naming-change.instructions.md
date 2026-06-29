@@ -2,8 +2,8 @@
 
 ## Orientation Cues
 
-- `prompt-files/domain-glossary.md`
-- `prompt-files/design-system-map.md`
+- Source-owned naming/copy surfaces and relevant project decisions if present
+- Source-owned tokens/primitives when status or label treatment changes
 
 ## Evidence Cues
 
@@ -36,9 +36,9 @@
 
 ## Documentation Cues
 
-- Consider updating `domain-glossary.md` if meaning changes.
+- Consider updating source-owned naming surfaces or a relevant mature project decision if meaning changes.
 - Legacy tool note (inactive): `build-term-index`, legacy index refresh is out of scope unless explicitly requested.
-- Consider updating `design-system-map.md` if status or label families change.
+- Consider updating source-owned tokens/primitives or a relevant mature project decision if status or label families change.
 - Legacy tool note (inactive): `build-route-index` if route labels or slugs change, legacy index refresh is out of scope unless explicitly requested.
 - Consider updating relevant durable memory if a durable naming rule is set.
 
@@ -67,7 +67,6 @@ Docs updated:
 Remaining aliases:
 Checks run:
 ```
-
 
 
 

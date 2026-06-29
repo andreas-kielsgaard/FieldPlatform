@@ -12,7 +12,7 @@ This behavior protects against partial renames and accidental semantic changes.
 - Blast Radius: names can span identifiers, labels, routes, schemas, accessors, fixtures, tests, docs, maps, and public APIs.
 - Boundary: public interfaces, schema, generated artifacts, routes, and tool interfaces need explicit compatibility treatment.
 - Lifecycle: decide whether old names disappear, remain as aliases, or become deprecated legacy.
-- Memory: update canonical terms, aliases, deprecated names, unresolved language, and naming debt when future agents need the distinction.
+- Memory: update canonical terms, aliases, deprecated names, and unresolved language when future agents need the distinction; report unresolved naming compromise in the final response.
 
 ## Procedure
 
@@ -40,7 +40,7 @@ This behavior protects against partial renames and accidental semantic changes.
 
 ## Memory Updates
 
-Update `domain-glossary.md` when canonical names, aliases, deprecated names, unresolved language, or meaning changes are involved. Legacy `term-index` refresh and `rename-impact-preview` use are inactive unless explicitly requested for legacy index maintenance.
+Update source-owned naming surfaces or a relevant mature project decision when canonical names, aliases, deprecated names, unresolved language, or meaning changes are involved. Legacy `term-index` refresh and `rename-impact-preview` use are inactive unless explicitly requested for legacy index maintenance.
 
 Update area maps and relevant durable memory when rename scope affects durable architecture or maintained ownership.
 

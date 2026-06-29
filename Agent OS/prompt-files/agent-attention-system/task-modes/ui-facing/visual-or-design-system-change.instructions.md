@@ -2,7 +2,7 @@
 
 ## Orientation Cues
 
-- `prompt-files/design-system-map.md`
+- Source-owned tokens, primitives, component examples, and relevant project decisions if present.
 
 ## Evidence Cues
 
@@ -31,7 +31,7 @@
 
 ## Documentation Cues
 
-- Consider updating `design-system-map.md`.
+- Consider updating source-owned tokens/primitives or a relevant mature project decision if the shared design rule changes.
 - Legacy tool note (inactive): `build-component-index` if component variants or primitives changed, legacy index refresh is out of scope unless explicitly requested.
 - Legacy skill note (inactive): `test-relation-scan` for visual coverage implications, or report gaps if the tool is unavailable.
 - Consider updating relevant durable memory if a durable design convention is established.
@@ -60,6 +60,5 @@ Visual checks:
 Docs updated:
 Checks run:
 ```
-
 
 

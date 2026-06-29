@@ -13,7 +13,7 @@ This behavior protects against expanding a module, component, service, accessor,
 - Contract: preserve the owner's promised behavior, inputs, outputs, side effects, compatibility, and tests, or handle consumers affected by the contract change.
 - Boundary: reject extension that makes the owner import from a layer or abstraction level it should not know.
 - Blast Radius: if the owner is exported, shared, stable, or consumed across routes/layers, identify likely consumers first.
-- Memory: record only durable scope changes, conventions, or accepted scope debt.
+- Memory: update only durable scope changes or conventions; report accepted scope compromise in the final response.
 
 ## Procedure
 
@@ -59,7 +59,7 @@ Update area-specific maps when the owner's durable scope changes.
 
 Update relevant durable memory when extension establishes a convention.
 
-Update `known-debt.md` if extension is accepted despite scope tension.
+Report accepted scope tension in the final response.
 
 ## Completion Output
 
@@ -72,4 +72,3 @@ Consumers affected:
 Alternative owners considered:
 Memory updated:
 ```
-

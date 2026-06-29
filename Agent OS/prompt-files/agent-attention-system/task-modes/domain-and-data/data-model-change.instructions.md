@@ -2,7 +2,7 @@
 
 ## Orientation Cues
 
-- `prompt-files/domain-glossary.md`
+- Source-owned schema/contracts/domain usage and relevant project decisions if present
 
 ## Evidence Cues
 
@@ -71,7 +71,6 @@ Tests affected:
 Open model questions:
 Checks run:
 ```
-
 
 
 

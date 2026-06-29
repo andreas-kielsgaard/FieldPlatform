@@ -2,8 +2,8 @@
 
 ## Orientation Cues
 
-- `prompt-files/design-system-map.md`
-- `project-control-files/technology-architecture-map.md` when shared placement or interface boundaries may matter
+- Source-owned tokens, primitives, component examples, and relevant project decisions if present
+- `project-decisions/project-decision-map.md` when shared placement or interface boundaries depend on mature project decisions
 - `prompt-files/agent-attention-system/agent-attention-system-usage.md` when deciding whether logic belongs inside this component, a local helper, a shared component, or another owner
 
 ## Evidence Cues
@@ -38,7 +38,7 @@
 ## Documentation Cues
 
 - Legacy tool note (inactive): `build-component-index`, legacy index refresh is out of scope unless explicitly requested.
-- Consider updating `design-system-map.md` if tokens, variants, primitives, or status treatment changed.
+- Consider updating source-owned tokens/primitives or a relevant mature project decision if tokens, variants, primitives, or status treatment changed.
 - Consider updating examples or stories if the component is shared or likely reused.
 - Legacy skill note (inactive): `test-relation-scan` for component coverage implications, or report gaps if the tool is unavailable.
 
@@ -68,6 +68,5 @@ Consumers:
 Docs updated:
 Checks run:
 ```
-
 
 

@@ -47,7 +47,7 @@ This behavior protects against vocabulary drift and names that imply the wrong o
 
 ## Memory Updates
 
-Update `domain-glossary.md` when the name is canonical, shared, provisional, deprecated, or intentionally unresolved. Refresh `term-index` when durable naming evidence should become queryable.
+Update source-owned naming surfaces or a relevant mature project decision when the name is canonical, shared, provisional, deprecated, or intentionally unresolved. Legacy `term-index` refresh is inactive unless explicitly requested for legacy index maintenance.
 
 Update area maps when the name defines a durable Maintained Element or owner.
 

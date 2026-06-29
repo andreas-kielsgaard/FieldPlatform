@@ -11,7 +11,7 @@ This behavior protects against accidental stack drift and one-off dependencies b
 - Intent: name the capability the technology, library, runtime, convention, or standard is meant to provide.
 - Reuse: prefer an existing project standard when it satisfies the need without fragmenting patterns.
 - Boundary: identify which layers, runtime areas, generated artifacts, tools, CI paths, or platform components would depend on the choice.
-- Lifecycle: classify the choice as local experiment, candidate standard, stable architecture, or rejected alternative.
+- Lifecycle: classify the choice as local provisional work, candidate standard, stable architecture, or rejected alternative.
 - Memory: record choices only when they affect future agent or developer decisions.
 
 ## Procedure
@@ -21,7 +21,7 @@ This behavior protects against accidental stack drift and one-off dependencies b
 3. Identify affected boundaries, runtimes, generated surfaces, build/test systems, or agent operations.
 4. Classify the choice lifecycle.
 5. Decide reuse, defer, new, or reject.
-6. Record durable architecture or debt only when the choice becomes future-relevant.
+6. Update durable architecture guidance only when the choice becomes future-relevant; otherwise report scoped compromises in the final response.
 
 ## Prefer Existing Standards When
 
@@ -51,11 +51,11 @@ This behavior protects against accidental stack drift and one-off dependencies b
 
 ## Memory Updates
 
-Update `project-control-files/technology-architecture-map.md` when a technology area, runtime, toolchain, or source/generated boundary becomes durable.
+Update relevant project decisions when a technology area, runtime, toolchain, or source/generated boundary becomes mature human-owned context.
 
 Update relevant durable memory when a choice affects future work or rejects a plausible alternative.
 
-Update `known-debt.md` when accepting a temporary dependency or standard gap.
+Report temporary dependency or standard gaps in the final response.
 
 ## Completion Output
 

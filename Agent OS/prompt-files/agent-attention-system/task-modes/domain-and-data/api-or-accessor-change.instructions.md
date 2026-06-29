@@ -44,7 +44,7 @@
 - Legacy tool note (inactive): `build-symbol-index` if cache or server-state behavior changes, legacy index refresh is out of scope unless explicitly requested.
 - Legacy tool note (inactive): `build-literal-index` if access logic changes, legacy index refresh is out of scope unless explicitly requested.
 - Legacy skill note (inactive): `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
-- Consider updating `known-debt.md` if direct access remains temporarily.
+- Report any temporary direct-access compromise in the final response.
 
 ## Regression Cues
 

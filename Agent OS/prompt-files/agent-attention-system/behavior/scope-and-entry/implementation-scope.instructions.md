@@ -10,8 +10,8 @@ This behavior protects against treating architecture-shaping work as a local edi
 
 - Intent: state the smallest accurate description of the change before deciding that it is architectural.
 - Blast Radius: treat shared exports, routes, schema, accessors, state, policies, fixtures, and canonical names as signals that the change may exceed local scope.
-- Lifecycle: classify changed Maintained Elements as local one-off, candidate pattern, provisional experiment, shared primitive, domain component, stable architecture, deprecated, or retired.
-- Memory: update durable memory only when scope creates a future-facing boundary, convention, uncertainty, accepted debt, or routing expectation.
+- Lifecycle: classify changed Maintained Elements as local one-off, candidate pattern, provisional work, shared primitive, domain component, stable architecture, deprecated, or retired.
+- Memory: update durable memory only when scope creates a future-facing boundary, convention, uncertainty, or routing expectation.
 
 ## Procedure
 
@@ -29,7 +29,7 @@ Choose one:
 - Local edit: no structural-maintenance behavior beyond this file.
 - Local one-off: keep local and easy to delete.
 - Cross-surface change: add the relevant behavior file and task-mode checks.
-- Provisional exploration: record only when future agents may mistake it for precedent.
+- Provisional exploration: report clearly when future agents may mistake it for precedent; update durable memory only when a mature decision changes.
 - Shared-structure change: use placement, ownership, boundary, naming, or lifecycle behavior.
 - Architecture-shaping change: use platform, boundary, and memory behaviors.
 
@@ -48,7 +48,7 @@ Update memory only when:
 - scope classification creates a durable boundary or convention
 - uncertainty should be remembered
 - provisional work could be mistaken for architecture
-- debt is intentionally accepted
+- a real scoped compromise should be reported
 - the decision changes future routing or behavior expectations
 
 ## Completion Output

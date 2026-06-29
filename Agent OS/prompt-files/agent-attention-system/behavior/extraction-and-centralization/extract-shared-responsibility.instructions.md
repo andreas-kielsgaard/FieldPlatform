@@ -13,7 +13,7 @@ This behavior protects against both premature abstraction and leaving stable res
 - Boundary: avoid extracting in a way that inverts dependencies or leaks implementation details.
 - Lifecycle: classify the extraction as candidate, provisional, shared, or stable.
 - Blast Radius: identify current consumers before migrating them to the extracted owner.
-- Memory: record durable extraction, partial extraction debt, or new conventions only when future agents need the precedent.
+- Memory: update durable guidance for extraction or new conventions only when future agents need the precedent.
 
 ## Procedure
 
@@ -57,7 +57,7 @@ This behavior protects against both premature abstraction and leaving stable res
 
 Update component/accessor/tool/area maps when the extracted owner becomes shared.
 
-Update `known-debt.md` if extraction is partial.
+Report partial extraction or remaining compromise in the final response.
 
 Update relevant durable memory when extraction establishes a new convention.
 
@@ -71,5 +71,5 @@ New owner:
 Consumers migrated:
 Lifecycle classification:
 Memory updated:
-Remaining debt:
+Remaining compromise:
 ```

@@ -2,7 +2,7 @@
 
 ## Orientation Cues
 
-- `prompt-files/domain-glossary.md`
+- Source-owned policy/domain usage and relevant project decisions if present
 
 ## Evidence Cues
 
@@ -65,6 +65,5 @@ Tests:
 Docs updated:
 Checks run:
 ```
-
 
 

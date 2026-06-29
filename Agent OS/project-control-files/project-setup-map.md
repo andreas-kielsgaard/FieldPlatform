@@ -2,27 +2,24 @@
 
 ## Purpose
 
-Route agents to Field Platform project setup guidance without turning this map into a long decision document.
+Route agents from Agent OS into human-owned Field Platform project decisions without making Agent OS the owner of those decisions.
 
-Load this map for architecture-shaping, schema, feature, boundary, testing, deployment, or structural-maintenance tasks. Then load only the `project-setup/` rail or existing project-control file that matches the task.
+Load this map for architecture-shaping, schema, feature, boundary, testing, deployment, or structural-maintenance tasks where project context may matter.
 
 ## Lookup
 
 | Need | Load |
 |---|---|
-| How the base Agent OS is woven into this project | `project-setup/project-weaving.md` |
-| Accepted stack and app architecture | `project-setup/stack-architecture.md` and `technology-architecture-map.md` |
-| Product identity and MVP guardrails | `project-setup/product-rails.md` and `field-platform-product-rails.md` |
-| Domain separations and authority rules | `project-setup/domain-rails.md` and `field-platform-domain-rails.md` |
-| Visibility, publication, and review states | `project-setup/visibility-review-publication-model.md` |
-| Relation claims and nudges | `project-setup/relation-claims-model.md` |
-| Database and data-model rails | `project-setup/data-model-rails.md` |
-| Testing expectations | `project-setup/testing-rails.md` |
-| Local and deployable environment rails | `project-setup/deployment-rails.md` |
-| Generated project evidence and freshness | `project-setup/generated-evidence-rules.md` |
+| Human-owned project decision routing | repository-root `project-decisions/project-decision-map.md` |
+| Exact executable versions, package commands, dependency versions, and scripts | Source/config such as `package.json`, package manifests, lockfiles, and tool config |
+| Enforced dependency boundaries | `dependency-cruiser.config.cjs` and `corepack pnpm depcruise:active-source` |
+| Active replacement development-tool surface | `prompt-files/agent-attention-system/maps/tool-map.md` |
+| Legacy generated index/query boundary | Agent OS maps and tool semantic files marked legacy or inactive |
 
 ## Rules
 
-- This map routes; `project-setup/` files carry the project-specific content.
-- Existing project-control files remain valid setup memory until a later human-initiated maintenance task retires or promotes them.
-- Generated project indexes are evidence. They do not replace source files, project-control rails, task modes, structural-maintenance behavior, or human decisions.
+- This map routes only; it does not own product, business, domain, data-model, deployment, testing, or architecture decisions.
+- Do not load every project decision by default. Use repository-root `project-decisions/project-decision-map.md` to choose only the relevant decision file.
+- Source, config, package scripts, dependency rules, schema, migrations, and tests remain authoritative where they directly answer the question.
+- If no mature project decision exists for a question, inspect the current source/config and report uncertainty or scoped compromise instead of inferring a decision from Agent OS.
+- Generated and tool-maintained outputs are evidence. They do not replace source files, project decisions, task modes, structural-maintenance behavior, or explicit human decisions.

@@ -1,6 +1,6 @@
 # Agent OS Map
 
-This map is a lightweight orientation router for the Agent OS scaffold. It helps agents decide which operating-system surfaces to load without treating generated data or tool output as semantic authority.
+This map is a lightweight orientation router for the Agent OS scaffold. It helps agents decide which operating-system surfaces to load without treating generated data, tool output, or project decisions as Agent OS authority.
 
 ## Bootloader
 
@@ -13,10 +13,8 @@ This map is a lightweight orientation router for the Agent OS scaffold. It helps
 - `prompt-files/agent-attention-system/maps/behavior-map.md`: selects structural-maintenance behaviors when durable structural decisions appear.
 - `prompt-files/agent-attention-system/maps/lens-map.md`: inventories reusable reasoning lenses.
 - `prompt-files/agent-attention-system/maps/skill-map.md`: inventories Stratum 3 aggregator skills and Stratum 4 reasoning workflow skills.
-- `project-control-files/project-setup-map.md`: Field Platform project setup router for stack, product, domain, data-model, testing, deployment, and generated-evidence rails.
-- `project-control-files/technology-architecture-map.md`: project-specific technology and architecture setup.
-- `project-control-files/field-platform-product-rails.md`: Field Platform product identity, MVP proof, and product-gravity guardrails.
-- `project-control-files/field-platform-domain-rails.md`: Field Platform identity, stewardship, visibility, review, relation-claim, ways-in, and representation-spine guardrails.
+- `project-control-files/project-setup-map.md`: Agent OS router into source/config/tooling and human-owned project decisions.
+- repository-root `project-decisions/project-decision-map.md`: root-level map for mature Field Platform project decisions. Load only when project decisions are relevant.
 - `project-control-files/pre-development-readiness.md`: semantic readiness cues and deterministic check cues before architecture choices or product development.
 
 ## Usage Surfaces
@@ -27,12 +25,13 @@ This map is a lightweight orientation router for the Agent OS scaffold. It helps
 - `prompt-files/tools/checks/agent-os-contract-check.md`: how to run the Agent OS contract alignment check after map, tool, index, or semantic-layer changes.
 - `prompt-files/agent-attention-system/agent-attention-system-usage.md`: how to select task modes, behaviors, and lenses.
 
-## Memory Surfaces
+## Project Decision Boundary
 
-- `prompt-files/domain-glossary.md`: manual authority for domain language.
-- `prompt-files/design-system-map.md`: manual authority for design-system guidance.
-- `prompt-files/known-debt.md`: intentional debt and removal triggers.
-- `prompt-files/experiments.md`: provisional work and promotion or retirement criteria.
+Human-owned Field Platform project decisions live outside Agent OS under repository-root `project-decisions/`.
+
+Agent OS may point there, but it should not embed product, business, domain, data-model, deployment, or architecture decisions as operating instructions.
+
+When source/config/tools answer a question directly, use them before prose decision notes.
 
 ## Legacy Generated Data Surfaces
 
@@ -42,4 +41,4 @@ The broad generated index/query system is retired from ordinary development. The
 - `tool-maintained-files/project-indexes/*.json`
 - `tool-maintained-files/semantic/semantic-chunk-index.json`
 
-Tool-maintained files are not replacements for source files, manual authority maps, task-mode instructions, structural-maintenance behaviors, skills, or human-initiated Agent OS maintenance decisions.
+Tool-maintained files are not replacements for source files, project decisions, task-mode instructions, structural-maintenance behaviors, skills, or human-initiated Agent OS maintenance decisions.

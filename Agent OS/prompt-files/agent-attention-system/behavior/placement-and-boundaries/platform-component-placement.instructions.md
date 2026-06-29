@@ -48,11 +48,11 @@ This behavior protects against treating major architectural areas as ordinary fo
 
 ## Memory Updates
 
-Update `project-control-files/technology-architecture-map.md` for canonical directory, ownership, source/generated boundaries, and interface expectations.
+Update relevant project decisions for canonical directory, ownership, source/generated boundaries, and interface expectations when they become mature human-owned context.
 
 Update relevant durable memory for accepted or rejected platform boundaries.
 
-Update `known-debt.md` if a provisional boundary is accepted temporarily.
+Report temporarily accepted provisional boundaries in the final response.
 
 ## Completion Output
 

@@ -12,7 +12,7 @@ This behavior protects almost-right abstractions from becoming overloaded.
 - Ownership: reuse or extend only if the existing element is the rightful owner for the new responsibility.
 - Reuse: choose reuse, composition, extension, extraction, branch, or local one-off based on meaning and future change pressure.
 - Duplication: similar shape is not shared semantics; extract only what truly changes together.
-- Lifecycle: classify a branch as local one-off, candidate pattern, provisional experiment, or durable owner.
+- Lifecycle: classify a branch as local one-off, candidate pattern, provisional work, or durable owner.
 - Memory: record durable divergence, non-goals for reuse, shared primitives, or future-relevant near matches.
 
 ## Procedure

@@ -2,10 +2,9 @@
 
 ## Orientation Cues
 
-- `prompt-files/design-system-map.md`
+- Source-owned tokens, primitives, component examples, and relevant project decisions if present
 - `prompt-files/agent-attention-system/agent-attention-system-usage.md`
-- `project-control-files/technology-architecture-map.md` when extraction crosses area, package, or platform boundaries
-- `prompt-files/known-debt.md`
+- `project-decisions/project-decision-map.md` when extraction crosses area, package, or platform boundaries covered by mature project decisions
 
 ## Evidence Cues
 
@@ -38,8 +37,8 @@
 
 - Legacy tool note (inactive): `build-component-index` for the new shared component or extraction candidate, legacy index refresh is out of scope unless explicitly requested.
 - Consider updating relevant durable memory if the extraction establishes a convention.
-- Consider updating `known-debt.md` if duplication is intentionally left.
-- Consider updating `experiments.md` if the extraction remains provisional.
+- Report intentionally retained duplication in the final response.
+- Report provisional extraction status in the final response; update project decisions only when a mature human-owned decision changes.
 
 ## Regression Cues
 
@@ -67,6 +66,5 @@ Behavior changed? yes/no
 Docs updated:
 Checks run:
 ```
-
 
 

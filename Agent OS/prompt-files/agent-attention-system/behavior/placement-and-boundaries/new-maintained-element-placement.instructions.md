@@ -12,7 +12,7 @@ This behavior protects against creating files, folders, modules, components, ser
 - Ownership: place the element with the narrowest owner that has the same reason to change.
 - Boundary: keep dependency direction and interface expectations clear; convenient location is not sufficient.
 - Naming/Ontology: if the name carries domain meaning, align it with existing vocabulary or mark uncertainty.
-- Lifecycle: decide whether the element is local one-off, candidate pattern, provisional experiment, shared primitive, domain component, or stable architecture.
+- Lifecycle: decide whether the element is local one-off, candidate pattern, provisional work, shared primitive, domain component, or stable architecture.
 - Memory: update maps only when placement creates durable ownership, naming, boundary, or convention.
 
 ## Procedure
@@ -56,11 +56,11 @@ This behavior protects against creating files, folders, modules, components, ser
 
 Update area-specific maps when the new element becomes durable or shared.
 
-Update `project-control-files/technology-architecture-map.md` when placement creates or changes an architectural boundary.
+Update relevant project decisions when placement creates or changes a mature architectural boundary.
 
 Update relevant durable memory when placement establishes a convention future agents should follow.
 
-Update `experiments.md` when the new element is explicitly provisional and likely to be mistaken for precedent.
+Report explicitly provisional new elements in the final response when they could be mistaken for precedent.
 
 ## Completion Output
 

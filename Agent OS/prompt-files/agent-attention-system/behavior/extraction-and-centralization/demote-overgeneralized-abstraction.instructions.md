@@ -13,14 +13,14 @@ This behavior protects against framework sludge and false shared ownership.
 - Duplication: local duplication can be more honest than false sharing when semantics are not actually shared.
 - Lifecycle: classify the abstraction as stable, candidate, overgeneralized, deprecated, split, or demoted.
 - Blast Radius: preview affected consumers before narrowing or retiring a shared abstraction.
-- Memory: record status changes, ownership changes, accepted debt, or intentional demotion.
+- Memory: update durable guidance for status changes, ownership changes, or intentional demotion.
 
 ## Procedure
 
 1. State the abstraction, its current purpose, and the pressure causing concern.
 2. Identify variants, options, consumers, and reasons to change.
 3. Decide whether shared semantics still exist or whether local/narrow ownership would be clearer.
-4. Choose keep shared, split, demote, deprecate, or record debt.
+4. Choose keep shared, split, demote, deprecate, or report a scoped compromise.
 5. Add secondary splitting, lifecycle, or near-match behavior when demotion reveals a separate decision.
 
 ## Demote When
@@ -55,7 +55,7 @@ This behavior protects against framework sludge and false shared ownership.
 
 Update component/accessor/area maps when shared status changes.
 
-Update `known-debt.md` if demotion is partial.
+Report partial demotion or remaining compromise in the final response.
 
 Update relevant durable memory when a shared abstraction is intentionally narrowed, split, or demoted.
 
@@ -68,5 +68,5 @@ Decision: keep/split/demote/deprecate
 New owners:
 Consumers affected:
 Memory updated:
-Remaining debt:
+Remaining compromise:
 ```

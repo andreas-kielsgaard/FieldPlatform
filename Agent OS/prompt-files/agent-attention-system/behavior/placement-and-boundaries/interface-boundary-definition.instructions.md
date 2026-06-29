@@ -46,13 +46,13 @@ Choose one:
 
 ## Memory Updates
 
-Update `project-control-files/technology-architecture-map.md` when interface expectations between components change.
+Update relevant project decisions when interface expectations between components change as mature human-owned context.
 
 Refresh or query accessor, schema, dependency, state, and policy-literal evidence when those boundaries are involved.
 
 Update relevant durable memory when an interface convention is established.
 
-Update `known-debt.md` for intentional temporary violations.
+Report intentional temporary violations in the final response.
 
 ## Completion Output
 
@@ -66,4 +66,3 @@ Decision:
 Temporary exceptions:
 Memory updated:
 ```
-

@@ -3,8 +3,8 @@
 ## Orientation Cues
 
 - `prompt-files/agent-attention-system/agent-attention-system-usage.md`
-- `project-control-files/technology-architecture-map.md` when refactor changes placement, ownership, or interface boundaries
-- `prompt-files/known-debt.md`
+- `project-decisions/project-decision-map.md` when refactor changes placement, ownership, or interface boundaries covered by mature project decisions
+- Final response notes for partial refactors or real scoped compromises.
 - Use source reads, human-maintained maps, and standard checks. Legacy generated-index query tools listed below are inactive for ordinary development.
 
 ## Evidence Cues
@@ -44,11 +44,11 @@
 ## Documentation Cues
 
 - Consider using structural maintenance when structure or ownership changes.
-- Consider updating `project-control-files/technology-architecture-map.md` if platform, directory, source/generated, or interface boundaries change.
+- Consider updating relevant project decisions if platform, directory, source/generated, or interface boundaries change as mature human-owned context.
 - Legacy tool note (inactive): `build-component-index` if component ownership changes, legacy index refresh is out of scope unless explicitly requested.
 - Legacy tool note (inactive): `build-accessor-index` if data boundaries change, legacy index refresh is out of scope unless explicitly requested.
 - Consider updating relevant durable memory if a structural convention is established.
-- Consider updating `known-debt.md` if refactor is partial.
+- Report partial refactors or remaining compromise in the final response.
 
 ## Regression Cues
 
@@ -73,8 +73,7 @@ Public APIs changed:
 Dependency checks:
 Tests:
 Docs updated:
-Remaining debt:
+Remaining compromise:
 ```
-
 
 

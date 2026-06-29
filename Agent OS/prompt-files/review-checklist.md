@@ -6,8 +6,8 @@
 - Affected surfaces listed.
 - Checks run.
 - Docs or maps updated.
-- Debt recorded or reported if introduced.
-- Experiment recorded or reported if provisional.
+- Real scoped compromises reported if introduced.
+- Provisional work or uncertainty reported when relevant.
 - Naming impacts considered.
 - Policy impacts considered.
 - Schema and accessor impacts considered.
@@ -22,7 +22,7 @@
 - Did local state absorb a shared concern?
 - Did mock data become a hidden contract?
 - Did a permission or visibility rule move into local UI logic?
-- Did the change introduce unacknowledged debt or provisional code?
+- Did the change introduce unacknowledged compromise or provisional code?
 
 ## Compact Completion Summary Fields
 
@@ -34,8 +34,8 @@
 | Affected surfaces |  |
 | Checks run |  |
 | Docs/maps updated |  |
-| Debt introduced or removed |  |
-| Experiments introduced, promoted, or retired |  |
+| Scoped compromises |  |
+| Provisional work or uncertainty |  |
 | Decisions recorded |  |
 | Remaining risks or assumptions |  |
 

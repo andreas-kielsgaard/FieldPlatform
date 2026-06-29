@@ -49,7 +49,7 @@ This behavior protects semantic coherence even when artifact shape differs.
 
 ## Memory Updates
 
-Update `domain-glossary.md` when terms or semantics become canonical, provisional, deprecated, or intentionally unresolved. Refresh `term-index` when durable semantic evidence should become queryable.
+Update source-owned naming surfaces or a relevant mature project decision when terms or semantics become canonical, provisional, deprecated, or intentionally unresolved. Legacy `term-index` refresh is inactive unless explicitly requested for legacy index maintenance.
 
 Update area maps when semantic ownership affects components, accessors, policies, fixtures, schema, or state.
 

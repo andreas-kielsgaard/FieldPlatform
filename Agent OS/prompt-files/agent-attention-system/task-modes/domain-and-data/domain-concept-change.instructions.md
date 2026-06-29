@@ -2,7 +2,7 @@
 
 ## Orientation Cues
 
-- `prompt-files/domain-glossary.md`
+- Source-owned domain usage and relevant project decisions if present
 
 ## Evidence Cues
 
@@ -39,7 +39,7 @@
 
 ## Documentation Cues
 
-- Consider updating `domain-glossary.md`.
+- Consider updating source-owned naming surfaces or a relevant mature project decision when a durable domain meaning changes.
 - Legacy tool note (inactive): `build-term-index`, legacy index refresh is out of scope unless explicitly requested.
 - Legacy tool note (inactive): `build-schema-shape-index` if relations or invariants changed, legacy index refresh is out of scope unless explicitly requested.
 - Consider updating relevant durable memory if the concept change affects future work.
@@ -73,7 +73,6 @@ Docs updated:
 Unresolved language:
 Checks run:
 ```
-
 
 
 

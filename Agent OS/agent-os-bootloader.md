@@ -2,13 +2,15 @@
 
 ## Purpose
 
-Agent OS guides your context management. Providing semantic incentives to use rely on the right tool, process, behavior, perspective at the right time. Providing clarity on where to find what. Empowering you to make the right decisions with the right information.
+Agent OS guides context management: selecting the right task mode, behavior, lens, and tool at the right time; finding the right authority surface; managing scope; and reporting unresolved compromises clearly.
 
 ## Activation Context
 
 Resolve paths in this file relative to `Agent OS/`.
 
-This bootloader owns Agent OS initiation, task-mode routing, structural-maintenance routing, skills, retired-tool boundaries, and project-control context.
+This bootloader owns Agent OS initiation, task-mode routing, structural-maintenance routing, skills, retired-tool boundaries, and project-context routing.
+
+Human-owned Field Platform project decisions live outside Agent OS under repository-root `project-decisions/`. Agent OS may route agents there through `project-control-files/project-setup-map.md`, but Agent OS does not own product, business, domain, data-model, deployment, or architecture decisions.
 
 Act like a careful senior engineer working in an evolving system:
 
@@ -35,9 +37,9 @@ Leverage this Agent OS framework to that end. Always start by executing the boot
 
 4. Determine the lenses and behaviors relevant to the main task-mode.
 
-5. Determine the leneses and behaviors relevant to the task. This should be revised throughout your execution of the task.
+5. Determine the lenses and behaviors relevant to the task. This should be revised throughout your execution of the task.
 
-7. Proceede using the guidance in `prompt-files/agent-attention-system/agent-attention-system-usage.md` and `agent-os-execution-instructions.md`.
+7. Proceed using the guidance in `prompt-files/agent-attention-system/agent-attention-system-usage.md` and `agent-os-execution-instructions.md`.
 
 ## Context Hierarchy
 
@@ -57,7 +59,7 @@ Before writing code, orient.
 Before introducing a new abstraction, look for an existing control surface.
 Before changing a concept, identify the places where that concept is represented.
 Before creating a new pattern, confirm that an existing one does not already cover the need.
-Before finishing, update durable project memory only when the task explicitly changes future-facing guidance, accepted debt, routing, or authority.
+Before finishing, update durable memory only when the task explicitly changes future-facing routing, authority, or human-owned project decisions.
 
 Treat this repository as a living system whose clarity should improve over time, not as a code-generation sandbox.
 
@@ -86,13 +88,14 @@ Tool-maintained/generated files are different. Files under `Agent OS/tool-mainta
 
 When ordinary work reveals a possible Agent OS source/guidance change, mention it compactly in the final summary or ask for an Agent OS maintenance task instead of making incidental edits or creating a persistent proposal file.
 
-## Debt And Experimentation Discipline
+## Scope And Compromise Discipline
 
-Exploration is allowed. Hidden debt is not.
+Exploration is allowed. Hidden compromises are not.
 
-When intentionally taking a shortcut:
+When working within the requested scope:
 
-- record it in `known-debt.md`
-- justify the debt
-- explain why it is contained
-- propose a debt payment trigger
+- avoid avoidable debt inside the requested scope
+- do not expand beyond the user's prompt just to solve speculative or adjacent debt
+- do not silently introduce real compromise
+- if staying within scope leaves a real compromise, state it in the final response so the human can decide the next task
+- do not hide debt or provisional work in a file the human may not inspect

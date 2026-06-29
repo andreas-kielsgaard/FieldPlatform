@@ -2,9 +2,9 @@
 
 ## Orientation Cues
 
-- `project-control-files/technology-architecture-map.md` when route placement or platform boundaries may matter
+- `project-decisions/project-decision-map.md` when route placement or platform boundaries depend on mature project decisions
 - `prompt-files/agent-attention-system/agent-attention-system-usage.md` when deciding page-shell ownership, boundary placement, or durable route/page structure
-- `prompt-files/domain-glossary.md`
+- Source-owned domain usage, copy surfaces, and relevant project decisions if present
 
 ## Evidence Cues
 
@@ -41,7 +41,7 @@
 - Legacy tool note (inactive): `build-route-index`, legacy index refresh is out of scope unless explicitly requested.
 - Legacy tool note (inactive): `build-literal-index` if visibility changes, legacy index refresh is out of scope unless explicitly requested.
 - Legacy tool note (inactive): `build-component-index` if a page shell becomes reusable, legacy index refresh is out of scope unless explicitly requested.
-- Consider updating `domain-glossary.md` if route language introduces domain terms; use Tool: `build-term-index`, legacy index refresh is out of scope unless explicitly requested.
+- Consider updating source-owned naming surfaces or a relevant mature project decision if route language establishes a durable term. Legacy index refresh is out of scope unless explicitly requested.
 - Legacy tool note (inactive): `build-symbol-index` if URL state changes, legacy index refresh is out of scope unless explicitly requested.
 
 ## Regression Cues
@@ -69,6 +69,5 @@ States covered:
 Docs updated:
 Checks run:
 ```
-
 
 

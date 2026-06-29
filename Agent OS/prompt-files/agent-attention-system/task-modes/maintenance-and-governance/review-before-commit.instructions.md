@@ -3,8 +3,8 @@
 ## Orientation Cues
 
 - `prompt-files/review-checklist.md`
-- `prompt-files/known-debt.md`
-- `prompt-files/experiments.md`
+- Project decisions if the change affects mature human-owned context.
+- Final response notes for real scoped compromises, provisional work, or uncertainty.
 - All mode files used during the task.
 
 ## Evidence Cues
@@ -29,7 +29,7 @@
 
 - Produce a compact structured review, not a vague completion note.
 - Use selected mode report cues as a checklist; answer only the fields material to the final summary unless a fuller report is requested.
-- Confirm docs, debt, experiments, and decisions are updated where needed.
+- Confirm docs, project decisions, and final-response compromise/provisional notes are handled where needed.
 - Confirm user-owned unrelated changes were not modified.
 - Confirm any intentionally included generated artifacts are in scope; do not refresh legacy Agent OS generated indexes during ordinary commit preparation.
 - Identify any check that could not be run and why.
@@ -44,19 +44,19 @@
 - Permissions and visibility.
 - Mocks and fixtures.
 - Tests and checks.
-- Docs, decisions, debt, and experiments.
+- Docs, decisions, scoped compromises, and provisional work.
 
 ## Documentation Cues
 
-- Consider updating `known-debt.md` if any shortcut remains.
-- Consider updating `experiments.md` if provisional code exists.
+- Report any remaining shortcut or real compromise in the final response.
+- Report provisional code in the final response unless a mature project decision should change.
 - Consider updating relevant durable memory if a durable choice was made.
 - Consider using structural maintenance or update relevant maps if ownership, structure, or durable authority changed.
 
 ## Regression Cues
 
 - Missing affected-surface summary.
-- Unacknowledged debt.
+- Unacknowledged compromise.
 - Unmarked provisional work.
 - Docs not updated after control-surface changes.
 - Checks omitted without explanation.
@@ -80,7 +80,7 @@ Mocks affected:
 Permissions affected:
 Tests/checks run:
 Docs updated:
-Debt:
-Experiments:
+Scoped compromises:
+Provisional work or uncertainty:
 Open risks:
 ```

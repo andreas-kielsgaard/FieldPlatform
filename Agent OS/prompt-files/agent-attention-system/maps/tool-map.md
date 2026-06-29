@@ -95,9 +95,9 @@ File: `diff-query`
 Query changed files, status codes, artifact kinds, and changed area hints.
 Parameters: change-index, changed files, changed symbols by follow-up query, changed docs, generated artifacts
 
-## Semantic Candidate Query
+## Legacy Semantic Candidate Query (Inactive)
 File: `semantic-candidate-query`
-Query deterministic text chunks for lexical semantic candidates when exact indexes are too narrow.
+Legacy inactive query for deterministic text chunks when exact retired indexes were too narrow.
 Parameters: semantic-chunk-index, fuzzy recall, near-match chunks, broad orientation, candidate evidence
 
 ## Pattern Candidate Query

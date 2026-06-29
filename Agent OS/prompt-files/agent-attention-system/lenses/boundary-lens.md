@@ -37,7 +37,7 @@ Can access is not the same as should know about.
 - Dependency is expected to go through accessor or interface.
 - Dependency direction violation.
 - Boundary missing; define interface.
-- Temporary exception; record debt.
+- Temporary exception; report scoped compromise.
 
 ## Stop Or Escalate When
 

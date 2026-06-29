@@ -15,7 +15,7 @@ Active development happens from the repository root:
 - `apps/web/src/shared` - shared auth, contracts, config, db, errors, policy, UI, and utilities.
 - `apps/web/drizzle` - current Drizzle schema and generated migration artifacts.
 - `tools/agent-tools` - project maintenance and verification tools.
-- `Agent OS` - active agent operating system, project rails, maps, checks, and generated evidence.
+- `Agent OS` - active agent operating system, maps, checks, and generated evidence.
 - `infra` - infrastructure placeholders and deployment-adjacent material.
 - `Archive` - deprecated pre-migration material, ignored unless explicitly needed.
 
@@ -101,11 +101,13 @@ The replacement development-tool surface is intentionally small:
 
 ## Agent OS
 
-Agents should start with `AGENTS.md`, then load `Agent OS/agent-os-bootloader.md` for non-trivial work. Field Platform-specific product, architecture, schema, testing, deployment, and generated-evidence rails are routed through:
+Agents should start with `AGENTS.md`, then load `Agent OS/agent-os-bootloader.md` for non-trivial work. Field Platform-specific project context and decision routing starts at:
 
 ```text
 Agent OS/project-control-files/project-setup-map.md
 ```
+
+Mature human-owned project decisions live under `project-decisions/`; exact executable details remain in source, config, package scripts, and tool configuration.
 
 Legacy Agent OS and project indexes are evidence, not authority, and are retired from ordinary development. Use human-maintained maps, source reads, the replacement development tools, and standard project checks for normal work; do not refresh legacy indexes unless explicitly asked for legacy Agent OS index maintenance.
 

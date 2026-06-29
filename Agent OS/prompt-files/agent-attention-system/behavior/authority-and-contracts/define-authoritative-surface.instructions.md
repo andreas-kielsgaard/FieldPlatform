@@ -49,7 +49,7 @@ Update the relevant authoritative map, instruction file, schema, tool contract, 
 
 Update documentation notes when a human-facing surface should explain the authority without owning it.
 
-Update `known-debt.md` when authority remains duplicated, stale, or provisional by choice.
+Report duplicated, stale, or provisional authority in the final response when it remains by choice.
 
 ## Completion Output
 
@@ -62,4 +62,3 @@ Consumer/test impact:
 Memory updated:
 Remaining uncertainty:
 ```
-

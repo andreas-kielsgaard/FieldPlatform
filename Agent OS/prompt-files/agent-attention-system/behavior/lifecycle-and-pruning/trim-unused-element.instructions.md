@@ -11,13 +11,13 @@ This behavior protects against dead-element accumulation and unsafe deletion bas
 - Lifecycle: remove only when the element is obsolete, abandoned, unreachable, deprecated, retired, or intentionally no longer authoritative.
 - Contract: removal should preserve promised behavior, fixtures, examples, tests, public APIs, and tool contracts unless consumers are migrated.
 - Blast Radius: check consumers, hidden references, tests, fixtures, docs, examples, generated usage, and public API implications before deletion.
-- Memory: update ledgers, maps, experiments, or known debt when removal changes durable project memory.
+- Memory: update maps, project decisions, or durable guidance when removal changes durable project memory.
 
 ## Procedure
 
 1. State the element and suspected removal reason.
 2. Classify lifecycle as local, provisional, deprecated, retired, obsolete, stable, or uncertain.
-3. Check consumers, public API, dynamic/generated references, tests, fixtures, docs, examples, and recorded debt triggers as needed.
+3. Check consumers, public API, dynamic/generated references, tests, fixtures, docs, examples, and documented removal triggers as needed.
 4. Use `consumer-impact-preview` when removal may affect supported behavior, public API, examples, fixtures, or tool contracts.
 5. Use `artifact-query` when the element may be generated, indexed, derived, or tool-maintained.
 6. Decide remove, defer, deprecate first, or keep.
@@ -44,11 +44,11 @@ This behavior protects against dead-element accumulation and unsafe deletion bas
 - Removing the element changes behavior beyond cleanup.
 - Public API, schema, generated artifacts, routes, or tools are involved.
 - The element appears unused only because analysis tooling is incomplete.
-- Removal conflicts with active experiments or known debt.
+- Removal conflicts with active provisional work or reported compromise.
 
 ## Memory Updates
 
-Update `known-debt.md` or `experiments.md` when removal resolves, changes, or invalidates an entry.
+Report resolved or remaining scoped compromises/provisional status in the final response; update project decisions only when removal changes mature human-owned context.
 
 Update area maps when canonical surfaces are removed.
 
@@ -65,4 +65,3 @@ Decision: remove/defer/deprecate
 Memory updated:
 Remaining uncertainty:
 ```
-

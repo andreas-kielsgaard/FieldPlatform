@@ -4,9 +4,9 @@
 
 - `AGENTS.md`
 - `prompt-files/agent-attention-system/agent-attention-system-usage.md` when documentation changes source-of-truth structure, instruction ownership, or durable authority
-- `project-control-files/technology-architecture-map.md` when documentation changes platform/component layout or boundary expectations
+- `project-decisions/project-decision-map.md` when documentation changes mature human-owned project decisions
 - The relevant `prompt-files` file being changed.
-- `prompt-files/known-debt.md`
+- Final response notes for scoped compromises or unresolved authority.
 
 ## Evidence Cues
 
@@ -41,7 +41,7 @@
 ## Documentation Cues
 
 - Consider using structural maintenance if doc structure, instruction ownership, or durable authority changes.
-- Consider updating `project-control-files/technology-architecture-map.md` if documentation changes platform/component layout or boundary expectations.
+- Consider updating relevant project decisions if documentation changes mature platform/component layout or boundary expectations.
 - Consider updating `AGENTS.md` if routing or instruction hierarchy changes.
 - Consider updating mode files if task behavior changes.
 - Consider updating relevant durable memory if documentation policy changes.
@@ -70,6 +70,5 @@ Generated maps refreshed:
 Potential conflicts removed:
 Checks run:
 ```
-
 
 

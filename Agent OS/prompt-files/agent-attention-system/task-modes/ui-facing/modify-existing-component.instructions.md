@@ -2,7 +2,7 @@
 
 ## Orientation Cues
 
-- `prompt-files/design-system-map.md`
+- Source-owned tokens, primitives, component examples, and relevant project decisions if present
 
 ## Evidence Cues
 
@@ -34,9 +34,9 @@
 ## Documentation Cues
 
 - Legacy tool note (inactive): `build-component-index` for API, variant, purpose, ownership, or status changes, legacy index refresh is out of scope unless explicitly requested.
-- Consider updating `design-system-map.md` if the component changes shared visual rules.
+- Consider updating source-owned tokens/primitives or a relevant mature project decision if the component changes shared visual rules.
 - Legacy skill note (inactive): `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
-- Consider updating `known-debt.md` if compatibility work is intentionally deferred.
+- Report any intentionally deferred compatibility work in the final response.
 
 ## Regression Cues
 
@@ -64,6 +64,5 @@ Breaking risk:
 Docs updated:
 Checks run:
 ```
-
 
 

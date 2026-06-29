@@ -20,7 +20,7 @@ Duplicate shape is not the same as duplicated semantics.
 - Are these copies changing for the same reason?
 - Do they represent the same rule, transformation, status, policy, calculation, or concept?
 - Would changing one require changing the other?
-- Is duplication protecting local experimentation?
+- Is duplication protecting local provisional exploration?
 - Is a current shared abstraction actually false or too broad?
 
 ## Evidence To Consider
@@ -52,4 +52,4 @@ Duplication can remain local when it appears once or twice in unstable explorato
 
 ## Memory Implication
 
-Update memory when duplication is accepted as debt, marked as a candidate pattern, centralized as canonical semantics, or demoted from a false shared abstraction.
+Update memory when duplication is marked as a candidate pattern, centralized as canonical semantics, or demoted from a false shared abstraction. Report accepted duplication compromise in the final response.

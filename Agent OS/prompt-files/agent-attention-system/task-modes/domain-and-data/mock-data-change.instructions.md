@@ -2,7 +2,7 @@
 
 ## Orientation Cues
 
-- `prompt-files/domain-glossary.md`
+- Source-owned domain usage, fixtures, and relevant project decisions if present
 
 ## Evidence Cues
 
@@ -38,10 +38,10 @@
 ## Documentation Cues
 
 - Report fixture or scenario implications until test behavior is designed.
-- Consider updating `domain-glossary.md` if the scenario introduces terms.
+- Consider updating source-owned naming surfaces or a relevant mature project decision if the scenario introduces durable terms.
 - Legacy tool note (inactive): `build-schema-shape-index` if relation assumptions change, legacy index refresh is out of scope unless explicitly requested.
 - Legacy tool note (inactive): `build-component-index` if examples depend on the scenario, legacy index refresh is out of scope unless explicitly requested.
-- Consider updating `experiments.md` if the mock carries provisional product assumptions.
+- Report provisional product assumptions in the final response when mock data carries them.
 
 ## Regression Cues
 
@@ -67,6 +67,5 @@ Assumptions encoded:
 Docs updated:
 Checks run:
 ```
-
 
 

@@ -14,7 +14,7 @@ This behavior protects prototypes from silently fossilizing.
 - Contract: promotion makes promised behavior more stable; review I/O expectations, side effects, and tests before treating it as supported.
 - Naming/Ontology: promotion can make names or concepts canonical; unstable language should remain provisional.
 - Blast Radius: identify current and likely future consumers before making the element shared.
-- Memory: record promotion, ownership, boundary, debt, or experiment status when future agents need it.
+- Memory: update durable guidance for promotion, ownership, boundary, or provisional status when future agents need it.
 
 ## Procedure
 
@@ -23,7 +23,7 @@ This behavior protects prototypes from silently fossilizing.
 3. Identify durable owner, boundary expectations, naming status, and consumers.
 4. Use `consumer-impact-preview` and `test-relation-scan` when promotion makes behavior supported for current or future consumers.
 5. Decide promote, keep provisional, defer, or route to placement/boundary/naming behavior first.
-6. Record resolved or accepted debt only when promotion changes future expectations.
+6. Report resolved or accepted compromise when promotion changes future expectations.
 
 ## Promote When
 
@@ -38,7 +38,7 @@ This behavior protects prototypes from silently fossilizing.
 - The behavior is still exploratory.
 - Ownership or boundary is unclear.
 - The implementation is a temporary workaround.
-- Promotion would spread debt or freeze unstable language.
+- Promotion would spread compromise or freeze unstable language.
 - Consumers can remain local without creating drift.
 
 ## Promotion Outputs
@@ -49,7 +49,7 @@ Choose and record the target lifecycle:
 - Provisional shared implementation.
 - Stable shared implementation.
 - Public interface or contract.
-- Deferred promotion with explicit debt.
+- Deferred promotion with explicit compromise.
 
 ## Stop Or Escalate When
 
@@ -60,11 +60,11 @@ Choose and record the target lifecycle:
 
 ## Memory Updates
 
-Update `experiments.md` when experimental status changes.
+Report provisional status changes in the final response unless a mature project decision should change.
 
-Update `known-debt.md` when debt is resolved, accepted, or deferred.
+Report resolved, accepted, or deferred compromise in the final response.
 
-Update `project-control-files/technology-architecture-map.md`, area maps, or relevant durable memory when promotion establishes durable ownership or structure.
+Update relevant project decisions, area maps, or durable memory when promotion establishes mature ownership or structure.
 
 ## Completion Output
 
@@ -76,7 +76,6 @@ Promotion decision:
 Owner:
 Boundary impact:
 Consumers:
-Debt resolved/accepted:
+Compromise resolved/accepted:
 Memory updated:
 ```
-

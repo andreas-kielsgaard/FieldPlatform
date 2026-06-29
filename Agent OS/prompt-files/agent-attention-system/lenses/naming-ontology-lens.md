@@ -9,7 +9,7 @@ Treat vocabulary as architecture by distinguishing labels, aliases, internal con
 - A task introduces, changes, removes, splits, merges, or reuses a term.
 - A name affects Maintained Elements, routes, schemas, types, accessors, fixtures, tests, permissions, or UI copy.
 - A term appears similar to an existing concept.
-- UI language may be more experimental than internal architecture.
+- UI language may be more provisional than internal architecture.
 
 ## Core Distinction
 

@@ -13,7 +13,7 @@ This behavior protects against monolith growth by splitting on divergent reasons
 - Data/State/Effect: separate state, side effects, accessors, calculations, persistence, policy, and presentation when they have different owners.
 - Blast Radius: preview exports, consumers, and tests before changing public shape.
 - Lifecycle: classify split outputs as local, shared, provisional, or stable.
-- Memory: record durable ownership or boundary changes, and record partial splits as debt.
+- Memory: update durable ownership or boundary guidance; report partial splits as scoped compromises.
 
 ## Procedure
 
@@ -48,7 +48,7 @@ Choose one:
 - Split by responsibility.
 - Split by layer.
 - Split shared owner from local one-off.
-- Log pending split debt.
+- Report pending split compromise.
 
 ## Stop Or Escalate When
 
@@ -61,7 +61,7 @@ Choose one:
 
 Update area maps when ownership changes.
 
-Update `known-debt.md` if split is partial.
+Report partial splits or remaining compromise in the final response.
 
 Update relevant durable memory when a structural split establishes a convention.
 
@@ -75,5 +75,5 @@ New owners:
 Public API impact:
 Boundary impact:
 Memory updated:
-Remaining debt:
+Remaining compromise:
 ```

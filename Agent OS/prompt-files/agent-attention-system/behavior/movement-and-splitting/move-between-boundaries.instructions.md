@@ -20,7 +20,7 @@ This behavior protects against maintained elements living where they create misl
 2. Identify the destination owner and reason to change.
 3. Check imports, exports, consumers, tests, public APIs, and source/generated expectations.
 4. Use `artifact-query` when source/generated, derived, indexed, or tool-maintained status may affect the move.
-5. Decide move, split first, define boundary first, defer, or record debt.
+5. Decide move, split first, define boundary first, defer, or report a scoped compromise.
 6. Keep behavior changes separate from structural movement unless explicitly intended.
 7. Add secondary split or interface-boundary behavior when movement reveals one.
 
@@ -48,13 +48,13 @@ This behavior protects against maintained elements living where they create misl
 
 ## Memory Updates
 
-Update `project-control-files/technology-architecture-map.md` when ownership or boundaries change.
+Update relevant project decisions when mature ownership or boundaries change.
 
 Update area maps when canonical paths or owners change.
 
 Update relevant durable memory when movement establishes a structural convention.
 
-Update `known-debt.md` if movement is partial.
+Report partial movement or remaining compromise in the final response.
 
 ## Completion Output
 
@@ -67,6 +67,5 @@ Behavior changed? intended/no
 Boundary impact:
 Consumers affected:
 Memory updated:
-Remaining debt:
+Remaining compromise:
 ```
-

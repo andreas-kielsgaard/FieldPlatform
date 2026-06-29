@@ -2,8 +2,8 @@
 
 ## Domain Concept Change
 
-- Glossary.
-- Naming index.
+- Project decision map when human-owned domain decisions are relevant.
+- Source/config/test surfaces that currently encode the concept.
 - Data model.
 - Schema.
 - Validators.
@@ -17,12 +17,12 @@
 ## Shared Component Change
 
 - Component registry.
-- Design-system map.
+- Existing primitives, examples, and source-owned design tokens.
 - Stories or examples.
 - Consumers.
 - Tests.
 - Visual checks.
-- Debt or experiment ledgers.
+- Final response notes for scoped compromises or provisional status.
 
 ## Permission Change
 
@@ -45,7 +45,7 @@
 ## Mock Data Change
 
 - Mock-data map.
-- Domain glossary.
+- Project decision map when human-owned domain decisions are relevant.
 - Naming index.
 - Schema or validation assumptions.
 - Stories, examples, and tests.
@@ -58,8 +58,8 @@
 - Structural indexes.
 - Dependency graph.
 - Tests.
-- Decision log if a convention changed.
-- Known debt if work is partial.
+- Project decision file if a mature human-owned convention changed.
+- Final response if staying in scope leaves a real compromise.
 
 ## Update Rules
 

@@ -55,4 +55,4 @@ The change stays inside one local owner, does not alter exported behavior, does 
 
 ## Memory Implication
 
-Update memory when ownership becomes durable, changes a boundary, establishes a convention, records an exception, or leaves intentional ownership debt.
+Update memory when ownership becomes durable, changes a boundary, establishes a convention, or records an exception. Report intentional ownership compromises in the final response.

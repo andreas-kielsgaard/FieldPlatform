@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Prevent prototypes, local helpers, candidate patterns, debt, and deprecated maintained elements from becoming architecture accidentally.
+Prevent prototypes, local helpers, candidate patterns, scoped compromises, and deprecated maintained elements from becoming architecture accidentally.
 
 ## Activates When
 
@@ -21,12 +21,12 @@ Existing in the repository is not the same as approved architecture.
 - What would promote it?
 - What would retire it?
 - What should future agents assume about it?
-- Is this element evidence, experiment, debt, or architecture?
+- Is this element evidence, provisional work, scoped compromise, or architecture?
 
 ## Evidence To Consider
 
-- Experiments ledger.
-- Known debt ledger.
+- Source-owned lifecycle signals.
+- Project decisions when mature human-owned context exists.
 - Component registry, accessor map, technology architecture map, and area-specific maps.
 - Consumer and dependency evidence.
 - Tool evidence from `artifact-query` when generated, indexed, or tool-maintained status affects lifecycle decisions.
@@ -38,7 +38,7 @@ Existing in the repository is not the same as approved architecture.
 - Candidate pattern.
 - Shared primitive.
 - Domain component.
-- Provisional experiment.
+- Provisional work.
 - Stable architecture.
 - Deprecated.
 - Retired.
@@ -56,5 +56,4 @@ The change remains inside a local one-off or already-classified provisional elem
 
 ## Memory Implication
 
-Update memory when lifecycle classification changes, promotion or retirement criteria are defined, debt is accepted or removed, or future agents need to know whether a maintained element is precedent.
-
+Update memory when lifecycle classification changes, promotion or retirement criteria are defined, or future agents need to know whether a maintained element is precedent. Report scoped compromises in the final response.

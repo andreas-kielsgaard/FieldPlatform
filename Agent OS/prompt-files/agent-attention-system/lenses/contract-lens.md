@@ -41,7 +41,7 @@ Internal implementation can change freely only while the promised contract still
 - Consumers may need migration.
 - Tests may need to be added or updated.
 - Contract is implementation detail only.
-- Temporary compatibility exception; record debt.
+- Temporary compatibility exception; report scoped compromise.
 
 ## Stop Or Escalate When
 
@@ -56,6 +56,5 @@ The change is internal, covered by existing tests or local verification, and inp
 
 ## Memory Implication
 
-Update memory when a durable contract is defined, changed, deprecated, made explicit, or when consumer migration or compatibility debt is accepted.
-
+Update memory when a durable contract is defined, changed, deprecated, made explicit, or when consumer migration expectations become mature project context. Report compatibility compromises in the final response.
 

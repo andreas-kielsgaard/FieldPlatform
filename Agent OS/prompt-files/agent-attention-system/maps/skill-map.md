@@ -141,8 +141,8 @@ Use before final review when exhaustive checking would be noisy.
 Active command support: `change-verification`, `repo-health`
 Legacy tool notes (inactive): affected-surface-mapping, test-relation-scan, change-report-assembly
 
-## Exception And Debt Workflow
-File: `exception-and-debt-workflow`
+## Exception And Compromise Workflow
+File: `exception-and-compromise-workflow`
 Use when an imperfection is intentionally left in place.
 Active command support: `change-verification` when the exception changes planned checks.
 Legacy tool notes (inactive): affected-surface-mapping, artifact-query, doc-ref-query

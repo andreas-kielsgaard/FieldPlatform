@@ -2,7 +2,7 @@
 
 ## Orientation Cues
 
-- `prompt-files/known-debt.md`
+- Source/config/schema, migrations, and relevant project decisions if present
 
 ## Evidence Cues
 
@@ -45,7 +45,7 @@
 - Report fixture or scenario implications until test behavior is designed.
 - Legacy skill note (inactive): `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
 - Consider updating relevant durable memory if storage strategy changes.
-- Consider updating `known-debt.md` if migration safety is deferred.
+- Report deferred migration-safety work in the final response.
 
 ## Regression Cues
 
@@ -69,10 +69,8 @@ Generated artifacts:
 Accessors updated:
 Mocks updated:
 Backward compatibility:
-Debt:
+Scoped compromise:
 Checks run:
 Docs updated:
 ```
-
-
 

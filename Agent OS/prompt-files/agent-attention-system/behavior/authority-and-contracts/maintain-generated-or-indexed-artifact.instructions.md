@@ -48,7 +48,7 @@ Update `prompt-files/agent-attention-system/maps/tool-map.md` or tool semantic f
 
 Update relevant maps when generated/indexed outputs change durable routing or authority.
 
-Update `known-debt.md` when an artifact is knowingly stale or a generation path is missing.
+Report knowingly stale artifacts or missing generation paths in the final response.
 
 ## Completion Output
 
@@ -61,5 +61,4 @@ Contract/freshness impact:
 Memory updated:
 Remaining uncertainty:
 ```
-
 

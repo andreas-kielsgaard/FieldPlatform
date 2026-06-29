@@ -54,7 +54,7 @@ This behavior protects against unsafe deletion and prevents obsolete maintained 
 
 ## Memory Updates
 
-Update `known-debt.md` with replacement, migration path, and removal trigger when deprecation remains active.
+Report replacement, migration path, and removal trigger in the final response when deprecation remains active.
 
 Update area maps when canonical owners or preferred paths change.
 
@@ -71,4 +71,3 @@ Migration status:
 Removal trigger:
 Memory updated:
 ```
-

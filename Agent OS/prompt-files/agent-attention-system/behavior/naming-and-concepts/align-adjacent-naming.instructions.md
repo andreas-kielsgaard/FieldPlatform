@@ -51,9 +51,9 @@ This behavior protects against naming drift and premature canonicalization.
 
 Legacy index note (inactive): `term-index` and `term-query` were previously used when aliases, preferred forms, unresolved language, or naming families become durable evidence concerns.
 
-Update `domain-glossary.md` when domain meaning is clarified.
+Update source-owned naming surfaces or a relevant mature project decision when domain meaning is clarified.
 
-Update `known-debt.md` when naming drift remains intentionally unresolved.
+Report intentionally unresolved naming drift in the final response.
 
 ## Completion Output
 
@@ -64,5 +64,5 @@ Alignment decision:
 Canonical or preferred form:
 Aliases retained:
 Memory updated:
-Remaining naming debt:
+Remaining naming compromise:
 ```

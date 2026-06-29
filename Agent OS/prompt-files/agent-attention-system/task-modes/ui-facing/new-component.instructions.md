@@ -8,13 +8,8 @@
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `component-query` for generated component index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
 - Consider searching for similar components and local patterns.
-- Legacy tool note (inactive): `component-query`.
-- Legacy tool note (inactive): `build-component-index` if component structural indexes need refresh.
-- Legacy tool note (inactive): `term-query` for the proposed component name and purpose.
 - Check examples, stories, previews, or neighboring component APIs if available.
 
 ## Implementation Cues
@@ -37,10 +32,8 @@
 
 ## Documentation Cues
 
-- Legacy tool note (inactive): `build-component-index`, legacy index refresh is out of scope unless explicitly requested.
 - Consider updating source-owned tokens/primitives or a relevant mature project decision if tokens, variants, primitives, or status treatment changed.
 - Consider updating examples or stories if the component is shared or likely reused.
-- Legacy skill note (inactive): `test-relation-scan` for component coverage implications, or report gaps if the tool is unavailable.
 
 ## Regression Cues
 

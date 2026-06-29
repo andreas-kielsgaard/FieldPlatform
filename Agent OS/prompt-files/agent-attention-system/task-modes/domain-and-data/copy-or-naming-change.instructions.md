@@ -7,13 +7,7 @@
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `term-query` for generated naming index slices relevant to the target.
-- Legacy tool note (inactive): `route-query` for generated routing index slices relevant to the target.
-- Legacy tool note (inactive): `component-query` for generated component index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Legacy tool note (inactive): `term-query` for terms being introduced or removed.
-- Legacy skill note (inactive): `rename-impact-preview` for non-trivial renames.
 - Consider searching UI literals, identifiers, route labels, fixture keys, tests, and examples.
 
 ## Implementation Cues
@@ -37,9 +31,7 @@
 ## Documentation Cues
 
 - Consider updating source-owned naming surfaces or a relevant mature project decision if meaning changes.
-- Legacy tool note (inactive): `build-term-index`, legacy index refresh is out of scope unless explicitly requested.
 - Consider updating source-owned tokens/primitives or a relevant mature project decision if status or label families change.
-- Legacy tool note (inactive): `build-route-index` if route labels or slugs change, legacy index refresh is out of scope unless explicitly requested.
 - Consider updating relevant durable memory if a durable naming rule is set.
 
 ## Regression Cues

@@ -7,7 +7,7 @@ Protect the promises a maintained element makes to its consumers.
 ## Activates When
 
 - A change alters internal processing, I/O shape, public behavior, error behavior, side effects, timing, ordering, caching, or compatibility.
-- A module, component, accessor, schema, fixture, tool contract, instruction, map, or generated index has consumers that rely on its current behavior.
+- A module, component, accessor, schema, fixture, tool contract, instruction, map, or generated output has consumers that rely on its current behavior.
 - Existing tests may or may not cover the promised behavior.
 - A proposed change changes what downstream consumers should expect.
 
@@ -26,10 +26,10 @@ Internal implementation can change freely only while the promised contract still
 
 ## Evidence To Consider
 
-- Public API, exports, types, schemas, accessors, tool semantic files, fixtures, examples, tests, and consumers.
+- Public API, exports, types, schemas, accessors, active tool guidance, fixtures, examples, tests, and consumers.
 - Unit tests and contract tests covering changed internal processing or I/O relations.
 - Tool evidence from `change-surface`, `test-selection`, and `change-verification` when consumer, coverage, or verification evidence needs to be bounded.
-- Generated indexes or maps that describe the maintained element.
+- Generated outputs or maps that describe the maintained element.
 - Current usage patterns and failure modes.
 - Documentation or instruction files that state expected behavior.
 
@@ -57,4 +57,3 @@ The change is internal, covered by existing tests or local verification, and inp
 ## Memory Implication
 
 Update memory when a durable contract is defined, changed, deprecated, made explicit, or when consumer migration expectations become mature project context. Report compatibility compromises in the final response.
-

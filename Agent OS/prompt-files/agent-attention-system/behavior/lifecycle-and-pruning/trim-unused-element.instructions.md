@@ -18,8 +18,7 @@ This behavior protects against dead-element accumulation and unsafe deletion bas
 1. State the element and suspected removal reason.
 2. Classify lifecycle as local, provisional, deprecated, retired, obsolete, stable, or uncertain.
 3. Check consumers, public API, dynamic/generated references, tests, fixtures, docs, examples, and documented removal triggers as needed.
-4. Use `consumer-impact-preview` when removal may affect supported behavior, public API, examples, fixtures, or tool contracts.
-5. Use `artifact-query` when the element may be generated, indexed, derived, or tool-maintained.
+4. Use `change-surface`, `rg`, source reads, tests, and examples when removal may affect supported behavior, public API, fixtures, or tool contracts.
 6. Decide remove, defer, deprecate first, or keep.
 7. Add secondary deprecation or boundary behavior when removal is not yet safe.
 

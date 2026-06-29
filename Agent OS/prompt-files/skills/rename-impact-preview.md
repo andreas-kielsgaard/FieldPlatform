@@ -1,9 +1,9 @@
-﻿# Skill: rename-impact-preview
+# Skill: rename-impact-preview
 
 ## Purpose
 
 Use before a non-trivial concept, symbol, label, route, fixture, or file rename.
 
-## Legacy Underlying Tools
+## How
 
-term-query, symbol-query, literal-query, route-query, fixture-query, doc-ref-query
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

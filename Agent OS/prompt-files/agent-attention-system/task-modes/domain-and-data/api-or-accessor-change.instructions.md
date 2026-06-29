@@ -2,21 +2,11 @@
 
 ## Orientation Cues
 
-- Use source reads, human-maintained maps, and standard checks. Legacy generated-index query tools listed below are inactive for ordinary development.
+- Use source reads, `rg`, human-maintained maps, and standard checks.
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `accessor-query` for generated accessor index slices relevant to the target.
-- Legacy tool note (inactive): `schema-query` for generated schema index slices relevant to the target.
-- Legacy tool note (inactive): `schema-query` for generated data-model index slices relevant to the target.
-- Legacy tool note (inactive): `literal-query` for generated permissions and visibility index slices relevant to the target.
-- Legacy skill note (inactive): `state-impact-scan` for generated state-management index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Legacy tool note (inactive): `accessor-query`.
-- Legacy tool note (inactive): `symbol-query` for accessor names and API routes.
-- Legacy skill note (inactive): `consumer-impact-preview` for changed accessor/API shape, behavior, errors, side effects, caching, or compatibility.
-- Legacy skill note (inactive): `test-relation-scan` for changed internal processing behind an accessor/API contract.
 - Consider searching direct data access patterns.
 - Consider running affected accessor/API tests.
 
@@ -40,10 +30,6 @@
 
 ## Documentation Cues
 
-- Legacy tool note (inactive): `build-accessor-index`, legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-symbol-index` if cache or server-state behavior changes, legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-literal-index` if access logic changes, legacy index refresh is out of scope unless explicitly requested.
-- Legacy skill note (inactive): `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
 - Report any temporary direct-access compromise in the final response.
 
 ## Regression Cues

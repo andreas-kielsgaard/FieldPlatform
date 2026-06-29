@@ -8,16 +8,8 @@
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `route-query` for generated routing index slices relevant to the target.
-- Legacy tool note (inactive): `component-query` for generated component index slices relevant to the target.
-- Legacy tool note (inactive): `literal-query` for generated permissions and visibility index slices relevant to the target.
-- Legacy tool note (inactive): `term-query` for generated naming index slices relevant to the target.
-- Legacy skill note (inactive): `state-impact-scan` for generated state-management index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Legacy tool note (inactive): `build-route-index`.
 - Consider searching for similar route families and page shells.
-- Legacy tool note (inactive): `term-query` for proposed route labels or slugs.
 - Consider searching for policy/visibility patterns if the route is guarded.
 
 ## Implementation Cues
@@ -38,11 +30,6 @@
 
 ## Documentation Cues
 
-- Legacy tool note (inactive): `build-route-index`, legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-literal-index` if visibility changes, legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-component-index` if a page shell becomes reusable, legacy index refresh is out of scope unless explicitly requested.
-- Consider updating source-owned naming surfaces or a relevant mature project decision if route language establishes a durable term. Legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-symbol-index` if URL state changes, legacy index refresh is out of scope unless explicitly requested.
 
 ## Regression Cues
 

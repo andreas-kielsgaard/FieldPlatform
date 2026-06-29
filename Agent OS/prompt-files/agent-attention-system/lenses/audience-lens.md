@@ -25,8 +25,8 @@ Useful to know is not the same as useful to load during execution.
 
 ## Evidence To Consider
 
-- README files, migration notes, `AGENTS.md`, task-mode files, structural-maintenance behavior files, maps, ledgers, tool semantic files, tests, examples, and product copy.
-- Tool evidence from `audience-placement` when the audience boundary is unclear or content appears misplaced.
+- README files, migration notes, `AGENTS.md`, task-mode files, structural-maintenance behavior files, maps, active tool guidance, tests, examples, and product copy.
+- Source reads, `rg`, and current loading chains when the audience boundary is unclear or content appears misplaced.
 - Current loading chain and selected task modes or behaviors.
 - Whether the content is needed for ordinary execution, deeper review, or human onboarding.
 
@@ -54,5 +54,3 @@ The artifact audience is already clear and the edit does not change who should c
 ## Memory Implication
 
 Update memory when content moves between audience surfaces, agent-critical guidance is promoted out of human prose, or a new audience boundary becomes a durable convention.
-
-

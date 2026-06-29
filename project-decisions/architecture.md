@@ -11,7 +11,7 @@ Record mature Field Platform architecture decisions that are useful to future ag
 - Database structure is defined by Drizzle schema source and generated migrations; those files outrank prose summaries.
 - Source, config, tests, and tools remain authoritative where they are more precise than this decision note.
 
-## Accepted Architecture
+## Current Architecture Decision Context
 
 Field Platform starts as an application-owned modular monolith in a TypeScript and Node workspace.
 
@@ -31,7 +31,7 @@ Keep deployment local-first and portable for now. Concrete executable environmen
 
 ## Deferred Defaults
 
-Do not introduce a separate frontend/backend split, BaaS-first architecture, Prisma as the default ORM, SQLite as the real application database, GraphQL/OpenAPI-first generation, vector or graph database infrastructure, recommendation-engine architecture, Turborepo/Nx, or many physical packages until real project pressure justifies the additional surface.
+A separate frontend/backend split, BaaS-first architecture, Prisma as the default ORM, SQLite as the real application database, GraphQL/OpenAPI-first generation, vector or graph database infrastructure, recommendation-engine architecture, Turborepo/Nx, and many physical packages are deferred by default unless real project pressure justifies the additional surface.
 
 ## Revisit Triggers
 

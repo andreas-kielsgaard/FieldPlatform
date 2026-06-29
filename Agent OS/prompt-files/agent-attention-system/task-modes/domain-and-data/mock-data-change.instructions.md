@@ -6,16 +6,7 @@
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `schema-query` for generated data-model index slices relevant to the target.
-- Legacy tool note (inactive): `schema-query` for generated schema index slices relevant to the target.
-- Legacy tool note (inactive): `component-query` for generated component index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Legacy tool note (inactive): `term-query` for represented concepts.
-- Legacy skill note (inactive): `schema-fixture-drift-scan`.
-- Legacy tool note (inactive): `fixture-query`.
-- Legacy skill note (inactive): `consumer-impact-preview` when fixture or scenario shape is consumed by tests, examples, previews, or generated indexes.
-- Legacy tool note (inactive): `artifact-query` when fixture indexes, generated scenarios, or tool-maintained mock outputs are involved.
 - Consider searching schema/validator references when mock shape changes.
 
 ## Implementation Cues
@@ -39,8 +30,6 @@
 
 - Report fixture or scenario implications until test behavior is designed.
 - Consider updating source-owned naming surfaces or a relevant mature project decision if the scenario introduces durable terms.
-- Legacy tool note (inactive): `build-schema-shape-index` if relation assumptions change, legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-component-index` if examples depend on the scenario, legacy index refresh is out of scope unless explicitly requested.
 - Report provisional product assumptions in the final response when mock data carries them.
 
 ## Regression Cues

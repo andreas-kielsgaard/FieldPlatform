@@ -1,9 +1,9 @@
-﻿# Skill: state-impact-scan
+# Skill: state-impact-scan
 
 ## Purpose
 
 Use when shared state, URL state, cache state, or store ownership changes.
 
-## Legacy Underlying Tools
+## How
 
-symbol-query, route-query, accessor-query, test-query
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

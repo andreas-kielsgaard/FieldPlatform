@@ -1,4 +1,4 @@
-﻿# Skill: boundary-verification
+# Skill: boundary-verification
 
 ## Purpose
 
@@ -8,6 +8,6 @@ Use when placement, movement, or interface decisions depend on dependency direct
 
 Use `corepack pnpm depcruise:active-source` for active app/tool dependency rules and `corepack pnpm change-surface` when changed-file impact matters.
 
-## Legacy Underlying Tools
+## How
 
-dependency-query, path-query, artifact-query
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

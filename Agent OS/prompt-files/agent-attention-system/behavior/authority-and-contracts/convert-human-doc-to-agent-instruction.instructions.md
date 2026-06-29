@@ -18,8 +18,8 @@ This behavior protects against README files, migration notes, explanatory docs, 
 
 1. Identify the human-facing content and the agent behavior it appears to require.
 2. Decide whether the behavior is agent-critical, explanatory only, provisional, or migration-only.
-3. Use `audience-placement` when the intended audience or loading surface is unclear.
-4. Use `authority-resolution` when the same rule may already exist in an agent-facing surface.
+3. Use source reads, `rg`, and current loading chains when the intended audience or loading surface is unclear.
+4. Use source reads and `rg` when the same rule may already exist in an agent-facing surface.
 5. Choose the narrowest agent-facing surface that should own the rule.
 6. Restate the rule there without importing human-only context or broad background.
 7. Leave or revise the human-facing document so it remains explanatory rather than authoritative.
@@ -31,7 +31,7 @@ Choose one:
 
 - Leave human-facing only.
 - Restate in an agent instruction file.
-- Route into a task-mode, behavior, map, checklist, skill, or tool semantic file.
+- Route into a task-mode, behavior, map, checklist, skill, or active tool guidance.
 - Convert to migration note or deferred review item.
 - Defer because authority or audience is unclear.
 
@@ -61,4 +61,3 @@ Authority impact:
 Memory updated:
 Remaining uncertainty:
 ```
-

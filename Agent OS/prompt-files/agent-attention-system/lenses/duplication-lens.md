@@ -27,7 +27,7 @@ Duplicate shape is not the same as duplicated semantics.
 
 - Similar pattern or duplication output.
 - Change history or likely reasons to change.
-- Domain glossary and naming index.
+- Source-owned naming surfaces and relevant advisory project decisions.
 - Consumers and dependency direction.
 - Ownership and lifecycle classification.
 

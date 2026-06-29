@@ -19,7 +19,6 @@ This behavior protects against maintained elements living where they create misl
 1. State the element, current location, and suspected rightful boundary.
 2. Identify the destination owner and reason to change.
 3. Check imports, exports, consumers, tests, public APIs, and source/generated expectations.
-4. Use `artifact-query` when source/generated, derived, indexed, or tool-maintained status may affect the move.
 5. Decide move, split first, define boundary first, defer, or report a scoped compromise.
 6. Keep behavior changes separate from structural movement unless explicitly intended.
 7. Add secondary split or interface-boundary behavior when movement reveals one.

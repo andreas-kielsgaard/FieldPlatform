@@ -109,7 +109,7 @@ Agent OS/project-control-files/project-setup-map.md
 
 Mature human-owned project decisions live under `project-decisions/`; exact executable details remain in source, config, package scripts, and tool configuration.
 
-Legacy Agent OS and project indexes are evidence, not authority, and are retired from ordinary development. Use human-maintained maps, source reads, the replacement development tools, and standard project checks for normal work; do not refresh legacy indexes unless explicitly asked for legacy Agent OS index maintenance.
+Tool-maintained/generated outputs are evidence, not authority. Use human-maintained maps, source reads, active replacement development tools, and standard project checks for normal work; do not refresh generated evidence unless explicitly asked for compatibility maintenance.
 
 ## Git Hygiene
 

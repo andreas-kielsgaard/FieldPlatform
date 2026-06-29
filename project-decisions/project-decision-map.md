@@ -4,7 +4,7 @@
 
 This directory is the human-owned home for mature Field Platform project decisions that source, config, or tools do not already answer.
 
-Agent OS may route agents here, but Agent OS does not own these decisions.
+These files are human-owned advisory context. They may be incomplete, provisional, stale, or lag source/config/tools. They are not Agent OS operating instructions. Agent OS may route agents here, but Agent OS does not own these decisions.
 
 ## How To Use
 

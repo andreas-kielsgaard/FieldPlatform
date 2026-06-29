@@ -6,12 +6,7 @@
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `literal-query` for generated permissions and visibility index slices relevant to the target.
-- Legacy tool note (inactive): `route-query` for generated routing index slices relevant to the target.
-- Legacy tool note (inactive): `accessor-query` for generated accessor index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Legacy skill note (inactive): `policy-literal-drift-scan`.
 - Consider searching policy predicates, role strings, guards, and hidden/disabled logic.
 - Consider searching route guards and accessor-level checks.
 - Consider running affected policy/access tests if available.
@@ -34,10 +29,6 @@
 
 ## Documentation Cues
 
-- Legacy tool note (inactive): `build-literal-index`, legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-route-index`, legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-accessor-index`, legacy index refresh is out of scope unless explicitly requested.
-- Legacy skill note (inactive): `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
 - Consider updating relevant durable memory if policy vocabulary changes.
 
 ## Regression Cues

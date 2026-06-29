@@ -21,7 +21,7 @@ This behavior protects prototypes from silently fossilizing.
 1. State the provisional element and why it is being considered for promotion.
 2. Classify current and target lifecycle.
 3. Identify durable owner, boundary expectations, naming status, and consumers.
-4. Use `consumer-impact-preview` and `test-relation-scan` when promotion makes behavior supported for current or future consumers.
+4. Use `change-surface`, `test-selection`, `change-verification`, `rg`, and source reads when promotion makes behavior supported for current or future consumers.
 5. Decide promote, keep provisional, defer, or route to placement/boundary/naming behavior first.
 6. Report resolved or accepted compromise when promotion changes future expectations.
 

@@ -32,7 +32,7 @@ A repository edit is not automatically a memory change. A durable structural dec
 - Project decisions when mature human-owned context exists.
 - Naming surfaces in source, tests, or project decisions.
 - Task-mode and structural-maintenance guidance.
-- Tool or index output showing durable structural change.
+- Tool output or source/config evidence showing durable structural change.
 
 ## Decision Outputs
 
@@ -40,7 +40,7 @@ A repository edit is not automatically a memory change. A durable structural dec
 - Update map.
 - Update registry.
 - Update naming surface.
-- Update naming index.
+- Update source-owned naming surface.
 - Update project decision.
 - Report scoped compromise in final response.
 - Report provisional status in final response.

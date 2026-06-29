@@ -18,8 +18,8 @@ This behavior protects against authority being duplicated across nearby prose, e
 
 1. State the rule, expectation, or claim whose authority is unclear.
 2. Locate existing mentions and classify each as defining, explaining, referencing, implementing, generated, provisional, or stale.
-3. Use `authority-resolution` when a bounded repository search is needed to find duplicate, conflicting, explanatory, generated, or stale authority candidates.
-4. Use `audience-placement` when the likely authority surface and intended audience may not match.
+3. Use source reads and `rg` when a bounded repository search is needed to find duplicate, conflicting, explanatory, generated, or stale authority candidates.
+4. Inspect current loading chains and target audiences when the likely authority surface and intended audience may not match.
 5. Choose the authoritative surface or decide that authority remains provisional.
 6. Replace duplicate authority with references or narrower explanatory text when needed.
 7. Add secondary naming, contract, movement, centralization, or documentation behavior when authority changes reveal a separate structural decision.
@@ -39,7 +39,7 @@ Choose one:
 
 - Active instructions conflict.
 - Agent-critical behavior exists only in human-facing documentation.
-- A generated, indexed, or tool-maintained artifact is being treated as semantic authority.
+- A generated or tool-maintained artifact is being treated as semantic authority.
 - Product, security, data, public API, schema, permission, or tool contract promises change.
 - The authoritative owner cannot be identified from available context.
 

@@ -26,7 +26,7 @@ A name is not a label. It is a claim about the model.
 ## Evidence To Consider
 
 - Domain glossary.
-- Naming index.
+- Source-owned naming surfaces.
 - Existing symbols, routes, schemas, accessors, fixtures, tests, and UI labels.
 - Rename-impact output.
 - Current product or design language where relevant.

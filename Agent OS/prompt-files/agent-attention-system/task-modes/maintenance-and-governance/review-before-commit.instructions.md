@@ -15,14 +15,7 @@
 - Use `repo-health` when final review needs whole-repository health independent of the diff.
 
 - Consider running typecheck, lint, and relevant tests when available and appropriate.
-- Legacy skill note (inactive): `change-report-assembly` only when a substantial handoff or review report is explicitly needed.
-- Legacy skill note (inactive): `affected-surface-mapping`.
 - Use `depcruise:active-source` if architecture or dependency direction changed.
-- Legacy tool notes (inactive): `dependency-query` and legacy `boundary-verification` evidence.
-- Legacy skill note (inactive): `consumer-impact-preview` when the change may affect promised behavior, public APIs, fixtures, examples, or consumers.
-- Legacy skill note (inactive): `test-relation-scan` when contract-relevant internal processing changed.
-- Legacy tool note (inactive): `artifact-query` when generated, indexed, derived, or tool-maintained artifacts changed.
-- Legacy index note (inactive): `build-change-index --commit-view` and `build-all-indexes --commit-view` were previously used for generated index commit views; do not use them unless explicitly asked for legacy index maintenance.
 - Consider running visual checks if UI changed.
 
 ## Implementation Cues
@@ -31,7 +24,7 @@
 - Use selected mode report cues as a checklist; answer only the fields material to the final summary unless a fuller report is requested.
 - Confirm docs, project decisions, and final-response compromise/provisional notes are handled where needed.
 - Confirm user-owned unrelated changes were not modified.
-- Confirm any intentionally included generated artifacts are in scope; do not refresh legacy Agent OS generated indexes during ordinary commit preparation.
+- Confirm any intentionally included generated artifacts are in scope; do not refresh generated evidence during ordinary commit preparation.
 - Identify any check that could not be run and why.
 
 ## Cross-Application Impact Cues

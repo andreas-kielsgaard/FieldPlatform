@@ -1,9 +1,9 @@
-﻿# Skill: context-budgeting-workflow
+# Skill: context-budgeting-workflow
 
 ## Purpose
 
 Use when tool use may cost more context than it saves.
 
-## Legacy Underlying Tools
+## How
 
-any selected tool or skill
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

@@ -1,4 +1,4 @@
-﻿# Skill: affected-surface-mapping
+# Skill: affected-surface-mapping
 
 ## Purpose
 
@@ -8,6 +8,6 @@ A planned or actual change may affect more than the directly edited files.
 
 Use `corepack pnpm change-surface` for changed files and dependency-cruiser-derived affected active source surfaces.
 
-## Legacy Underlying Tools
+## How
 
-diff-query, symbol-query, dependency-query, route-query, component-query, term-query, doc-ref-query
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

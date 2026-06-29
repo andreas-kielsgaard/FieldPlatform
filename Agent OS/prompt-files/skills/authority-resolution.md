@@ -1,9 +1,9 @@
-﻿# Skill: authority-resolution
+# Skill: authority-resolution
 
 ## Purpose
 
 A rule, convention, map entry, or instruction needs a rightful source of truth.
 
-## Legacy Underlying Tools
+## How
 
-doc-ref-query, artifact-query, term-query
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

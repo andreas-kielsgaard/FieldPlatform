@@ -25,10 +25,9 @@ Mentioning a rule is not the same as owning the rule.
 
 ## Evidence To Consider
 
-- `AGENTS.md`, task-mode files, structural-maintenance files, maps, ledgers, tool semantic files, tests, schemas, README files, and migration notes.
+- `AGENTS.md`, task-mode files, structural-maintenance files, maps, active tool guidance, tests, schemas, README files, and migration notes.
 - Existing references to the rule or concept.
-- Tool evidence from `authority-resolution` when rule ownership or duplicated authority needs a bounded search.
-- Tool evidence from `artifact-query` when generated or tool-maintained artifacts appear to report authority.
+- Source reads and `rg` when rule ownership or duplicated authority needs a bounded search.
 - Prior decisions in relevant durable memory.
 - Whether the artifact is active runtime guidance, human-facing explanation, generated output, or temporary migration context.
 

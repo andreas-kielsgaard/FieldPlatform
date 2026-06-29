@@ -27,7 +27,7 @@ Requested activity is not the same as underlying change type.
 - User request and recent clarifications.
 - Current task-mode selection.
 - Existing implementation, examples, maps, or tests directly named by the request.
-- Tool or index output that indicates affected surfaces.
+- Tool output or source/config evidence that indicates affected surfaces.
 - Any current uncertainty about scope or structural implication.
 
 ## Decision Outputs

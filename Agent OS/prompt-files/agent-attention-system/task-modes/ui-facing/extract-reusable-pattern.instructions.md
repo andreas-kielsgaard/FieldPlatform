@@ -8,14 +8,8 @@
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `component-query` for generated component index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
 - Consider searching for repeated markup, classes, functions, helpers, or compositions.
-- Legacy tool note (inactive): `component-query`.
-- Legacy tool note (inactive): `pattern-candidate-query`.
-- Legacy tool note (inactive): `build-component-index` if component structural indexes need refresh.
-- Legacy tool note (inactive): `dependency-query` when extraction crosses module boundaries.
 
 ## Implementation Cues
 
@@ -35,7 +29,6 @@
 
 ## Documentation Cues
 
-- Legacy tool note (inactive): `build-component-index` for the new shared component or extraction candidate, legacy index refresh is out of scope unless explicitly requested.
 - Consider updating relevant durable memory if the extraction establishes a convention.
 - Report intentionally retained duplication in the final response.
 - Report provisional extraction status in the final response; update project decisions only when a mature human-owned decision changes.

@@ -1,9 +1,9 @@
-﻿# Skill: safe-rename-workflow
+# Skill: safe-rename-workflow
 
 ## Purpose
 
 Use when distinguishing pure rename, semantic rename, alias, split, merge, or deprecation.
 
-## Legacy Underlying Tools
+## How
 
-rename-impact-preview, term-query, symbol-query, doc-ref-query
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

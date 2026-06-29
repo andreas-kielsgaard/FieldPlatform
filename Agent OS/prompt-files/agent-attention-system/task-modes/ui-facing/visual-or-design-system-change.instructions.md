@@ -6,11 +6,7 @@
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `component-query` for generated component index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Legacy skill note (inactive): `design-token-drift-scan`.
-- Legacy tool note (inactive): `component-query` when shared visuals change.
 - Consider using component examples, previews, or Storybook if available.
 - Consider running visual comparisons or screenshots if available.
 
@@ -32,8 +28,6 @@
 ## Documentation Cues
 
 - Consider updating source-owned tokens/primitives or a relevant mature project decision if the shared design rule changes.
-- Legacy tool note (inactive): `build-component-index` if component variants or primitives changed, legacy index refresh is out of scope unless explicitly requested.
-- Legacy skill note (inactive): `test-relation-scan` for visual coverage implications, or report gaps if the tool is unavailable.
 - Consider updating relevant durable memory if a durable design convention is established.
 
 ## Regression Cues

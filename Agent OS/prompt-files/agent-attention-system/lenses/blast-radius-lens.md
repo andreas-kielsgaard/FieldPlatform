@@ -6,7 +6,7 @@ Preview consequences beyond directly touched files so source decisions stay boun
 
 ## Activates When
 
-- A change touches shared owners, public interfaces, routes, schema, accessors, policies, state, fixtures, generated indexes, or reusable components.
+- A change touches shared owners, public interfaces, routes, schema, accessors, policies, state, fixtures, generated outputs, or reusable components.
 - A rename, move, extraction, centralization, split, deprecation, or trim may affect consumers.
 - The affected surfaces are uncertain.
 
@@ -20,8 +20,8 @@ Touched files are not the same as affected surfaces.
 - What routes expose it?
 - What tests encode it?
 - What mocks or fixtures represent it?
-- What docs, maps, ledgers, or indexes mention it?
-- Would generated or structural indexes need refresh later?
+- What docs, maps, source/config surfaces, or tests mention it?
+- Would generated outputs or tool-maintained artifacts be affected?
 
 ## Evidence To Consider
 
@@ -33,7 +33,7 @@ Touched files are not the same as affected surfaces.
 - Route map.
 - Rename-impact output.
 - Affected-surface summaries.
-- Tests, mocks, fixtures, docs, and structural indexes.
+- Tests, mocks, fixtures, docs, and generated outputs when in scope.
 
 ## Decision Outputs
 

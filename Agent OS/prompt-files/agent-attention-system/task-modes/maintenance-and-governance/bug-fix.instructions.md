@@ -2,25 +2,17 @@
 
 ## Orientation Cues
 
-Use source reads, human-maintained maps, and standard checks for the failing surface. Legacy generated-index query tools are inactive for ordinary bug fixes:
+Use source reads, `rg`, human-maintained maps, and standard checks for the failing surface.
 
 - Final response notes for deferred root-cause work or real scoped compromises.
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `component-query` for generated component index slices relevant to the target.
-- Legacy tool note (inactive): `route-query` for generated routing index slices relevant to the target.
-- Legacy tool note (inactive): `accessor-query` for generated accessor index slices relevant to the target.
-- Legacy skill note (inactive): `state-impact-scan` for generated state-management index slices relevant to the target.
-- Legacy tool note (inactive): `literal-query` for generated permissions and visibility index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
 - Try to reproduce the failure or clearly describe why reproduction is not available.
 - Consider running focused tests or manual checks for the failing surface.
 - Consider searching for similar bug patterns.
 - Consider searching related state, accessor, policy, or component consumers.
-- Legacy skill note (inactive): `consumer-impact-preview` when the fix may change behavior for consumers beyond the failing path.
-- Legacy skill note (inactive): `test-relation-scan` when adding or revising regression coverage for a contract-relevant path.
 
 ## Implementation Cues
 
@@ -43,7 +35,6 @@ Use source reads, human-maintained maps, and standard checks for the failing sur
 - Report regression coverage implications until test behavior is designed.
 - Report deferred root-cause work in the final response.
 - Consider updating relevant durable memory if the fix changes a convention.
-- Legacy generated-index builder note (inactive): matching builder would previously have been used if the bug exposed stale generated memory, legacy index refresh is out of scope unless explicitly requested.
 
 ## Regression Cues
 

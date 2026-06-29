@@ -10,15 +10,8 @@
 
 ## Evidence Cues
 
-- Legacy tool note (inactive): `path-query` when documentation depends on source-directory structure.
-- Legacy tool note (inactive): `build-path-index` when `path-index.json` needs refresh, legacy index refresh is out of scope unless explicitly requested.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
 - Consider searching for duplicate or conflicting instructions.
-- Legacy skill note (inactive): `docs-reference-drift-scan`.
-- Legacy skill note (inactive): `authority-resolution` when a rule, map entry, instruction, or source-of-truth statement may have multiple candidate owners.
-- Legacy skill note (inactive): `audience-placement` when content may belong in agent-facing instructions, human docs, product copy, tests, examples, tool output, or migration notes.
-- Legacy tool note (inactive): `artifact-query` when documentation or maps may be generated, indexed, derived, or tool-maintained.
 - Consider searching references to renamed docs or modes.
 
 ## Implementation Cues
@@ -28,7 +21,7 @@
 - Keep agent-critical behavior in agent-facing instruction surfaces; keep README-style explanation human-facing.
 - Move detailed procedures out of `AGENTS.md` into mode files.
 - Keep `AGENTS.md` as routing and behavioral contract.
-- If a correction has happened more than once, encode it as a mode instruction, checklist item, script/check, lint rule, or structural index.
+- If a correction has happened more than once, encode it as a mode instruction, checklist item, script/check, lint rule, or concise guidance.
 - Mark provisional migration docs honestly when they are not yet active.
 
 ## Cross-Application Impact Cues

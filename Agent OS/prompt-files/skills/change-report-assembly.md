@@ -1,4 +1,4 @@
-﻿# Skill: change-report-assembly
+# Skill: change-report-assembly
 
 ## Purpose
 
@@ -8,6 +8,6 @@ Use only when substantial task handoff or review reporting is explicitly request
 
 Use `corepack pnpm change-verification` as the verification-plan input when a substantial report is explicitly requested.
 
-## Legacy Underlying Tools
+## How
 
-affected-surface-mapping, diff-query, test-relation-scan
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

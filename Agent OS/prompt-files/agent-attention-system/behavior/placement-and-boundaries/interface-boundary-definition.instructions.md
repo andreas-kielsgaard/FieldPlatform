@@ -21,7 +21,7 @@ This behavior protects against direct imports and hidden coupling where an expli
 2. Decide whether direct dependency, existing interface, expanded interface, new interface, inversion, or temporary exception is appropriate.
 3. Check whether the boundary carries data, state, effects, policy, schema, tools, or generated contracts.
 4. Identify consumers affected by the boundary choice.
-5. Use `consumer-impact-preview` and `test-relation-scan` when the boundary carries consumer-visible promises or compatibility risk.
+5. Use `change-surface`, `test-selection`, `change-verification`, dependency-cruiser, `rg`, and source reads when the boundary carries consumer-visible promises or compatibility risk.
 6. Define allowed and disallowed coupling and whether consumer-facing expectations are preserved or intentionally changed.
 7. Add secondary movement or placement behavior if the element lives on the wrong side.
 
@@ -48,7 +48,7 @@ Choose one:
 
 Update relevant project decisions when interface expectations between components change as mature human-owned context.
 
-Refresh or query accessor, schema, dependency, state, and policy-literal evidence when those boundaries are involved.
+Use source reads, `rg`, dependency-cruiser, `change-surface`, and `change-verification` when accessor, schema, dependency, state, or policy boundaries are involved.
 
 Update relevant durable memory when an interface convention is established.
 

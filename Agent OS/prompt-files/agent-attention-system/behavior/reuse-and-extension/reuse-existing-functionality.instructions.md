@@ -20,7 +20,7 @@ This behavior protects against both unnecessary duplication and corrupting an ex
 1. State the existing functionality and the new need.
 2. Decide whether meaning, ownership, lifecycle, dependencies, and consumers match.
 3. Check boundary direction and approved consumption path.
-4. Use `consumer-impact-preview` when reuse or adaptation could alter promised behavior for existing consumers.
+4. Use `change-surface`, `rg`, source reads, tests, and examples when reuse or adaptation could alter promised behavior for existing consumers.
 5. Choose reuse unchanged, compose/wrap, extend, branch, create local one-off, or avoid.
 6. Add secondary behavior when mismatch points to extension, near-match branching, extraction, movement, or deprecation.
 
@@ -71,4 +71,3 @@ Boundary impact:
 Lifecycle classification:
 Memory updated:
 ```
-

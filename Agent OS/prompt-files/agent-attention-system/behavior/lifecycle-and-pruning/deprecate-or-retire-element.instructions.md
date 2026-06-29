@@ -18,8 +18,7 @@ This behavior protects against unsafe deletion and prevents obsolete maintained 
 
 1. State the element and current lifecycle.
 2. Identify replacement, migration path, consumers, and public boundary implications.
-3. Use `consumer-impact-preview` and `test-relation-scan` when deprecation or retirement changes supported behavior or compatibility.
-4. Use `artifact-query` when generated, indexed, or tool-maintained status affects the retirement path.
+3. Use `change-surface`, `test-selection`, `change-verification`, `rg`, and source reads when deprecation or retirement changes supported behavior or compatibility.
 5. Decide keep, deprecate, retire, or defer.
 6. Define removal trigger when deprecation remains active.
 7. Add secondary trim-unused-element behavior only when removal evidence is strong enough.
@@ -36,7 +35,7 @@ This behavior protects against unsafe deletion and prevents obsolete maintained 
 - The element is no longer authoritative.
 - Consumers have migrated or usage is intentionally blocked.
 - The replacement is established.
-- Remaining references are legacy-only or removal-ready.
+- Remaining references are compatibility-only or removal-ready.
 
 ## Defer Deprecation When
 

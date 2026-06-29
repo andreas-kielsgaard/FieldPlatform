@@ -20,7 +20,7 @@ This behavior protects against using inheritance or direct extension when compos
 1. State the existing behavior and the desired relationship.
 2. Decide whether shared identity is semantically true or merely convenient.
 3. Check boundary direction, public API, consumer expectations, and replacement cost.
-4. Use `consumer-impact-preview` when the strategy changes consumer-visible promises or adaptation behavior.
+4. Use `change-surface`, `rg`, source reads, tests, and examples when the strategy changes consumer-visible promises or adaptation behavior.
 5. Choose composition, wrapping/adaptation, extension, inheritance, local definition, or defer.
 6. Add secondary boundary, extension, or near-match behavior when strategy choice reveals a separate structural decision.
 
@@ -81,4 +81,3 @@ Boundary impact:
 Lifecycle classification:
 Memory updated:
 ```
-

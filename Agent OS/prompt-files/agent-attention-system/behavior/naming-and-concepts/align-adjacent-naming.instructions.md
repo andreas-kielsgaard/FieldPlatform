@@ -49,7 +49,6 @@ This behavior protects against naming drift and premature canonicalization.
 
 ## Memory Updates
 
-Legacy index note (inactive): `term-index` and `term-query` were previously used when aliases, preferred forms, unresolved language, or naming families become durable evidence concerns.
 
 Update source-owned naming surfaces or a relevant mature project decision when domain meaning is clarified.
 

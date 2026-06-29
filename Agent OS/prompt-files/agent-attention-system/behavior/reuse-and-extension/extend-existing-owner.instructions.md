@@ -20,7 +20,7 @@ This behavior protects against expanding a module, component, service, accessor,
 1. State the behavior being added.
 2. State the current owner's responsibility and public purpose.
 3. Check reason to change, lifecycle, dependencies, abstraction level, contract expectations, tests, and consumers.
-4. Use `consumer-impact-preview` and `test-relation-scan` when extension may alter promised behavior for existing consumers.
+4. Use `change-surface`, `test-selection`, `change-verification`, `rg`, and source reads when extension may alter promised behavior for existing consumers.
 5. Check whether the owner's name remains precise.
 6. Decide extend, branch, split, move, or defer.
 7. Add secondary behavior when extension reveals near-match, overload, movement, or interface decisions.

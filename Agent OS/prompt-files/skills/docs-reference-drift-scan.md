@@ -1,9 +1,9 @@
-﻿# Skill: docs-reference-drift-scan
+# Skill: docs-reference-drift-scan
 
 ## Purpose
 
 Use when docs, maps, or instruction references may be stale.
 
-## Legacy Underlying Tools
+## How
 
-doc-ref-query, symbol-query, path-query, diff-query
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

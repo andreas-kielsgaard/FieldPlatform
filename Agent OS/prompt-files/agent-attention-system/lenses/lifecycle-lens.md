@@ -29,7 +29,6 @@ Existing in the repository is not the same as approved architecture.
 - Project decisions when mature human-owned context exists.
 - Component registry, accessor map, technology architecture map, and area-specific maps.
 - Consumer and dependency evidence.
-- Tool evidence from `artifact-query` when generated, indexed, or tool-maintained status affects lifecycle decisions.
 - User or maintainer signals about maturity.
 
 ## Decision Outputs

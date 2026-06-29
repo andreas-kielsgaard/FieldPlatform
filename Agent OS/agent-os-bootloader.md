@@ -8,9 +8,9 @@ Agent OS guides context management: selecting the right task mode, behavior, len
 
 Resolve paths in this file relative to `Agent OS/`.
 
-This bootloader owns Agent OS initiation, task-mode routing, structural-maintenance routing, skills, retired-tool boundaries, and project-context routing.
+This bootloader owns Agent OS initiation, task-mode routing, structural-maintenance routing, skills, tool-use boundaries, and project-context routing.
 
-Human-owned Field Platform project decisions live outside Agent OS under repository-root `project-decisions/`. Agent OS may route agents there through `project-control-files/project-setup-map.md`, but Agent OS does not own product, business, domain, data-model, deployment, or architecture decisions.
+Human-owned Field Platform project decisions live outside Agent OS under repository-root `project-decisions/`. Agent OS may route agents there through `project-control-files/project-setup-map.md`, but Agent OS does not own product, business, domain, data-model, deployment, or architecture decisions. Project decisions are advisory context, may lag source/config/tools, and are not Agent OS instructions.
 
 Act like a careful senior engineer working in an evolving system:
 
@@ -33,13 +33,13 @@ Leverage this Agent OS framework to that end. Always start by executing the boot
    - `prompt-files/agent-attention-system/maps/skill-map.md`
    - `project-control-files/project-setup-map.md`
 
-3. Select the initial task-mode.
+2. Select the initial task-mode.
 
-4. Determine the lenses and behaviors relevant to the main task-mode.
+3. Determine the lenses and behaviors relevant to the main task-mode.
 
-5. Determine the lenses and behaviors relevant to the task. This should be revised throughout your execution of the task.
+4. Determine the lenses and behaviors relevant to the task. This should be revised throughout your execution of the task.
 
-7. Proceed using the guidance in `prompt-files/agent-attention-system/agent-attention-system-usage.md` and `agent-os-execution-instructions.md`.
+5. Proceed using the guidance in `prompt-files/agent-attention-system/agent-attention-system-usage.md` and `agent-os-execution-instructions.md`.
 
 ## Context Hierarchy
 
@@ -67,13 +67,13 @@ Treat this repository as a living system whose clarity should improve over time,
 
 - Tool temptation: avoid calling a tool merely because it exists. Use ordinary source reads and standard project checks first; use active approved tools such as `change-surface`, `test-selection`, `change-verification`, `repo-health`, and `depcruise:active-source` when affected-surface, test-relation, verification-plan, repo-health, or dependency-boundary evidence is the expensive part.
 - Semantic delegation: avoid asking deterministic tools to decide rightful ownership, audience, authority, abstraction quality, intended behavior, or whether two patterns mean the same thing.
-- Legacy index illusion: the old broad index/query system is retired from ordinary development. Do not rely on generated index absence for normal product work.
+- Generated-output illusion: absence from generated evidence is not proof of absence in source/config.
 - Context explosion: prefer bounded summaries, top-N results, direct consumers, and targeted slices over full raw output.
 - Expensive input: if defining the query requires as much reasoning as solving the task directly, reason directly or use a smaller query.
 - Timing: if all relevant context is already loaded and small, direct reasoning may be better than a tool call.
 - Convention dependence: metadata tools are only as good as maintained conventions. Treat unknown metadata as uncertainty.
 - Generated authority: generated/tool-maintained outputs are evidence surfaces, not semantic authority.
-- Metadata maintenance: do not hand-maintain generated index metadata. Legacy index builders may run only for an explicit legacy Agent OS index-maintenance task.
+- Metadata maintenance: do not hand-maintain generated metadata. Refresh generated evidence only when explicitly asked for compatibility maintenance.
 
 ## Agent OS Source And Generated Evidence Boundaries
 

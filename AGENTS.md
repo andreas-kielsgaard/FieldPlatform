@@ -20,7 +20,7 @@ For Field Platform architecture, feature, schema, boundary, testing, deployment,
 
 - `Agent OS/project-control-files/project-setup-map.md`
 
-The project setup map is a router. Load only the `project-setup/` setup rail that matches the task.
+The project setup map is a router to source/config/tooling and human-owned project decisions. Load only the relevant project decision file when mature project decisions are needed.
 
 ## Archive Boundary
 
@@ -36,9 +36,9 @@ Archived files are not active product, architecture, or Agent OS authority.
 - Preserve user-owned files and unrelated local changes.
 - Do not edit `App.code-workspace` unless explicitly asked.
 - Treat Agent OS source and guidance as protected during ordinary development. Read and follow it, but do not edit `Agent OS/agent-os-*.md`, `Agent OS/prompt-files/**`, `Agent OS/project-control-files/**`, or `Agent OS/tool-implementations/**` unless the human prompt explicitly asks for Agent OS maintenance.
-- Treat generated Agent OS indexes and project indexes as evidence, not semantic authority.
+- Treat tool-maintained/generated outputs as evidence, not semantic authority.
 - Tool-maintained files under `Agent OS/tool-maintained-files/**` may be updated only by intentionally running the corresponding approved tool. Do not hand-edit them or refresh them by default.
-- The broad Agent OS index/query pipeline is retired from ordinary development. Do not run `agent:index`, `agent:index:check`, or legacy index builders unless explicitly asked for legacy Agent OS index maintenance.
+- Do not refresh generated Agent OS evidence unless explicitly asked for compatibility maintenance.
 - For ordinary development verification support, prefer the small replacement tool surface: `change-surface`, `test-selection`, `change-verification`, `repo-health`, and `depcruise:active-source`.
 
 ## Active Commands

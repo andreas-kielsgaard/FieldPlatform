@@ -1,4 +1,4 @@
-# Project Setup Map
+# Project Context Router
 
 ## Purpose
 
@@ -13,13 +13,13 @@ Load this map for architecture-shaping, schema, feature, boundary, testing, depl
 | Human-owned project decision routing | repository-root `project-decisions/project-decision-map.md` |
 | Exact executable versions, package commands, dependency versions, and scripts | Source/config such as `package.json`, package manifests, lockfiles, and tool config |
 | Enforced dependency boundaries | `dependency-cruiser.config.cjs` and `corepack pnpm depcruise:active-source` |
-| Active replacement development-tool surface | `prompt-files/agent-attention-system/maps/tool-map.md` |
-| Legacy generated index/query boundary | Agent OS maps and tool semantic files marked legacy or inactive |
+| Active development-tool surface and standard evidence sources | `prompt-files/agent-attention-system/maps/tool-map.md` |
 
 ## Rules
 
 - This map routes only; it does not own product, business, domain, data-model, deployment, testing, or architecture decisions.
 - Do not load every project decision by default. Use repository-root `project-decisions/project-decision-map.md` to choose only the relevant decision file.
+- Project decisions are advisory, human-owned, and may lag source/config/tools.
 - Source, config, package scripts, dependency rules, schema, migrations, and tests remain authoritative where they directly answer the question.
 - If no mature project decision exists for a question, inspect the current source/config and report uncertainty or scoped compromise instead of inferring a decision from Agent OS.
 - Generated and tool-maintained outputs are evidence. They do not replace source files, project decisions, task modes, structural-maintenance behavior, or explicit human decisions.

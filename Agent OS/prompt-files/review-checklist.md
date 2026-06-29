@@ -2,23 +2,19 @@
 
 ## Before Merge
 
-- Task mode stated.
-- Affected surfaces listed.
-- Checks run.
-- Docs or maps updated.
+- Task mode considered; state only if useful.
+- Affected surfaces listed when meaningful.
+- Checks run or skipped with reason.
+- Durable context updated only when required.
 - Real scoped compromises reported if introduced.
 - Provisional work or uncertainty reported when relevant.
-- Naming impacts considered.
-- Policy impacts considered.
-- Schema and accessor impacts considered.
-- Component and design-system impacts considered.
-- Mock and fixture impacts considered.
+- Naming, policy, schema, accessor, component, mock, and fixture impacts considered when in scope.
 
 ## Reviewer Prompts
 
 - Did this create a new pattern unnecessarily?
 - Did naming drift?
-- Did a concept change without its maps changing?
+- Did a concept change without its owning source/config/test surfaces changing?
 - Did local state absorb a shared concern?
 - Did mock data become a hidden contract?
 - Did a permission or visibility rule move into local UI logic?
@@ -26,17 +22,16 @@
 
 ## Compact Completion Summary Fields
 
+Use only fields that help the final response.
+
 | Field | Notes |
 |---|---|
-| Primary task mode |  |
-| Secondary task modes |  |
 | Files changed |  |
 | Affected surfaces |  |
 | Checks run |  |
-| Docs/maps updated |  |
+| Durable context updated |  |
 | Scoped compromises |  |
 | Provisional work or uncertainty |  |
-| Decisions recorded |  |
 | Remaining risks or assumptions |  |
 
 ## Update Rules

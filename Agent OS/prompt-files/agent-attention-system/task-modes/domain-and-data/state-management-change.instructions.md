@@ -2,17 +2,11 @@
 
 ## Orientation Cues
 
-- Use source reads, human-maintained maps, and standard checks. Legacy generated-index query tools listed below are inactive for ordinary development.
+- Use source reads, `rg`, human-maintained maps, and standard checks.
 
 ## Evidence Cues
 
-- Legacy skill note (inactive): `state-impact-scan` for generated state-management index slices relevant to the target.
-- Legacy tool note (inactive): `route-query` for generated routing index slices relevant to the target.
-- Legacy tool note (inactive): `accessor-query` for generated accessor index slices relevant to the target.
-- Legacy tool note (inactive): `component-query` for generated component index slices relevant to the target.
-- Legacy skill note (inactive): `test-relation-scan` when the changed target needs verification-surface selection.
 
-- Legacy skill note (inactive): `state-impact-scan`.
 - Consider searching duplicated derived state and mirrored server data.
 - Consider running affected interaction tests if available.
 - Consider using route/search-param checks if URL state changes.
@@ -36,10 +30,6 @@
 
 ## Documentation Cues
 
-- Legacy tool note (inactive): `build-symbol-index`, legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-route-index` if URL state changes, legacy index refresh is out of scope unless explicitly requested.
-- Legacy tool note (inactive): `build-accessor-index` if server state, cache, or invalidation changes, legacy index refresh is out of scope unless explicitly requested.
-- Legacy skill note (inactive): `test-relation-scan` for coverage implications, or report gaps if the tool is unavailable.
 - Report temporary state duplication in the final response if it remains within scope.
 
 ## Regression Cues

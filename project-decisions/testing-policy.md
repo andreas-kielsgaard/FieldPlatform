@@ -6,6 +6,8 @@ Record verification priorities for Field Platform work without duplicating execu
 
 Exact commands, package scripts, runner configuration, and dependency versions live in `package.json` and package-level config.
 
+This file is human-owned testing policy context, not Agent OS operating guidance; runner config and package scripts remain executable truth.
+
 ## Policy
 
 Prefer focused Vitest coverage for policy, domain, contract, fixture, and pure service behavior. Use Playwright for a small number of critical browser flows rather than broad early UI automation.

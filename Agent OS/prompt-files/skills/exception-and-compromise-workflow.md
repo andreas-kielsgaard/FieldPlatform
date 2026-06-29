@@ -4,6 +4,6 @@
 
 Use when an imperfection is intentionally left in place and must be reported clearly instead of hidden in a ledger.
 
-## Legacy Underlying Tools
+## How
 
-affected-surface-mapping, artifact-query, doc-ref-query
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

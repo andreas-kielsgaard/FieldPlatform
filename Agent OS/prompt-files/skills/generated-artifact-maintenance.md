@@ -1,9 +1,9 @@
-﻿# Skill: generated-artifact-maintenance
+# Skill: generated-artifact-maintenance
 
 ## Purpose
 
-Use when generated, derived, indexed, or tool-maintained artifacts are touched.
+Use when generated, derived, or tool-maintained artifacts are touched.
 
-## Legacy Underlying Tools
+## How
 
-artifact-query, diff-query, doc-ref-query
+Use the active evidence sources named by the skill map. Inspect source/config directly for semantic judgment. Treat tool output as bounded evidence, not authority.

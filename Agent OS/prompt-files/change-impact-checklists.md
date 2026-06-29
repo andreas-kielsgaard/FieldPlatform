@@ -1,64 +1,45 @@
 # Change Impact Checklists
 
+Use these as quick prompts, not exhaustive requirements. Prefer source/config/tooling, `rg`, active replacement tools, and targeted checks over broad documentation churn.
+
 ## Domain Concept Change
 
-- Project decision map when human-owned domain decisions are relevant.
-- Source/config/test surfaces that currently encode the concept.
-- Data model.
-- Schema.
-- Validators.
-- Accessors.
-- Routes.
-- UI labels.
-- Mocks.
-- Tests.
-- Decisions.
+- Source/config/test surfaces that encode the concept.
+- Schema, contracts, validators, fixtures, and persistence source.
+- Routes, UI labels, copy, mocks, and tests.
+- Advisory project decisions only when mature human-owned context is directly relevant.
 
 ## Shared Component Change
 
-- Component registry.
-- Existing primitives, examples, and source-owned design tokens.
-- Stories or examples.
-- Consumers.
-- Tests.
-- Visual checks.
+- Shared UI source, styles, primitives, stories, examples, and consumers found with `rg`.
+- `change-surface` for affected source.
+- `test-selection` and `change-verification` for verification planning.
 - Final response notes for scoped compromises or provisional status.
 
 ## Permission Change
 
-- Policy predicates.
-- Accessors.
-- Guarded screens or components.
-- Tests.
-- Permissions and visibility map.
-- Raw-literal checks.
+- Policy predicates, server guards, guarded screens/components, fixtures, and tests.
+- Source literals and call sites found with `rg`.
+- Dependency boundaries when policy ownership or UI access changes.
 
 ## Route Or Page Change
 
-- Routing map.
-- Policy or visibility requirements.
-- Page shell and shared primitives.
-- Data accessors.
-- URL state.
-- Tests or flow checks.
+- Route config, route modules, page shell, module public entrypoints, policy/source checks, URL state, and tests.
+- `change-surface` for affected source.
+- `change-verification` for final check selection.
 
 ## Mock Data Change
 
-- Mock-data map.
-- Project decision map when human-owned domain decisions are relevant.
-- Naming index.
-- Schema or validation assumptions.
-- Stories, examples, and tests.
-- Known realism caveats.
+- Fixture/mock source, schema/contracts, validators, stories, examples, and tests.
+- Source occurrences found with `rg`.
+- Known realism caveats reported in the final response when relevant.
 
 ## Refactor
 
-- Agent OS map when operating-system routing changes.
-- Source-directory map query when source-tree structure matters.
-- Structural indexes.
-- Dependency graph.
-- Tests.
-- Project decision file if a mature human-owned convention changed.
+- Imports and consumers found with `rg`.
+- `change-surface` and dependency-cruiser output.
+- Tests and `change-verification`.
+- Project decisions only when a mature human-owned convention changed.
 - Final response if staying in scope leaves a real compromise.
 
 ## Update Rules

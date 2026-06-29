@@ -1,8 +1,10 @@
+import { spawnSync } from "node:child_process";
 import { readdirSync } from "node:fs";
 import path from "node:path";
 
 import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
 import { CONTEXT_CONTRACT_VERSION } from "../schemas/shared.mjs";
+import { classifyFileFreshnessBatch } from "./freshness.mjs";
 import { CONTEXT_PATH_FORMAT, toRepoRelativePosixPath } from "./repo-paths.mjs";
 
 const PRUNED_DIRECTORIES = new Set([".git", "node_modules", ".pnpm-store"]);
@@ -11,12 +13,17 @@ export function buildFileManifest({
   adapterConfig = fieldPlatformContextAdapterConfig,
   repoRoot = process.cwd(),
   generatedAt = new Date().toISOString(),
+  withFreshness = false,
 } = {}) {
   const resolvedRepoRoot = path.resolve(repoRoot, adapterConfig.repoRoot ?? ".");
-  const files = discoverRepoFiles(resolvedRepoRoot)
+  const files = discoverManifestPaths(resolvedRepoRoot, { includeGitTracked: withFreshness })
     .map((repoPath) => buildFileEntry(repoPath, adapterConfig, resolvedRepoRoot))
     .filter(Boolean)
     .sort((left, right) => left.path.localeCompare(right.path));
+
+  if (withFreshness) {
+    attachFreshnessEvidence(files, resolvedRepoRoot, generatedAt);
+  }
 
   return {
     adapterId: adapterConfig.adapterId,
@@ -92,6 +99,75 @@ function discoverRepoFiles(repoRoot) {
   const files = [];
   walkDirectory(repoRoot, repoRoot, files);
   return files;
+}
+
+function discoverManifestPaths(repoRoot, options = {}) {
+  const files = new Set(discoverRepoFiles(repoRoot));
+
+  if (options.includeGitTracked) {
+    for (const repoPath of discoverGitTrackedFiles(repoRoot)) {
+      files.add(repoPath);
+    }
+  }
+
+  return [...files];
+}
+
+function discoverGitTrackedFiles(repoRoot) {
+  const gitRootRun = runGit(repoRoot, ["rev-parse", "--show-toplevel"]);
+  if (!gitRootRun.ok) {
+    return [];
+  }
+
+  const gitRoot = path.resolve(gitRootRun.stdout.trim());
+  const files = new Set();
+  addGitPathOutput(files, runGit(gitRoot, ["ls-files", "--cached"]), gitRoot, repoRoot);
+  addGitPathOutput(
+    files,
+    runGit(gitRoot, ["ls-tree", "-r", "--name-only", "HEAD"]),
+    gitRoot,
+    repoRoot,
+  );
+  return [...files];
+}
+
+function addGitPathOutput(files, run, gitRoot, repoRoot) {
+  if (!run.ok) {
+    return;
+  }
+
+  for (const line of run.stdout.split(/\r?\n/).filter(Boolean)) {
+    try {
+      files.add(toRepoRelativePosixPath(path.join(gitRoot, ...line.split("/")), { repoRoot }));
+    } catch {
+      // Ignore tracked files outside the requested manifest root.
+    }
+  }
+}
+
+function attachFreshnessEvidence(files, repoRoot, observedAt) {
+  const results = classifyFileFreshnessBatch({
+    repoRoot,
+    paths: files.map((file) => file.path),
+    observedAt,
+  });
+
+  for (const [index, result] of results.entries()) {
+    files[index].freshnessEvidence = buildManifestFreshnessEvidence(result);
+  }
+}
+
+function buildManifestFreshnessEvidence(result) {
+  return {
+    state: result.freshness.state,
+    observedAt: result.freshness.observedAt,
+    reason: result.freshness.reason,
+    identity: result.identity,
+    contentHash: result.contentHash,
+    trackedIdentity: result.trackedIdentity,
+    git: result.git,
+    provenance: result.provenance,
+  };
 }
 
 function walkDirectory(directory, repoRoot, files) {
@@ -274,4 +350,20 @@ function normalizeGroupRoot(root, repoRoot) {
 
 function escapeRegExp(value) {
   return value.replaceAll(/[\\^$+?.()|[\]{}]/g, "\\$&");
+}
+
+function runGit(cwd, gitArgs) {
+  const run = spawnSync("git", gitArgs, {
+    cwd,
+    encoding: "utf8",
+    shell: false,
+    maxBuffer: 1024 * 1024 * 10,
+  });
+
+  return {
+    ok: !run.error && run.status === 0,
+    status: run.status,
+    stdout: run.stdout ?? "",
+    stderr: run.stderr ?? "",
+  };
 }

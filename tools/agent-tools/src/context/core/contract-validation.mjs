@@ -1,4 +1,4 @@
-import { CONTEXT_CONTRACT_VERSION } from "../schemas/shared.mjs";
+import { CONTEXT_CONTRACT_VERSION, freshnessStateValues } from "../schemas/shared.mjs";
 import { COMMAND_ENVELOPE_SCHEMA_VERSION, CONTEXT_COMMAND_NAMESPACE } from "./command-envelope.mjs";
 import { CONTEXT_PATH_FORMAT, isRepoRelativePosixPath } from "./repo-paths.mjs";
 import { expectedContextSchemaIds } from "./schema-registry.mjs";
@@ -33,6 +33,9 @@ const dependencyEdgeKeys = new Set([
 ]);
 
 const endpointKeys = new Set(["path", "pathFormat", "chunkId"]);
+const freshnessStateValueSet = new Set(freshnessStateValues);
+const freshnessGitStatusValues = new Set(["clean", "dirty", "untracked", "deleted", "unknown"]);
+const freshnessIdentityKindValues = new Set(["git-blob", "filesystem-content"]);
 
 export function validateCommandEnvelope(envelope, options = {}) {
   const errors = [];
@@ -267,6 +270,78 @@ function validateSourceFileMetadataInto(errors, file, prefix, options) {
   } else {
     expectBoolean(errors, file.flags.generated, `${prefix}.flags.generated`);
     expectBoolean(errors, file.flags.archive, `${prefix}.flags.archive`);
+  }
+  if (file.freshnessEvidence !== undefined) {
+    validateFreshnessEvidenceInto(errors, file.freshnessEvidence, `${prefix}.freshnessEvidence`);
+  }
+}
+
+function validateFreshnessEvidenceInto(errors, evidence, prefix) {
+  if (!isObject(evidence)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  if (!freshnessStateValueSet.has(evidence.state)) {
+    errors.push(`${prefix}.state must be a known freshness state.`);
+  }
+  expectIsoDateTime(errors, evidence.observedAt, `${prefix}.observedAt`);
+  expectString(errors, evidence.reason, `${prefix}.reason`);
+  validateFreshnessIdentityInto(errors, evidence.identity, `${prefix}.identity`);
+  validateContentHashInto(errors, evidence.contentHash, `${prefix}.contentHash`);
+  validateFreshnessIdentityInto(errors, evidence.trackedIdentity, `${prefix}.trackedIdentity`);
+  validateFreshnessGitInto(errors, evidence.git, `${prefix}.git`);
+  validateProvenanceInto(errors, evidence.provenance, `${prefix}.provenance`);
+}
+
+function validateFreshnessIdentityInto(errors, identity, prefix) {
+  if (identity === null) {
+    return;
+  }
+  if (!isObject(identity)) {
+    errors.push(`${prefix} must be an object or null.`);
+    return;
+  }
+
+  if (!freshnessIdentityKindValues.has(identity.kind)) {
+    errors.push(`${prefix}.kind must be a known identity kind.`);
+  }
+  expectString(errors, identity.source, `${prefix}.source`);
+  expectString(errors, identity.algorithm, `${prefix}.algorithm`);
+  expectString(errors, identity.digest, `${prefix}.digest`);
+}
+
+function validateContentHashInto(errors, contentHash, prefix) {
+  if (contentHash === null) {
+    return;
+  }
+  if (!isObject(contentHash)) {
+    errors.push(`${prefix} must be an object or null.`);
+    return;
+  }
+
+  expectEqual(errors, contentHash.algorithm, "sha256", `${prefix}.algorithm`);
+  expectString(errors, contentHash.digest, `${prefix}.digest`);
+}
+
+function validateFreshnessGitInto(errors, git, prefix) {
+  if (!isObject(git)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  expectBoolean(errors, git.available, `${prefix}.available`);
+  if (git.tracked !== null && typeof git.tracked !== "boolean") {
+    errors.push(`${prefix}.tracked must be a boolean or null.`);
+  }
+  if (!freshnessGitStatusValues.has(git.status)) {
+    errors.push(`${prefix}.status must be a known Git freshness status.`);
+  }
+  if (git.statusCodes !== undefined) {
+    expectStringArray(errors, git.statusCodes, `${prefix}.statusCodes`);
+  }
+  if (git.objectFormat !== null && typeof git.objectFormat !== "string") {
+    errors.push(`${prefix}.objectFormat must be a string or null.`);
   }
 }
 

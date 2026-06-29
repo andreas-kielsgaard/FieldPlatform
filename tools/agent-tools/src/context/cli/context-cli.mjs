@@ -79,6 +79,7 @@ function runManifestCommand(argv, io) {
 
   const envelope = buildManifestEnvelope({
     generatedAt: io.now().toISOString(),
+    withFreshness: flags["with-freshness"] === true,
   });
 
   if (flags.json) {
@@ -125,6 +126,7 @@ Usage:
   corepack pnpm agent-os context --help
   corepack pnpm agent-os context schemas --json
   corepack pnpm agent-os context manifest --json
+  corepack pnpm agent-os context manifest --json --with-freshness
 
 Commands:
   manifest   Emit the on-demand Field Platform file manifest.
@@ -142,11 +144,13 @@ Emit the on-demand Field Platform file manifest.
 
 Usage:
   corepack pnpm agent-os context manifest --json
+  corepack pnpm agent-os context manifest --json --with-freshness
   corepack pnpm agent-os context manifest --help
 
 Options:
-  --json     Emit the shared machine-readable command envelope.
-  --help     Show this help.
+  --json             Emit the shared machine-readable command envelope.
+  --with-freshness   Include local Git/filesystem freshness evidence per entry.
+  --help             Show this help.
 `);
 }
 

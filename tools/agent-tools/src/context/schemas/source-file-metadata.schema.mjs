@@ -1,8 +1,95 @@
 import {
   CONTEXT_PATH_FORMAT,
+  contentHashSchema,
   defineContextSchema,
+  freshnessStateValues,
+  provenanceSchema,
   repoRelativePosixPathSchema,
 } from "./shared.mjs";
+
+const contentIdentitySchema = Object.freeze({
+  type: ["object", "null"],
+  additionalProperties: false,
+  required: ["kind", "source", "algorithm", "digest"],
+  properties: {
+    kind: {
+      enum: ["git-blob", "filesystem-content"],
+    },
+    source: {
+      type: "string",
+      minLength: 1,
+    },
+    algorithm: {
+      type: "string",
+      minLength: 1,
+    },
+    digest: {
+      type: "string",
+      minLength: 1,
+    },
+  },
+});
+
+const nullableContentHashSchema = Object.freeze({
+  anyOf: [contentHashSchema, { type: "null" }],
+});
+
+const manifestFreshnessEvidenceSchema = Object.freeze({
+  type: "object",
+  additionalProperties: false,
+  required: [
+    "state",
+    "observedAt",
+    "reason",
+    "identity",
+    "contentHash",
+    "trackedIdentity",
+    "git",
+    "provenance",
+  ],
+  properties: {
+    state: {
+      enum: freshnessStateValues,
+    },
+    observedAt: {
+      type: "string",
+      format: "date-time",
+    },
+    reason: {
+      type: "string",
+      minLength: 1,
+    },
+    identity: contentIdentitySchema,
+    contentHash: nullableContentHashSchema,
+    trackedIdentity: contentIdentitySchema,
+    git: {
+      type: "object",
+      additionalProperties: false,
+      required: ["available", "tracked", "status", "objectFormat"],
+      properties: {
+        available: {
+          type: "boolean",
+        },
+        tracked: {
+          type: ["boolean", "null"],
+        },
+        status: {
+          enum: ["clean", "dirty", "untracked", "deleted", "unknown"],
+        },
+        statusCodes: {
+          type: "array",
+          items: {
+            type: "string",
+          },
+        },
+        objectFormat: {
+          type: ["string", "null"],
+        },
+      },
+    },
+    provenance: provenanceSchema,
+  },
+});
 
 export const sourceFileMetadataSchema = defineContextSchema(
   {
@@ -73,6 +160,7 @@ export const sourceFileMetadataSchema = defineContextSchema(
           },
         },
       },
+      freshnessEvidence: manifestFreshnessEvidenceSchema,
     },
   },
   "tools/agent-tools/src/context/schemas/source-file-metadata.schema.mjs",

@@ -25,6 +25,7 @@ Usage:
   corepack pnpm agent-os context --help
   corepack pnpm agent-os context schemas --json
   corepack pnpm agent-os context manifest --json
+  corepack pnpm agent-os context manifest --json --with-freshness
 
 Namespaces:
   context    Inspect context-tool contracts.

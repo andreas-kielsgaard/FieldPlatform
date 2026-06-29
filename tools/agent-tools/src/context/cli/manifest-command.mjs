@@ -6,10 +6,12 @@ import { buildFileManifest } from "../core/file-manifest.mjs";
 export function buildManifestEnvelope({
   generatedAt = new Date().toISOString(),
   repoRoot = process.cwd(),
+  withFreshness = false,
 } = {}) {
   const manifest = buildFileManifest({
     generatedAt,
     repoRoot,
+    withFreshness,
   });
 
   return createCommandEnvelope({
@@ -18,8 +20,8 @@ export function buildManifestEnvelope({
     adapterId: fieldPlatformContextAdapterConfig.adapterId,
     status: "ok",
     data: manifest,
-    warnings: contextManifestWarnings,
-    limitations: contextManifestLimitations,
+    warnings: contextManifestWarnings({ withFreshness }),
+    limitations: contextManifestLimitations({ withFreshness }),
   });
 }
 

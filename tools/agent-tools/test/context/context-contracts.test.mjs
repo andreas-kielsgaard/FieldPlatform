@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
@@ -74,6 +75,28 @@ test("command envelope validates for the manifest JSON output", () => {
     adapterId: "field-platform",
   });
   assertValidFileManifest(envelope.data);
+  assert.equal(
+    envelope.data.files.some((file) => "freshnessEvidence" in file),
+    false,
+  );
+});
+
+test("command envelope validates for the manifest JSON output with freshness", () => {
+  const envelope = buildManifestEnvelope({
+    generatedAt: "2026-06-29T00:00:00.000Z",
+    repoRoot: workspaceRoot,
+    withFreshness: true,
+  });
+
+  assertValidCommandEnvelope(envelope, {
+    name: "manifest",
+    adapterId: "field-platform",
+  });
+  assertValidFileManifest(envelope.data);
+  assert.equal(
+    envelope.data.files.every((file) => file.freshnessEvidence),
+    true,
+  );
 });
 
 test("manifest includes active app source and agent-tools source", () => {
@@ -205,6 +228,62 @@ test("manifest paths are repo-relative POSIX paths", () => {
   }
 });
 
+test("manifest freshness evidence covers clean, dirty, untracked, excluded, and deleted entries", (t) => {
+  const repoRoot = createFreshnessFixtureRepo(t);
+  const manifest = buildFileManifest({
+    generatedAt: "2026-06-29T00:00:00.000Z",
+    repoRoot,
+    withFreshness: true,
+  });
+
+  assertValidFileManifest(manifest);
+
+  const clean = assertManifestEntry(manifest, "apps/web/app/root.tsx", {
+    inclusionStatus: "included",
+  });
+  assert.equal(clean.freshnessEvidence.state, "current-clean");
+  assert.equal(clean.freshnessEvidence.identity.kind, "git-blob");
+  assert.equal(clean.freshnessEvidence.contentHash, null);
+
+  const dirty = assertManifestEntry(manifest, "tools/agent-tools/src/dirty.mjs", {
+    inclusionStatus: "included",
+  });
+  assert.equal(dirty.freshnessEvidence.state, "current-dirty");
+  assert.equal(dirty.freshnessEvidence.identity.kind, "filesystem-content");
+  assert.equal(dirty.freshnessEvidence.identity.algorithm, "sha256");
+  assert.equal(dirty.freshnessEvidence.contentHash.algorithm, "sha256");
+  assert.equal(dirty.freshnessEvidence.trackedIdentity.kind, "git-blob");
+
+  const untracked = assertManifestEntry(
+    manifest,
+    "tools/agent-tools/test/context/untracked.test.mjs",
+    {
+      inclusionStatus: "included",
+    },
+  );
+  assert.equal(untracked.freshnessEvidence.state, "untracked");
+  assert.equal(untracked.freshnessEvidence.identity.kind, "filesystem-content");
+  assert.equal(untracked.freshnessEvidence.contentHash.algorithm, "sha256");
+  assert.equal(untracked.freshnessEvidence.trackedIdentity, null);
+
+  const excluded = assertManifestEntry(manifest, "apps/web/build/server/index.js", {
+    sourceGroup: "generated-output",
+    documentKind: "generated",
+    inclusionStatus: "excluded",
+    generated: true,
+  });
+  assert.equal(excluded.freshnessEvidence.state, "untracked");
+  assert.equal(excluded.freshnessEvidence.identity.kind, "filesystem-content");
+
+  const deleted = assertManifestEntry(manifest, "apps/web/src/deleted.ts", {
+    inclusionStatus: "included",
+  });
+  assert.equal(deleted.freshnessEvidence.state, "deleted");
+  assert.equal(deleted.freshnessEvidence.identity, null);
+  assert.equal(deleted.freshnessEvidence.contentHash, null);
+  assert.equal(deleted.freshnessEvidence.trackedIdentity.kind, "git-blob");
+});
+
 test("adapter/config fixture validates", () => {
   const config = loadJsonFixture("field-platform-adapter.config.json");
   const result = validateAdapterConfig(config);
@@ -269,12 +348,49 @@ test("CLI returns valid JSON for agent-os context manifest --json", () => {
     adapterId: "field-platform",
   });
   assertValidFileManifest(parsed.data);
+  assert.equal(
+    parsed.data.files.some((file) => "freshnessEvidence" in file),
+    false,
+  );
+});
+
+test("CLI returns valid JSON for agent-os context manifest --json --with-freshness", () => {
+  const run = runWorkspaceCommand([
+    "pnpm",
+    "agent-os",
+    "context",
+    "manifest",
+    "--json",
+    "--with-freshness",
+  ]);
+
+  assert.equal(run.status, 0, run.stderr || run.stdout);
+
+  const parsed = JSON.parse(run.stdout);
+  assertValidCommandEnvelope(parsed, {
+    name: "manifest",
+    adapterId: "field-platform",
+  });
+  assertValidFileManifest(parsed.data);
+  assert.equal(
+    parsed.data.files.every((file) => file.freshnessEvidence),
+    true,
+  );
 });
 
 test("manifest command does not create a committed manifest artifact", () => {
   const run = runWorkspaceCommand(["pnpm", "agent-os", "context", "manifest", "--json"]);
+  const runWithFreshness = runWorkspaceCommand([
+    "pnpm",
+    "agent-os",
+    "context",
+    "manifest",
+    "--json",
+    "--with-freshness",
+  ]);
 
   assert.equal(run.status, 0, run.stderr || run.stdout);
+  assert.equal(runWithFreshness.status, 0, runWithFreshness.stderr || runWithFreshness.stdout);
   assert.equal(existsSync(path.join(workspaceRoot, "agent-os-context-manifest.json")), false);
   assert.equal(existsSync(path.join(workspaceRoot, "context-manifest.json")), false);
   assert.equal(
@@ -331,6 +447,8 @@ function assertManifestEntry(manifest, filePath, expected) {
   if (entry.inclusionStatus === "excluded") {
     assert.equal(typeof entry.exclusionReason, "string", `${filePath} exclusionReason`);
   }
+
+  return entry;
 }
 
 function createTempRepo(t, repoPaths) {
@@ -344,4 +462,55 @@ function createTempRepo(t, repoPaths) {
   }
 
   return repoRoot;
+}
+
+function createFreshnessFixtureRepo(t) {
+  const repoRoot = mkdtempSync(path.join(tmpdir(), "agent-os-manifest-git-"));
+  t.after(() => rmSync(repoRoot, { recursive: true, force: true }));
+
+  runGit(repoRoot, ["-c", "init.defaultBranch=main", "init"]);
+  runGit(repoRoot, ["config", "core.autocrlf", "false"]);
+  writeRepoFile(repoRoot, "apps/web/app/root.tsx", "export function Root() {}\n");
+  writeRepoFile(repoRoot, "apps/web/src/deleted.ts", "export const deleted = true;\n");
+  writeRepoFile(repoRoot, "tools/agent-tools/src/dirty.mjs", "export const dirty = false;\n");
+  runGit(repoRoot, ["add", "."]);
+  runGit(repoRoot, [
+    "-c",
+    "user.name=Agent Tools Test",
+    "-c",
+    "user.email=agent-tools@example.test",
+    "-c",
+    "commit.gpgsign=false",
+    "commit",
+    "-m",
+    "Add manifest freshness fixtures",
+  ]);
+
+  writeRepoFile(repoRoot, "tools/agent-tools/src/dirty.mjs", "export const dirty = true;\n");
+  rmSync(path.join(repoRoot, "apps", "web", "src", "deleted.ts"));
+  writeRepoFile(
+    repoRoot,
+    "tools/agent-tools/test/context/untracked.test.mjs",
+    "export const untracked = true;\n",
+  );
+  writeRepoFile(repoRoot, "apps/web/build/server/index.js", "export const generated = true;\n");
+
+  return repoRoot;
+}
+
+function writeRepoFile(repoRoot, repoPath, content) {
+  const absolutePath = path.join(repoRoot, ...repoPath.split("/"));
+  mkdirSync(path.dirname(absolutePath), { recursive: true });
+  writeFileSync(absolutePath, content, "utf8");
+}
+
+function runGit(cwd, gitArgs) {
+  const run = spawnSync("git", gitArgs, {
+    cwd,
+    encoding: "utf8",
+    shell: false,
+    maxBuffer: 1024 * 1024 * 10,
+  });
+
+  assert.equal(run.status, 0, run.stderr || run.stdout);
 }

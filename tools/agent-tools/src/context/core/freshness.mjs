@@ -9,16 +9,48 @@ import { resolveRepoRelativePath, toRepoRelativePosixPath } from "./repo-paths.m
 export const LOCAL_FILE_FRESHNESS_SOURCE = "agent-os.context.local-file-freshness";
 
 export function classifyFileFreshness(options = {}) {
+  const [result] = classifyFileFreshnessBatch({
+    repoRoot: options.repoRoot,
+    paths: [options.path],
+    observedAt: options.observedAt,
+  });
+
+  return result;
+}
+
+export function classifyFileFreshnessBatch(options = {}) {
   const requestedRoot = path.resolve(options.repoRoot ?? process.cwd());
   const observedAt = options.observedAt ?? new Date().toISOString();
   const gitRepository = readGitRepository(requestedRoot);
   const repoRoot = gitRepository.available ? gitRepository.root : requestedRoot;
-  const repoPath = toRepoRelativePosixPath(options.path, { repoRoot });
+  const repoPaths = (options.paths ?? [options.path]).map((filePath) =>
+    toRepoRelativePosixPath(filePath, { repoRoot }),
+  );
+  const gitStateByPath = gitRepository.available ? readGitPathStateMap(gitRepository) : null;
+
+  return repoPaths.map((repoPath) =>
+    classifyResolvedFileFreshness({
+      repoRoot,
+      repoPath,
+      observedAt,
+      gitRepository,
+      gitState: gitStateByPath?.get(repoPath) ?? buildEmptyGitPathState(),
+    }),
+  );
+}
+
+function classifyResolvedFileFreshness({
+  repoRoot,
+  repoPath,
+  observedAt,
+  gitRepository,
+  gitState,
+}) {
   const absolutePath = resolveRepoRelativePath(repoRoot, repoPath);
   const fileExists = existsSync(absolutePath);
-  const filesystemHash = fileExists ? tryHashFile(repoRoot, repoPath) : null;
 
   if (!gitRepository.available) {
+    const filesystemHash = fileExists ? tryHashFile(repoRoot, repoPath) : null;
     return buildFreshnessResult({
       path: repoPath,
       observedAt,
@@ -38,7 +70,6 @@ export function classifyFileFreshness(options = {}) {
     });
   }
 
-  const gitState = readGitPathState(gitRepository, repoPath);
   const trackedIdentity = gitState.indexIdentity ?? gitState.headIdentity ?? null;
   const state = classifyState({ gitState, fileExists });
 
@@ -56,6 +87,7 @@ export function classifyFileFreshness(options = {}) {
   }
 
   if (state === "current-dirty") {
+    const filesystemHash = fileExists ? tryHashFile(repoRoot, repoPath) : null;
     return buildFreshnessResult({
       path: repoPath,
       observedAt,
@@ -69,6 +101,7 @@ export function classifyFileFreshness(options = {}) {
   }
 
   if (state === "untracked") {
+    const filesystemHash = fileExists ? tryHashFile(repoRoot, repoPath) : null;
     return buildFreshnessResult({
       path: repoPath,
       observedAt,
@@ -94,6 +127,7 @@ export function classifyFileFreshness(options = {}) {
     });
   }
 
+  const filesystemHash = fileExists ? tryHashFile(repoRoot, repoPath) : null;
   return buildFreshnessResult({
     path: repoPath,
     observedAt,
@@ -205,22 +239,40 @@ function readGitRepository(startDirectory) {
   };
 }
 
-function readGitPathState(gitRepository, repoPath) {
-  const statusRun = runGit(gitRepository.root, [
-    "status",
-    "--porcelain=v1",
-    "--untracked-files=normal",
-    "--",
-    repoPath,
+function readGitPathStateMap(gitRepository) {
+  const statusCodesByPath = readStatusCodesByPath(gitRepository);
+  const indexIdentitiesByPath = readIndexIdentitiesByPath(gitRepository);
+  const headIdentitiesByPath = readHeadIdentitiesByPath(gitRepository);
+  const repoPaths = new Set([
+    ...statusCodesByPath.keys(),
+    ...indexIdentitiesByPath.keys(),
+    ...headIdentitiesByPath.keys(),
   ]);
-  const statusCodes = statusRun.ok
-    ? statusRun.stdout
-        .split(/\r?\n/)
-        .filter(Boolean)
-        .map((line) => line.slice(0, 2))
-    : [];
-  const indexIdentity = readIndexIdentity(gitRepository, repoPath);
-  const headIdentity = readHeadIdentity(gitRepository, repoPath);
+  const states = new Map();
+
+  for (const repoPath of repoPaths) {
+    states.set(
+      repoPath,
+      buildGitPathState({
+        statusCodes: statusCodesByPath.get(repoPath) ?? [],
+        indexIdentity: indexIdentitiesByPath.get(repoPath) ?? null,
+        headIdentity: headIdentitiesByPath.get(repoPath) ?? null,
+      }),
+    );
+  }
+
+  return states;
+}
+
+function buildEmptyGitPathState() {
+  return buildGitPathState({
+    statusCodes: [],
+    indexIdentity: null,
+    headIdentity: null,
+  });
+}
+
+function buildGitPathState({ statusCodes, indexIdentity, headIdentity }) {
   const untracked = statusCodes.some((code) => code === "??");
   const deleted = statusCodes.some((code) => code.includes("D"));
   const tracked =
@@ -236,34 +288,82 @@ function readGitPathState(gitRepository, repoPath) {
   };
 }
 
-function readIndexIdentity(gitRepository, repoPath) {
-  const run = runGit(gitRepository.root, ["ls-files", "--stage", "--", repoPath]);
+function readStatusCodesByPath(gitRepository) {
+  const run = runGit(gitRepository.root, ["status", "--porcelain=v1", "--untracked-files=all"]);
+  const statusCodesByPath = new Map();
   if (!run.ok) {
-    return null;
+    return statusCodesByPath;
   }
 
-  const line = run.stdout.split(/\r?\n/).find(Boolean);
-  const match = line?.match(/^\d+\s+([a-f0-9]+)\s+\d+\t/);
-  if (!match) {
-    return null;
+  for (const line of run.stdout.split(/\r?\n/).filter(Boolean)) {
+    const statusCode = line.slice(0, 2);
+    const repoPath = parseStatusRepoPath(line);
+    if (!repoPath) {
+      continue;
+    }
+    const statusCodes = statusCodesByPath.get(repoPath) ?? [];
+    statusCodes.push(statusCode);
+    statusCodesByPath.set(repoPath, statusCodes);
   }
 
-  return buildGitBlobIdentity(match[1], gitRepository.objectFormat, "git-index");
+  return statusCodesByPath;
 }
 
-function readHeadIdentity(gitRepository, repoPath) {
-  const run = runGit(gitRepository.root, ["ls-tree", "HEAD", "--", repoPath]);
+function readIndexIdentitiesByPath(gitRepository) {
+  const run = runGit(gitRepository.root, ["ls-files", "--stage"]);
+  const identitiesByPath = new Map();
   if (!run.ok) {
-    return null;
+    return identitiesByPath;
   }
 
-  const line = run.stdout.split(/\r?\n/).find(Boolean);
-  const match = line?.match(/^\d+\s+blob\s+([a-f0-9]+)\t/);
-  if (!match) {
-    return null;
+  for (const line of run.stdout.split(/\r?\n/).filter(Boolean)) {
+    const match = line.match(/^\d+\s+([a-f0-9]+)\s+\d+\t(.+)$/);
+    if (!match) {
+      continue;
+    }
+    identitiesByPath.set(
+      normalizeGitRepoPath(match[2]),
+      buildGitBlobIdentity(match[1], gitRepository.objectFormat, "git-index"),
+    );
   }
 
-  return buildGitBlobIdentity(match[1], gitRepository.objectFormat, "git-head");
+  return identitiesByPath;
+}
+
+function readHeadIdentitiesByPath(gitRepository) {
+  const run = runGit(gitRepository.root, ["ls-tree", "-r", "HEAD"]);
+  const identitiesByPath = new Map();
+  if (!run.ok) {
+    return identitiesByPath;
+  }
+
+  for (const line of run.stdout.split(/\r?\n/).filter(Boolean)) {
+    const match = line.match(/^\d+\s+blob\s+([a-f0-9]+)\t(.+)$/);
+    if (!match) {
+      continue;
+    }
+    identitiesByPath.set(
+      normalizeGitRepoPath(match[2]),
+      buildGitBlobIdentity(match[1], gitRepository.objectFormat, "git-head"),
+    );
+  }
+
+  return identitiesByPath;
+}
+
+function parseStatusRepoPath(line) {
+  const statusCode = line.slice(0, 2);
+  const rawPath = line.slice(3);
+  const repoPath =
+    ["R", "C"].includes(statusCode[0]) && rawPath.includes(" -> ")
+      ? rawPath.slice(rawPath.lastIndexOf(" -> ") + 4)
+      : rawPath;
+
+  return repoPath ? normalizeGitRepoPath(repoPath) : null;
+}
+
+function normalizeGitRepoPath(repoPath) {
+  return repoPath.replaceAll("\\", "/").replace(/^"|"$/g, "");
 }
 
 function buildGitBlobIdentity(digest, objectFormat, source) {

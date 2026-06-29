@@ -31,6 +31,10 @@ export const implementedContextCapabilities = Object.freeze([
     id: "evidence-snapshot",
     status: "implemented",
   }),
+  Object.freeze({
+    id: "file-focused-evidence-inspection",
+    status: "implemented",
+  }),
 ]);
 
 export const unimplementedContextCapabilities = Object.freeze([

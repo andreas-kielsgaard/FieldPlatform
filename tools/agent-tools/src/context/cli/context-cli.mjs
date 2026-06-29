@@ -1,6 +1,7 @@
 import { contextFoundationLimitations } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
 import { buildEvidenceEnvelope, printEvidenceSummary } from "./evidence-command.mjs";
+import { buildInspectEnvelope, printInspectSummary } from "./inspect-command.mjs";
 import { buildManifestEnvelope, printManifestSummary } from "./manifest-command.mjs";
 import { buildSchemasEnvelope, printSchemasSummary } from "./schemas-command.mjs";
 
@@ -24,6 +25,9 @@ export function runContextCli(argv, io = {}) {
   }
   if (commandName === "evidence") {
     return runEvidenceCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
+  }
+  if (commandName === "inspect") {
+    return runInspectCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
   }
 
   const message = `Unknown agent-os context command: ${commandName}`;
@@ -121,6 +125,33 @@ function runEvidenceCommand(argv, io) {
   return envelope.status === "error" ? 1 : 0;
 }
 
+function runInspectCommand(argv, io) {
+  const parsed = parseArgs(argv);
+  const flags = {
+    ...io.inheritedFlags,
+    ...parsed.flags,
+  };
+
+  if (flags.help || flags.h) {
+    printInspectHelp(io.stdout);
+    return 0;
+  }
+
+  const envelope = buildInspectEnvelope({
+    generatedAt: io.now().toISOString(),
+    requestedPath: flags.path,
+    withFreshness: flags["with-freshness"] === true,
+  });
+
+  if (flags.json) {
+    io.stdout.write(`${JSON.stringify(envelope, null, 2)}\n`);
+  } else {
+    printInspectSummary(envelope, io.stdout);
+  }
+
+  return envelope.status === "error" ? 1 : 0;
+}
+
 function parseArgs(argv) {
   const flags = {};
   const positional = [];
@@ -159,9 +190,12 @@ Usage:
   corepack pnpm agent-os context manifest --json --with-freshness
   corepack pnpm agent-os context evidence --json
   corepack pnpm agent-os context evidence --json --with-freshness
+  corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json
+  corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json --with-freshness
 
 Commands:
   evidence   Emit the composed on-demand structural evidence snapshot.
+  inspect    Inspect evidence scoped to one repository path.
   manifest   Emit the on-demand Field Platform file manifest.
   schemas    Inspect available context schemas and capability state.
 
@@ -201,6 +235,24 @@ Options:
   --json             Emit the shared machine-readable command envelope.
   --with-freshness   Include local Git/filesystem freshness evidence per manifest entry.
   --help             Show this help.
+`);
+}
+
+function printInspectHelp(stdout) {
+  stdout.write(`agent-os context inspect
+
+Inspect composed context evidence for one repository path.
+
+Usage:
+  corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json
+  corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json --with-freshness
+  corepack pnpm agent-os context inspect --help
+
+Options:
+  --path=<path>       Required repo-relative POSIX path.
+  --json              Emit the shared machine-readable command envelope.
+  --with-freshness    Include local Git/filesystem freshness evidence when available.
+  --help              Show this help.
 `);
 }
 

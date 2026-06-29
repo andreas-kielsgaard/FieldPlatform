@@ -90,6 +90,7 @@ export const fieldPlatformContextAdapterConfig = Object.freeze({
       "symbol-extraction",
       "dependency-evidence",
       "evidence-snapshot",
+      "file-focused-evidence-inspection",
     ]),
     unimplemented: Object.freeze([
       "source-indexing",

@@ -5,7 +5,7 @@ export const fileManifestSchema = defineContextSchema(
     $id: "agent-os.context.file-manifest",
     title: "Agent OS Context File Manifest",
     description:
-      "Manifest contract for future file metadata snapshots. This slice defines the shape only and does not generate manifests.",
+      "Manifest contract for on-demand file metadata snapshots. This output is generated only when requested and is not a committed artifact.",
     type: "object",
     additionalProperties: false,
     required: ["adapterId", "schemaVersion", "generatedAt", "files"],

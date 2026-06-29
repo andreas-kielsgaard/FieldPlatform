@@ -19,6 +19,65 @@
       "include": ["src/**/*", "test/**/*"],
       "exclude": [],
       "documentKinds": ["source", "test", "schema"]
+    },
+    {
+      "id": "project-config",
+      "root": ".",
+      "include": [
+        "package.json",
+        "pnpm-workspace.yaml",
+        "pnpm-lock.yaml",
+        "biome.json",
+        "tsconfig*.json",
+        "dependency-cruiser.config.cjs",
+        "apps/web/package.json",
+        "apps/web/tsconfig.json",
+        "apps/web/*config.ts",
+        "tools/agent-tools/package.json"
+      ],
+      "exclude": [],
+      "documentKinds": ["config"]
+    },
+    {
+      "id": "project-guidance",
+      "root": ".",
+      "include": [
+        "README.md",
+        "AGENTS.md",
+        "Agent OS/*.md",
+        "Agent OS/prompt-files/agent-attention-system/**/*.md",
+        "Agent OS/project-control-files/**/*.md"
+      ],
+      "exclude": [],
+      "documentKinds": ["documentation"]
+    },
+    {
+      "id": "generated-output",
+      "root": ".",
+      "include": [
+        "apps/web/.react-router/**/*",
+        "apps/web/build/**/*",
+        "apps/web/storybook-static/**/*",
+        "apps/web/playwright-report/**/*",
+        "apps/web/test-results/**/*",
+        "coverage/**/*"
+      ],
+      "exclude": [
+        "apps/web/.react-router/**/*",
+        "apps/web/build/**/*",
+        "apps/web/storybook-static/**/*",
+        "apps/web/playwright-report/**/*",
+        "apps/web/test-results/**/*",
+        "coverage/**/*"
+      ],
+      "documentKinds": ["generated"]
+    },
+    {
+      "id": "archive",
+      "root": ".",
+      "include": ["Archive/**/*"],
+      "exclude": ["Archive/**/*"],
+      "documentKinds": ["archive"]
     }
   ],
   "capabilities": {
@@ -26,7 +85,8 @@
       "context-cli-help",
       "schema-registry-inspection",
       "command-envelope-contract",
-      "adapter-config-contract"
+      "adapter-config-contract",
+      "manifest-generation"
     ],
     "unimplemented": [
       "source-indexing",
@@ -34,7 +94,6 @@
       "lexical-search",
       "dependency-evidence",
       "embeddings-or-vector-search",
-      "manifest-generation",
       "agent-os-prompt-weaving"
     ]
   }

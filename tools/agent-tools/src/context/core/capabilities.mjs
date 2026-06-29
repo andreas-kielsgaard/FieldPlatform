@@ -19,6 +19,11 @@ export const implementedContextCapabilities = Object.freeze([
     status: "implemented",
     description: "Define and validate the Field Platform adapter/config contract shape.",
   }),
+  Object.freeze({
+    id: "manifest-generation",
+    status: "implemented",
+    description: "Emit an on-demand file manifest through `agent-os context manifest --json`.",
+  }),
 ]);
 
 export const unimplementedContextCapabilities = Object.freeze([
@@ -48,11 +53,6 @@ export const unimplementedContextCapabilities = Object.freeze([
     reason: "No embeddings, vectors, databases, or external stores are introduced in this slice.",
   }),
   Object.freeze({
-    id: "manifest-generation",
-    status: "unimplemented",
-    reason: "Only contracts and adapter fixtures are defined; no manifest artifact is generated.",
-  }),
-  Object.freeze({
     id: "agent-os-prompt-weaving",
     status: "unimplemented",
     reason: "Prompt-side weaving and catalogues are explicitly outside this slice.",
@@ -60,11 +60,21 @@ export const unimplementedContextCapabilities = Object.freeze([
 ]);
 
 export const contextFoundationWarnings = Object.freeze([
-  "This command reports contracts only; it does not read, index, chunk, search, or embed source files.",
+  "The schemas command reports contracts only; it does not read, index, chunk, search, or embed source files.",
 ]);
 
 export const contextFoundationLimitations = Object.freeze([
   "Schema validation is intentionally lightweight and local to the agent-tools package.",
-  "No generated manifests, Agent OS tool implementations, tool-maintained files, databases, vectors, or prompt weaving are created.",
+  "No Agent OS tool implementations, tool-maintained files, databases, vectors, or prompt weaving are created.",
   "Capability lists describe current implementation state; unimplemented entries are contractual placeholders for future slices.",
+]);
+
+export const contextManifestWarnings = Object.freeze([
+  "Manifest entries are local filesystem evidence only; no file contents are indexed.",
+]);
+
+export const contextManifestLimitations = Object.freeze([
+  "Discovery is bounded to the Field Platform adapter source groups.",
+  "Excluded files are reported only when they exist locally and match adapter exclusion globs.",
+  "No chunks, symbols, dependency edges, embeddings, databases, prompt weaving, or manifest artifacts are created.",
 ]);

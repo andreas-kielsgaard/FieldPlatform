@@ -10,8 +10,7 @@ export const chunkMetadataSchema = defineContextSchema(
   {
     $id: "agent-os.context.chunk-metadata",
     title: "Agent OS Context Chunk Metadata",
-    description:
-      "Metadata contract for future source chunks. Symbols, imports, and exports are placeholders in this foundation slice.",
+    description: "Metadata contract for source chunks extracted from repository files.",
     type: "object",
     additionalProperties: false,
     required: [
@@ -28,12 +27,31 @@ export const chunkMetadataSchema = defineContextSchema(
         type: "string",
         minLength: 1,
       },
+      name: {
+        type: "string",
+        minLength: 1,
+      },
       filePath: repoRelativePosixPathSchema,
       pathFormat: {
         const: CONTEXT_PATH_FORMAT,
       },
       kind: {
-        enum: ["file", "module", "class", "function", "section", "test", "config", "unknown"],
+        enum: [
+          "file",
+          "module",
+          "class",
+          "function",
+          "interface",
+          "type",
+          "component",
+          "section",
+          "test",
+          "config",
+          "unknown",
+        ],
+      },
+      visibility: {
+        enum: ["exported", "local"],
       },
       range: sourceRangeSchema,
       contentHash: contentHashSchema,

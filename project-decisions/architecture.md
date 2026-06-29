@@ -25,13 +25,13 @@ Drizzle schema files under `apps/web/src/shared/db/schema` are database-definiti
 
 Generated migrations under `apps/web/drizzle` are derived artifacts that should be reviewed and committed when intentionally generated, not casually hand-edited.
 
-Runtime source must not import Agent OS tool-maintained evidence artifacts. Agent OS generated outputs are evidence only, not product runtime dependencies.
+Runtime source must not import Agent OS files. Agent OS guidance is not product runtime source.
 
 Keep deployment local-first and portable for now. Concrete executable environment details live in source/config such as `.env.example`, `docker-compose.yml`, and package scripts.
 
 ## Deferred Defaults
 
-A separate frontend/backend split, BaaS-first architecture, Prisma as the default ORM, SQLite as the real application database, GraphQL/OpenAPI-first generation, vector or graph database infrastructure, recommendation-engine architecture, Turborepo/Nx, and many physical packages are deferred by default unless real project pressure justifies the additional surface.
+A separate frontend/backend split, BaaS-first architecture, Prisma as the default ORM, SQLite as the real application database, GraphQL/OpenAPI-first generation, specialized graph database infrastructure, recommendation-engine architecture, Turborepo/Nx, and many physical packages are deferred by default unless real project pressure justifies the additional surface.
 
 ## Revisit Triggers
 

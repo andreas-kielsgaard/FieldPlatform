@@ -24,7 +24,7 @@
 - Use selected mode report cues as a checklist; answer only the fields material to the final summary unless a fuller report is requested.
 - Confirm docs, project decisions, and final-response compromise/provisional notes are handled where needed.
 - Confirm user-owned unrelated changes were not modified.
-- Confirm any intentionally included generated artifacts are in scope; do not refresh generated evidence during ordinary commit preparation.
+- Confirm any intentionally included generated artifacts are in scope; do not refresh generated artifacts during ordinary commit preparation.
 - Identify any check that could not be run and why.
 
 ## Cross-Application Impact Cues

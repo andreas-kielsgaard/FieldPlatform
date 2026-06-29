@@ -35,10 +35,8 @@ Archived files are not active product, architecture, or Agent OS authority.
 - Do not touch `main`, commit, or push unless explicitly asked.
 - Preserve user-owned files and unrelated local changes.
 - Do not edit `App.code-workspace` unless explicitly asked.
-- Treat Agent OS source and guidance as protected during ordinary development. Read and follow it, but do not edit `Agent OS/agent-os-*.md`, `Agent OS/prompt-files/**`, `Agent OS/project-control-files/**`, or `Agent OS/tool-implementations/**` unless the human prompt explicitly asks for Agent OS maintenance.
-- Treat tool-maintained/generated outputs as evidence, not semantic authority.
-- Tool-maintained files under `Agent OS/tool-maintained-files/**` may be updated only by intentionally running the corresponding approved tool. Do not hand-edit them or refresh them by default.
-- Do not refresh generated Agent OS evidence unless explicitly asked for compatibility maintenance.
+- Treat Agent OS source and guidance as protected during ordinary development. Read and follow it, but do not edit `Agent OS/agent-os-*.md`, `Agent OS/prompt-files/**`, or `Agent OS/project-control-files/**` unless the human prompt explicitly asks for Agent OS maintenance.
+- Treat generated outputs as evidence, not semantic authority.
 - For ordinary development verification support, prefer the small replacement tool surface: `change-surface`, `test-selection`, `change-verification`, `repo-health`, and `depcruise:active-source`.
 
 ## Active Commands

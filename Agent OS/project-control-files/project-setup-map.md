@@ -22,4 +22,4 @@ Load this map for architecture-shaping, schema, feature, boundary, testing, depl
 - Project decisions are advisory, human-owned, and may lag source/config/tools.
 - Source, config, package scripts, dependency rules, schema, migrations, and tests remain authoritative where they directly answer the question.
 - If no mature project decision exists for a question, inspect the current source/config and report uncertainty or scoped compromise instead of inferring a decision from Agent OS.
-- Generated and tool-maintained outputs are evidence. They do not replace source files, project decisions, task modes, structural-maintenance behavior, or explicit human decisions.
+- Generated outputs are evidence. They do not replace source files, project decisions, task modes, structural-maintenance behavior, or explicit human decisions.

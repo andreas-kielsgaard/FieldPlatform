@@ -234,14 +234,14 @@ module.exports = {
       },
     },
     {
-      name: "runtime-does-not-import-agent-os-generated-artifacts",
-      comment: "Agent OS generated files are evidence, not runtime source.",
+      name: "runtime-does-not-import-agent-os",
+      comment: "Agent OS is operating guidance and must not become product runtime source.",
       severity: "error",
       from: {
         path: runtimePath,
       },
       to: {
-        path: "(^|/)Agent OS/tool-maintained-files/",
+        path: "(^|/)Agent OS/",
       },
     },
   ],

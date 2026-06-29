@@ -23,7 +23,7 @@ These checks are evidence. They do not decide product architecture, technology f
 
 ## Generated Output Policy
 
-Generated and tool-maintained outputs are evidence only. Do not refresh or commit generated evidence during ordinary development unless the human explicitly asks for compatibility maintenance.
+Generated outputs are evidence only. Do not refresh or commit generated artifacts during ordinary development unless the human explicitly asks.
 
 Avoid partial commits where generated artifacts were refreshed from a different source shape than the source files being committed.
 

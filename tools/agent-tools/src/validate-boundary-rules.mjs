@@ -113,10 +113,10 @@ const cases = [
     violations: ["modules-do-not-deep-import-other-modules"],
   },
   {
-    name: "runtime cannot import generated Agent OS artifacts",
+    name: "runtime cannot import Agent OS files",
     from: "apps/web/src/modules/communities/index.ts",
-    to: "Agent OS/tool-maintained-files/indexes/path-index.json",
-    violations: ["runtime-does-not-import-agent-os-generated-artifacts"],
+    to: "Agent OS/prompt-files/agent-os-map.md",
+    violations: ["runtime-does-not-import-agent-os"],
   },
   {
     name: "ordinary unresolved imports are blocked",

@@ -51,7 +51,7 @@ If instructions conflict:
 - selected behavior files govern structural decision procedure
 - selected lenses guide consideration scoping
 - maps govern their own control surfaces
-- generated/tool-maintained outputs are evidence, not semantic authority
+- generated outputs are evidence, not semantic authority
 
 ## Operating Posture
 
@@ -67,24 +67,21 @@ Treat this repository as a living system whose clarity should improve over time,
 
 - Tool temptation: avoid calling a tool merely because it exists. Use ordinary source reads and standard project checks first; use active approved tools such as `change-surface`, `test-selection`, `change-verification`, `repo-health`, and `depcruise:active-source` when affected-surface, test-relation, verification-plan, repo-health, or dependency-boundary evidence is the expensive part.
 - Semantic delegation: avoid asking deterministic tools to decide rightful ownership, audience, authority, abstraction quality, intended behavior, or whether two patterns mean the same thing.
-- Generated-output illusion: absence from generated evidence is not proof of absence in source/config.
+- Generated-output illusion: absence from generated output is not proof of absence in source/config.
 - Context explosion: prefer bounded summaries, top-N results, direct consumers, and targeted slices over full raw output.
 - Expensive input: if defining the query requires as much reasoning as solving the task directly, reason directly or use a smaller query.
 - Timing: if all relevant context is already loaded and small, direct reasoning may be better than a tool call.
 - Convention dependence: metadata tools are only as good as maintained conventions. Treat unknown metadata as uncertainty.
-- Generated authority: generated/tool-maintained outputs are evidence surfaces, not semantic authority.
-- Metadata maintenance: do not hand-maintain generated metadata. Refresh generated evidence only when explicitly asked for compatibility maintenance.
+- Generated authority: generated outputs are evidence surfaces, not semantic authority.
+- Metadata maintenance: do not hand-maintain generated metadata.
 
-## Agent OS Source And Generated Evidence Boundaries
+## Agent OS Source Boundaries
 
 During ordinary development, treat Agent OS source and guidance as protected. Read and follow it, but do not edit these surfaces unless the human prompt explicitly asks for Agent OS maintenance:
 
 - `Agent OS/agent-os-*.md`
 - `Agent OS/prompt-files/**`
 - `Agent OS/project-control-files/**`
-- `Agent OS/tool-implementations/**`
-
-Tool-maintained/generated files are different. Files under `Agent OS/tool-maintained-files/**` may be updated when the corresponding approved tool is intentionally run, but they should not be hand-edited or refreshed by default.
 
 When ordinary work reveals a possible Agent OS source/guidance change, mention it compactly in the final summary or ask for an Agent OS maintenance task instead of making incidental edits or creating a persistent proposal file.
 

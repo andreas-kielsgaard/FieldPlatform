@@ -15,7 +15,7 @@ Active development happens from the repository root:
 - `apps/web/src/shared` - shared auth, contracts, config, db, errors, policy, UI, and utilities.
 - `apps/web/drizzle` - current Drizzle schema and generated migration artifacts.
 - `tools/agent-tools` - project maintenance and verification tools.
-- `Agent OS` - active agent operating system, maps, checks, and generated evidence.
+- `Agent OS` - active agent operating system, maps, and guidance.
 - `infra` - infrastructure placeholders and deployment-adjacent material.
 - `Archive` - deprecated pre-migration material, ignored unless explicitly needed.
 
@@ -109,7 +109,7 @@ Agent OS/project-control-files/project-setup-map.md
 
 Mature human-owned project decisions live under `project-decisions/`; exact executable details remain in source, config, package scripts, and tool configuration.
 
-Tool-maintained/generated outputs are evidence, not authority. Use human-maintained maps, source reads, active replacement development tools, and standard project checks for normal work; do not refresh generated evidence unless explicitly asked for compatibility maintenance.
+Generated outputs are evidence, not authority. Use human-maintained maps, source reads, active replacement development tools, and standard project checks for normal work.
 
 ## Git Hygiene
 

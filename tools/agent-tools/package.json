@@ -8,6 +8,7 @@
     "test-selection": "node src/test-selection.mjs",
     "change-verification": "node src/change-verification.mjs",
     "repo-health": "node src/repo-health.mjs",
+    "test": "node --test test/**/*.test.mjs",
     "phase5:verify": "node src/verify-phase5.mjs"
   }
 }

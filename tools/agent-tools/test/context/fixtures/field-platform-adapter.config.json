@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "0.1.0",
+  "adapterId": "field-platform",
+  "repoId": "field-platform",
+  "displayName": "Field Platform",
+  "repoRoot": ".",
+  "pathFormat": "repo-relative-posix",
+  "sourceGroups": [
+    {
+      "id": "active-web-source",
+      "root": "apps/web",
+      "include": ["app/**/*", "src/**/*"],
+      "exclude": [".react-router/**/*", "build/**/*"],
+      "documentKinds": ["source", "test", "config", "schema"]
+    },
+    {
+      "id": "agent-tools-source",
+      "root": "tools/agent-tools",
+      "include": ["src/**/*", "test/**/*"],
+      "exclude": [],
+      "documentKinds": ["source", "test", "schema"]
+    }
+  ],
+  "capabilities": {
+    "implemented": [
+      "context-cli-help",
+      "schema-registry-inspection",
+      "command-envelope-contract",
+      "adapter-config-contract"
+    ],
+    "unimplemented": [
+      "source-indexing",
+      "symbol-extraction",
+      "lexical-search",
+      "dependency-evidence",
+      "embeddings-or-vector-search",
+      "manifest-generation",
+      "agent-os-prompt-weaving"
+    ]
+  }
+}

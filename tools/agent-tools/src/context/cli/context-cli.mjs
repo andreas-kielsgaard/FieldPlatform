@@ -1,0 +1,120 @@
+import { contextFoundationLimitations } from "../core/capabilities.mjs";
+import { createCommandEnvelope } from "../core/command-envelope.mjs";
+import { buildSchemasEnvelope, printSchemasSummary } from "./schemas-command.mjs";
+
+export function runContextCli(argv, io = {}) {
+  const stdout = io.stdout ?? process.stdout;
+  const stderr = io.stderr ?? process.stderr;
+  const now = io.now ?? (() => new Date());
+  const parsed = parseArgs(argv);
+
+  if (parsed.positional.length === 0) {
+    printContextHelp(stdout);
+    return 0;
+  }
+
+  const [commandName, ...commandArgs] = parsed.positional;
+  if (commandName === "schemas") {
+    return runSchemasCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
+  }
+
+  const message = `Unknown agent-os context command: ${commandName}`;
+  if (parsed.flags.json) {
+    const envelope = createCommandEnvelope({
+      name: commandName || "unknown",
+      generatedAt: now().toISOString(),
+      status: "error",
+      data: {},
+      warnings: [message],
+      limitations: contextFoundationLimitations,
+    });
+    stdout.write(`${JSON.stringify(envelope, null, 2)}\n`);
+  } else {
+    stderr.write(`${message}\n\n`);
+    printContextHelp(stderr);
+  }
+  return 1;
+}
+
+function runSchemasCommand(argv, io) {
+  const parsed = parseArgs(argv);
+  const flags = {
+    ...io.inheritedFlags,
+    ...parsed.flags,
+  };
+
+  if (flags.help || flags.h) {
+    printSchemasHelp(io.stdout);
+    return 0;
+  }
+
+  const envelope = buildSchemasEnvelope({
+    generatedAt: io.now().toISOString(),
+  });
+
+  if (flags.json) {
+    io.stdout.write(`${JSON.stringify(envelope, null, 2)}\n`);
+  } else {
+    printSchemasSummary(envelope, io.stdout);
+  }
+
+  return 0;
+}
+
+function parseArgs(argv) {
+  const flags = {};
+  const positional = [];
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const value = argv[index];
+    if (value === "--") {
+      continue;
+    }
+    if (!value.startsWith("--")) {
+      positional.push(value);
+      continue;
+    }
+
+    const withoutPrefix = value.slice(2);
+    const eqIndex = withoutPrefix.indexOf("=");
+    if (eqIndex >= 0) {
+      flags[withoutPrefix.slice(0, eqIndex)] = withoutPrefix.slice(eqIndex + 1);
+    } else {
+      flags[withoutPrefix] = true;
+    }
+  }
+
+  return { flags, positional };
+}
+
+function printContextHelp(stdout) {
+  stdout.write(`agent-os context
+
+Inspect Agent OS context-tool contracts.
+
+Usage:
+  corepack pnpm agent-os context --help
+  corepack pnpm agent-os context schemas --json
+
+Commands:
+  schemas    Inspect available context schemas and capability state.
+
+Options:
+  --help     Show this help.
+`);
+}
+
+function printSchemasHelp(stdout) {
+  stdout.write(`agent-os context schemas
+
+Inspect registered context schemas.
+
+Usage:
+  corepack pnpm agent-os context schemas --json
+  corepack pnpm agent-os context schemas --help
+
+Options:
+  --json     Emit the shared machine-readable command envelope.
+  --help     Show this help.
+`);
+}

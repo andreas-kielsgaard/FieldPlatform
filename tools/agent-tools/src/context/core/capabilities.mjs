@@ -20,7 +20,15 @@ export const implementedContextCapabilities = Object.freeze([
     status: "implemented",
   }),
   Object.freeze({
+    id: "symbol-extraction",
+    status: "implemented",
+  }),
+  Object.freeze({
     id: "dependency-evidence",
+    status: "implemented",
+  }),
+  Object.freeze({
+    id: "evidence-snapshot",
     status: "implemented",
   }),
 ]);
@@ -28,10 +36,6 @@ export const implementedContextCapabilities = Object.freeze([
 export const unimplementedContextCapabilities = Object.freeze([
   Object.freeze({
     id: "source-indexing",
-    status: "unimplemented",
-  }),
-  Object.freeze({
-    id: "symbol-extraction",
     status: "unimplemented",
   }),
   Object.freeze({
@@ -85,4 +89,26 @@ export function contextManifestLimitations(options = {}) {
   return options.withFreshness
     ? freshnessContextManifestLimitations
     : defaultContextManifestLimitations;
+}
+
+const defaultContextEvidenceWarnings = Object.freeze([
+  "Evidence snapshot composes local structural producers only.",
+]);
+
+const freshnessContextEvidenceWarnings = Object.freeze([
+  "Evidence snapshot includes local Git status and filesystem hash evidence when available.",
+]);
+
+const contextEvidenceLimitationsBase = Object.freeze([
+  "No files are written.",
+  "No search, ranking, vector retrieval, prompt weaving, or persistent index is performed.",
+  "Dependency edges are graph evidence only; source inclusion policy stays owned by the manifest.",
+]);
+
+export function contextEvidenceWarnings(options = {}) {
+  return options.withFreshness ? freshnessContextEvidenceWarnings : defaultContextEvidenceWarnings;
+}
+
+export function contextEvidenceLimitations() {
+  return contextEvidenceLimitationsBase;
 }

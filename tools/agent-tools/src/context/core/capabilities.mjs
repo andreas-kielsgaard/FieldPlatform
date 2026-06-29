@@ -19,6 +19,10 @@ export const implementedContextCapabilities = Object.freeze([
     id: "manifest-generation",
     status: "implemented",
   }),
+  Object.freeze({
+    id: "dependency-evidence",
+    status: "implemented",
+  }),
 ]);
 
 export const unimplementedContextCapabilities = Object.freeze([
@@ -32,10 +36,6 @@ export const unimplementedContextCapabilities = Object.freeze([
   }),
   Object.freeze({
     id: "lexical-search",
-    status: "unimplemented",
-  }),
-  Object.freeze({
-    id: "dependency-evidence",
     status: "unimplemented",
   }),
   Object.freeze({

@@ -86,13 +86,13 @@
       "schema-registry-inspection",
       "command-envelope-contract",
       "adapter-config-contract",
-      "manifest-generation"
+      "manifest-generation",
+      "dependency-evidence"
     ],
     "unimplemented": [
       "source-indexing",
       "symbol-extraction",
       "lexical-search",
-      "dependency-evidence",
       "embeddings-or-vector-search",
       "agent-os-prompt-weaving"
     ]

@@ -1,0 +1,7 @@
+{
+  "generatedBy": "source-intelligence-fixture",
+  "files": [
+    "apps/web/src/source-intelligence/source-policy.ts",
+    "apps/web/src/source-intelligence/source-policy.test.ts"
+  ]
+}

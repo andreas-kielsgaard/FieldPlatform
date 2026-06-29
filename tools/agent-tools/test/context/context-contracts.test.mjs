@@ -1,22 +1,24 @@
 import assert from "node:assert/strict";
-import { spawnSync } from "node:child_process";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
-import { fileURLToPath } from "node:url";
 
 import { buildSchemasEnvelope } from "../../src/context/cli/schemas-command.mjs";
-import {
-  validateAdapterConfig,
-  validateCommandEnvelope,
-} from "../../src/context/core/contract-validation.mjs";
+import { validateAdapterConfig } from "../../src/context/core/contract-validation.mjs";
 import {
   expectedContextSchemaIds,
   getContextSchemaRegistry,
 } from "../../src/context/core/schema-registry.mjs";
-
-const testDirectory = path.dirname(fileURLToPath(import.meta.url));
-const workspaceRoot = path.resolve(testDirectory, "../../../..");
+import {
+  assertDeterministicJsonEqual,
+  assertValidCommandEnvelope,
+  fixturePath,
+  loadJsonFixture,
+  normalizeCommandEnvelopeForGolden,
+  runWorkspaceCommand,
+  toRepoRelativePath,
+  workspaceRoot,
+} from "./context-test-helpers.mjs";
 
 test("schema registry contains every expected schema ID", () => {
   const registry = getContextSchemaRegistry();
@@ -47,39 +49,63 @@ test("command envelope validates for the schemas JSON output", () => {
   const envelope = buildSchemasEnvelope({
     generatedAt: "2026-06-29T00:00:00.000Z",
   });
-  const result = validateCommandEnvelope(envelope, {
+  assertValidCommandEnvelope(envelope, {
     name: "schemas",
     adapterId: "field-platform",
     requireSchemaRegistryData: true,
   });
-
-  assert.deepEqual(result.errors, []);
-  assert.equal(result.valid, true);
 });
 
 test("adapter/config fixture validates", () => {
-  const fixturePath = path.join(testDirectory, "fixtures", "field-platform-adapter.config.json");
-  const config = JSON.parse(readFileSync(fixturePath, "utf8"));
+  const config = loadJsonFixture("field-platform-adapter.config.json");
   const result = validateAdapterConfig(config);
 
   assert.deepEqual(result.errors, []);
   assert.equal(result.valid, true);
 });
 
-test("CLI returns valid JSON for agent-os context schemas --json", () => {
+test("shared context fixture corpus includes source policy and intelligence cases", () => {
+  const fixtureFiles = [
+    "synthetic-context-repo/apps/web/src/source-intelligence/source-policy.ts",
+    "synthetic-context-repo/apps/web/src/source-intelligence/source-policy.test.ts",
+    "synthetic-context-repo/config/source-intelligence.config.json",
+    "synthetic-context-repo/generated/source-intelligence.generated.json",
+    "synthetic-context-repo/Archive/legacy-source-policy.md",
+    "synthetic-context-repo/docs/source-intelligence.md",
+  ];
+  const repoRelativePaths = fixtureFiles.map((file) =>
+    toRepoRelativePath(fixturePath(...file.split("/"))),
+  );
+
+  assert.deepEqual(repoRelativePaths, [
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/apps/web/src/source-intelligence/source-policy.ts",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/apps/web/src/source-intelligence/source-policy.test.ts",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/config/source-intelligence.config.json",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/generated/source-intelligence.generated.json",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/Archive/legacy-source-policy.md",
+    "tools/agent-tools/test/context/fixtures/synthetic-context-repo/docs/source-intelligence.md",
+  ]);
+
+  for (const repoRelativePath of repoRelativePaths) {
+    assert.equal(existsSync(path.join(workspaceRoot, repoRelativePath)), true);
+  }
+});
+
+test("CLI schemas JSON envelope matches the golden shape without pinning generatedAt", () => {
   const run = runWorkspaceCommand(["pnpm", "agent-os", "context", "schemas", "--json"]);
 
   assert.equal(run.status, 0, run.stderr || run.stdout);
 
   const parsed = JSON.parse(run.stdout);
-  const result = validateCommandEnvelope(parsed, {
+  assertValidCommandEnvelope(parsed, {
     name: "schemas",
     adapterId: "field-platform",
     requireSchemaRegistryData: true,
   });
-
-  assert.deepEqual(result.errors, []);
-  assert.equal(result.valid, true);
+  assertDeterministicJsonEqual(
+    normalizeCommandEnvelopeForGolden(parsed),
+    loadJsonFixture("goldens", "schemas-envelope.golden.json"),
+  );
 });
 
 test("CLI context help exits successfully", () => {
@@ -99,21 +125,3 @@ test("schema inspection does not create generated Agent OS artifacts", () => {
   assert.equal(existsSync(path.join(workspaceRoot, "Agent OS", "tool-implementations")), false);
   assert.equal(existsSync(path.join(workspaceRoot, "Agent OS", "tool-maintained-files")), false);
 });
-
-function runWorkspaceCommand(corepackArgs) {
-  if (process.platform === "win32") {
-    return spawnSync("cmd.exe", ["/d", "/s", "/c", "corepack", ...corepackArgs], {
-      cwd: workspaceRoot,
-      encoding: "utf8",
-      shell: false,
-      maxBuffer: 1024 * 1024 * 10,
-    });
-  }
-
-  return spawnSync("corepack", corepackArgs, {
-    cwd: workspaceRoot,
-    encoding: "utf8",
-    shell: false,
-    maxBuffer: 1024 * 1024 * 10,
-  });
-}

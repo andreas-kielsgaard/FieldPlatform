@@ -1,0 +1,6 @@
+{
+  "fixtureId": "source-intelligence-config",
+  "activeRoots": ["apps/web/src"],
+  "ignoredRoots": ["Archive", "generated"],
+  "pathFormat": "repo-relative-posix"
+}

@@ -14,6 +14,26 @@ const documentKindValues = new Set([
   "unknown",
 ]);
 
+const dependencyEdgeTypeValues = new Set([
+  "import",
+  "export",
+  "dynamic-import",
+  "reference",
+  "test-relation",
+  "unknown",
+]);
+
+const dependencyEdgeKeys = new Set([
+  "source",
+  "target",
+  "edgeType",
+  "sourceTool",
+  "confidence",
+  "provenance",
+]);
+
+const endpointKeys = new Set(["path", "pathFormat", "chunkId"]);
+
 export function validateCommandEnvelope(envelope, options = {}) {
   const errors = [];
 
@@ -129,6 +149,39 @@ export function validateFileManifest(manifest, options = {}) {
   };
 }
 
+export function validateDependencyEdgeMetadata(edge, options = {}) {
+  const errors = [];
+
+  if (!isObject(edge)) {
+    return invalid("Dependency edge metadata must be an object.");
+  }
+
+  expectOnlyKeys(errors, edge, dependencyEdgeKeys, "edge");
+  validateDependencyEndpointInto(errors, edge.source, "edge.source");
+  validateDependencyEndpointInto(errors, edge.target, "edge.target");
+  if (!dependencyEdgeTypeValues.has(edge.edgeType)) {
+    errors.push("edge.edgeType must be a known dependency edge type.");
+  }
+  expectString(errors, edge.sourceTool, "edge.sourceTool");
+  expectNumberRange(errors, edge.confidence, "edge.confidence", 0, 1);
+  validateProvenanceInto(errors, edge.provenance, "edge.provenance");
+  if (
+    isObject(edge.provenance) &&
+    typeof edge.sourceTool === "string" &&
+    edge.provenance.sourceTool !== edge.sourceTool
+  ) {
+    errors.push("edge.provenance.sourceTool must match edge.sourceTool.");
+  }
+  if (options.sourceTool) {
+    expectEqual(errors, edge.sourceTool, options.sourceTool, "edge.sourceTool");
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
+}
+
 export function validateSourceFileMetadata(file, options = {}) {
   const errors = [];
 
@@ -217,6 +270,40 @@ function validateSourceFileMetadataInto(errors, file, prefix, options) {
   }
 }
 
+function validateDependencyEndpointInto(errors, endpoint, prefix) {
+  if (!isObject(endpoint)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  expectOnlyKeys(errors, endpoint, endpointKeys, prefix);
+  expectRepoRelativePath(errors, endpoint.path, `${prefix}.path`);
+  expectEqual(errors, endpoint.pathFormat, CONTEXT_PATH_FORMAT, `${prefix}.pathFormat`);
+  if (
+    endpoint.chunkId !== undefined &&
+    endpoint.chunkId !== null &&
+    typeof endpoint.chunkId !== "string"
+  ) {
+    errors.push(`${prefix}.chunkId must be a string or null.`);
+  }
+}
+
+function validateProvenanceInto(errors, provenance, prefix) {
+  if (!isObject(provenance)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  expectString(errors, provenance.sourceTool, `${prefix}.sourceTool`);
+  expectIsoDateTime(errors, provenance.observedAt, `${prefix}.observedAt`);
+  if (provenance.version !== undefined && typeof provenance.version !== "string") {
+    errors.push(`${prefix}.version must be a string.`);
+  }
+  if (provenance.notes !== undefined) {
+    expectStringArray(errors, provenance.notes, `${prefix}.notes`);
+  }
+}
+
 function invalid(message) {
   return {
     valid: false,
@@ -246,6 +333,16 @@ function expectStringArray(errors, value, field) {
   }
 }
 
+function expectNumberRange(errors, value, field, minimum, maximum) {
+  if (typeof value !== "number" || Number.isNaN(value)) {
+    errors.push(`${field} must be a number.`);
+    return;
+  }
+  if (value < minimum || value > maximum) {
+    errors.push(`${field} must be between ${minimum} and ${maximum}.`);
+  }
+}
+
 function expectBoolean(errors, value, field) {
   if (typeof value !== "boolean") {
     errors.push(`${field} must be a boolean.`);
@@ -266,5 +363,13 @@ function expectRepoRelativePath(errors, value, field) {
   }
   if (!isRepoRelativePosixPath(value)) {
     errors.push(`${field} must be a repo-relative POSIX path.`);
+  }
+}
+
+function expectOnlyKeys(errors, value, allowedKeys, field) {
+  for (const key of Object.keys(value)) {
+    if (!allowedKeys.has(key)) {
+      errors.push(`${field}.${key} is not allowed.`);
+    }
   }
 }

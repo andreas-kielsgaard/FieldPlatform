@@ -87,12 +87,12 @@ export const fieldPlatformContextAdapterConfig = Object.freeze({
       "command-envelope-contract",
       "adapter-config-contract",
       "manifest-generation",
+      "dependency-evidence",
     ]),
     unimplemented: Object.freeze([
       "source-indexing",
       "symbol-extraction",
       "lexical-search",
-      "dependency-evidence",
       "embeddings-or-vector-search",
       "agent-os-prompt-weaving",
     ]),

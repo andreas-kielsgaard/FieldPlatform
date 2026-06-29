@@ -1,0 +1,119 @@
+{
+  "modules": [
+    {
+      "source": "apps/web/src/modules/communities/index.ts",
+      "dependencies": [
+        {
+          "dynamic": false,
+          "module": "./application/get-community",
+          "moduleSystem": "es6",
+          "dependencyTypes": ["local", "import"],
+          "resolved": "apps/web/src/modules/communities/application/get-community.ts",
+          "coreModule": false,
+          "couldNotResolve": false,
+          "valid": true
+        },
+        {
+          "dynamic": false,
+          "module": "./contracts/community-contract",
+          "moduleSystem": "es6",
+          "dependencyTypes": ["local", "export"],
+          "resolved": "apps/web/src/modules/communities/contracts/community-contract.ts",
+          "coreModule": false,
+          "couldNotResolve": false,
+          "valid": true
+        },
+        {
+          "dynamic": true,
+          "module": "./ui/community-card",
+          "moduleSystem": "es6",
+          "dependencyTypes": ["local", "dynamic-import"],
+          "resolved": "apps/web/src/modules/communities/ui/community-card.tsx",
+          "coreModule": false,
+          "couldNotResolve": false,
+          "valid": true
+        },
+        {
+          "dynamic": false,
+          "module": "fs",
+          "moduleSystem": "es6",
+          "dependencyTypes": ["core", "import"],
+          "protocol": "node:",
+          "resolved": "fs",
+          "coreModule": true,
+          "couldNotResolve": false,
+          "valid": true
+        },
+        {
+          "dynamic": false,
+          "module": "react",
+          "moduleSystem": "es6",
+          "dependencyTypes": ["npm", "import"],
+          "resolved": "node_modules/.pnpm/react@19.2.7/node_modules/react/index.js",
+          "coreModule": false,
+          "couldNotResolve": false,
+          "valid": true
+        },
+        {
+          "dynamic": false,
+          "module": "missing-package",
+          "moduleSystem": "es6",
+          "dependencyTypes": ["unknown", "import"],
+          "resolved": "missing-package",
+          "coreModule": false,
+          "couldNotResolve": true,
+          "valid": false
+        }
+      ],
+      "orphan": false,
+      "valid": true
+    },
+    {
+      "source": "apps/web/.react-router/types/+types/root.ts",
+      "dependencies": [
+        {
+          "dynamic": false,
+          "module": "../../app/root",
+          "moduleSystem": "es6",
+          "dependencyTypes": ["local", "import"],
+          "resolved": "apps/web/app/root.tsx",
+          "coreModule": false,
+          "couldNotResolve": false,
+          "valid": true
+        }
+      ],
+      "orphan": false,
+      "valid": true
+    },
+    {
+      "source": "Archive/legacy/old-module.ts",
+      "dependencies": [
+        {
+          "dynamic": false,
+          "module": "../../apps/web/src/modules/communities/index",
+          "moduleSystem": "es6",
+          "dependencyTypes": ["local", "import"],
+          "resolved": "apps/web/src/modules/communities/index.ts",
+          "coreModule": false,
+          "couldNotResolve": false,
+          "valid": true
+        }
+      ],
+      "orphan": false,
+      "valid": true
+    }
+  ],
+  "summary": {
+    "violations": [],
+    "error": 0,
+    "warn": 0,
+    "info": 0,
+    "ignore": 0,
+    "totalCruised": 3,
+    "totalDependenciesCruised": 8,
+    "optionsUsed": {
+      "rulesFile": "dependency-cruiser.config.cjs",
+      "args": "apps/web/app apps/web/src tools/agent-tools/src"
+    }
+  }
+}

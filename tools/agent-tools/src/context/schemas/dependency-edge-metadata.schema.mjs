@@ -25,7 +25,7 @@ export const dependencyEdgeMetadataSchema = defineContextSchema(
     $id: "agent-os.context.dependency-edge-metadata",
     title: "Agent OS Context Dependency Edge Metadata",
     description:
-      "Dependency edge metadata contract for future evidence. This slice defines provenance and confidence only.",
+      "Dependency edge metadata contract for graph evidence. This contract does not define source inclusion policy.",
     type: "object",
     additionalProperties: false,
     required: ["source", "target", "edgeType", "sourceTool", "confidence", "provenance"],

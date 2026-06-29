@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "agent-os.context.command-envelope@0.1.0",
+  "command": {
+    "namespace": "agent-os context",
+    "name": "schemas",
+    "generatedAt": "<ISO_DATE_TIME>",
+    "adapterId": "field-platform"
+  },
+  "status": "ok",
+  "data": {
+    "registryId": "agent-os.context.schema-registry",
+    "registryVersion": "0.1.0",
+    "schemas": [
+      {
+        "id": "agent-os.context.adapter-config",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/adapter-config.schema.mjs",
+        "title": "Agent OS Context Adapter Config"
+      },
+      {
+        "id": "agent-os.context.command-envelope",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/command-envelope.schema.mjs",
+        "title": "Agent OS Context Command Envelope"
+      },
+      {
+        "id": "agent-os.context.source-file-metadata",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/source-file-metadata.schema.mjs",
+        "title": "Agent OS Context Source File Metadata"
+      },
+      {
+        "id": "agent-os.context.file-manifest",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/file-manifest.schema.mjs",
+        "title": "Agent OS Context File Manifest"
+      },
+      {
+        "id": "agent-os.context.freshness-state",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/freshness-state.schema.mjs",
+        "title": "Agent OS Context Freshness State"
+      },
+      {
+        "id": "agent-os.context.chunk-metadata",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/chunk-metadata.schema.mjs",
+        "title": "Agent OS Context Chunk Metadata"
+      },
+      {
+        "id": "agent-os.context.symbol-metadata",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/symbol-metadata.schema.mjs",
+        "title": "Agent OS Context Symbol Metadata"
+      },
+      {
+        "id": "agent-os.context.dependency-edge-metadata",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/dependency-edge-metadata.schema.mjs",
+        "title": "Agent OS Context Dependency Edge Metadata"
+      },
+      {
+        "id": "agent-os.context.evidence-result",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/evidence-result.schema.mjs",
+        "title": "Agent OS Context Evidence Result"
+      },
+      {
+        "id": "agent-os.context.schema-registry",
+        "version": "0.1.0",
+        "filePath": "tools/agent-tools/src/context/schemas/schema-registry.schema.mjs",
+        "title": "Agent OS Context Schema Registry"
+      }
+    ],
+    "schemaCount": 10,
+    "adapter": {
+      "adapterId": "field-platform",
+      "repoId": "field-platform",
+      "configSource": "tools/agent-tools/src/context/adapters/field-platform-adapter-config.mjs",
+      "sourceGroupCount": 2
+    },
+    "generatedArtifacts": []
+  }
+}

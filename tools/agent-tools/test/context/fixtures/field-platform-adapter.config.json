@@ -92,7 +92,8 @@
       "evidence-snapshot",
       "file-focused-evidence-inspection",
       "exact-symbol-lookup",
-      "lexical-search"
+      "lexical-search",
+      "context-evidence-bundle"
     ],
     "unimplemented": ["source-indexing", "embeddings-or-vector-search", "agent-os-prompt-weaving"]
   }

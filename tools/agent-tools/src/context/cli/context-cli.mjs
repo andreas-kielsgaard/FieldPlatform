@@ -1,5 +1,6 @@
 import { contextFoundationLimitations } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
+import { buildBundleEnvelope, printBundleSummary } from "./bundle-command.mjs";
 import { buildEvidenceEnvelope, printEvidenceSummary } from "./evidence-command.mjs";
 import { buildInspectEnvelope, printInspectSummary } from "./inspect-command.mjs";
 import { buildManifestEnvelope, printManifestSummary } from "./manifest-command.mjs";
@@ -119,6 +120,42 @@ function runEvidenceCommand(argv, io) {
   return envelope.status === "error" ? 1 : 0;
 }
 
+function runBundleCommand(argv, io) {
+  const parsed = parseArgs(argv);
+  const flags = {
+    ...io.inheritedFlags,
+    ...parsed.flags,
+  };
+
+  if (flags.help || flags.h) {
+    printBundleHelp(io.stdout);
+    return 0;
+  }
+
+  const envelope = buildBundleEnvelope({
+    generatedAt: io.now().toISOString(),
+    paths: flags.path,
+    symbols: flags.symbol,
+    queries: flags.query,
+    withFreshness: flags["with-freshness"] === true,
+    limits: {
+      files: flags["max-files"],
+      symbols: flags["max-symbols"],
+      chunks: flags["max-chunks"],
+      dependencyEdges: flags["max-dependency-edges"],
+      searchMatches: flags["max-search-matches"],
+    },
+  });
+
+  if (flags.json) {
+    io.stdout.write(`${JSON.stringify(envelope, null, 2)}\n`);
+  } else {
+    printBundleSummary(envelope, io.stdout);
+  }
+
+  return envelope.status === "error" ? 1 : 0;
+}
+
 function runInspectCommand(argv, io) {
   const parsed = parseArgs(argv);
   const flags = {
@@ -225,13 +262,22 @@ function parseArgs(argv) {
     const withoutPrefix = value.slice(2);
     const eqIndex = withoutPrefix.indexOf("=");
     if (eqIndex >= 0) {
-      flags[withoutPrefix.slice(0, eqIndex)] = withoutPrefix.slice(eqIndex + 1);
+      addFlag(flags, withoutPrefix.slice(0, eqIndex), withoutPrefix.slice(eqIndex + 1));
     } else {
-      flags[withoutPrefix] = true;
+      addFlag(flags, withoutPrefix, true);
     }
   }
 
   return { flags, positional };
+}
+
+function addFlag(flags, key, value) {
+  if (flags[key] === undefined) {
+    flags[key] = value;
+    return;
+  }
+
+  flags[key] = Array.isArray(flags[key]) ? [...flags[key], value] : [flags[key], value];
 }
 
 function printContextHelp(stdout) {
@@ -282,6 +328,33 @@ Options:
   --json             Emit the shared machine-readable command envelope.
   --with-freshness   Include local Git/filesystem freshness evidence per manifest entry.
   --help             Show this help.
+`);
+}
+
+function printBundleHelp(stdout) {
+  stdout.write(`agent-os context bundle
+
+Compose a bounded deterministic context evidence bundle from selected existing evidence.
+
+Usage:
+  corepack pnpm agent-os context bundle --path=apps/web/app/root.tsx --json
+  corepack pnpm agent-os context bundle --symbol=Layout --json
+  corepack pnpm agent-os context bundle --query=visibility --json
+  corepack pnpm agent-os context bundle --path=apps/web/app/root.tsx --symbol=Layout --query=visibility --json --with-freshness
+  corepack pnpm agent-os context bundle --help
+
+Options:
+  --path=<path>                 Repo-relative POSIX path selector. Can be repeated.
+  --symbol=<name>               Exact TypeScript/TSX symbol-name selector. Can be repeated.
+  --query=<literal-text>        Literal text search selector. Can be repeated.
+  --json                        Emit the shared machine-readable command envelope.
+  --with-freshness              Include local Git/filesystem freshness evidence for selected files.
+  --max-files=<count>           Maximum returned manifest file entries. Default 20.
+  --max-symbols=<count>         Maximum returned symbols. Default 40.
+  --max-chunks=<count>          Maximum returned chunks. Default 40.
+  --max-dependency-edges=<n>    Maximum returned direct dependency edges. Default 40.
+  --max-search-matches=<count>  Maximum returned literal search matches. Default 40.
+  --help                        Show this help.
 `);
 }
 
@@ -378,6 +451,11 @@ function formatCommandSummaries(commands) {
 
 export const contextCommandDefinitions = Object.freeze([
   Object.freeze({
+    name: "bundle",
+    summary: "Compose bounded selected context evidence.",
+    run: runBundleCommand,
+  }),
+  Object.freeze({
     name: "evidence",
     summary: "Emit the composed on-demand structural evidence snapshot.",
     run: runEvidenceCommand,
@@ -415,6 +493,10 @@ export const contextCommandNames = Object.freeze(
 
 export const contextUsageExamples = Object.freeze([
   "corepack pnpm agent-os context schemas --json",
+  "corepack pnpm agent-os context bundle --path=apps/web/app/root.tsx --json",
+  "corepack pnpm agent-os context bundle --symbol=Layout --json",
+  "corepack pnpm agent-os context bundle --query=visibility --json",
+  "corepack pnpm agent-os context bundle --path=apps/web/app/root.tsx --symbol=Layout --query=visibility --json --with-freshness",
   "corepack pnpm agent-os context manifest --json",
   "corepack pnpm agent-os context manifest --json --with-freshness",
   "corepack pnpm agent-os context evidence --json",

@@ -43,6 +43,10 @@ export const implementedContextCapabilities = Object.freeze([
     id: "lexical-search",
     status: "implemented",
   }),
+  Object.freeze({
+    id: "context-evidence-bundle",
+    status: "implemented",
+  }),
 ]);
 
 export const implementedContextCapabilityIds = Object.freeze(
@@ -149,4 +153,27 @@ export function contextSearchWarnings(options = {}) {
 
 export function contextSearchLimitations() {
   return contextSearchLimitationsBase;
+}
+
+const defaultContextBundleWarnings = Object.freeze([
+  "Bundle composes selected local structural evidence only.",
+]);
+
+const freshnessContextBundleWarnings = Object.freeze([
+  "Bundle composes selected local structural evidence and includes freshness evidence for selected files.",
+]);
+
+const contextBundleLimitationsBase = Object.freeze([
+  "Selectors are deterministic exact path, exact symbol name, and literal text only.",
+  "Dependency evidence is limited to direct edges for selected included source files.",
+  "No fuzzy matching, semantic matching, ranking, graph traversal beyond direct edges, vector retrieval, prompt weaving, or persistent index is performed.",
+  "No files are written.",
+]);
+
+export function contextBundleWarnings(options = {}) {
+  return options.withFreshness ? freshnessContextBundleWarnings : defaultContextBundleWarnings;
+}
+
+export function contextBundleLimitations() {
+  return contextBundleLimitationsBase;
 }

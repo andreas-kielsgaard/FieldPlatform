@@ -8,6 +8,7 @@ import {
   validateCommandEnvelope,
   validateContextEvidenceSnapshot,
   validateInspectResult,
+  validateSearchResult,
   validateSymbolsResult,
 } from "../../src/context/core/contract-validation.mjs";
 
@@ -64,6 +65,13 @@ export function assertValidInspectResult(result, options = {}) {
 
 export function assertValidSymbolsResult(result, options = {}) {
   const validation = validateSymbolsResult(result, options);
+
+  assert.deepEqual(validation.errors, []);
+  assert.equal(validation.valid, true);
+}
+
+export function assertValidSearchResult(result, options = {}) {
+  const validation = validateSearchResult(result, options);
 
   assert.deepEqual(validation.errors, []);
   assert.equal(validation.valid, true);

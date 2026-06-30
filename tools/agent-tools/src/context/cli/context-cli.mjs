@@ -4,6 +4,7 @@ import { buildEvidenceEnvelope, printEvidenceSummary } from "./evidence-command.
 import { buildInspectEnvelope, printInspectSummary } from "./inspect-command.mjs";
 import { buildManifestEnvelope, printManifestSummary } from "./manifest-command.mjs";
 import { buildSchemasEnvelope, printSchemasSummary } from "./schemas-command.mjs";
+import { buildSearchEnvelope, printSearchSummary } from "./search-command.mjs";
 import { buildSymbolsEnvelope, printSymbolsSummary } from "./symbols-command.mjs";
 
 export function runContextCli(argv, io = {}) {
@@ -175,6 +176,38 @@ function runSymbolsCommand(argv, io) {
   return envelope.status === "error" ? 1 : 0;
 }
 
+function runSearchCommand(argv, io) {
+  const parsed = parseArgs(argv);
+  const flags = {
+    ...io.inheritedFlags,
+    ...parsed.flags,
+  };
+
+  if (flags.help || flags.h) {
+    printSearchHelp(io.stdout);
+    return 0;
+  }
+
+  const envelope = buildSearchEnvelope({
+    generatedAt: io.now().toISOString(),
+    query: flags.query,
+    path: flags.path,
+    language: flags.language,
+    caseSensitive: flags["case-sensitive"] === true,
+    includeTests: flags["include-tests"] === true,
+    limit: flags.limit,
+    withFreshness: flags["with-freshness"] === true,
+  });
+
+  if (flags.json) {
+    io.stdout.write(`${JSON.stringify(envelope, null, 2)}\n`);
+  } else {
+    printSearchSummary(envelope, io.stdout);
+  }
+
+  return envelope.status === "error" ? 1 : 0;
+}
+
 function parseArgs(argv) {
   const flags = {};
   const positional = [];
@@ -294,6 +327,32 @@ Options:
 `);
 }
 
+function printSearchHelp(stdout) {
+  stdout.write(`agent-os context search
+
+Search manifest-included files for deterministic literal text matches.
+
+Usage:
+  corepack pnpm agent-os context search --query=visibility --json
+  corepack pnpm agent-os context search --query=visibility --json --with-freshness
+  corepack pnpm agent-os context search --query=visibility --path=apps/web/src/shared/policy/visibility.ts --json
+  corepack pnpm agent-os context search --query=visibility --language=typescript --json
+  corepack pnpm agent-os context search --query=Visibility --case-sensitive --json
+  corepack pnpm agent-os context search --help
+
+Options:
+  --query=<literal-text>   Required literal text query. Regex/fuzzy matching is not supported.
+  --path=<path>            Optional repo-relative POSIX file filter.
+  --language=<language>    Optional manifest language filter.
+  --case-sensitive         Match query case exactly. Default is case-insensitive.
+  --include-tests          Include manifest-included test files. Default excludes tests.
+  --limit=<count>          Maximum returned matches. Default 100.
+  --json                   Emit the shared machine-readable command envelope.
+  --with-freshness         Include local Git/filesystem freshness evidence for matching files.
+  --help                   Show this help.
+`);
+}
+
 function printSchemasHelp(stdout) {
   stdout.write(`agent-os context schemas
 
@@ -339,6 +398,11 @@ export const contextCommandDefinitions = Object.freeze([
     run: runSchemasCommand,
   }),
   Object.freeze({
+    name: "search",
+    summary: "Search manifest-included files for literal text matches.",
+    run: runSearchCommand,
+  }),
+  Object.freeze({
     name: "symbols",
     summary: "Look up exact TypeScript/TSX symbols from the evidence snapshot.",
     run: runSymbolsCommand,
@@ -359,4 +423,6 @@ export const contextUsageExamples = Object.freeze([
   "corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json --with-freshness",
   "corepack pnpm agent-os context symbols --name=Layout --json",
   "corepack pnpm agent-os context symbols --name=Layout --json --with-freshness",
+  "corepack pnpm agent-os context search --query=visibility --json",
+  "corepack pnpm agent-os context search --query=visibility --json --with-freshness",
 ]);

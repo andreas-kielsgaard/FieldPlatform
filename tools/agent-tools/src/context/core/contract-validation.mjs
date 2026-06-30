@@ -317,6 +317,35 @@ export function validateSymbolsResult(result, options = {}) {
   };
 }
 
+export function validateSearchResult(result, options = {}) {
+  const errors = [];
+
+  if (!isObject(result)) {
+    return invalid("Search result must be an object.");
+  }
+
+  validateEvidenceBaseFieldsInto(errors, result, "result", {
+    adapterId: options.adapterId,
+    allowNullSchemaVersion: true,
+  });
+  if (result.query !== null) {
+    expectString(errors, result.query, "result.query");
+  }
+  validateSearchAppliedFiltersInto(errors, result.appliedFilters, "result.appliedFilters");
+  validateSearchMatchArrayInto(errors, result.matches, "result.matches");
+  validateSourceFileArrayInto(errors, result.matchingFiles, "result.matchingFiles", options);
+  validateSearchFreshnessEvidenceInto(errors, result.freshnessEvidence, "result.freshnessEvidence");
+  validateSearchSummaryInto(errors, result.summary, "result.summary", result);
+  validateSearchProducersInto(errors, result.producers, "result.producers", {
+    allowNull: true,
+  });
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
+}
+
 export function validateSourceFileMetadata(file, options = {}) {
   const errors = [];
 
@@ -818,6 +847,152 @@ function validateSymbolsSummaryInto(errors, summary, prefix, result) {
       `${prefix}.pathFilterIncludedSource`,
     );
     expectEqual(errors, summary.pathFilterExcluded, null, `${prefix}.pathFilterExcluded`);
+  }
+}
+
+function validateSearchAppliedFiltersInto(errors, filters, prefix) {
+  if (!isObject(filters)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  validateNullableRepoPathInto(errors, filters.path, `${prefix}.path`);
+  validateNullableString(errors, filters.language, `${prefix}.language`);
+  expectBoolean(errors, filters.caseSensitive, `${prefix}.caseSensitive`);
+  expectBoolean(errors, filters.includeTests, `${prefix}.includeTests`);
+  validateNonNegativeNumber(errors, filters.limit, `${prefix}.limit`);
+  if (typeof filters.limit === "number" && filters.limit < 1) {
+    errors.push(`${prefix}.limit must be at least 1.`);
+  }
+}
+
+function validateSearchMatchArrayInto(errors, matches, prefix) {
+  if (!Array.isArray(matches)) {
+    errors.push(`${prefix} must be an array.`);
+    return;
+  }
+
+  let previousKey = null;
+  for (const [index, match] of matches.entries()) {
+    const matchPrefix = `${prefix}[${index}]`;
+    validateSearchMatchInto(errors, match, matchPrefix);
+
+    if (isObject(match) && isObject(match.range?.start)) {
+      const key = `${match.path}\u0000${String(match.range.start.line).padStart(10, "0")}\u0000${String(match.range.start.character).padStart(10, "0")}`;
+      if (previousKey !== null && previousKey.localeCompare(key) > 0) {
+        errors.push(`${matchPrefix} must be ordered by path and position.`);
+      }
+      previousKey = key;
+    }
+  }
+}
+
+function validateSearchMatchInto(errors, match, prefix) {
+  if (!isObject(match)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  expectRepoRelativePath(errors, match.path, `${prefix}.path`);
+  expectEqual(errors, match.pathFormat, CONTEXT_PATH_FORMAT, `${prefix}.pathFormat`);
+  validateSourceRangeInto(errors, match.range, `${prefix}.range`);
+  expectString(errors, match.snippet, `${prefix}.snippet`);
+  expectString(errors, match.language, `${prefix}.language`);
+  if (!documentKindValues.has(match.documentKind)) {
+    errors.push(`${prefix}.documentKind must be a known document kind.`);
+  }
+  expectString(errors, match.sourceGroup, `${prefix}.sourceGroup`);
+}
+
+function validateSearchFreshnessEvidenceInto(errors, freshnessEvidence, prefix) {
+  if (freshnessEvidence === null) {
+    return;
+  }
+  if (!Array.isArray(freshnessEvidence)) {
+    errors.push(`${prefix} must be an array or null.`);
+    return;
+  }
+
+  for (const [index, entry] of freshnessEvidence.entries()) {
+    const entryPrefix = `${prefix}[${index}]`;
+    if (!isObject(entry)) {
+      errors.push(`${entryPrefix} must be an object.`);
+      continue;
+    }
+    expectRepoRelativePath(errors, entry.path, `${entryPrefix}.path`);
+    validateNullableFreshnessEvidenceInto(
+      errors,
+      entry.freshnessEvidence,
+      `${entryPrefix}.freshnessEvidence`,
+    );
+  }
+}
+
+function validateSearchSummaryInto(errors, summary, prefix, result) {
+  if (!isObject(summary)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  const filtersApplied = [
+    result.appliedFilters?.path,
+    result.appliedFilters?.language,
+    result.appliedFilters?.caseSensitive ? "case-sensitive" : null,
+    result.appliedFilters?.includeTests ? "include-tests" : null,
+    result.appliedFilters?.limit !== 100 ? "limit" : null,
+  ].filter((value) => value !== null).length;
+
+  expectEqual(errors, summary.query, result.query, `${prefix}.query`);
+  expectBoolean(errors, summary.literal, `${prefix}.literal`);
+  expectBoolean(errors, summary.caseSensitive, `${prefix}.caseSensitive`);
+  expectEqual(errors, summary.filtersApplied, filtersApplied, `${prefix}.filtersApplied`);
+  validateNonNegativeNumber(errors, summary.candidateFiles, `${prefix}.candidateFiles`);
+  validateNonNegativeNumber(errors, summary.searchedFiles, `${prefix}.searchedFiles`);
+  validateNonNegativeNumber(errors, summary.skippedTestFiles, `${prefix}.skippedTestFiles`);
+  validateNonNegativeNumber(errors, summary.totalMatches, `${prefix}.totalMatches`);
+  expectEqual(errors, summary.returnedMatches, result.matches?.length, `${prefix}.returnedMatches`);
+  expectEqual(
+    errors,
+    summary.matchingFiles,
+    result.matchingFiles?.length,
+    `${prefix}.matchingFiles`,
+  );
+  expectEqual(
+    errors,
+    summary.freshnessEvidence,
+    result.freshnessEvidence?.length ?? 0,
+    `${prefix}.freshnessEvidence`,
+  );
+  expectEqual(errors, summary.limit, result.appliedFilters?.limit, `${prefix}.limit`);
+  expectBoolean(errors, summary.truncated, `${prefix}.truncated`);
+}
+
+function validateSearchProducersInto(errors, producers, prefix, options = {}) {
+  if (producers === null && options.allowNull) {
+    return;
+  }
+  if (!isObject(producers)) {
+    errors.push(`${prefix} must be an object${options.allowNull ? " or null" : ""}.`);
+    return;
+  }
+
+  if (!isObject(producers.manifest)) {
+    errors.push(`${prefix}.manifest must be an object.`);
+  } else {
+    expectString(errors, producers.manifest.adapterId, `${prefix}.manifest.adapterId`);
+    expectBoolean(errors, producers.manifest.withFreshness, `${prefix}.manifest.withFreshness`);
+  }
+
+  if (!isObject(producers.search)) {
+    errors.push(`${prefix}.search must be an object.`);
+  } else {
+    expectString(errors, producers.search.sourceTool, `${prefix}.search.sourceTool`);
+    expectBoolean(errors, producers.search.exactLiteralMatch, `${prefix}.search.exactLiteralMatch`);
+    expectBoolean(
+      errors,
+      producers.search.persistentIndexWritten,
+      `${prefix}.search.persistentIndexWritten`,
+    );
   }
 }
 

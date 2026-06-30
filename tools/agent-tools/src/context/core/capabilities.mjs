@@ -39,6 +39,10 @@ export const implementedContextCapabilities = Object.freeze([
     id: "exact-symbol-lookup",
     status: "implemented",
   }),
+  Object.freeze({
+    id: "lexical-search",
+    status: "implemented",
+  }),
 ]);
 
 export const implementedContextCapabilityIds = Object.freeze(
@@ -48,10 +52,6 @@ export const implementedContextCapabilityIds = Object.freeze(
 export const unimplementedContextCapabilities = Object.freeze([
   Object.freeze({
     id: "source-indexing",
-    status: "unimplemented",
-  }),
-  Object.freeze({
-    id: "lexical-search",
     status: "unimplemented",
   }),
   Object.freeze({
@@ -127,4 +127,26 @@ export function contextEvidenceWarnings(options = {}) {
 
 export function contextEvidenceLimitations() {
   return contextEvidenceLimitationsBase;
+}
+
+const defaultContextSearchWarnings = Object.freeze([
+  "Search scans manifest-included local files only.",
+]);
+
+const freshnessContextSearchWarnings = Object.freeze([
+  "Search scans manifest-included local files and includes freshness evidence for matching files.",
+]);
+
+const contextSearchLimitationsBase = Object.freeze([
+  "Literal text matching only; regex, fuzzy, semantic, ranked, graph, and vector search are not supported.",
+  "Default search excludes manifest test files unless --include-tests is passed.",
+  "No files are written and no persistent search index is produced.",
+]);
+
+export function contextSearchWarnings(options = {}) {
+  return options.withFreshness ? freshnessContextSearchWarnings : defaultContextSearchWarnings;
+}
+
+export function contextSearchLimitations() {
+  return contextSearchLimitationsBase;
 }

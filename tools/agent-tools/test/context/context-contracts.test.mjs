@@ -5,8 +5,16 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 
+import { fieldPlatformContextAdapterConfig } from "../../src/context/adapters/field-platform-adapter-config.mjs";
+import { contextCommandNames, contextUsageExamples } from "../../src/context/cli/context-cli.mjs";
 import { buildManifestEnvelope } from "../../src/context/cli/manifest-command.mjs";
 import { buildSchemasEnvelope } from "../../src/context/cli/schemas-command.mjs";
+import {
+  implementedContextCapabilities,
+  implementedContextCapabilityIds,
+  unimplementedContextCapabilities,
+  unimplementedContextCapabilityIds,
+} from "../../src/context/core/capabilities.mjs";
 import {
   validateAdapterConfig,
   validateFileManifest,
@@ -292,6 +300,30 @@ test("adapter/config fixture validates", () => {
   assert.equal(result.valid, true);
 });
 
+test("adapter capability metadata is sourced from exported capabilities", () => {
+  const fixtureConfig = loadJsonFixture("field-platform-adapter.config.json");
+  const registry = getContextSchemaRegistry();
+
+  assert.deepEqual(fieldPlatformContextAdapterConfig.capabilities.implemented, [
+    ...implementedContextCapabilityIds,
+  ]);
+  assert.deepEqual(fieldPlatformContextAdapterConfig.capabilities.unimplemented, [
+    ...unimplementedContextCapabilityIds,
+  ]);
+  assert.deepEqual(fixtureConfig.capabilities, {
+    implemented: [...implementedContextCapabilityIds],
+    unimplemented: [...unimplementedContextCapabilityIds],
+  });
+  assert.deepEqual(
+    registry.implementedCapabilities.map((capability) => capability.id),
+    implementedContextCapabilities.map((capability) => capability.id),
+  );
+  assert.deepEqual(
+    registry.unimplementedCapabilities.map((capability) => capability.id),
+    unimplementedContextCapabilities.map((capability) => capability.id),
+  );
+});
+
 test("shared context fixture corpus includes source policy and intelligence cases", () => {
   const fixtureFiles = [
     "synthetic-context-repo/apps/web/src/source-intelligence/source-policy.ts",
@@ -410,7 +442,27 @@ test("CLI context help exits successfully", () => {
 
   assert.equal(run.status, 0, run.stderr || run.stdout);
   assert.match(run.stdout, /agent-os context/);
-  assert.match(run.stdout, /schemas/);
+  for (const commandName of contextCommandNames) {
+    assert.match(run.stdout, new RegExp(`^  ${commandName}\\s`, "m"));
+  }
+});
+
+test("top-level agent-os help lists every context usage example", () => {
+  const run = runWorkspaceCommand(["pnpm", "agent-os", "--help"]);
+
+  assert.equal(run.status, 0, run.stderr || run.stdout);
+  for (const usageExample of contextUsageExamples) {
+    assert.match(run.stdout, new RegExp(escapeRegExp(usageExample)));
+  }
+});
+
+test("registered context commands are dispatched for command help", () => {
+  for (const commandName of contextCommandNames) {
+    const run = runWorkspaceCommand(["pnpm", "agent-os", "context", commandName, "--help"]);
+
+    assert.equal(run.status, 0, run.stderr || run.stdout);
+    assert.match(run.stdout, new RegExp(`agent-os context ${commandName}`));
+  }
 });
 
 test("schema inspection does not create generated Agent OS artifacts", () => {
@@ -513,4 +565,8 @@ function runGit(cwd, gitArgs) {
   });
 
   assert.equal(run.status, 0, run.stderr || run.stdout);
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }

@@ -87,11 +87,14 @@
       "command-envelope-contract",
       "adapter-config-contract",
       "manifest-generation",
-      "dependency-evidence"
+      "symbol-extraction",
+      "dependency-evidence",
+      "evidence-snapshot",
+      "file-focused-evidence-inspection",
+      "exact-symbol-lookup"
     ],
     "unimplemented": [
       "source-indexing",
-      "symbol-extraction",
       "lexical-search",
       "embeddings-or-vector-search",
       "agent-os-prompt-weaving"

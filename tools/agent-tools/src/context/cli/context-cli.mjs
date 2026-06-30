@@ -18,20 +18,9 @@ export function runContextCli(argv, io = {}) {
   }
 
   const [commandName, ...commandArgs] = parsed.positional;
-  if (commandName === "schemas") {
-    return runSchemasCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
-  }
-  if (commandName === "manifest") {
-    return runManifestCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
-  }
-  if (commandName === "evidence") {
-    return runEvidenceCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
-  }
-  if (commandName === "inspect") {
-    return runInspectCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
-  }
-  if (commandName === "symbols") {
-    return runSymbolsCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
+  const command = contextCommandDefinitions.find((definition) => definition.name === commandName);
+  if (command) {
+    return command.run(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
   }
 
   const message = `Unknown agent-os context command: ${commandName}`;
@@ -219,22 +208,10 @@ Inspect Agent OS context-tool contracts.
 
 Usage:
   corepack pnpm agent-os context --help
-  corepack pnpm agent-os context schemas --json
-  corepack pnpm agent-os context manifest --json
-  corepack pnpm agent-os context manifest --json --with-freshness
-  corepack pnpm agent-os context evidence --json
-  corepack pnpm agent-os context evidence --json --with-freshness
-  corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json
-  corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json --with-freshness
-  corepack pnpm agent-os context symbols --name=Layout --json
-  corepack pnpm agent-os context symbols --name=Layout --json --with-freshness
+${formatUsageExamples(contextUsageExamples)}
 
 Commands:
-  evidence   Emit the composed on-demand structural evidence snapshot.
-  inspect    Inspect evidence scoped to one repository path.
-  manifest   Emit the on-demand Field Platform file manifest.
-  schemas    Inspect available context schemas and capability state.
-  symbols    Look up exact TypeScript/TSX symbols from the evidence snapshot.
+${formatCommandSummaries(contextCommandDefinitions)}
 
 Options:
   --help     Show this help.
@@ -331,3 +308,55 @@ Options:
   --help     Show this help.
 `);
 }
+
+function formatUsageExamples(examples) {
+  return examples.map((example) => `  ${example}`).join("\n");
+}
+
+function formatCommandSummaries(commands) {
+  return commands.map((command) => `  ${command.name.padEnd(9)} ${command.summary}`).join("\n");
+}
+
+export const contextCommandDefinitions = Object.freeze([
+  Object.freeze({
+    name: "evidence",
+    summary: "Emit the composed on-demand structural evidence snapshot.",
+    run: runEvidenceCommand,
+  }),
+  Object.freeze({
+    name: "inspect",
+    summary: "Inspect evidence scoped to one repository path.",
+    run: runInspectCommand,
+  }),
+  Object.freeze({
+    name: "manifest",
+    summary: "Emit the on-demand Field Platform file manifest.",
+    run: runManifestCommand,
+  }),
+  Object.freeze({
+    name: "schemas",
+    summary: "Inspect available context schemas and capability state.",
+    run: runSchemasCommand,
+  }),
+  Object.freeze({
+    name: "symbols",
+    summary: "Look up exact TypeScript/TSX symbols from the evidence snapshot.",
+    run: runSymbolsCommand,
+  }),
+]);
+
+export const contextCommandNames = Object.freeze(
+  contextCommandDefinitions.map((definition) => definition.name),
+);
+
+export const contextUsageExamples = Object.freeze([
+  "corepack pnpm agent-os context schemas --json",
+  "corepack pnpm agent-os context manifest --json",
+  "corepack pnpm agent-os context manifest --json --with-freshness",
+  "corepack pnpm agent-os context evidence --json",
+  "corepack pnpm agent-os context evidence --json --with-freshness",
+  "corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json",
+  "corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json --with-freshness",
+  "corepack pnpm agent-os context symbols --name=Layout --json",
+  "corepack pnpm agent-os context symbols --name=Layout --json --with-freshness",
+]);

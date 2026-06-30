@@ -41,6 +41,10 @@ export const implementedContextCapabilities = Object.freeze([
   }),
 ]);
 
+export const implementedContextCapabilityIds = Object.freeze(
+  implementedContextCapabilities.map((capability) => capability.id),
+);
+
 export const unimplementedContextCapabilities = Object.freeze([
   Object.freeze({
     id: "source-indexing",
@@ -59,6 +63,10 @@ export const unimplementedContextCapabilities = Object.freeze([
     status: "unimplemented",
   }),
 ]);
+
+export const unimplementedContextCapabilityIds = Object.freeze(
+  unimplementedContextCapabilities.map((capability) => capability.id),
+);
 
 export const contextFoundationWarnings = Object.freeze([
   "Schemas output is contract metadata only.",

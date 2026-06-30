@@ -1,3 +1,8 @@
+import {
+  implementedContextCapabilityIds,
+  unimplementedContextCapabilityIds,
+} from "../core/capabilities.mjs";
+
 export const fieldPlatformContextAdapterConfig = Object.freeze({
   schemaVersion: "0.1.0",
   adapterId: "field-platform",
@@ -81,22 +86,7 @@ export const fieldPlatformContextAdapterConfig = Object.freeze({
     }),
   ]),
   capabilities: Object.freeze({
-    implemented: Object.freeze([
-      "context-cli-help",
-      "schema-registry-inspection",
-      "command-envelope-contract",
-      "adapter-config-contract",
-      "manifest-generation",
-      "symbol-extraction",
-      "dependency-evidence",
-      "evidence-snapshot",
-      "file-focused-evidence-inspection",
-    ]),
-    unimplemented: Object.freeze([
-      "source-indexing",
-      "lexical-search",
-      "embeddings-or-vector-search",
-      "agent-os-prompt-weaving",
-    ]),
+    implemented: implementedContextCapabilityIds,
+    unimplemented: unimplementedContextCapabilityIds,
   }),
 });

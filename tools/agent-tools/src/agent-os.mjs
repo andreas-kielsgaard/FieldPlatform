@@ -1,4 +1,4 @@
-import { runContextCli } from "./context/cli/context-cli.mjs";
+import { contextUsageExamples, runContextCli } from "./context/cli/context-cli.mjs";
 
 const args = process.argv.slice(2);
 const [namespace, ...namespaceArgs] = args;
@@ -23,12 +23,7 @@ Repository-local Agent OS utility namespace.
 
 Usage:
   corepack pnpm agent-os context --help
-  corepack pnpm agent-os context schemas --json
-  corepack pnpm agent-os context manifest --json
-  corepack pnpm agent-os context manifest --json --with-freshness
-  corepack pnpm agent-os context evidence --json
-  corepack pnpm agent-os context evidence --json --with-freshness
-  corepack pnpm agent-os context symbols --name=Layout --json
+${contextUsageExamples.map((example) => `  ${example}`).join("\n")}
 
 Namespaces:
   context    Inspect context-tool contracts.

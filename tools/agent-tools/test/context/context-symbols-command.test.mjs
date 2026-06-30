@@ -8,6 +8,7 @@ import { runContextCli } from "../../src/context/cli/context-cli.mjs";
 import { buildSymbolsEnvelope } from "../../src/context/cli/symbols-command.mjs";
 import {
   assertValidCommandEnvelope,
+  assertValidSymbolsResult,
   runWorkspaceCommand,
   workspaceRoot,
 } from "./context-test-helpers.mjs";
@@ -26,6 +27,9 @@ test("symbols command envelope validates for an exported symbol", () => {
 
   assertValidCommandEnvelope(envelope, {
     name: "symbols",
+    adapterId: "field-platform",
+  });
+  assertValidSymbolsResult(envelope.data, {
     adapterId: "field-platform",
   });
   assert.equal(envelope.status, "ok");
@@ -57,6 +61,9 @@ test("CLI returns valid JSON for agent-os context symbols --json", () => {
     name: "symbols",
     adapterId: "field-platform",
   });
+  assertValidSymbolsResult(parsed.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(parsed.data.requestedName, "Layout");
   assert.equal(parsed.data.summary.exactNameMatch, true);
   assert.equal(parsed.data.symbols.length > 0, true);
@@ -68,6 +75,9 @@ test("symbols lookup uses exact name matching and does not return partial matche
   });
   const names = new Set(envelope.data.symbols.map((symbol) => symbol.name));
 
+  assertValidSymbolsResult(envelope.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(names.has("Layout"), true);
   assert.equal(names.has("LayoutVariant"), false);
   assert.equal(
@@ -83,6 +93,9 @@ test("symbols --path scopes results to one file", () => {
   });
 
   assert.equal(envelope.status, "ok");
+  assertValidSymbolsResult(envelope.data, {
+    adapterId: "field-platform",
+  });
   assert.deepEqual(envelope.data.appliedFilters, {
     path: rootPath,
     kind: null,
@@ -118,6 +131,11 @@ test("symbols --kind and --visibility filters work", () => {
     visibility: "local",
   });
 
+  for (const envelope of [componentEnvelope, functionEnvelope, exportedEnvelope, localEnvelope]) {
+    assertValidSymbolsResult(envelope.data, {
+      adapterId: "field-platform",
+    });
+  }
   assert.equal(
     componentEnvelope.data.symbols.every((symbol) => symbol.kind === "component"),
     true,
@@ -144,6 +162,9 @@ test("symbols --with-freshness includes freshness evidence for defining files on
   const definingPaths = new Set(envelope.data.definingFiles.map((file) => file.path));
 
   assert.equal(envelope.status, "ok");
+  assertValidSymbolsResult(envelope.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(envelope.data.freshnessEvidence.length, envelope.data.definingFiles.length);
   assert.equal(
     envelope.data.freshnessEvidence.every((entry) => definingPaths.has(entry.path)),
@@ -167,6 +188,9 @@ test("symbols no-match case returns a clear warning envelope", () => {
 
   assertValidCommandEnvelope(envelope, {
     name: "symbols",
+    adapterId: "field-platform",
+  });
+  assertValidSymbolsResult(envelope.data, {
     adapterId: "field-platform",
   });
   assert.equal(envelope.status, "warning");
@@ -194,6 +218,9 @@ test("symbols requires --name", () => {
     name: "symbols",
     adapterId: "field-platform",
   });
+  assertValidSymbolsResult(parsed.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(parsed.status, "error");
   assert.equal(
     parsed.warnings.some((warning) => warning.includes("Missing required --name")),
@@ -206,6 +233,9 @@ test("symbols lookup keeps generated, archive, and excluded paths out of source 
     requestedName: "GeneratedOnlyLayout",
   });
 
+  assertValidSymbolsResult(envelope.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(envelope.status, "warning");
   assert.equal(envelope.data.symbols.length, 0);
   assert.equal(

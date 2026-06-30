@@ -28,6 +28,7 @@ Usage:
   corepack pnpm agent-os context manifest --json --with-freshness
   corepack pnpm agent-os context evidence --json
   corepack pnpm agent-os context evidence --json --with-freshness
+  corepack pnpm agent-os context symbols --name=Layout --json
 
 Namespaces:
   context    Inspect context-tool contracts.

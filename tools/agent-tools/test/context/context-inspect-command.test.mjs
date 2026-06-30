@@ -9,6 +9,7 @@ import { buildInspectEnvelope } from "../../src/context/cli/inspect-command.mjs"
 import { mapDependencyCruiserJsonToDependencyEdgeEvidence } from "../../src/context/core/dependency-edge-evidence.mjs";
 import {
   assertValidCommandEnvelope,
+  assertValidInspectResult,
   runWorkspaceCommand,
   workspaceRoot,
 } from "./context-test-helpers.mjs";
@@ -27,6 +28,9 @@ test("inspect command envelope validates for an included source path", () => {
 
   assertValidCommandEnvelope(envelope, {
     name: "inspect",
+    adapterId: "field-platform",
+  });
+  assertValidInspectResult(envelope.data, {
     adapterId: "field-platform",
   });
   assert.equal(envelope.status, "ok");
@@ -53,6 +57,9 @@ test("CLI returns valid JSON for agent-os context inspect --json", () => {
     name: "inspect",
     adapterId: "field-platform",
   });
+  assertValidInspectResult(parsed.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(parsed.data.requestedPath, "apps/web/app/root.tsx");
   assert.equal(parsed.data.manifestFile.path, "apps/web/app/root.tsx");
   assert.equal(parsed.data.summary.manifestKnown, true);
@@ -65,6 +72,9 @@ test("inspect --with-freshness includes freshness evidence for the requested fil
   });
 
   assert.equal(envelope.status, "ok");
+  assertValidInspectResult(envelope.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(envelope.data.freshnessEvidence.state, "unknown");
   assert.equal(envelope.data.manifestFile.freshnessEvidence.state, "unknown");
   assert.equal(envelope.data.summary.freshnessEvidence, 1);
@@ -76,6 +86,9 @@ test("inspect scopes symbols and chunks to the requested file", () => {
   });
   const symbolNames = new Set(envelope.data.symbols.map((symbol) => symbol.name));
 
+  assertValidInspectResult(envelope.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(envelope.data.symbols.length > 0, true);
   assert.equal(envelope.data.chunks.length > 0, true);
   assert.equal(symbolNames.has("Layout"), true);
@@ -98,6 +111,9 @@ test("inspect scopes incoming and outgoing dependency edges to the requested fil
   });
   const { outgoing, incoming } = envelope.data.dependencyEdges;
 
+  assertValidInspectResult(envelope.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(outgoing.length, 1);
   assert.equal(outgoing[0].source.path, rootPath);
   assert.equal(outgoing[0].target.path, depPath);
@@ -120,6 +136,9 @@ test("inspect includes skipped dependency edges relevant to the requested file",
   });
   const skippedReasons = new Set(envelope.data.skippedDependencyEdges.map((edge) => edge.reason));
 
+  assertValidInspectResult(envelope.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(envelope.data.skippedDependencyEdges.length, 2);
   assert.equal(
     envelope.data.skippedDependencyEdges.every((edge) => edge.source === rootPath),
@@ -138,6 +157,9 @@ test("inspect returns excluded evidence for generated and archive paths", () => 
   });
 
   for (const envelope of [generatedEnvelope, archiveEnvelope]) {
+    assertValidInspectResult(envelope.data, {
+      adapterId: "field-platform",
+    });
     assert.equal(envelope.status, "warning");
     assert.equal(envelope.data.manifestFile.inclusionStatus, "excluded");
     assert.equal(envelope.data.summary.includedSource, false);
@@ -158,6 +180,9 @@ test("inspect unknown path returns a clear error envelope", () => {
 
   assertValidCommandEnvelope(envelope, {
     name: "inspect",
+    adapterId: "field-platform",
+  });
+  assertValidInspectResult(envelope.data, {
     adapterId: "field-platform",
   });
   assert.equal(envelope.status, "error");
@@ -183,6 +208,9 @@ test("inspect requires --path", () => {
   const parsed = JSON.parse(stdout);
   assertValidCommandEnvelope(parsed, {
     name: "inspect",
+    adapterId: "field-platform",
+  });
+  assertValidInspectResult(parsed.data, {
     adapterId: "field-platform",
   });
   assert.equal(parsed.status, "error");

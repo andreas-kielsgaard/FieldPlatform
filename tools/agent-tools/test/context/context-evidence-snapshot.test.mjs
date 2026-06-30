@@ -10,6 +10,7 @@ import { mapDependencyCruiserJsonToDependencyEdgeEvidence } from "../../src/cont
 import { buildFileManifest } from "../../src/context/core/file-manifest.mjs";
 import {
   assertValidCommandEnvelope,
+  assertValidEvidenceSnapshot,
   loadJsonFixture,
   runWorkspaceCommand,
   workspaceRoot,
@@ -27,7 +28,9 @@ test("command envelope validates for the evidence JSON output", () => {
     name: "evidence",
     adapterId: "field-platform",
   });
-  assertEvidenceSnapshotShape(envelope.data);
+  assertValidEvidenceSnapshot(envelope.data, {
+    adapterId: "field-platform",
+  });
 });
 
 test("CLI returns valid JSON for agent-os context evidence --json without freshness", () => {
@@ -40,7 +43,9 @@ test("CLI returns valid JSON for agent-os context evidence --json without freshn
     name: "evidence",
     adapterId: "field-platform",
   });
-  assertEvidenceSnapshotShape(parsed.data);
+  assertValidEvidenceSnapshot(parsed.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(parsed.data.summary.freshnessEntriesByState, null);
   assert.equal(
     parsed.data.files.some((file) => "freshnessEvidence" in file),
@@ -65,7 +70,9 @@ test("CLI returns valid JSON for agent-os context evidence --json --with-freshne
     name: "evidence",
     adapterId: "field-platform",
   });
-  assertEvidenceSnapshotShape(parsed.data);
+  assertValidEvidenceSnapshot(parsed.data, {
+    adapterId: "field-platform",
+  });
   assert.equal(typeof parsed.data.summary.freshnessEntriesByState, "object");
   assert.equal(
     parsed.data.files.every((file) => file.freshnessEvidence),
@@ -191,28 +198,6 @@ test("evidence command does not create generated evidence or index artifacts", (
     assert.equal(existsSync(path.join(workspaceRoot, artifactPath)), false, artifactPath);
   }
 });
-
-function assertEvidenceSnapshotShape(snapshot) {
-  assert.equal(snapshot.adapterId, "field-platform");
-  assert.equal(snapshot.schemaVersion, "0.1.0");
-  assert.match(snapshot.generatedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/);
-  assert.equal(Array.isArray(snapshot.files), true);
-  assert.equal(Array.isArray(snapshot.symbols), true);
-  assert.equal(Array.isArray(snapshot.chunks), true);
-  assert.equal(Array.isArray(snapshot.dependencyEdges), true);
-  assert.equal(Array.isArray(snapshot.skippedDependencyEdges), true);
-  assert.equal(snapshot.summary.manifestFiles, snapshot.files.length);
-  assert.equal(
-    snapshot.summary.includedFiles,
-    snapshot.files.filter((file) => file.inclusionStatus === "included").length,
-  );
-  assert.equal(
-    snapshot.summary.excludedFiles,
-    snapshot.files.filter((file) => file.inclusionStatus === "excluded").length,
-  );
-  assert.equal(snapshot.summary.typescriptSymbols, snapshot.symbols.length);
-  assert.equal(snapshot.summary.typescriptChunks, snapshot.chunks.length);
-}
 
 function createTempRepo(t, filesByPath) {
   const repoRoot = mkdtempSync(path.join(tmpdir(), "agent-os-evidence-"));

@@ -4,7 +4,12 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { validateCommandEnvelope } from "../../src/context/core/contract-validation.mjs";
+import {
+  validateCommandEnvelope,
+  validateContextEvidenceSnapshot,
+  validateInspectResult,
+  validateSymbolsResult,
+} from "../../src/context/core/contract-validation.mjs";
 
 export const contextTestDirectory = path.dirname(fileURLToPath(import.meta.url));
 export const agentToolsRoot = path.resolve(contextTestDirectory, "../..");
@@ -41,6 +46,27 @@ export function assertValidCommandEnvelope(envelope, options = {}) {
 
   assert.deepEqual(result.errors, []);
   assert.equal(result.valid, true);
+}
+
+export function assertValidEvidenceSnapshot(snapshot, options = {}) {
+  const result = validateContextEvidenceSnapshot(snapshot, options);
+
+  assert.deepEqual(result.errors, []);
+  assert.equal(result.valid, true);
+}
+
+export function assertValidInspectResult(result, options = {}) {
+  const validation = validateInspectResult(result, options);
+
+  assert.deepEqual(validation.errors, []);
+  assert.equal(validation.valid, true);
+}
+
+export function assertValidSymbolsResult(result, options = {}) {
+  const validation = validateSymbolsResult(result, options);
+
+  assert.deepEqual(validation.errors, []);
+  assert.equal(validation.valid, true);
 }
 
 export function normalizeSchemasEnvelopeForGolden(envelope) {

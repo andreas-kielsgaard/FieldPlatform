@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -473,6 +473,22 @@ test("schema inspection does not create generated Agent OS artifacts", () => {
   assert.deepEqual(envelope.data.generatedArtifacts, []);
   assert.equal(existsSync(path.join(workspaceRoot, "Agent OS", "tool-implementations")), false);
   assert.equal(existsSync(path.join(workspaceRoot, "Agent OS", "tool-maintained-files")), false);
+});
+
+test("context usage guide exists without retired generated artifact locations", () => {
+  const guidePath = path.join(workspaceRoot, "tools", "agent-tools", "docs", "context-usage.md");
+  const guide = readFileSync(guidePath, "utf8");
+
+  assert.equal(guide.length > 0, true);
+  for (const retiredLocation of [
+    "Agent OS/tool-maintained-files",
+    "tools/agent-tools/context-bundle.json",
+    "tools/agent-tools/context-evidence.json",
+    "tools/agent-tools/context-index.json",
+    "tools/agent-tools/context-manifest.json",
+  ]) {
+    assert.equal(guide.includes(retiredLocation), false, retiredLocation);
+  }
 });
 
 function assertValidFileManifest(manifest) {

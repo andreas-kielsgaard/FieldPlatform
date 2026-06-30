@@ -1,4 +1,4 @@
-import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
+import { resolveContextAdapter } from "../adapters/default-adapter.mjs";
 import { contextEvidenceLimitations, contextEvidenceWarnings } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
 import { buildContextEvidenceSnapshot } from "../core/context-evidence-snapshot.mjs";
@@ -7,8 +7,11 @@ export function buildEvidenceEnvelope({
   generatedAt = new Date().toISOString(),
   repoRoot = process.cwd(),
   withFreshness = false,
+  adapterConfig,
 } = {}) {
+  const contextAdapter = resolveContextAdapter({ adapterConfig });
   const snapshot = buildContextEvidenceSnapshot({
+    adapterConfig: contextAdapter.adapterConfig,
     generatedAt,
     repoRoot,
     withFreshness,
@@ -17,7 +20,7 @@ export function buildEvidenceEnvelope({
   return createCommandEnvelope({
     name: "evidence",
     generatedAt,
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: contextAdapter.adapterConfig.adapterId,
     status: snapshot.producers.dependencyCruiser.exitCode === 0 ? "ok" : "warning",
     data: snapshot,
     warnings: contextEvidenceWarnings({ withFreshness }),

@@ -1,18 +1,27 @@
-import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
+import { resolveContextAdapter } from "../adapters/default-adapter.mjs";
 import { contextFoundationLimitations, contextFoundationWarnings } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
 import { getContextSchemaRegistry } from "../core/schema-registry.mjs";
 
-export function buildSchemasEnvelope({ generatedAt = new Date().toISOString() } = {}) {
+export function buildSchemasEnvelope({
+  generatedAt = new Date().toISOString(),
+  adapterConfig,
+  adapterConfigSource,
+} = {}) {
+  const contextAdapter = resolveContextAdapter({
+    adapterConfig,
+    configSource: adapterConfigSource,
+  });
   const registry = getContextSchemaRegistry();
+  const resolvedAdapterConfig = contextAdapter.adapterConfig;
   const data = {
     ...registry,
     schemaCount: registry.schemas.length,
     adapter: {
-      adapterId: fieldPlatformContextAdapterConfig.adapterId,
-      repoId: fieldPlatformContextAdapterConfig.repoId,
-      configSource: "tools/agent-tools/src/context/adapters/field-platform-adapter-config.mjs",
-      sourceGroupCount: fieldPlatformContextAdapterConfig.sourceGroups.length,
+      adapterId: resolvedAdapterConfig.adapterId,
+      repoId: resolvedAdapterConfig.repoId,
+      configSource: contextAdapter.configSource,
+      sourceGroupCount: resolvedAdapterConfig.sourceGroups.length,
     },
     generatedArtifacts: [],
   };
@@ -20,7 +29,7 @@ export function buildSchemasEnvelope({ generatedAt = new Date().toISOString() } 
   return createCommandEnvelope({
     name: "schemas",
     generatedAt,
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: resolvedAdapterConfig.adapterId,
     status: "ok",
     data,
     warnings: contextFoundationWarnings,

@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 
+import { resolveDefaultContextAdapterConfig } from "../../src/context/adapters/default-adapter.mjs";
 import { buildEvidenceEnvelope } from "../../src/context/cli/evidence-command.mjs";
 import { buildContextEvidenceSnapshot } from "../../src/context/core/context-evidence-snapshot.mjs";
 import { mapDependencyCruiserJsonToDependencyEdgeEvidence } from "../../src/context/core/dependency-edge-evidence.mjs";
@@ -17,6 +18,7 @@ import {
 } from "./context-test-helpers.mjs";
 
 const fixedGeneratedAt = "2026-06-29T00:00:00.000Z";
+const fieldPlatformAdapterConfig = resolveDefaultContextAdapterConfig();
 
 test("command envelope validates for the evidence JSON output", () => {
   const envelope = buildEvidenceEnvelope({
@@ -133,9 +135,11 @@ test("dependency evidence does not make generated or archive files included sour
     },
   );
   const snapshot = buildContextEvidenceSnapshot({
+    adapterConfig: fieldPlatformAdapterConfig,
     repoRoot,
     generatedAt: fixedGeneratedAt,
     manifest: buildFileManifest({
+      adapterConfig: fieldPlatformAdapterConfig,
       repoRoot,
       generatedAt: fixedGeneratedAt,
     }),

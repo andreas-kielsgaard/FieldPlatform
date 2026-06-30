@@ -2,7 +2,6 @@ import { spawnSync } from "node:child_process";
 import { readdirSync } from "node:fs";
 import path from "node:path";
 
-import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
 import { CONTEXT_CONTRACT_VERSION } from "../schemas/shared.mjs";
 import { classifyFileFreshnessBatch } from "./freshness.mjs";
 import { CONTEXT_PATH_FORMAT, toRepoRelativePosixPath } from "./repo-paths.mjs";
@@ -10,14 +9,15 @@ import { CONTEXT_PATH_FORMAT, toRepoRelativePosixPath } from "./repo-paths.mjs";
 const PRUNED_DIRECTORIES = new Set([".git", "node_modules", ".pnpm-store"]);
 
 export function buildFileManifest({
-  adapterConfig = fieldPlatformContextAdapterConfig,
+  adapterConfig,
   repoRoot = process.cwd(),
   generatedAt = new Date().toISOString(),
   withFreshness = false,
 } = {}) {
-  const resolvedRepoRoot = path.resolve(repoRoot, adapterConfig.repoRoot ?? ".");
+  const resolvedAdapterConfig = requireAdapterConfig(adapterConfig);
+  const resolvedRepoRoot = path.resolve(repoRoot, resolvedAdapterConfig.repoRoot ?? ".");
   const files = discoverManifestPaths(resolvedRepoRoot, { includeGitTracked: withFreshness })
-    .map((repoPath) => buildFileEntry(repoPath, adapterConfig, resolvedRepoRoot))
+    .map((repoPath) => buildFileEntry(repoPath, resolvedAdapterConfig, resolvedRepoRoot))
     .filter(Boolean)
     .sort((left, right) => left.path.localeCompare(right.path));
 
@@ -26,7 +26,7 @@ export function buildFileManifest({
   }
 
   return {
-    adapterId: adapterConfig.adapterId,
+    adapterId: resolvedAdapterConfig.adapterId,
     schemaVersion: CONTEXT_CONTRACT_VERSION,
     generatedAt,
     files,
@@ -39,16 +39,14 @@ function buildFileEntry(repoPath, adapterConfig, repoRoot) {
     return null;
   }
 
-  const flags = {
-    generated: isGeneratedPath(repoPath) || match.group.id === "generated-output",
-    archive: isArchivePath(repoPath) || match.group.id === "archive",
-  };
+  const flags = buildSourceGroupFlags(match.group);
+  const documentKindHint = selectDocumentKindPathHint(match.group, match.pathForPatterns);
 
   return {
     adapterId: adapterConfig.adapterId,
     path: repoPath,
     pathFormat: CONTEXT_PATH_FORMAT,
-    documentKind: classifyDocumentKind(repoPath, match.group, flags),
+    documentKind: classifyDocumentKind(repoPath, match.group, flags, documentKindHint),
     sourceGroup: match.group.id,
     language: classifyLanguage(repoPath),
     inclusionStatus: match.inclusionStatus,
@@ -78,6 +76,7 @@ function selectPolicyMatch(repoPath, sourceGroups, repoRoot) {
         group,
         includePattern,
         excludePattern,
+        pathForPatterns,
         inclusionStatus: includePattern && !excludePattern ? "included" : "excluded",
       });
     }
@@ -89,7 +88,7 @@ function selectPolicyMatch(repoPath, sourceGroups, repoRoot) {
   }
 
   return (
-    matches.find((match) => ["generated-output", "archive"].includes(match.group.id)) ??
+    matches.find((match) => sourceGroupHasAnyFlag(match.group, ["generated", "archive"])) ??
     matches[0] ??
     null
   );
@@ -238,21 +237,27 @@ function splitGlobPath(value) {
     .filter(Boolean);
 }
 
-function classifyDocumentKind(repoPath, group, flags) {
+function classifyDocumentKind(repoPath, group, flags, documentKindHint) {
   if (flags.archive) {
     return "archive";
   }
   if (flags.generated) {
     return "generated";
   }
-  if (group.id === "project-guidance" || isDocumentationPath(repoPath)) {
+  if (group.defaultDocumentKind) {
+    return group.defaultDocumentKind;
+  }
+  if (isDocumentationPath(repoPath)) {
     return "documentation";
   }
-  if (group.id === "project-config" || isConfigPath(repoPath)) {
+  if (isConfigPath(repoPath)) {
     return "config";
   }
   if (isTestPath(repoPath)) {
     return "test";
+  }
+  if (documentKindHint) {
+    return documentKindHint.documentKind;
   }
   if (isSchemaPath(repoPath)) {
     return "schema";
@@ -295,21 +300,6 @@ function classifyLanguage(repoPath) {
   }
 }
 
-function isArchivePath(repoPath) {
-  return repoPath === "Archive" || repoPath.startsWith("Archive/");
-}
-
-function isGeneratedPath(repoPath) {
-  return [
-    "apps/web/.react-router/",
-    "apps/web/build/",
-    "apps/web/storybook-static/",
-    "apps/web/playwright-report/",
-    "apps/web/test-results/",
-    "coverage/",
-  ].some((prefix) => repoPath.startsWith(prefix));
-}
-
 function isTestPath(repoPath) {
   return (
     /(^|\/)(test|tests|e2e)\//.test(repoPath) || /[.](test|spec)[.][cm]?[jt]sx?$/.test(repoPath)
@@ -317,11 +307,7 @@ function isTestPath(repoPath) {
 }
 
 function isSchemaPath(repoPath) {
-  return (
-    repoPath.includes("/schema/") ||
-    repoPath.endsWith(".schema.mjs") ||
-    repoPath.startsWith("apps/web/src/shared/db/schema/")
-  );
+  return repoPath.includes("/schema/") || repoPath.endsWith(".schema.mjs");
 }
 
 function isConfigPath(repoPath) {
@@ -346,6 +332,35 @@ function normalizeGroupRoot(root, repoRoot) {
     return ".";
   }
   return toRepoRelativePosixPath(root, { repoRoot });
+}
+
+function buildSourceGroupFlags(group) {
+  const flags = new Set(group.flags ?? []);
+  return {
+    generated: flags.has("generated"),
+    archive: flags.has("archive"),
+  };
+}
+
+function sourceGroupHasAnyFlag(group, flags) {
+  const sourceGroupFlags = new Set(group.flags ?? []);
+  return flags.some((flag) => sourceGroupFlags.has(flag));
+}
+
+function selectDocumentKindPathHint(group, pathForPatterns) {
+  return (
+    (group.documentKindPathHints ?? []).find((hint) =>
+      firstMatchingGlob(hint.include ?? [], pathForPatterns),
+    ) ?? null
+  );
+}
+
+function requireAdapterConfig(adapterConfig) {
+  if (!adapterConfig) {
+    throw new Error("buildFileManifest requires an adapterConfig.");
+  }
+
+  return adapterConfig;
 }
 
 function escapeRegExp(value) {

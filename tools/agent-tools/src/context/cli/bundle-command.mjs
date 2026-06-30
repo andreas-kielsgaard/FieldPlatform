@@ -1,4 +1,4 @@
-import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
+import { resolveContextAdapter } from "../adapters/default-adapter.mjs";
 import { contextBundleLimitations, contextBundleWarnings } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
 import { buildContextEvidenceSnapshot } from "../core/context-evidence-snapshot.mjs";
@@ -27,7 +27,9 @@ export function buildBundleEnvelope({
   limits = DEFAULT_CONTEXT_BUNDLE_LIMITS,
   manifest,
   dependencyEvidence,
+  adapterConfig,
 } = {}) {
+  const contextAdapter = resolveContextAdapter({ adapterConfig });
   const validation = validateBundleRequest({
     paths,
     symbols,
@@ -44,13 +46,16 @@ export function buildBundleEnvelope({
         generatedAt,
         requestedSelectors: validation.requestedSelectors,
         limits: validation.limits,
+        adapterConfig: contextAdapter.adapterConfig,
       }),
       warnings: validation.warnings,
       withFreshness,
+      adapterConfig: contextAdapter.adapterConfig,
     });
   }
 
   const snapshot = buildContextEvidenceSnapshot({
+    adapterConfig: contextAdapter.adapterConfig,
     generatedAt,
     repoRoot,
     withFreshness,
@@ -76,6 +81,7 @@ export function buildBundleEnvelope({
     data,
     warnings,
     withFreshness,
+    adapterConfig: contextAdapter.adapterConfig,
   });
 }
 
@@ -451,9 +457,9 @@ function buildBundleData({ snapshot, repoRoot, requestedSelectors, limits, withF
   };
 }
 
-function buildEmptyBundleData({ generatedAt, requestedSelectors, limits }) {
+function buildEmptyBundleData({ generatedAt, requestedSelectors, limits, adapterConfig }) {
   return {
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: adapterConfig.adapterId,
     schemaVersion: null,
     generatedAt,
     requestedSelectors,
@@ -590,11 +596,18 @@ function determineBundleStatus({ snapshot, data }) {
   return "ok";
 }
 
-function createBundleEnvelope({ generatedAt, status, data, warnings, withFreshness }) {
+function createBundleEnvelope({
+  generatedAt,
+  status,
+  data,
+  warnings,
+  withFreshness,
+  adapterConfig,
+}) {
   return createCommandEnvelope({
     name: "bundle",
     generatedAt,
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: adapterConfig.adapterId,
     status,
     data,
     warnings,

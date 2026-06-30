@@ -1,4 +1,4 @@
-import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
+import { resolveContextAdapter } from "../adapters/default-adapter.mjs";
 import { contextEvidenceLimitations, contextEvidenceWarnings } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
 import { buildContextEvidenceSnapshot } from "../core/context-evidence-snapshot.mjs";
@@ -26,7 +26,9 @@ export function buildSymbolsEnvelope({
   withFreshness = false,
   manifest,
   dependencyEvidence,
+  adapterConfig,
 } = {}) {
+  const contextAdapter = resolveContextAdapter({ adapterConfig });
   const validation = validateSymbolsRequest({
     requestedName,
     path,
@@ -43,13 +45,16 @@ export function buildSymbolsEnvelope({
         generatedAt,
         requestedName: requestedName ?? null,
         appliedFilters: validation.appliedFilters,
+        adapterConfig: contextAdapter.adapterConfig,
       }),
       warnings: validation.warnings,
       withFreshness,
+      adapterConfig: contextAdapter.adapterConfig,
     });
   }
 
   const snapshot = buildContextEvidenceSnapshot({
+    adapterConfig: contextAdapter.adapterConfig,
     generatedAt,
     repoRoot,
     withFreshness,
@@ -74,6 +79,7 @@ export function buildSymbolsEnvelope({
     data,
     warnings,
     withFreshness,
+    adapterConfig: contextAdapter.adapterConfig,
   });
 }
 
@@ -220,9 +226,9 @@ function buildSymbolsData({ snapshot, requestedName, appliedFilters, withFreshne
   };
 }
 
-function buildEmptySymbolsData({ generatedAt, requestedName, appliedFilters }) {
+function buildEmptySymbolsData({ generatedAt, requestedName, appliedFilters, adapterConfig }) {
   return {
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: adapterConfig.adapterId,
     schemaVersion: null,
     generatedAt,
     requestedName,
@@ -304,11 +310,18 @@ function determineSymbolsStatus({ snapshot, data }) {
   return "ok";
 }
 
-function createSymbolsEnvelope({ generatedAt, status, data, warnings, withFreshness }) {
+function createSymbolsEnvelope({
+  generatedAt,
+  status,
+  data,
+  warnings,
+  withFreshness,
+  adapterConfig,
+}) {
   return createCommandEnvelope({
     name: "symbols",
     generatedAt,
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: adapterConfig.adapterId,
     status,
     data,
     warnings,

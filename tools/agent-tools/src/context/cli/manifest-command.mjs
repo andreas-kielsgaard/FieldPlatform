@@ -1,4 +1,4 @@
-import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
+import { resolveContextAdapter } from "../adapters/default-adapter.mjs";
 import { contextManifestLimitations, contextManifestWarnings } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
 import { buildFileManifest } from "../core/file-manifest.mjs";
@@ -7,8 +7,11 @@ export function buildManifestEnvelope({
   generatedAt = new Date().toISOString(),
   repoRoot = process.cwd(),
   withFreshness = false,
+  adapterConfig,
 } = {}) {
+  const contextAdapter = resolveContextAdapter({ adapterConfig });
   const manifest = buildFileManifest({
+    adapterConfig: contextAdapter.adapterConfig,
     generatedAt,
     repoRoot,
     withFreshness,
@@ -17,7 +20,7 @@ export function buildManifestEnvelope({
   return createCommandEnvelope({
     name: "manifest",
     generatedAt,
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: contextAdapter.adapterConfig.adapterId,
     status: "ok",
     data: manifest,
     warnings: contextManifestWarnings({ withFreshness }),

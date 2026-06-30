@@ -1,10 +1,19 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 
+import { resolveDefaultContextAdapterConfig } from "../../src/context/adapters/default-adapter.mjs";
 import { fieldPlatformContextAdapterConfig } from "../../src/context/adapters/field-platform-adapter-config.mjs";
 import { contextCommandNames, contextUsageExamples } from "../../src/context/cli/context-cli.mjs";
 import { buildManifestEnvelope } from "../../src/context/cli/manifest-command.mjs";
@@ -35,6 +44,8 @@ import {
   toRepoRelativePath,
   workspaceRoot,
 } from "./context-test-helpers.mjs";
+
+const fieldPlatformAdapterConfig = resolveDefaultContextAdapterConfig();
 
 test("schema registry contains every expected schema ID", () => {
   const registry = getContextSchemaRegistry();
@@ -109,6 +120,7 @@ test("command envelope validates for the manifest JSON output with freshness", (
 
 test("manifest includes active app source and agent-tools source", () => {
   const manifest = buildFileManifest({
+    adapterConfig: fieldPlatformAdapterConfig,
     generatedAt: "2026-06-29T00:00:00.000Z",
     repoRoot: workspaceRoot,
   });
@@ -133,10 +145,16 @@ test("manifest includes active app source and agent-tools source", () => {
     documentKind: "test",
     inclusionStatus: "included",
   });
+  assertManifestEntry(manifest, "apps/web/src/shared/db/schema/communities.ts", {
+    sourceGroup: "active-web-source",
+    documentKind: "schema",
+    inclusionStatus: "included",
+  });
 });
 
 test("manifest includes project config and guidance as non-runtime source groups", () => {
   const manifest = buildFileManifest({
+    adapterConfig: fieldPlatformAdapterConfig,
     generatedAt: "2026-06-29T00:00:00.000Z",
     repoRoot: workspaceRoot,
   });
@@ -163,10 +181,14 @@ test("manifest excludes generated output and archive paths by policy", (t) => {
     "apps/web/app/root.tsx",
     "apps/web/build/server/index.js",
     "apps/web/.react-router/types/+types/root.ts",
+    "apps/web/storybook-static/index.html",
+    "apps/web/playwright-report/index.html",
+    "apps/web/test-results/results.json",
     "coverage/lcov.info",
     "Archive/old-context.md",
   ]);
   const manifest = buildFileManifest({
+    adapterConfig: fieldPlatformAdapterConfig,
     generatedAt: "2026-06-29T00:00:00.000Z",
     repoRoot,
   });
@@ -193,6 +215,18 @@ test("manifest excludes generated output and archive paths by policy", (t) => {
     inclusionStatus: "excluded",
     generated: true,
   });
+  for (const generatedPath of [
+    "apps/web/storybook-static/index.html",
+    "apps/web/playwright-report/index.html",
+    "apps/web/test-results/results.json",
+  ]) {
+    assertManifestEntry(manifest, generatedPath, {
+      sourceGroup: "generated-output",
+      documentKind: "generated",
+      inclusionStatus: "excluded",
+      generated: true,
+    });
+  }
   assertManifestEntry(manifest, "Archive/old-context.md", {
     sourceGroup: "archive",
     documentKind: "archive",
@@ -201,8 +235,47 @@ test("manifest excludes generated output and archive paths by policy", (t) => {
   });
 });
 
+test("manifest core does not treat Field Platform generated paths as special", (t) => {
+  const repoRoot = createTempRepo(t, ["apps/web/build/server/index.js", "src/index.ts"]);
+  const manifest = buildFileManifest({
+    adapterConfig: createSyntheticAdapterConfig(),
+    generatedAt: "2026-06-29T00:00:00.000Z",
+    repoRoot,
+  });
+
+  assertManifestEntry(manifest, "apps/web/build/server/index.js", {
+    sourceGroup: "synthetic-source",
+    documentKind: "source",
+    inclusionStatus: "included",
+    generated: false,
+    archive: false,
+  });
+});
+
+test("source files outside the adapter boundary do not import the Field Platform adapter directly", () => {
+  const sourceRoot = path.join(workspaceRoot, "tools", "agent-tools", "src");
+  const allowedAdapterRoot = path.join(
+    workspaceRoot,
+    "tools",
+    "agent-tools",
+    "src",
+    "context",
+    "adapters",
+  );
+  const offenders = collectMjsFiles(sourceRoot)
+    .filter((filePath) => !isPathInside(filePath, allowedAdapterRoot))
+    .filter((filePath) =>
+      readFileSync(filePath, "utf8").includes("field-platform-adapter-config.mjs"),
+    )
+    .map((filePath) => toRepoRelativePath(filePath))
+    .sort();
+
+  assert.deepEqual(offenders, []);
+});
+
 test("manifest excludes repository Archive paths by default", () => {
   const manifest = buildFileManifest({
+    adapterConfig: fieldPlatformAdapterConfig,
     generatedAt: "2026-06-29T00:00:00.000Z",
     repoRoot: workspaceRoot,
   });
@@ -224,6 +297,7 @@ test("manifest excludes repository Archive paths by default", () => {
 
 test("manifest paths are repo-relative POSIX paths", () => {
   const manifest = buildFileManifest({
+    adapterConfig: fieldPlatformAdapterConfig,
     generatedAt: "2026-06-29T00:00:00.000Z",
     repoRoot: workspaceRoot,
   });
@@ -239,6 +313,7 @@ test("manifest paths are repo-relative POSIX paths", () => {
 test("manifest freshness evidence covers clean, dirty, untracked, excluded, and deleted entries", (t) => {
   const repoRoot = createFreshnessFixtureRepo(t);
   const manifest = buildFileManifest({
+    adapterConfig: fieldPlatformAdapterConfig,
     generatedAt: "2026-06-29T00:00:00.000Z",
     repoRoot,
     withFreshness: true,
@@ -530,6 +605,52 @@ function createTempRepo(t, repoPaths) {
   }
 
   return repoRoot;
+}
+
+function createSyntheticAdapterConfig() {
+  return {
+    schemaVersion: "0.1.0",
+    adapterId: "synthetic-context",
+    repoId: "synthetic-context",
+    displayName: "Synthetic Context",
+    repoRoot: ".",
+    pathFormat: "repo-relative-posix",
+    sourceGroups: [
+      {
+        id: "synthetic-source",
+        root: ".",
+        include: ["**/*"],
+        exclude: [],
+        documentKinds: ["source", "test", "config", "schema", "documentation"],
+      },
+    ],
+    capabilities: {
+      implemented: [],
+      unimplemented: [],
+    },
+  };
+}
+
+function collectMjsFiles(directory) {
+  const files = [];
+
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...collectMjsFiles(entryPath));
+      continue;
+    }
+    if (entry.isFile() && entry.name.endsWith(".mjs")) {
+      files.push(entryPath);
+    }
+  }
+
+  return files;
+}
+
+function isPathInside(filePath, directoryPath) {
+  const relativePath = path.relative(directoryPath, filePath);
+  return relativePath === "" || (!relativePath.startsWith("..") && !path.isAbsolute(relativePath));
 }
 
 function createFreshnessFixtureRepo(t) {

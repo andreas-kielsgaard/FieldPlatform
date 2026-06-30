@@ -346,6 +346,46 @@ export function validateSearchResult(result, options = {}) {
   };
 }
 
+export function validateBundleResult(result, options = {}) {
+  const errors = [];
+
+  if (!isObject(result)) {
+    return invalid("Bundle result must be an object.");
+  }
+
+  validateEvidenceBaseFieldsInto(errors, result, "result", {
+    adapterId: options.adapterId,
+    allowNullSchemaVersion: true,
+  });
+  validateRequestedBundleSelectorsInto(
+    errors,
+    result.requestedSelectors,
+    "result.requestedSelectors",
+  );
+  validateResolvedBundleSelectorsInto(errors, result.selectors, "result.selectors");
+  validateSourceFileArrayInto(errors, result.files, "result.files", options);
+  validateSearchFreshnessEvidenceInto(errors, result.freshnessEvidence, "result.freshnessEvidence");
+  validateSymbolArrayInto(errors, result.symbols, "result.symbols");
+  validateChunkArrayInto(errors, result.chunks, "result.chunks");
+  validateDependencyEdgeArrayInto(
+    errors,
+    result.dependencyEdges,
+    "result.dependencyEdges",
+    options,
+  );
+  validateSearchMatchArrayInto(errors, result.searchMatches, "result.searchMatches");
+  validateBundleSummaryInto(errors, result.summary, "result.summary", result);
+  expectStringArray(errors, result.selectorWarnings, "result.selectorWarnings");
+  validateBundleProducersInto(errors, result.producers, "result.producers", {
+    allowNull: true,
+  });
+
+  return {
+    valid: errors.length === 0,
+    errors,
+  };
+}
+
 export function validateSourceFileMetadata(file, options = {}) {
   const errors = [];
 
@@ -359,6 +399,246 @@ export function validateSourceFileMetadata(file, options = {}) {
     valid: errors.length === 0,
     errors,
   };
+}
+
+function validateRequestedBundleSelectorsInto(errors, selectors, prefix) {
+  if (!isObject(selectors)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  validateRepoPathArrayInto(errors, selectors.paths, `${prefix}.paths`);
+  expectStringArray(errors, selectors.symbols, `${prefix}.symbols`);
+  expectStringArray(errors, selectors.queries, `${prefix}.queries`);
+}
+
+function validateResolvedBundleSelectorsInto(errors, selectors, prefix) {
+  if (!isObject(selectors)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  validateBundlePathSelectorArrayInto(errors, selectors.paths, `${prefix}.paths`);
+  validateBundleSymbolSelectorArrayInto(errors, selectors.symbols, `${prefix}.symbols`);
+  validateBundleQuerySelectorArrayInto(errors, selectors.queries, `${prefix}.queries`);
+}
+
+function validateRepoPathArrayInto(errors, paths, prefix) {
+  if (!Array.isArray(paths)) {
+    errors.push(`${prefix} must be an array.`);
+    return;
+  }
+
+  for (const [index, repoPath] of paths.entries()) {
+    expectRepoRelativePath(errors, repoPath, `${prefix}[${index}]`);
+  }
+}
+
+function validateBundlePathSelectorArrayInto(errors, selectors, prefix) {
+  if (!Array.isArray(selectors)) {
+    errors.push(`${prefix} must be an array.`);
+    return;
+  }
+
+  for (const [index, selector] of selectors.entries()) {
+    const selectorPrefix = `${prefix}[${index}]`;
+    if (!isObject(selector)) {
+      errors.push(`${selectorPrefix} must be an object.`);
+      continue;
+    }
+    expectRepoRelativePath(errors, selector.path, `${selectorPrefix}.path`);
+    expectBoolean(errors, selector.manifestKnown, `${selectorPrefix}.manifestKnown`);
+    expectBoolean(errors, selector.includedSource, `${selectorPrefix}.includedSource`);
+    expectBoolean(errors, selector.excluded, `${selectorPrefix}.excluded`);
+    expectBoolean(errors, selector.generated, `${selectorPrefix}.generated`);
+    expectBoolean(errors, selector.archive, `${selectorPrefix}.archive`);
+  }
+}
+
+function validateBundleSymbolSelectorArrayInto(errors, selectors, prefix) {
+  if (!Array.isArray(selectors)) {
+    errors.push(`${prefix} must be an array.`);
+    return;
+  }
+
+  for (const [index, selector] of selectors.entries()) {
+    const selectorPrefix = `${prefix}[${index}]`;
+    if (!isObject(selector)) {
+      errors.push(`${selectorPrefix} must be an object.`);
+      continue;
+    }
+    expectString(errors, selector.name, `${selectorPrefix}.name`);
+    validateNonNegativeNumber(errors, selector.matchedSymbols, `${selectorPrefix}.matchedSymbols`);
+    expectBoolean(errors, selector.exactNameMatch, `${selectorPrefix}.exactNameMatch`);
+  }
+}
+
+function validateBundleQuerySelectorArrayInto(errors, selectors, prefix) {
+  if (!Array.isArray(selectors)) {
+    errors.push(`${prefix} must be an array.`);
+    return;
+  }
+
+  for (const [index, selector] of selectors.entries()) {
+    const selectorPrefix = `${prefix}[${index}]`;
+    if (!isObject(selector)) {
+      errors.push(`${selectorPrefix} must be an object.`);
+      continue;
+    }
+    expectString(errors, selector.query, `${selectorPrefix}.query`);
+    expectBoolean(errors, selector.literal, `${selectorPrefix}.literal`);
+    validateNonNegativeNumber(errors, selector.matchedFiles, `${selectorPrefix}.matchedFiles`);
+    validateNonNegativeNumber(
+      errors,
+      selector.returnedMatches,
+      `${selectorPrefix}.returnedMatches`,
+    );
+    validateNonNegativeNumber(errors, selector.totalMatches, `${selectorPrefix}.totalMatches`);
+    expectBoolean(errors, selector.truncated, `${selectorPrefix}.truncated`);
+  }
+}
+
+function validateBundleSummaryInto(errors, summary, prefix, result) {
+  if (!isObject(summary)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  validateBundleSelectorCountsInto(
+    errors,
+    summary.selectorCounts,
+    `${prefix}.selectorCounts`,
+    result,
+  );
+  expectEqual(errors, summary.files, result.files?.length, `${prefix}.files`);
+  expectEqual(
+    errors,
+    summary.includedFiles,
+    countBy(
+      result.files,
+      (file) =>
+        file.inclusionStatus === "included" &&
+        file.flags?.generated !== true &&
+        file.flags?.archive !== true,
+    ),
+    `${prefix}.includedFiles`,
+  );
+  expectEqual(
+    errors,
+    summary.excludedFiles,
+    countBy(result.files, (file) => file.inclusionStatus === "excluded"),
+    `${prefix}.excludedFiles`,
+  );
+  expectEqual(
+    errors,
+    summary.freshnessEvidence,
+    result.freshnessEvidence?.length ?? 0,
+    `${prefix}.freshnessEvidence`,
+  );
+  expectEqual(errors, summary.symbols, result.symbols?.length, `${prefix}.symbols`);
+  expectEqual(errors, summary.chunks, result.chunks?.length, `${prefix}.chunks`);
+  expectEqual(
+    errors,
+    summary.dependencyEdges,
+    result.dependencyEdges?.length,
+    `${prefix}.dependencyEdges`,
+  );
+  expectEqual(
+    errors,
+    summary.searchMatches,
+    result.searchMatches?.length,
+    `${prefix}.searchMatches`,
+  );
+  validateBundleAvailableInto(errors, summary.available, `${prefix}.available`);
+  validateBundleLimitsInto(errors, summary.limits, `${prefix}.limits`);
+  validateBundleTruncatedInto(errors, summary.truncated, `${prefix}.truncated`);
+}
+
+function validateBundleSelectorCountsInto(errors, counts, prefix, result) {
+  if (!isObject(counts)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  expectEqual(errors, counts.paths, result.selectors?.paths?.length, `${prefix}.paths`);
+  expectEqual(errors, counts.symbols, result.selectors?.symbols?.length, `${prefix}.symbols`);
+  expectEqual(errors, counts.queries, result.selectors?.queries?.length, `${prefix}.queries`);
+}
+
+function validateBundleAvailableInto(errors, available, prefix) {
+  if (!isObject(available)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  for (const key of ["files", "symbols", "chunks", "dependencyEdges", "searchMatches"]) {
+    validateNonNegativeNumber(errors, available[key], `${prefix}.${key}`);
+  }
+}
+
+function validateBundleLimitsInto(errors, limits, prefix) {
+  if (!isObject(limits)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  for (const key of ["files", "symbols", "chunks", "dependencyEdges", "searchMatches"]) {
+    validateNonNegativeNumber(errors, limits[key], `${prefix}.${key}`);
+    if (typeof limits[key] === "number" && limits[key] < 1) {
+      errors.push(`${prefix}.${key} must be at least 1.`);
+    }
+  }
+}
+
+function validateBundleTruncatedInto(errors, truncated, prefix) {
+  if (!isObject(truncated)) {
+    errors.push(`${prefix} must be an object.`);
+    return;
+  }
+
+  for (const key of ["files", "symbols", "chunks", "dependencyEdges", "searchMatches", "any"]) {
+    expectBoolean(errors, truncated[key], `${prefix}.${key}`);
+  }
+}
+
+function validateBundleProducersInto(errors, producers, prefix, options = {}) {
+  if (producers === null && options.allowNull) {
+    return;
+  }
+  validateEvidenceProducersInto(errors, producers, prefix, options);
+  if (!isObject(producers)) {
+    return;
+  }
+
+  if (producers.search !== null) {
+    if (!isObject(producers.search)) {
+      errors.push(`${prefix}.search must be an object or null.`);
+    } else {
+      expectString(errors, producers.search.sourceTool, `${prefix}.search.sourceTool`);
+      expectBoolean(
+        errors,
+        producers.search.exactLiteralMatch,
+        `${prefix}.search.exactLiteralMatch`,
+      );
+      expectBoolean(
+        errors,
+        producers.search.persistentIndexWritten,
+        `${prefix}.search.persistentIndexWritten`,
+      );
+    }
+  }
+
+  if (!isObject(producers.bundle)) {
+    errors.push(`${prefix}.bundle must be an object.`);
+  } else {
+    expectBoolean(errors, producers.bundle.deterministic, `${prefix}.bundle.deterministic`);
+    expectBoolean(
+      errors,
+      producers.bundle.persistentArtifactWritten,
+      `${prefix}.bundle.persistentArtifactWritten`,
+    );
+    expectString(errors, producers.bundle.graphTraversal, `${prefix}.bundle.graphTraversal`);
+  }
 }
 
 function validateSchemaRegistryData(errors, data) {

@@ -5,6 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
+  validateBundleResult,
   validateCommandEnvelope,
   validateContextEvidenceSnapshot,
   validateInspectResult,
@@ -72,6 +73,13 @@ export function assertValidSymbolsResult(result, options = {}) {
 
 export function assertValidSearchResult(result, options = {}) {
   const validation = validateSearchResult(result, options);
+
+  assert.deepEqual(validation.errors, []);
+  assert.equal(validation.valid, true);
+}
+
+export function assertValidBundleResult(result, options = {}) {
+  const validation = validateBundleResult(result, options);
 
   assert.deepEqual(validation.errors, []);
   assert.equal(validation.valid, true);

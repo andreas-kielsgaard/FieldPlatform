@@ -4,6 +4,7 @@ import { buildEvidenceEnvelope, printEvidenceSummary } from "./evidence-command.
 import { buildInspectEnvelope, printInspectSummary } from "./inspect-command.mjs";
 import { buildManifestEnvelope, printManifestSummary } from "./manifest-command.mjs";
 import { buildSchemasEnvelope, printSchemasSummary } from "./schemas-command.mjs";
+import { buildSymbolsEnvelope, printSymbolsSummary } from "./symbols-command.mjs";
 
 export function runContextCli(argv, io = {}) {
   const stdout = io.stdout ?? process.stdout;
@@ -28,6 +29,9 @@ export function runContextCli(argv, io = {}) {
   }
   if (commandName === "inspect") {
     return runInspectCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
+  }
+  if (commandName === "symbols") {
+    return runSymbolsCommand(commandArgs, { stdout, now, inheritedFlags: parsed.flags });
   }
 
   const message = `Unknown agent-os context command: ${commandName}`;
@@ -152,6 +156,36 @@ function runInspectCommand(argv, io) {
   return envelope.status === "error" ? 1 : 0;
 }
 
+function runSymbolsCommand(argv, io) {
+  const parsed = parseArgs(argv);
+  const flags = {
+    ...io.inheritedFlags,
+    ...parsed.flags,
+  };
+
+  if (flags.help || flags.h) {
+    printSymbolsHelp(io.stdout);
+    return 0;
+  }
+
+  const envelope = buildSymbolsEnvelope({
+    generatedAt: io.now().toISOString(),
+    requestedName: flags.name,
+    path: flags.path,
+    kind: flags.kind,
+    visibility: flags.visibility,
+    withFreshness: flags["with-freshness"] === true,
+  });
+
+  if (flags.json) {
+    io.stdout.write(`${JSON.stringify(envelope, null, 2)}\n`);
+  } else {
+    printSymbolsSummary(envelope, io.stdout);
+  }
+
+  return envelope.status === "error" ? 1 : 0;
+}
+
 function parseArgs(argv) {
   const flags = {};
   const positional = [];
@@ -192,12 +226,15 @@ Usage:
   corepack pnpm agent-os context evidence --json --with-freshness
   corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json
   corepack pnpm agent-os context inspect --path=apps/web/app/root.tsx --json --with-freshness
+  corepack pnpm agent-os context symbols --name=Layout --json
+  corepack pnpm agent-os context symbols --name=Layout --json --with-freshness
 
 Commands:
   evidence   Emit the composed on-demand structural evidence snapshot.
   inspect    Inspect evidence scoped to one repository path.
   manifest   Emit the on-demand Field Platform file manifest.
   schemas    Inspect available context schemas and capability state.
+  symbols    Look up exact TypeScript/TSX symbols from the evidence snapshot.
 
 Options:
   --help     Show this help.
@@ -253,6 +290,30 @@ Options:
   --json              Emit the shared machine-readable command envelope.
   --with-freshness    Include local Git/filesystem freshness evidence when available.
   --help              Show this help.
+`);
+}
+
+function printSymbolsHelp(stdout) {
+  stdout.write(`agent-os context symbols
+
+Look up exact TypeScript/TSX symbols from the composed evidence snapshot.
+
+Usage:
+  corepack pnpm agent-os context symbols --name=Layout --json
+  corepack pnpm agent-os context symbols --name=Layout --json --with-freshness
+  corepack pnpm agent-os context symbols --name=Layout --path=apps/web/app/root.tsx --json
+  corepack pnpm agent-os context symbols --name=Layout --kind=component --json
+  corepack pnpm agent-os context symbols --name=Layout --visibility=exported --json
+  corepack pnpm agent-os context symbols --help
+
+Options:
+  --name=<symbol>        Required exact symbol name.
+  --path=<path>          Optional repo-relative POSIX defining-file filter.
+  --kind=<kind>          Optional function|class|interface|type|component|constant|variable filter.
+  --visibility=<value>   Optional exported|local filter.
+  --json                 Emit the shared machine-readable command envelope.
+  --with-freshness       Include local Git/filesystem freshness evidence for defining files.
+  --help                 Show this help.
 `);
 }
 

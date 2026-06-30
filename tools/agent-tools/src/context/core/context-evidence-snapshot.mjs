@@ -33,6 +33,8 @@ export function buildContextEvidenceSnapshot({
     dependencyEvidence ??
     buildDependencyEdgeEvidenceFromDependencyCruiser({
       repoRoot: resolvedRepoRoot,
+      configPath: resolvedAdapterConfig.dependencyCruiser.configPath,
+      cruisePaths: resolvedAdapterConfig.dependencyCruiser.roots,
       observedAt: generatedAt,
     });
 

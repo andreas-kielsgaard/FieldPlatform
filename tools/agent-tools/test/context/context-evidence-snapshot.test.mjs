@@ -119,6 +119,73 @@ test("evidence snapshot includes dependency edges and skipped dependency edges",
   );
 });
 
+test("Field Platform evidence snapshot reports adapter dependency-cruiser config", () => {
+  const snapshot = buildContextEvidenceSnapshot({
+    adapterConfig: fieldPlatformAdapterConfig,
+    repoRoot: workspaceRoot,
+    generatedAt: fixedGeneratedAt,
+  });
+
+  assert.equal(snapshot.producers.dependencyCruiser.sourceTool, "dependency-cruiser");
+  assert.equal(snapshot.producers.dependencyCruiser.configPath, "dependency-cruiser.config.cjs");
+  assert.deepEqual(snapshot.producers.dependencyCruiser.roots, [
+    "apps/web/app",
+    "apps/web/src",
+    "tools/agent-tools/src",
+  ]);
+  assert.equal(snapshot.producers.dependencyCruiser.exitCode, 0);
+  assert.ok(snapshot.producers.dependencyCruiser.moduleCount > 0);
+});
+
+test("synthetic adapter dependency-cruiser config flows through evidence snapshot", () => {
+  const syntheticAdapterConfig = {
+    ...fieldPlatformAdapterConfig,
+    adapterId: "synthetic-context-adapter",
+    repoId: "synthetic-context-repo",
+    displayName: "Synthetic Context Adapter",
+    dependencyCruiser: {
+      configPath: "tools/agent-tools/test/context/fixtures/synthetic-dependency-cruiser.config.cjs",
+      roots: ["tools/agent-tools/src/context/core"],
+    },
+    sourceGroups: [
+      {
+        id: "synthetic-agent-tools-core",
+        root: "tools/agent-tools",
+        include: ["src/context/core/**/*"],
+        exclude: [],
+        documentKinds: ["source", "test", "schema"],
+      },
+    ],
+  };
+  const snapshot = buildContextEvidenceSnapshot({
+    adapterConfig: syntheticAdapterConfig,
+    repoRoot: workspaceRoot,
+    generatedAt: fixedGeneratedAt,
+  });
+
+  assert.equal(snapshot.adapterId, "synthetic-context-adapter");
+  assert.equal(
+    snapshot.producers.dependencyCruiser.configPath,
+    "tools/agent-tools/test/context/fixtures/synthetic-dependency-cruiser.config.cjs",
+  );
+  assert.deepEqual(snapshot.producers.dependencyCruiser.roots, [
+    "tools/agent-tools/src/context/core",
+  ]);
+  assert.notDeepEqual(snapshot.producers.dependencyCruiser.roots, [
+    "apps/web/app",
+    "apps/web/src",
+    "tools/agent-tools/src",
+  ]);
+  assert.equal(snapshot.producers.dependencyCruiser.exitCode, 0);
+  assert.ok(snapshot.dependencyEdges.length > 0);
+  assert.equal(
+    snapshot.dependencyEdges.every((edge) =>
+      edge.provenance.configPath.endsWith("synthetic-dependency-cruiser.config.cjs"),
+    ),
+    true,
+  );
+});
+
 test("dependency evidence does not make generated or archive files included source", (t) => {
   const repoRoot = createTempRepo(t, {
     "apps/web/src/modules/communities/index.ts": "export const activeSource = true;\n",

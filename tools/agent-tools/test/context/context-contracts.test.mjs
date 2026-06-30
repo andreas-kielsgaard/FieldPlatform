@@ -373,6 +373,11 @@ test("adapter/config fixture validates", () => {
 
   assert.deepEqual(result.errors, []);
   assert.equal(result.valid, true);
+  assert.deepEqual(config.dependencyCruiser, {
+    configPath: "dependency-cruiser.config.cjs",
+    roots: ["apps/web/app", "apps/web/src", "tools/agent-tools/src"],
+  });
+  assert.deepEqual(fieldPlatformContextAdapterConfig.dependencyCruiser, config.dependencyCruiser);
 });
 
 test("adapter capability metadata is sourced from exported capabilities", () => {

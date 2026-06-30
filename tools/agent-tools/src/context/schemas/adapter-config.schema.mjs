@@ -19,6 +19,7 @@ export const adapterConfigSchema = defineContextSchema(
       "repoId",
       "displayName",
       "pathFormat",
+      "dependencyCruiser",
       "sourceGroups",
       "capabilities",
     ],
@@ -44,6 +45,19 @@ export const adapterConfigSchema = defineContextSchema(
       },
       pathFormat: {
         const: CONTEXT_PATH_FORMAT,
+      },
+      dependencyCruiser: {
+        type: "object",
+        additionalProperties: false,
+        required: ["configPath", "roots"],
+        properties: {
+          configPath: repoRelativePosixPathSchema,
+          roots: {
+            type: "array",
+            minItems: 1,
+            items: repoRelativePosixPathSchema,
+          },
+        },
       },
       sourceGroups: {
         type: "array",

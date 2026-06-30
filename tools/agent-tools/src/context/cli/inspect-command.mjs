@@ -1,4 +1,4 @@
-import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
+import { resolveContextAdapter } from "../adapters/default-adapter.mjs";
 import { contextEvidenceLimitations, contextEvidenceWarnings } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
 import { buildContextEvidenceSnapshot } from "../core/context-evidence-snapshot.mjs";
@@ -11,7 +11,9 @@ export function buildInspectEnvelope({
   withFreshness = false,
   manifest,
   dependencyEvidence,
+  adapterConfig,
 } = {}) {
+  const contextAdapter = resolveContextAdapter({ adapterConfig });
   const pathResult = normalizeRequestedPath(requestedPath, repoRoot);
 
   if (!pathResult.ok) {
@@ -21,13 +23,16 @@ export function buildInspectEnvelope({
       data: buildEmptyInspectData({
         generatedAt,
         requestedPath: requestedPath ?? null,
+        adapterConfig: contextAdapter.adapterConfig,
       }),
       warnings: [pathResult.message],
       withFreshness,
+      adapterConfig: contextAdapter.adapterConfig,
     });
   }
 
   const snapshot = buildContextEvidenceSnapshot({
+    adapterConfig: contextAdapter.adapterConfig,
     generatedAt,
     repoRoot,
     withFreshness,
@@ -52,6 +57,7 @@ export function buildInspectEnvelope({
     data,
     warnings,
     withFreshness,
+    adapterConfig: contextAdapter.adapterConfig,
   });
 }
 
@@ -153,9 +159,9 @@ function buildInspectData({ snapshot, requestedPath }) {
   };
 }
 
-function buildEmptyInspectData({ generatedAt, requestedPath }) {
+function buildEmptyInspectData({ generatedAt, requestedPath, adapterConfig }) {
   return {
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: adapterConfig.adapterId,
     schemaVersion: null,
     generatedAt,
     requestedPath,
@@ -231,11 +237,18 @@ function determineInspectStatus({ snapshot, data }) {
   return "ok";
 }
 
-function createInspectEnvelope({ generatedAt, status, data, warnings, withFreshness }) {
+function createInspectEnvelope({
+  generatedAt,
+  status,
+  data,
+  warnings,
+  withFreshness,
+  adapterConfig,
+}) {
   return createCommandEnvelope({
     name: "inspect",
     generatedAt,
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: adapterConfig.adapterId,
     status,
     data,
     warnings,

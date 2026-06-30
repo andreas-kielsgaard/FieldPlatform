@@ -1,4 +1,4 @@
-import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
+import { resolveContextAdapter } from "../adapters/default-adapter.mjs";
 import { contextSearchLimitations, contextSearchWarnings } from "../core/capabilities.mjs";
 import { createCommandEnvelope } from "../core/command-envelope.mjs";
 import { buildFileManifest } from "../core/file-manifest.mjs";
@@ -20,7 +20,9 @@ export function buildSearchEnvelope({
   limit = DEFAULT_LITERAL_SEARCH_LIMIT,
   withFreshness = false,
   manifest,
+  adapterConfig,
 } = {}) {
+  const contextAdapter = resolveContextAdapter({ adapterConfig });
   const validation = validateSearchRequest({
     query,
     path,
@@ -39,16 +41,18 @@ export function buildSearchEnvelope({
         generatedAt,
         query: validation.query,
         appliedFilters: validation.appliedFilters,
+        adapterConfig: contextAdapter.adapterConfig,
       }),
       warnings: validation.warnings,
       withFreshness,
+      adapterConfig: contextAdapter.adapterConfig,
     });
   }
 
   const fileManifest =
     manifest ??
     buildFileManifest({
-      adapterConfig: fieldPlatformContextAdapterConfig,
+      adapterConfig: contextAdapter.adapterConfig,
       repoRoot,
       generatedAt,
       withFreshness,
@@ -89,6 +93,7 @@ export function buildSearchEnvelope({
     data,
     warnings,
     withFreshness,
+    adapterConfig: contextAdapter.adapterConfig,
   });
 }
 
@@ -256,9 +261,9 @@ function buildSearchData({
   };
 }
 
-function buildEmptySearchData({ generatedAt, query, appliedFilters }) {
+function buildEmptySearchData({ generatedAt, query, appliedFilters, adapterConfig }) {
   return {
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: adapterConfig.adapterId,
     schemaVersion: null,
     generatedAt,
     query,
@@ -313,11 +318,18 @@ function countAppliedFilters(appliedFilters) {
   ].filter((value) => value !== null).length;
 }
 
-function createSearchEnvelope({ generatedAt, status, data, warnings, withFreshness }) {
+function createSearchEnvelope({
+  generatedAt,
+  status,
+  data,
+  warnings,
+  withFreshness,
+  adapterConfig,
+}) {
   return createCommandEnvelope({
     name: "search",
     generatedAt,
-    adapterId: fieldPlatformContextAdapterConfig.adapterId,
+    adapterId: adapterConfig.adapterId,
     status,
     data,
     warnings,

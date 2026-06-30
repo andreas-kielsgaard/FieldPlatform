@@ -130,6 +130,22 @@ export function validateAdapterConfig(config) {
       expectRepoRelativePath(errors, group.root, `${prefix}.root`);
       expectStringArray(errors, group.include, `${prefix}.include`);
       expectStringArray(errors, group.exclude, `${prefix}.exclude`);
+      if (group.documentKinds !== undefined) {
+        expectStringArray(errors, group.documentKinds, `${prefix}.documentKinds`);
+      }
+      if (group.defaultDocumentKind !== undefined) {
+        expectString(errors, group.defaultDocumentKind, `${prefix}.defaultDocumentKind`);
+      }
+      if (group.flags !== undefined) {
+        expectStringArray(errors, group.flags, `${prefix}.flags`);
+      }
+      if (group.documentKindPathHints !== undefined) {
+        validateDocumentKindPathHintsInto(
+          errors,
+          group.documentKindPathHints,
+          `${prefix}.documentKindPathHints`,
+        );
+      }
     }
   }
 
@@ -144,6 +160,23 @@ export function validateAdapterConfig(config) {
     valid: errors.length === 0,
     errors,
   };
+}
+
+function validateDocumentKindPathHintsInto(errors, hints, prefix) {
+  if (!Array.isArray(hints)) {
+    errors.push(`${prefix} must be an array.`);
+    return;
+  }
+
+  for (const [index, hint] of hints.entries()) {
+    const hintPrefix = `${prefix}[${index}]`;
+    if (!isObject(hint)) {
+      errors.push(`${hintPrefix} must be an object.`);
+      continue;
+    }
+    expectStringArray(errors, hint.include, `${hintPrefix}.include`);
+    expectString(errors, hint.documentKind, `${hintPrefix}.documentKind`);
+  }
 }
 
 export function validateFileManifest(manifest, options = {}) {

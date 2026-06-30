@@ -1,30 +1,30 @@
 import path from "node:path";
 
-import { fieldPlatformContextAdapterConfig } from "../adapters/field-platform-adapter-config.mjs";
 import { CONTEXT_CONTRACT_VERSION } from "../schemas/shared.mjs";
 import { buildDependencyEdgeEvidenceFromDependencyCruiser } from "./dependency-edge-evidence.mjs";
 import { buildFileManifest } from "./file-manifest.mjs";
 import { extractTypeScriptSource } from "./typescript-source-extraction.mjs";
 
 export function buildContextEvidenceSnapshot({
-  adapterConfig = fieldPlatformContextAdapterConfig,
+  adapterConfig,
   repoRoot = process.cwd(),
   generatedAt = new Date().toISOString(),
   withFreshness = false,
   manifest,
   dependencyEvidence,
 } = {}) {
+  const resolvedAdapterConfig = requireAdapterConfig(adapterConfig);
   const resolvedRepoRoot = path.resolve(repoRoot);
   const fileManifest =
     manifest ??
     buildFileManifest({
-      adapterConfig,
+      adapterConfig: resolvedAdapterConfig,
       repoRoot: resolvedRepoRoot,
       generatedAt,
       withFreshness,
     });
   const typeScriptEvidence = extractTypeScriptSource({
-    adapterConfig,
+    adapterConfig: resolvedAdapterConfig,
     repoRoot: resolvedRepoRoot,
     generatedAt,
     manifest: fileManifest,
@@ -37,7 +37,7 @@ export function buildContextEvidenceSnapshot({
     });
 
   return {
-    adapterId: adapterConfig.adapterId,
+    adapterId: resolvedAdapterConfig.adapterId,
     schemaVersion: CONTEXT_CONTRACT_VERSION,
     generatedAt,
     summary: buildEvidenceSummary({
@@ -62,6 +62,14 @@ export function buildContextEvidenceSnapshot({
     dependencyEdges: dependencyEdgeEvidence.edges,
     skippedDependencyEdges: dependencyEdgeEvidence.skippedEdges,
   };
+}
+
+function requireAdapterConfig(adapterConfig) {
+  if (!adapterConfig) {
+    throw new Error("buildContextEvidenceSnapshot requires an adapterConfig.");
+  }
+
+  return adapterConfig;
 }
 
 function buildEvidenceSummary({

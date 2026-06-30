@@ -76,6 +76,34 @@ export const adapterConfigSchema = defineContextSchema(
                 type: "string",
               },
             },
+            defaultDocumentKind: {
+              type: "string",
+            },
+            flags: {
+              type: "array",
+              items: {
+                enum: ["generated", "archive"],
+              },
+            },
+            documentKindPathHints: {
+              type: "array",
+              items: {
+                type: "object",
+                additionalProperties: false,
+                required: ["include", "documentKind"],
+                properties: {
+                  include: {
+                    type: "array",
+                    items: {
+                      type: "string",
+                    },
+                  },
+                  documentKind: {
+                    type: "string",
+                  },
+                },
+              },
+            },
           },
         },
       },

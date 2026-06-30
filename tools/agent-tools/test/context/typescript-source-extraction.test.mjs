@@ -4,6 +4,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 
+import { resolveDefaultContextAdapterConfig } from "../../src/context/adapters/default-adapter.mjs";
 import { buildFileManifest } from "../../src/context/core/file-manifest.mjs";
 import {
   extractTypeScriptSource,
@@ -13,6 +14,7 @@ import { fixturePath, loadTextFixture, stableJson } from "./context-test-helpers
 
 const moduleFixtureRepoPath = "apps/web/src/source-intelligence/module-fixture.ts";
 const componentFixtureRepoPath = "apps/web/src/source-intelligence/component-fixture.tsx";
+const fieldPlatformAdapterConfig = resolveDefaultContextAdapterConfig();
 
 test("TypeScript fixture extraction produces deterministic symbols", () => {
   const content = loadTextFixture("source-extraction", "module-fixture.ts");
@@ -163,6 +165,7 @@ test("manifest policy excludes generated and archive TypeScript paths from extra
     "Archive/legacy.ts": "export const archived = true;\n",
   });
   const manifest = buildFileManifest({
+    adapterConfig: fieldPlatformAdapterConfig,
     generatedAt: "2026-06-29T00:00:00.000Z",
     repoRoot,
   });

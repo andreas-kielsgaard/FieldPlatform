@@ -11,7 +11,13 @@
       "root": "apps/web",
       "include": ["app/**/*", "src/**/*"],
       "exclude": [".react-router/**/*", "build/**/*"],
-      "documentKinds": ["source", "test", "config", "schema"]
+      "documentKinds": ["source", "test", "config", "schema"],
+      "documentKindPathHints": [
+        {
+          "include": ["src/shared/db/schema/**/*"],
+          "documentKind": "schema"
+        }
+      ]
     },
     {
       "id": "agent-tools-source",
@@ -36,7 +42,8 @@
         "tools/agent-tools/package.json"
       ],
       "exclude": [],
-      "documentKinds": ["config"]
+      "documentKinds": ["config"],
+      "defaultDocumentKind": "config"
     },
     {
       "id": "project-guidance",
@@ -49,7 +56,8 @@
         "Agent OS/project-control-files/**/*.md"
       ],
       "exclude": [],
-      "documentKinds": ["documentation"]
+      "documentKinds": ["documentation"],
+      "defaultDocumentKind": "documentation"
     },
     {
       "id": "generated-output",
@@ -70,14 +78,18 @@
         "apps/web/test-results/**/*",
         "coverage/**/*"
       ],
-      "documentKinds": ["generated"]
+      "documentKinds": ["generated"],
+      "defaultDocumentKind": "generated",
+      "flags": ["generated"]
     },
     {
       "id": "archive",
       "root": ".",
       "include": ["Archive/**/*"],
       "exclude": ["Archive/**/*"],
-      "documentKinds": ["archive"]
+      "documentKinds": ["archive"],
+      "defaultDocumentKind": "archive",
+      "flags": ["archive"]
     }
   ],
   "capabilities": {

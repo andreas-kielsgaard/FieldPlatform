@@ -17,6 +17,12 @@ export const fieldPlatformContextAdapterConfig = Object.freeze({
       include: Object.freeze(["app/**/*", "src/**/*"]),
       exclude: Object.freeze([".react-router/**/*", "build/**/*"]),
       documentKinds: Object.freeze(["source", "test", "config", "schema"]),
+      documentKindPathHints: Object.freeze([
+        Object.freeze({
+          include: Object.freeze(["src/shared/db/schema/**/*"]),
+          documentKind: "schema",
+        }),
+      ]),
     }),
     Object.freeze({
       id: "agent-tools-source",
@@ -42,6 +48,7 @@ export const fieldPlatformContextAdapterConfig = Object.freeze({
       ]),
       exclude: Object.freeze([]),
       documentKinds: Object.freeze(["config"]),
+      defaultDocumentKind: "config",
     }),
     Object.freeze({
       id: "project-guidance",
@@ -55,6 +62,7 @@ export const fieldPlatformContextAdapterConfig = Object.freeze({
       ]),
       exclude: Object.freeze([]),
       documentKinds: Object.freeze(["documentation"]),
+      defaultDocumentKind: "documentation",
     }),
     Object.freeze({
       id: "generated-output",
@@ -76,6 +84,8 @@ export const fieldPlatformContextAdapterConfig = Object.freeze({
         "coverage/**/*",
       ]),
       documentKinds: Object.freeze(["generated"]),
+      defaultDocumentKind: "generated",
+      flags: Object.freeze(["generated"]),
     }),
     Object.freeze({
       id: "archive",
@@ -83,6 +93,8 @@ export const fieldPlatformContextAdapterConfig = Object.freeze({
       include: Object.freeze(["Archive/**/*"]),
       exclude: Object.freeze(["Archive/**/*"]),
       documentKinds: Object.freeze(["archive"]),
+      defaultDocumentKind: "archive",
+      flags: Object.freeze(["archive"]),
     }),
   ]),
   capabilities: Object.freeze({

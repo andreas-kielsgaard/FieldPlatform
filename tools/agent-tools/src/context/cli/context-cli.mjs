@@ -300,7 +300,7 @@ Options:
 function printManifestHelp(stdout) {
   stdout.write(`agent-os context manifest
 
-Emit the on-demand Field Platform file manifest.
+Emit the on-demand file manifest for the active context adapter.
 
 Usage:
   corepack pnpm agent-os context manifest --json
@@ -317,7 +317,7 @@ Options:
 function printEvidenceHelp(stdout) {
   stdout.write(`agent-os context evidence
 
-Emit the composed on-demand Field Platform structural evidence snapshot.
+Emit the composed on-demand structural evidence snapshot for the active context adapter.
 
 Usage:
   corepack pnpm agent-os context evidence --json
@@ -457,7 +457,8 @@ export const contextCommandDefinitions = Object.freeze([
   }),
   Object.freeze({
     name: "evidence",
-    summary: "Emit the composed on-demand structural evidence snapshot.",
+    summary:
+      "Emit the composed on-demand structural evidence snapshot for the active context adapter.",
     run: runEvidenceCommand,
   }),
   Object.freeze({
@@ -467,7 +468,7 @@ export const contextCommandDefinitions = Object.freeze([
   }),
   Object.freeze({
     name: "manifest",
-    summary: "Emit the on-demand Field Platform file manifest.",
+    summary: "Emit the on-demand file manifest for the active context adapter.",
     run: runManifestCommand,
   }),
   Object.freeze({

@@ -91,13 +91,9 @@
       "dependency-evidence",
       "evidence-snapshot",
       "file-focused-evidence-inspection",
-      "exact-symbol-lookup"
+      "exact-symbol-lookup",
+      "lexical-search"
     ],
-    "unimplemented": [
-      "source-indexing",
-      "lexical-search",
-      "embeddings-or-vector-search",
-      "agent-os-prompt-weaving"
-    ]
+    "unimplemented": ["source-indexing", "embeddings-or-vector-search", "agent-os-prompt-weaving"]
   }
 }

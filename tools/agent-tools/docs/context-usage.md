@@ -1,6 +1,8 @@
 # Agent OS Context Usage
 
-The `agent-os context` commands emit read-only JSON evidence for bounded source inspection. They are deterministic helpers for selecting files, declarations, literal matches, and related structural evidence before editing.
+The `agent-os context` commands emit read-only JSON evidence for bounded source inspection through the active context adapter. They are deterministic helpers for selecting files, declarations, literal matches, and related structural evidence before editing.
+
+Outputs are evidence, not semantic authority. Use them to guide source reads and verification; do not use them to decide ownership, meaning, product intent, architecture quality, or permission to treat excluded material as active source.
 
 ## `schemas`
 
@@ -16,7 +18,7 @@ corepack pnpm agent-os context schemas --json
 
 ## `manifest`
 
-For: listing files considered by the Field Platform context adapter and their source policy metadata.
+For: listing files considered by the active context adapter and their source policy metadata.
 
 Use when: you need to confirm whether a path is included, excluded, generated, archived, source, test, config, or documentation.
 
@@ -29,7 +31,7 @@ corepack pnpm agent-os context manifest --json --with-freshness
 
 ## `evidence`
 
-For: composing the current structural evidence snapshot from the manifest, TypeScript/TSX declarations, chunks, and dependency edges.
+For: composing the current structural evidence snapshot from the active adapter's enabled evidence producers, such as the manifest, TypeScript/TSX declarations, chunks, and dependency edges.
 
 Use when: you need broad, current context-tool evidence before choosing narrower selectors.
 
@@ -108,3 +110,5 @@ corepack pnpm agent-os context bundle --path=apps/web/app/root.tsx --symbol=Layo
 The context tooling does not provide semantic search, ranking, vector retrieval, prompt weaving, or a persistent index.
 
 Generated, archive, and excluded files remain governed by manifest source policy. Their presence in output is source-policy evidence, not permission to treat them as active source.
+
+Enabled evidence producers and included source groups may vary by project adapter. Check `schemas`, `manifest`, or the adapter config when you need the current capability and source-policy boundary.

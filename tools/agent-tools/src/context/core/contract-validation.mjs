@@ -117,6 +117,21 @@ export function validateAdapterConfig(config) {
   expectString(errors, config.displayName, "displayName");
   expectEqual(errors, config.pathFormat, "repo-relative-posix", "pathFormat");
 
+  if (!isObject(config.dependencyCruiser)) {
+    errors.push("dependencyCruiser must be an object.");
+  } else {
+    expectRepoRelativePath(
+      errors,
+      config.dependencyCruiser.configPath,
+      "dependencyCruiser.configPath",
+    );
+    expectNonEmptyRepoRelativePathArray(
+      errors,
+      config.dependencyCruiser.roots,
+      "dependencyCruiser.roots",
+    );
+  }
+
   if (!Array.isArray(config.sourceGroups) || config.sourceGroups.length === 0) {
     errors.push("sourceGroups must be a non-empty array.");
   } else {
@@ -160,6 +175,21 @@ export function validateAdapterConfig(config) {
     valid: errors.length === 0,
     errors,
   };
+}
+
+function expectNonEmptyRepoRelativePathArray(errors, value, field) {
+  if (!Array.isArray(value)) {
+    errors.push(`${field} must be a non-empty array.`);
+    return;
+  }
+
+  if (value.length === 0) {
+    errors.push(`${field} must be a non-empty array.`);
+  }
+
+  for (const [index, entry] of value.entries()) {
+    expectRepoRelativePath(errors, entry, `${field}[${index}]`);
+  }
 }
 
 function validateDocumentKindPathHintsInto(errors, hints, prefix) {

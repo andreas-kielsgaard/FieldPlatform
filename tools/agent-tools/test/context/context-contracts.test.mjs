@@ -380,6 +380,53 @@ test("adapter/config fixture validates", () => {
   assert.deepEqual(fieldPlatformContextAdapterConfig.dependencyCruiser, config.dependencyCruiser);
 });
 
+test("adapter/config validation rejects missing dependency-cruiser config", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  delete config.dependencyCruiser;
+  const result = validateAdapterConfig(config);
+
+  assert.equal(result.valid, false);
+  assert.deepEqual(result.errors, ["dependencyCruiser must be an object."]);
+});
+
+test("adapter/config validation rejects missing dependency-cruiser config path", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  delete config.dependencyCruiser.configPath;
+  const result = validateAdapterConfig(config);
+
+  assert.equal(result.valid, false);
+  assert.deepEqual(result.errors, ["dependencyCruiser.configPath must be a non-empty string."]);
+});
+
+test("adapter/config validation rejects missing dependency-cruiser roots", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  delete config.dependencyCruiser.roots;
+  const result = validateAdapterConfig(config);
+
+  assert.equal(result.valid, false);
+  assert.deepEqual(result.errors, ["dependencyCruiser.roots must be a non-empty array."]);
+});
+
+test("adapter/config validation rejects empty dependency-cruiser roots", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  config.dependencyCruiser.roots = [];
+  const result = validateAdapterConfig(config);
+
+  assert.equal(result.valid, false);
+  assert.deepEqual(result.errors, ["dependencyCruiser.roots must be a non-empty array."]);
+});
+
+test("adapter/config validation rejects invalid dependency-cruiser root paths", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  config.dependencyCruiser.roots = ["apps/web/src", "../outside"];
+  const result = validateAdapterConfig(config);
+
+  assert.equal(result.valid, false);
+  assert.deepEqual(result.errors, [
+    "dependencyCruiser.roots[1] must be a repo-relative POSIX path.",
+  ]);
+});
+
 test("adapter capability metadata is sourced from exported capabilities", () => {
   const fixtureConfig = loadJsonFixture("field-platform-adapter.config.json");
   const registry = getContextSchemaRegistry();

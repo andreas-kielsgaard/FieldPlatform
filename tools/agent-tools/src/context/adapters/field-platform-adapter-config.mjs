@@ -10,9 +10,12 @@ export const fieldPlatformContextAdapterConfig = Object.freeze({
   displayName: "Field Platform",
   repoRoot: ".",
   pathFormat: "repo-relative-posix",
-  dependencyCruiser: Object.freeze({
-    configPath: "dependency-cruiser.config.cjs",
-    roots: Object.freeze(["apps/web/app", "apps/web/src", "tools/agent-tools/src"]),
+  evidenceProducers: Object.freeze({
+    dependencyCruiser: Object.freeze({
+      enabled: true,
+      configPath: "dependency-cruiser.config.cjs",
+      roots: Object.freeze(["apps/web/app", "apps/web/src", "tools/agent-tools/src"]),
+    }),
   }),
   sourceGroups: Object.freeze([
     Object.freeze({

@@ -5,9 +5,12 @@
   "displayName": "Field Platform",
   "repoRoot": ".",
   "pathFormat": "repo-relative-posix",
-  "dependencyCruiser": {
-    "configPath": "dependency-cruiser.config.cjs",
-    "roots": ["apps/web/app", "apps/web/src", "tools/agent-tools/src"]
+  "evidenceProducers": {
+    "dependencyCruiser": {
+      "enabled": true,
+      "configPath": "dependency-cruiser.config.cjs",
+      "roots": ["apps/web/app", "apps/web/src", "tools/agent-tools/src"]
+    }
   },
   "sourceGroups": [
     {

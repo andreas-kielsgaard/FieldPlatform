@@ -143,9 +143,13 @@ test("synthetic adapter dependency-cruiser config flows through evidence snapsho
     adapterId: "synthetic-context-adapter",
     repoId: "synthetic-context-repo",
     displayName: "Synthetic Context Adapter",
-    dependencyCruiser: {
-      configPath: "tools/agent-tools/test/context/fixtures/synthetic-dependency-cruiser.config.cjs",
-      roots: ["tools/agent-tools/src/context/core"],
+    evidenceProducers: {
+      dependencyCruiser: {
+        enabled: true,
+        configPath:
+          "tools/agent-tools/test/context/fixtures/synthetic-dependency-cruiser.config.cjs",
+        roots: ["tools/agent-tools/src/context/core"],
+      },
     },
     sourceGroups: [
       {
@@ -184,6 +188,80 @@ test("synthetic adapter dependency-cruiser config flows through evidence snapsho
     ),
     true,
   );
+});
+
+test("synthetic adapter with disabled dependency-cruiser returns empty dependency evidence", () => {
+  const syntheticAdapterConfig = {
+    ...fieldPlatformAdapterConfig,
+    adapterId: "synthetic-disabled-dependency-adapter",
+    repoId: "synthetic-context-repo",
+    displayName: "Synthetic Disabled Dependency Adapter",
+    evidenceProducers: {
+      dependencyCruiser: {
+        enabled: false,
+      },
+    },
+    sourceGroups: [
+      {
+        id: "synthetic-agent-tools-core",
+        root: "tools/agent-tools",
+        include: ["src/context/core/**/*"],
+        exclude: [],
+        documentKinds: ["source", "test", "schema"],
+      },
+    ],
+  };
+  const snapshot = buildContextEvidenceSnapshot({
+    adapterConfig: syntheticAdapterConfig,
+    repoRoot: workspaceRoot,
+    generatedAt: fixedGeneratedAt,
+  });
+
+  assert.equal(snapshot.adapterId, "synthetic-disabled-dependency-adapter");
+  assert.deepEqual(snapshot.dependencyEdges, []);
+  assert.deepEqual(snapshot.skippedDependencyEdges, []);
+  assert.equal(snapshot.summary.dependencyEdges, 0);
+  assert.equal(snapshot.summary.skippedDependencyEdges, 0);
+  assert.equal(snapshot.producers.dependencyCruiser.enabled, false);
+  assert.equal(snapshot.producers.dependencyCruiser.status, "disabled");
+  assert.equal(snapshot.producers.dependencyCruiser.configPath, null);
+  assert.deepEqual(snapshot.producers.dependencyCruiser.roots, []);
+  assert.equal(snapshot.producers.dependencyCruiser.exitCode, 0);
+});
+
+test("synthetic adapter with absent dependency-cruiser returns empty dependency evidence", () => {
+  const syntheticAdapterConfig = {
+    ...fieldPlatformAdapterConfig,
+    adapterId: "synthetic-absent-dependency-adapter",
+    repoId: "synthetic-context-repo",
+    displayName: "Synthetic Absent Dependency Adapter",
+    evidenceProducers: {},
+    sourceGroups: [
+      {
+        id: "synthetic-agent-tools-core",
+        root: "tools/agent-tools",
+        include: ["src/context/core/**/*"],
+        exclude: [],
+        documentKinds: ["source", "test", "schema"],
+      },
+    ],
+  };
+  const snapshot = buildContextEvidenceSnapshot({
+    adapterConfig: syntheticAdapterConfig,
+    repoRoot: workspaceRoot,
+    generatedAt: fixedGeneratedAt,
+  });
+
+  assert.equal(snapshot.adapterId, "synthetic-absent-dependency-adapter");
+  assert.deepEqual(snapshot.dependencyEdges, []);
+  assert.deepEqual(snapshot.skippedDependencyEdges, []);
+  assert.equal(snapshot.summary.dependencyEdges, 0);
+  assert.equal(snapshot.summary.skippedDependencyEdges, 0);
+  assert.equal(snapshot.producers.dependencyCruiser.enabled, false);
+  assert.equal(snapshot.producers.dependencyCruiser.status, "not-configured");
+  assert.equal(snapshot.producers.dependencyCruiser.configPath, null);
+  assert.deepEqual(snapshot.producers.dependencyCruiser.roots, []);
+  assert.equal(snapshot.producers.dependencyCruiser.exitCode, 0);
 });
 
 test("dependency evidence does not make generated or archive files included source", (t) => {

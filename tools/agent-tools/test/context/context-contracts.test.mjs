@@ -373,58 +373,97 @@ test("adapter/config fixture validates", () => {
 
   assert.deepEqual(result.errors, []);
   assert.equal(result.valid, true);
-  assert.deepEqual(config.dependencyCruiser, {
+  assert.deepEqual(config.evidenceProducers.dependencyCruiser, {
+    enabled: true,
     configPath: "dependency-cruiser.config.cjs",
     roots: ["apps/web/app", "apps/web/src", "tools/agent-tools/src"],
   });
-  assert.deepEqual(fieldPlatformContextAdapterConfig.dependencyCruiser, config.dependencyCruiser);
+  assert.deepEqual(
+    fieldPlatformContextAdapterConfig.evidenceProducers.dependencyCruiser,
+    config.evidenceProducers.dependencyCruiser,
+  );
 });
 
-test("adapter/config validation rejects missing dependency-cruiser config", () => {
+test("adapter/config validation rejects missing evidence producer container", () => {
   const config = loadJsonFixture("field-platform-adapter.config.json");
-  delete config.dependencyCruiser;
+  delete config.evidenceProducers;
   const result = validateAdapterConfig(config);
 
   assert.equal(result.valid, false);
-  assert.deepEqual(result.errors, ["dependencyCruiser must be an object."]);
+  assert.deepEqual(result.errors, ["evidenceProducers must be an object."]);
 });
 
 test("adapter/config validation rejects missing dependency-cruiser config path", () => {
   const config = loadJsonFixture("field-platform-adapter.config.json");
-  delete config.dependencyCruiser.configPath;
-  const result = validateAdapterConfig(config);
-
-  assert.equal(result.valid, false);
-  assert.deepEqual(result.errors, ["dependencyCruiser.configPath must be a non-empty string."]);
-});
-
-test("adapter/config validation rejects missing dependency-cruiser roots", () => {
-  const config = loadJsonFixture("field-platform-adapter.config.json");
-  delete config.dependencyCruiser.roots;
-  const result = validateAdapterConfig(config);
-
-  assert.equal(result.valid, false);
-  assert.deepEqual(result.errors, ["dependencyCruiser.roots must be a non-empty array."]);
-});
-
-test("adapter/config validation rejects empty dependency-cruiser roots", () => {
-  const config = loadJsonFixture("field-platform-adapter.config.json");
-  config.dependencyCruiser.roots = [];
-  const result = validateAdapterConfig(config);
-
-  assert.equal(result.valid, false);
-  assert.deepEqual(result.errors, ["dependencyCruiser.roots must be a non-empty array."]);
-});
-
-test("adapter/config validation rejects invalid dependency-cruiser root paths", () => {
-  const config = loadJsonFixture("field-platform-adapter.config.json");
-  config.dependencyCruiser.roots = ["apps/web/src", "../outside"];
+  delete config.evidenceProducers.dependencyCruiser.configPath;
   const result = validateAdapterConfig(config);
 
   assert.equal(result.valid, false);
   assert.deepEqual(result.errors, [
-    "dependencyCruiser.roots[1] must be a repo-relative POSIX path.",
+    "evidenceProducers.dependencyCruiser.configPath must be a non-empty string.",
   ]);
+});
+
+test("adapter/config validation rejects missing dependency-cruiser roots", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  delete config.evidenceProducers.dependencyCruiser.roots;
+  const result = validateAdapterConfig(config);
+
+  assert.equal(result.valid, false);
+  assert.deepEqual(result.errors, [
+    "evidenceProducers.dependencyCruiser.roots must be a non-empty array.",
+  ]);
+});
+
+test("adapter/config validation rejects empty dependency-cruiser roots", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  config.evidenceProducers.dependencyCruiser.roots = [];
+  const result = validateAdapterConfig(config);
+
+  assert.equal(result.valid, false);
+  assert.deepEqual(result.errors, [
+    "evidenceProducers.dependencyCruiser.roots must be a non-empty array.",
+  ]);
+});
+
+test("adapter/config validation rejects invalid dependency-cruiser root paths", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  config.evidenceProducers.dependencyCruiser.roots = ["apps/web/src", "../outside"];
+  const result = validateAdapterConfig(config);
+
+  assert.equal(result.valid, false);
+  assert.deepEqual(result.errors, [
+    "evidenceProducers.dependencyCruiser.roots[1] must be a repo-relative POSIX path.",
+  ]);
+});
+
+test("adapter/config validation rejects invalid dependency-cruiser enabled flag", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  config.evidenceProducers.dependencyCruiser.enabled = "yes";
+  const result = validateAdapterConfig(config);
+
+  assert.equal(result.valid, false);
+  assert.deepEqual(result.errors, [
+    "evidenceProducers.dependencyCruiser.enabled must be a boolean.",
+  ]);
+});
+
+test("adapter/config validation accepts disabled dependency-cruiser without config", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  config.evidenceProducers.dependencyCruiser = { enabled: false };
+  const result = validateAdapterConfig(config);
+
+  assert.deepEqual(result.errors, []);
+  assert.equal(result.valid, true);
+});
+
+test("adapter/config validation accepts absent dependency-cruiser producer", () => {
+  const config = loadJsonFixture("field-platform-adapter.config.json");
+  delete config.evidenceProducers.dependencyCruiser;
+  const result = validateAdapterConfig(config);
+
+  assert.deepEqual(result.errors, []);
+  assert.equal(result.valid, true);
 });
 
 test("adapter capability metadata is sourced from exported capabilities", () => {

@@ -11,6 +11,7 @@ Load this map for architecture-shaping, schema, feature, boundary, testing, depl
 | Need | Load |
 |---|---|
 | Human-owned project decision routing | repository-root `project-decisions/project-decision-map.md` |
+| Current Field Platform Agent OS installation state, local core/adapter/plugin split, and extraction-candidate notes | `project-control-files/agent-os-installation-state.md` |
 | Exact executable versions, package commands, dependency versions, and scripts | Source/config such as `package.json`, package manifests, lockfiles, and tool config |
 | Enforced dependency boundaries | `dependency-cruiser.config.cjs` and `corepack pnpm depcruise:active-source` |
 | Active development-tool surface and standard evidence sources | `prompt-files/agent-attention-system/maps/tool-map.md` |

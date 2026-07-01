@@ -31,7 +31,8 @@ export function buildContextEvidenceSnapshot({
   });
   const dependencyEdgeEvidence =
     dependencyEvidence ??
-    buildDependencyEdgeEvidenceFromDependencyCruiser({
+    buildDependencyEdgeEvidence({
+      adapterConfig: resolvedAdapterConfig,
       repoRoot: resolvedRepoRoot,
       observedAt: generatedAt,
     });
@@ -70,6 +71,62 @@ function requireAdapterConfig(adapterConfig) {
   }
 
   return adapterConfig;
+}
+
+function buildDependencyEdgeEvidence({ adapterConfig, repoRoot, observedAt }) {
+  const dependencyCruiserConfig = adapterConfig.evidenceProducers?.dependencyCruiser;
+
+  if (!dependencyCruiserConfig) {
+    return buildDisabledDependencyEdgeEvidence({
+      observedAt,
+      status: "not-configured",
+    });
+  }
+
+  if (dependencyCruiserConfig.enabled === false) {
+    return buildDisabledDependencyEdgeEvidence({
+      observedAt,
+      status: "disabled",
+    });
+  }
+
+  return buildDependencyEdgeEvidenceFromDependencyCruiser({
+    repoRoot,
+    configPath: dependencyCruiserConfig.configPath,
+    cruisePaths: dependencyCruiserConfig.roots,
+    observedAt,
+  });
+}
+
+function buildDisabledDependencyEdgeEvidence({ observedAt, status }) {
+  return {
+    sourceTool: "dependency-cruiser",
+    observedAt,
+    configPath: null,
+    cruisePaths: [],
+    edges: [],
+    skippedEdges: [],
+    summary: {
+      moduleCount: 0,
+      dependencyCount: 0,
+      edgeCount: 0,
+      skippedEdgeCount: 0,
+      violationCount: 0,
+    },
+    dependencyCruiser: {
+      enabled: false,
+      status,
+      exitCode: 0,
+      stderr: "",
+      configPath: null,
+      roots: [],
+      moduleCount: 0,
+      violationCount: 0,
+    },
+    limitations: [
+      "Dependency-cruiser evidence is unavailable because the adapter did not enable this producer.",
+    ],
+  };
 }
 
 function buildEvidenceSummary({
@@ -117,10 +174,24 @@ function summarizeDependencyCruiserRun(dependencyEdgeEvidence) {
     sourceTool: dependencyEdgeEvidence.sourceTool,
     configPath: dependencyEdgeEvidence.configPath,
     roots: dependencyEdgeEvidence.cruisePaths,
+    ...copyOptionalDependencyCruiserMetadata(dependencyCruiser),
     moduleCount:
       dependencyCruiser?.moduleCount ?? dependencyEdgeEvidence.summary?.moduleCount ?? null,
     violationCount:
       dependencyCruiser?.violationCount ?? dependencyEdgeEvidence.summary?.violationCount ?? null,
     exitCode: dependencyCruiser?.exitCode ?? null,
   };
+}
+
+function copyOptionalDependencyCruiserMetadata(dependencyCruiser) {
+  if (!dependencyCruiser) {
+    return {};
+  }
+
+  return Object.fromEntries(
+    Object.entries({
+      enabled: dependencyCruiser.enabled,
+      status: dependencyCruiser.status,
+    }).filter(([, value]) => value !== undefined),
+  );
 }

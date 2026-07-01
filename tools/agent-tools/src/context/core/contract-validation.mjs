@@ -117,6 +117,12 @@ export function validateAdapterConfig(config) {
   expectString(errors, config.displayName, "displayName");
   expectEqual(errors, config.pathFormat, "repo-relative-posix", "pathFormat");
 
+  if (!isObject(config.evidenceProducers)) {
+    errors.push("evidenceProducers must be an object.");
+  } else {
+    validateAdapterEvidenceProducersInto(errors, config.evidenceProducers, "evidenceProducers");
+  }
+
   if (!Array.isArray(config.sourceGroups) || config.sourceGroups.length === 0) {
     errors.push("sourceGroups must be a non-empty array.");
   } else {
@@ -160,6 +166,53 @@ export function validateAdapterConfig(config) {
     valid: errors.length === 0,
     errors,
   };
+}
+
+function validateAdapterEvidenceProducersInto(errors, evidenceProducers, prefix) {
+  if (evidenceProducers.dependencyCruiser === undefined) {
+    return;
+  }
+
+  const dependencyCruiser = evidenceProducers.dependencyCruiser;
+  const dependencyCruiserPrefix = `${prefix}.dependencyCruiser`;
+  if (!isObject(dependencyCruiser)) {
+    errors.push(`${dependencyCruiserPrefix} must be an object.`);
+    return;
+  }
+
+  if (dependencyCruiser.enabled !== undefined) {
+    expectBoolean(errors, dependencyCruiser.enabled, `${dependencyCruiserPrefix}.enabled`);
+  }
+
+  if (dependencyCruiser.enabled === false) {
+    return;
+  }
+
+  expectRepoRelativePath(
+    errors,
+    dependencyCruiser.configPath,
+    `${dependencyCruiserPrefix}.configPath`,
+  );
+  expectNonEmptyRepoRelativePathArray(
+    errors,
+    dependencyCruiser.roots,
+    `${dependencyCruiserPrefix}.roots`,
+  );
+}
+
+function expectNonEmptyRepoRelativePathArray(errors, value, field) {
+  if (!Array.isArray(value)) {
+    errors.push(`${field} must be a non-empty array.`);
+    return;
+  }
+
+  if (value.length === 0) {
+    errors.push(`${field} must be a non-empty array.`);
+  }
+
+  for (const [index, entry] of value.entries()) {
+    expectRepoRelativePath(errors, entry, `${field}[${index}]`);
+  }
 }
 
 function validateDocumentKindPathHintsInto(errors, hints, prefix) {
@@ -945,7 +998,7 @@ function validateEvidenceProducersInto(errors, producers, prefix, options = {}) 
       producers.dependencyCruiser.sourceTool,
       `${prefix}.dependencyCruiser.sourceTool`,
     );
-    expectRepoRelativePath(
+    validateNullableRepoPathInto(
       errors,
       producers.dependencyCruiser.configPath,
       `${prefix}.dependencyCruiser.configPath`,
@@ -970,6 +1023,20 @@ function validateEvidenceProducersInto(errors, producers, prefix, options = {}) 
       producers.dependencyCruiser.exitCode,
       `${prefix}.dependencyCruiser.exitCode`,
     );
+    if (producers.dependencyCruiser.enabled !== undefined) {
+      expectBoolean(
+        errors,
+        producers.dependencyCruiser.enabled,
+        `${prefix}.dependencyCruiser.enabled`,
+      );
+    }
+    if (producers.dependencyCruiser.status !== undefined) {
+      expectString(
+        errors,
+        producers.dependencyCruiser.status,
+        `${prefix}.dependencyCruiser.status`,
+      );
+    }
   }
 }
 

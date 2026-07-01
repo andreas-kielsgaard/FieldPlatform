@@ -1,7 +1,7 @@
 import path from "node:path";
 
+import { buildDependencyEdgeEvidenceFromDependencyCruiser } from "../evidence-producers/dependency-cruiser/dependency-edge-evidence.mjs";
 import { CONTEXT_CONTRACT_VERSION } from "../schemas/shared.mjs";
-import { buildDependencyEdgeEvidenceFromDependencyCruiser } from "./dependency-edge-evidence.mjs";
 import { buildFileManifest } from "./file-manifest.mjs";
 import { extractTypeScriptSource } from "./typescript-source-extraction.mjs";
 

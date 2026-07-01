@@ -6,7 +6,7 @@ import test from "node:test";
 
 import { buildBundleEnvelope } from "../../src/context/cli/bundle-command.mjs";
 import { runContextCli } from "../../src/context/cli/context-cli.mjs";
-import { mapDependencyCruiserJsonToDependencyEdgeEvidence } from "../../src/context/core/dependency-edge-evidence.mjs";
+import { mapDependencyCruiserJsonToDependencyEdgeEvidence } from "../../src/context/evidence-producers/dependency-cruiser/dependency-edge-evidence.mjs";
 import {
   assertValidBundleResult,
   assertValidCommandEnvelope,

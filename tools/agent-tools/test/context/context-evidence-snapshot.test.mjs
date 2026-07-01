@@ -7,8 +7,8 @@ import test from "node:test";
 import { resolveDefaultContextAdapterConfig } from "../../src/context/adapters/default-adapter.mjs";
 import { buildEvidenceEnvelope } from "../../src/context/cli/evidence-command.mjs";
 import { buildContextEvidenceSnapshot } from "../../src/context/core/context-evidence-snapshot.mjs";
-import { mapDependencyCruiserJsonToDependencyEdgeEvidence } from "../../src/context/core/dependency-edge-evidence.mjs";
 import { buildFileManifest } from "../../src/context/core/file-manifest.mjs";
+import { mapDependencyCruiserJsonToDependencyEdgeEvidence } from "../../src/context/evidence-producers/dependency-cruiser/dependency-edge-evidence.mjs";
 import {
   assertValidCommandEnvelope,
   assertValidEvidenceSnapshot,

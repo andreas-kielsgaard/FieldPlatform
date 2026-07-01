@@ -2,7 +2,7 @@ import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import path from "node:path";
 
-import { CONTEXT_PATH_FORMAT, toRepoRelativePosixPath } from "./repo-paths.mjs";
+import { CONTEXT_PATH_FORMAT, toRepoRelativePosixPath } from "../../core/repo-paths.mjs";
 
 export const DEPENDENCY_CRUISER_SOURCE_TOOL = "dependency-cruiser";
 export const DEPENDENCY_CRUISER_CONFIG_PATH = "dependency-cruiser.config.cjs";

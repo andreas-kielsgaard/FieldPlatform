@@ -8,7 +8,7 @@ import {
   buildDependencyEdgeEvidenceFromDependencyCruiser,
   DEPENDENCY_CRUISER_SOURCE_TOOL,
   mapDependencyCruiserJsonToDependencyEdgeEvidence,
-} from "../../src/context/core/dependency-edge-evidence.mjs";
+} from "../../src/context/evidence-producers/dependency-cruiser/dependency-edge-evidence.mjs";
 import { loadJsonFixture, stableJson, workspaceRoot } from "./context-test-helpers.mjs";
 
 const fixedObservedAt = "2026-06-29T00:00:00.000Z";

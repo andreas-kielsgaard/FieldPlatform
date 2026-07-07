@@ -33,6 +33,7 @@ The accepted contract establishes this target split:
 
 - `replace with upstream`: use the pinned upstream snapshot later; do not hand-maintain the legacy copy as Field source after install.
 - `keep local adapter/project-control`: preserve as Field-owned routing, policy, project-control, or adapter context.
+- `keep as Field source/config authority`: preserve as Field-owned source, schema, config, or local-service truth; Agent OS may route to it but must not own or replace it.
 - `convert to template instance`: create or update a Field-owned file from an upstream template during the later install.
 - `keep as local evidence tooling`: preserve as Field-owned deterministic tooling, config, evidence producer implementation, or test evidence.
 - `later extract only if separately approved`: do not extract now; reusable extraction requires a separate approved task.
@@ -67,6 +68,10 @@ The accepted contract establishes this target split:
 | `Agent OS/output-files/reports/agent/.gitkeep` | Empty legacy transient-report placeholder. | `archive/remove only after later human decision` | No cleanup in this slice. If legacy `Agent OS/` is removed later, decide whether this placeholder survives, moves, or disappears. |
 | `Agent OS/tool-maintained-files/**` | Not present as an active directory; appears only in tests as a non-persistent/generated-output expectation. | `archive/remove only after later human decision` | Do not create it during install. Existing tests already assert this generated-output location should not be persisted. |
 | `project-decisions/**` | Human-owned Field architecture/testing decisions and decision map. | `keep local adapter/project-control` | Preserve outside Agent OS. Adapter/project-control routes should point here without making Agent OS the owner. |
+| `apps/web/app/**`, `apps/web/src/**`, and `apps/web/drizzle.config.ts` | Active Field application source, route delivery, shared runtime infrastructure, module source, and Drizzle configuration. | `keep as Field source/config authority` | Future adapter/project-control routes should identify these as Field-owned source/config truth. Agent OS should guide attention but must not replace source reads, route/module ownership, or executable config authority. |
+| `apps/web/src/shared/db/schema/**` and `apps/web/drizzle/**` | Field database schema source and generated Drizzle migrations. | `keep as Field source/config authority` | Preserve the distinction from `project-decisions/architecture.md`: schema source owns database definitions, while generated migrations are derived artifacts that should be reviewed and committed only when intentionally generated. |
+| `.env.example` and `docker-compose.yml` | Field local environment and service configuration for development and database workflows. | `keep as Field source/config authority` | Adapter/project-control routes may point here for local service setup, but install work should not copy these meanings into reusable Agent OS core. |
+| `.gitignore` | Field ignore/source-policy config for dependency installs, local environment files, editor state, generated app output, coverage/reports, logs, caches, and transient Agent OS reports. | `keep as Field source/config authority` | Preserve as local source-policy evidence. Later adapter source policy should reflect these generated and transient surfaces without making ignored outputs active source. |
 | Repository `package.json`, `pnpm-workspace.yaml`, `pnpm-lock.yaml`, `apps/web/package.json`, and `tools/agent-tools/package.json` | Field executable command and dependency truth. | `keep as local evidence tooling` | Preserve exact script and version authority in source/config. Adapter/tool map should reference supported commands rather than duplicate their semantics. |
 | `dependency-cruiser.config.cjs` and `tsconfig.depcruise.json` | Field dependency-boundary config and active-source graph inputs. | `keep as local evidence tooling` | Preserve as Field-owned boundary evidence tooling. Upstream dependency-boundary plugin docs are examples/contracts, not a replacement for this local config. |
 | `biome.json`, `tsconfig.base.json`, `apps/web/tsconfig.json`, `knip.json` | Field lint/type/config surfaces. | `keep as local evidence tooling` | Preserve as executable/config authority for validation and source policy. |
@@ -118,6 +123,9 @@ Field Platform evidence inspected:
 - `tools/agent-tools/**`
 - `tools/agent-tools/docs/context-usage.md`
 - root and package `package.json` files
+- `.gitignore`
+- `apps/web/drizzle.config.ts`, `apps/web/src/shared/db/schema/**`, and `apps/web/drizzle/**`
+- `.env.example` and `docker-compose.yml`
 - `dependency-cruiser.config.cjs`
 - `project-decisions/**`
 - targeted `rg` searches for `Agent OS`, `.agent-os`, `project-control`, `change-surface`, `test-selection`, `change-verification`, `repo-health`, `depcruise:active-source`, `dependency-cruiser`, `agent-os context`, and evidence-producer references

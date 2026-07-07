@@ -26,11 +26,10 @@ coverage/
 apps/web/playwright-report/
 apps/web/test-results/
 
-# Agent OS transient reports
-Agent OS/output-files/reports/**
-!Agent OS/output-files/reports/
-!Agent OS/output-files/reports/agent/
-!Agent OS/output-files/reports/agent/.gitkeep
+# Agent OS transient reports and generated adapter evidence
+Agent OS/
+.agent-os/adapter/output-files/reports/**
+.agent-os/adapter/tool-maintained-files/**
 
 # Logs and local caches
 *.log

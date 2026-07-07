@@ -281,9 +281,9 @@ test("symbols command does not create evidence, symbol, or index artifacts", () 
     "tools/agent-tools/context-evidence.json",
     "tools/agent-tools/context-index.json",
     "tools/agent-tools/context-symbols.json",
-    "Agent OS/tool-maintained-files/context-evidence.json",
-    "Agent OS/tool-maintained-files/context-index.json",
-    "Agent OS/tool-maintained-files/context-symbols.json",
+    ".agent-os/adapter/tool-maintained-files/context-evidence.json",
+    ".agent-os/adapter/tool-maintained-files/context-index.json",
+    ".agent-os/adapter/tool-maintained-files/context-symbols.json",
   ]) {
     assert.equal(existsSync(path.join(workspaceRoot, artifactPath)), false, artifactPath);
   }

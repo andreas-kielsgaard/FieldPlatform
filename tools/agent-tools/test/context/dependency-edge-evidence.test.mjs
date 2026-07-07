@@ -98,7 +98,7 @@ test("dependency edge evidence generation does not write generated artifacts", (
     "dependency-edge-evidence.json",
     "dependency-cruiser.json",
     "tools/agent-tools/dependency-edge-evidence.json",
-    "Agent OS/tool-maintained-files/dependency-edge-evidence.json",
+    ".agent-os/adapter/tool-maintained-files/dependency-edge-evidence.json",
   ]) {
     assert.equal(existsSync(path.join(workspaceRoot, artifactPath)), false, artifactPath);
   }

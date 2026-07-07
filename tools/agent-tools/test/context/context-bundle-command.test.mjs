@@ -334,9 +334,9 @@ test("bundle command does not create bundle, evidence, or index artifacts", () =
     "tools/agent-tools/context-bundle.json",
     "tools/agent-tools/context-evidence.json",
     "tools/agent-tools/context-index.json",
-    "Agent OS/tool-maintained-files/context-bundle.json",
-    "Agent OS/tool-maintained-files/context-evidence.json",
-    "Agent OS/tool-maintained-files/context-index.json",
+    ".agent-os/adapter/tool-maintained-files/context-bundle.json",
+    ".agent-os/adapter/tool-maintained-files/context-evidence.json",
+    ".agent-os/adapter/tool-maintained-files/context-index.json",
   ]) {
     assert.equal(existsSync(path.join(workspaceRoot, artifactPath)), false, artifactPath);
   }

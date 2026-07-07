@@ -1,0 +1,4 @@
+[submodule ".agent-os/upstream"]
+	path = .agent-os/upstream
+	url = https://github.com/andreas-kielsgaard/Agent-OS
+	branch = codex/agent-os-pinned-consumption-contract

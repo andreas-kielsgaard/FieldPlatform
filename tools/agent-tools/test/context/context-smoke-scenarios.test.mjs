@@ -238,13 +238,13 @@ function assertNoContextArtifacts() {
     "tools/agent-tools/context-manifest.json",
     "tools/agent-tools/context-search.json",
     "tools/agent-tools/context-symbols.json",
-    "Agent OS/tool-maintained-files/context-bundle.json",
-    "Agent OS/tool-maintained-files/context-evidence.json",
-    "Agent OS/tool-maintained-files/context-index.json",
-    "Agent OS/tool-maintained-files/context-inspect.json",
-    "Agent OS/tool-maintained-files/context-manifest.json",
-    "Agent OS/tool-maintained-files/context-search.json",
-    "Agent OS/tool-maintained-files/context-symbols.json",
+    ".agent-os/adapter/tool-maintained-files/context-bundle.json",
+    ".agent-os/adapter/tool-maintained-files/context-evidence.json",
+    ".agent-os/adapter/tool-maintained-files/context-index.json",
+    ".agent-os/adapter/tool-maintained-files/context-inspect.json",
+    ".agent-os/adapter/tool-maintained-files/context-manifest.json",
+    ".agent-os/adapter/tool-maintained-files/context-search.json",
+    ".agent-os/adapter/tool-maintained-files/context-symbols.json",
   ]) {
     assert.equal(existsSync(path.join(workspaceRoot, artifactPath)), false, artifactPath);
   }

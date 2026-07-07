@@ -6,7 +6,7 @@ It is intentionally not a feed, chat app, generic social network, event director
 
 ## Current State
 
-This repository now uses the promoted Agent OS scaffold as the active root workspace. The old pre-migration project and migration-era notes are preserved under `Archive/` for historical reference only.
+This repository uses a pinned Agent OS install with upstream guidance under `.agent-os/upstream/` and Field-owned adapter material under `.agent-os/adapter/`. The old pre-migration project and migration-era notes are preserved under `Archive/` for historical reference only.
 
 Active development happens from the repository root:
 
@@ -15,7 +15,8 @@ Active development happens from the repository root:
 - `apps/web/src/shared` - shared auth, contracts, config, db, errors, policy, UI, and utilities.
 - `apps/web/drizzle` - current Drizzle schema and generated migration artifacts.
 - `tools/agent-tools` - project maintenance and verification tools.
-- `Agent OS` - active agent operating system, maps, and guidance.
+- `.agent-os/upstream` - pinned upstream Agent OS snapshot, read-only from this repository.
+- `.agent-os/adapter` - Field-owned Agent OS adapter, maps, install state, and tool routing.
 - `infra` - infrastructure placeholders and deployment-adjacent material.
 - `Archive` - deprecated pre-migration material, ignored unless explicitly needed.
 
@@ -101,10 +102,17 @@ The replacement development-tool surface is intentionally small:
 
 ## Agent OS
 
-Agents should start with `AGENTS.md`, then load `Agent OS/agent-os-bootloader.md` for non-trivial work. Field Platform-specific project context and decision routing starts at:
+Agents should start with `AGENTS.md`, then load the pinned upstream bootloader for non-trivial work:
 
 ```text
-Agent OS/project-control-files/project-setup-map.md
+.agent-os/upstream/core/agent-os-bootloader.md
+```
+
+Field Platform-specific adapter context and decision routing starts at:
+
+```text
+.agent-os/adapter/adapter.md
+.agent-os/adapter/project-setup-map.md
 ```
 
 Mature human-owned project decisions live under `project-decisions/`; exact executable details remain in source, config, package scripts, and tool configuration.

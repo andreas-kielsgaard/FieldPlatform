@@ -341,8 +341,8 @@ test("evidence command does not create generated evidence or index artifacts", (
     "evidence-snapshot.json",
     "tools/agent-tools/context-evidence.json",
     "tools/agent-tools/context-index.json",
-    "Agent OS/tool-maintained-files/context-evidence.json",
-    "Agent OS/tool-maintained-files/context-index.json",
+    ".agent-os/adapter/tool-maintained-files/context-evidence.json",
+    ".agent-os/adapter/tool-maintained-files/context-index.json",
   ]) {
     assert.equal(existsSync(path.join(workspaceRoot, artifactPath)), false, artifactPath);
   }

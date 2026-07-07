@@ -254,9 +254,9 @@ test("inspect command does not create evidence, inspect, or index artifacts", ()
     "tools/agent-tools/context-evidence.json",
     "tools/agent-tools/context-index.json",
     "tools/agent-tools/context-inspect.json",
-    "Agent OS/tool-maintained-files/context-evidence.json",
-    "Agent OS/tool-maintained-files/context-index.json",
-    "Agent OS/tool-maintained-files/context-inspect.json",
+    ".agent-os/adapter/tool-maintained-files/context-evidence.json",
+    ".agent-os/adapter/tool-maintained-files/context-index.json",
+    ".agent-os/adapter/tool-maintained-files/context-inspect.json",
   ]) {
     assert.equal(existsSync(path.join(workspaceRoot, artifactPath)), false, artifactPath);
   }

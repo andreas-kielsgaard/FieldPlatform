@@ -4,21 +4,21 @@ Root instructions for agents working in the active Field Platform repository.
 
 ## Agent OS Required
 
-For every non-trivial task, load:
+For every non-trivial task, load the pinned upstream Agent OS bootloader:
 
-- `Agent OS/agent-os-bootloader.md`
+- `.agent-os/upstream/core/agent-os-bootloader.md`
 
-Treat that file as the active Agent OS bootloader. Resolve paths named by the bootloader relative to:
+Then load the Field Platform adapter:
 
-- `Agent OS/`
+- `.agent-os/adapter/adapter.md`
 
-Follow the bootloader sequence before making code, schema, architecture, testing, or documentation changes.
+Treat `.agent-os/upstream/` as upstream-owned read-only guidance. Resolve upstream paths relative to `.agent-os/upstream/`, and resolve Field-local project routes through `.agent-os/adapter/`.
 
 ## Field Platform Project Context
 
 For Field Platform architecture, feature, schema, boundary, testing, deployment, or structural-maintenance work, use:
 
-- `Agent OS/project-control-files/project-setup-map.md`
+- `.agent-os/adapter/project-setup-map.md`
 
 The project setup map is a router to source/config/tooling and human-owned project decisions. Load only the relevant project decision file when mature project decisions are needed.
 
@@ -35,7 +35,9 @@ Archived files are not active product, architecture, or Agent OS authority.
 - Do not touch `main`, commit, or push unless explicitly asked.
 - Preserve user-owned files and unrelated local changes.
 - Do not edit `App.code-workspace` unless explicitly asked.
-- Treat Agent OS source and guidance as protected during ordinary development. Read and follow it, but do not edit `Agent OS/agent-os-*.md`, `Agent OS/prompt-files/**`, or `Agent OS/project-control-files/**` unless the human prompt explicitly asks for Agent OS maintenance.
+- Treat `.agent-os/upstream/**` as protected upstream Agent OS guidance. Read and follow it, but do not edit it from Field Platform tasks.
+- Treat `.agent-os/adapter/**` as Field-owned Agent OS adapter material. Edit it only during explicit adapter, install-state, project-control, or local tool routing maintenance.
+- Do not recreate the retired `Agent OS/` route as active guidance.
 - Treat generated outputs as evidence, not semantic authority.
 - For ordinary development verification support, prefer the small replacement tool surface: `change-surface`, `test-selection`, `change-verification`, `repo-health`, and `depcruise:active-source`.
 

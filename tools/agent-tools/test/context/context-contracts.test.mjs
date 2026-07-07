@@ -169,7 +169,7 @@ test("manifest includes project config and guidance as non-runtime source groups
     documentKind: "documentation",
     inclusionStatus: "included",
   });
-  assertManifestEntry(manifest, "Agent OS/agent-os-bootloader.md", {
+  assertManifestEntry(manifest, ".agent-os/adapter/adapter.md", {
     sourceGroup: "project-guidance",
     documentKind: "documentation",
     inclusionStatus: "included",
@@ -186,6 +186,9 @@ test("manifest excludes generated output and archive paths by policy", (t) => {
     "apps/web/test-results/results.json",
     "coverage/lcov.info",
     "Archive/old-context.md",
+    ".agent-os/adapter/output-files/reports/agent/attention-log/wiki-root-workspace-migration-2026-06-23.md",
+    ".agent-os/adapter/tool-maintained-files/context-manifest.json",
+    ".agent-os/adapter/adapter.md",
   ]);
   const manifest = buildFileManifest({
     adapterConfig: fieldPlatformAdapterConfig,
@@ -219,6 +222,8 @@ test("manifest excludes generated output and archive paths by policy", (t) => {
     "apps/web/storybook-static/index.html",
     "apps/web/playwright-report/index.html",
     "apps/web/test-results/results.json",
+    ".agent-os/adapter/output-files/reports/agent/attention-log/wiki-root-workspace-migration-2026-06-23.md",
+    ".agent-os/adapter/tool-maintained-files/context-manifest.json",
   ]) {
     assertManifestEntry(manifest, generatedPath, {
       sourceGroup: "generated-output",
@@ -227,6 +232,11 @@ test("manifest excludes generated output and archive paths by policy", (t) => {
       generated: true,
     });
   }
+  assertManifestEntry(manifest, ".agent-os/adapter/adapter.md", {
+    sourceGroup: "project-guidance",
+    documentKind: "documentation",
+    inclusionStatus: "included",
+  });
   assertManifestEntry(manifest, "Archive/old-context.md", {
     sourceGroup: "archive",
     documentKind: "archive",
@@ -597,7 +607,13 @@ test("manifest command does not create a committed manifest artifact", () => {
   );
   assert.equal(
     existsSync(
-      path.join(workspaceRoot, "Agent OS", "tool-maintained-files", "context-manifest.json"),
+      path.join(
+        workspaceRoot,
+        ".agent-os",
+        "adapter",
+        "tool-maintained-files",
+        "context-manifest.json",
+      ),
     ),
     false,
   );
@@ -637,8 +653,14 @@ test("schema inspection does not create generated Agent OS artifacts", () => {
   });
 
   assert.deepEqual(envelope.data.generatedArtifacts, []);
-  assert.equal(existsSync(path.join(workspaceRoot, "Agent OS", "tool-implementations")), false);
-  assert.equal(existsSync(path.join(workspaceRoot, "Agent OS", "tool-maintained-files")), false);
+  assert.equal(
+    existsSync(path.join(workspaceRoot, ".agent-os", "adapter", "tool-implementations")),
+    false,
+  );
+  assert.equal(
+    existsSync(path.join(workspaceRoot, ".agent-os", "adapter", "tool-maintained-files")),
+    false,
+  );
 });
 
 test("context usage guide exists without retired generated artifact locations", () => {

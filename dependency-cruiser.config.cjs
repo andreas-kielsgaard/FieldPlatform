@@ -241,7 +241,7 @@ module.exports = {
         path: runtimePath,
       },
       to: {
-        path: "(^|/)Agent OS/",
+        path: "(^|/)(Agent OS|[.]agent-os)/(?:upstream|adapter)/",
       },
     },
   ],

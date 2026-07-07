@@ -115,7 +115,7 @@ const cases = [
   {
     name: "runtime cannot import Agent OS files",
     from: "apps/web/src/modules/communities/index.ts",
-    to: "Agent OS/prompt-files/agent-os-map.md",
+    to: ".agent-os/upstream/core/agent-os-bootloader.md",
     violations: ["runtime-does-not-import-agent-os"],
   },
   {

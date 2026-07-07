@@ -58,11 +58,14 @@
       "include": [
         "README.md",
         "AGENTS.md",
-        "Agent OS/*.md",
-        "Agent OS/prompt-files/agent-attention-system/**/*.md",
-        "Agent OS/project-control-files/**/*.md"
+        ".agent-os/adapter/**/*.md",
+        "project-decisions/**/*.md"
       ],
-      "exclude": [],
+      "exclude": [
+        ".agent-os/upstream/**/*",
+        ".agent-os/adapter/output-files/**/*",
+        ".agent-os/adapter/tool-maintained-files/**/*"
+      ],
       "documentKinds": ["documentation"],
       "defaultDocumentKind": "documentation"
     },
@@ -75,7 +78,9 @@
         "apps/web/storybook-static/**/*",
         "apps/web/playwright-report/**/*",
         "apps/web/test-results/**/*",
-        "coverage/**/*"
+        "coverage/**/*",
+        ".agent-os/adapter/output-files/**/*",
+        ".agent-os/adapter/tool-maintained-files/**/*"
       ],
       "exclude": [
         "apps/web/.react-router/**/*",
@@ -83,7 +88,9 @@
         "apps/web/storybook-static/**/*",
         "apps/web/playwright-report/**/*",
         "apps/web/test-results/**/*",
-        "coverage/**/*"
+        "coverage/**/*",
+        ".agent-os/adapter/output-files/**/*",
+        ".agent-os/adapter/tool-maintained-files/**/*"
       ],
       "documentKinds": ["generated"],
       "defaultDocumentKind": "generated",

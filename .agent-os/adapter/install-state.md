@@ -18,7 +18,7 @@ This Field-owned maintenance record describes the installed pinned Agent OS layo
 | Delivery mechanism | Git submodule |
 | Pinned identifier | `9e7223f8cf91cf1e145fb8120af788f28647ebc0` |
 | Upstream source | `https://github.com/andreas-kielsgaard/Agent-OS` |
-| Durable remote ref | `origin/codex/agent-os-pinned-consumption-contract` |
+| Durable remote ref | `origin/main` |
 | Last verified | 2026-07-07 |
 | Local update procedure | Explicit pin-maintenance slice: fetch the upstream remote, checkout the approved commit inside `.agent-os/upstream/`, then review and commit the superproject gitlink update. Do not track remote `HEAD` implicitly. |
 
@@ -33,7 +33,7 @@ This Field-owned maintenance record describes the installed pinned Agent OS layo
 | Reusable extraction handoff | `.agent-os/adapter/project-control/agent-os-reusable-extraction-handoff.md` |
 | Pre-development readiness cues | `.agent-os/adapter/project-control/pre-development-readiness.md` |
 | Validation profile | `.agent-os/adapter/tool-map.md` and repository scripts |
-| Known gaps | Normal Agent OS `origin/main` publication remains pending; Field pins the full SHA/durable branch. |
+| Known gaps | None for the installed upstream pin; Field pins the full SHA and treats `origin/main` as the durable publication ref. |
 
 ## Missing Upstream Handling
 
@@ -49,4 +49,4 @@ If `.agent-os/upstream/` is missing, partial, or unreadable:
 - The legacy `Agent OS/` active route was retired during the pinned install.
 - Field-owned project-control and migration evidence moved into `.agent-os/adapter/project-control/`.
 - Field-owned tool routing moved into `.agent-os/adapter/tool-map.md`.
-- Optional upstream docs improvements from the Convivial dry run remain parked and non-blocking.
+- Optional upstream docs improvements from the Convivial dry run are now represented in the published upstream baseline.
